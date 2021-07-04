@@ -6,8 +6,10 @@ import {
   PresentationChartBarIcon,
   QuestionMarkCircleIcon,
   TerminalIcon,
-  XIcon,
+  MenuAlt2Icon,
+  SearchIcon,
 } from '@heroicons/react/outline'
+import Image from 'next/image'
 
 
 const navigation = [
@@ -73,6 +75,11 @@ export default function Home() {
         <div className="flex flex-col w-64">
           <div className="flex flex-col h-0 flex-1">
             <div className="flex-1 flex flex-col overflow-y-auto">
+
+            <div className="flex items-center h-16 flex-shrink-0 px-4 bg-gray-900 text-white font-bold">
+              <img src="https://buttondown.email/static/images/icons/icon@72.png" style={{width: 30, marginRight: 10, marginLeft: -2.5}} />
+              Buttondown
+            </div>
               <nav className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
                 {navigation.map((item) =>
                   !item.children ? (
@@ -146,7 +153,48 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       <div className="flex flex-col w-0 flex-1 overflow-hidden">
+        <div className="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200">
+          <button
+            type="button"
+            className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-900 lg:hidden"
+            onClick={() => setSidebarOpen(true)}
+          >
+            <span className="sr-only">Open sidebar</span>
+            <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
+          </button>
+          <div className="flex-1 px-4 flex justify-between">
+            <div className="flex-1 flex">
+              <form className="w-full flex lg:ml-0" action="#" method="GET">
+                <label htmlFor="search-field" className="sr-only">
+                  Search
+                </label>
+                <div className="relative w-full text-gray-400 focus-within:text-gray-600">
+                  <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+                    <SearchIcon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <input
+                    id="search-field"
+                    className="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
+                    placeholder="Search"
+                    type="search"
+                    name="search"
+                  />
+                </div>
+              </form>
+            </div>
+            <div className="ml-4 flex items-center lg:ml-6">
+              <button
+                type="button"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+              >
+                Sign up for an account
+              </button>
+            </div>
+          </div>
+          </div>
+        
         <main className="flex-1 relative overflow-y-auto focus:outline-none">
         </main>
       </div>
