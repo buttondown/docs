@@ -6,4 +6,7 @@ That's what I'm here for :)
 
 _Woo!_
 
-export default ({ children }) => <Layout>{children}</Layout>;
+export const meta = {
+  title: "Need more help?",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

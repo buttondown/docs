@@ -21,7 +21,7 @@ const navigation = [
   },
   {
     name: "Getting started",
-    href: "#",
+    href: "/getting-started",
     icon: PresentationChartBarIcon,
     children: [
       { name: "Importing your data", href: "#" },
@@ -31,18 +31,18 @@ const navigation = [
   },
   {
     name: "Advanced features",
-    href: "#",
+    href: "/features",
     icon: LightningBoltIcon,
     children: [
       { name: "Customizing your emails", href: "#" },
       { name: "Styling your web presence", href: "#" },
       { name: "Using template variables", href: "#" },
-      { name: "Collecting and using metadaa", href: "#" },
+      { name: "Collecting and using metadata", href: "#" },
     ],
   },
   {
     name: "Migration guides",
-    href: "#",
+    href: "/migrations",
     icon: InboxInIcon,
     children: [
       { name: "Substack", href: "#" },
@@ -53,28 +53,28 @@ const navigation = [
   },
   {
     name: "API reference",
-    href: "#",
+    href: "/api-reference",
     icon: TerminalIcon,
     children: [
-      { name: "Introduction", href: "#" },
-      { name: "Authentication", href: "#" },
+      { name: "Introduction", href: "/api-reference/introduction" },
+      { name: "Authentication", href: "/api-reference/authentication" },
       {
         name: "Events and webhooks",
         href: "/api-reference/events-and-webhooks",
       },
-      { name: "Changelog", href: "#" },
-      { name: "Subscribers", href: "#" },
-      { name: "Emails", href: "#" },
-      { name: "Drafts", href: "#" },
-      { name: "Tags", href: "#" },
-      { name: "Scheduled emails", href: "#" },
-      { name: "Images", href: "#" },
-      { name: "Newsletters", href: "#" },
+      { name: "Changelog", href: "/api-reference/changelog" },
+      { name: "Subscribers", href: "/api-reference/subscribers" },
+      { name: "Emails", href: "/api-reference/emails" },
+      { name: "Drafts", href: "/api-reference/drafts" },
+      { name: "Tags", href: "/api-reference/tags" },
+      { name: "Scheduled emails", href: "/api-reference/scheduled-emails" },
+      { name: "Images", href: "/api-reference/images" },
+      { name: "Newsletters", href: "/api-reference/newsletters" },
     ],
   },
   {
     name: "Integrations",
-    href: "#",
+    href: "/integrations",
     icon: BeakerIcon,
     children: [
       { name: "Zapier", href: "#" },
@@ -132,7 +132,12 @@ export default function Sidebar() {
                     </Link>
                   </div>
                 ) : (
-                  <Disclosure as="div" key={item.name} className="space-y-1">
+                  <Disclosure
+                    as="div"
+                    key={item.name}
+                    className="space-y-1"
+                    defaultOpen={router.pathname.startsWith(item.href)}
+                  >
                     {({ open }) => (
                       <>
                         <Disclosure.Button
@@ -169,7 +174,16 @@ export default function Sidebar() {
                               href={subItem.href}
                               passHref
                             >
-                              <a className="group w-full flex items-center pl-11 pr-2 py-1 text-sm font-medium text-gray-400 rounded-md hover:text-white hover:bg-gray-750">
+                              <a
+                                className={classNames(
+                                  subItem.href === "#"
+                                    ? "text-gray-600"
+                                    : subItem.href === router.pathname
+                                    ? "text-gray-200"
+                                    : "text-gray-400",
+                                  "group w-full flex items-center pl-11 pr-2 py-1 text-sm font-medium  rounded-md hover:text-white hover:bg-gray-750"
+                                )}
+                              >
                                 {subItem.name}
                               </a>
                             </Link>
