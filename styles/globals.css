@@ -18,3 +18,37 @@ a {
 * {
   box-sizing: border-box;
 }
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  font-size: 20px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+code {
+  background: #333;
+  color: #fff;
+  font-size: 18px;
+  padding: 2px;
+  border-radius: 2px;
+}
+
+pre {
+  background: #333;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

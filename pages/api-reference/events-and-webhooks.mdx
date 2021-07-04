@@ -1,0 +1,70 @@
+import Layout from "../../components/Layout";
+import EVENT_TYPES from "./event_types.json";
+
+# Events and Webhooks
+
+Events are Buttondown's way of telling you that something interesting has happened to your newsletter, and webhooks are Buttondown's
+way of letting you react to various incoming events. For example, when a new subscriber signs up for your newsletter, Buttondown creates
+and emits a `subscriber.created` event; when that subscriber unsubscribes, Buttondown creates a `subscriber.unsubscribed` event. If you wanted
+to, say, create a Slack notification or run some application code whenever something in Buttondown happens, you'd create a webhook for the concomitant
+event and point it towards your application.
+
+The payload of most events are fairly simple, and look something like this:
+
+```
+{
+  "event_type": "subscriber.confirmed",
+  "payload": {
+    "subscriber": "ac79483b-cd28-49c1-982e-8a88e846d7e7"
+  }
+}
+```
+
+## Events
+
+<div className="flex flex-col">
+  <div className="-my-2 overflow-x-auto">
+    <div className="py-2 align-middle inline-block min-w-full">
+      <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-gray-50">
+            <tr>
+              <th
+                scope="col"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Event type
+              </th>
+              <th
+                scope="col"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Description
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {EVENT_TYPES.map((eventType, idx) => (
+              <tr
+                key={eventType.name}
+                className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}
+              >
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  {eventType.name}
+                </td>
+                <td className="px-6 py-4 text-sm text-gray-500">
+                  {eventType.description}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+export const meta = {
+  title: "Events & webhooks",
+};
+export default ({ children }) => <Layout>{children}</Layout>;
