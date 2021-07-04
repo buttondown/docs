@@ -2,8 +2,7 @@
   "extends": [
     "next",
     "next/core-web-vitals",
-    "plugin:prettier/recommended",
-    "plugin:prettier/react"
+    "prettier"
   ],
   "plugins": [
     "react",

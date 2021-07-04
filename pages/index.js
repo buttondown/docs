@@ -112,6 +112,7 @@ export default function Home() {
                               className="mr-3 flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-300"
                               aria-hidden="true"
                             />
+                          
                             <span className="flex-1">{item.name}</span>
                             <svg
                               className={classNames(
