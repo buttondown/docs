@@ -1,11 +1,14 @@
-import Layout from '../components/Layout'
+import Layout from "../components/Layout";
+import { MDXProvider } from "@mdx-js/react";
 
+const components = {};
 
-
-export default function Home() {
+export default function Post(props) {
   return (
     <Layout>
-      This is my home page :) 
+      <MDXProvider components={components}>
+        <main {...props} />
+      </MDXProvider>
     </Layout>
-  )
+  );
 }

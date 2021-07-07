@@ -1,0 +1,12 @@
+import Layout from "../../components/Layout";
+import Changelog from "../../components/Changelog";
+import { CHANGES } from "./changes";
+
+# Changelog
+
+<Changelog items={CHANGES} />
+
+export const meta = {
+  title: "Changelog",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

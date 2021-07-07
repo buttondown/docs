@@ -1,0 +1,363 @@
+import Layout from "../../components/Layout";
+import Table from "../../components/Table";
+import ResponsesTable from "../../components/ResponsesTable";
+import Endpoint from "../../components/Endpoint";
+import ClosedBetaNotice from "../../components/ClosedBetaNotice";
+import { MDXProvider } from "@mdx-js/react";
+import { H2, H1, P, H3, H4, Pre, Code } from "../../components/Markdown";
+import { CheckCircleIcon } from "@heroicons/react/outline";
+
+export const custom = () => <h1 {...props} className="text-xl font-light" />;
+
+export const meta = {
+  title: "Subscribers",
+};
+export default ({ children }) => (
+  <Layout meta={meta}>
+    <MDXProvider
+      components={{
+        p: P,
+        h1: H1,
+        h2: H2,
+        h3: H3,
+        h4: H4,
+        pre: Pre,
+        code: Code,
+      }}
+    >
+      {children}
+    </MDXProvider>
+  </Layout>
+);
+
+# Subscribers
+
+Subscribers are the main way you collect email addresses and recipients on Buttondown.
+They're what you see on your [subscribers page](https://buttondown.email/subscribers).
+
+## The subscriber object
+
+A subscriber looks like this:
+
+```
+{
+    "creation_date": "2019-08-24T14:15:22Z",
+    "email": "user@example.com",
+    "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+    "metadata": { },
+    "notes": "string",
+    "referrer_url": "string",
+    "secondary_id": 0,
+    "source": "api",
+    "subscriber_type": "regular",
+    "tags": [
+        "string"
+    ],
+    "utm_campaign": "string",
+    "utm_medium": "string",
+    "utm_source": "string"
+}
+```
+
+<br />
+
+<Table
+  columns={[
+    {
+      title: "field",
+      component: (s) => <span className="font-mono">{s}</span>,
+    },
+    { title: "type", component: (s) => <span className="font-mono">{s}</span> },
+    { title: "description" },
+  ]}
+  content={[
+    { field: "creation_date", type: "datetime", description: "" },
+    { field: "email", type: "string" },
+    { field: "id", type: "uuid" },
+    { field: "metadata", type: "map" },
+    { field: "notes", type: "string" },
+    { field: "referrer_url", type: "url" },
+    { field: "secondary_id", type: "int" },
+    { field: "source", type: "string" },
+    { field: "tags", type: "array<uuid>" },
+    { field: "utm_campaign", type: "string" },
+    { field: "utm_medium", type: "string" },
+    { field: "utm_source", type: "string" },
+  ]}
+/>
+
+---
+
+## Listing subscribers
+
+<Endpoint method="GET" path="/v1/subscribers" />
+
+### Parameters
+
+<Table
+  columns={[
+    {
+      title: "parameter",
+      component: (s) => <span className="font-mono">{s}</span>,
+    },
+    { title: "type", component: (s) => <span className="font-mono">{s}</span> },
+    { title: "description" },
+  ]}
+  content={[
+    {
+      parameter: "type",
+      type: "string",
+      description: `
+      An optional filter to allow you to only retrieve a subset of subscribers. The API accepts the values listed below.
+    `,
+      example: "",
+    },
+    {
+      parameter: "tag",
+      type: "string",
+      description:
+        "An optional filter allowing you to filter subscribers based on a given tag. Provide the ID of the tag, not the name.",
+      example: "",
+    },
+    {
+      parameter: "email",
+      type: "string",
+      description:
+        "An optional filter allowing you to filter subscribers based on a substring. Providing a value of `doe` would match both `jane.doe@gmail.com` and `john.doe@gmail.com`, but not `jane.dooe@gmail.com`.",
+      example: "",
+    },
+    {
+      parameter: "page",
+      type: "string",
+      description: "A page number within the paginated result set.",
+      example: "",
+    },
+    {
+      parameter: "ordering",
+      type: "string",
+      description: "Which field to use when ordering the results.",
+      example: "",
+    },
+  ]}
+/>
+
+#### Subscriber types
+
+<Table
+  columns={[
+    {
+      title: "type",
+      component: (s) => <span className="font-mono">{s}</span>,
+    },
+    { title: "description" },
+  ]}
+  content={[
+    {
+      type: "regular",
+      description:
+        "normal subscribers who have not unsubscribed or deactivated in any way",
+    },
+    {
+      type: "unactivated",
+      description:
+        "subscribers who have not yet confirmed their email or opted in",
+    },
+    {
+      type: "unpaid",
+      description:
+        "subscribers who have not yet purchased a subscription to your newsletter",
+    },
+    {
+      type: "removed",
+      description:
+        "subscribers who have been explicitly removed by the newsletter (notably, this does not mean unsubscribers: use /v1/unsubscribers for that!)",
+    },
+  ]}
+/>
+
+### Responses
+
+<ResponsesTable
+  content={[
+    {
+      Status: "200",
+      description: "",
+      "Sample Response": JSON.stringify({
+        count: 3,
+        next: "foo",
+        previous: null,
+        results: [],
+      }),
+    },
+  ]}
+/>
+
+---
+
+## Creating a new subscriber
+
+<Endpoint method="POST" path="/v1/subscribers" />
+
+If Buttondown cannot create a new subscriber with the email address you've provided, there are a few likely reasons why. They're enumerated below:
+
+- A subscriber with that email has already been unsubscribed.
+- That email address (justin@gmail.com) is already subscribed.
+- That email address (justin@gmail.com) is already subscribed, but has not confirmed their email.
+- That email address (justin@gmail.com) is already subscribed, but has not provided payment.
+
+### Parameters
+
+<Table
+  columns={[
+    {
+      title: "parameter",
+      component: (s) => <span className="font-mono">{s}</span>,
+    },
+    { title: "type", component: (s) => <span className="font-mono">{s}</span> },
+    { title: "description" },
+    {
+      title: "optional",
+      component: (s) =>
+        s && (
+          <CheckCircleIcon
+            className={
+              "text-gray-400 group-hover:text-gray-300 mr-3 flex-shrink-0 h-6 w-6"
+            }
+            aria-hidden="true"
+          />
+        ),
+    },
+  ]}
+  content={[
+    {
+      parameter: "email",
+      type: "string",
+      description: "",
+      optional: false,
+    },
+    {
+      parameter: "metadata",
+      type: "map",
+      description: "",
+      optional: true,
+    },
+    {
+      parameter: "notes",
+      type: "map",
+      description: "",
+      optional: true,
+    },
+    {
+      parameter: "referrer_url",
+      type: "string",
+      description: "",
+      optional: true,
+    },
+    {
+      parameter: "tags",
+      type: "array<string> | array<uuid>",
+      description: "",
+      optional: true,
+    },
+  ]}
+/>
+
+### Responses
+
+<ResponsesTable
+  content={[
+    {
+      Status: "201",
+      description: "",
+      "Sample Response": JSON.stringify({}),
+    },
+    {
+      Status: "400",
+      description:
+        "If the email is invalid for any reason or if the subscriber already exists in our system.",
+      "Sample Response": JSON.stringify({}),
+    },
+  ]}
+/>
+
+---
+
+## Updating a subscriber
+
+<Endpoint method="PATCH" path="/v1/subscribers/<id>" />
+
+### Parameters
+
+<Table
+  columns={[
+    {
+      title: "parameter",
+      component: (s) => <span className="font-mono">{s}</span>,
+    },
+    { title: "type", component: (s) => <span className="font-mono">{s}</span> },
+    { title: "description" },
+    {
+      title: "optional",
+      component: (s) =>
+        s && (
+          <CheckCircleIcon
+            className={
+              "text-gray-400 group-hover:text-gray-300 mr-3 flex-shrink-0 h-6 w-6"
+            }
+            aria-hidden="true"
+          />
+        ),
+    },
+  ]}
+  content={[
+    {
+      parameter: "email",
+      type: "string",
+      description: "",
+      optional: false,
+    },
+    {
+      parameter: "metadata",
+      type: "map",
+      description: "",
+      optional: true,
+    },
+    {
+      parameter: "notes",
+      type: "map",
+      description: "",
+      optional: true,
+    },
+    {
+      parameter: "referrer_url",
+      type: "string",
+      description: "",
+      optional: true,
+    },
+    {
+      parameter: "tags",
+      type: "array<string> | array<uuid>",
+      description: "",
+      optional: true,
+    },
+  ]}
+/>
+
+---
+
+## Deleting a subscriber
+
+<Endpoint method="DELETE" path="/v1/subscribers/<id>" />
+
+---
+
+## Retrieving a specific subscriber
+
+<Endpoint method="GET" path="/v1/subscribers/<id>" />
+
+---
+
+## Sending an email to a specific subscriber
+
+<ClosedBetaNotice />
+<Endpoint method="POST" path="/v1/subscribers/<id>/emails/<email_id>" />

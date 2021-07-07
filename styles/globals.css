@@ -19,18 +19,6 @@ a {
   box-sizing: border-box;
 }
 
-h1 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-p {
-  font-size: 20px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 code {
   background: #333;
   color: #fff;
@@ -46,9 +34,16 @@ pre {
   border-radius: 10px;
 }
 
-h2 {
-  font-size: 24px;
-  font-weight: 600;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+ul {
+  list-style-type: circle;
+  padding-left: 30px;
+}
+
+li {
+  font-size: 18px;
 }
