@@ -1,6 +1,10 @@
 import Table from "../Table";
 import { Code } from "../Markdown";
 
+function MonospacedSpan(s) {
+  return <span className="font-mono">{s}</span>;
+}
+
 export default function ObjectDescription({ example, fields }) {
   return (
     <div>
@@ -12,11 +16,11 @@ export default function ObjectDescription({ example, fields }) {
         columns={[
           {
             title: "field",
-            component: (s) => <span className="font-mono">{s}</span>,
+            component: MonospacedSpan,
           },
           {
             title: "type",
-            component: (s) => <span className="font-mono">{s}</span>,
+            component: MonospacedSpan,
           },
           { title: "description" },
         ]}

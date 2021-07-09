@@ -2,8 +2,21 @@ import Table from "../Table";
 import { H3 } from "../Markdown";
 import { CheckCircleIcon } from "@heroicons/react/outline";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+function MonospacedSpan(s) {
+  return <span className="font-mono">{s}</span>;
+}
+
+function CheckMark(s) {
+  return (
+    s && (
+      <CheckCircleIcon
+        className={
+          "text-gray-400 group-hover:text-gray-300 flex-shrink-0 h-6 w-6"
+        }
+        aria-hidden="true"
+      />
+    )
+  );
 }
 
 export default function ParametersTable({ content }) {
@@ -14,25 +27,17 @@ export default function ParametersTable({ content }) {
         columns={[
           {
             title: "parameter",
-            component: (s) => <span className="font-mono">{s}</span>,
+            components: MonospacedSpan,
           },
           {
             title: "type",
-            component: (s) => <span className="font-mono">{s}</span>,
+            components: MonospacedSpan,
           },
           { title: "description" },
           {
             title: "optional",
             alignment: "right",
-            component: (s) =>
-              s && (
-                <CheckCircleIcon
-                  className={
-                    "text-gray-400 group-hover:text-gray-300 flex-shrink-0 h-6 w-6"
-                  }
-                  aria-hidden="true"
-                />
-              ),
+            component: CheckMark,
           },
         ]}
         content={content}
