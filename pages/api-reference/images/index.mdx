@@ -1,0 +1,122 @@
+import Layout from "../../../components/Layout";
+import Table from "../../../components/Table";
+import ResponsesTable from "../../../components/api/ResponsesTable";
+import ObjectDescription from "../../../components/api/ObjectDescription";
+import ParametersTable from "../../../components/api/ParametersTable";
+import Endpoint from "../../../components/Endpoint";
+import ClosedBetaNotice from "../../../components/ClosedBetaNotice";
+import { CheckCircleIcon } from "@heroicons/react/outline";
+import DATA from "./metadata.json";
+
+export const meta = {
+  title: DATA.title,
+};
+
+export const serializedImage = JSON.stringify(DATA.object, null, 4);
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Images
+
+Images are, well, images! Buttondown allows you to upload images to its secure [S3](https://aws.amazon.com/s3/) bucket and do with them what you will. This is sort of an odd duck of an API, to be sure, but if you want to be able to do things like draft and send emails completely on your iPad you need a surefire way of creating images.
+
+## The image object
+
+An image looks like this:
+
+<ObjectDescription
+  example={serializedImage}
+  fields={[
+    { field: "creation_date", type: "datetime", description: "" },
+    { field: "id", type: "uuid" },
+    { field: "image", type: "string" },
+  ]}
+/>
+
+## Listing images
+
+<Endpoint method="GET" path={DATA.endpoint} />
+<ParametersTable
+  content={[
+    {
+      parameter: "page",
+      type: "string",
+      description: "A page number within the paginated result set.",
+      example: "",
+      optional: true,
+    },
+  ]}
+/>
+<ResponsesTable
+  content={[
+    {
+      Status: "200",
+      description: "",
+      "Sample Response": JSON.stringify(
+        {
+          count: 1,
+          next: "foo",
+          previous: null,
+          results: [JSON.parse(serializedImage)],
+        },
+        null,
+        4
+      ),
+    },
+  ]}
+/>
+
+---
+
+## Uploading a new image
+
+<Endpoint method="POST" path={DATA.endpoint} />
+<ParametersTable
+  content={[
+    {
+      parameter: "image",
+      type: "string <binary>",
+      description: "",
+      optional: false,
+    },
+  ]}
+/>
+<ResponsesTable
+  content={[
+    {
+      Status: "201",
+      description: "",
+      "Sample Response": serializedImage,
+    },
+  ]}
+/>
+
+---
+
+## Deleting an image
+
+<Endpoint method="DELETE" path={DATA.endpoint + "/<id>"} />
+<ResponsesTable
+  content={[
+    {
+      Status: "204",
+      description: "",
+      "Sample Response": JSON.stringify({}),
+    },
+  ]}
+/>
+
+---
+
+## Retrieving a specific image
+
+<Endpoint method="GET" path={DATA.endpoint + "/<id>"} />
+<ResponsesTable
+  content={[
+    {
+      Status: "200",
+      description: "",
+      "Sample Response": serializedImage,
+    },
+  ]}
+/>

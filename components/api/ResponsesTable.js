@@ -1,4 +1,5 @@
-import Table from "./Table";
+import Table from "../Table";
+import { Code, H3 } from "../Markdown";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -22,21 +23,24 @@ function ResponseCodeBadge(text) {
 }
 
 function SampleResponse(text) {
-  return <pre>{text}</pre>;
+  return <Code>{text}</Code>;
 }
 
 export default function ResponsesTable({ content }) {
   return (
-    <Table
-      columns={[
-        {
-          title: "Status",
-          component: ResponseCodeBadge,
-        },
-        { title: "Description" },
-        { title: "Sample Response", component: SampleResponse },
-      ]}
-      content={content}
-    />
+    <>
+      <H3>Responses</H3>
+      <Table
+        columns={[
+          {
+            title: "Status",
+            component: ResponseCodeBadge,
+          },
+          { title: "Description" },
+          { title: "Sample Response", component: SampleResponse },
+        ]}
+        content={content}
+      />
+    </>
   );
 }

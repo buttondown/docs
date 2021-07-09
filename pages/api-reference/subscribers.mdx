@@ -1,6 +1,6 @@
 import Layout from "../../components/Layout";
 import Table from "../../components/Table";
-import ResponsesTable from "../../components/ResponsesTable";
+import ResponsesTable from "../../components/api/ResponsesTable";
 import Endpoint from "../../components/Endpoint";
 import ClosedBetaNotice from "../../components/ClosedBetaNotice";
 import { MDXProvider } from "@mdx-js/react";
@@ -12,6 +12,29 @@ export const custom = () => <h1 {...props} className="text-xl font-light" />;
 export const meta = {
   title: "Subscribers",
 };
+
+export const serializedSubscriber = JSON.stringify(
+  {
+    creation_date: "2019-08-24T14:15:22Z",
+    email: "user@example.com",
+    id: "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+    metadata: {
+      foo: "bar",
+    },
+    notes: "",
+    referrer_url: "http://jmduke.com",
+    secondary_id: 3,
+    source: "api",
+    subscriber_type: "regular",
+    tags: [],
+    utm_campaign: "",
+    utm_medium: "",
+    utm_source: "",
+  },
+  null,
+  4
+);
+
 export default ({ children }) => (
   <Layout meta={meta}>
     <MDXProvider
@@ -39,25 +62,7 @@ They're what you see on your [subscribers page](https://buttondown.email/subscri
 
 A subscriber looks like this:
 
-```
-{
-    "creation_date": "2019-08-24T14:15:22Z",
-    "email": "user@example.com",
-    "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-    "metadata": { },
-    "notes": "string",
-    "referrer_url": "string",
-    "secondary_id": 0,
-    "source": "api",
-    "subscriber_type": "regular",
-    "tags": [
-        "string"
-    ],
-    "utm_campaign": "string",
-    "utm_medium": "string",
-    "utm_source": "string"
-}
-```
+<Code>{serializedSubscriber}</Code>
 
 <br />
 
@@ -182,12 +187,16 @@ A subscriber looks like this:
     {
       Status: "200",
       description: "",
-      "Sample Response": JSON.stringify({
-        count: 3,
-        next: "foo",
-        previous: null,
-        results: [],
-      }),
+      "Sample Response": JSON.stringify(
+        {
+          count: 1,
+          next: "foo",
+          previous: null,
+          results: [JSON.parse(serializedSubscriber)],
+        },
+        null,
+        4
+      ),
     },
   ]}
 />
@@ -269,7 +278,7 @@ If Buttondown cannot create a new subscriber with the email address you've provi
     {
       Status: "201",
       description: "",
-      "Sample Response": JSON.stringify({}),
+      "Sample Response": serializedSubscriber,
     },
     {
       Status: "400",
@@ -343,11 +352,35 @@ If Buttondown cannot create a new subscriber with the email address you've provi
   ]}
 />
 
+### Responses
+
+<ResponsesTable
+  content={[
+    {
+      Status: "200",
+      description: "",
+      "Sample Response": serializedSubscriber,
+    },
+  ]}
+/>
+
 ---
 
 ## Deleting a subscriber
 
 <Endpoint method="DELETE" path="/v1/subscribers/<id>" />
+
+### Responses
+
+<ResponsesTable
+  content={[
+    {
+      Status: "204",
+      description: "",
+      "Sample Response": JSON.stringify({}),
+    },
+  ]}
+/>
 
 ---
 
@@ -355,9 +388,33 @@ If Buttondown cannot create a new subscriber with the email address you've provi
 
 <Endpoint method="GET" path="/v1/subscribers/<id>" />
 
+### Responses
+
+<ResponsesTable
+  content={[
+    {
+      Status: "200",
+      description: "",
+      "Sample Response": serializedSubscriber,
+    },
+  ]}
+/>
+
 ---
 
 ## Sending an email to a specific subscriber
 
 <ClosedBetaNotice />
 <Endpoint method="POST" path="/v1/subscribers/<id>/emails/<email_id>" />
+
+### Responses
+
+<ResponsesTable
+  content={[
+    {
+      Status: "200",
+      description: "",
+      "Sample Response": JSON.stringify({}),
+    },
+  ]}
+/>
