@@ -1,0 +1,23 @@
+import Layout from "../../components/Layout";
+import Changelog from "../../components/Changelog";
+
+export const meta = {
+  title: "Changelog",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Changelog
+
+The changelog provides a list of dated updates, each of which contains a number of potentially backwards-incompatible changes. There is no explicit versioning in the API at this time; all changes will be either compatible or breaking. (If I attempt any brittle changes to the API that may break current implementations, I'll be sure to add version gates.)
+
+### 2021-01-02
+
+Added support to set and retrieve metadata on Emails.
+
+### 2020-12-23
+
+Added deletion and update abilities to the Scheduled emails endpoint, giving you much more programmability than the hitherto append-only state of the world.
+
+### 2020-12-09
+
+Added a deletion endpoint to the Images endpoint, allowing you to delete unused images.

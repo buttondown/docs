@@ -1,0 +1,13 @@
+{
+  "title": "Newsletter",
+  "noun": "newsletter",
+  "endpoint": "/v1/newsletters",
+  "object": {
+    "api_key": "7f819f8f-8220-4dcd-b7e3-37c81ead8b7a",
+    "creation_date": "2019-08-24T14:15:22Z",
+    "description": "string",
+    "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+    "name": "string",
+    "username": "string"
+  }
+}
