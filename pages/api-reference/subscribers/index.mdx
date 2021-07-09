@@ -1,10 +1,10 @@
-import Layout from "../../components/Layout";
-import Table from "../../components/Table";
-import ResponsesTable from "../../components/api/ResponsesTable";
-import Endpoint from "../../components/Endpoint";
-import ClosedBetaNotice from "../../components/ClosedBetaNotice";
+import Layout from "../../../components/Layout";
+import Table from "../../../components/Table";
+import ResponsesTable from "../../../components/api/ResponsesTable";
+import Endpoint from "../../../components/api/Endpoint";
+import ClosedBetaNotice from "../../../components/api/ClosedBetaNotice";
 import { MDXProvider } from "@mdx-js/react";
-import { H2, H1, P, H3, H4, Pre, Code } from "../../components/Markdown";
+import { H2, H1, P, H3, H4, Pre, Code } from "../../../components/Markdown";
 import { CheckCircleIcon } from "@heroicons/react/outline";
 
 export const custom = () => <h1 {...props} className="text-xl font-light" />;
@@ -180,8 +180,6 @@ A subscriber looks like this:
   ]}
 />
 
-### Responses
-
 <ResponsesTable
   content={[
     {
@@ -203,9 +201,11 @@ A subscriber looks like this:
 
 ---
 
-## Creating a new subscriber
-
-<Endpoint method="POST" path="/v1/subscribers" />
+<Endpoint
+  title="Creating a new subscriber"
+  method="POST"
+  path="/v1/subscribers"
+/>
 
 If Buttondown cannot create a new subscriber with the email address you've provided, there are a few likely reasons why. They're enumerated below:
 
@@ -271,8 +271,6 @@ If Buttondown cannot create a new subscriber with the email address you've provi
   ]}
 />
 
-### Responses
-
 <ResponsesTable
   content={[
     {
@@ -291,9 +289,11 @@ If Buttondown cannot create a new subscriber with the email address you've provi
 
 ---
 
-## Updating a subscriber
-
-<Endpoint method="PATCH" path="/v1/subscribers/<id>" />
+<Endpoint
+  title="Updating a subscriber"
+  method="PATCH"
+  path="/v1/subscribers/<id>"
+/>
 
 ### Parameters
 
@@ -352,8 +352,6 @@ If Buttondown cannot create a new subscriber with the email address you've provi
   ]}
 />
 
-### Responses
-
 <ResponsesTable
   content={[
     {
@@ -366,11 +364,11 @@ If Buttondown cannot create a new subscriber with the email address you've provi
 
 ---
 
-## Deleting a subscriber
-
-<Endpoint method="DELETE" path="/v1/subscribers/<id>" />
-
-### Responses
+<Endpoint
+  title="Deleting a subscriber"
+  method="DELETE"
+  path="/v1/subscribers/<id>"
+/>
 
 <ResponsesTable
   content={[
@@ -384,12 +382,11 @@ If Buttondown cannot create a new subscriber with the email address you've provi
 
 ---
 
-## Retrieving a specific subscriber
-
-<Endpoint method="GET" path="/v1/subscribers/<id>" />
-
-### Responses
-
+<Endpoint
+  title="Retrieving a specific subscriber"
+  method="GET"
+  path="/v1/subscribers/<id>"
+/>
 <ResponsesTable
   content={[
     {
@@ -402,12 +399,12 @@ If Buttondown cannot create a new subscriber with the email address you've provi
 
 ---
 
-## Sending an email to a specific subscriber
-
-<ClosedBetaNotice />
-<Endpoint method="POST" path="/v1/subscribers/<id>/emails/<email_id>" />
-
-### Responses
+<Endpoint
+  title="Sending an email to a specific subscriber"
+  method="POST"
+  path="/v1/subscribers/<id>/emails/<email_id>"
+  beta
+/>
 
 <ResponsesTable
   content={[

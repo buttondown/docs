@@ -1,3 +1,5 @@
+import classNames from "../lib/classNames";
+
 export default function Table({ columns, content }) {
   return (
     <div className="flex flex-col">
@@ -11,7 +13,10 @@ export default function Table({ columns, content }) {
                     <th
                       scope="col"
                       key={i}
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className={classNames(
+                        column.alignment === "right" ? "text-right" : "",
+                        "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      )}
                     >
                       {column.title}
                     </th>
@@ -19,23 +24,24 @@ export default function Table({ columns, content }) {
                 </tr>
               </thead>
               <tbody>
-                {content.map((eventType, idx) => (
+                {content.map((row, idx) => (
                   <tr
-                    key={eventType.name}
+                    key={row.name}
                     className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}
                   >
                     {columns.map((column, keyIndex) => (
                       <td
-                        className={
+                        className={classNames(
                           keyIndex === 0
                             ? "px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                            : "px-6 py-4 text-sm text-gray-500"
-                        }
+                            : "px-6 py-4 text-sm text-gray-500",
+                          column.alignment === "right" && "float-right"
+                        )}
                         key={keyIndex}
                       >
                         {column.component
-                          ? column.component(eventType[column.title])
-                          : eventType[column.title]}
+                          ? column.component(row[column.key || column.title])
+                          : row[column.key || column.title]}
                       </td>
                     ))}
                   </tr>

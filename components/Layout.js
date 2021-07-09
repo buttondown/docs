@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { MDXProvider } from "@mdx-js/react";
-import { H2, H1, P, H3, H4, Pre, Code } from "./Markdown";
+import { A, H2, H1, P, H3, H4, Pre, Code } from "./Markdown";
 
 import Head from "next/head";
 
@@ -24,6 +24,7 @@ export default function Layout({ meta, children }) {
           <div className="px-4 py-4">
             <MDXProvider
               components={{
+                a: A,
                 p: P,
                 h1: H1,
                 h2: H2,

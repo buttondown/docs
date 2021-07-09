@@ -23,11 +23,12 @@ export default function ParametersTable({ content }) {
           { title: "description" },
           {
             title: "optional",
+            alignment: "right",
             component: (s) =>
               s && (
                 <CheckCircleIcon
                   className={
-                    "text-gray-400 group-hover:text-gray-300 mr-3 flex-shrink-0 h-6 w-6"
+                    "text-gray-400 group-hover:text-gray-300 flex-shrink-0 h-6 w-6"
                   }
                   aria-hidden="true"
                 />
