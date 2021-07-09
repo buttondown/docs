@@ -1,0 +1,136 @@
+import Layout from "../../../components/Layout";
+import ResponsesTable from "../../../components/api/ResponsesTable";
+import ObjectDescription from "../../../components/api/ObjectDescription";
+import ParametersTable from "../../../components/api/ParametersTable";
+import ClosedBetaNotice from "../../../components/api/ClosedBetaNotice";
+import Endpoint from "../../../components/api/Endpoint";
+import DATA from "./metadata.json";
+
+export const meta = {
+  title: DATA.title,
+};
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Emails
+
+Emails are what you're for here on Buttondown at the end of the day, right? Creating an email via the API is just like creating one in the interface; it will instantly trigger sending actual emails, based on the tags and email type you provide.
+
+## The email object
+
+An email looks like this:
+
+<ObjectDescription
+  example={JSON.stringify(DATA.object, null, 4)}
+  fields={[
+    { field: "id", type: "uuid" },
+    { field: "creation_date", type: "datetime", description: "" },
+    { field: "publish_date", type: "datetime", description: "" },
+    { field: "subject", type: "string" },
+    { field: "body", type: "string" },
+    { field: "included_tags", type: "array<string> | array<uuid>" },
+    { field: "excluded_tags", type: "array<string> | array<uuid>" },
+    { field: "metadata", type: "map" },
+  ]}
+/>
+
+<Endpoint title="Listing emails" method="GET" path={DATA.endpoint} />
+<ParametersTable
+  content={[
+    {
+      parameter: "page",
+      type: "string",
+      description: "A page number within the paginated result set.",
+      example: "",
+      optional: true,
+    },
+  ]}
+/>
+<ResponsesTable
+  content={[
+    {
+      Status: "200",
+      description: "",
+      "Sample Response": JSON.stringify(
+        {
+          count: 1,
+          next: "foo",
+          previous: null,
+          results: [DATA.object],
+        },
+        null,
+        4
+      ),
+    },
+  ]}
+/>
+
+---
+
+<Endpoint title="Sending an email" method="POST" path={DATA.endpoint} />
+<ParametersTable
+  content={[
+    {
+      parameter: "body",
+      type: "string",
+      description: "",
+      optional: false,
+    },
+    {
+      parameter: "subject",
+      type: "string",
+      description: "",
+      optional: false,
+    },
+    {
+      parameter: "email_type",
+      type: "string",
+      description: "",
+      optional: true,
+    },
+    {
+      parameter: "excluded_tags",
+      type: "array<string> | array<uuid>",
+      description: "",
+      optional: true,
+    },
+    {
+      parameter: "included_tags",
+      type: "array<string> | array<uuid>",
+      description: "",
+      optional: true,
+    },
+    {
+      parameter: "metadata",
+      type: "map",
+      description: "",
+      optional: true,
+    },
+  ]}
+/>
+<ResponsesTable
+  content={[
+    {
+      Status: "201",
+      description: "",
+      "Sample Response": JSON.stringify(DATA.object, null, 4),
+    },
+  ]}
+/>
+
+---
+
+<Endpoint
+  title="Retrieving a specific email"
+  method="GET"
+  path={DATA.endpoint + "/<id>"}
+/>
+<ResponsesTable
+  content={[
+    {
+      Status: "200",
+      description: "",
+      "Sample Response": JSON.stringify(DATA.object, null, 4),
+    },
+  ]}
+/>

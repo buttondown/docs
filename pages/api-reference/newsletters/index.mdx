@@ -2,6 +2,7 @@ import Layout from "../../../components/Layout";
 import ResponsesTable from "../../../components/api/ResponsesTable";
 import ObjectDescription from "../../../components/api/ObjectDescription";
 import ParametersTable from "../../../components/api/ParametersTable";
+import ClosedBetaNotice from "../../../components/api/ClosedBetaNotice";
 import Endpoint from "../../../components/api/Endpoint";
 import DATA from "./metadata.json";
 
@@ -9,30 +10,28 @@ export const meta = {
   title: DATA.title,
 };
 
-export const serializedImage = JSON.stringify(DATA.object, null, 4);
-
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
-# Images
+# Newsletters
 
-Images are, well, images! Buttondown allows you to upload images to its secure [S3](https://aws.amazon.com/s3/) bucket and do with them what you will. This is sort of an odd duck of an API, to be sure, but if you want to be able to do things like draft and send emails completely on your iPad you need a surefire way of creating images.
+## The newsletter object
 
-## The image object
-
-An image looks like this:
+A newsletter looks like this:
 
 <ObjectDescription
-  example={serializedImage}
+  example={JSON.stringify(DATA.object, null, 4)}
   fields={[
     { field: "creation_date", type: "datetime", description: "" },
     { field: "id", type: "uuid" },
-    { field: "image", type: "string" },
+    { field: "description", type: "string" },
+    { field: "name", type: "string" },
+    { field: "username", type: "string" },
+    { field: "api_key", type: "string" },
   ]}
 />
 
-## Listing images
-
-<Endpoint title="Listing images" method="GET" path={DATA.endpoint} />
+<Endpoint title="Listing newsletters" method="GET" path={DATA.endpoint} />
+<ClosedBetaNotice />
 <ParametersTable
   content={[
     {
@@ -54,7 +53,7 @@ An image looks like this:
           count: 1,
           next: "foo",
           previous: null,
-          results: [JSON.parse(serializedImage)],
+          results: [DATA.object],
         },
         null,
         4
@@ -65,12 +64,29 @@ An image looks like this:
 
 ---
 
-<Endpoint title="Uploading a new image" method="POST" path={DATA.endpoint} />
+<Endpoint
+  title="Creating a new newsletter"
+  method="POST"
+  path={DATA.endpoint}
+/>
+<ClosedBetaNotice />
 <ParametersTable
   content={[
     {
-      parameter: "image",
-      type: "string <binary>",
+      parameter: "name",
+      type: "string",
+      description: "",
+      optional: false,
+    },
+    {
+      parameter: "username",
+      type: "string",
+      description: "",
+      optional: false,
+    },
+    {
+      parameter: "description",
+      type: "string",
       description: "",
       optional: false,
     },
@@ -81,7 +97,7 @@ An image looks like this:
     {
       Status: "201",
       description: "",
-      "Sample Response": serializedImage,
+      "Sample Response": JSON.stringify(DATA.object, null, 4),
     },
   ]}
 />
@@ -89,33 +105,53 @@ An image looks like this:
 ---
 
 <Endpoint
-  title="Deleting an image"
-  method="DELETE"
-  path={DATA.endpoint + "/<id>"}
-/>
-<ResponsesTable
-  content={[
-    {
-      Status: "204",
-      description: "",
-      "Sample Response": JSON.stringify({}),
-    },
-  ]}
-/>
-
----
-
-<Endpoint
-  title="Retrieving a specific image"
+  title="Retrieving a specific newsletter"
   method="GET"
   path={DATA.endpoint + "/<id>"}
 />
+<ClosedBetaNotice />
 <ResponsesTable
   content={[
     {
       Status: "200",
       description: "",
-      "Sample Response": serializedImage,
+      "Sample Response": JSON.stringify(DATA.object, null, 4),
+    },
+  ]}
+/>
+
+---
+
+<Endpoint
+  title="Deleting a specific newsletter"
+  method="DELETE"
+  path={DATA.endpoint + "/<id>"}
+/>
+<ClosedBetaNotice />
+<ResponsesTable
+  content={[
+    {
+      Status: "204",
+      description: "",
+      "Sample Response": JSON.stringify({}, null, 4),
+    },
+  ]}
+/>
+
+---
+
+<Endpoint
+  title="Updating a specific newsletter"
+  method="PATCH"
+  path={DATA.endpoint + "/<id>"}
+/>
+<ClosedBetaNotice />
+<ResponsesTable
+  content={[
+    {
+      Status: "200",
+      description: "",
+      "Sample Response": JSON.stringify(DATA.object, null, 4),
     },
   ]}
 />

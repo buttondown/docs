@@ -9,30 +9,26 @@ export const meta = {
   title: DATA.title,
 };
 
-export const serializedImage = JSON.stringify(DATA.object, null, 4);
-
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
-# Images
+# Tags
 
-Images are, well, images! Buttondown allows you to upload images to its secure [S3](https://aws.amazon.com/s3/) bucket and do with them what you will. This is sort of an odd duck of an API, to be sure, but if you want to be able to do things like draft and send emails completely on your iPad you need a surefire way of creating images.
+## The tag object
 
-## The image object
-
-An image looks like this:
+A tag looks like this:
 
 <ObjectDescription
-  example={serializedImage}
+  example={JSON.stringify(DATA.object, null, 4)}
   fields={[
     { field: "creation_date", type: "datetime", description: "" },
     { field: "id", type: "uuid" },
-    { field: "image", type: "string" },
+    { field: "name", type: "string" },
+    { field: "description", type: "string" },
+    { field: "color", type: "string" },
   ]}
 />
 
-## Listing images
-
-<Endpoint title="Listing images" method="GET" path={DATA.endpoint} />
+<Endpoint title="Listing tags" method="GET" path={DATA.endpoint} />
 <ParametersTable
   content={[
     {
@@ -54,7 +50,7 @@ An image looks like this:
           count: 1,
           next: "foo",
           previous: null,
-          results: [JSON.parse(serializedImage)],
+          results: [DATA.object],
         },
         null,
         4
@@ -65,14 +61,26 @@ An image looks like this:
 
 ---
 
-<Endpoint title="Uploading a new image" method="POST" path={DATA.endpoint} />
+<Endpoint title="Creating a new tag" method="POST" path={DATA.endpoint} />
 <ParametersTable
   content={[
     {
-      parameter: "image",
-      type: "string <binary>",
+      parameter: "name",
+      type: "string",
       description: "",
       optional: false,
+    },
+    {
+      parameter: "color",
+      type: "string",
+      description: "",
+      optional: true,
+    },
+    {
+      parameter: "description",
+      type: "string",
+      description: "",
+      optional: true,
     },
   ]}
 />
@@ -81,7 +89,7 @@ An image looks like this:
     {
       Status: "201",
       description: "",
-      "Sample Response": serializedImage,
+      "Sample Response": JSON.stringify(DATA.object, null, 4),
     },
   ]}
 />
@@ -89,7 +97,7 @@ An image looks like this:
 ---
 
 <Endpoint
-  title="Deleting an image"
+  title="Deleting a tag"
   method="DELETE"
   path={DATA.endpoint + "/<id>"}
 />
@@ -106,7 +114,7 @@ An image looks like this:
 ---
 
 <Endpoint
-  title="Retrieving a specific image"
+  title="Retrieving a specific tag"
   method="GET"
   path={DATA.endpoint + "/<id>"}
 />
@@ -115,7 +123,7 @@ An image looks like this:
     {
       Status: "200",
       description: "",
-      "Sample Response": serializedImage,
+      "Sample Response": JSON.stringify(DATA.object, null, 4),
     },
   ]}
 />
