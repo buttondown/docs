@@ -26,7 +26,7 @@ export default function Table({ columns, content }) {
               <tbody>
                 {content.map((row, idx) => (
                   <tr
-                    key={row.name}
+                    key={idx}
                     className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}
                   >
                     {columns.map((column, keyIndex) => (

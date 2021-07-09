@@ -49,16 +49,12 @@ An image looks like this:
     {
       Status: "200",
       description: "",
-      "Sample Response": JSON.stringify(
-        {
-          count: 1,
-          next: "foo",
-          previous: null,
-          results: [JSON.parse(serializedImage)],
-        },
-        null,
-        4
-      ),
+      "Sample Response": {
+        count: 1,
+        next: "foo",
+        previous: null,
+        results: [JSON.parse(serializedImage)],
+      },
     },
   ]}
 />
@@ -98,7 +94,7 @@ An image looks like this:
     {
       Status: "204",
       description: "",
-      "Sample Response": JSON.stringify({}),
+      "Sample Response": {},
     },
   ]}
 />

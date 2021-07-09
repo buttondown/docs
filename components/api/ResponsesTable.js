@@ -23,7 +23,7 @@ function ResponseCodeBadge(text) {
 }
 
 function SampleResponse(text) {
-  return <Code>{text}</Code>;
+  return <Code>{JSON.stringify(text, null, 4)}</Code>;
 }
 
 export default function ResponsesTable({ content }) {

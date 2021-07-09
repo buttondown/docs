@@ -44,16 +44,12 @@ A draft looks like this:
     {
       Status: "200",
       description: "",
-      "Sample Response": JSON.stringify(
-        {
-          count: 1,
-          next: "foo",
-          previous: null,
-          results: [DATA.object],
-        },
-        null,
-        4
-      ),
+      "Sample Response": {
+        count: 1,
+        next: "foo",
+        previous: null,
+        results: [DATA.object],
+      },
     },
   ]}
 />
@@ -82,7 +78,7 @@ A draft looks like this:
     {
       Status: "201",
       description: "",
-      "Sample Response": JSON.stringify(DATA.object, null, 4),
+      "Sample Response": DATA.object,
     },
   ]}
 />
@@ -99,7 +95,7 @@ A draft looks like this:
     {
       Status: "200",
       description: "",
-      "Sample Response": JSON.stringify(DATA.object, null, 4),
+      "Sample Response": DATA.object,
     },
   ]}
 />

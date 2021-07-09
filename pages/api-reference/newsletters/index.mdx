@@ -47,16 +47,12 @@ A newsletter looks like this:
     {
       Status: "200",
       description: "",
-      "Sample Response": JSON.stringify(
-        {
-          count: 1,
-          next: "foo",
-          previous: null,
-          results: [DATA.object],
-        },
-        null,
-        4
-      ),
+      "Sample Response": {
+        count: 1,
+        next: "foo",
+        previous: null,
+        results: [DATA.object],
+      },
     },
   ]}
 />
@@ -96,7 +92,7 @@ A newsletter looks like this:
     {
       Status: "201",
       description: "",
-      "Sample Response": JSON.stringify(DATA.object, null, 4),
+      "Sample Response": DATA.object,
     },
   ]}
 />
@@ -114,7 +110,7 @@ A newsletter looks like this:
     {
       Status: "200",
       description: "",
-      "Sample Response": JSON.stringify(DATA.object, null, 4),
+      "Sample Response": DATA.object,
     },
   ]}
 />
@@ -132,7 +128,7 @@ A newsletter looks like this:
     {
       Status: "204",
       description: "",
-      "Sample Response": JSON.stringify({}, null, 4),
+      "Sample Response": {},
     },
   ]}
 />
@@ -150,7 +146,7 @@ A newsletter looks like this:
     {
       Status: "200",
       description: "",
-      "Sample Response": JSON.stringify(DATA.object, null, 4),
+      "Sample Response": DATA.object,
     },
   ]}
 />

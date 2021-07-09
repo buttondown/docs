@@ -1,57 +1,21 @@
 import Layout from "../../../components/Layout";
 import Table from "../../../components/Table";
+import ObjectDescription from "../../../components/api/ObjectDescription";
+import ParametersTable from "../../../components/api/ParametersTable";
 import ResponsesTable from "../../../components/api/ResponsesTable";
 import Endpoint from "../../../components/api/Endpoint";
 import ClosedBetaNotice from "../../../components/api/ClosedBetaNotice";
 import { MDXProvider } from "@mdx-js/react";
 import { H2, H1, P, H3, H4, Pre, Code } from "../../../components/Markdown";
 import { CheckCircleIcon } from "@heroicons/react/outline";
+import DATA from "./metadata.json";
 
 export const custom = () => <h1 {...props} className="text-xl font-light" />;
 
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 export const meta = {
   title: "Subscribers",
 };
-
-export const serializedSubscriber = JSON.stringify(
-  {
-    creation_date: "2019-08-24T14:15:22Z",
-    email: "user@example.com",
-    id: "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-    metadata: {
-      foo: "bar",
-    },
-    notes: "",
-    referrer_url: "http://jmduke.com",
-    secondary_id: 3,
-    source: "api",
-    subscriber_type: "regular",
-    tags: [],
-    utm_campaign: "",
-    utm_medium: "",
-    utm_source: "",
-  },
-  null,
-  4
-);
-
-export default ({ children }) => (
-  <Layout meta={meta}>
-    <MDXProvider
-      components={{
-        p: P,
-        h1: H1,
-        h2: H2,
-        h3: H3,
-        h4: H4,
-        pre: Pre,
-        code: Code,
-      }}
-    >
-      {children}
-    </MDXProvider>
-  </Layout>
-);
 
 # Subscribers
 
@@ -62,20 +26,9 @@ They're what you see on your [subscribers page](https://buttondown.email/subscri
 
 A subscriber looks like this:
 
-<Code>{serializedSubscriber}</Code>
-
-<br />
-
-<Table
-  columns={[
-    {
-      title: "field",
-      component: (s) => <span className="font-mono">{s}</span>,
-    },
-    { title: "type", component: (s) => <span className="font-mono">{s}</span> },
-    { title: "description" },
-  ]}
-  content={[
+<ObjectDescription
+  example={JSON.stringify(DATA.object, null, 4)}
+  fields={[
     { field: "creation_date", type: "datetime", description: "" },
     { field: "email", type: "string" },
     { field: "id", type: "uuid" },
@@ -97,17 +50,7 @@ A subscriber looks like this:
 
 <Endpoint method="GET" path="/v1/subscribers" />
 
-### Parameters
-
-<Table
-  columns={[
-    {
-      title: "parameter",
-      component: (s) => <span className="font-mono">{s}</span>,
-    },
-    { title: "type", component: (s) => <span className="font-mono">{s}</span> },
-    { title: "description" },
-  ]}
+<ParametersTable
   content={[
     {
       parameter: "type",
@@ -185,16 +128,12 @@ A subscriber looks like this:
     {
       Status: "200",
       description: "",
-      "Sample Response": JSON.stringify(
-        {
-          count: 1,
-          next: "foo",
-          previous: null,
-          results: [JSON.parse(serializedSubscriber)],
-        },
-        null,
-        4
-      ),
+      "Sample Response": {
+        count: 1,
+        next: "foo",
+        previous: null,
+        results: [DATA.object],
+      },
     },
   ]}
 />
@@ -214,29 +153,7 @@ If Buttondown cannot create a new subscriber with the email address you've provi
 - That email address (justin@gmail.com) is already subscribed, but has not confirmed their email.
 - That email address (justin@gmail.com) is already subscribed, but has not provided payment.
 
-### Parameters
-
-<Table
-  columns={[
-    {
-      title: "parameter",
-      component: (s) => <span className="font-mono">{s}</span>,
-    },
-    { title: "type", component: (s) => <span className="font-mono">{s}</span> },
-    { title: "description" },
-    {
-      title: "optional",
-      component: (s) =>
-        s && (
-          <CheckCircleIcon
-            className={
-              "text-gray-400 group-hover:text-gray-300 mr-3 flex-shrink-0 h-6 w-6"
-            }
-            aria-hidden="true"
-          />
-        ),
-    },
-  ]}
+<ParametersTable
   content={[
     {
       parameter: "email",
@@ -276,13 +193,13 @@ If Buttondown cannot create a new subscriber with the email address you've provi
     {
       Status: "201",
       description: "",
-      "Sample Response": serializedSubscriber,
+      "Sample Response": DATA.object,
     },
     {
       Status: "400",
       description:
         "If the email is invalid for any reason or if the subscriber already exists in our system.",
-      "Sample Response": JSON.stringify({}),
+      "Sample Response": {},
     },
   ]}
 />
@@ -295,29 +212,7 @@ If Buttondown cannot create a new subscriber with the email address you've provi
   path="/v1/subscribers/<id>"
 />
 
-### Parameters
-
-<Table
-  columns={[
-    {
-      title: "parameter",
-      component: (s) => <span className="font-mono">{s}</span>,
-    },
-    { title: "type", component: (s) => <span className="font-mono">{s}</span> },
-    { title: "description" },
-    {
-      title: "optional",
-      component: (s) =>
-        s && (
-          <CheckCircleIcon
-            className={
-              "text-gray-400 group-hover:text-gray-300 mr-3 flex-shrink-0 h-6 w-6"
-            }
-            aria-hidden="true"
-          />
-        ),
-    },
-  ]}
+<ParametersTable
   content={[
     {
       parameter: "email",
@@ -357,7 +252,7 @@ If Buttondown cannot create a new subscriber with the email address you've provi
     {
       Status: "200",
       description: "",
-      "Sample Response": serializedSubscriber,
+      "Sample Response": DATA.object,
     },
   ]}
 />
@@ -375,7 +270,7 @@ If Buttondown cannot create a new subscriber with the email address you've provi
     {
       Status: "204",
       description: "",
-      "Sample Response": JSON.stringify({}),
+      "Sample Response": {},
     },
   ]}
 />
@@ -392,7 +287,7 @@ If Buttondown cannot create a new subscriber with the email address you've provi
     {
       Status: "200",
       description: "",
-      "Sample Response": serializedSubscriber,
+      "Sample Response": DATA.object,
     },
   ]}
 />
@@ -411,7 +306,7 @@ If Buttondown cannot create a new subscriber with the email address you've provi
     {
       Status: "200",
       description: "",
-      "Sample Response": JSON.stringify({}),
+      "Sample Response": {},
     },
   ]}
 />
