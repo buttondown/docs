@@ -11,7 +11,7 @@ export default function Layout({ meta, children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="h-screen flex overflow-hidden bg-gray-100">
+    <div className="h-screen flex overflow-hidden bg-gray-100 ">
       <Head>
         <title>
           {meta && meta.title
@@ -22,10 +22,10 @@ export default function Layout({ meta, children }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Sidebar setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen} />
-      <div className="flex flex-col w-0 flex-1 overflow-hidden">
+      <div className="flex flex-col w-0 flex-1 overflow-hidden min-h-screen">
         <Header setSidebarOpen={setSidebarOpen} />
-        <main className="flex-1 relative overflow-y-auto focus:outline-none">
-          <div className="px-4 py-4">
+        <main className="flex-1 relative overflow-y-auto focus:outline-none flex flex-col">
+          <div className="px-8 py-4 flex-grow">
             <MDXProvider
               components={{
                 a: A,
