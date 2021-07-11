@@ -3,7 +3,7 @@ import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import { MDXProvider } from "@mdx-js/react";
-import { A, H2, H1, P, H3, H4, Pre, Code } from "./Markdown";
+import { A, H2, H1, P, H3, H4, Pre, Code, Ul, Li } from "./Markdown";
 
 import Head from "next/head";
 
@@ -36,6 +36,8 @@ export default function Layout({ meta, children }) {
                 h4: H4,
                 pre: Pre,
                 code: Code,
+                ul: Ul,
+                li: Li,
               }}
             >
               {children}

@@ -15,6 +15,12 @@ export const H4 = (props) => (
 );
 export const P = (props) => <p className="my-4 text-lg" {...props} />;
 
+export const Ul = (props) => (
+  <ul style={{ listStyleType: "circle", paddingLeft: 30 }} {...props} />
+);
+
+export const li = (pops) => <li className="text-lg" {...props} />;
+
 // For some reason, MDX likes to insert a trailing empty line after pre blocks.
 const isEmptyTrailingLine = (tokens, tokenIndex) =>
   tokenIndex === tokens.length - 1 && tokens[tokenIndex][0].empty;
