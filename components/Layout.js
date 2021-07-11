@@ -1,13 +1,17 @@
 import Header from "../components/Header";
+import { useState } from "react";
 import Sidebar from "../components/Sidebar";
+import Footer from "../components/Footer";
 import { MDXProvider } from "@mdx-js/react";
-import { A, H2, H1, P, H3, H4, Pre, Code } from "./Markdown";
+import { A, H2, H1, P, H3, H4, Pre, Code, Ul, Li } from "./Markdown";
 
 import Head from "next/head";
 
 export default function Layout({ meta, children }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
-    <div className="h-screen flex overflow-hidden bg-gray-100">
+    <div className="h-screen flex overflow-hidden bg-gray-100 ">
       <Head>
         <title>
           {meta && meta.title
@@ -17,11 +21,11 @@ export default function Layout({ meta, children }) {
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Sidebar />
-      <div className="flex flex-col w-0 flex-1 overflow-hidden">
-        <Header />
-        <main className="flex-1 relative overflow-y-auto focus:outline-none">
-          <div className="px-4 py-4">
+      <Sidebar setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen} />
+      <div className="flex flex-col w-0 flex-1 overflow-hidden min-h-screen">
+        <Header setSidebarOpen={setSidebarOpen} />
+        <main className="flex-1 relative overflow-y-auto focus:outline-none flex flex-col">
+          <div className="px-8 py-4 flex-grow">
             <MDXProvider
               components={{
                 a: A,
@@ -32,11 +36,14 @@ export default function Layout({ meta, children }) {
                 h4: H4,
                 pre: Pre,
                 code: Code,
+                ul: Ul,
+                li: Li,
               }}
             >
               {children}
             </MDXProvider>
           </div>
+          <Footer />
         </main>
       </div>
     </div>
