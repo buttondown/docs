@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "tailwindcss/tailwind.css";
 
 import * as Fathom from "fathom-client";
 // import {Code } from "components/Markdown";

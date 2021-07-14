@@ -3,6 +3,7 @@
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl";
 import Prism from "prismjs";
+import classNames from "../lib/classNames";
 
 (typeof global !== "undefined" ? global : window).Prism = Prism;
 
@@ -71,7 +72,7 @@ export const Code = ({ children, language }: any) => {
       language={language || "json"}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ ...style, padding: "20px" }}>
+        <pre className={classNames(className, "rounded")} style={{ ...style, padding: "20px" }}>
           {tokens.map(
             (line, i) =>
               !isEmptyTrailingLine(tokens, i) && (

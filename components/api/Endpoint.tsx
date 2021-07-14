@@ -13,7 +13,7 @@ export default function Endpoint({ title, method, path, beta }: Props) {
     <>
       <H2>{title}</H2>
       {beta && <ClosedBetaNotice />}
-      <pre className="py-6 px-4">
+      <pre className="py-6 px-4 bg-gray-700 text-gray-200 rounded">
         <strong>{method} →</strong> https://api.buttondown.email{path}
       </pre>
     </>
