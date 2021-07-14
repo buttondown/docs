@@ -3,6 +3,7 @@
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl";
 import Prism from "prismjs";
+
 import classNames from "../lib/classNames";
 
 (typeof global !== "undefined" ? global : window).Prism = Prism;
