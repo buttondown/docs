@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl";
 
@@ -48,7 +50,7 @@ export const Ul = (props) => (
 
 export const Img = (props) => (
   <div>
-    <img {...props} className="mx-auto" />
+    <img {...props} alt={props.alt || ""} className="mx-auto" />
     <figcaption className="text-sm text-center text-gray-700">
       {props.alt}
     </figcaption>
