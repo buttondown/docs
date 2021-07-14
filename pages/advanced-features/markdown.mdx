@@ -1,0 +1,43 @@
+import Layout from "../../components/Layout";
+
+export const meta = {
+  title: "Markdown",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Markdown
+
+## Buttondown's Markdown rendering engine
+
+Buttondown's Markdown rendering engine is [Python-Markdown](https://github.com/Python-Markdown/markdown)
+
+### Extensions
+
+In addition, Buttondown uses a handful of extensions:
+
+- [smarty](https://python-markdown.github.io/extensions/smarty/), to convert ASCII characters into HTML entities
+- [tables](https://python-markdown.github.io/extensions/tables/), to allow basic tables
+- [footnotes](https://python-markdown.github.io/extensions/footnotes/), to allow basic footnotes. (These are rendered in your online archives using [Bigfoot.js](http://www.bigfootjs.com))
+- [fenced_code](https://python-markdown.github.io/extensions/fenced_code_blocks/), to allow a more common approach for embedding code snippets
+- [pymdownx.tilde](https://facelessuser.github.io/pymdown-extensions/extensions/tilde/), for allowing of deletions and subscripts
+- [CodeHilite](https://python-markdown.github.io/extensions/code_hilite/), for syntax highlighting of code snippets
+
+### Embeds
+
+In addition to all of _those_, Buttondown uses some proprietary extensions for embedding things like tweets, YouTube videos, and gifs — but none of these should affect your general rendering experience.
+
+If you're looking for an escape hatch out of these embeds, they only trigger on links that are on self-contained lines, like the following:
+
+```markdown
+Here is a tweet I liked!
+
+https://twitter.com/rachsyme/status/1352057677359288321
+```
+
+So you can avoid it by simply doing something like:
+
+```markdown
+Here is a tweet I liked!
+
+<div>https://twitter.com/rachsyme/status/1352057677359288321</div>
+```

@@ -1,0 +1,35 @@
+import Layout from "../../components/Layout";
+import Warning from "../../components/Warning";
+import { H4, P } from "../../components/Markdown";
+import Table from "../../components/Table";
+
+export const meta = {
+  title: "Importing your data",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Importing your data
+
+## Importing subscribers
+
+Assuming that the subscribers have _already consented_ to receiving email (via double-opt-in or some other mechanism provided by your previous subscriber), no! GDPR-wise, their existing consent carries over to Buttondown.
+
+If you import a large number of subscribers, I'll temporarily disable your account so Buttondown can review the imported emails and make sure they're all up to code. The process shouldn't take more than a few hours!
+
+Navigate to your [settings page](https://buttondown.email/settings) and click _Import subscribers!_ You'll be prompted to upload a CSV:
+
+![A screenshot of the import subscribers modal.](/images/import-subscribers.png)
+
+Once you do so, you can map each column in your CSV, allowing you to bring in subscribers while keeping their existing tags, join dates, and metadata.
+
+## Importing archives
+
+Navigate to your [settings page](https://buttondown.email/settings) and choose the appropriate service! (If you don't see the service you're looking for, just go ahead and [email me](https://buttondown.email/settings) — I'd be more than happy to migrate them for you!)
+
+![A screenshot of the import archives modal.](/images/import-archives.png)
+
+## Caveats
+
+### Adding a listserv?
+
+Be sure that folks on the listserv are expecting the subscription: if one of them clicks to unsubscribe from the newsletter, it will affect the entire listserv (since from Buttondown's perspective, the listserv is a single subscriber.)

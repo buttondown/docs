@@ -1,0 +1,36 @@
+import Layout from "../../components/Layout";
+import Warning from "../../components/Warning";
+import { H4, P } from "../../components/Markdown";
+import Table from "../../components/Table";
+
+export const meta = {
+  title: "Registration & setup",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Registration & setup
+
+## The 'your address' field
+
+You may be surprised to learn that CAN-SPAM legislation requires all potentially commercial newsletters to have a physical address in the footer of their emails. This (rightfully!) skeezes some folks out.
+
+If you're running a business out of your office and you want subscribers to have an accurate location to contact you (perhaps to send physical goods), feel free to use your own address. Otherwise, Buttondown has a virtualized address that you can use for your own needs! We automatically scan and forward along the relevant mail.
+
+<div className="bg-gray-300 text-lg px-4 py-4 font-bold rounded-lg">
+  304 S. Jones Blvd #3567
+  <br />
+  Las Vegas NV 89107
+</div>
+
+By using this address, you agree to a few things:
+
+1. You are a current user of Buttondown;
+2. You are only using this address for Buttondown purposes;
+3. You cede full right and permission to Buttondown, LLC to open and analyze mail addressed to the address;
+4. You understand that we won't forward any physical mail or packages.
+
+## System / browser requirements
+
+Buttondown is entirely based in the browser: you don't need to download anything to use the application.
+
+Personally, I recommend using Safari or Chrome as your browser (with all due respect to Firefox and the long tail: Safair and Chrome are the two browsers I use so I'm most confident in their usage). You _will_ need to have cookies and JavaScript enabled to get Buttondown working properly, as well as popups (Buttondown uses in-browser popups for certain workflows.)

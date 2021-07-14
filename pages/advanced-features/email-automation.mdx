@@ -1,0 +1,14 @@
+import Layout from "../../components/Layout";
+
+export const meta = {
+  title: "Email automation",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+## Building an activation sequence in Buttondown
+
+Unfortunately, you can't right now. I'm working on an [API](https://www.notion.so/API-to-send-specific-extant-email-to-subscriber-ea8c13f6232f4f528bc3aa5017b46e3f) to let you do this, but in the meantime you can only specify a single **welcome email** to new subscribers. You can do this by going to your [Subscribing settings page](https://buttondown.email/settings/subscribing):
+
+![A screenshot of the settings page which allows sending a single welcome email.](/images/subscribing.png)
+
+This is a pretty common request — perhaps the _most_ common feature request I get. I realize that I'm disappointing folks by not supporting it at the moment! The reason I don't is because it's opening a bag of worms. There's no such thing as "just a simple welcome sequence" — as soon as you specify a string of emails, you have to specify arbitrary lengths between those strings, branching logic, tracking, etc. etc. It's a complex feature that I don't think I would be able to build simply and in the style of the rest of the tool.

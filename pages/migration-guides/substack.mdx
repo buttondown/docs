@@ -1,0 +1,23 @@
+import Layout from "../../components/Layout";
+import Warning from "../../components/Warning";
+import { H4, P, Code, Pre } from "../../components/Markdown";
+import Table from "../../components/Table";
+
+export const meta = {
+  title: "Substack",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Substack
+
+Both Substack and Buttondown use the same payments processor — [Stripe](https://stripe.com/). Stripe is actually the source of truth when it comes to things like your subscribers' registered payment methods (ie credit cards) and what they've purchased / subscribed to.
+
+When you connect your Stripe account to Buttondown, you're also bringing over the history of what customers and subscribers you have and what they've paid. Over time, I'd like to make this process a little more automatic but at the moment it requires a bit of manual labor on my part to make sure everything is wired up correctly (free of charge, of course.)
+
+What this means for you is **your paying subscribers don't need to do anything extra on their end just because you're switching providers**. Just email me when you've connected your Stripe account and I'll take of the rest!
+
+### Importing 'founding members'
+
+Buttondown can handle the _existing_ "pay what you want" prices for subscribers but not allow them to change the amount they're paying (beyond unsubscribing and resubscribing).
+
+Additionally, Buttondown supports a **Pay What You Want** model if you want to allow your subscribers to be patrons and support your writing without gating any specific content. You can head over to the [Paid Subscriptions](http://buttondown.email/settings/paid-subscriptions) page to get started.

@@ -1,22 +1,12 @@
 import { Disclosure, Menu, Dialog, Transition } from "@headlessui/react";
-import {
-  BeakerIcon,
-  BriefcaseIcon,
-  EmojiHappyIcon,
-  InboxInIcon,
-  LightningBoltIcon,
-  PresentationChartBarIcon,
-  QuestionMarkCircleIcon,
-  SearchIcon,
-  TerminalIcon,
-  XIcon,
-} from "@heroicons/react/outline";
+import NAVIGATION from "./Navigation";
 import icon from "../public/images/icon@72.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import classNames from "../lib/classNames";
 import { Fragment, useState } from "react";
+import { SearchIcon, XIcon } from "@heroicons/react/outline";
 
 function NavigationItem(router, item) {
   return !item.children ? (
@@ -101,93 +91,6 @@ function NavigationItem(router, item) {
   );
 }
 
-const navigation = [
-  {
-    name: "Welcome to Buttondown!",
-    href: "/welcome",
-    icon: EmojiHappyIcon,
-  },
-  {
-    name: "Getting started",
-    href: "/getting-started",
-    icon: PresentationChartBarIcon,
-    children: [
-      { name: "Importing your data", href: "#" },
-      { name: "Hosting from a custom domain", href: "#" },
-      { name: "Sending from a custom domain", href: "#" },
-    ],
-  },
-  {
-    name: "Advanced features",
-    href: "/features",
-    icon: LightningBoltIcon,
-    children: [
-      { name: "Customizing your emails", href: "#" },
-      { name: "Styling your web presence", href: "#" },
-      { name: "Using template variables", href: "#" },
-      { name: "Collecting and using metadata", href: "#" },
-    ],
-  },
-  {
-    name: "Migration guides",
-    href: "/migrations",
-    icon: InboxInIcon,
-    children: [
-      { name: "Substack", href: "#" },
-      { name: "Mailchimp", href: "#" },
-      { name: "Tinyletter", href: "#" },
-      { name: "ConvertKit", href: "#" },
-    ],
-  },
-  {
-    name: "API reference",
-    href: "/api-reference",
-    icon: TerminalIcon,
-    children: [
-      { name: "Introduction", href: "/api-reference/introduction" },
-      { name: "Authentication", href: "/api-reference/authentication" },
-      {
-        name: "Events and webhooks",
-        href: "/api-reference/events-and-webhooks",
-      },
-      { name: "Changelog", href: "/api-reference/changelog" },
-      { name: "Subscribers", href: "/api-reference/subscribers" },
-      { name: "Emails", href: "/api-reference/emails" },
-      { name: "Drafts", href: "/api-reference/drafts" },
-      { name: "Tags", href: "/api-reference/tags" },
-      { name: "Scheduled emails", href: "/api-reference/scheduled-emails" },
-      { name: "Images", href: "/api-reference/images" },
-      { name: "Newsletters", href: "/api-reference/newsletters" },
-    ],
-  },
-  {
-    name: "Integrations",
-    href: "/integrations",
-    icon: BeakerIcon,
-    children: [
-      { name: "Zapier", href: "#" },
-      { name: "Fathom", href: "#" },
-      { name: "Simple Analytics", href: "#" },
-    ],
-  },
-  {
-    name: "Behind the scenes",
-    href: "/behind-the-scenes",
-    icon: BriefcaseIcon,
-    children: [
-      { name: "Changelog", href: "#" },
-      { name: "Kudos", href: "#" },
-      { name: "Running costs", href: "#" },
-      { name: "Donations", href: "#" },
-    ],
-  },
-  {
-    name: "Need more help?",
-    href: "/need-more-help",
-    icon: QuestionMarkCircleIcon,
-  },
-];
-
 export default function Sidebar({ setSidebarOpen, sidebarOpen }) {
   const router = useRouter();
 
@@ -258,7 +161,7 @@ export default function Sidebar({ setSidebarOpen, sidebarOpen }) {
                 </div>
                 <div className="mt-5 flex-1 h-0 overflow-y-auto">
                   <nav className="px-2 space-y-1">
-                    {navigation.map((i) => NavigationItem(router, i))}
+                    {NAVIGATION.map((i) => NavigationItem(router, i))}
                   </nav>
                 </div>
               </div>
@@ -290,7 +193,7 @@ export default function Sidebar({ setSidebarOpen, sidebarOpen }) {
                 </div>
               </div>
               <nav className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
-                {navigation.map((i) => NavigationItem(router, i))}
+                {NAVIGATION.map((i) => NavigationItem(router, i))}
               </nav>
             </div>
           </div>
