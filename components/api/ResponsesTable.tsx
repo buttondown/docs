@@ -1,5 +1,5 @@
-import Table from "../Table";
 import { Code, H3 } from "../Markdown";
+import Table from "../Table";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

@@ -1,6 +1,7 @@
-import Table from "../Table";
-import { H3 } from "../Markdown";
 import { CheckCircleIcon } from "@heroicons/react/outline";
+
+import { H3 } from "../Markdown";
+import Table from "../Table";
 
 function MonospacedSpan(s) {
   return <span className="font-mono">{s}</span>;

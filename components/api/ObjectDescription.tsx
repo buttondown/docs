@@ -1,5 +1,5 @@
-import Table from "../Table";
 import { Code } from "../Markdown";
+import Table from "../Table";
 
 function MonospacedSpan(s) {
   return <span className="font-mono">{s}</span>;

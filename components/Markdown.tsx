@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Highlight, { defaultProps } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/nightOwl";
-
 import Prism from "prism-react-renderer/prism";
+import theme from "prism-react-renderer/themes/nightOwl";
 
 (typeof global !== "undefined" ? global : window).Prism = Prism;
 
