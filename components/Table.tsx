@@ -1,6 +1,20 @@
 import classNames from "../lib/classNames";
 
-export default function Table({ columns, content }) {
+type Column = {
+  title: string;
+  key?: string;
+  alignment?: string;
+  component?: CallableFunction;
+}
+
+type Row = Object;
+
+type TableProps = {
+  columns: Array<Column>;
+  content: Array<Row>;
+}
+
+export default function Table(props: TableProps) {
   return (
     <div className="flex flex-col">
       <div className="-my-2 overflow-x-auto">
@@ -9,7 +23,7 @@ export default function Table({ columns, content }) {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                  {columns.map((column, i) => (
+                  {props.columns.map((column, i) => (
                     <th
                       scope="col"
                       key={i}
@@ -24,12 +38,12 @@ export default function Table({ columns, content }) {
                 </tr>
               </thead>
               <tbody>
-                {content.map((row, idx) => (
+                {props.content.map((row, idx) => (
                   <tr
                     key={idx}
                     className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}
                   >
-                    {columns.map((column, keyIndex) => (
+                    {props.columns.map((column, keyIndex) => (
                       <td
                         className={classNames(
                           keyIndex === 0

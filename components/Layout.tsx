@@ -1,7 +1,7 @@
-import Header from "../components/Header";
+import Header from "./Header";
 import { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
+import Sidebar from "./Sidebar";
+import Footer from "./Footer";
 import Image from "next/image";
 import { MDXProvider } from "@mdx-js/react";
 import {

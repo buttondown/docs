@@ -8,7 +8,7 @@ function MonospacedSpan(s) {
 export default function ObjectDescription({ example, fields }) {
   return (
     <div>
-      <Code>{example}</Code>
+      <Code language="plaintext">{example}</Code>
 
       <br />
 

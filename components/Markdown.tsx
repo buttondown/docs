@@ -57,7 +57,7 @@ export const Img = (props) => (
   </div>
 );
 
-export const li = (props) => <li className="text-lg" {...props} />;
+export const Li = (props) => <li className="text-lg" {...props} />;
 
 // For some reason, MDX likes to insert a trailing empty line after pre blocks.
 const isEmptyTrailingLine = (tokens, tokenIndex) =>

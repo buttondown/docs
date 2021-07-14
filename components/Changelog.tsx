@@ -1,6 +1,4 @@
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import classNames from "../lib/classNames";
 
 export default function Changelog({ items }) {
   return (

@@ -27,11 +27,11 @@ export default function ParametersTable({ content }) {
         columns={[
           {
             title: "parameter",
-            components: MonospacedSpan,
+            component: MonospacedSpan,
           },
           {
             title: "type",
-            components: MonospacedSpan,
+            component: MonospacedSpan,
           },
           { title: "description" },
           {
