@@ -19,5 +19,5 @@ Basic.args = {
     title: "Bar",
     key: "bar"
   }],
-  content: [{foo: 1, bar: 2}]
+  content: [{"foo": "1", "bar": "2"}]
 };

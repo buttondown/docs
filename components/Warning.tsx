@@ -1,6 +1,11 @@
 import { ExclamationIcon } from "@heroicons/react/solid";
+import { ReactNode } from "react";
 
-export default function Warning({ children }) {
+type Props = {
+  children: ReactNode;
+}
+
+export default function Warning(props: Props) {
   return (
     <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
       <div className="flex">
@@ -11,7 +16,7 @@ export default function Warning({ children }) {
           />
         </div>
         <div className="ml-3">
-          <p className="text-sm text-yellow-700">{children}</p>
+          <p className="text-sm text-yellow-700">{props.children}</p>
         </div>
       </div>
     </div>

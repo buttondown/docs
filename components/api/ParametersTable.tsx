@@ -1,13 +1,13 @@
 import { CheckCircleIcon } from "@heroicons/react/outline";
 
 import { H3 } from "../Markdown";
-import Table from "../Table";
+import Table, { Row } from "../Table";
 
-function MonospacedSpan(s) {
+function MonospacedSpan(s: string) {
   return <span className="font-mono">{s}</span>;
 }
 
-function CheckMark(s) {
+function CheckMark(s: string) {
   return (
     s && (
       <CheckCircleIcon
@@ -20,7 +20,11 @@ function CheckMark(s) {
   );
 }
 
-export default function ParametersTable({ content }) {
+type Props = {
+  content: Array<Row>;
+}
+
+export default function ParametersTable({ content }: Props) {
   return (
     <>
       <H3>Parameters</H3>

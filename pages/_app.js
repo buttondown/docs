@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 
 import * as Fathom from "fathom-client";
+// import {Code } from "components/Markdown";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
@@ -23,7 +24,11 @@ function App({ Component, pageProps }) {
     };
   });
 
-  return <Component {...pageProps} />;
+  return (
+    <div>
+      <Component {...pageProps} />
+    </div>
+  );
 }
 
 export default App;

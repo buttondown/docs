@@ -21,7 +21,7 @@ import {
 } from "./Markdown";
 import Sidebar from "./Sidebar";
 
-export default function Layout({ meta, children }) {
+export default function Layout({ meta, children }: any) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (

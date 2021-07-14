@@ -1,7 +1,14 @@
 import { H2 } from "../Markdown";
 import ClosedBetaNotice from "./ClosedBetaNotice";
 
-export default function Endpoint({ title, method, path, beta }) {
+type Props = {
+  title: string,
+  method: string,
+  path: string,
+  beta?: boolean,
+}
+
+export default function Endpoint({ title, method, path, beta }: Props) {
   return (
     <>
       <H2>{title}</H2>

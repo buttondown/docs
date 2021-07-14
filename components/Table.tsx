@@ -1,13 +1,15 @@
 import classNames from "../lib/classNames";
 
-type Column = {
+export type Column = {
   title: string;
   key?: string;
   alignment?: string;
   component?: CallableFunction;
 }
 
-type Row = Object;
+export type Row = {
+  [key: string]: string
+};
 
 type TableProps = {
   columns: Array<Column>;
@@ -49,7 +51,7 @@ export default function Table(props: TableProps) {
                           keyIndex === 0
                             ? "px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 overflow-x-auto"
                             : "px-6 py-4 text-sm text-gray-500 overflow-x-auto",
-                          column.alignment === "right" && "float-right"
+                          column.alignment === "right" ? "float-right" : ""
                         )}
                         key={keyIndex}
                       >

@@ -10,7 +10,21 @@ import {
   TerminalIcon,
 } from "@heroicons/react/outline";
 
-const NAVIGATION = [
+
+export type NavigationSubitem = {
+  name: string;
+  href: string;
+}
+
+export type NavigationItem = {
+  name: string;
+  href: string;
+  icon: CallableFunction;
+  children?: Array<NavigationSubitem>;
+}
+
+
+const NAVIGATION: Array<NavigationItem> = [
   {
     name: "Welcome to Buttondown!",
     href: "/welcome",
