@@ -2,29 +2,30 @@
 
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl";
+import Prism from "prismjs";
 
-import Prism from "prism-react-renderer/prism";
+import classNames from "../lib/classNames";
 
 (typeof global !== "undefined" ? global : window).Prism = Prism;
 
 require("prismjs/components/prism-django");
 
-export const A = (props) => <a className="text-buttondown-blue" {...props} />;
-export const H1 = (props) => (
+export const A = (props: any) => <a className="text-buttondown-blue" {...props} />;
+export const H1 = (props: any) => (
   <h1 className="my-6 font-black text-3xl" {...props} />
 );
-export const H2 = (props) => (
+export const H2 = (props: any) => (
   <h2 className="my-4 font-bold text-2xl" {...props} />
-);
-export const H3 = (props) => (
+  );
+  export const H3 = (props: any) => (
   <h3 className="my-4 font-bold text-xl" {...props} />
 );
-export const H4 = (props) => (
+export const H4 = (props: any) => (
   <h4 className="my-4 text-lg font-semibold" {...props} />
 );
-export const P = (props) => <p className="my-4 text-lg" {...props} />;
+export const P = (props: any) => <p className="my-4 text-lg" {...props} />;
 
-export const Blockquote = (props) => (
+export const Blockquote = (props: any) => (
   <blockquote
     className="my-4 text-lg text-gray-700"
     style={{ borderLeft: "10px #ccc solid", paddingLeft: "10px" }}
@@ -32,7 +33,7 @@ export const Blockquote = (props) => (
   />
 );
 
-export const Ol = (props) => (
+export const Ol = (props: any) => (
   <ul
     className="text-lg"
     style={{ listStyleType: "decimal", paddingLeft: 30 }}
@@ -40,7 +41,7 @@ export const Ol = (props) => (
   />
 );
 
-export const Ul = (props) => (
+export const Ul = (props: any) => (
   <ul
     className="text-lg"
     style={{ listStyleType: "circle", paddingLeft: 30 }}
@@ -48,7 +49,7 @@ export const Ul = (props) => (
   />
 );
 
-export const Img = (props) => (
+export const Img = (props: any) => (
   <div>
     <img {...props} alt={props.alt || ""} className="mx-auto" />
     <figcaption className="text-sm text-center text-gray-700">
@@ -57,13 +58,13 @@ export const Img = (props) => (
   </div>
 );
 
-export const li = (props) => <li className="text-lg" {...props} />;
+export const Li = (props: any) => <li className="text-lg" {...props} />;
 
 // For some reason, MDX likes to insert a trailing empty line after pre blocks.
-const isEmptyTrailingLine = (tokens, tokenIndex) =>
+const isEmptyTrailingLine = (tokens: Array<any>, tokenIndex: number) =>
   tokenIndex === tokens.length - 1 && tokens[tokenIndex][0].empty;
 
-export const Code = ({ children, language }) => {
+export const Code = ({ children, language }: any) => {
   return (
     <Highlight
       {...defaultProps}
@@ -72,7 +73,7 @@ export const Code = ({ children, language }) => {
       language={language || "json"}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ ...style, padding: "20px" }}>
+        <pre className={classNames(className, "rounded")} style={{ ...style, padding: "20px" }}>
           {tokens.map(
             (line, i) =>
               !isEmptyTrailingLine(tokens, i) && (
@@ -89,4 +90,4 @@ export const Code = ({ children, language }) => {
   );
 };
 
-export const Pre = (props) => <div {...props} />;
+export const Pre = (props: any) => <div {...props} />;

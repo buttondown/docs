@@ -1,14 +1,15 @@
-import { Disclosure, Menu, Dialog, Transition } from "@headlessui/react";
-import NAVIGATION from "./Navigation";
-import icon from "../public/images/icon@72.png";
+import { Dialog, Disclosure, Transition } from "@headlessui/react";
+import { SearchIcon, XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import classNames from "../lib/classNames";
-import { Fragment, useState } from "react";
-import { SearchIcon, XIcon } from "@heroicons/react/outline";
+import { NextRouter,useRouter } from "next/router";
+import { Fragment } from "react";
 
-function NavigationItem(router, item) {
+import classNames from "../lib/classNames";
+import icon from "../public/images/icon@72.png";
+import NAVIGATION, { NavigationItem } from "./Navigation";
+
+function NavigationLink(router: NextRouter, item: NavigationItem) {
   return !item.children ? (
     <div key={item.name}>
       <Link href={item.href} passHref>
@@ -68,7 +69,7 @@ function NavigationItem(router, item) {
             </svg>
           </Disclosure.Button>
           <Disclosure.Panel className="space-y-1">
-            {item.children.map((subItem) => (
+            {(item.children || []).map((subItem) => (
               <Link key={subItem.name} href={subItem.href} passHref>
                 <a
                   className={classNames(
@@ -91,7 +92,12 @@ function NavigationItem(router, item) {
   );
 }
 
-export default function Sidebar({ setSidebarOpen, sidebarOpen }) {
+type Props = {
+  setSidebarOpen: (arg0: boolean) => void;
+  sidebarOpen: boolean;
+}
+
+export default function Sidebar({ setSidebarOpen, sidebarOpen }: Props) {
   const router = useRouter();
 
   return (
@@ -161,7 +167,7 @@ export default function Sidebar({ setSidebarOpen, sidebarOpen }) {
                 </div>
                 <div className="mt-5 flex-1 h-0 overflow-y-auto">
                   <nav className="px-2 space-y-1">
-                    {NAVIGATION.map((i) => NavigationItem(router, i))}
+                    {NAVIGATION.map((i) => NavigationLink(router, i))}
                   </nav>
                 </div>
               </div>
@@ -193,7 +199,7 @@ export default function Sidebar({ setSidebarOpen, sidebarOpen }) {
                 </div>
               </div>
               <nav className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
-                {NAVIGATION.map((i) => NavigationItem(router, i))}
+                {NAVIGATION.map((i) => NavigationLink(router, i))}
               </nav>
             </div>
           </div>

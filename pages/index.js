@@ -1,5 +1,6 @@
-import Layout from "../components/Layout";
 import { MDXProvider } from "@mdx-js/react";
+
+import Layout from "../components/Layout";
 
 const components = {};
 

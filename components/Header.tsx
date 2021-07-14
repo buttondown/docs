@@ -1,6 +1,10 @@
-import { MenuAlt2Icon, SearchIcon } from "@heroicons/react/outline";
+import { MenuAlt2Icon } from "@heroicons/react/outline";
 
-export default function Header({ setSidebarOpen }) {
+type Props = {
+  setSidebarOpen: (arg0: boolean) => void
+}
+
+export default function Header({ setSidebarOpen }: Props) {
   return (
     <div className="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200">
       <button

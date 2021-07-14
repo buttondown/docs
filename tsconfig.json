@@ -8,7 +8,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -21,6 +21,7 @@
   "baseUrl": ".",
   "include": [
     "next-env.d.ts",
+    "mdx.d.ts",
     "**/*.ts",
     "**/*.tsx"
   ],

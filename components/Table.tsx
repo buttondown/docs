@@ -1,6 +1,22 @@
 import classNames from "../lib/classNames";
 
-export default function Table({ columns, content }) {
+export type Column = {
+  title: string;
+  key?: string;
+  alignment?: string;
+  component?: CallableFunction;
+}
+
+export type Row = {
+  [key: string]: string
+};
+
+type TableProps = {
+  columns: Array<Column>;
+  content: Array<Row>;
+}
+
+export default function Table(props: TableProps) {
   return (
     <div className="flex flex-col">
       <div className="-my-2 overflow-x-auto">
@@ -9,7 +25,7 @@ export default function Table({ columns, content }) {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                  {columns.map((column, i) => (
+                  {props.columns.map((column, i) => (
                     <th
                       scope="col"
                       key={i}
@@ -24,18 +40,18 @@ export default function Table({ columns, content }) {
                 </tr>
               </thead>
               <tbody>
-                {content.map((row, idx) => (
+                {props.content.map((row, idx) => (
                   <tr
                     key={idx}
                     className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}
                   >
-                    {columns.map((column, keyIndex) => (
+                    {props.columns.map((column, keyIndex) => (
                       <td
                         className={classNames(
                           keyIndex === 0
                             ? "px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 overflow-x-auto"
                             : "px-6 py-4 text-sm text-gray-500 overflow-x-auto",
-                          column.alignment === "right" && "float-right"
+                          column.alignment === "right" ? "float-right" : ""
                         )}
                         key={keyIndex}
                       >

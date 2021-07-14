@@ -1,11 +1,9 @@
-import Table from "../Table";
+import classNames from "../../lib/classNames";
 import { Code, H3 } from "../Markdown";
+import Table, {Row} from "../Table";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
-function ResponseCodeBadge(text) {
+function ResponseCodeBadge(text: string) {
   return (
     <span
       className={classNames(
@@ -22,11 +20,15 @@ function ResponseCodeBadge(text) {
   );
 }
 
-function SampleResponse(text) {
-  return <Code>{JSON.stringify(text, null, 4)}</Code>;
+function SampleResponse(text: any) {
+  return <Code language="json">{JSON.stringify(text, null, 4)}</Code>;
 }
 
-export default function ResponsesTable({ content }) {
+type Props = {
+  content: Array<Row>
+};
+
+export default function ResponsesTable({ content }: Props) {
   return (
     <>
       <H3>Responses</H3>

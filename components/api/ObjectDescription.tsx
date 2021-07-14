@@ -1,14 +1,19 @@
-import Table from "../Table";
 import { Code } from "../Markdown";
+import Table, { Row } from "../Table";
 
-function MonospacedSpan(s) {
+function MonospacedSpan(s: string) {
   return <span className="font-mono">{s}</span>;
 }
 
-export default function ObjectDescription({ example, fields }) {
+type Props = {
+  example: string;
+  fields: Array<Row>;
+}
+
+export default function ObjectDescription({ example, fields }: Props) {
   return (
     <div>
-      <Code>{example}</Code>
+      <Code language="json">{example}</Code>
 
       <br />
 

@@ -1,14 +1,16 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import "tailwindcss/tailwind.css";
+
 import * as Fathom from "fathom-client";
-import "../styles/globals.css";
+// import {Code } from "components/Markdown";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 function App({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
     Fathom.load("FEFRJKHH", {
-      includedDomains: ["demo.buttondown.email"],
+      includedDomains: ["docs.buttondown.email"],
     });
 
     function onRouteChangeComplete() {
@@ -22,7 +24,11 @@ function App({ Component, pageProps }) {
     };
   });
 
-  return <Component {...pageProps} />;
+  return (
+    <div>
+      <Component {...pageProps} />
+    </div>
+  );
 }
 
 export default App;

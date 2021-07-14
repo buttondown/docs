@@ -1,28 +1,27 @@
-import Header from "../components/Header";
-import { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
-import Image from "next/image";
 import { MDXProvider } from "@mdx-js/react";
+import Head from "next/head";
+import { useState } from "react";
+
+import Footer from "./Footer";
+import Header from "./Header";
 import {
   A,
-  H2,
+  Blockquote,
+  Code,
   H1,
-  P,
+  H2,
   H3,
   H4,
-  Pre,
-  Code,
-  Ul,
-  Li,
   Img,
+  Li,
   Ol,
-  Blockquote,
+  P,
+  Pre,
+  Ul,
 } from "./Markdown";
+import Sidebar from "./Sidebar";
 
-import Head from "next/head";
-
-export default function Layout({ meta, children }) {
+export default function Layout({ meta, children }: any) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
