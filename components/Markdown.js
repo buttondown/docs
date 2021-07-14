@@ -1,4 +1,11 @@
 import Highlight, { defaultProps } from "prism-react-renderer";
+import theme from "prism-react-renderer/themes/nightOwl";
+
+import Prism from "prism-react-renderer/prism";
+
+(typeof global !== "undefined" ? global : window).Prism = Prism;
+
+require("prismjs/components/prism-django");
 
 export const A = (props) => <a className="text-buttondown-blue" {...props} />;
 export const H1 = (props) => (
@@ -15,19 +22,53 @@ export const H4 = (props) => (
 );
 export const P = (props) => <p className="my-4 text-lg" {...props} />;
 
-export const Ul = (props) => (
-  <ul style={{ listStyleType: "circle", paddingLeft: 30 }} {...props} />
+export const Blockquote = (props) => (
+  <blockquote
+    className="my-4 text-lg text-gray-700"
+    style={{ borderLeft: "10px #ccc solid", paddingLeft: "10px" }}
+    {...props}
+  />
 );
 
-export const li = (pops) => <li className="text-lg" {...props} />;
+export const Ol = (props) => (
+  <ul
+    className="text-lg"
+    style={{ listStyleType: "decimal", paddingLeft: 30 }}
+    {...props}
+  />
+);
+
+export const Ul = (props) => (
+  <ul
+    className="text-lg"
+    style={{ listStyleType: "circle", paddingLeft: 30 }}
+    {...props}
+  />
+);
+
+export const Img = (props) => (
+  <div>
+    <img {...props} className="mx-auto" />
+    <figcaption className="text-sm text-center text-gray-700">
+      {props.alt}
+    </figcaption>
+  </div>
+);
+
+export const li = (props) => <li className="text-lg" {...props} />;
 
 // For some reason, MDX likes to insert a trailing empty line after pre blocks.
 const isEmptyTrailingLine = (tokens, tokenIndex) =>
   tokenIndex === tokens.length - 1 && tokens[tokenIndex][0].empty;
 
-export const Code = (props) => {
+export const Code = ({ children, language }) => {
   return (
-    <Highlight {...defaultProps} code={props.children} language="json">
+    <Highlight
+      {...defaultProps}
+      theme={theme}
+      code={children}
+      language={language || "json"}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={{ ...style, padding: "20px" }}>
           {tokens.map(

@@ -1,0 +1,84 @@
+import Layout from "../../components/Layout";
+
+export const meta = {
+  title: "Monetizing your newsletter",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Monetizing your newsletter
+
+## Tiers
+
+Unfortunately, tiers are not supported at this time.
+
+## Gift subscriptions
+
+Gift subscriptions are available for paid newsletters — they're a way for you to manually gate in a subscriber who you want to receive premium emails even if they haven't paid. (Like, if they're friends or family or something like that.) From Buttondown's perspective, they are a paid subscriber, but the gift recipient will never be prompted to pay and will receive a notification that they've been gifted a premium subscription.
+
+As of right now, gift subscriptions last forever. If you're interested in short-lived gift subscriptions, I recommend setting up a **free trial** for your paid newsletter!
+
+## How do subscribers cancel their premium subscription?
+
+Cancelling a premium subscription is easy! Just unsubscribe from the newsletter just like any other one.
+
+If you’re interested in remaining a free subscriber, re-subscribe and you’ll be back in business.
+
+## Disabling the credit card prompt for paid newsletters
+
+If you have a newsletter that is specifically based on free trials or some other bespoke flow, you might find it useful to disable the credit card prompt so prospective subscribers aren't asked to pay as soon as they put in their credit card information.
+
+You can do this by adding the `GET` param of `without_payment_prompt` to your URL.
+
+For instance, if you had a paid newsletter at, say, `https://buttondown.email/weeknotes`, you'd change it to `https://buttondown.email/weeknotes?without_payment_prompt=true`!
+
+## Pay what you want
+
+In particular, Buttondown now supports a **Pay What You Want** model if you want to allow your subscribers to be patrons and support your writing without gating any specific content. You can head over to the [Paid Subscriptions](http://buttondown.email/settings/paid-subscriptions) page to get started.
+
+Additionally, you can do one of two things if you’re looking for something more akin to a patronage model:
+
+1. Set a payment tier for your paid newsletter and then only release “free” emails. This gives subscribers the ability to sustainably support your writing without actually gating any content behind that subscription.
+2. Drop a link in your newsletter to [ko-fi](<[https://ko-fi.com/](https://ko-fi.com/)>) or [Buy Me a Coffee](<[https://www.buymeacoffee.com/](https://www.buymeacoffee.com/)>) to let folks support your work if they are so inclined.
+
+## Mixing free and paid content
+
+You specify each outgoing email as a "free" post going to all subscribers or a "premium" post going to just paid subscribers.
+
+## Letting premium subscribers view old premium emails
+
+To grant your premium subscribers the ability to read your full back catalog, you have two options.
+
+### Using the Buttondown interface
+
+If you go to your [subscribers](https://buttondown.email/subscribers?order=-creation_date&filter=&page=1) page and tap on a subscriber, you'll get a customized Archives link that you can manually send them which contains a full archive of all your posts, free and premium:
+
+![A screenshot of a selected subscriber and the concomitant "Archives" button.](/images/premium-archive-interface.png)
+
+### Using shortcodes
+
+If you want to provide a link in your emails to each subscriber's paid archive, you can use the following shortcake:
+
+```html
+{{ premium_archive_link }}
+```
+
+This generates a unique-per-subscriber ID for their paid specific paid archives. Like the link generated through Buttondown's interface, it will expire once the subscriber's paid subscription lapses. A common tactic is to reference it in your footer for _all_ paid subscribers, like so:
+
+```html
+{% if subscriber.subscription_type == "premium" %} You can always view your full
+archives [here]({{ premium_archive_link }}). {% endif %}
+```
+
+## Why Buttondown doesn't take a cut
+
+I have a longer, more rambling answer, but I'll start with the short version: **Buttondown makes money by charging for features and infrastructure**. Paid newsletters is a feature, not a business model: it is a capability you get.
+
+"But aren't incentives aligned when you take a cut of my profit?", you might find yourself asking.
+
+Well — _sort of_. It means that my incentives are very well aligned with a certain brand of writer/publication: one who is already making a whole lot of money, who has a very large social graph, and whose path of generating money is solely through paid subscriptions. There are lots of great writers who fit that profile — but most of my favorite newsletters do not. I want to make sure that I focus on the core parts of making Buttondown great: an elegant, useful interface and focus on the _writing_ experience, and I wanted to intentionally choose a pricing model that fits that.
+
+"But you charge based on subscriber count!", you might respond.
+
+Yeah! I don't love that — it was explicitly designed to make sure that Buttondown doesn't have any customers who are _in the red,_ which is to say that they are a net-negative on my bottom line. I don't have venture capital; I want this to be a sustainable business for the next twenty years, and that means I need to make sure I at least break even for each customer. The "pay-per-thousand subscribers" pricing is successful at that, even if its inelegant and I'd rather have a more easily-digestible pricing model at some point in the future.
+
+On a more business-minded note, I also feel that the current iteration of most paid subscription platforms — both inside and outside the world of newsletters — is a fairly naive wrapper around platform APIs like Stripe Connect. On a long-term (or even medium-term — say, three-to-five years) horizon, charging rent on top of those abstractions is not sustainable: the margin available for the taking is going to go down to zero, rather than 10% or whatever. It's important that I have a business model that is resilient to that happening.

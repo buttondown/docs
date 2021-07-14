@@ -1,0 +1,125 @@
+import Layout from "../../components/Layout";
+import Warning from "../../components/Warning";
+import { H4, P, Code, Pre } from "../../components/Markdown";
+import Table from "../../components/Table";
+
+export const meta = {
+  title: "Sending your first email",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Sending your first email
+
+## Uploading images
+
+Uploading images is easy! You can just drag and drop them into the main text area of your email; it'll be automatically uploaded to S3 and inserted into the text.
+
+Buttondown uses Amazon S3 (a fairly common file hosting platform) to safely and securely store your images. They last indefinitely by default; there's no interface to delete images that you've uploaded to Buttondown, but you can do so via the API (or email me and I can manually delete them on your behalf.) This means that even if you were to delete the email in which images are referenced, the images themselves still exist on Buttondown's servers.
+
+## Custom unsubscribe links
+
+This answer assumes a baseline familiarity with Markdown.
+
+Buttondown automatically appends an unsubscribe link to the footer of all emails you send, but you may want to manually place one in your email as well (for instance, at the top of the email, if it's an infrequent newsletter). To generate the unsubscription URL, use the `{{ unsubscribe_url }}` shortcode.
+
+Combining this with Markdown, a link would look something like:
+
+```markdown
+[Click here to unsubscribe!]({{ unsubscribe_url }}).
+```
+
+(This link will render on draft emails, but the resultant URL won't do anything of importance. I'm working on a better solution so you can 'click through' and verify that the URL is well-formed.)
+
+## Tags and segmentation
+
+Buttondown offers _tags_ to do this; subscribers can have one or more tags.
+
+You can send emails including (or excluding!) certain tags, making it easy to
+tailor your newsletters' content to who's going to enjoy it the most or find it the most relevant
+
+There are many ways to apply a tag to a subscriber, once you've created them:
+
+- Customizing your [subscription form](https://blog.buttondown.email/2019/07/17/customizing-your-subscription-form-to-tag-new-subscribers)
+- Manually tagging them
+- Setting them via the [API](https://api.buttondown.email/v1/schema)
+
+## Mail merges
+
+A mail merge is a catch-call term for sending out emails with specific fields changed. For example, being able to send out an email that says something like:
+
+> Hello, {first_name}!
+
+With "{first_name}" being replaced by the first name of the recipient of that email.
+
+Buttondown supports mail merges through subscriber metadata. You can set metadata for a given subscriber either via the API or manually, by going to the "Notes" section for a given subscriber:
+
+![A screenshot of the subscriber details modal, where metadata can be set.](/images/metadata.png)
+
+You can then refer to metadata (such as the metadata above) in your email by using the following variable: `{{ subscriber.metadata.first_name }}`.
+
+You can also conditionally show a paragraph if metadata is set using a snippet like the following:
+
+<!-- prettier-ignore -->
+```html
+{% if subscriber.metadata.first_name %} 
+Hello {{ subscriber.metadata.first_name}}! 
+{% else %} 
+Hello friend!
+{% endif %}
+```
+
+## Sending emails based on an RSS feed
+
+You'll want to get set up with our [Zapier integration](/integrations/zapier).
+
+## After sending
+
+### Updating your email's slug
+
+If you update the slug of an email that's already been sent out, worry not! The old link that references an old slug will still work; Buttondown keeps track of historical slugs for each email and redirects readers who go to the old link accordingly.
+
+### Updating your email's issue number
+
+Buttondown tries to be clever with determining what issue number your newsletter is on. Sometimes it is either _too_ clever or not nearly clever enough, though, and you end up in a situation where your seventh issue is showing up as your eighth or vice-versa. This is particularly pernicious as a problem if you're bringing in archives from another system.
+
+You can manually edit your issue numbers by going to the **Edit Email** screen in your Archive page. The **ID** field corresponds with the issue number:
+
+![A screenshot of the 'edit email' modal, available after sending the email.](/images/edit-email-modal.png)
+
+In particular, Buttondown will respect your existing issue numbers and always go one greater than the largest issue number, so if you change your most recent email to be the "right" number everything subsequent from that should be in order.
+
+(And, of course, you can disable issue numbers altogether by signing up for Buttondown for Professionals.)
+
+### Adding share links to your email
+
+You can add share links to your email by customizing your newsletter's footer in your [Design settings](https://buttondown.email/settings/design) page.
+
+Then, you can add custom Markdown links using some template variables that Buttondown assigns you:
+
+```markup
+If you liked this email, please share it:
+
+- on [Twitter](https://twitter.com/intent/tweet?url={{email_link}}&text={{email.subject}})
+- on [Facebook](https://www.facebook.com/sharer/sharer.php?u={{email_link}})
+- on [LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url={{email_link}})
+```
+
+Interested in other social networks besides Twitter and Facebook? [Email me](mailto:justin@buttondown.email) and I'll add them!
+
+## Caveats
+
+### A warning about the in-browser preview
+
+This is a common and unfortunate question. The short answer is: **email is weird, email inboxes are weird, and there's nothing you or I or anyone can do about it.** Buttondown's markdown previewing is meant to closely resemble the inbox from a content perspective (links and HTML tags and all of those things appear as they should), but will never be able to accurate resemble the inbox from a _stylistic_ perspective (things being arranged and formatted as you'd expect.)
+
+Our friends over at Litmus have a [really useful, detailed answer](https://help.litmus.com/article/158-why-do-some-email-clients-show-my-email-differently-than-others):
+
+> Web-based email clients (such as [Outlook.com](http://outlook.com/) or Gmail) will certainly perform most the tasks listed above, but they also have a larger, more difficult job. They have to prepare the HTML to be converted into HTML that's safe to show within their own email client's HTML. This is a surprisingly difficult thing to do and most web-based email clients' preprocessors will err on the side of being overly restrictive and removing anything with even the slightest potential to affect the layout of their email client. We'll cover the various mistakes made by these preprocessors a little later, but you should expect this to be the second biggest cause of headaches when designing HTML emails - the first biggest cause is still to be discussed.
+
+### Why is my email all ...purple?
+
+If you're previewing multiple drafts of an email in Gmail, you might notice that the text is all purple! This isn't a Buttondown thing — this is Gmail thinking that multiple emails sent in the same day with the same subject are responses to one another, and it displays the thread of emails in a "conversation view". You can read about Gmail's conversation view [here](https://support.google.com/mail/thread/5162234?hl=en):
+
+> The purple colouration is a display only feature that only exists in the display where it is being seen. It is not sent in any messages and you can use Gmail's show original feature to verify that - you will need to know a little about HTML coding.
+
+> The colour is applied to text that is repeated from a previous message in the current conversation and the reason it is visible to recipients is because they also are using Gmail and they also have copies of previous messages in the current conversation. What gets coloured in their conversation might be quite different from what gets coloured in yours.

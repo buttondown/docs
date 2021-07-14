@@ -1,0 +1,28 @@
+import Layout from "../../components/Layout";
+
+export const meta = {
+  title: "Metadata",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+## What is metadata?
+
+This is a great question! The short answer is "structured key-value data". As of this writing, you can only apply metadata to subscribers, meaning that you can attach any sort of key-value pairs you'd like to your subscribers. This can be things like identifying information such as first and last names, so you can apply "mail merges" to your newsletter; or it could be for internal use only, such as customer IDs to tie subscribers back to your web application.
+
+I'd recommend also reading up on [Stripe's explanation of metadata](https://stripe.com/docs/api/metadata) — Buttondown's implementation and philosophy behind it is very similar.
+
+## What constitutes valid metadata?
+
+Internally, metadata is stored as raw JSON, so you can be pretty liberal with what you place into it. (If you try and view or set metadata using the Buttondown interface, there will likely be some stringification issues — for complex use cases, it's recommended to use the API or an integration like Zapier.)
+
+## Searching for metadata
+
+You can search for metadata in Buttondown by using the `key:value` notation. For instance, if you want to find all subscribers with a metadata key-value pair of `{"location": "Seattle"}`, you type in `location:seattle`:
+
+![A screenshot showing example results when one searches for metadata.](/images/searching-for-metadata.png)
+
+At the moment, this does not work with more than one key-value pair; `location:seattle industry:finance` will not do what you would like it to. (It will _eventually_, though!)
+
+## Programmatically using metadata.
+
+Interested in setting metadata via the API? Check out the [API documentation](/api-reference/subscribers)!

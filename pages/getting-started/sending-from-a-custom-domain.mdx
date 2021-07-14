@@ -1,0 +1,49 @@
+import Layout from "../../components/Layout";
+
+export const meta = {
+  title: "Sending from a custom domain",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Sending from a custom domain
+
+## Dealing with emails that are ending up in spam
+
+If you're not using a custom sending domain, then this is likely because you're sending your email from Buttondown's mail servers, but 'signing' it with your own email address. This looks like spam (or at least mistaken identity) to most mailboxes, especially if you're sending from a `@gmail.com` or `@hotmail.com` account.
+
+To remediate this, you should send your emails directly from Buttondown:
+
+![A screenshot of the setting to allow sending from Buttondown's servers.](/images/sending-from-buttondown.png)
+
+This will cause emails to come from your-username@mg.buttondown.email, which will have very high deliverability:
+
+![A screenshot of Gmail showing an email sent from Buttondown's servers.](/images/sending-from-buttondown-2.png)
+
+## Dealing with 'softfails' in specific
+
+Unfortunately, SPF only supports a single DNS entry.
+
+If you're using the same custom email domain for Buttondown and for an inbox provider such as GSuite, this means your two SPF entries may be in conflict!
+
+Instead of appending an extra TXT entry, the proper solution is actually to edit the existing one into something like `v=spf1 include:_spf.google.com include:mailgun.org ~all`, specifying both domains.
+
+Otherwise, some mailboxes may read the GSuite one and ignore the Mailgun one (set by Buttondown), causing a softfail and thus lower deliverability.
+
+## The difference between hosting domains and sending domains
+
+**Hosting on a custom domain** means using a domain outside of `[buttondown.email](http://buttondown.email)` to host your newsletter and archives — for example, [newsletter.jmduke.com](http://newsletter.jmduke.com).
+
+**Sending from a custom domain** means setting up your DNS records so that Buttondown sends outgoing emails from your domain, improving reputation and delivery metrics.
+
+Hosting requires you sign up for [Buttondown for Professionals](http://buttondown.email/pricing); sending does not. This is because, well, sending emails that [actually get delivered](https://blog.buttondown.email/2019/05/16/sending-newsletters-that-get-delivered) is pretty dang important, and it's scummy to hide that behind a paywall.
+
+## Can I use the same domain for hosting and sending?
+
+Unfortunately, some DNS providers will not let you set up the exact same domain or subdomain for both sending emails and as your custom archive.
+
+For these DNSes, we recommend setting up completely separate subdomains — something along the lines of the following:
+
+- `[newsletter.janedoe.com](http://newsletter.janedoe.com)` for your custom newsletter domain (where folks view archives and subscribe to your newsletter)
+- `[mail.janedoe.com](http://mail.janedoe.com)` for your custom sending domain (where outgoing emails come from)
+
+This is the best option to preserve the deliverability of your newsletter (and, frankly, most people are not particularly confused by this at all.)

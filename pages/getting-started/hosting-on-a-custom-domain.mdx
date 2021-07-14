@@ -1,0 +1,42 @@
+import Layout from "../../components/Layout";
+import Warning from "../../components/Warning";
+import { H4, P } from "../../components/Markdown";
+
+export const meta = {
+  title: "Hosting on a custom domain",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Hosting on a custom domain
+
+## Setting up your custom hosting domain
+
+1. If you're not signed up for **Buttondown for Professionals**, go ahead and [upgrade your account](https://buttondown.email/settings/billing)!
+2. Add the custom domain in your [settings page](https://buttondown.email/settings).
+
+![A screenshot of the custom domain modal.](/images/custom-domain.png)
+
+3. Change the `CNAME` record of the domain you'd like to use as your custom domain to `buttondown.email`. The prompt should walk you through the rest of the process?
+
+## Using a subdomain of `buttondown.email`
+
+This isn't possible to do in the UI, but there are no technical limitations. [Email me](mailto:justin@buttondown.email) and I'll get it wired up for you!
+
+## The difference between hosting domains and sending domains
+
+**Hosting on a custom domain** means using a domain outside of `[buttondown.email](http://buttondown.email)` to host your newsletter and archives — for example, [newsletter.jmduke.com](http://newsletter.jmduke.com).
+
+**Sending from a custom domain** means setting up your DNS records so that Buttondown sends outgoing emails from your domain, improving reputation and delivery metrics.
+
+Hosting requires you sign up for [Buttondown for Professionals](http://buttondown.email/pricing); sending does not. This is because, well, sending emails that [actually get delivered](https://blog.buttondown.email/2019/05/16/sending-newsletters-that-get-delivered) is pretty dang important, and it's scummy to hide that behind a paywall.
+
+## Can I use the same domain for hosting and sending?
+
+Unfortunately, some DNS providers will not let you set up the exact same domain or subdomain for both sending emails and as your custom archive.
+
+For these DNSes, we recommend setting up completely separate subdomains — something along the lines of the following:
+
+- `[newsletter.janedoe.com](http://newsletter.janedoe.com)` for your custom newsletter domain (where folks view archives and subscribe to your newsletter)
+- `[mail.janedoe.com](http://mail.janedoe.com)` for your custom sending domain (where outgoing emails come from)
+
+This is the best option to preserve the deliverability of your newsletter (and, frankly, most people are not particularly confused by this at all.)

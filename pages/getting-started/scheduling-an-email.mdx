@@ -1,0 +1,27 @@
+import Layout from "../../components/Layout";
+import Warning from "../../components/Warning";
+import { H4, P } from "../../components/Markdown";
+
+export const meta = {
+  title: "Scheduling an email",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Scheduling an email
+
+Scheduling an email is easy and — well, not _fun_, but not _not_ fun.
+
+1. Click the "_Sending immediately_" button in the Write view to choose a time at which to send your email.
+2. When you're ready to send the email, click the blue "_Schedule to your subscribers_" button to set a time to schedule it!
+
+**Note**: Your email will not be scheduled until you confirm your schedule by hitting that big blue button in step two! This trips up a lot of people; for that I apologize.
+
+![A screenshot of the Write page, mid-scheduling.](/images/scheduling.png)
+
+## Caveats
+
+### If I schedule an email for next week, will it go out to subscribers who have joined between now and then?
+
+Yes!
+
+The “send to 1239 subscribers” (or maybe more — or maybe less — who am I to judge?) count appearing in the interface is an estimate, not a sacrosanct guideline. If you schedule an email for two weeks from now, that email will still send to folks who have subscribed between now and then, not just the 1239 who exist right once you hit the button. (Think of it as the computer equivalent of you manually logging in and going and hitting send — nothing gets set in stone!)

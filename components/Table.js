@@ -33,8 +33,8 @@ export default function Table({ columns, content }) {
                       <td
                         className={classNames(
                           keyIndex === 0
-                            ? "px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                            : "px-6 py-4 text-sm text-gray-500",
+                            ? "px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 overflow-x-auto"
+                            : "px-6 py-4 text-sm text-gray-500 overflow-x-auto",
                           column.alignment === "right" && "float-right"
                         )}
                         key={keyIndex}

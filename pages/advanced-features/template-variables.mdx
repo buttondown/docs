@@ -1,0 +1,89 @@
+import Layout from "../../components/Layout";
+import Warning from "../../components/Warning";
+import { H4, P, Code } from "../../components/Markdown";
+import Table from "../../components/Table";
+
+export const meta = {
+  title: "Template variables",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Template variables
+
+### Within your email
+
+<Table
+  columns={[
+    {
+      title: "Variable",
+      key: "variable",
+      component: (p) => <strong className="font-mono">{p}</strong>,
+    },
+    {
+      title: "Description",
+      key: "description",
+    },
+    {
+      title: "Example",
+      key: "example",
+      component: (p) => <Code language="handlebars">{p}</Code>,
+    },
+  ]}
+  content={[
+    {
+      variable: "subscriber.metadata",
+      description: "Access to the metadata for a given subscriber",
+      example:
+        "Hi there, {{ subscriber.metadata.first_name }}! You're looking dapper today.",
+    },
+    {
+      variable: "subscriber.email",
+      description: "Access to the email address for a given subscriber",
+      example: "You signed up for this email via {{ subscriber.email }}.",
+    },
+    {
+      variable: "subscriber.tags",
+      description: "Access to the tag names of a given subscriber",
+      example: `{% if "python" in subscriber.tags %}
+You know, I bet you're interested in Python!
+{% elif "html" in subscriber.tags %}
+You know, you strike me as a web developer.
+{% else %}
+I don't know what you're interested in!
+{% endif %}`,
+    },
+    {
+      variable: "subject",
+      description: "The subject of the email you're sending out",
+      example: `Today, we'll be discussing {{ subject }}.`,
+    },
+    {
+      variable: "unsubscribe_url",
+      description:
+        "A personalized URL for the given subscriber to unsubscribe with",
+      example:
+        "Not interested in this email? No worries — [unsubscribe here]({{ unsubscribe_url }}).",
+    },
+    {
+      variable: "subscribe_url",
+      description: "A generic URL for your subscription page",
+      example:
+        "Did someone forward you this email? If so, you can [subscribe here]({{ subscribe_url }}).",
+    },
+    {
+      variable: "email_url",
+      description: "The permalink of the email being sent out",
+      example: "You can also view this email [online]({{ email_url }}).",
+    },
+    {
+      variable: "email.secondary_id",
+      description: "The issue number of the email being sent out",
+      example: "This is issue #{{ email.secondary_id }} of my newsletter!",
+    },
+    {
+      variable: "email.publish_date",
+      description: "The raw date time of the email being sent out",
+      example: "Sent on {{ email.publish_date }}.",
+    },
+  ]}
+/>

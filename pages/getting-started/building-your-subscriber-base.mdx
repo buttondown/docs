@@ -1,0 +1,78 @@
+import Layout from "../../components/Layout";
+import Warning from "../../components/Warning";
+import { H4, P } from "../../components/Markdown";
+
+export const meta = {
+  title: "Building your subscriber base",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Building your subscriber base
+
+## Using HTML
+
+Go over to the [embedding and sharing page](https://buttondown.email/share) and Buttondown will walk you through exactly how this is done:
+
+![A screenshot of the embedding and sharing page.](/images/embed-form.png)
+
+## Tagging your subscribers
+
+If you're using Buttondown's subscribe page (e.g. `https://buttondown.email/jmduke`), you can automatically add new tags to new subscribers by adding a **query parameter** to the URL, such as:
+
+```markup
+https://buttondown.email/jmduke?tag=python
+```
+
+This will automatically give folks who subscribe through the link a tag named `python`.
+
+If you want to apply multiple tags at once:
+
+```markup
+https://buttondown.email/jmduke?tag=python&tag=vue
+```
+
+## Adding metadata to your subscribers
+
+I'm a fan of showing, not telling, so I'll lead with the relevant code sample:
+
+[JSFiddle](https://jsfiddle.net/buttondown/t53cr4gy/21/)
+
+The trick is to set inputs with the `name` of `metadata__<key>`, as you can see in the code sample above:
+
+```markup
+<input
+  id="first-name"
+  type="text"
+  name="metadata__first-name"
+  required
+  placeholder="John"
+/>
+```
+
+Note that these can be freeform text inputs, like above, or `hidden` inputs if you instead want to invisibly augment your subscription forms with given metadata. (For instance, you can imagine setting metadata for everyone coming through a particular tag or webpage.)
+
+## Automatically sending an email to new subscribers
+
+You can do this by going to your [Subscribing settings page](https://buttondown.email/settings/subscribing) and checking out the section entitled **I'd like to send my new subscribers...**:
+
+![A screenshot of the Subscribing settings page.](/images/subscribing.png)
+
+## Dealing with spammy subscribers
+
+Chances are, this is because you're using an embedded subscription widget and you don't have subscription confirmation turned on. First off — you should turn that on!
+
+I'll be building out captcha support in the future as well but in the meantime, if you still are seeing lots of spammy subscribers [email me](mailto:justin@buttondown.email) and I'll take a look.
+
+## Caveats
+
+### Captcha support
+
+I am piloting a program using [https://www.hcaptcha.com/](https://www.hcaptcha.com/) and will be bringing it (on an opt-in basis) to GA soon!
+
+### Instagram
+
+Instagram's browser is a little, uh, finicky. Take out the `target="popupwindow"` attribute from the form tag and you should be good to go.
+
+### medium
+
+To embed your subscription widget in Medium, all you need to do is post the link to your newsletter (e.g. https://buttondown.email/jmduke) in Medium — it should automatically embed.

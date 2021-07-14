@@ -2,8 +2,23 @@ import Header from "../components/Header";
 import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
+import Image from "next/image";
 import { MDXProvider } from "@mdx-js/react";
-import { A, H2, H1, P, H3, H4, Pre, Code, Ul, Li } from "./Markdown";
+import {
+  A,
+  H2,
+  H1,
+  P,
+  H3,
+  H4,
+  Pre,
+  Code,
+  Ul,
+  Li,
+  Img,
+  Ol,
+  Blockquote,
+} from "./Markdown";
 
 import Head from "next/head";
 
@@ -37,7 +52,10 @@ export default function Layout({ meta, children }) {
                 pre: Pre,
                 code: Code,
                 ul: Ul,
+                ol: Ol,
                 li: Li,
+                blockquote: Blockquote,
+                img: Img,
               }}
             >
               {children}
