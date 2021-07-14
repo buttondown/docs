@@ -1,4 +1,4 @@
-import { MenuAlt2Icon, SearchIcon } from "@heroicons/react/outline";
+import { MenuAlt2Icon } from "@heroicons/react/outline";
 
 export default function Header({ setSidebarOpen }) {
   return (
