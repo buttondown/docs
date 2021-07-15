@@ -67,7 +67,7 @@ const NAVIGATION: Array<NavigationItem> = [
   },
   {
     name: "Advanced features",
-    href: "/features",
+    href: "/advanced-features",
     icon: LightningBoltIcon,
     children: [
       {
@@ -105,10 +105,6 @@ const NAVIGATION: Array<NavigationItem> = [
       {
         name: "Email automation",
         href: "/advanced-features/email-automation",
-      },
-      {
-        name: "Exporting your data",
-        href: "/advanced-features/exporting-your-data",
       },
     ],
   },
@@ -169,6 +165,19 @@ const NAVIGATION: Array<NavigationItem> = [
     name: "Odds and ends",
     href: "/odds-and-ends",
     icon: AnnotationIcon,
+    children: [
+      {
+        name: "Privacy and security",
+        href: "/odds-and-ends/privacy-and-security",
+      },
+      {
+        name: "Exporting your data",
+        href: "/odds-and-ends/exporting-your-data",
+      },
+      { name: "Offboarding", 
+      href: "/odds-and-ends/offboarding",
+    },
+    ],
   },
   {
     name: "Need more help?",
