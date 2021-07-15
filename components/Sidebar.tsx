@@ -3,7 +3,8 @@ import { SearchIcon, XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { NextRouter,useRouter } from "next/router";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+import Fuse from "fuse.js";
 
 import classNames from "../lib/classNames";
 import icon from "../public/images/icon@72.png";
@@ -92,9 +93,201 @@ function NavigationLink(router: NextRouter, item: NavigationItem) {
   );
 }
 
+const names = [
+  {
+    "title": "Old Man's War",
+    "author": {
+      "firstName": "John",
+      "lastName": "Scalzi"
+    }
+  },
+  {
+    "title": "The Lock Artist",
+    "author": {
+      "firstName": "Steve",
+      "lastName": "Hamilton"
+    }
+  },
+  {
+    "title": "HTML5",
+    "author": {
+      "firstName": "Remy",
+      "lastName": "Sharp"
+    }
+  },
+  {
+    "title": "Right Ho Jeeves",
+    "author": {
+      "firstName": "P.D",
+      "lastName": "Woodhouse"
+    }
+  },
+  {
+    "title": "The Code of the Wooster",
+    "author": {
+      "firstName": "P.D",
+      "lastName": "Woodhouse"
+    }
+  },
+  {
+    "title": "Thank You Jeeves",
+    "author": {
+      "firstName": "P.D",
+      "lastName": "Woodhouse"
+    }
+  },
+  {
+    "title": "The DaVinci Code",
+    "author": {
+      "firstName": "Dan",
+      "lastName": "Brown"
+    }
+  },
+  {
+    "title": "Angels & Demons",
+    "author": {
+      "firstName": "Dan",
+      "lastName": "Brown"
+    }
+  },
+  {
+    "title": "The Silmarillion",
+    "author": {
+      "firstName": "J.R.R",
+      "lastName": "Tolkien"
+    }
+  },
+  {
+    "title": "Syrup",
+    "author": {
+      "firstName": "Max",
+      "lastName": "Barry"
+    }
+  },
+  {
+    "title": "The Lost Symbol",
+    "author": {
+      "firstName": "Dan",
+      "lastName": "Brown"
+    }
+  },
+  {
+    "title": "The Book of Lies",
+    "author": {
+      "firstName": "Brad",
+      "lastName": "Meltzer"
+    }
+  },
+  {
+    "title": "Lamb",
+    "author": {
+      "firstName": "Christopher",
+      "lastName": "Moore"
+    }
+  },
+  {
+    "title": "Fool",
+    "author": {
+      "firstName": "Christopher",
+      "lastName": "Moore"
+    }
+  },
+  {
+    "title": "Incompetence",
+    "author": {
+      "firstName": "Rob",
+      "lastName": "Grant"
+    }
+  },
+  {
+    "title": "Fat",
+    "author": {
+      "firstName": "Rob",
+      "lastName": "Grant"
+    }
+  },
+  {
+    "title": "Colony",
+    "author": {
+      "firstName": "Rob",
+      "lastName": "Grant"
+    }
+  },
+  {
+    "title": "Backwards, Red Dwarf",
+    "author": {
+      "firstName": "Rob",
+      "lastName": "Grant"
+    }
+  },
+  {
+    "title": "The Grand Design",
+    "author": {
+      "firstName": "Stephen",
+      "lastName": "Hawking"
+    }
+  },
+  {
+    "title": "The Book of Samson",
+    "author": {
+      "firstName": "David",
+      "lastName": "Maine"
+    }
+  },
+  {
+    "title": "The Preservationist",
+    "author": {
+      "firstName": "David",
+      "lastName": "Maine"
+    }
+  },
+  {
+    "title": "Fallen",
+    "author": {
+      "firstName": "David",
+      "lastName": "Maine"
+    }
+  },
+  {
+    "title": "Monster 1959",
+    "author": {
+      "firstName": "David",
+      "lastName": "Maine"
+    }
+  }
+]
+
 type Props = {
   setSidebarOpen: (arg0: boolean) => void;
   sidebarOpen: boolean;
+}
+
+function Search() {
+  const [results, setResults] = useState()
+
+  const search = async (e) => {
+    const { value } = e.currentTarget
+    const fuse = new Fuse(names, {
+      keys: ["author.firstName"]
+    })
+
+    setResults(fuse.search(value))
+  }
+
+  return (
+    <div>
+    <div className="flex mx-2 px-2 py-1 border-2 rounded border-gray-400 font-weight-bold text-gray-300 bg-gray-700 text-sm font-semibold">
+      <SearchIcon className="h-5 w-4 mr-2" aria-hidden="true" />
+      Search
+    </div>
+      <input
+        type="text"
+        placeholder="Search"
+        onChange={search}
+      />
+      <pre>Results: {JSON.stringify(results, null, 2)}</pre>
+  </div>
+  )
 }
 
 export default function Sidebar({ setSidebarOpen, sidebarOpen }: Props) {
@@ -193,10 +386,7 @@ export default function Sidebar({ setSidebarOpen, sidebarOpen }: Props) {
                 &nbsp; Buttondown
               </div>
               <div className="bg-gray-800 px-2 space-y-1 pt-4 text-gray-400">
-                <div className="flex mx-2 px-2 py-1 border-2 rounded border-gray-400 font-weight-bold text-gray-300 bg-gray-700 text-sm font-semibold">
-                  <SearchIcon className="h-5 w-4 mr-2" aria-hidden="true" />
-                  Search
-                </div>
+              <Search />
               </div>
               <nav className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
                 {NAVIGATION.map((i) => NavigationLink(router, i))}

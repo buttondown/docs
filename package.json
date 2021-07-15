@@ -17,6 +17,7 @@
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^11.0.1",
     "fathom-client": "^3.0.0",
+    "fuse.js": "^3.6.1",
     "next": "11.0.1",
     "prism-react-renderer": "^1.2.1",
     "prismjs": "^1.24.1",
