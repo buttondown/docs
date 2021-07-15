@@ -36,6 +36,10 @@ A subscriber looks like this:
     { field: "notes", type: "string" },
     { field: "referrer_url", type: "url" },
     { field: "secondary_id", type: "int" },
+    {
+      field: "subscriber_type",
+      type: <a href="#subscriber-type">SubscriberType</a>,
+    },
     { field: "source", type: "string" },
     { field: "tags", type: "array<uuid>" },
     { field: "utm_campaign", type: "string" },
@@ -89,6 +93,8 @@ A subscriber looks like this:
   ]}
 />
 
+<a name="subscriber-type"></a>
+
 #### Subscriber types
 
 <Table
@@ -106,6 +112,11 @@ A subscriber looks like this:
         "normal subscribers who have not unsubscribed or deactivated in any way",
     },
     {
+      type: "removed",
+      description:
+        "subscribers who have been explicitly removed by the newsletter (notably, this does not mean unsubscribers: use /v1/unsubscribers for that!)",
+    },
+    {
       type: "unactivated",
       description:
         "subscribers who have not yet confirmed their email or opted in",
@@ -116,9 +127,33 @@ A subscriber looks like this:
         "subscribers who have not yet purchased a subscription to your newsletter",
     },
     {
-      type: "removed",
+      type: "premium",
+      description: "subscribers with active premium subscriptions",
+    },
+    {
+      type: "gifted",
       description:
-        "subscribers who have been explicitly removed by the newsletter (notably, this does not mean unsubscribers: use /v1/unsubscribers for that!)",
+        "subscriebers that have been gifted free premium subscriptions",
+    },
+    {
+      type: "unsubscribed",
+      description:
+        "subscribers that have voluntarily unsubscribed from your newsletter",
+    },
+    {
+      type: "spammy",
+      description:
+        "subscribers that have been deemed spammy by Buttondown's automated systems",
+    },
+    {
+      type: "trialed",
+      description:
+        "subscribers that are temporarily receiving a premium subscription to your newsletter",
+    },
+    {
+      type: "paused",
+      description:
+        "subscribers that are on a temporary hold from their premium subscription, but are still subscribed to your newsletter",
     },
   ]}
 />

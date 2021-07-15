@@ -20,7 +20,7 @@ export default function Header({ setSidebarOpen }: Props) {
           <a
             href="https://buttondown.email/login"
             target="_blank"
-            className="mr-2 hover:bg-gray-200 px-4 py-2 rounded-md"
+            className="mr-2 hover:bg-gray-200 px-4 py-2 rounded-md sm:hidden"
             rel="noreferrer"
           >
             About
@@ -28,7 +28,7 @@ export default function Header({ setSidebarOpen }: Props) {
           <a
             href="https://buttondown.email/login"
             target="_blank"
-            className="mr-2 hover:bg-gray-200 px-4 py-2 rounded-md"
+            className="mr-2 hover:bg-gray-200 px-4 py-2 rounded-md sm:hidden"
             rel="noreferrer"
           >
             Guides
