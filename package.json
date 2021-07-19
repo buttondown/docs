@@ -20,7 +20,6 @@
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^11.0.1",
     "fathom-client": "^3.0.0",
-    "fuse.js": "^3.6.1",
     "lunr": "^2.3.9",
     "next": "11.0.1",
     "next-mdx-frontmatter": "^0.0.4",
@@ -28,8 +27,7 @@
     "prismjs": "^1.24.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-hotkeys": "^2.0.0",
-    "remark": "^12.0.1"
+    "react-hotkeys": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
@@ -54,11 +52,9 @@
     "gray-matter": "^4.0.3",
     "postcss": "^8.3.5",
     "prettier": "^2.3.2",
+    "remark": "^13.0.0",
     "remark-mdx": "^1.6.22",
     "tailwindcss": "^2.2.4",
-    "to-vfile": "^7.2.0",
-    "ts-node": "^10.1.0",
-    "typescript": "^4.3.5",
-    "unist-util-visit": "^2.0.3"
+    "typescript": "^4.3.5"
   }
 }
