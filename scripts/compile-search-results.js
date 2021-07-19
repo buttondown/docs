@@ -23,7 +23,6 @@ const cleanMDX = (mdxText) => {
       tree.children
         .filter((child) => child.type === "text" || child.type === "paragraph")
         .map((child) => {
-          console.log(child);
           text += `${child.children.map((c) => c.value)}\n`;
         });
     })

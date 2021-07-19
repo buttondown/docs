@@ -8,7 +8,7 @@ import { Fragment } from "react";
 import classNames from "../lib/classNames";
 import icon from "../public/images/icon@72.png";
 import NAVIGATION, { NavigationItem } from "./Navigation";
-import Search from "./Search";
+import Search from "./Search/Search";
 
 function NavigationLink(router: NextRouter, item: NavigationItem) {
   return !item.children ? (

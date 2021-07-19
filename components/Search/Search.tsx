@@ -1,95 +1,13 @@
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/outline";
-import { FuseResultWithMatches } from "fuse.js";
-import lunr from "lunr";
-import Link from "next/link";
+import lunr, { Index } from "lunr";
 import { Fragment, useState } from "react";
 
-import classNames from "../lib/classNames";
-import SEARCH_RESULTS from "../public/search-results.json";
+import SEARCH_RESULTS from "../../public/search-results.json";
+import SearchResult from "./SearchResult";
+import type { SearchableItem } from "./types";
 
-const SEARCH_DATA: SearchResult[] = SEARCH_RESULTS;
-
-type SearchResult = {
-  path: string;
-  description?: string;
-  title?: string;
-  text: string;
-};
-
-type SnippetData = {
-  text: string;
-  position: [number, number][];
-};
-
-function SearchResultSnippet(props: SnippetData) {
-  const [startPosition, length] = props.position[0];
-  const snippetLength = 20;
-  return (
-    <div>
-      <span className="text-gray-700">
-        ...
-        {props.text.slice(startPosition - snippetLength, startPosition)}
-      </span>
-      <span className="bg-blue-200">
-        {props.text.slice(startPosition, startPosition + length)}
-      </span>
-      <span className="text-gray-700">
-        {props.text.slice(
-          startPosition + length,
-          startPosition + length + snippetLength
-        )}
-        ...
-      </span>
-    </div>
-  );
-}
-
-// Via https://github.com/tailwindlabs/headlessui/issues/20
-function NextLink(props) {
-  const { href, children, ...rest } = props;
-  return (
-    <Link href={href}>
-      <a {...rest}>{children}</a>
-    </Link>
-  );
-}
-
-function SearchResult({ result }: any) {
-  const fullResult = SEARCH_DATA.filter((r) => r.path === result.ref)[0];
-  const snippet: SnippetData =
-    result.matchData &&
-    result.matchData.metadata &&
-    Object.values(result.matchData.metadata)[0] &&
-    Object.values(result.matchData.metadata)[0].text;
-  return (
-    <Menu.Item>
-      {({ active }) => (
-        <NextLink href={fullResult.path}>
-          <div
-            className={classNames(
-              "p-2 rounded-lg cursor-pointer border-transparent border-2",
-              active ? "bg-blue-100 border-blue-300" : ""
-            )}
-          >
-            <div className="font-semibold">{fullResult.title}</div>
-            <div>
-              {snippet && (
-                <SearchResultSnippet
-                  text={fullResult.text}
-                  position={snippet.position}
-                />
-              )}
-            </div>
-            <div className="font-mono text-gray-600 text-sm">
-              {fullResult.path}
-            </div>
-          </div>
-        </NextLink>
-      )}
-    </Menu.Item>
-  );
-}
+const SEARCH_DATA: SearchableItem[] = SEARCH_RESULTS;
 
 type Props = {
   setSearchOpen: (arg0: boolean) => void;
@@ -97,7 +15,7 @@ type Props = {
 };
 
 export default function Search(props: Props) {
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState<Index.Result[]>([]);
 
   const search = async (e: any) => {
     const { value } = e.currentTarget;
@@ -113,7 +31,7 @@ export default function Search(props: Props) {
       this.field("title");
       this.metadataWhitelist = ["position"];
 
-      SEARCH_RESULTS.forEach(function (doc) {
+      SEARCH_DATA.forEach(function (this: any, doc) {
         this.add(doc);
       }, this);
     });
@@ -183,11 +101,9 @@ export default function Search(props: Props) {
                   <Menu>
                     <div className="pt-2">
                       <Menu.Items static>
-                        {results.map(
-                          (result: FuseResultWithMatches<SearchResult>, i) => (
-                            <SearchResult result={result} key={i} />
-                          )
-                        )}
+                        {results.map((result: Index.Result, i) => (
+                          <SearchResult result={result} key={i} />
+                        ))}
                       </Menu.Items>
                     </div>
                   </Menu>
