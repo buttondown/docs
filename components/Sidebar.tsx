@@ -96,9 +96,16 @@ function NavigationLink(router: NextRouter, item: NavigationItem) {
 type Props = {
   setSidebarOpen: (arg0: boolean) => void;
   sidebarOpen: boolean;
+  setSearchOpen: (arg0: boolean) => void;
+  searchOpen: boolean;
 };
 
-export default function Sidebar({ setSidebarOpen, sidebarOpen }: Props) {
+export default function Sidebar({
+  setSidebarOpen,
+  sidebarOpen,
+  searchOpen,
+  setSearchOpen,
+}: Props) {
   const router = useRouter();
 
   return (
@@ -167,7 +174,10 @@ export default function Sidebar({ setSidebarOpen, sidebarOpen }: Props) {
                   </div>
                 </div>
                 <div className="bg-gray-800 px-2 space-y-1 pt-4 text-gray-400">
-                  <Search setSidebarOpen={setSidebarOpen} />
+                  <Search
+                    setSearchOpen={setSearchOpen}
+                    searchOpen={searchOpen}
+                  />
                 </div>
                 <div className="mt-5 flex-1 h-0 overflow-y-auto">
                   <nav className="px-2 space-y-1">
@@ -197,7 +207,7 @@ export default function Sidebar({ setSidebarOpen, sidebarOpen }: Props) {
                 &nbsp; Buttondown
               </div>
               <div className="bg-gray-800 px-2 space-y-1 pt-4 text-gray-400">
-                <Search />
+                <Search setSearchOpen={setSearchOpen} searchOpen={searchOpen} />
               </div>
               <nav className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
                 {NAVIGATION.map((i) => NavigationLink(router, i))}

@@ -92,11 +92,11 @@ function SearchResult({ result }: any) {
 }
 
 type Props = {
-  setSidebarOpen: (arg0: boolean) => void;
+  setSearchOpen: (arg0: boolean) => void;
+  searchOpen: boolean;
 };
 
 export default function Search(props: Props) {
-  const [isSearching, setSearching] = useState(false);
   const [results, setResults] = useState([]);
 
   const search = async (e: any) => {
@@ -123,7 +123,7 @@ export default function Search(props: Props) {
   };
 
   const handleClick = async () => {
-    setSearching(true);
+    props.setSearchOpen(true);
   };
 
   return (
@@ -136,11 +136,11 @@ export default function Search(props: Props) {
         Search
       </div>
 
-      <Transition appear show={isSearching} as={Fragment}>
+      <Transition appear show={props.searchOpen || false} as={Fragment}>
         <Dialog
           as="div"
           className="fixed inset-0 z-50 overflow-y-auto"
-          onClose={() => setSearching(false)}
+          onClose={() => props.setSearchOpen(false)}
         >
           <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
           <div className="min-h-screen px-4 text-center">
