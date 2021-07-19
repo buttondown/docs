@@ -9,13 +9,14 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "downlevelIteration": true, // For handling recursive iteration in `compile-search-results`
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": true, // NextJS defaulted to true; I turned to false to allow `compile-search-results` to work
     "jsx": "preserve"
   },
   "baseUrl": ".",
