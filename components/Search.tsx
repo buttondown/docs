@@ -1,10 +1,11 @@
-import { Dialog, Transition } from "@headlessui/react";
+import { Dialog, Menu, Transition } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/outline";
 import { FuseResultWithMatches } from "fuse.js";
 import lunr from "lunr";
 import Link from "next/link";
 import { Fragment, useState } from "react";
 
+import classNames from "../lib/classNames";
 import SEARCH_RESULTS from "../public/search-results.json";
 
 const SEARCH_DATA: SearchResult[] = SEARCH_RESULTS;
@@ -44,6 +45,16 @@ function SearchResultSnippet(props: SnippetData) {
   );
 }
 
+// Via https://github.com/tailwindlabs/headlessui/issues/20
+function NextLink(props) {
+  const { href, children, ...rest } = props;
+  return (
+    <Link href={href}>
+      <a {...rest}>{children}</a>
+    </Link>
+  );
+}
+
 function SearchResult({ result }: any) {
   const fullResult = SEARCH_DATA.filter((r) => r.path === result.ref)[0];
   const snippet: SnippetData =
@@ -52,24 +63,39 @@ function SearchResult({ result }: any) {
     Object.values(result.matchData.metadata)[0] &&
     Object.values(result.matchData.metadata)[0].text;
   return (
-    <Link href={fullResult.path}>
-      <div className="p-2 hover:bg-blue-100 rounded-lg cursor-pointer border-transparent hover:border-blue-300 border-2">
-        <div className="font-semibold">{fullResult.title}</div>
-        <div>
-          {snippet && (
-            <SearchResultSnippet
-              text={fullResult.text}
-              position={snippet.position}
-            />
-          )}
-        </div>
-        <div className="font-mono text-gray-600 text-sm">{fullResult.path}</div>
-      </div>
-    </Link>
+    <Menu.Item>
+      {({ active }) => (
+        <NextLink href={fullResult.path}>
+          <div
+            className={classNames(
+              "p-2 rounded-lg cursor-pointer border-transparent border-2",
+              active ? "bg-blue-100 border-blue-300" : ""
+            )}
+          >
+            <div className="font-semibold">{fullResult.title}</div>
+            <div>
+              {snippet && (
+                <SearchResultSnippet
+                  text={fullResult.text}
+                  position={snippet.position}
+                />
+              )}
+            </div>
+            <div className="font-mono text-gray-600 text-sm">
+              {fullResult.path}
+            </div>
+          </div>
+        </NextLink>
+      )}
+    </Menu.Item>
   );
 }
 
-export default function Search() {
+type Props = {
+  setSidebarOpen: (arg0: boolean) => void;
+};
+
+export default function Search(props: Props) {
   const [isSearching, setSearching] = useState(false);
   const [results, setResults] = useState([]);
 
@@ -96,10 +122,14 @@ export default function Search() {
     setResults(results);
   };
 
+  const handleClick = async () => {
+    setSearching(true);
+  };
+
   return (
     <>
       <div
-        onClick={() => setSearching(true)}
+        onClick={handleClick}
         className="flex mx-2 px-2 py-1 border-2 rounded border-gray-400 font-weight-bold text-gray-300 bg-gray-700 text-sm font-semibold cursor-pointer"
       >
         <SearchIcon className="h-5 w-4 mr-2" aria-hidden="true" />
@@ -109,7 +139,7 @@ export default function Search() {
       <Transition appear show={isSearching} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 z-10 overflow-y-auto"
+          className="fixed inset-0 z-50 overflow-y-auto"
           onClose={() => setSearching(false)}
         >
           <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
@@ -150,13 +180,17 @@ export default function Search() {
                   onChange={search}
                 />
                 {results.length > 0 && (
-                  <div className="pt-2">
-                    {results.map(
-                      (result: FuseResultWithMatches<SearchResult>, i) => (
-                        <SearchResult result={result} key={i} />
-                      )
-                    )}
-                  </div>
+                  <Menu>
+                    <div className="pt-2">
+                      <Menu.Items static>
+                        {results.map(
+                          (result: FuseResultWithMatches<SearchResult>, i) => (
+                            <SearchResult result={result} key={i} />
+                          )
+                        )}
+                      </Menu.Items>
+                    </div>
+                  </Menu>
                 )}
               </div>
             </Transition.Child>

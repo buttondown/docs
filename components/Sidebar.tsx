@@ -2,13 +2,13 @@ import { Dialog, Disclosure, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { NextRouter,useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import { Fragment } from "react";
 
 import classNames from "../lib/classNames";
 import icon from "../public/images/icon@72.png";
 import NAVIGATION, { NavigationItem } from "./Navigation";
-import Search from './Search';
+import Search from "./Search";
 
 function NavigationLink(router: NextRouter, item: NavigationItem) {
   return !item.children ? (
@@ -96,7 +96,7 @@ function NavigationLink(router: NextRouter, item: NavigationItem) {
 type Props = {
   setSidebarOpen: (arg0: boolean) => void;
   sidebarOpen: boolean;
-}
+};
 
 export default function Sidebar({ setSidebarOpen, sidebarOpen }: Props) {
   const router = useRouter();
@@ -166,6 +166,9 @@ export default function Sidebar({ setSidebarOpen, sidebarOpen }: Props) {
                     &nbsp; Buttondown
                   </div>
                 </div>
+                <div className="bg-gray-800 px-2 space-y-1 pt-4 text-gray-400">
+                  <Search setSidebarOpen={setSidebarOpen} />
+                </div>
                 <div className="mt-5 flex-1 h-0 overflow-y-auto">
                   <nav className="px-2 space-y-1">
                     {NAVIGATION.map((i) => NavigationLink(router, i))}
@@ -194,7 +197,7 @@ export default function Sidebar({ setSidebarOpen, sidebarOpen }: Props) {
                 &nbsp; Buttondown
               </div>
               <div className="bg-gray-800 px-2 space-y-1 pt-4 text-gray-400">
-              <Search />
+                <Search />
               </div>
               <nav className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
                 {NAVIGATION.map((i) => NavigationLink(router, i))}
