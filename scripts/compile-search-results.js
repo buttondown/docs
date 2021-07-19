@@ -1,3 +1,6 @@
+import remark from "remark";
+import mdx from "remark-mdx";
+
 const fs = require("fs");
 const path = require("path");
 const graymatter = require("gray-matter");
@@ -13,7 +16,19 @@ const mungeFilepathIntoRoute = (filepath) => {
 };
 
 const cleanMDX = (mdxText) => {
-  return mdxText;
+  let text = "";
+  remark()
+    .use(mdx)
+    .use(() => (tree) => {
+      tree.children
+        .filter((child) => child.type === "text" || child.type === "paragraph")
+        .map((child) => {
+          console.log(child);
+          text += `${child.children.map((c) => c.value)}\n`;
+        });
+    })
+    .processSync(mdxText);
+  return text;
 };
 
 const recursivelyCompilePosts = function* (root) {
@@ -37,11 +52,13 @@ const recursivelyCompilePosts = function* (root) {
   }
 };
 
-const contents = Array.from(recursivelyCompilePosts(PAGES_DIRECTORY));
+export default function compileSearchResults() {
+  return;
+}
 
+const results = Array.from(recursivelyCompilePosts(PAGES_DIRECTORY));
 const serializeContent = (content) => JSON.stringify(content, null, 2);
-
-fs.writeFile(OUTPUT_FILENAME, serializeContent(contents), function (err) {
+fs.writeFile(OUTPUT_FILENAME, serializeContent(results), function (err) {
   if (err) return console.error(err);
   console.log("Compiled search results");
 });

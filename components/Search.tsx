@@ -1,16 +1,73 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/outline";
-import Fuse, { FuseResultWithMatches } from "fuse.js";
+import { FuseResultWithMatches } from "fuse.js";
+import lunr from "lunr";
 import Link from "next/link";
 import { Fragment, useState } from "react";
 
 import SEARCH_RESULTS from "../public/search-results.json";
 
+const SEARCH_DATA: SearchResult[] = SEARCH_RESULTS;
+
 type SearchResult = {
   path: string;
   description?: string;
   title?: string;
+  text: string;
 };
+
+type SnippetData = {
+  text: string;
+  position: [number, number][];
+};
+
+function SearchResultSnippet(props: SnippetData) {
+  const [startPosition, length] = props.position[0];
+  const snippetLength = 20;
+  return (
+    <div>
+      <span className="text-gray-700">
+        ...
+        {props.text.slice(startPosition - snippetLength, startPosition)}
+      </span>
+      <span className="bg-blue-200">
+        {props.text.slice(startPosition, startPosition + length)}
+      </span>
+      <span className="text-gray-700">
+        {props.text.slice(
+          startPosition + length,
+          startPosition + length + snippetLength
+        )}
+        ...
+      </span>
+    </div>
+  );
+}
+
+function SearchResult({ result }: any) {
+  const fullResult = SEARCH_DATA.filter((r) => r.path === result.ref)[0];
+  const snippet: SnippetData =
+    result.matchData &&
+    result.matchData.metadata &&
+    Object.values(result.matchData.metadata)[0] &&
+    Object.values(result.matchData.metadata)[0].text;
+  return (
+    <Link href={fullResult.path}>
+      <div className="p-2 hover:bg-blue-100 rounded-lg cursor-pointer border-transparent hover:border-blue-300 border-2">
+        <div className="font-semibold">{fullResult.title}</div>
+        <div>
+          {snippet && (
+            <SearchResultSnippet
+              text={fullResult.text}
+              position={snippet.position}
+            />
+          )}
+        </div>
+        <div className="font-mono text-gray-600 text-sm">{fullResult.path}</div>
+      </div>
+    </Link>
+  );
+}
 
 export default function Search() {
   const [isSearching, setSearching] = useState(false);
@@ -18,14 +75,24 @@ export default function Search() {
 
   const search = async (e: any) => {
     const { value } = e.currentTarget;
-    const fuse = new Fuse(SEARCH_RESULTS, {
-      includeMatches: true,
-      keys: ["title", "path", "text"],
-      distance: 10000,
-      ignoreLocation: true,
+
+    if (value === "") {
+      setResults([]);
+      return;
+    }
+
+    const index = lunr(function () {
+      this.ref("path");
+      this.field("text");
+      this.field("title");
+      this.metadataWhitelist = ["position"];
+
+      SEARCH_RESULTS.forEach(function (doc) {
+        this.add(doc);
+      }, this);
     });
-    const results = fuse.search(value);
-    results.length = 5;
+
+    const results = index.search(value);
     setResults(results);
   };
 
@@ -86,32 +153,7 @@ export default function Search() {
                   <div className="pt-2">
                     {results.map(
                       (result: FuseResultWithMatches<SearchResult>, i) => (
-                        <div key={i}>
-                          <Link href={result.item.path}>
-                            <div className="p-1 hover:bg-blue-100 rounded cursor-pointer border-transparent hover:border-blue-300 border-2">
-                              <div className="font-semibold">
-                                {result.item.title}
-                              </div>
-                              {result.matches[0] &&
-                                result.matches[0].indices &&
-                                result.matches[0].key &&
-                                result.matches[0].key === "text" && (
-                                  <div>
-                                    <div>
-                                      {result.matches[0].value.slice(
-                                        ...result.matches[0].indices[
-                                          result.matches[0].indices.length - 1
-                                        ]
-                                      )}
-                                    </div>
-                                  </div>
-                                )}
-                              <div className="font-mono text-gray-600 text-sm">
-                                {result.item.path}
-                              </div>
-                            </div>
-                          </Link>
-                        </div>
+                        <SearchResult result={result} key={i} />
                       )
                     )}
                   </div>
