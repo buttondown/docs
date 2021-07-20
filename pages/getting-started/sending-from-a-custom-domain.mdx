@@ -12,6 +12,17 @@ export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 # Sending from a custom domain
 
+Unlike [hosting on a custom domain](/getting-started/hosting-on-a-custom-domain) which is largely a cosmetic
+feature, there are significant benefits to sending your emails from a custom domain.
+
+By default, Buttondown sends your emails from its own domain and webserver. This is a good thing — it means when you are first
+starting your newsletter you can focus on writing, editing, and growing instead of dealing with arcane DNS issues. 
+
+However, as your newsletter matures it becomes a better idea to think about sending directly from your domain instead. This has a number of benefits:
+
+- Your emails look more professional. Open and click rates are non-trivially improved for newsletters that are coming from, say, `newsletter.this-week-in-poetry.com` instead of `mail.buttondown.email`.
+- You can start accruing "domain reputation" for your own domain. This improves the overall engagement rate for your emails. More importantly, that domain reputation carries with you — even if you leave Buttondown for another service, so long as that service also allows you to send from a custom domain.
+
 ## Dealing with emails that are ending up in spam
 
 If you're not using a custom sending domain, then this is likely because you're sending your email from Buttondown's mail servers, but 'signing' it with your own email address. This looks like spam (or at least mistaken identity) to most mailboxes, especially if you're sending from a `@gmail.com` or `@hotmail.com` account.

@@ -44,7 +44,7 @@ const NAVIGATION: Array<NavigationItem> = [
         href: "/getting-started/importing-your-data",
       },
       {
-        name: "Hosting from a custom domain",
+        name: "Hosting on a custom domain",
         href: "/getting-started/hosting-on-a-custom-domain",
       },
       {

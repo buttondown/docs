@@ -23,7 +23,7 @@ export const H2 = (props: any) => (
 export const H4 = (props: any) => (
   <h4 className="my-4 text-lg font-semibold" {...props} />
 );
-export const P = (props: any) => <p className="my-4 text-lg" {...props} />;
+export const P = (props: any) => <p className="my-4 leading-relaxed text-lg" {...props} />;
 
 export const Blockquote = (props: any) => (
   <blockquote
@@ -91,4 +91,4 @@ export const Code = ({ children, language }: any) => {
 };
 
 export const Pre = (props: any) => <div {...props} />;
-export const InlineCode = (props: any) => <span className="bg-gray-300 font-mono p-1 rounded">`{props.children}`</span>;
+export const InlineCode = (props: any) => <span className="bg-gray-300 font-mono p-0.5 rounded">`{props.children}`</span>;

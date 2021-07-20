@@ -5,6 +5,7 @@ description: A step-by-step guide through setting up a custom domain to host you
 
 import Layout from "../../components/Layout";
 import Warning from "../../components/Warning";
+import BFPNotice from "../../components/BFPNotice";
 import { H4, P } from "../../components/Markdown";
 
 export const meta = {
@@ -13,6 +14,15 @@ export const meta = {
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 # Hosting on a custom domain
+
+<BFPNotice />
+
+There's no security, performance, or product-level benefit from hosting your newsletter on a custom domain. But,
+I think we all have to admit it — it's a little bit cooler. `this-week-in-poetry.com` is simply a cooler and perhaps
+even more impressive domain than `this-week-in-poetry.buttondown.email` or `buttondown.email/this-week-in-poetry`.
+
+And there's nothing wrong with that! if you want to establish your newsletter as an independent entity, not simply a "Buttondown newsletter",
+setting up a custom domain on which to host it makes a lot of sense.
 
 ## Setting up your custom hosting domain
 

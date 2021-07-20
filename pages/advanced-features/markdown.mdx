@@ -4,6 +4,8 @@ description: All about Markdown, both broadly speaking and Buttondown's specific
 ---
 
 import Layout from "../../components/Layout";
+import Info from "../../components/Info";
+import Table from "../../components/Table";
 
 export const meta = {
   title: "Markdown",
@@ -12,9 +14,138 @@ export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 # Markdown
 
+Markdown is a lightweight markup language that makes it easy to add things like links, images, lists, and styles to plain text.
+
+It was created by [John Gruber](https://daringfireball.net) back in 2004 and has quickly become nigh-ubiquitous thanks to its simple goal:
+
+> The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions.
+
+There's a good chance that, even if you haven't heard of Markdown, you've used it before! It powers applications like Reddit and GitHub.
+
+Using Markdown is different than using a WYSIWYG editor. In an application like Microsoft Word, you click buttons to format words and phrases, and the changes are visible immediately. Markdown isn’t like that. When you create a Markdown-formatted file, you add Markdown syntax to the text to indicate which words and phrases should look different
+
+For example, to denote a heading, you add a number sign before it (e.g., # Heading One). Or to make a phrase bold, you add two asterisks before and after it (e.g., **this text is bold**). It may take a while to get used to seeing Markdown syntax in your text, but it's very quick to learn.
+
+Markdown doesn’t have all the bells and whistles of word processors like Microsoft Word or other WYSIWYG editors, but it shines at creating simple, elegant documents — which is what Buttondown is all about.
+
+## Markdown syntax guide
+
+<Info>
+  All HTML is valid Markdown, so if you ever want to use something more complex
+  than what the Markdown syntax offers you can just use HTML!
+</Info>
+
+<br />
+
+<Table
+  columns={[
+    { title: "Element", key: "element" },
+    {
+      title: "Syntax",
+      key: "syntax",
+      component: (content) => <code>{content}</code>,
+    },
+    {
+      title: "Output",
+      key: "output",
+    },
+  ]}
+  content={[
+    {
+      element: "Heading",
+      syntax: `
+    # H1
+    ## H2
+    ### H3
+    `,
+      output: (
+        <>
+          <h1>H1</h1>
+          <h2>H2</h2>
+          <h3>H3</h3>
+        </>
+      ),
+    },
+    {
+      element: "Bold",
+      syntax: `
+      **bold text**
+    `,
+      output: <strong>bold text</strong>,
+    },
+    {
+      element: "Italic",
+      syntax: `
+      **italic text**
+    `,
+      output: <em>italic text</em>,
+    },
+    {
+      element: "Ordered list",
+      syntax: `
+      1. Foo
+      2. Bar
+      3. Baz
+    `,
+      output: (
+        <ol>
+          <li>Foo</li>
+          <li>Bar</li>
+          <li>Baz</li>
+        </ol>
+      ),
+    },
+    {
+      element: "Unordered list",
+      syntax: `
+      - Foo
+      - Baz
+      - Bar
+    `,
+      output: (
+        <ul>
+          <li>Foo</li>
+          <li>Bar</li>
+          <li>Baz</li>
+        </ul>
+      ),
+    },
+    {
+      element: "Code",
+      syntax: `
+      \`code\`
+    `,
+      output: <code>code</code>,
+    },
+    {
+      element: "Horizontal rule",
+      syntax: `
+      ---
+    `,
+      output: <hr />,
+    },
+    {
+      element: "Link",
+      syntax: `[link](https://google.com)
+    `,
+      output: <a href="https://google.com">link</a>,
+    },
+    {
+      element: "Image",
+      syntax: `
+      ![description](http://placekitten.com/g/200/300)
+    `,
+      output: <img src="http://placekitten.com/g/200/300" alt="description" />,
+    },
+  ]}
+/>
+
+If you're looking for a in-depth guide for more Markdown tips and tricks, I highly recommend the unofficial but authoritative [Markdown Guide](https://www.markdownguide.org).
+
 ## Buttondown's Markdown rendering engine
 
-Buttondown's Markdown rendering engine is [Python-Markdown](https://github.com/Python-Markdown/markdown)
+Buttondown's Markdown rendering engine is [Python-Markdown](https://github.com/Python-Markdown/markdown). Some details about the gnarly implementation below:
+feel free to ignore this unless you're a Buttondown (and/or Markdown) power user!
 
 ### Extensions
 

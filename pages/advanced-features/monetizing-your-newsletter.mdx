@@ -4,6 +4,7 @@ description: How Buttondown can turn your newsletter into an income stream
 ---
 
 import Layout from "../../components/Layout";
+import Warning from "../../components/Warning";
 
 export const meta = {
   title: "Monetizing your newsletter",
@@ -11,6 +12,30 @@ export const meta = {
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 # Monetizing your newsletter
+
+## Enabling Stripe Tax for your newsletter
+
+<Warning>
+  Stripe Tax is not fully available to all users yet; you need to <a className="text-yellow-900 underline" href="https://stripe.com/tax">request an invite</a>.
+</Warning>
+
+If you're an author of a paid newsletter — particularly one based in the EU, where VAT is a bit more of a bugbear — dealing
+with taxes can be a headache.
+
+I highly recommend onboarding to [Stripe Tax](https://stripe.com/tax), which simplifies and automates the process of collecting and reporting
+taxes.
+
+Buttondown doesn't actually need to do anything in particular to let you take advantage of Stripe Tax. If you are only using your Stripe account
+for your newsletter.
+
+You'll be setting two default tax codes:
+
+1. A default product tax code of **Digital newsletter -- subscription**.
+2. A default shipping tax code of **Shipping**. (This doesn't have much of an effect, because digital goods are not shipped.)
+
+Your tax settings page should look like the below:
+
+![A screenshot of Stripe's tax settings page](/images/tax.png)
 
 ## Tiers
 
