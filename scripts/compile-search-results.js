@@ -20,7 +20,6 @@ const recursivelyFindText = function* (root) {
     if (child.children) {
       yield* recursivelyFindText(child);
     } else if (child.type === "text") {
-      console.log(child);
       yield child.value;
     }
   }
@@ -32,7 +31,7 @@ const cleanMDX = (mdxText) => {
     .use(mdx)
     .use(() => (tree) => {
       for (let t of recursivelyFindText(tree)) {
-        text += t;
+        text += t + " ";
       }
     })
     .processSync(graymatter(mdxText).content);
