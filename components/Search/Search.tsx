@@ -93,7 +93,7 @@ export default function Search(props: Props) {
               <div className="inline-block w-full max-w-2xl p-3 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                 <input
                   type="text"
-                  className="w-full shadow-sm sm:text-lg border-gray-300 rounded-lg px-3 border focus:border-blue-300"
+                  className="focus:outline-none w-full shadow-sm sm:text-lg border-gray-300 rounded-lg px-3 border focus:border-blue-300"
                   placeholder="Search Buttondown's documentation"
                   onChange={search}
                 />
