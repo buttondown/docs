@@ -15,18 +15,27 @@ const mungeFilepathIntoRoute = (filepath) => {
     .replace("pages/", "/");
 };
 
+const recursivelyFindText = function* (root) {
+  for (let child of root.children) {
+    if (child.children) {
+      yield* recursivelyFindText(child);
+    } else if (child.type === "text") {
+      console.log(child);
+      yield child.value;
+    }
+  }
+};
+
 const cleanMDX = (mdxText) => {
   let text = "";
   remark()
     .use(mdx)
     .use(() => (tree) => {
-      tree.children
-        .filter((child) => child.type === "text" || child.type === "paragraph")
-        .map((child) => {
-          text += `${child.children.map((c) => c.value)}\n`;
-        });
+      for (let t of recursivelyFindText(tree)) {
+        text += t;
+      }
     })
-    .processSync(mdxText);
+    .processSync(graymatter(mdxText).content);
   return text;
 };
 
