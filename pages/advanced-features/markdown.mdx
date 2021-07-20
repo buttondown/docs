@@ -43,7 +43,11 @@ Markdown doesn’t have all the bells and whistles of word processors like Micro
     {
       title: "Syntax",
       key: "syntax",
-      component: (content) => <code>{content}</code>,
+      component: (content) => (
+        <div className="font-mono whitespace-pre">
+          {content.trim().replace("      ", "")}
+        </div>
+      ),
     },
     {
       title: "Output",
@@ -54,9 +58,9 @@ Markdown doesn’t have all the bells and whistles of word processors like Micro
     {
       element: "Heading",
       syntax: `
-    # H1
-    ## H2
-    ### H3
+# H1
+## H2
+### H3
     `,
       output: (
         <>
@@ -83,9 +87,9 @@ Markdown doesn’t have all the bells and whistles of word processors like Micro
     {
       element: "Ordered list",
       syntax: `
-      1. Foo
-      2. Bar
-      3. Baz
+1. Foo
+2. Bar
+3. Baz
     `,
       output: (
         <ol>
@@ -98,9 +102,9 @@ Markdown doesn’t have all the bells and whistles of word processors like Micro
     {
       element: "Unordered list",
       syntax: `
-      - Foo
-      - Baz
-      - Bar
+- Foo
+- Baz
+- Bar
     `,
       output: (
         <ul>
