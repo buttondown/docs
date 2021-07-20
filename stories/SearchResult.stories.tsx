@@ -21,6 +21,7 @@ Basic.args = {
     ref: "/advanced-features/metadata",
     score: 5.025,
     matchData: {
+      combine: () => {},
       metadata: {
         metadata: {
           text: {
