@@ -90,16 +90,16 @@ export default function Search(props: Props) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-3 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+              <div className="inline-block w-full max-w-2xl p-3 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                 <input
                   type="text"
-                  className="w-full shadow-sm  sm:max-w-xs sm:text-lg border-gray-300 rounded-md px-1"
+                  className="w-full shadow-sm sm:text-lg border-gray-300 rounded-lg px-3 border focus:border-blue-300"
                   placeholder="Search Buttondown's documentation"
                   onChange={search}
                 />
                 {results.length > 0 && (
                   <Menu>
-                    <div className="pt-2">
+                    <div className="pt-2 focus:border-none border-none ring-transparent">
                       <Menu.Items static>
                         {results.map((result: Index.Result, i) => (
                           <SearchResult result={result} key={i} />

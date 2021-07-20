@@ -10,27 +10,33 @@ const SEARCH_DATA: SearchableItem[] = SEARCH_RESULTS;
 
 type SnippetData = {
   text: string;
+  active: boolean;
   position: [number, number][];
 };
 
 function SearchResultSnippet(props: SnippetData) {
   const [startPosition, length] = props.position[0];
-  const snippetLength = 20;
+  const snippetLength = 40;
   return (
-    <div>
-      <span className="text-gray-700">
-        ...
+    <div
+      className={classNames(
+        props.active ? "bg-blue-200" : "bg-gray-100",
+        "p-2 text-sm rounded-lg my-2"
+      )}
+    >
+      <span className="text-gray-600">
+        {startPosition - snippetLength > 0 && "..."}
         {props.text.slice(startPosition - snippetLength, startPosition)}
       </span>
-      <span className="bg-blue-200">
+      <span className={props.active ? "bg-blue-300" : "bg-green-200"}>
         {props.text.slice(startPosition, startPosition + length)}
       </span>
-      <span className="text-gray-700">
+      <span className="text-gray-600">
         {props.text.slice(
           startPosition + length,
           startPosition + length + snippetLength
         )}
-        ...
+        {startPosition + length + snippetLength < props.text.length && "..."}
       </span>
     </div>
   );
@@ -57,18 +63,24 @@ export default function SearchResult({ result }: Props) {
               active ? "bg-blue-100 border-blue-300" : ""
             )}
           >
-            <div className="font-semibold">{fullResult.title}</div>
-            <div>
-              {snippet && (
-                <SearchResultSnippet
-                  text={fullResult.text}
-                  position={snippet.position}
-                />
-              )}
+            <div className="flex">
+              <div className="font-bold flex-1">{fullResult.title}</div>
+              <div className="mt-1 font-mono text-gray-400 text-xs rounded-lg flex font-semibold">
+                {fullResult.path}
+              </div>
             </div>
-            <div className="font-mono text-gray-600 text-sm">
-              {fullResult.path}
-            </div>
+            {fullResult.description && (
+              <div className="text-sm text-gray-800">
+                {fullResult.description}
+              </div>
+            )}
+            {snippet && (
+              <SearchResultSnippet
+                text={fullResult.text}
+                position={snippet.position}
+                active={active}
+              />
+            )}
           </div>
         </NextLink>
       )}

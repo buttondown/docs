@@ -30,6 +30,11 @@ export default function Layout({ meta, children }: any) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  const title =
+    meta && meta.title
+      ? `${meta.title} • Buttondown documentation`
+      : "Buttondown documentation";
+
   return (
     <>
       <GlobalHotKeys
@@ -43,11 +48,11 @@ export default function Layout({ meta, children }: any) {
       />
       <div className="h-screen flex overflow-hidden bg-gray-100 ">
         <Head>
-          <title>
-            {meta && meta.title
-              ? `${meta.title} • Buttondown documentation`
-              : "Buttondown documentation"}
-          </title>
+          <title>{title}</title>
+          <meta property="og:title" content={title} />
+          {meta && meta.description && (
+            <meta property="og:description" content={meta.description} />
+          )}
           <link rel="shortcut icon" href="/favicon.ico" />
           <meta
             name="viewport"
