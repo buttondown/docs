@@ -14,6 +14,7 @@ import {
   H3,
   H4,
   Img,
+  InlineCode,
   Li,
   Ol,
   P,
@@ -66,8 +67,8 @@ export default function Layout({ meta, children }: any) {
           searchOpen={searchOpen}
         />
         <div className="flex flex-col w-0 flex-1 overflow-hidden min-h-screen">
-          <Header setSidebarOpen={setSidebarOpen} />
           <main className="flex-1 relative overflow-y-auto focus:outline-none flex flex-col">
+            <Header setSidebarOpen={setSidebarOpen} />
             <div className="px-8 py-4 flex-grow">
               <MDXProvider
                 components={{
@@ -84,6 +85,7 @@ export default function Layout({ meta, children }: any) {
                   li: Li,
                   blockquote: Blockquote,
                   img: Img,
+                  inlineCode: InlineCode,
                 }}
               >
                 {children}
