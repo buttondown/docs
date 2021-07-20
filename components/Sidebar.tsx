@@ -1,13 +1,14 @@
 import { Dialog, Disclosure, Transition } from "@headlessui/react";
-import { SearchIcon, XIcon } from "@heroicons/react/outline";
+import { XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { NextRouter,useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import { Fragment } from "react";
 
 import classNames from "../lib/classNames";
 import icon from "../public/images/icon@72.png";
 import NAVIGATION, { NavigationItem } from "./Navigation";
+import Search from "./Search/Search";
 
 function NavigationLink(router: NextRouter, item: NavigationItem) {
   return !item.children ? (
@@ -95,9 +96,16 @@ function NavigationLink(router: NextRouter, item: NavigationItem) {
 type Props = {
   setSidebarOpen: (arg0: boolean) => void;
   sidebarOpen: boolean;
-}
+  setSearchOpen: (arg0: boolean) => void;
+  searchOpen: boolean;
+};
 
-export default function Sidebar({ setSidebarOpen, sidebarOpen }: Props) {
+export default function Sidebar({
+  setSidebarOpen,
+  sidebarOpen,
+  searchOpen,
+  setSearchOpen,
+}: Props) {
   const router = useRouter();
 
   return (
@@ -165,6 +173,12 @@ export default function Sidebar({ setSidebarOpen, sidebarOpen }: Props) {
                     &nbsp; Buttondown
                   </div>
                 </div>
+                <div className="bg-gray-800 px-2 space-y-1 pt-4 text-gray-400">
+                  <Search
+                    setSearchOpen={setSearchOpen}
+                    searchOpen={searchOpen}
+                  />
+                </div>
                 <div className="mt-5 flex-1 h-0 overflow-y-auto">
                   <nav className="px-2 space-y-1">
                     {NAVIGATION.map((i) => NavigationLink(router, i))}
@@ -193,10 +207,7 @@ export default function Sidebar({ setSidebarOpen, sidebarOpen }: Props) {
                 &nbsp; Buttondown
               </div>
               <div className="bg-gray-800 px-2 space-y-1 pt-4 text-gray-400">
-                <div className="flex mx-2 px-2 py-1 border-2 rounded border-gray-400 font-weight-bold text-gray-300 bg-gray-700 text-sm font-semibold">
-                  <SearchIcon className="h-5 w-4 mr-2" aria-hidden="true" />
-                  Search
-                </div>
+                <Search setSearchOpen={setSearchOpen} searchOpen={searchOpen} />
               </div>
               <nav className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
                 {NAVIGATION.map((i) => NavigationLink(router, i))}

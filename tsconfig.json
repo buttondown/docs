@@ -1,14 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "downlevelIteration": true, // For handling recursive iteration in `compile-search-results`
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -19,13 +16,6 @@
     "jsx": "preserve"
   },
   "baseUrl": ".",
-  "include": [
-    "next-env.d.ts",
-    "mdx.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "mdx.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

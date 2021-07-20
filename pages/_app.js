@@ -1,7 +1,6 @@
 import "tailwindcss/tailwind.css";
 
 import * as Fathom from "fathom-client";
-// import {Code } from "components/Markdown";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
