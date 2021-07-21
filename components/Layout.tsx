@@ -47,7 +47,7 @@ export default function Layout({ meta, children }: any) {
           },
         }}
       />
-      <div className="h-screen flex overflow-hidden bg-gray-100 ">
+      <div className="h-screen flex overflow-hidden">
         <Head>
           <title>{title}</title>
           <meta property="og:title" content={title} />

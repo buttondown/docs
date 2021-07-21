@@ -5,25 +5,25 @@ export type Column = {
   key?: string;
   alignment?: string;
   component?: CallableFunction;
-}
+};
 
 export type Row = {
-  [key: string]: string
+  [key: string]: string;
 };
 
 type TableProps = {
   columns: Array<Column>;
   content: Array<Row>;
-}
+};
 
 export default function Table(props: TableProps) {
   return (
     <div className="flex flex-col">
       <div className="-my-2 overflow-x-auto">
         <div className="py-2 align-middle inline-block min-w-full">
-          <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <div className="overflow-hidden border border-gray-200">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+              <thead className="bg-gray-200">
                 <tr>
                   {props.columns.map((column, i) => (
                     <th
@@ -31,7 +31,7 @@ export default function Table(props: TableProps) {
                       key={i}
                       className={classNames(
                         column.alignment === "right" ? "text-right" : "",
-                        "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        "px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider"
                       )}
                     >
                       {column.title}
@@ -43,7 +43,7 @@ export default function Table(props: TableProps) {
                 {props.content.map((row, idx) => (
                   <tr
                     key={idx}
-                    className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                    className={idx % 2 === 0 ? "bg-gray-50" : "bg-gray-100"}
                   >
                     {props.columns.map((column, keyIndex) => (
                       <td
