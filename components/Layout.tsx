@@ -21,7 +21,7 @@ import {
   Pre,
   Ul,
 } from "./Markdown";
-import Sidebar from "./Sidebar";
+import Sidebar from "./Sidebar/Sidebar";
 
 const keyMap = {
   TRIGGER_SEARCH: "/",

@@ -10,24 +10,22 @@ import {
   TerminalIcon,
 } from "@heroicons/react/outline";
 
-
 export type NavigationSubitem = {
   name: string;
   href: string;
-}
+};
 
 export type NavigationItem = {
   name: string;
   href: string;
   icon: CallableFunction;
   children?: Array<NavigationSubitem>;
-}
-
+};
 
 const NAVIGATION: Array<NavigationItem> = [
   {
     name: "Welcome to Buttondown!",
-    href: "/welcome",
+    href: "/",
     icon: EmojiHappyIcon,
   },
   {
@@ -174,9 +172,7 @@ const NAVIGATION: Array<NavigationItem> = [
         name: "Exporting your data",
         href: "/odds-and-ends/exporting-your-data",
       },
-      { name: "Offboarding", 
-      href: "/odds-and-ends/offboarding",
-    },
+      { name: "Offboarding", href: "/odds-and-ends/offboarding" },
     ],
   },
   {
