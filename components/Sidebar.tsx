@@ -197,14 +197,16 @@ export default function Sidebar({
         <div className="flex flex-col w-64">
           <div className="flex flex-col h-0 flex-1">
             <div className="flex-1 flex flex-col overflow-y-auto">
-              <div className="flex items-center h-16 flex-shrink-0 px-4 bg-gray-900 text-white font-bold">
-                <Image
-                  src={icon}
-                  width={30}
-                  height={30}
-                  alt="Buttondown logo"
-                />
-                &nbsp; Buttondown
+              <div className="flex items-center h-16 flex-shrink-1 px-4 bg-gray-900 text-white font-bold">
+                <div className="flex items-center">
+                  <Image
+                    src={icon}
+                    width={30}
+                    height={30}
+                    alt="Buttondown logo"
+                  />
+                  <div>&nbsp; Buttondown</div>
+                </div>
               </div>
               <div className="bg-gray-800 px-2 space-y-1 pt-4 text-gray-400">
                 <Search setSearchOpen={setSearchOpen} searchOpen={searchOpen} />
