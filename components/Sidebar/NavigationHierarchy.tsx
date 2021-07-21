@@ -143,9 +143,10 @@ const NAVIGATION: Array<NavigationItem> = [
     href: "/integrations",
     icon: BeakerIcon,
     children: [
-      { name: "Zapier", href: "#" },
       { name: "Fathom", href: "#" },
+      { name: "Plausible", href: "/integrations/plausible" },
       { name: "Simple Analytics", href: "#" },
+      { name: "Zapier", href: "#" },
     ],
   },
   {
