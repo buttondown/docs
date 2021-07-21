@@ -1,7 +1,7 @@
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/outline";
 import lunr, { Index } from "lunr";
-import { Fragment, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 
 import SEARCH_RESULTS from "../../public/search-results.json";
 import SearchResult from "./SearchResult";
@@ -44,6 +44,8 @@ export default function Search(props: Props) {
     props.setSearchOpen(true);
   };
 
+  const searchInputRef = useRef(null);
+
   return (
     <>
       <div
@@ -62,6 +64,7 @@ export default function Search(props: Props) {
           as="div"
           className="fixed inset-0 z-50 overflow-y-auto"
           onClose={() => props.setSearchOpen(false)}
+          initialFocus={searchInputRef}
         >
           <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
           <div className="min-h-screen px-4 text-center">
@@ -99,6 +102,7 @@ export default function Search(props: Props) {
                   className="focus:outline-none w-full shadow-sm sm:text-lg border-gray-300 rounded-lg px-3 border focus:border-blue-300"
                   placeholder="Search Buttondown's documentation"
                   onChange={search}
+                  ref={searchInputRef}
                 />
                 {results.length > 0 && (
                   <Menu>

@@ -115,7 +115,7 @@ export default function Sidebar({
           <Dialog
             as="div"
             static
-            className="fixed inset-0 flex z-40 md:hidden"
+            className="fixed inset-0 flex z-40 lg:hidden"
             open={sidebarOpen}
             onClose={setSidebarOpen}
           >
