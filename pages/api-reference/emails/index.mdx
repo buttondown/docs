@@ -4,6 +4,7 @@ description: An API reference for the 'email' object in Buttondown
 ---
 
 import Layout from "../../../components/Layout";
+import Table from "../../../components/Table";
 import ResponsesTable from "../../../components/api/ResponsesTable";
 import ObjectDescription from "../../../components/api/ObjectDescription";
 import ParametersTable from "../../../components/api/ParametersTable";
@@ -32,10 +33,50 @@ An email looks like this:
     { field: "creation_date", type: "datetime", description: "" },
     { field: "publish_date", type: "datetime", description: "" },
     { field: "subject", type: "string" },
+    { field: "email_type", type: <a href="#email-type">EmailType</a> },
     { field: "body", type: "string" },
     { field: "included_tags", type: "array<string> | array<uuid>" },
     { field: "excluded_tags", type: "array<string> | array<uuid>" },
     { field: "metadata", type: "map" },
+  ]}
+/>
+
+<a name="email-type"></a>
+
+### Email types
+
+Email types govern the visibility of an email, both in the sense of to whom it is originally delivered and whom can view it
+after it's been sent out. By default, all emails are public.
+
+<Table
+  columns={[
+    {
+      title: "type",
+      component: (s) => <span className="font-mono">{s}</span>,
+    },
+    { title: "description" },
+  ]}
+  content={[
+    {
+      type: "public",
+      description:
+        "Public emails are sent out to all of your subscribers and are available in your web archives.",
+    },
+    {
+      type: "private",
+      description:
+        "Private emails are sent out to all of your subscribers but are not viewable in your web archives.",
+    },
+    {
+      type: "premium",
+      description:
+        "Premium emails are sent out to only paying subscribers (including those with gift subscriptions or on a free trial), and only premium subscribers can view them in online archives.",
+    },
+    {
+      type: "free",
+      description:
+        "Free emails are sent out only to subscribers who are not paying for your newsletter (so you can send specific emails to convince them to pay, for instance!)",
+    },
   ]}
 />
 
