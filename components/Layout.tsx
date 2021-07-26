@@ -64,7 +64,7 @@ export default function Layout({ meta, children }: any) {
           },
         }}
       />
-      <div className="h-screen flex overflow-hidden">
+      <div className="h-screen flex overflow-hidden max-w-full">
         <Head>
           <title>{title}</title>
           <meta property="og:title" content={title} />
@@ -87,7 +87,7 @@ export default function Layout({ meta, children }: any) {
           <main className="flex-1 relative overflow-y-auto focus:outline-none flex flex-col">
             <Header setSidebarOpen={setSidebarOpen} />
             <div className="px-8 py-4 flex-grow flex">
-              <div>
+              <div className="relative max-w-100">
                 <MDXProvider
                   components={{
                     a: A,

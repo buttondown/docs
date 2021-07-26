@@ -37,8 +37,8 @@ export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
     {
       variable: "subscriber.metadata",
       description: "Access to the metadata for a given subscriber",
-      example:
-        "Hi there, {{ subscriber.metadata.first_name }}! You're looking dapper today.",
+      example: `Hi there, {{ subscriber.metadata.first_name }}!
+You're looking dapper today.`,
     },
     {
       variable: "subscriber.email",
@@ -65,14 +65,14 @@ I don't know what you're interested in!
       variable: "unsubscribe_url",
       description:
         "A personalized URL for the given subscriber to unsubscribe with",
-      example:
-        "Not interested in this email? No worries — [unsubscribe here]({{ unsubscribe_url }}).",
+      example: `Not interested in this email? 
+No worries — [unsubscribe here]({{ unsubscribe_url }})."`,
     },
     {
       variable: "subscribe_url",
       description: "A generic URL for your subscription page",
-      example:
-        "Did someone forward you this email? If so, you can [subscribe here]({{ subscribe_url }}).",
+      example: `Did someone forward you this email?
+If so, you can [subscribe here]({{ subscribe_url }}).`,
     },
     {
       variable: "email_url",

@@ -112,9 +112,9 @@ const NAVIGATION: Array<NavigationItem> = [
     icon: InboxInIcon,
     children: [
       { name: "Substack", href: "/migration-guides/substack" },
-      { name: "Mailchimp", href: "/migration-guides/mailchimp" },
-      { name: "Tinyletter", href: "/migration-guides/tinyletter" },
-      { name: "ConvertKit", href: "/migration-guides/convertkit" },
+      // { name: "Mailchimp", href: "/migration-guides/mailchimp" },
+      // { name: "Tinyletter", href: "/migration-guides/tinyletter" },
+      // { name: "ConvertKit", href: "/migration-guides/convertkit" },
     ],
   },
   {
@@ -145,8 +145,8 @@ const NAVIGATION: Array<NavigationItem> = [
     children: [
       { name: "Fathom", href: "/integrations/fathom" },
       { name: "Plausible", href: "/integrations/plausible" },
-      { name: "Simple Analytics", href: "#" },
-      { name: "Zapier", href: "#" },
+      // { name: "Simple Analytics", href: "#" },
+      // { name: "Zapier", href: "#" },
     ],
   },
   {
@@ -154,7 +154,7 @@ const NAVIGATION: Array<NavigationItem> = [
     href: "/behind-the-scenes",
     icon: BriefcaseIcon,
     children: [
-      { name: "Changelog", href: "#" },
+      // { name: "Changelog", href: "#" },
       { name: "Kudos", href: "/behind-the-scenes/kudos" },
       { name: "Running costs", href: "/behind-the-scenes/running-costs" },
       {
