@@ -108,7 +108,7 @@ const NAVIGATION: Array<NavigationItem> = [
   },
   {
     name: "Migration guides",
-    href: "/migrations",
+    href: "/migration-guides",
     icon: InboxInIcon,
     children: [
       { name: "Substack", href: "/migration-guides/substack" },

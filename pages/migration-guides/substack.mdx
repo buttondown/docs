@@ -9,10 +9,28 @@ import Table from "../../components/Table";
 
 export const meta = {
   title: "Substack",
+  description: "A short guide on migrating from Substack to Buttondown",
 };
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 # Substack
+
+## Importing your data
+
+(This guide assumes that you have already registered a Buttondown account. If you haven't head on over to [Registration & setup](/getting-started/registration-and-setup).)
+
+1. **Obtain a full export of your Substack data.** Follow this [Substack support article](https://support.substack.com/hc/en-us/articles/360037466012-How-do-I-export-my-posts-) to export your data. You'll end up receiving a `.zip` file filled with subscriber and archive data — that's the magic ticket!
+2. **Upload your subscriber data**. Go to your [Settings page](https://buttondown.email/settings/import-subscribers) and click on the "Import subscribers" button at the bottom of the page; you should be prompted to upload a CSV. Find the CSV in your Substack `.zip` and upload it; you'll be prompted to map some of the
+   fields in that export to Buttondown ones in order to make sure Buttondown understands your previous subscribers.
+3. **Upload your archive data**. Go back to your [Settings page](https://buttondown.email/settings/import-substack-archives)and click on the "Import archives" button, choosing the "Substack" option. This time, you can upload the entire `.zip` file, not just the CSV — Buttondown
+   will parse it and pull out all your previous emails, marking them as free or paid-only as appropriate.
+4. **Connect your Stripe account**. Lastly, if you offer paid subscriptions and want to migrate your paid subscribers over, head over to the [Paid subscriptions](https://buttondown.email/settings/paid-subscriptions) page and go ahead and connect your Stripe account. Be sure to connect the same account you used for Substack, and not a new one — Stripe needs access to the previous account and payments in order to ensure that subscribers are mapped over gracefully.
+
+That's it! Once you've done all of the above steps, Buttondown will kick off an audit and migration process to make sure everything is in tip-top order, and then you should be safe to disable or deactivate your Substack account.
+
+## Caveats
+
+### Do subscribers need to re-enter their credit card?
 
 Both Substack and Buttondown use the same payments processor — [Stripe](https://stripe.com/). Stripe is actually the source of truth when it comes to things like your subscribers' registered payment methods (ie credit cards) and what they've purchased / subscribed to.
 
