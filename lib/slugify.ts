@@ -1,5 +1,5 @@
 export default function slugify(text: string): string {
-  return text
+  return (text || "")
     .toString()
     .toLowerCase()
     .replace(/\s+/g, "-") // Replace spaces with -

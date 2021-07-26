@@ -25,10 +25,18 @@ export const H2 = (props: any) => (
   />
 );
 export const H3 = (props: any) => (
-  <h3 className="my-4 font-bold text-xl" {...props} />
+  <h3
+    className="my-4 font-bold text-xl"
+    {...props}
+    id={slugify(props.children)}
+  />
 );
 export const H4 = (props: any) => (
-  <h4 className="my-4 text-lg font-semibold" {...props} />
+  <h4
+    className="my-4 text-lg font-semibold"
+    {...props}
+    id={slugify(props.children)}
+  />
 );
 export const P = (props: any) => (
   <p className="my-4 leading-relaxed text-lg" {...props} />
