@@ -1,0 +1,120 @@
+---
+title: Running costs
+description: Information about how much Buttondown pays for stuff
+---
+
+import Layout from "../../components/Layout";
+import Table from "../../components/Table";
+
+export const meta = {
+  title: "Running costs",
+  description: "Information about how much Buttondown pays for stuff",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Running costs
+
+When I was a younger version of myself, I was always curious about the complex chain of dependencies that even a relatively simple web app requires.
+
+As such, I try and run Buttondown as transparently as possible: I update this page at the start of every month to reflect new expenses and growth. (Unfortunately, Notion doesn't lend itself well to time-series data, so you can't see growth over time.)
+
+My general philosophy on spending money for Buttondown is to default towards it, within reason: Buttondown doesn't have external funding, so I can't exactly _burn_ through my checking account with wild abandon, but it's also not the thing I depend on to make a living, so I can afford to take some liberties.
+
+Anyway, all of that is to say: none of these are probably _that_ surprising, but I hope you find it interesting! Click through each item to read more about how I use it.
+
+(You may also be interested in Buttondown's [sustainable funding](/behind-the-scenes/funding) of open source software.)
+
+<Table
+  columns={[
+    { title: "Name" },
+    { title: "Category" },
+    { title: "Cost" },
+    { title: "Since" },
+  ]}
+  content={[
+    {
+      Name: "Mailgun",
+      Category: "Infrastructure",
+      Cost: 801,
+      Since: "2018/06/01",
+    },
+    {
+      Name: "Heroku",
+      Category: "Infrastructure",
+      Cost: 554,
+      Since: "2018/06/01",
+    },
+    {
+      Name: "Stripe",
+      Category: "Administration",
+      Cost: 310.3,
+      Since: "2018/06/01",
+    },
+    {
+      Name: "StatusPage",
+      Category: "Reliability",
+      Cost: 29,
+      Since: "2020/04/01",
+    },
+    {
+      Name: "Sentry",
+      Category: "Reliability",
+      Cost: 329,
+      Since: "2020/02/01",
+    },
+    {
+      Name: "JetBrains",
+      Category: "Productivity",
+      Cost: 15,
+      Since: "2018/06/01",
+    },
+    {
+      Name: "Fathom",
+      Category: "Marketing",
+      Cost: 24,
+      Since: "2020/04/01",
+    },
+    {
+      Name: "CleanTalk",
+      Category: "Data",
+      Cost: 11,
+      Since: "2019/11/01",
+    },
+    {
+      Name: "Google Suite",
+      Category: "Administration",
+      Cost: 10,
+      Since: "2018/06/01",
+    },
+    {
+      Name: "Postmark",
+      Category: "Infrastructure",
+      Cost: 10,
+      Since: "2019/04/01",
+    },
+    {
+      Name: "Zendesk",
+      Category: "Customer service",
+      Cost: 10,
+      Since: "2019/12/01",
+    },
+    {
+      Name: "PhysicalAddress",
+      Category: "Administration",
+      Cost: 8,
+      Since: "2020/04/01",
+    },
+    {
+      Name: "Slack",
+      Category: "Administration",
+      Cost: 8,
+      Since: "2018/04/01",
+    },
+    {
+      Name: "GitHub",
+      Category: "Productivity",
+      Cost: 7,
+      Since: "2018/04/01",
+    },
+  ]}
+/>

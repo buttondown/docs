@@ -1,0 +1,122 @@
+---
+title: Funding
+description: Information about how much Buttondown contributes back to open source software
+---
+
+import Layout from "../../components/Layout";
+import Table from "../../components/Table";
+
+export const meta = {
+  title: "Funding open source software",
+  description:
+    "Information about how much Buttondown contributes back to open source software",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Funding open-source software
+
+Software sits on the shoulders of giants.
+
+Buttondown is a tool that simply would not exist without the gargantuan effort of many, _many_ open-source projects, the vast majority of which are drastically underfunded relative to the value they provide.
+
+I've committed to donating at least 10% of Buttondown's profits to the software that enables it. This is a relatively low number in absolute terms — I'm certainly not changing anyone's life — but I think it's still important.
+
+(As of June 1, 2021, I'm still looking to donate $95. If I can't identify any relevant projects by the end of the month, I'll bump up existing donations.)
+
+<Table
+  columns={[
+    { title: "Name" },
+    { title: "Category" },
+    { title: "URL" },
+    { title: "Amount" },
+    { title: "Since" },
+  ]}
+  content={[
+    {
+      Name: "Django",
+      Category: "Backend",
+      URL: "https://www.djangoproject.com/foundation/donate/",
+      Amount: 100,
+      Since: "6/1/2019",
+    },
+    {
+      Name: "Django Rest Framework",
+      Category: "Backend",
+      URL: "https://fund.django-rest-framework.org/topics/funding/",
+      Amount: 50,
+      Since: "7/1/2019",
+    },
+    {
+      Name: "PyPI",
+      Category: "Backend",
+      URL: "https://psfmember.org/civicrm/contribute/transact?reset=1&id=13/",
+      Amount: 50,
+      Since: "2/1/2020",
+    },
+    {
+      Name: "Vue",
+      Category: "Frontend",
+      URL: "https://opencollective.com/vuejs/",
+      Amount: 50,
+      Since: "3/1/2020",
+    },
+    {
+      Name: "core-js",
+      Category: "Frontend",
+      URL: "https://opencollective.com/core-js/",
+      Amount: 25,
+      Since: "1/1/2021",
+    },
+    {
+      Name: "iPython",
+      Category: "Backend",
+      URL: "https://numfocus.salsalabs.org/donate/index.html",
+      Amount: 25,
+      Since: "4/1/2020",
+    },
+    {
+      Name: "Webpack",
+      Category: "Frontend",
+      URL: "https://opencollective.com/webpack/",
+      Amount: 25,
+      Since: "3/1/2021",
+    },
+    {
+      Name: "iTerm 2",
+      Category: "Productivity",
+      URL: "https://www.patreon.com/gnachman/",
+      Amount: 25,
+      Since: "11/1/2020",
+    },
+    {
+      Name: "Storybook.js",
+      Category: "Frontend",
+      URL: "https://opencollective.com/storybook",
+      Amount: 20,
+      Since: "9/1/2020",
+    },
+    {
+      Name: "Prettier",
+      Category: "Frontend",
+      URL: "https://opencollective.com/prettier",
+      Amount: 10,
+      Since: "4/1/2020",
+    },
+    {
+      Name: "ESLint",
+      Category: "Frontend",
+      URL: "https://github.com/sponsors/eslint",
+      Amount: 5,
+      Since: "5/1/2020",
+    },
+    {
+      Name: "Homebrew",
+      Category: "Productivity",
+      URL: "https://github.com/sponsors/Homebrew",
+      Amount: 4,
+      Since: "5/1/2020",
+    },
+  ]}
+/>
+
+(The final tally: since the start of this initiative, I've donated $5,982 to projects relevant to Buttondown's success. That's not that much, and yet it is much more than many companies ten times as large as Buttondown.)

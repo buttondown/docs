@@ -1,0 +1,62 @@
+---
+title: Kudos
+description: Thanks to folks who have submitted bug reports or feature suggestions
+---
+
+import Layout from "../../components/Layout";
+import Table from "../../components/Table";
+
+export const meta = {
+  title: "Kudos",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Kudos
+
+Buttondown is a labor of love, and I'm deeply indebted to all the folks who have helped along the way: whether its sharing Buttondown (I have no paid marketing, and rely on word of mouth!) or suggesting a feature or supplying a bug report.
+
+(Think your name should be on this list? You're probably right! [Email me](mailto:justin@buttondown.email) and I'll get it added.)
+
+<Table
+  columns={[
+    {
+      title: "Name",
+      key: "name",
+    },
+    {
+      title: "Reason",
+      key: "reason",
+    },
+  ]}
+  content={[
+    {
+      name: "Shep Walker",
+      reason:
+        "For many, many reasons, but mostly for being a good sounding board.",
+    },
+    {
+      name: "Ethan Roday",
+      reason:
+        "Suggesting (and bearing with me for the implementation of) allowing auto-tag application based on query parameters.",
+    },
+    {
+      name: "Lee Robinson",
+    },
+    {
+      name: "Michael Lee",
+    },
+    {
+      name: "Craig Mod",
+      reason: "Saying an _awful_ lot of nice things about Buttondown.",
+    },
+    {
+      name: "Tim Condon",
+      reason:
+        "Alerting me to an issue where a deleted newsletter was showing up in SERPs",
+    },
+    {
+      name: "Jamie Thingelstad",
+      reason: "Lots of bug reports and useful feature ideas over the years",
+    },
+  ]}
+/>
