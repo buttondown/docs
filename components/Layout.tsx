@@ -1,8 +1,10 @@
 import { MDXProvider } from "@mdx-js/react";
 import Head from "next/head";
 import { useState } from "react";
+import React from "react";
 import { GlobalHotKeys } from "react-hotkeys";
 
+import slugify from "../lib/slugify";
 import Footer from "./Footer";
 import Header from "./Header";
 import {
@@ -22,6 +24,7 @@ import {
   Ul,
 } from "./Markdown";
 import Sidebar from "./Sidebar/Sidebar";
+import TableOfContents from "./TableOfContents";
 
 const keyMap = {
   TRIGGER_SEARCH: "/",
@@ -35,6 +38,20 @@ export default function Layout({ meta, children }: any) {
     meta && meta.title
       ? `${meta.title} • Buttondown documentation`
       : "Buttondown documentation";
+
+  const anchors = React.Children.toArray(children)
+    .filter(
+      (child: any) =>
+        child.props?.mdxType && ["h2", "h3", "h4"].includes(child.props.mdxType)
+    )
+    .map((child: any) => ({
+      url: "#" + slugify(child.props.children),
+      depth:
+        (child.props?.mdxType &&
+          parseInt(child.props.mdxType.replace("h", ""), 0)) ??
+        0,
+      text: child.props.children,
+    }));
 
   return (
     <>
@@ -69,27 +86,30 @@ export default function Layout({ meta, children }: any) {
         <div className="flex flex-col w-0 flex-1 overflow-hidden min-h-screen">
           <main className="flex-1 relative overflow-y-auto focus:outline-none flex flex-col">
             <Header setSidebarOpen={setSidebarOpen} />
-            <div className="px-8 py-4 flex-grow">
-              <MDXProvider
-                components={{
-                  a: A,
-                  p: P,
-                  h1: H1,
-                  h2: H2,
-                  h3: H3,
-                  h4: H4,
-                  pre: Pre,
-                  code: Code,
-                  ul: Ul,
-                  ol: Ol,
-                  li: Li,
-                  blockquote: Blockquote,
-                  img: Img,
-                  inlineCode: InlineCode,
-                }}
-              >
-                {children}
-              </MDXProvider>
+            <div className="px-8 py-4 flex-grow flex">
+              <div>
+                <MDXProvider
+                  components={{
+                    a: A,
+                    p: P,
+                    h1: H1,
+                    h2: H2,
+                    h3: H3,
+                    h4: H4,
+                    pre: Pre,
+                    code: Code,
+                    ul: Ul,
+                    ol: Ol,
+                    li: Li,
+                    blockquote: Blockquote,
+                    img: Img,
+                    inlineCode: InlineCode,
+                  }}
+                >
+                  {children}
+                </MDXProvider>
+              </div>
+              <TableOfContents anchors={anchors} />
             </div>
             <Footer />
           </main>
