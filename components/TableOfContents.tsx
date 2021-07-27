@@ -18,12 +18,12 @@ export default function TableOfContents({ anchors }: Props) {
           </div>
         )}
         {anchors.map((anchor, i) => {
-          return anchor.text === "Caveats" ? (
+          return anchor.text === "FAQs" ? (
             <div
               key={i}
               className="py-1 pt-3 text-gray-500 text-xs uppercase font-semibold"
             >
-              Caveats
+              FAQs
             </div>
           ) : (
             <div
