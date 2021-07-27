@@ -12,32 +12,8 @@ const Template: ComponentStory<typeof Playground> = (args) => (
   <Playground {...args} />
 );
 
-export const Basic = Playground.bind({});
+export const Basic = Template.bind({});
 Basic.args = {
-  css: `p { 
-    margin-top: 1em;
-    text-align: center;
-}
-label {
-    font-weight: bold;
-}
-input[type='email'] {
-    display: block;
-    background: #FFFFFF;
-    width: 100%;
-    padding: 0.5rem 1rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
-}
-input[type='submit'] {
-    display: block;
-    background: #0069FF;
-    width: 100%;
-    border-radius: 1rem;
-    padding: 0.5rem;
-}
-    `,
   html: `<form
   action="
     https://buttondown.email/api/emails/
@@ -62,33 +38,8 @@ input[type='submit'] {
 </form>`,
 };
 
-export const WithMetadata = Playground.bind({});
+export const WithMetadata = Template.bind({});
 WithMetadata.args = {
-  css: `p { 
-    margin-top: 1em;
-    text-align: center;
-}
-label {
-    font-weight: bold;
-}
-input[type='text'],
-input[type='email'] {
-    display: block;
-    background: #FFFFFF;
-    width: 100%;
-    padding: 0.5rem 1rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
-}
-input[type='submit'] {
-    display: block;
-    background: #0069FF;
-    width: 100%;
-    border-radius: 1rem;
-    padding: 0.5rem;
-}
-    `,
   html: `<form
   action="
     https://buttondown.email/api/emails/
@@ -121,33 +72,8 @@ input[type='submit'] {
 </form>`,
 };
 
-export const WithTags = Playground.bind({});
+export const WithTags = Template.bind({});
 WithTags.args = {
-  css: `p { 
-    margin-top: 1em;
-    text-align: center;
-}
-label {
-    font-weight: bold;
-}
-input[type='text'],
-input[type='email'] {
-    display: block;
-    background: #FFFFFF;
-    width: 100%;
-    padding: 0.5rem 1rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
-}
-input[type='submit'] {
-    display: block;
-    background: #0069FF;
-    width: 100%;
-    border-radius: 1rem;
-    padding: 0.5rem;
-}
-    `,
   html: `<form
   action="
     https://buttondown.email/api/emails/

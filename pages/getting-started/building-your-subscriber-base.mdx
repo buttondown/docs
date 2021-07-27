@@ -3,6 +3,7 @@ title: Building your subscriber base
 description: Tips and resources for growing your subscribers and imbuing them with data
 ---
 
+import Playground from "../../components/Playground/Playground";
 import Layout from "../../components/Layout";
 import { H4, P } from "../../components/Markdown";
 
@@ -21,7 +22,37 @@ Go over to the [embedding and sharing page](https://buttondown.email/share) and 
 
 ![A screenshot of the embedding and sharing page.](/images/embed-form.png)
 
-## Tagging your subscribers
+You can see what this looks like below:
+
+<Playground
+  hideCSS
+  html={`<form
+  action="
+    https://buttondown.email/api/emails/
+  "
+  method="post"
+  target="popupwindow"
+  class="embeddable-buttondown-form"
+>
+  <label for="email">Email</label>
+  <input
+    type="email"
+    name="email"
+    placeholder="you@gmail.com"
+  />
+  <input type="hidden" value="1" name="embed" />
+  <input type="submit" value="Subscribe" />
+  <p>
+    <a href="https://buttondown.email" target="_blank">
+        Powered by Buttondown.
+    </a>
+  </p>
+</form>`}
+/>
+
+## Adding tags to your subscribers
+
+**Using query parameters**
 
 If you're using Buttondown's subscribe page (e.g. `https://buttondown.email/jmduke`), you can automatically add new tags to new subscribers by adding a **query parameter** to the URL, such as:
 
@@ -31,13 +62,56 @@ https://buttondown.email/jmduke?tag=python
 
 This will automatically give folks who subscribe through the link a tag named `python`.
 
-If you want to apply multiple tags at once:
+If you want to apply multiple tags at once, you can add multiple such query parameters:
 
 ```markup
 https://buttondown.email/jmduke?tag=python&tag=vue
 ```
 
+**Using HTML**
+
+If you'd prefer to use HTML, augment your form to add an `input` tag with a name of `tag`. (You can supply multiple inputs; Buttondown will apply _all_ tags.)
+
+An example is below. Note that the `value` associated with the tag being passed over is the _name_ of the tag, not the _ID_; you can in fact supply either one and Buttondown
+will do the right thing (including automatically creating a tag with the given name if no such tag exists).
+
+<Playground
+  html={`<form
+  action="
+    https://buttondown.email/api/emails/
+  "
+  method="post"
+  target="popupwindow"
+  class="embeddable-buttondown-form"
+>
+  <label for="email">Email</label>
+  <input
+    type="email"
+    name="email"
+    placeholder="you@gmail.com"
+  />
+  <label for="email">Pokemon</label>
+  <br />
+  <input type="radio" id="Squirtle" name="tag" value="Squirtle">
+  <label for="Squirtle">Squirtle</label>
+  <input type="radio" id="Bulbasaur" name="tag" value="Bulbasaur">
+  <label for="Bulbasaur">Bulbasaur</label>
+  <input type="radio" id="Charmander" name="tag" value="Charmander">
+  <label for="Charmander">Charmander</label><br>
+  <br />
+  <input type="hidden" value="1" name="embed" />
+  <input type="submit" value="Subscribe" />
+  <p>
+    <a href="https://buttondown.email" target="_blank">
+        Powered by Buttondown.
+    </a>
+  </p>
+</form>`}
+/>
+
 ## Adding metadata to your subscribers
+
+**Using HTML**
 
 I'm a fan of showing, not telling, so I'll lead with the relevant code sample:
 
@@ -56,6 +130,41 @@ The trick is to set inputs with the `name` of `metadata__<key>`, as you can see 
 ```
 
 Note that these can be freeform text inputs, like above, or `hidden` inputs if you instead want to invisibly augment your subscription forms with given metadata. (For instance, you can imagine setting metadata for everyone coming through a particular tag or webpage.)
+
+Another example playground is below:
+
+<Playground
+  html={`<form
+  action="
+    https://buttondown.email/api/emails/
+  "
+  method="post"
+  target="popupwindow"
+  class="embeddable-buttondown-form"
+>
+  <label for="email">Email</label>
+  <input
+    type="email"
+    name="email"
+    placeholder="you@gmail.com"
+  />
+  <label for="email">First name</label>
+  <input
+  id="first-name"
+  type="text"
+  name="metadata__first-name"
+  required
+  placeholder="John"
+/>
+  <input type="hidden" value="1" name="embed" />
+  <input type="submit" value="Subscribe" />
+  <p>
+    <a href="https://buttondown.email" target="_blank">
+        Powered by Buttondown.
+    </a>
+  </p>
+</form>`}
+/>
 
 ## Automatically sending an email to new subscribers
 
