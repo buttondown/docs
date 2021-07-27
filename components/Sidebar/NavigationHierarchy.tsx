@@ -42,6 +42,10 @@ const NAVIGATION: Array<NavigationItem> = [
         href: "/getting-started/importing-your-data",
       },
       {
+        name: "Building your subscriber base",
+        href: "/getting-started/building-your-subscriber-base",
+      },
+      {
         name: "Hosting on a custom domain",
         href: "/getting-started/hosting-on-a-custom-domain",
       },

@@ -81,7 +81,7 @@ export const Li = (props: any) => <li className="text-lg" {...props} />;
 const isEmptyTrailingLine = (tokens: Array<any>, tokenIndex: number) =>
   tokenIndex === tokens.length - 1 && tokens[tokenIndex][0].empty;
 
-export const Code = ({ children, language }: any) => {
+export const Code = ({ children, language, classes }: any) => {
   return (
     <Highlight
       {...defaultProps}
@@ -91,7 +91,7 @@ export const Code = ({ children, language }: any) => {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
-          className={classNames(className, "rounded")}
+          className={classNames(className, "rounded", classes)}
           style={{ ...style, padding: "20px" }}
         >
           {tokens.map(
