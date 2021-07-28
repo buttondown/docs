@@ -2,9 +2,9 @@ import { Menu } from "@headlessui/react";
 import { Index } from "lunr";
 
 import classNames from "../../lib/classNames";
+import { SearchableItem } from "../../lib/search";
 import SEARCH_RESULTS from "../../public/search-results.json";
 import NextLink from "../NextLink";
-import { SearchableItem } from "./types";
 
 const SEARCH_DATA: SearchableItem[] = SEARCH_RESULTS;
 

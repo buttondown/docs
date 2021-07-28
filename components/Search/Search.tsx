@@ -1,13 +1,10 @@
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/outline";
-import lunr, { Index } from "lunr";
+import { Index } from "lunr";
 import { Fragment, useRef, useState } from "react";
 
-import SEARCH_RESULTS from "../../public/search-results.json";
+import search from "../../lib/search";
 import SearchResult from "./SearchResult";
-import type { SearchableItem } from "./types";
-
-const SEARCH_DATA: SearchableItem[] = SEARCH_RESULTS;
 
 type Props = {
   setSearchOpen: (arg0: boolean) => void;
@@ -17,27 +14,10 @@ type Props = {
 export default function Search(props: Props) {
   const [results, setResults] = useState<Index.Result[]>([]);
 
-  const search = async (e: any) => {
+  const onSearchChange = async (e: any) => {
     const { value } = e.currentTarget;
-
-    if (value === "") {
-      setResults([]);
-      return;
-    }
-
-    const index = lunr(function () {
-      this.ref("path");
-      this.field("text");
-      this.field("title");
-      this.metadataWhitelist = ["position"];
-
-      SEARCH_DATA.forEach(function (this: any, doc) {
-        this.add(doc);
-      }, this);
-    });
-
-    const results = index.search(value);
-    setResults(results);
+    let searchResults = await search(value);
+    setResults(searchResults);
   };
 
   const handleClick = async () => {
@@ -104,7 +84,7 @@ export default function Search(props: Props) {
                         type="text"
                         className="focus:outline-none w-full shadow-sm sm:text-lg border-gray-300 rounded-lg px-3 border focus:border-blue-300"
                         placeholder="Search Buttondown's documentation"
-                        onChange={search}
+                        onChange={onSearchChange}
                         ref={searchInputRef}
                       />
                     </Menu.Item>
