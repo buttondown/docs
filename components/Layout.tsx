@@ -55,10 +55,6 @@ export default function Layout({ meta, children }: any) {
       : "Buttondown documentation";
 
   const anchors = React.Children.toArray(children)
-    .map((child: any) => {
-      console.log(child);
-      return child;
-    })
     .filter(
       (child: any) =>
         child.props?.mdxType &&
