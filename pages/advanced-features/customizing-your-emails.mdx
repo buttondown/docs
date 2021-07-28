@@ -4,6 +4,7 @@ description: How to make your emails uniquely styled using CSS and Buttondown's 
 ---
 
 import Layout from "../../components/Layout";
+import Notice from "../../components/Notice";
 
 export const meta = {
   title: "Customizing your emails",
@@ -13,6 +14,30 @@ export const meta = {
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 # Customizing your emails
+
+Buttondown is fairly opinionated about the best emails being
+plain-text friendly and minimal, but it offers you a variety of ways
+to customize your email through HTML and CSS.
+
+<Notice variant="info">
+  All HTML is technically valid Markdown, so if you ever want to just completely
+  override Buttondown's styles and provide your own email template, you're
+  welcome to do so!
+</Notice>
+
+## What to avoid
+
+Most email clients don't support the wide variety of HTML and content that you can see on the web.
+Things like `<iframe>` elements, embedded videos, or custom layouts and fonts are hard if not impossible
+to replicate in the limited confines of your average inbox. This isn't a Buttondown limitation; it's a Gmail (or whomever) one.
+
+A brief (and inexhaustive) list of things that emails won't be able to handle:
+
+- **JavaScript or other run-time scripts**. JavaScript is a programming language that makes web content interactive. It's common in websites, but the vast majority of email clients block scripts since they can hide malicious content. Avoid all JavaScript.
+- **`<iframes>`**. An `<iframe>` (inline frame) is an HTML element that embeds content from one website into another. Inline frames are often used to insert advertisements, video, audio, or forms in other websites. Iframes often contain scripts, so most email clients block them.
+- **embedded audio or video, such as Spotify or Bandcamp playlists**. Autoplay and click-to-play media won't play in an inbox unless your subscriber's email client supports HTML5 `<video>` and `<audio>` tags. Only one major email client, Apple Mail, supports these tags, so it's best to avoid embedded media and consider an alternative.
+- **custom forms**. Forms and interactive content is impossible in email.
+- **CSS3**. Unfortunately, the CSS standard that Gmail and other clients are working off of is fairly old. You'll want to extensively test any custom CSS you are using to make sure it plays nice with many browsers; when in doubt, default to CSS that worked in, say, 2005.
 
 ## Using web fonts in your email
 
@@ -348,7 +373,7 @@ p, div, ul, li {
 
 This will keep the text in your email left-aligned, but center the text in the browser:
 
-![A screenshot of Gmail to show the final, rendered, email.](/images/centered-image.png)
+![A screenshot of Gmail to show the final, rendered, email.](/images/centered-email.png)
 
 ## Customizing the Gmail icon of your email
 

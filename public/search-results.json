@@ -49,7 +49,7 @@
   },
   {
     "path": "/advanced-features/template-variables",
-    "text": "Template variables Within your email ",
+    "text": "Template variables Template variables are a concept that have multiple names: \"mail merges\" might be one you're more familiar with if you have a marketing and email background. The concept is\nto add snippets in your email that are programmatically replaced when Buttondown sends out an email; this allows you to customize your content per-subscriber or to repeat certain\nkey concepts in your email without having to change them over and over again. Template variable library ",
     "title": "Template variables",
     "description": "How to use template variables to customize and supercharge your emails"
   },
