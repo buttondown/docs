@@ -117,7 +117,7 @@ const NAVIGATION: Array<NavigationItem> = [
     children: [
       { name: "Substack", href: "/migration-guides/substack" },
       // { name: "Mailchimp", href: "/migration-guides/mailchimp" },
-      // { name: "Tinyletter", href: "/migration-guides/tinyletter" },
+      { name: "Tinyletter", href: "/migration-guides/tinyletter" },
       // { name: "ConvertKit", href: "/migration-guides/convertkit" },
     ],
   },
