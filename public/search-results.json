@@ -216,6 +216,12 @@
     "description": "A step-by-step guide of migrating from Substack to Buttondown"
   },
   {
+    "path": "/migration-guides/tinyletter",
+    "text": "Tinyletter Importing your data (This guide assumes that you have already registered a Buttondown account. If you haven't head on over to  Registration & setup .) Obtain a full export of your Tinyletter data.  Follow this  Tinyletter support article  to export your data. You'll end up receiving a   file filled with subscriber data — that's the magic ticket! Upload your subscriber data . Go to your  Settings page  and click on the \"Import subscribers\" button at the bottom of the page; you should be prompted to upload a CSV. Find the CSV you just downloaded and upload it; you'll be prompted to map some of the\nfields in that export to Buttondown ones in order to make sure Buttondown understands your previous subscribers. Upload your archive data . Go back to your  Settings page  and click on the \"Import archives\" button, choosing the \"Tinyletter\" option. This time, type in your Tinyletter username! That's it! Once you've done all of the above steps, Buttondown will kick off an audit and migration process to make sure everything is in tip-top order, and then you should be safe to disable or deactivate your Tinyletter account. ",
+    "title": "Tinyletter",
+    "description": "A step-by-step guide of migrating from Tinyletter to Buttondown"
+  },
+  {
     "path": "/need-more-help/",
     "text": "Need more help? I tried to put as much information as I could about how to use Buttondown\nin this guide, but I'm sure I'm missing a lot of things. Email me at  justin@buttondown.email \nand I'll answer your question as quickly as possible to the best of my ability! ",
     "title": "Need more help?"
@@ -228,7 +234,7 @@
   },
   {
     "path": "/odds-and-ends/offboarding",
-    "text": "Offboarding If you want to delete your Buttondown account, no hard feelings! Hit the \"delete your account\" button\nat the bottom of your  Account page  and our data will be  instantly \nremoved from our servers. (There's no recovering this, so be sure to  export your data  beforehand if you need your data!) ",
+    "text": "Offboarding If you want to delete your Buttondown account, no hard feelings! Hit the \"delete your account\" button\nat the bottom of your  Account page  and our data will be  instantly \nremoved from our servers. (There's no recovering this, so be sure to  export your data  beforehand if you need your data!) FAQs I'm moving to a different website or platform. Can I point my old Buttondown page to my new URL? Yes!  Send me an email  and I can wire that up for you. ",
     "title": "Offboarding",
     "description": "How to stop using Buttondown safely and easily"
   },
