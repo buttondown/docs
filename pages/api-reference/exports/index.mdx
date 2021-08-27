@@ -1,6 +1,6 @@
 ---
-title: Images
-description: An API reference for the 'image' object in Buttondown
+title: Exports
+description: An API reference for the 'export' object in Buttondown
 ---
 
 import Layout from "../../../components/Layout";
@@ -14,28 +14,32 @@ export const meta = {
   title: DATA.title,
 };
 
-export const serializedImage = JSON.stringify(DATA.object, null, 4);
+export const serializedExport = JSON.stringify(DATA.object, null, 4);
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
-# Images
+# Exports
 
-Images are, well, images! Buttondown allows you to upload images to its secure [S3](https://aws.amazon.com/s3/) bucket and do with them what you will. This is sort of an odd duck of an API, to be sure, but if you want to be able to do things like draft and send emails completely on your iPad you need a surefire way of creating images.
+Some software applications may want programmatic access to their newsletter exports. This assists with a few niche
+use cases, such as regular backups or data ingestion (into a data warehouse), or post-publishing processes that hinge
+on email events. In general, you probably won't _need_ to use this endpoint unless you _absolutely_ need to use this endpoint.
 
-## The image object
+## The export object
 
-An image looks like this:
+An export looks like this:
 
 <ObjectDescription
-  example={serializedImage}
+  example={serializedExport}
   fields={[
     { field: "creation_date", type: "datetime", description: "" },
+    { field: "completion_date", type: "datetime", description: "" },
+    { field: "status", type: "status", description: "" },
     { field: "id", type: "uuid" },
-    { field: "image", type: "string" },
+    { field: "url", type: "string" },
   ]}
 />
 
-<Endpoint title="Listing images" method="GET" path={DATA.endpoint} />
+<Endpoint title="Listing exports" method="GET" path={DATA.endpoint} />
 <ParametersTable
   content={[
     {
@@ -56,7 +60,7 @@ An image looks like this:
         count: 1,
         next: "foo",
         previous: null,
-        results: [JSON.parse(serializedImage)],
+        results: [JSON.parse(serializedExport)],
       },
     },
   ]}
@@ -64,17 +68,8 @@ An image looks like this:
 
 ---
 
-<Endpoint title="Uploading a new image" method="POST" path={DATA.endpoint} />
-<ParametersTable
-  content={[
-    {
-      parameter: "image",
-      type: "string <binary>",
-      description: "",
-      optional: false,
-    },
-  ]}
-/>
+<Endpoint title="Creating a new export" method="POST" path={DATA.endpoint} />
+<ParametersTable content={[]} />
 <ResponsesTable
   content={[
     {
@@ -88,7 +83,7 @@ An image looks like this:
 ---
 
 <Endpoint
-  title="Deleting an image"
+  title="Deleting an export"
   method="DELETE"
   path={DATA.endpoint + "/<id>"}
 />
@@ -105,7 +100,7 @@ An image looks like this:
 ---
 
 <Endpoint
-  title="Retrieving a specific image"
+  title="Retrieving a specific export"
   method="GET"
   path={DATA.endpoint + "/<id>"}
 />

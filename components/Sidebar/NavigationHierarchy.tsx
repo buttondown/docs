@@ -140,6 +140,7 @@ const NAVIGATION: Array<NavigationItem> = [
       { name: "Scheduled emails", href: "/api-reference/scheduled-emails" },
       { name: "Images", href: "/api-reference/images" },
       { name: "Newsletters", href: "/api-reference/newsletters" },
+      { name: "Exports", href: "/api-reference/exports" },
     ],
   },
   {
