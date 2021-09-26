@@ -61,7 +61,7 @@
   },
   {
     "path": "/api-reference/changelog",
-    "text": "Changelog The changelog provides a list of dated updates, each of which contains a number of potentially backwards-incompatible changes. There is no explicit versioning in the API at this time; all changes will be either compatible or breaking. (If I attempt any brittle changes to the API that may break current implementations, I'll be sure to add version gates.) 2021-01-02 Added support to set and retrieve metadata on Emails. 2020-12-23 Added deletion and update abilities to the Scheduled emails endpoint, giving you much more programmability than the hitherto append-only state of the world. 2020-12-09 Added a deletion endpoint to the Images endpoint, allowing you to delete unused images. ",
+    "text": "Changelog The changelog provides a list of dated updates, each of which contains a number of potentially backwards-incompatible changes. There is no explicit versioning in the API at this time; all changes will be either compatible or breaking. (If I attempt any brittle changes to the API that may break current implementations, I'll be sure to add version gates.) 2021-08-27 Added support for Exports via the   endpoint. 2021-01-02 Added support to set and retrieve metadata on Emails. 2020-12-23 Added deletion and update abilities to the Scheduled emails endpoint, giving you much more programmability than the hitherto append-only state of the world. 2020-12-09 Added a deletion endpoint to the Images endpoint, allowing you to delete unused images. ",
     "title": "Changelog",
     "description": "Everything that's new in Buttondown's API"
   },
@@ -82,6 +82,12 @@
     "text": "Events and Webhooks Events are Buttondown's way of telling you that something interesting has happened to your newsletter, and webhooks are Buttondown's\nway of letting you react to various incoming events. For example, when a new subscriber signs up for your newsletter, Buttondown creates\nand emits a   event; when that subscriber unsubscribes, Buttondown creates a   event. If you wanted\nto, say, create a Slack notification or run some application code whenever something in Buttondown happens, you'd create a webhook for the concomitant\nevent and point it towards your application. The payload of most events are fairly simple, and look something like this: Events ",
     "title": "Events and webhooks",
     "description": "How to get a full lens of your Buttondown newsletter through structured data"
+  },
+  {
+    "path": "/api-reference/exports/",
+    "text": "Exports Some software applications may want programmatic access to their newsletter exports. This assists with a few niche\nuse cases, such as regular backups or data ingestion (into a data warehouse), or post-publishing processes that hinge\non email events. In general, you probably won't  need  to use this endpoint unless you  absolutely  need to use this endpoint. The export object An export looks like this: ",
+    "title": "Exports",
+    "description": "An API reference for the 'export' object in Buttondown"
   },
   {
     "path": "/api-reference/images/",
