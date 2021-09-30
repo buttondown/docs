@@ -68,6 +68,7 @@ A subscriber looks like this:
       An optional filter to allow you to only retrieve a subset of subscribers. The API accepts the values listed below.
     `,
       example: "",
+      optional: true,
     },
     {
       parameter: "tag",
@@ -75,6 +76,7 @@ A subscriber looks like this:
       description:
         "An optional filter allowing you to filter subscribers based on a given tag. Provide the ID of the tag, not the name.",
       example: "",
+      optional: true,
     },
     {
       parameter: "email",
@@ -82,18 +84,21 @@ A subscriber looks like this:
       description:
         "An optional filter allowing you to filter subscribers based on a substring. Providing a value of `doe` would match both `jane.doe@gmail.com` and `john.doe@gmail.com`, but not `jane.dooe@gmail.com`.",
       example: "",
+      optional: true,
     },
     {
       parameter: "page",
       type: "string",
       description: "A page number within the paginated result set.",
       example: "",
+      optional: true,
     },
     {
       parameter: "ordering",
       type: "string",
       description: "Which field to use when ordering the results.",
       example: "",
+      optional: true,
     },
   ]}
 />
