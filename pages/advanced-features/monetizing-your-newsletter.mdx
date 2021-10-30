@@ -90,7 +90,7 @@ If you want to provide a link in your emails to each subscriber's paid archive, 
 This generates a unique-per-subscriber ID for their paid specific paid archives. Like the link generated through Buttondown's interface, it will expire once the subscriber's paid subscription lapses. A common tactic is to reference it in your footer for _all_ paid subscribers, like so:
 
 ```html
-{% if subscriber.subscription_type == "premium" %} You can always view your full
+{% if subscriber.subscriber_type == "premium" %} You can always view your full
 archives [here]({{ premium_archive_link }}). {% endif %}
 ```
 
