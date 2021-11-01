@@ -18,8 +18,6 @@ export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 ## Importing subscribers
 
-Assuming that the subscribers have _already consented_ to receiving email (via double-opt-in or some other mechanism provided by your previous subscriber), no! GDPR-wise, their existing consent carries over to Buttondown.
-
 If you import a large number of subscribers, I'll temporarily disable your account so Buttondown can review the imported emails and make sure they're all up to code. The process shouldn't take more than a few hours!
 
 Navigate to your [settings page](https://buttondown.email/settings) and click _Import subscribers!_ You'll be prompted to upload a CSV:
@@ -35,6 +33,10 @@ Navigate to your [settings page](https://buttondown.email/settings) and choose t
 ![A screenshot of the import archives modal.](/images/import-archives.png)
 
 ## FAQs
+
+### I'm importing my subscribers from another newsletter service. Do they have to confirm their email address again?
+
+Assuming that the subscribers have _already consented_ to receiving email (via double-opt-in or some other mechanism provided by your previous subscriber), no! GDPR-wise, their existing consent carries over to Buttondown.
 
 ### Adding a listserv?
 
