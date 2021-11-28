@@ -343,7 +343,6 @@ If Buttondown cannot create a new subscriber with the email address you've provi
   title="Sending an email to a specific subscriber"
   method="POST"
   path="/v1/subscribers/<id>/emails/<email_id>"
-  beta
 />
 
 <ResponsesTable
@@ -351,6 +350,30 @@ If Buttondown cannot create a new subscriber with the email address you've provi
     {
       Status: "200",
       description: "",
+      "Sample Response": {},
+    },
+  ]}
+/>
+
+---
+
+<Endpoint
+  title="Sending a reminder to a specific subscriber to confirm their email address"
+  method="POST"
+  path="/v1/subscribers/<id>/send-reminder"
+/>
+
+<ResponsesTable
+  content={[
+    {
+      Status: "200",
+      description: "",
+      "Sample Response": {},
+    },
+    {
+      Status: "400",
+      description:
+        "Returned if the subscriber has already confirmed their email address",
       "Sample Response": {},
     },
   ]}

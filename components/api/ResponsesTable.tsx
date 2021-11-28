@@ -1,7 +1,6 @@
 import classNames from "../../lib/classNames";
 import { Code, H3 } from "../Markdown";
-import Table, {Row} from "../Table";
-
+import Table, { Row } from "../Table";
 
 function ResponseCodeBadge(text: string) {
   return (
@@ -25,7 +24,7 @@ function SampleResponse(text: any) {
 }
 
 type Props = {
-  content: Array<Row>
+  content: Array<Row>;
 };
 
 export default function ResponsesTable({ content }: Props) {
@@ -38,7 +37,7 @@ export default function ResponsesTable({ content }: Props) {
             title: "Status",
             component: ResponseCodeBadge,
           },
-          { title: "Description" },
+          { title: "Description", key: "description" },
           { title: "Sample Response", component: SampleResponse },
         ]}
         content={content}
