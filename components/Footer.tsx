@@ -1,3 +1,6 @@
+import { useRouter } from "next/router";
+import path from "path/posix";
+
 function TwitterIcon(props: any) {
   return (
     <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
@@ -57,14 +60,24 @@ const navigation = {
   ],
 };
 
+const pathToPermalink = (path: string) =>
+  `https://github.com/buttondown-email/docs/blob/main/pages${path}.mdx`;
+
 export default function Footer() {
+  const { asPath, pathname } = useRouter();
+
   return (
     <footer className="bg-white" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-8 lg:px-8">
-        <div className="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
+        <p className="text-gray-400 text-sm underline decoration-dotted">
+          <a href={pathToPermalink(pathname)} target="_blank" rel="noreferrer">
+            See something wrong? Edit this page on GitHub ↗
+          </a>
+        </p>
+        <div className="mt-4 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
             {navigation.social.map((item) => (
               <a
