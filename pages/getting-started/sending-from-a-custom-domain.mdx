@@ -37,13 +37,34 @@ This will cause emails to come from your-username@mg.buttondown.email, which wil
 
 ![A screenshot of Gmail showing an email sent from Buttondown's servers.](/images/sending-from-buttondown-2.png)
 
-## Dealing with 'softfails' in specific
+## Dealing with 'softfails' due to SPF
 
-Unfortunately, SPF only supports a single DNS entry.
+Depending on your newsletter configuration, you might have been asked to set up an [SPF entry](https://postmarkapp.com/guides/spf) for your custom domain. This is a DNS record that begins with the string:
 
-If you're using the same custom email domain for Buttondown and for an inbox provider such as GSuite, this means your two SPF entries may be in conflict!
+```
+v=spf1
+```
 
-Instead of appending an extra TXT entry, the proper solution is actually to edit the existing one into something like `v=spf1 include:_spf.google.com include:mailgun.org ~all`, specifying both domains.
+However, this record can only be used once in a single domain.  If you're using the same custom email domain for Buttondown and for an inbox provider such as GSuite, you need to take an extra step
+to combine the two records.
+
+Instead of having two separate records, like:
+
+```
+v=spf1 include:_spf.google.com
+```
+
+and
+
+```
+v=spf1 include:mailgun.org
+```
+
+The proper solution is actually to edit the existing one into something like that references both domains: 
+
+```
+v=spf1 include:_spf.google.com include:mailgun.org ~all
+```
 
 Otherwise, some mailboxes may read the GSuite one and ignore the Mailgun one (set by Buttondown), causing a softfail and thus lower deliverability.
 
