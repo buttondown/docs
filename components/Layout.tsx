@@ -88,6 +88,10 @@ export default function Layout({ meta, children }: any) {
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
+          />  
+          <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=optional"
+            rel="stylesheet"
           />
         </Head>
         <Sidebar
