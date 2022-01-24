@@ -115,10 +115,11 @@ const NAVIGATION: Array<NavigationItem> = [
     href: "/migration-guides",
     icon: InboxInIcon,
     children: [
-      { name: "Substack", href: "/migration-guides/substack" },
-      { name: "Mailchimp", href: "/migration-guides/mailchimp" },
-      { name: "Tinyletter", href: "/migration-guides/tinyletter" },
       // { name: "ConvertKit", href: "/migration-guides/convertkit" },
+      { name: "Mailchimp", href: "/migration-guides/mailchimp" },
+      { name: "Mailcoach", href: "/migration-guides/mailcoach" },
+      { name: "Substack", href: "/migration-guides/substack" },
+      { name: "Tinyletter", href: "/migration-guides/tinyletter" },
     ],
   },
   {
