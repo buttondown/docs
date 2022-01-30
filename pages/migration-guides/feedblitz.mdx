@@ -1,0 +1,61 @@
+---
+title: FeedBlitz
+description: A step-by-step guide of migrating from FeedBlitz to Buttondown
+---
+
+import Layout from "../../components/Layout";
+import { H4, P, Code, Pre } from "../../components/Markdown";
+import Table from "../../components/Table";
+
+import Notice from "../../components/Notice";
+
+export const meta = {
+  title: "FeedBlitz",
+  description: "A short guide on migrating from FeedBlitz to Buttondown",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# FeedBlitz
+
+### Importing your subscribers
+
+1. Export your FeedBlitz subscribers [here](https://support.feedblitz.com/support/solutions/articles/43000476095-how-to-export-subscribers-from-a-list).
+
+    ![A screenshot of the FeeBlitz export process](/images/migration-guides/feedblitz-export.png)
+
+2. Go to [https://buttondown.email/settings](https://buttondown.email/settings). You may need to log in first.
+3. Scroll to the bottom of the page.
+4. Click the _Import subscribers_ button at the bottom of the page, then choose the csv file you just downloaded from Feedblitz.
+
+    ![A screenshot of the import subscribers modal.](/images/import-subscribers.png)
+
+
+### Importing your archives (mailings)
+
+<Notice variant="info">
+FeedBlitz mailings are like Buttondown archives.
+</Notice>
+
+As of autumn 2021, FeedBlitz doesn’t let you download your mailings (called “archives” in Buttondown). But you can [look at them](https://support.feedblitz.com/support/solutions/articles/43000075553-where-are-my-archived-mailings-)!
+
+You can also try [reaching out to FeedBlitz](https://www.feedblitz.com/contact) and see if they will export your archived mailings for you. Once they give you access to your data, [email me](mailto:justin@buttondown.email) and I’ll help you with importing your archives.
+
+
+### Do subscribers need to re-enter their credit card?
+
+If you use Zapier to connect a payment processor like PayPal to a [FeedBlitz Zapier trigger](https://zapier.com/apps/feedblitz/integrations), you can switch directly to the equivalent [Buttondown Zapier trigger](https://zapier.com/apps/buttondown/integrations).
+
+
+### You did it!
+
+Once you finish the above steps, Buttondown will kick off an audit and migration process to make sure everything is in order. Then you should be safe to disable or deactivate your Feedblitz account.
+
+
+### By the way
+
+With Buttondown, it’s easy to [export _all_ your data](https://docs.buttondown.email/odds-and-ends/exporting-your-data):
+
+![A screenshot of the "export data" button.](/images/exporting.png)
+
+
+

@@ -1,0 +1,61 @@
+---
+title: EmailOctopus
+description: A step-by-step guide of migrating from EmailOctopus to Buttondown
+---
+
+import Layout from "../../components/Layout";
+import { H4, P, Code, Pre } from "../../components/Markdown";
+import Table from "../../components/Table";
+
+import Notice from "../../components/Notice";
+
+export const meta = {
+  title: "EmailOctopus",
+  description: "A short guide on migrating from EmailOctopus to Buttondown",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# EmailOctopus
+
+### Importing your subscribers (contacts)
+
+<Notice variant="info">
+EmailOctopus contacts are like Buttondown subscribers.
+</Notice>
+
+1. Export your EmailOctopus contacts [here](https://help.emailoctopus.com/article/116-exporting-contacts-from-a-list).
+
+    ![A screenshot of the EmailOctopus export process](/images/migration-guides/emailoctopus-export.png)
+
+2. Extract the csv from the zip file you just downloaded.
+3. Go to [https://buttondown.email/settings](https://buttondown.email/settings). You may need to log in first.
+4. Scroll to the bottom of the page.
+5. Click the _Import subscribers_ button at the bottom of the page, then choose the csv file you just unzipped from EmailOctopus.
+
+    ![A screenshot of the import subscribers modal.](/images/import-subscribers.png)
+
+
+### Importing your archives (campaigns)
+
+<Notice variant="info">
+EmailOctopus campaigns are like Buttondown archives.
+</Notice>
+
+According to EmailOctopus (as of November 2021), "You won't be able to export a campaign – if you'd like to access its HTML code, you'd need to send it and copy the code from the web version of the campaign (by going to the "view page source" screen in your browser)."
+
+[Email me](mailto:justin@buttondown.email) and I’ll take care of importing those HTML files.
+
+
+### You did it!
+
+Once you finish all of the above steps, Buttondown will kick off an audit and migration process to make sure everything is in order. Then you should be safe to disable or deactivate your EmailOctopus account.
+
+
+### By the way
+
+With Buttondown, it’s easy to [export _all_ your data](https://docs.buttondown.email/odds-and-ends/exporting-your-data):
+
+![A screenshot of the "export data" button.](/images/exporting.png)
+
+
+

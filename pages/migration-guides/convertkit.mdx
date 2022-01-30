@@ -1,0 +1,75 @@
+---
+title: ConvertKit
+description: A step-by-step guide of migrating from ConvertKit to Buttondown
+---
+
+import Layout from "../../components/Layout";
+import { H4, P, Code, Pre } from "../../components/Markdown";
+import Table from "../../components/Table";
+
+import Notice from "../../components/Notice";
+
+export const meta = {
+  title: "ConvertKit",
+  description: "A short guide on migrating from ConvertKit to Buttondown",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# ConvertKit
+
+### Importing your subscribers
+
+1. Export your ConvertKit subscribers [here](https://help.convertkit.com/en/articles/2502489-how-to-export-subscribers-in-convertkit).
+
+    ![Screeshot of ConvertKit export process](/images/migration-guides/convertkit-export.png)
+
+2. Go to [https://buttondown.email/settings](https://buttondown.email/settings).
+3. You may need to log in first. Scroll to the bottom of the page.
+4. Click the _Import subscribers_ button at the bottom of the page, then choose the csv file you just downloaded from AWeber
+
+    ![A screenshot of the import subscribers modal.](/images/import-subscribers.png)
+
+### Importing your archives (broadcasts)
+
+<Notice variant="info">
+ConvertKit broadcasts are like Buttondown archives.
+</Notice>
+
+To quote ConvertKit in November 2021, “_Apologies, at this time, we do not have an option on our app to export broadcast emails._” “_You have to manually copy and paste_” ConvertKit said they have added this as a feature request. You could also try [reaching out to them](mailto:help@convertkit.com) and see if they will export your broadcast emails for you. Once they give you access to your data, [email me](mailto:justin@buttondown.email) and I’ll help you with importing your archives.
+
+
+### You did it!
+
+Once you finish the above steps, Buttondown will kick off an audit and migration process to make sure everything is in order. Then you should be safe to disable or deactivate your ConvertKit account.
+
+
+### Do subscribers need to re-enter their credit card?
+
+ConvertKit and Buttondown use the same payments processor - [Stripe](https://stripe.com/ "Stripe").
+
+Stripe has your subscribers' information:
+- credit cards
+- purchases
+- subscriptions
+
+You bring your subscribers' history to Buttondown when you connect your Stripe account to Buttondown. You will have their payment histories, too.
+
+**Your paying subscribers do not need to do anything extra when you switch to Buttondown**. Just email me when you've connected your Stripe account. I'll take care of the rest, for free!  
+
+![Screenshot of where on buttondown to get started with Stripe](/images/migration-guides/get-started-with-stripe.png)
+
+P.S. Over time, I'd like to make this process a little more automatic but at the moment it requires a bit of manual labor on my part to make sure everything is wired up correctly (free of charge, of course.)
+
+
+### By the way
+
+With Buttondown, it’s easy to [export _all_ your data](https://docs.buttondown.email/odds-and-ends/exporting-your-data):
+
+![A screenshot of the "export data" button.](/images/exporting.png)
+
+
+ 
+ 
+
+
+

@@ -1,0 +1,89 @@
+---
+title: Moosend
+description: A step-by-step guide of migrating from Moosend to Buttondown
+---
+
+import Layout from "../../components/Layout";
+import { H4, P, Code, Pre } from "../../components/Markdown";
+import Table from "../../components/Table";
+
+import Notice from "../../components/Notice";
+
+export const meta = {
+  title: "Moosend",
+  description: "A short guide on migrating from Moosend to Buttondown",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+
+# Moosend
+        
+### Importing your subscribers
+<Notice variant="info">
+As of December 2021, Moosend uses semicolons for separators when exporting CSV files. Buttondown doesn’t, so make sure to follow steps 2 and 3 so you get a comma-separated file.
+</Notice>
+
+#### Importing all your subscribers to a single list
+
+1. Export your Moosend subscribers [here](https://help.moosend.com/hc/en-us/articles/4403031374354-Export-your-subscribers-as-a-CSV-file-). If you have multiple lists you will have to export each one separately.
+2. When exporting your Moosend subscribers, choose “Export to Excel”.
+
+    ![A screenshot of the import subscribers modal.](/images/import-subscribers.png)
+
+3. After downloading the Excel file, convert it to CSV. Here are a few ways to do that:
+
+    - Open the file in Excel, select “File” > “Save As” and choose “CSV” from the "Save as type" drop-down menu.
+    - Many other spreadsheet editors (Google Sheets, LibreOffice Calc, and more) can do the same thing.
+    - There are many online file converters. [CloudConvert](https://cloudconvert.com/xlsx-to-csv), for example, seems to have a reasonable [privacy policy](https://cloudconvert.com/privacy) as of December 2021.
+
+4. Go to [https://buttondown.email/settings](https://buttondown.email/settings). You may need to log in first.
+5. Scroll to the bottom of the page.
+6. Click the _Import subscribers_ button at the bottom of the page, then choose the csv file you created in step&nbsp;3.
+
+    ![A screenshot of the import subscribers modal.](/images/import-subscribers.png)
+
+
+
+#### Importing multiple subscriber lists
+
+Moosend allows multiple subscriber lists. There are two ways to group subscribers in Buttondown:
+
+- If you want to be able to completely separate out multiple verticals of a newsletter (and, say, keep track of different archives) or have two entirely different publications with disjoint subscriber bases, your best bet is to [set them up as separate newsletters entirely](https://docs.buttondown.email/advanced-features/managing-multiple-newsletters). Then you can follow the import instructions above for each one.
+- If you want all your subscribers in one place, but you want to be able to send some messages to certain groups of subscribers, use tags and [metadata](https://docs.buttondown.email/advanced-features/metadata). To add list identifiers from Moosend as tags to your Moosend contact lists before importing them:
+
+   1. Export your Moosend subscribers [here](https://help.moosend.com/hc/en-us/articles/4403031374354-Export-your-subscribers-as-a-CSV-file-). You will have to export each list separately.
+   2. When exporting your Moosend subscribers, choose “Export to Excel”.
+   ![Screenshot of Moosend export process](/images/migration-guides/moosend-export.png)
+   3. Open the Excel file with your preferred spreadsheet software.
+   4. Add the list name to the “Tags (Default)” column:
+   ![Screenshot of adding list name as tag in a spreadsheet editor](/images/migrationguides/moosend-add-tag.png)
+   If you already have other tags for your subscribers, you may need to create a new column and use a formula like=concat(“List_Name, “, F2) to add the list name:
+   ![Screenshot of adding list name to other tags in a spreadsheet editor](/images/migration-guides/moosend-add-listname-to-tags.png)
+   5. Save the spreadsheet as a CSV file
+   6. Go to [https://buttondown.email/settings](https://buttondown.email/settings). You may need to log in first.
+   7. Scroll to the bottom of the page.
+   8. Click the_Import subscribers_ button at the bottom of the page, then choose the CSV file you saved in step&nbsp;5.
+   ![A screenshot of the import subscribers modal.](/images/import-subscribers.png)
+   9. When it asks you to assign tags, select the correct tags column.
+
+
+### Importing your archives (campaigns)
+<Notice variant="info">
+Moosend campaigns are like Buttondown archives.
+</Notice>
+
+
+As of December 2021, Moosend does not have a method for exporting campaigns. Try [reaching out to them](https://moosend.com/contact-us/support/) and see if they will export your past campaigns for you. Once they give you access to your data, [email me](mailto:justin@buttondown.email) and I’ll take care of importing your archives.
+
+
+### You did it!
+
+Once you finish all of the above steps, Buttondown will kick off an audit and migration process to make sure everything is in order. Then you should be safe to disable or deactivate your Moosend account.
+
+
+### By the way
+
+With Buttondown, it’s easy to [export _all_ your data](https://docs.buttondown.email/odds-and-ends/exporting-your-data):
+
+![A screenshot of the "export data" button.](/images/exporting.png)
+
