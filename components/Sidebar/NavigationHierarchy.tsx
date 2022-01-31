@@ -161,6 +161,7 @@ const NAVIGATION: Array<NavigationItem> = [
     icon: BriefcaseIcon,
     children: [
       // { name: "Changelog", href: "#" },
+      { name: "Esoterica", href: "/behind-the-scenes/esoterica" },
       { name: "Kudos", href: "/behind-the-scenes/kudos" },
       { name: "Running costs", href: "/behind-the-scenes/running-costs" },
       {
