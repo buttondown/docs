@@ -13,6 +13,7 @@ import {
 export type NavigationSubitem = {
   name: string;
   href: string;
+  beta?: boolean;
 };
 
 export type NavigationItem = {
@@ -107,6 +108,11 @@ const NAVIGATION: Array<NavigationItem> = [
       {
         name: "Email automation",
         href: "/advanced-features/email-automation",
+      },
+      {
+        name: "Subscriber referrals",
+        href: "/advanced-features/subscriber-referrals",
+        beta: true
       },
     ],
   },

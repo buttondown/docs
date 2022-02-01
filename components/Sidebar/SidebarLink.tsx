@@ -82,6 +82,7 @@ export default function NavigationLink(
                   )}
                 >
                   {subItem.name}
+                  {subItem.beta && (<span style={{fontSize: "0.5rem"}} className="font-bold uppercase ml-1 bg-green-600 text-white rounded px-2">Beta</span>)}
                 </a>
               </Link>
             ))}
