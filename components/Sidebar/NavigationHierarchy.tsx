@@ -66,6 +66,10 @@ const NAVIGATION: Array<NavigationItem> = [
         name: "Billing",
         href: "/getting-started/billing",
       },
+      {
+        name: "Sending from DreamHost",
+        href: "/getting-started/sending-domains/sending-from-dreamhost",
+      },
     ],
   },
   {

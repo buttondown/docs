@@ -1,0 +1,76 @@
+---
+title: Sending from a custom domain - DreamHost
+description: A step-by-step guide through setting up a custom domain to send your newsletter with DreamHost
+---
+
+import Layout from "../../../components/Layout";
+
+export const meta = {
+  title: "Sending from a custom domain - DreamHost",
+  description:
+    "A step-by-step guide through setting up a custom domain to send your newsletter with DreamHost",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Sending from a Custom Domain - DreamHost
+
+1. Log in to your Buttondown account. Click on the menu in the top right corner and select “Your newsletter”.
+2. Your Email address must match your custom sending domain. (If your sending domain is buttondown.xyz, your email has to be name@buttondown.xyz; name@gmail.com won’t work.) Change it if needed.
+
+    ![](/images/sending-domains/buttondown-settings-email-address.png)
+
+3. Enter your custom sending domain
+
+    ![](/images/sending-domains/buttondown-settings-sending-domain.png)
+
+4. Click “Click here” to get the correct DNS records.
+
+   <!--  ![](/images/sending-domains/buttondown-settings-dns-records.png)  -->
+
+5. In another tab, go to your DreamHost Control Panel. From the menu on the left, select “Domains” > “Manage Domains”. Click “DNS” under the domain name you are setting up with Buttondown.
+
+    ![](/images/sending-domains/dreamhost-webpanel-navigation.png)
+
+6. Add the TXT record(s) - Follow the steps below for each record that has “TXT” in the “TYPE” column:
+
+   1. Click “Add Record”
+   2. Click the “TXT” box.
+   3. For the “Host” in DreamHost, enter everything before “.buttondown.xyz” from the Buttondown “KEY”. (Pink arrow on the left in screenshot below.)
+   4. Enter the “NEEDED” from Buttondown where DreamHost asks for “TXT Value”. (Green arrow on the right in screenshot below.)
+   5. Click “Add Record”.
+
+    ![](/images/sending-domains/dreamhost-add-txt-record.png)
+
+7. Add the CNAME records - Follow the steps below for each record that has “CNAME” in the “TYPE” column:
+
+   1. Click “Add Record”
+   2. Click the “CNAME” box.
+   3. For the “Host” in DreamHost, enter everything before “.buttondown.xyz” from the Buttondown “KEY”. (Pink arrow on the left in screenshot below.)
+   4. Enter the “NEEDED” from Buttondown where DreamHost asks for “Points to”. (Green arrow on the right in screenshot below.)
+   5. Click “Add Record”.
+
+    ![](/images/sending-domains/dreamhost-add-cname-record.png)
+
+8. If it were a pie, you’d wait for it to bake. But it’s computers, so DreamHost will take some time to process your update. This is a good opportunity to go bake a pie.
+9. Once your DNS records have finished propagating, click “Check records” in Buttondown. If they all come up with green checkmarks, you’re good to go!
+
+
+
+
+## Troubleshooting
+
+
+### Did you enter the DNS “KEY” (aka “Host” or “Name”) correctly?
+
+Some registrars want the entire “KEY”, but DreamHost only wants the part before “.buttondown.xyz”. If the “Host”/”Name” field for any of your DNS records in DreamHost ends with “.buttondown.xyz”, remove that part.
+
+![](/images/sending-domains/dreamhost-troubleshooting-key.png)
+
+### Are your DNS records still propagating?
+
+I know setting up DNS records is a pain! If it's been a few hours and you're still not seeing the records get validated in the way you expect, email me and I'm happy to help!
+
+
+## See Also
+
+Hosting on a Custom Domain - DreamHost
