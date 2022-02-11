@@ -4,6 +4,7 @@ description: A step-by-step guide through setting up a custom domain to send you
 ---
 
 import Layout from "../../../components/Layout";
+import Notice from "../../../components/Notice";
 
 export const meta = {
   title: "Sending from a custom domain - DreamHost",
@@ -12,14 +13,22 @@ export const meta = {
 };
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
-# Sending from a Custom Domain - DreamHost
+# Sending from a custom domain - DreamHost
+
+
+<Notice variant="info">
+Sending from a custom domain?!  What is this? Why is it important?  <a
+    className="text-green-800 underline"
+    href="https://docs.buttondown.email/getting-started/sending-from-a-custom-domain"
+  >This guide will explain everything.</a>
+</Notice>
 
 1. Log in to your Buttondown account. Click on the menu in the top right corner and select “Your newsletter”.
 2. Your Email address must match your custom sending domain. (If your sending domain is buttondown.xyz, your email has to be name@buttondown.xyz; name@gmail.com won’t work.) Change it if needed.
 
     ![](/images/sending-domains/buttondown-settings-email-address.png)
 
-3. Enter your custom sending domain
+3. Enter your custom sending domain.
 
     ![](/images/sending-domains/buttondown-settings-sending-domain.png)
 
@@ -51,7 +60,7 @@ export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
     ![](/images/sending-domains/dreamhost-add-cname-record.png)
 
-8. If it were a pie, you’d wait for it to bake. But it’s computers, so DreamHost will take some time to process your update. This is a good opportunity to go bake a pie.
+8. If it were a pie, you’d wait for it to bake. But it’s computers, so DreamHost can take up to 24 hours to process your update. This is a good opportunity to go bake a pie.
 9. Once your DNS records have finished propagating, click “Check records” in Buttondown. If they all come up with green checkmarks, you’re good to go!
 
 
@@ -68,9 +77,4 @@ Some registrars want the entire “KEY”, but DreamHost only wants the part bef
 
 ### Are your DNS records still propagating?
 
-I know setting up DNS records is a pain! If it's been a few hours and you're still not seeing the records get validated in the way you expect, email me and I'm happy to help!
-
-
-## See Also
-
-Hosting on a Custom Domain - DreamHost
+I know setting up DNS records is a pain! If it's been 24 hours and you're still not seeing the records get validated in the way you expect, [email me](mailto:justin@buttondown.email) and I'm happy to help!
