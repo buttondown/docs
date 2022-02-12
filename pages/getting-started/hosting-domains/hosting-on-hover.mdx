@@ -1,0 +1,58 @@
+---
+title: Hosting on a custom domain - Hover
+description: "A step-by-step guide: setting up a custom domain to host your newsletter with Hover"
+---
+
+import Layout from "../../../components/Layout";
+import Notice from "../../../components/Notice";
+
+export const meta = {
+  title: "Hosting on a custom domain - Hover",
+  description:
+    "A step-by-step guide: setting up a custom domain to host your newsletter with Host",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Hosting on a custom domain - Hover
+
+<Notice variant="info">
+Hosting on a custom domain?!  What is this? Why is it important?  <a
+    className="text-green-800 underline"
+    href="https://docs.buttondown.email/getting-started/hosting-on-a-custom-domain"
+  >This guide will explain everything.</a>
+</Notice>
+
+1. Log in to your Buttondown account. Click on the menu in the top right corner and select “Your newsletter”.
+
+2. Enter your custom hosting domain.
+
+    ![](/images/hosting-domains/hosting-domain.png)
+
+3.  Scroll to the bottom of the page and click on the blue "Update settings" bar.
+4. Scroll back up to where you entered your custom hosting domain.  Look for the red alert.  Click on the "Click here" link. 
+    ![](/images/hosting-domains/red-alert.png)
+5. In a new tab, log into your Hover account. 
+6.  Click on the DNS tab. (Orange circle on the right in  screenshot below.)
+    ![](/images/hosting-domains/hosting-on-hover.png)
+7. Click on the "ADD A RECORD" button. (Red circle on the left in screenshot above.)
+8. Take the information from the Buttondown popup and put it in Hover:
+
+    1. Select “CNAME” from the "type" dropdown menu.  (Green arrow on the left in screenshot below.)
+
+    2. Enter the "KEY"" from Buttondown where Hover asks for “HOSTNAME”. (Red arrow in the middle in screenshot below.)
+
+    3. Enter the “NEEDED” from Buttondown where Hover  asks for “TARGET NAME”. (Blue arrow on the right in screenshot below.) 
+
+     4. Click "ADD RECORD".
+
+     ![](/images/hosting-domains/hosting-on-hover2.png)
+
+9. If it were tea, you’d wait for it to steep. But it’s computers, so Hover can take up to 24 hours to process your update. This is a good opportunity to enjoy some tea.
+
+10. Once your DNS records have finished propagating, click “Check records” in Buttondown. If it gives you a green checkmark, you’re good to go!
+
+##  Troubleshooting
+
+###  Are your DNS records still propagating?
+
+I know setting up DNS records is a pain! If it's been 24 hours and you're still not seeing the records get validated in the way you expect, <a href="mailto:justin@buttondown.email">email me</a> and I'm happy to help!
