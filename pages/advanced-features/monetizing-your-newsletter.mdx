@@ -84,14 +84,14 @@ If you go to your [subscribers](https://buttondown.email/subscribers?order=-crea
 If you want to provide a link in your emails to each subscriber's paid archive, you can use the following shortcake:
 
 ```html
-{{ premium_archive_link }}
+{{ premium_archive_url }}
 ```
 
 This generates a unique-per-subscriber ID for their paid specific paid archives. Like the link generated through Buttondown's interface, it will expire once the subscriber's paid subscription lapses. A common tactic is to reference it in your footer for _all_ paid subscribers, like so:
 
 ```html
 {% if subscriber.subscriber_type == "premium" %} You can always view your full
-archives [here]({{ premium_archive_link }}). {% endif %}
+archives [here]({{ premium_archive_url }}). {% endif %}
 ```
 
 ## FAQs
