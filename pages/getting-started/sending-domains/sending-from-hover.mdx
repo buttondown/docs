@@ -1,0 +1,78 @@
+---
+title: Sending from a custom domain - Hover
+description: A step-by-step guide through setting up a custom domain to send your newsletter with Hover
+---
+
+import Layout from "../../../components/Layout";
+import Notice from "../../../components/Notice";
+
+export const meta = {
+  title: "Sending from a custom domain - Hover",
+  description:
+    "A step-by-step guide through setting up a custom domain to send your newsletter with Hover",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Sending from a custom domain - Hover
+
+
+<Notice variant="info">
+Sending from a custom domain?!  What is this? Why is it important?  <a
+    className="text-green-800 underline"
+    href="https://docs.buttondown.email/getting-started/sending-from-a-custom-domain"
+  >This guide will explain everything.</a>
+</Notice>
+
+1. Log in to your Buttondown account. Click on the menu in the top right corner and select “Your newsletter”.
+2. Your Email address must match your custom sending domain. (If your sending domain is fictile.space, your email has to be name@fictile.space; name@gmail.com won’t work.) Change it if needed.
+
+    ![](/images/sending-domains/buttondown-settings-email-address2.png)
+
+3. Enter your custom sending domain.
+
+    ![](/images/sending-domains/buttondown-settings-sending-domain2.png)
+
+4. Click “Click here” to get the correct DNS records.
+
+   <!--  ![](/images/sending-domains/buttondown-settings-dns-records.png)  -->
+
+5. In another tab, go to your Hover Control Panel.  Click on the DNS tab. (Orange circle on the right in screenshot below.)
+    
+    ![](/images/hosting-domains/hosting-on-hover.png)   
+    <!--this image is stored in the hosting domains branch so I'm expecting it to work even though I can't see it in my preview -->
+
+6. Add the TXT record:
+
+   1. Click “ADD A RECORD”.  (Red circle on the left in screenshot above.)
+   2. Select "TXT" from the "type" dropdown menu.  (Green arrow on the left in screenshot below.)
+   2. Enter the "KEY"" from Buttondown where Hover asks for “HOSTNAME”. (Red arrow in the middle in screenshot below.)
+   4. Enter the “NEEDED” from Buttondown where Hover asks for "CONTENT". (Blue arrow on the right in screenshot below.)
+   5. Click “ADD RECORD”.
+
+    ![](/images/sending-domains/Hover-add-txt-record.png) 
+
+7.  Add the CNAME records - Follow the steps below for each record that has “CNAME” in the “TYPE” column:
+    
+    1. Click “ADD A RECORD”.
+
+    2. Select “CNAME” from the "type" dropdown menu.  (Green arrow on the left in screenshot below.)
+
+    3. Enter the "KEY"" from Buttondown where Hover asks for “HOSTNAME”. (Red arrow in the middle in screenshot below.)
+
+    4. Enter the “NEEDED” from Buttondown where Hover  asks for “TARGET NAME”. (Blue arrow on the right in screenshot below.) 
+
+    5. Click "ADD RECORD".
+
+    ![](/images/sending-domains/Hover-add-cname-record.png) 
+
+8. If it were a pie, you’d wait for it to bake. But it’s computers, so Hover can take up to 24 hours to process your update. This is a good opportunity to go bake a pie.
+9. Once your DNS records have finished propagating, click “Check records” in Buttondown. If they all come up with green checkmarks, you’re good to go!
+
+
+ <br />
+
+## Troubleshooting
+
+### Are your DNS records still propagating?
+
+I know setting up DNS records is a pain! If it's been 24 hours and you're still not seeing the records get validated in the way you expect, [email me](mailto:justin@buttondown.email) and I'm happy to help!
