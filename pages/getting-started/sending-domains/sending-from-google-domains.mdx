@@ -1,0 +1,82 @@
+---
+title: Sending from a custom domain - Google Domains
+description: A step-by-step guide through setting up a custom domain to send your newsletter with Google Domains
+---
+
+import Layout from "../../../components/Layout";
+import Notice from "../../../components/Notice";
+
+export const meta = {
+  title: "Sending from a custom domain - Google Domains",
+  description:
+    "A step-by-step guide through setting up a custom domain to send your newsletter with Google Domains",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Sending from a custom domain - Google Domains
+
+
+<Notice variant="info">
+Sending from a custom domain?!  What is this? Why is it important?  <a
+    className="text-green-800 underline"
+    href="https://docs.buttondown.email/getting-started/sending-from-a-custom-domain"
+  >This guide will explain everything.</a>
+</Notice>
+
+1. [Log in](https://buttondown.email/login) to your Buttondown account. Click on the menu in the top right corner and select “Your newsletter”.
+2. Your Email address must match your custom sending domain. (If your sending domain is hebetu.de, your email has to be name@hebetu.de; name@gmail.com won’t work.) Change it if needed.
+
+    ![](/images/sending-domains/buttondown-settings-email-address3.png)
+
+3. Enter your custom sending domain.
+
+    ![](/images/sending-domains/buttondown-settings-sending-domain3.png)
+
+4. Click “Click here” to get the correct DNS records.
+
+   <!--  ![](/images/sending-domains/buttondown-settings-dns-records.png)  -->
+
+5. In another tab, go to your [Google Domains Control Panel](domains.google.com/).   If you have more than one Google domain, use the domain name you want to send Buttondown emails from.
+
+6. From the menu on the left, click “DNS”. 
+
+    ![](/images/sending-domains/Google-Domains-webpanel-navigation.png)
+
+7. Add the TXT record(s) - Follow the steps below for each record that has “TXT” in the “TYPE” column:
+
+   1. For the “Host name” in Google Domains, enter everything before “.hebetu.de” from the Buttondown “KEY”. (Pink arrow on the left in screenshot below.)
+   2. Choose TXT from the dropdown "Type" menu.
+   3. Enter the "NEEDED" from Buttondown where Google Domains asks for “Data”. (Green arrow on the right in screenshot below.)
+   4. Click “Save”.
+
+    ![](/images/sending-domains/Google-Domains-add-txt-record.png)
+
+8. Add the CNAME records - Follow the steps below for each record that has “CNAME” in Buttondown's “TYPE” column:
+
+   1. Click “Manage custom records”.
+       <img src="/images/sending-domains/google-domains-manage-custom-records.png" width="70%" />
+    2. Click "Create new record".
+       <img src="/images/sending-domains/google-domains-create-new-record.png" width="70%" />
+   3. Choose CNAME from the dropdown "Type" menu.
+   4. In Buttondown, copy everything before ".hebetu.de" from the "KEY" column.  In Google Domains, paste it in the "Host name" column. (Pink arrow on the left in screenshot below.)
+   5. In Buttondown, copy everything from the "NEEDED" column.  In Google Domains, paste it in the "Data" column.  (Green arrow on the right in screenshot below.)
+   6. Click “Save”.
+
+    ![](/images/sending-domains/google-domains-add-cname-record.png)
+
+9. If it were a pie, you’d wait for it to bake. But it’s computers, so Google Domains can take up to 24 hours to process your update. This is a good opportunity to go bake a pie.
+10. Once your DNS records have finished propagating, click “Check records” in Buttondown. If they all come up with green checkmarks, you’re good to go!
+
+
+
+
+## Troubleshooting
+
+
+### Did you enter the DNS “KEY” (aka “Host name”) correctly?
+
+Some registrars want the entire “KEY”, but Google Domains only wants you to type the part before “.hebetu.de”. If the little preview below the "Host name" text box ends with ".hebetu.de.hebetu.de", you need to delete the "hebetu.de" from the text box.  
+
+### Are your DNS records still propagating?
+
+I know setting up DNS records is a pain! If it's been 24 hours and you're still not seeing the records get validated in the way you expect, [email me](mailto:justin@buttondown.email) and I'm happy to help!
