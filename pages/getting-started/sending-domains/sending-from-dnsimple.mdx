@@ -1,0 +1,82 @@
+---
+title: Sending from a custom domain - DNSimple
+description: A step-by-step guide through setting up a custom domain to send your newsletter with DNSimple
+---
+
+import Layout from "../../../components/Layout";
+import Notice from "../../../components/Notice";
+
+export const meta = {
+  title: "Sending from a custom domain - DNSimple",
+  description:
+    "A step-by-step guide through setting up a custom domain to send your newsletter with DNSimple",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Sending from a custom domain - DNSimple
+
+
+<Notice variant="info">
+Sending from a custom domain?!  What is this? Why is it important?  <a
+    className="text-green-800 underline"
+    href="https://docs.buttondown.email/getting-started/sending-from-a-custom-domain"
+  >This guide will explain everything.</a>
+</Notice>
+
+1. [Log in](https://buttondown.email/login) to your Buttondown account. Click on the menu in the top right corner and select “Your newsletter”.
+2. Your Email address must match your custom sending domain. (If your sending domain is fictile.space, your email has to be name@fictile.space; name@gmail.com won’t work.) Change it if needed.
+
+    ![](/images/sending-domains/buttondown-settings-email-address2.png)
+
+3. Enter your custom sending domain.  Scroll to the bottom of the page and click the blue "Update settings" bar.
+
+    ![](/images/sending-domains/buttondown-settings-sending-domain2.png)
+
+4. Scroll back up to the "Would you like to send emails from a custom domain?" section and click “Click here” to get the correct DNS records.
+
+   <!--  ![](/images/sending-domains/buttondown-settings-dns-records.png)  -->
+
+5. In another tab, go to your DNSimple Dashboard. 
+    1. From the menu on the left, click on the name of the domain you want to send emails from.  
+    2. Select "DNS" from the menu on the left (orange circle in screenshot below).
+    3. In the DNS records section, click "Manage"(green circle on the right in screenshot below).
+
+    <img src="/images/sending-domains/dnsimple-navigation.png" width="70%" />
+
+6. Add the TXT record(s) - Follow the steps below for each record that has “TXT” in the “TYPE” column:
+   1. Click the blue "Add Record" button.
+   2. Choose "TXT" from the drop-down menu.
+   3. In Buttondown, copy everything before ".fictile.space" from the "KEY" column.  In DNSimple, paste it in the "Name" column.  (Pink arrow on the left in screenshot below.)
+   4. In Buttondown, copy everything from the "NEEDED" column.  In DNSimple, paste it in the "Content" column.  (Green arrow on the right in screenshot below.)
+   5. Click the blue "Add Record" button at the bottom of the page.
+
+    ![](/images/sending-domains/dnsimple-add-txt-record.png)
+
+7. Add the CNAME records - Follow the steps below for each record that has “CNAME” in Buttondown's “TYPE” column:
+
+   1. Click the blue "Add Record" button.
+   2. Choose "CNAME" from the drop-down menu.
+   4. In Buttondown, copy everything before ".fictile.space" from the "KEY" column.  In DNSimple, paste it in the "Name" column. (Pink arrow on the left in screenshot below.)
+   5. In Buttondown, copy everything from the "NEEDED" column.  In DNSimple, paste it in the "Content" column.  (Green arrow on the right in screenshot below.)
+   6. Click the blue "Add Record" button at the bottom of the page.
+
+    ![](/images/sending-domains/dnsimple-add-cname-record.png)
+
+8. If it were a pie, you’d wait for it to bake. But it’s computers, so DNSimple can take up to 24 hours to process your update. This is a good opportunity to go bake a pie.
+9. Once your DNS records have finished propagating, click “Check records” in Buttondown. If they all come up with green checkmarks, you’re good to go!
+
+
+
+
+## Troubleshooting
+
+
+### Did you enter the DNS “KEY” (aka “Host” or “Name”) correctly?
+
+Some registrars want the entire “KEY”, but DNSimple only wants the part before “.fictile.space”. If the “Host”/”Name” field for any of your DNS records in DNSimple ends with “.fictile.space”, remove that part.
+
+![](/images/sending-domains/DNSimple-troubleshooting-key.png)
+
+### Are your DNS records still propagating?
+
+I know setting up DNS records is a pain! If it's been 24 hours and you're still not seeing the records get validated in the way you expect, [email me](mailto:justin@buttondown.email) and I'm happy to help!
