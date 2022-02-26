@@ -9,6 +9,7 @@ import {
   QuestionMarkCircleIcon,
   TerminalIcon,
 } from "@heroicons/react/outline";
+import { GlobeAltIcon } from "@heroicons/react/solid";
 
 export type NavigationSubitem = {
   name: string;
@@ -66,10 +67,6 @@ const NAVIGATION: Array<NavigationItem> = [
         name: "Billing",
         href: "/getting-started/billing",
       },
-      {
-        name: "Sending from DreamHost",
-        href: "/getting-started/sending-domains/sending-from-dreamhost",
-      },
     ],
   },
   {
@@ -117,6 +114,17 @@ const NAVIGATION: Array<NavigationItem> = [
         name: "Subscriber referrals",
         href: "/advanced-features/subscriber-referrals",
         beta: true
+      },
+    ],
+  },
+  {
+    name: "Sending domain guides",
+    href: "/sending-domains",
+    icon: GlobeAltIcon,
+    children: [
+      {
+        name: "Sending from DreamHost",
+        href: "/sending-domains/sending-from-dreamhost",
       },
     ],
   },
