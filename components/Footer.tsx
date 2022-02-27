@@ -91,7 +91,7 @@ export default function Footer() {
             ))}
           </div>
           <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
-            &copy; 2021 Buttondown, LLC. I hope you have a lovely day.
+            &copy; 2022 Buttondown, LLC. I hope you have a lovely day.
           </p>
         </div>
       </div>
