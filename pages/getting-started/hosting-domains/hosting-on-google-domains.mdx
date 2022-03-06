@@ -1,0 +1,60 @@
+---
+title: Hosting on a custom domain - Google Domains
+description: "A step-by-step guide: setting up a custom domain to host your newsletter with Google Domains"
+---
+
+import Layout from "../../../components/Layout";
+import Notice from "../../../components/Notice";
+
+export const meta = {
+  title: "Hosting on a custom domain - Google Domains",
+  description:
+    "A step-by-step guide: setting up a custom domain to host your newsletter with Google Domains",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Hosting on a custom domain - Google Domains
+
+<Notice variant="info">
+Hosting on a custom domain?!  What is this? Why is it important?  <a
+    className="text-green-800 underline"
+    href="https://docs.buttondown.email/getting-started/hosting-on-a-custom-domain"
+  >This guide will explain everything.</a>
+</Notice>
+
+1. Log in to your Buttondown account. Click on the menu in the top right corner and select “Your newsletter”.
+
+2. Enter your custom hosting domain.
+
+    ![](/images/hosting-domains/hosting-domain3.png)
+
+3.  Scroll to the bottom of the page and click on the blue "Update settings" bar.
+4. Scroll back up to where you entered your custom hosting domain.  Look for the red alert.  Click on the "Click here" link. 
+    ![](/images/hosting-domains/red-alert.png)
+5. In another tab, go to your [Google Domains Control Panel](domains.google.com/).   If you have more than one Google domain, use the domain name you want to send Buttondown emails from.
+
+6. From the menu on the left, click “DNS”. 
+
+    ![](/images/sending-domains/Google-Domains-webpanel-navigation.png)
+
+7. Take the information from the Buttondown popup and put it in Google Domains:
+
+   1. In Buttondown, copy everything before ".hebetu.de" from the "KEY" column.  In Google Domains, paste it in the "Host name" column. (Pink arrow on the left in screenshot below.)
+   2. Choose CNAME from the dropdown "Type" menu.
+   3. In Buttondown, copy everything from the "NEEDED" column.  In Google Domains, paste it in the "Data" column.  (Green arrow on the right in screenshot below.)
+
+     ![](/images/hosting-domains/hosting-on-google-domains2.png)
+
+8. If it were tea, you’d wait for it to steep. But it’s computers, so Google Domains can take up to 24 hours to process your update. This is a good opportunity to enjoy some tea.
+
+9. Once your DNS records have finished propagating, click “Check records” in Buttondown. If it gives you a green checkmark, you’re good to go!
+
+##  Troubleshooting
+
+### Did you get an HTTPS error when you tried to go to your custom hosting domain?
+
+This is normal and temporary.  Your DNS records are still propogating!
+
+###  Are your DNS records still propagating?
+
+I know setting up DNS records is a pain! If it's been 24 hours and you're still not seeing the records get validated in the way you expect, <a href="mailto:justin@buttondown.email">email me</a> and I'm happy to help!

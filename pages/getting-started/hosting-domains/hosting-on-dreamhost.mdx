@@ -1,0 +1,59 @@
+---
+title: Hosting on a custom domain - DreamHost
+description: "A step-by-step guide: setting up a custom domain to host your newsletter with DreamHost"
+---
+
+import Layout from "../../../components/Layout";
+import Notice from "../../../components/Notice";
+
+export const meta = {
+  title: "Hosting on a custom domain - DreamHost",
+  description:
+    "A step-by-step guide: setting up a custom domain to host your newsletter with DreamHost",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Hosting on a custom domain - DreamHost
+
+<Notice variant="info">
+Hosting on a custom domain?!  What is this? Why is it important?  <a
+    className="text-green-800 underline"
+    href="https://docs.buttondown.email/getting-started/hosting-on-a-custom-domain"
+  >This guide will explain everything.</a>
+</Notice>
+
+1. Log in to your Buttondown account. Click on the menu in the top right corner and select “Your newsletter”.
+
+2. Enter your custom hosting domain.
+
+    ![](/images/hosting-domains/hosting-domain2.png)
+
+3.  Scroll to the bottom of the page and click on the blue "Update settings" bar.
+4. Scroll back up to where you entered your custom hosting domain.  Look for the red alert.  Click on the "Click here" link. 
+    ![](/images/hosting-domains/red-alert.png)
+5. In another tab, go to your [DreamHost Control Panel](https://panel.dreamhost.com/?tree=domain.manage). From the menu on the left, make sure you are in “Domains” > “Manage Domains”. Click “DNS” under the domain name you are setting up with Buttondown.
+
+    ![](/images/sending-domains/dreamhost-webpanel-navigation.png)
+6. Add the CNAME record - Take the information from the Buttondown popup and put it in DreamHost:
+
+   1. Click “Add Record”
+   2. Click the “CNAME” box.
+   3. In Buttondown, copy everything before ".buttondown.xyz" from the "KEY" column.  In DreamHost, paste it in the "Host" field. (Pink arrow on the left in screenshot below.)
+   4. In Buttondown, copy everything from the "NEEDED" column.  In DreamHost, paste it in the "Points to" field. (Green arrow on the right in screenshot below.)
+   5. Click “Add Record”.
+
+    ![](/images/hosting-domains/dreamhost-add-cname-record.png)
+
+8. If it were tea, you’d wait for it to steep. But it’s computers, so DreamHost can take up to 24 hours to process your update. This is a good opportunity to enjoy some tea.
+
+9. Once your DNS records have finished propagating, click “Check records” in your Buttondown tab. If it gives you a green checkmark, you’re good to go!
+
+##  Troubleshooting
+
+### Did you get an HTTPS error when you tried to go to your custom hosting domain?
+
+This is normal and temporary.  Your DNS records are still propogating!
+
+###  Are your DNS records still propagating?
+
+I know setting up DNS records is a pain! If it's been 24 hours and you're still not seeing the records get validated in the way you expect, <a href="mailto:justin@buttondown.email">email me</a> and I'm happy to help!
