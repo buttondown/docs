@@ -10,6 +10,7 @@ import ParametersTable from "../../../components/api/ParametersTable";
 import ClosedBetaNotice from "../../../components/api/ClosedBetaNotice";
 import Endpoint from "../../../components/api/Endpoint";
 import DATA from "./metadata.json";
+import { PAGE_PARAMETER } from '../../../lib/parameters';
 
 export const meta = {
   title: DATA.title,
@@ -45,13 +46,7 @@ A scheduled email looks like this:
 <Endpoint title="Listing scheduled emails" method="GET" path={DATA.endpoint} />
 <ParametersTable
   content={[
-    {
-      parameter: "page",
-      type: "string",
-      description: "A page number within the paginated result set.",
-      example: "",
-      optional: true,
-    },
+    PAGE_PARAMETER,
   ]}
 />
 <ResponsesTable

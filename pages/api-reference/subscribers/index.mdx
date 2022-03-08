@@ -14,6 +14,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { H2, H1, P, H3, H4, Pre, Code } from "../../../components/Markdown";
 import { CheckCircleIcon } from "@heroicons/react/outline";
 import DATA from "./metadata.json";
+import { PAGE_PARAMETER } from '../../../lib/parameters';
 
 export const custom = () => <h1 {...props} className="text-xl font-light" />;
 
@@ -86,13 +87,7 @@ A subscriber looks like this:
       example: "",
       optional: true,
     },
-    {
-      parameter: "page",
-      type: "string",
-      description: "A page number within the paginated result set.",
-      example: "",
-      optional: true,
-    },
+    PAGE_PARAMETER,
     {
       parameter: "ordering",
       type: "string",

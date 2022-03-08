@@ -9,6 +9,7 @@ import ObjectDescription from "../../../components/api/ObjectDescription";
 import ParametersTable from "../../../components/api/ParametersTable";
 import Endpoint from "../../../components/api/Endpoint";
 import DATA from "./metadata.json";
+import { PAGE_PARAMETER } from '../../../lib/parameters';
 
 export const meta = {
   title: DATA.title,
@@ -38,13 +39,7 @@ An image looks like this:
 <Endpoint title="Listing images" method="GET" path={DATA.endpoint} />
 <ParametersTable
   content={[
-    {
-      parameter: "page",
-      type: "string",
-      description: "A page number within the paginated result set.",
-      example: "",
-      optional: true,
-    },
+    PAGE_PARAMETER
   ]}
 />
 <ResponsesTable
