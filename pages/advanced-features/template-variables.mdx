@@ -100,5 +100,10 @@ If so, you can [subscribe here]({{ subscribe_url }}).`,
       description: "The raw date time of the email being sent out",
       example: "Sent on {{ email.publish_date }}.",
     },
+    {
+      variable: "subscribe_form",
+      description: "An embedded subscribe form for your newsletter, just like the one that appears at the bottom of your archives. Note that this only appears on the web/archive version of your email; it will not appear in the actual emails sent to subscribers.",
+      example: "Want more sweet insights like these?\n\n{{ subscribe_form }}",
+    }
   ]}
 />
