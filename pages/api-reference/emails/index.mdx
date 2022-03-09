@@ -17,6 +17,7 @@ export const meta = {
   title: DATA.title,
 };
 
+
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 # Emails
@@ -35,8 +36,7 @@ An email looks like this:
     { field: "publish_date", type: "datetime", description: "" },
     { field: "subject", type: "string" },
     { field: "email_type", type: <a href="#email-type">EmailType</a> },
-    { field: "body", type: "string" },
-    { field: "included_tags", type: "array<string> | array<uuid>" },
+    { field: "body", type: "string" }, { field: "included_tags", type: "array<string> | array<uuid>" },
     { field: "excluded_tags", type: "array<string> | array<uuid>" },
     { field: "metadata", type: "map" },
   ]}
@@ -84,7 +84,21 @@ after it's been sent out. By default, all emails are public.
 <Endpoint title="Listing emails" method="GET" path={DATA.endpoint} />
 <ParametersTable
   content={[
-    PAGE_PARAMETER
+    PAGE_PARAMETER,
+    {
+      parameter: "included_tags",
+      type:  "array<string> | array<uuid>",
+      description: "If included, the response will be filtered down to emails whose `included_tags` include _all_ of the elements in the array. (This means that supplying two tags will only return emails which contain both tags, not either tag.)",
+      example: "",
+      optional: true,
+    },
+    {
+      parameter: "excluded_tags",
+      type:  "array<string> | array<uuid>",
+      description: "If included, the response will be filtered down to emails whose `excluded_tags` include _all_ of the elements in the array. (This means that supplying two tags will only return emails which contain both tags, not either tag.)",
+      example: "",
+      optional: true,
+    },
   ]}
 />
 <ResponsesTable
