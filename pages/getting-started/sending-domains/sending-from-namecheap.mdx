@@ -1,0 +1,79 @@
+---
+title: Sending from a custom domain - Namecheap
+description: A step-by-step guide through setting up a custom domain to send your newsletter with Namecheap
+---
+
+import Layout from "../../../components/Layout";
+import Notice from "../../../components/Notice";
+
+export const meta = {
+  title: "Sending from a custom domain - Namecheap",
+  description:
+    "A step-by-step guide through setting up a custom domain to send your newsletter with Namecheap",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Sending from a custom domain - Namecheap
+
+
+<Notice variant="info">
+Sending from a custom domain?!  What is this? Why is it important?  <a
+    className="text-green-800 underline"
+    href="https://docs.buttondown.email/getting-started/sending-from-a-custom-domain"
+  >This guide will explain everything.</a>
+</Notice>
+
+1. [Log in](https://buttondown.email/login) to your Buttondown account. Click on the menu in the top right corner and select “Your newsletter”.
+2. Your Email address must match your custom sending domain. (If your sending domain is buttondown.xyz, your email has to be name@buttondown.xyz; name@gmail.com won’t work.) Change it if needed.
+
+    ![](/images/sending-domains/buttondown-settings-email-address.png)
+
+3. Enter your custom sending domain.
+
+    ![](/images/sending-domains/buttondown-settings-sending-domain.png)
+
+4. Click “Click here” to get the correct DNS records.
+
+   <!--  ![](/images/sending-domains/buttondown-settings-dns-records.png)  -->
+
+5. In another tab, [go to your Namecheap Domains List](https://ap.www.namecheap.com/Domains). Click the "Manage" button next to the domain you want to send emails from (pink circle in screenshot below).
+
+    ![](/images/sending-domains/namecheap-webpanel-navigation.png)
+
+6. Add the TXT record(s) - Follow the steps below for each record that has “TXT” in the “TYPE” column:
+
+   1. Go to the "Advanced DNS" tab (orange circle in screenshot below) and click “ADD NEW RECORD” at the bottom of the list.  (Green circle in screenshot below.)
+    
+    ![](/images/sending-domains/namecheap-add-record.png)
+    
+   3. In Namecheap, select "TXT Record" from the dropdown menu in the "Type" column.
+   2. In Buttondown, copy everything before ".buttondown.xyz" from the "KEY" column.  In Namecheap, paste it in the "Host" column. (Pink arrow on the left in screenshot below.)
+   4. In Buttondown, copy everything from the "NEEDED" column.  In Namecheap, paste it in the "Value" column.  (Green arrow on the right in screenshot below.)
+   5. Click the green checkmark.
+
+    ![](/images/sending-domains/namecheap-add-txt-record.png)
+
+7. Add the CNAME records - Follow the steps below for each record that has “CNAME” in the “TYPE” column:
+
+   1. “ADD NEW RECORD” at the bottom of the list.  (Green circle in screenshot below.)
+    
+    ![](/images/sending-domains/namecheap-add-record.png)
+    
+   3. In Namecheap, select "CNAME Record" from the dropdown menu in the "Type" column.
+   2. In Buttondown, copy everything before ".buttondown.xyz" from the "KEY" column.  In Namecheap, paste it in the "Host" column. (Pink arrow on the left in screenshot below.)
+   4. In Buttondown, copy everything from the "NEEDED" column.  In Namecheap, paste it in the "Value" column.  (Green arrow on the right in screenshot below.)
+   5. Click the green checkmark.
+
+    ![](/images/sending-domains/namecheap-add-cname-record.png)
+
+8. If it were a pie, you’d wait for it to bake. But it’s computers, so Namecheap can take up to 24 hours to process your update. This is a good opportunity to go bake a pie.
+9. Once your DNS records have finished propagating, click “Check records” in Buttondown. If they all come up with green checkmarks, you’re good to go!
+
+
+
+
+## Troubleshooting
+
+### Are your DNS records still propagating?
+
+I know setting up DNS records is a pain! If it's been 24 hours and you're still not seeing the records get validated in the way you expect, [email me](mailto:justin@buttondown.email) and I'm happy to help!
