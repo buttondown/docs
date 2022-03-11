@@ -1,0 +1,75 @@
+---
+title: Hosting on a custom domain - NearlyFreeSpeech.NET
+description: "A step-by-step guide: setting up a custom domain to host your newsletter with NearlyFreeSpeech.NET"
+---
+
+import Layout from "../../../components/Layout";
+import Notice from "../../../components/Notice";
+
+export const meta = {
+  title: "Hosting on a custom domain - NearlyFreeSpeech.NET",
+  description:
+    "A step-by-step guide: setting up a custom domain to host your newsletter with NearlyFreeSpeech.NET",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Hosting on a custom domain - NearlyFreeSpeech.NET
+
+<Notice variant="info">
+Hosting on a custom domain?!  What is this? Why is it important?  <a
+    className="text-green-800 underline"
+    href="https://docs.buttondown.email/getting-started/hosting-on-a-custom-domain"
+  >This guide will explain everything.</a>
+</Notice>
+
+1. Log in to your Buttondown account. Click on the menu in the top right corner and select “Your newsletter”.
+
+2. Enter your custom hosting domain.
+
+    ![](/images/hosting-domains/hosting-domain2.png)
+
+3.  Scroll to the bottom of the page and click on the blue "Update settings" bar.
+4. Scroll back up to where you entered your custom hosting domain.  Look for the red alert.  Click on the "Click here" link. 
+    ![](/images/hosting-domains/red-alert.png)
+5. In another tab, [log in to your NearlyFreeSpeech.NET account](https://members.nearlyfreespeech.net/login/?). Select the "domains" tab at the top of the screen (pink circle in screenshot below).  Click the "Manage" button in the "DNS" column for the domain you want to send emails from (orange circle in screenshot below).
+
+    ![](/images/hosting-domains/nearlyfreespeech-webpanel-navigation.png)
+    
+6. Add the CNAME record - Take the information from the Buttondown popup and put it in NearlyFreeSpeech.NET:
+
+   1. Click “Add a DNS Resource Record” in the "Actions" box on the right.  (Pink box in screenshot below.)
+    
+    ![](/images/hosting-domains/nearlyfreespeech-add-record.png)
+    
+   2. In Buttondown, copy everything before ".buttondown.xyz" from the "KEY" column.  In NearlyFreeSpeech.NET, paste it in the "Name" field. (Pink arrow on the left in screenshot below.)
+   3. In NearlyFreeSpeech.NET, select "CNAME" from the "Type" dropdown menu.
+   4. In Buttondown, copy everything from the "NEEDED" column.  In NearlyFreeSpeech.NET, paste it in the "Data" field and add a dot (".") at the end of it.  (Green arrow on the right in screenshot below.)
+   5. Click “Add Resource Record”.
+
+    ![](/images/hosting-domains/nearlyfreespeech-add-cname-record.png)
+
+8. If it were tea, you’d wait for it to steep. But it’s computers, so NearlyFreeSpeech.NET can take up to 24 hours to process your update. This is a good opportunity to enjoy some tea.
+
+9. Once your DNS records have finished propagating, click “Check records” in your Buttondown tab. If it gives you a green checkmark, you’re good to go!
+
+##  Troubleshooting
+
+### Did you remember to add a dot (".") at the end of the "Data" field for CNAME records?
+
+NearlyFreeSpeech.NET requires a dot (".") at the end of any CNAME Data that points to a domain other than your own.  When you copy and paste something  from Buttondown's "NEEDED" column like:
+```
+lquhjw4i2i5ucs72wfo72hamq34c72im.dkim.amazonses.com
+```
+you have to **add the dot at the end** in NearlyFreeSpeech.Net's "Data field", so it looks like:
+
+<code>lquhjw4i2i5ucs72wfo72hamq34c72im.dkim.amazonses.com.</code>
+
+![](/images/hosting-domains/nearlyfreespeech-troubleshooting-cname-dot.png)
+
+### Did you get an HTTPS error when you tried to go to your custom hosting domain?
+
+This is normal and temporary.  Your DNS records are still propogating!
+
+###  Are your DNS records still propagating?
+
+I know setting up DNS records is a pain! If it's been 24 hours and you're still not seeing the records get validated in the way you expect, <a href="mailto:justin@buttondown.email">email me</a> and I'm happy to help!
