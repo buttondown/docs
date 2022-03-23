@@ -1,0 +1,57 @@
+---
+title: Hosting on a custom domain - Porkbun
+description: "A step-by-step guide: setting up a custom domain to host your newsletter with Porkbun"
+---
+
+import Layout from "../../../components/Layout";
+import Notice from "../../../components/Notice";
+
+export const meta = {
+  title: "Hosting on a custom domain - Porkbun",
+  description:
+    "A step-by-step guide: setting up a custom domain to host your newsletter with Porkbun",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Hosting on a custom domain - Porkbun
+
+<Notice variant="info">
+Hosting on a custom domain?!  What is this? Why is it important?  <a
+    className="text-green-800 underline"
+    href="https://docs.buttondown.email/getting-started/hosting-on-a-custom-domain"
+  >This guide will explain everything.</a>
+</Notice>
+
+1. Log in to your Buttondown account. Click on the menu in the top right corner and select “Your newsletter”.
+
+2. Enter your custom hosting domain.
+
+    ![](/images/hosting-domains/hosting-domain2.png)
+
+3.  Scroll to the bottom of the page and click on the blue "Update settings" bar.
+4. Scroll back up to where you entered your custom hosting domain.  Look for the red alert.  Click on the "Click here" link. 
+    ![](/images/hosting-domains/red-alert.png)
+5. In another tab, [log in to your Porkbun account](https://porkbun.com/account/login). Click the "Details" button to the right of the domain you want to send emails from (pink circle in screenshot below).  Click the "Edit" link in the "DNS RECORDS" section (green circle in screenshot below).
+    ![](/images/sending-domains/porkbun-webpanel-navigation.png)
+6.  Add the CNAME record - Follow the steps below for the record that has “CNAME” in the “TYPE” column:
+
+    1. In Porkbun, select "CNAME - Canonical name record" from the "Type" dropdown menu.
+    2. In Buttondown, copy everything before ".buttondown.xyz" from the "KEY" column.  In Porkbun, paste it in the "Host" field. (Pink arrow on the left in screenshot below.)
+    3. In Buttondown, copy everything from the "NEEDED" column.  In Porkbun, paste it in the "Answer" field.  (Green arrow on the right in screenshot below.)
+    4. Click “Add”.
+
+    ![](/images/hosting-domains/porkbun-add-cname-record.png)
+
+7. If it were tea, you’d wait for it to steep. But it’s computers, so Porkbun can take up to 24 hours to process your update. This is a good opportunity to enjoy some tea.
+
+8. Once your DNS records have finished propagating, click “Check records” in Buttondown. If it gives you a green checkmark, you’re good to go!
+
+##  Troubleshooting
+
+### Did you get an HTTPS error when you tried to go to your custom hosting domain?
+
+This is normal and temporary.  Your DNS records are still propogating!
+
+###  Are your DNS records still propagating?
+
+I know setting up DNS records is a pain! If it's been 24 hours and you're still not seeing the records get validated in the way you expect, <a href="mailto:justin@buttondown.email">email me</a> and I'm happy to help!

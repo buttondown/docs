@@ -1,0 +1,62 @@
+---
+title: Hosting on a custom domain - Namecheap
+description: "A step-by-step guide: setting up a custom domain to host your newsletter with Namecheap"
+---
+
+import Layout from "../../../components/Layout";
+import Notice from "../../../components/Notice";
+
+export const meta = {
+  title: "Hosting on a custom domain - Namecheap",
+  description:
+    "A step-by-step guide: setting up a custom domain to host your newsletter with Namecheap",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Hosting on a custom domain - Namecheap
+
+<Notice variant="info">
+Hosting on a custom domain?!  What is this? Why is it important?  <a
+    className="text-green-800 underline"
+    href="https://docs.buttondown.email/getting-started/hosting-on-a-custom-domain"
+  >This guide will explain everything.</a>
+</Notice>
+
+1. Log in to your Buttondown account. Click on the menu in the top right corner and select “Your newsletter”.
+
+2. Enter your custom hosting domain.
+
+    ![](/images/hosting-domains/hosting-domain2.png)
+
+3. Scroll to the bottom of the page and click on the blue "Update settings" bar.
+4. Scroll back up to where you entered your custom hosting domain.  Look for the red alert.  Click on the "Click here" link. 
+    ![](/images/hosting-domains/red-alert.png)
+5. In another tab, [go to your Namecheap Domains List](https://ap.www.namecheap.com/Domains). Click the "Manage" button next to the domain you want to send emails from (pink circle in screenshot below).
+
+    ![](/images/sending-domains/namecheap-webpanel-navigation.png)
+6. Add the CNAME record:
+
+   1. “ADD NEW RECORD” at the bottom of the list.  (Green circle in screenshot below.)
+    
+    ![](/images/sending-domains/namecheap-add-record.png)
+    
+   3. In Namecheap, select "CNAME Record" from the dropdown menu in the "Type" column.
+   2. In Buttondown, copy everything before ".buttondown.xyz" from the "KEY" column.  In Namecheap, paste it in the "Host" column. (Pink arrow on the left in screenshot below.)
+   4. In Buttondown, copy everything from the "NEEDED" column.  In Namecheap, paste it in the "Value" column.  (Green arrow on the right in screenshot below.)
+   5. Click the green checkmark.
+   
+    ![](/images/hosting-domains/hosting-on-Namecheap2.png)
+
+7. If it were tea, you’d wait for it to steep. But it’s computers, so Namecheap can take up to 24 hours to process your update. This is a good opportunity to enjoy some tea.
+
+8. Click “Check records” in Buttondown. If it gives you a green checkmark, it means your DNS records have finished propagating.  You’re good to go!
+
+##  Troubleshooting
+
+### Did you get an HTTPS error when you tried to go to your custom hosting domain?
+
+This is normal and temporary.  Your DNS records are still propogating!
+
+###  Are your DNS records still propagating?
+
+I know setting up DNS records is a pain! If it's been 24 hours and you're still not seeing the records get validated in the way you expect, <a href="mailto:justin@buttondown.email">email me</a> and I'm happy to help!
