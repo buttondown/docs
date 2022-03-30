@@ -106,6 +106,20 @@ interested in forcing your subscribers to manually renew their subscriptions, yo
 
 Unfortunately, tiers are not supported at this time.
 
+### How do I enable different payment methods for my newsletter, such as ACH?
+
+The payment methods permitted for a newsletter has nothing to do with Buttondown;
+I let Stripe handle all of the shenanigans and infrastructure there. So really the
+answer to this question is "you enable payment methods on your Stripe account, and then Bob's your uncle."
+
+This is a little unsatisfying though, and almost assuredly begs the question: "okay, how do I enable payment methods on my Stripe account?"
+
+A lovely question! To quote [Stripe's official documentation](https://stripe.com/docs/payments/payment-links/api#payment-methods):
+
+> Stripe selects relevant payment methods from payment methods enabled in your Stripe Dashboard. [You can] add support for 20+ payment methods by enabling them in your payment method settings.
+
+In particular, those settings are right [here](https://dashboard.stripe.com/settings/payment_methods).
+
 ### How do subscribers cancel their premium subscription?
 
 Cancelling a premium subscription is easy! Just unsubscribe from the newsletter just like any other one.
