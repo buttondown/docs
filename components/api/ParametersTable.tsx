@@ -3,15 +3,14 @@ import { CheckCircleIcon } from "@heroicons/react/outline";
 import { H3 } from "../Markdown";
 import Table, { Row } from "../Table";
 import remark from "remark";
-import remarkHtml from 'remark-html'
-
+import remarkHtml from "remark-html";
 
 function MonospacedSpan(s: string) {
   return <span className="font-mono">{s}</span>;
 }
 
 function RawHTML(s: string) {
-  return <div dangerouslySetInnerHTML={{__html: s}} />;
+  return <div dangerouslySetInnerHTML={{ __html: s }} />;
 }
 
 function CheckMark(s: string) {
@@ -29,11 +28,11 @@ function CheckMark(s: string) {
 
 type Props = {
   content: Array<Row>;
-}
+};
 
 const renderMarkdown = (markdown: string): string => {
-    return remark().use(remarkHtml).processSync(markdown).toString();
-}
+  return remark().use(remarkHtml).processSync(markdown).toString();
+};
 
 export default function ParametersTable({ content }: Props) {
   return (
@@ -56,7 +55,10 @@ export default function ParametersTable({ content }: Props) {
             component: CheckMark,
           },
         ]}
-        content={content.map((row) => ({ ...row, description: renderMarkdown(row.description) }))}
+        content={content.map((row) => ({
+          ...row,
+          description: renderMarkdown(row.description),
+        }))}
       />
     </>
   );
