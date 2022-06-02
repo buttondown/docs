@@ -79,7 +79,7 @@ const NAVIGATION: Array<NavigationItem> = [
         href: "/advanced-features/customizing-your-emails",
       },
       {
-        name: "Styling your web presence",
+        name: "Customizing your web presence",
         href: "/advanced-features/customizing-your-web-presence",
       },
       {
@@ -113,7 +113,7 @@ const NAVIGATION: Array<NavigationItem> = [
       {
         name: "Subscriber referrals",
         href: "/advanced-features/subscriber-referrals",
-        beta: true
+        beta: true,
       },
     ],
   },
@@ -141,7 +141,7 @@ const NAVIGATION: Array<NavigationItem> = [
       { name: "EmailOctopus", href: "/migration-guides/emailoctopus" },
       { name: "FeedBlitz", href: "/migration-guides/feedblitz" },
       { name: "Mailchimp", href: "/migration-guides/mailchimp" },
-      { name: "Mailcoach", href: "/migration-guides/mailcoach" },      
+      { name: "Mailcoach", href: "/migration-guides/mailcoach" },
       { name: "MailerLite", href: "/migration-guides/mailerlite" },
       { name: "Moosend", href: "/migration-guides/moosend" },
       { name: "Revue", href: "/migration-guides/revue" },
