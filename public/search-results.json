@@ -13,7 +13,7 @@
   },
   {
     "path": "/advanced-features/customizing-your-web-presence",
-    "text": "Customizing your web presence Date format syntax ",
+    "text": "Customizing your web presence Date format syntax Date formats are, of course, a bit of a touchy subject. I'm an American and have to deal with the terrible hegemony of MM/DD/YYYY;\nButtondown offers a bit of flexibility in the Design settings page to let you choose what date format you wish to present to your\nsubscribers on the web archive. You can follow the key below for more information (or, if the prospect of dealing with date formatting at all\nis terrifying, you can ignore this section entirely.) ",
     "title": "Customizing your web presence",
     "description": "How to take advantage of Buttondown's CSS and custom settings to tailor your web presence"
   },
@@ -151,7 +151,7 @@
   },
   {
     "path": "/behind-the-scenes/running-costs",
-    "text": "Running costs When I was a younger version of myself, I was always curious about the complex chain of dependencies that even a relatively simple web app requires. As such, I try and run Buttondown as transparently as possible: I update this page at the start of every month to reflect new expenses and growth. (Unfortunately, Notion doesn't lend itself well to time-series data, so you can't see growth over time.) My general philosophy on spending money for Buttondown is to default towards it, within reason: Buttondown doesn't have external funding, so I can't exactly  burn  through my checking account with wild abandon, but it's also not the thing I depend on to make a living, so I can afford to take some liberties. Anyway, all of that is to say: none of these are probably  that  surprising, but I hope you find it interesting! Click through each item to read more about how I use it. (You may also be interested in Buttondown's  sustainable funding  of open source software.) In addition, there's some stuff I've spent money on in the past and no longer do so: ",
+    "text": "Running costs When I was a younger version of myself, I was always curious about the complex chain of dependencies that even a relatively simple web app requires. As such, I try and run Buttondown as transparently as possible: I update this page at the start of every month to reflect new expenses and growth. My general philosophy on spending money for Buttondown is to default towards it, within reason: Buttondown doesn't have external funding, so I can't exactly  burn  through my checking account with wild abandon. Anyway, all of that is to say: none of these are probably  that  surprising, but I hope you find it interesting! If you're interested in learning any more about this, feel free to  email me . (You may also be interested in Buttondown's  sustainable funding  of open source software.) In addition, there's some stuff I've spent money on in the past and no longer do so: ",
     "title": "Running costs",
     "description": "Information about how much Buttondown pays for stuff"
   },
