@@ -168,6 +168,21 @@ In addition, Buttondown uses a handful of extensions:
 
 In addition to all of _those_, Buttondown uses some proprietary extensions for embedding things like tweets, YouTube videos, and gifs — but none of these should affect your general rendering experience.
 
+Embeds can be invoked by putting the URL of the resource (Tweet, post, image, etc.) on its own line. *Only* the URL should be on the line. Any additional whitespace or characters will intercept the magic of embeds. 
+
+Embeds support URLs from the following sources: 
+
+* [YouTube](https://www.youtube.com)
+* [Vimeo](https://vimeo.com)
+* [Twitter](https://twitter.com/home)
+* [Instagram](https://www.instagram.com)
+* [Gist](https://gist.github.com)
+* [Giphy](https://giphy.com/)
+
+Play around with it!
+
+#### Escaping
+
 If you're looking for an escape hatch out of these embeds, they only trigger on links that are on self-contained lines, like the following:
 
 ```markdown
