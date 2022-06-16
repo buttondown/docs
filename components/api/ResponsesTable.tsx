@@ -20,11 +20,21 @@ function ResponseCodeBadge(text: string) {
 }
 
 function SampleResponse(text: any) {
-  return <Code language="json">{JSON.stringify(text, null, 4)}</Code>;
+  return (
+    <Code language="json">
+      {JSON.stringify(text["Sample Response"], null, 4)}
+    </Code>
+  );
 }
 
+type Response = {
+  Status: string;
+  description: string;
+  "Sample Response": string;
+};
+
 type Props = {
-  content: Array<Row>;
+  content: Array<Response>;
 };
 
 export default function ResponsesTable({ content }: Props) {
@@ -35,7 +45,7 @@ export default function ResponsesTable({ content }: Props) {
         columns={[
           {
             title: "Status",
-            component: ResponseCodeBadge,
+            component: (c: Response) => ResponseCodeBadge(c.Status),
           },
           { title: "Description", key: "description" },
           { title: "Sample Response", component: SampleResponse },

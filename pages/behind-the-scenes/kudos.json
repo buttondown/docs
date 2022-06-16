@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Shep Walker",
+    "reason": "For many, many reasons, but mostly for being a good sounding board.",
+    "url": "https://twitter.com/shepwalker"
+  },
+  {
+    "name": "Ethan Roday",
+    "reason": "Suggesting (and bearing with me for the implementation of) allowing auto-tag application based on query parameters."
+  },
+  {
+    "name": "Lee Robinson",
+    "reason": "Providing a few bug reports within analytics.",
+    "url": "https://leerob.io"
+  },
+  {
+    "name": "Michael Lee",
+    "reason": "Providing a number of bug reports and useful pieces of feedback."
+  },
+  {
+    "name": "Craig Mod",
+    "reason": "Saying an _awful_ lot of nice things about Buttondown.",
+    "url": "https://craigmod.com"
+  },
+  {
+    "name": "Tim Condon",
+    "reason": "Alerting me to an issue where a deleted newsletter was showing up in SERPs"
+  },
+  {
+    "name": "Jamie Thingelstad",
+    "reason": "Lots of bug reports and useful feature ideas over the years",
+    "url": "https://www.thingelstad.com"
+  },
+  {
+    "name": "Sumana Harihareswara",
+    "reason": "A number of thorough bug reports and sensible feature requests. (Also, the world's greatest cowriting companion imaginable.)",
+    "url": "https://twitter.com/shepwalker"
+  },
+  {
+    "name": "James Baker",
+    "reason": "A number of bug reports with extremely clear reproduction steps"
+  },
+  {
+    "name": "Dan Nordquist",
+    "reason": "Adding documentation on the list of active smart Markdown embeds",
+    "url": "https://www.dnord.com"
+  }
+]

@@ -56,7 +56,7 @@ export default function Table(props: TableProps) {
                         key={keyIndex}
                       >
                         {column.component
-                          ? column.component(row[column.key || column.title])
+                          ? column.component(row)
                           : row[column.key || column.title]}
                       </td>
                     ))}

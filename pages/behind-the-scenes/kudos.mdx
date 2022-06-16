@@ -4,6 +4,7 @@ description: Thanks to folks who have submitted bug reports or feature suggestio
 ---
 
 import Layout from "../../components/Layout";
+import KUDOS from "./kudos";
 import Table from "../../components/Table";
 
 export const meta = {
@@ -24,58 +25,19 @@ Buttondown is a labor of love, and I'm deeply indebted to all the folks who have
     {
       title: "Name",
       key: "name",
+      component: ({ url, name }) =>
+        url ? (
+          <a className="font-bold underline" href={url}>
+            {name}
+          </a>
+        ) : (
+          name
+        ),
     },
     {
       title: "Reason",
       key: "reason",
     },
   ]}
-  content={[
-    {
-      name: "Shep Walker",
-      reason:
-        "For many, many reasons, but mostly for being a good sounding board.",
-    },
-    {
-      name: "Ethan Roday",
-      reason:
-        "Suggesting (and bearing with me for the implementation of) allowing auto-tag application based on query parameters.",
-    },
-    {
-      name: "Lee Robinson",
-      reason: "Providing a few bug reports within analytics.",
-    },
-    {
-      name: "Michael Lee",
-      reason:
-        "Providing a number of bug reports and useful pieces of feedback.",
-    },
-    {
-      name: "Craig Mod",
-      reason: "Saying an _awful_ lot of nice things about Buttondown.",
-    },
-    {
-      name: "Tim Condon",
-      reason:
-        "Alerting me to an issue where a deleted newsletter was showing up in SERPs",
-    },
-    {
-      name: "Jamie Thingelstad",
-      reason: "Lots of bug reports and useful feature ideas over the years",
-    },
-    {
-      name: "Sumana Harihareswara",
-      reason:
-        "A number of thorough bug reports and sensible feature requests. (Also, the world's greatest cowriting companion imaginable.)",
-    },
-    {
-      name: "James Baker",
-      reason: "A number of bug reports with extremely clear reproduction steps",
-    },
-    {
-      name: "Dan Nordquist",
-      reason:
-        "Adding documentation on the list of active smart Markdown embeds",
-    },
-  ]}
+  content={KUDOS}
 />

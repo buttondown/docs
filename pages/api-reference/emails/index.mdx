@@ -11,12 +11,11 @@ import ParametersTable from "../../../components/api/ParametersTable";
 import ClosedBetaNotice from "../../../components/api/ClosedBetaNotice";
 import Endpoint from "../../../components/api/Endpoint";
 import DATA from "./metadata.json";
-import { PAGE_PARAMETER } from '../../../lib/parameters';
+import { PAGE_PARAMETER } from "../../../lib/parameters";
 
 export const meta = {
   title: DATA.title,
 };
-
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
@@ -36,7 +35,8 @@ An email looks like this:
     { field: "publish_date", type: "datetime", description: "" },
     { field: "subject", type: "string" },
     { field: "email_type", type: <a href="#email-type">EmailType</a> },
-    { field: "body", type: "string" }, { field: "included_tags", type: "array<string> | array<uuid>" },
+    { field: "body", type: "string" },
+    { field: "included_tags", type: "array<string> | array<uuid>" },
     { field: "excluded_tags", type: "array<string> | array<uuid>" },
     { field: "metadata", type: "map" },
   ]}
@@ -53,7 +53,7 @@ after it's been sent out. By default, all emails are public.
   columns={[
     {
       title: "type",
-      component: (s) => <span className="font-mono">{s}</span>,
+      component: (s) => <span className="font-mono">{s.type}</span>,
     },
     { title: "description" },
   ]}
@@ -87,15 +87,17 @@ after it's been sent out. By default, all emails are public.
     PAGE_PARAMETER,
     {
       parameter: "included_tags",
-      type:  "array<string> | array<uuid>",
-      description: "If included, the response will be filtered down to emails whose `included_tags` include _all_ of the elements in the array. (This means that supplying two tags will only return emails which contain both tags, not either tag.)",
+      type: "array<string> | array<uuid>",
+      description:
+        "If included, the response will be filtered down to emails whose `included_tags` include _all_ of the elements in the array. (This means that supplying two tags will only return emails which contain both tags, not either tag.)",
       example: "",
       optional: true,
     },
     {
       parameter: "excluded_tags",
-      type:  "array<string> | array<uuid>",
-      description: "If included, the response will be filtered down to emails whose `excluded_tags` include _all_ of the elements in the array. (This means that supplying two tags will only return emails which contain both tags, not either tag.)",
+      type: "array<string> | array<uuid>",
+      description:
+        "If included, the response will be filtered down to emails whose `excluded_tags` include _all_ of the elements in the array. (This means that supplying two tags will only return emails which contain both tags, not either tag.)",
       example: "",
       optional: true,
     },

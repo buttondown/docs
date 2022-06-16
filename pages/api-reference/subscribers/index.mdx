@@ -14,7 +14,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { H2, H1, P, H3, H4, Pre, Code } from "../../../components/Markdown";
 import { CheckCircleIcon } from "@heroicons/react/outline";
 import DATA from "./metadata.json";
-import { PAGE_PARAMETER } from '../../../lib/parameters';
+import { PAGE_PARAMETER } from "../../../lib/parameters";
 
 export const custom = () => <h1 {...props} className="text-xl font-light" />;
 
@@ -106,7 +106,7 @@ A subscriber looks like this:
   columns={[
     {
       title: "type",
-      component: (s) => <span className="font-mono">{s}</span>,
+      component: (s) => <span className="font-mono">{s.type}</span>,
     },
     { title: "description" },
   ]}

@@ -5,10 +5,16 @@ function MonospacedSpan(s: string) {
   return <span className="font-mono">{s}</span>;
 }
 
+type Field = {
+  field: string;
+  type: string;
+  description: string;
+};
+
 type Props = {
   example: string;
-  fields: Array<Row>;
-}
+  fields: Array<Field>;
+};
 
 export default function ObjectDescription({ example, fields }: Props) {
   return (
@@ -21,11 +27,11 @@ export default function ObjectDescription({ example, fields }: Props) {
         columns={[
           {
             title: "field",
-            component: MonospacedSpan,
+            component: (c: Field) => MonospacedSpan(c.field),
           },
           {
             title: "type",
-            component: MonospacedSpan,
+            component: (c: Field) => MonospacedSpan(c.type),
           },
           { title: "description" },
         ]}

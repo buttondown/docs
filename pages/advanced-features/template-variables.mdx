@@ -27,7 +27,7 @@ key concepts in your email without having to change them over and over again.
     {
       title: "Variable",
       key: "variable",
-      component: (p) => <strong className="font-mono">{p}</strong>,
+      component: (p) => <strong className="font-mono">{p.variable}</strong>,
     },
     {
       title: "Description",
@@ -36,7 +36,7 @@ key concepts in your email without having to change them over and over again.
     {
       title: "Example",
       key: "example",
-      component: (p) => <Code language="handlebars">{p}</Code>,
+      component: (p) => <Code language="handlebars">{p.example}</Code>,
     },
   ]}
   content={[
@@ -71,7 +71,7 @@ I don't know what you're interested in!
       variable: "unsubscribe_url",
       description:
         "A personalized URL for the given subscriber to unsubscribe with",
-      example: `Not interested in this email? 
+      example: `Not interested in this email?
 No worries — [unsubscribe here]({{ unsubscribe_url }}).`,
     },
     {
@@ -87,8 +87,10 @@ If so, you can [subscribe here]({{ subscribe_url }}).`,
     },
     {
       variable: "upgrade_url",
-      description: "A link to prompt existing free subscribers to upgrade. (Only relevant for paid newsletters.)",
-      example: "You can upgrade to a premium subscription [here]({{ upgrade_url }}).",
+      description:
+        "A link to prompt existing free subscribers to upgrade. (Only relevant for paid newsletters.)",
+      example:
+        "You can upgrade to a premium subscription [here]({{ upgrade_url }}).",
     },
     {
       variable: "email.secondary_id",
@@ -102,8 +104,9 @@ If so, you can [subscribe here]({{ subscribe_url }}).`,
     },
     {
       variable: "subscribe_form",
-      description: "An embedded subscribe form for your newsletter, just like the one that appears at the bottom of your archives. Note that this only appears on the web/archive version of your email; it will not appear in the actual emails sent to subscribers.",
+      description:
+        "An embedded subscribe form for your newsletter, just like the one that appears at the bottom of your archives. Note that this only appears on the web/archive version of your email; it will not appear in the actual emails sent to subscribers.",
       example: "Want more sweet insights like these?\n\n{{ subscribe_form }}",
-    }
+    },
   ]}
 />

@@ -26,8 +26,14 @@ function CheckMark(s: string) {
   );
 }
 
+type Parameter = {
+  parameter: string;
+  type: string;
+  description: string;
+};
+
 type Props = {
-  content: Array<Row>;
+  content: Array<Parameter>;
 };
 
 const renderMarkdown = (markdown: string): string => {
@@ -42,13 +48,16 @@ export default function ParametersTable({ content }: Props) {
         columns={[
           {
             title: "parameter",
-            component: MonospacedSpan,
+            component: (c: Parameter) => MonospacedSpan(c.parameter),
           },
           {
             title: "type",
-            component: MonospacedSpan,
+            component: (c: Parameter) => MonospacedSpan(c.type),
           },
-          { title: "description", component: RawHTML },
+          {
+            title: "description",
+            component: (c: Parameter) => RawHTML(c.description),
+          },
           {
             title: "optional",
             alignment: "right",
