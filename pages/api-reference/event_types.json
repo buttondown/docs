@@ -33,6 +33,10 @@
   },
   {
     "name": "email.created",
-    "description": "Whenever a new email is created and delivered"
+    "description": "Whenever a new email is created and begins delivery. Note that event happens immediately before the emails themselves are sent."
+  },
+  {
+    "name": "email.sent",
+    "description": "Whenever an email has finished its delivery. Note that event happens immediately after all emails have been sent, but some email events may not have finished processing."
   }
 ]
