@@ -44,5 +44,10 @@
     "name": "Dan Nordquist",
     "reason": "Adding documentation on the list of active smart Markdown embeds",
     "url": "https://www.dnord.com"
+  },
+  {
+    "name": "Dan Starner",
+    "reason": "Pointing me towards a way to share Heroku addons between apps",
+    "url": "https://www.danstarner.com/"
   }
 ]
