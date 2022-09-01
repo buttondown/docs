@@ -41,6 +41,12 @@ key concepts in your email without having to change them over and over again.
   ]}
   content={[
     {
+      variable: "subscriber.can_view_premium_content",
+      description:
+        "Whether or not a subscriber is able to view premium content",
+      example: `{% if subscriber.can_view_premium_content %}Click here to check out the full version of the podcast!{% endif %}.`,
+    },
+    {
       variable: "subscriber.metadata",
       description: "Access to the metadata for a given subscriber",
       example: `Hi there, {{ subscriber.metadata.first_name }}!
