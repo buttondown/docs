@@ -20,6 +20,7 @@
     "@heroicons/react": "^1.0.1",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^11.0.1",
+    "cookies-next": "^2.1.1",
     "fathom-client": "^3.0.0",
     "lunr": "^2.3.9",
     "next": "^11.1.0",

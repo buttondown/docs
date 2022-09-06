@@ -6,6 +6,10 @@ description: Tips and resources for growing your subscribers and imbuing them wi
 import Playground from "../../components/Playground/Playground";
 import Layout from "../../components/Layout";
 import { H4, P } from "../../components/Markdown";
+import { getCookie } from "cookies-next";
+import ConditionallyRender from "../../components/ConditionallyRender";
+
+export const username = getCookie("newsletter_username") || "<your username>";
 
 export const meta = {
   title: "Building your subscriber base",
@@ -16,19 +20,47 @@ export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 # Building your subscriber base
 
-## Using HTML
+There are _three_ main ways you can grow your subscriber base without writing a single line of code:
 
-Go over to the [embedding and sharing page](https://buttondown.email/share) and Buttondown will walk you through exactly how this is done:
+- sharing your Buttondown URL
+- embedding an HTML form
+- embedding an iFrame
 
-![A screenshot of the embedding and sharing page.](/images/embed-form.png)
+## Sharing your Buttondown URL
 
-You can see what this looks like below:
+<ConditionallyRender client>
+  <p>
+    Your newsletter's URL is{" "}
+    <a href={`https://buttondown.email/${username}`}>
+      https://buttondown.email/{username}
+    </a>
+    . You can use this link in emails, blog posts, et cetera to give folks an easy
+    place to go to when they want to subscribe or read your past emails.
+  </p>
+  <p>
+    Fun fact: if you use tags, you can automatically tag subscribers by adding a
+    `GET` parameter of `tag` to this URL! For instance, to add the tag
+    `sandwich` to all subscribers, you'd use the URL:
+  </p>
+  <p>
+    <a href={`https://buttondown.email/${username}?tag=sandwich`}>
+      https://buttondown.email/{username}?tag=sandwich
+    </a>
+  </p>
+</ConditionallyRender>
 
-<Playground
-  hideCSS
-  html={`<form
+## Embedding an HTML form
+
+Buttondown exposes a URL endpoint that you can point any sort of `<form>` tag at and get an HTML-friendly form. This is great for platforms like Wordpress or Cargo that are very HTML-friendly; additionally, you can style this form to your heart's content.
+
+Below is an example of a basic form using this endpoint:
+
+<ConditionallyRender client>
+  <Playground
+    hideCSS
+    html={`<form
   action="
-    https://buttondown.email/api/emails/
+    https://buttondown.email/api/emails/embed-subscribe/${username}
   "
   method="post"
   target="popupwindow"
@@ -48,7 +80,30 @@ You can see what this looks like below:
     </a>
   </p>
 </form>`}
-/>
+  />
+</ConditionallyRender>
+
+You can also add one (or more tags) to automatically apply to new subscribers by specifying the `tag` value in your form, like the following snippet (which would tag a new subscriber with `foo`):
+
+```
+  <input type="hidden" name="tag" value="foo" />
+```
+
+## Embedding an iFrame
+
+If you want a seamless, pre-styled way to include a subscription option on your site, the iFrame may be the tool for you:
+
+<ConditionallyRender client>
+  <Playground
+    hideCSS
+    html={`<iframe
+    scrolling="no"
+    style="width:100%!important;height:220px;border:1px #ccc solid !important"
+    src="https://buttondown.email/${username}?as_embed=true"
+></iframe>
+`}
+  />
+</ConditionallyRender>
 
 ## Adding tags to your subscribers
 

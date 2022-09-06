@@ -1,11 +1,16 @@
 import { MenuAlt2Icon } from "@heroicons/react/outline";
 import { UserCircleIcon } from "@heroicons/react/solid";
+import { getCookie } from "cookies-next";
 
 type Props = {
   setSidebarOpen: (arg0: boolean) => void;
 };
 
+const USERNAME_KEY = "newsletter_username";
+
 export default function Header({ setSidebarOpen }: Props) {
+  const currentUsername = getCookie(USERNAME_KEY);
+
   return (
     <div className="px-8">
       <div className="relative z-10 flex-shrink-0 flex border-b border-gray-200 py-4">
@@ -27,7 +32,9 @@ export default function Header({ setSidebarOpen }: Props) {
               className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-buttondown-blue hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
             >
               <UserCircleIcon className="h-5 w-5 mr-2" aria-hidden />
-              Log in or sign up for an account
+              {currentUsername
+                ? `Logged in as ${currentUsername}`
+                : "Log in or sign up for an account"}
             </a>
           </div>
         </div>
