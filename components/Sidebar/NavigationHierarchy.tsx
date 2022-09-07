@@ -178,6 +178,7 @@ const NAVIGATION: Array<NavigationItem> = [
     children: [
       { name: "Fathom", href: "/integrations/fathom" },
       { name: "Plausible", href: "/integrations/plausible" },
+      { name: "Blogger", href: "/integrations/blogger" },
       // { name: "Simple Analytics", href: "#" },
       // { name: "Zapier", href: "#" },
     ],
