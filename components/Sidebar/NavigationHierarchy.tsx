@@ -212,6 +212,10 @@ const NAVIGATION: Array<NavigationItem> = [
         href: "/odds-and-ends/exporting-your-data",
       },
       { name: "Offboarding", href: "/odds-and-ends/offboarding" },
+      {
+        name: "Law enforcement requests",
+        href: "/odds-and-ends/law-enforcement-requests",
+      },
     ],
   },
   {
