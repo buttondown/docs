@@ -49,5 +49,14 @@
     "name": "Dan Starner",
     "reason": "Pointing me towards a way to share Heroku addons between apps",
     "url": "https://www.danstarner.com/"
+  },
+  {
+    "name": "Brendan Schlagel",
+    "reason": "Providing feedback on the beta branch of the new writing interface",
+    "url": "https://www.brendanschlagel.com/"
+  },
+  {
+    "name": "Ashley Teoh",
+    "reason": "Providing feedback on the beta branch of the new writing interface"
   }
 ]
