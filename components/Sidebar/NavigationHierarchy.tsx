@@ -204,6 +204,10 @@ const NAVIGATION: Array<NavigationItem> = [
     icon: AnnotationIcon,
     children: [
       {
+        name: "Glossary",
+        href: "/odds-and-ends/glossary",
+      },
+      {
         name: "Privacy and security",
         href: "/odds-and-ends/privacy-and-security",
       },

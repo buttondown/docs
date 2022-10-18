@@ -1,0 +1,69 @@
+---
+title: Glossary
+description: Definitions for all the proper nouns that Buttondown uses
+---
+
+import Layout from "../../components/Layout";
+
+export const meta = {
+  title: "Glossary",
+  description: "Definitions for all the proper nouns that Buttondown uses",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Glossary
+
+Buttondown uses a lot of terms. Here's all of them — defined.
+
+### API
+
+API stands for "application programming interface". It's a way for software to talk to other software. Buttondown has an API that allows you to programmatically send emails, manage subscribers, and more.
+
+### CSV
+
+CSV stands for "comma-separated values"; Buttondown and other tools will refer to a "CSV file", which is
+a file that ends in `.csv` and contains data separated by commas. It looks something like this:
+
+```
+email,first_name,last_name
+justin@buttondown.email,justin,duke
+telly@buttondown.email,telemachus,duke
+```
+
+### DKIM
+
+DomainKeys Identified Mail, or DKIM, is a technology used to authenticate email by verifying the sending domain and ensuring that the message has not been tampered with in transit. DKIM is also used to protect against spam by verifying that the message was sent from an authorised email server.
+
+### Email
+
+An 'email', to Buttondown, is anything that has a subject and a body (plus a bunch of other stuff) that gets sent out to subscribers. When Buttondown talks about "emails" it's referring
+to stuff you haven't sent out yet (those might also be called "drafts", but they're still emails!) or stuff that you've set up to send out in a week
+(might be called "scheduled emails"!) or even stuff that you imported from another service or tool.
+
+### Hosting domain
+
+A hosting domain is a custom domain (like `yourname.com`) which you use to host your Buttondown subscribe pages and/or archives.
+
+### Markdown
+
+Markdown is a lightweight "markup language" that makes it easy to add formatting elements like images, headings, and links to plain text. Buttondown uses Markdown to let you format your emails.
+
+### Metadata
+
+Metadata is an attribute shared by both emails and subscribers: it is a key-value store that lets you assign arbitrary data (like first and last names, for subscribers) to objects.
+
+### Sending domain
+
+"Sending domain" (as opposed to "hosting domain", defined above) is a domain that you own and use to send emails.
+
+### SPF
+
+SPF (Sender Policy Framework) is a type of email authentication that verifies the sender of an email. It does this by checking the sending server's SPF record to see if it matches the domain name in the "From" header of the message. If it doesn't match, then the email is likely fake and can be filtered out. SPF is also used to prevent unauthorized senders from using your domain name in their messages.
+
+### Subscriber
+
+A subscriber is an individual who has signed up to receive your emails. Buttondown uses the term "subscriber" to refer to anyone who has signed up to receive your emails, whether they're on a free or paid plan or whether they've confirmed their subscription or not.
+
+### Transactional email
+
+A transactional email is an email that is sent to a subscriber in response to an action they've taken. For example, if a subscriber signs up to your list, you might send them a welcome email. That's a transactional email. If you send an email to your subscribers every week, that's not a transactional email.
