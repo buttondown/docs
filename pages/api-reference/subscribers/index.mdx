@@ -5,6 +5,7 @@ description: An API reference for the 'subscriber' object in Buttondown
 
 import Layout from "../../../components/Layout";
 import Table from "../../../components/Table";
+import Pill from "../../../components/Pill";
 import ObjectDescription from "../../../components/api/ObjectDescription";
 import ParametersTable from "../../../components/api/ParametersTable";
 import ResponsesTable from "../../../components/api/ResponsesTable";
@@ -106,64 +107,88 @@ A subscriber looks like this:
   columns={[
     {
       title: "type",
+      component: (row) => (
+        <Pill variant={row.variant}>{row.name || row.type}</Pill>
+      ),
+    },
+    {
+      title: "identifier",
       component: (s) => <span className="font-mono">{s.type}</span>,
     },
     { title: "description" },
   ]}
   content={[
     {
+      variant: "success",
       type: "regular",
       description:
         "normal subscribers who have not unsubscribed or deactivated in any way",
     },
     {
-      type: "removed",
-      description:
-        "subscribers who have been explicitly removed by the newsletter (notably, this does not mean unsubscribers: use /v1/unsubscribers for that!)",
-    },
-    {
-      type: "unactivated",
-      description:
-        "subscribers who have not yet confirmed their email or opted in",
-    },
-    {
-      type: "unpaid",
-      description:
-        "subscribers who have not yet purchased a subscription to your newsletter",
-    },
-    {
-      type: "churned",
-      description:
-        "subscribers who have elected to not renew their subscription to your newsletter and will become unpaid subscribers at the end of their current billing period",
-    },
-    {
+      variant: "success",
       type: "premium",
       description: "subscribers with active premium subscriptions",
     },
     {
-      type: "gifted",
-      description:
-        "subscribers that have been gifted free premium subscriptions",
-    },
-    {
-      type: "unsubscribed",
-      description:
-        "subscribers that have voluntarily unsubscribed from your newsletter",
-    },
-    {
-      type: "spammy",
-      description:
-        "subscribers that have been deemed spammy by Buttondown's automated systems",
-    },
-    {
+      variant: "info",
       type: "trialed",
       description:
         "subscribers that are temporarily receiving a premium subscription to your newsletter",
     },
     {
+      variant: "info",
+      type: "unpaid",
+      description:
+        "subscribers who have not yet purchased a subscription to your newsletter",
+    },
+    {
+      variant: "info",
+      type: "gifted",
+      description:
+        "subscribers that have been gifted free premium subscriptions",
+    },
+    {
+      variant: "warning",
+      type: "churning",
+      description:
+        "subscribers who have elected to not renew their subscription to your newsletter and will become unpaid subscribers at the end of their current billing period",
+    },
+    {
+      variant: "warning",
+      type: "unactivated",
+      description:
+        "subscribers who have not yet confirmed their email or opted in",
+    },
+    {
+      variant: "warning",
       type: "paused",
       description:
         "subscribers that are on a temporary hold from their premium subscription, but are still subscribed to your newsletter",
+    },
+    {
+      variant: "error",
+      type: "unsubscribed",
+      description:
+        "subscribers that have voluntarily unsubscribed from your newsletter",
+    },
+    {
+      variant: "error",
+      type: "spammy",
+      description:
+        "subscribers that have been deemed spammy by Buttondown's automated systems",
+    },
+    {
+      variant: "error",
+      type: "removed",
+      description:
+        "subscribers who have been explicitly removed by the newsletter (notably, this does not mean unsubscribers: use /v1/unsubscribers for that!)",
+    },
+    {
+      variant: "error",
+      type: "past_due",
+      name: "Past due",
+      description:
+        "subscribers who technically have active paid subscriptions, but have not paid their invoices in time",
     },
   ]}
 />
