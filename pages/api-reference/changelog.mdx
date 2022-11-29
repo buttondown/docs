@@ -14,6 +14,10 @@ export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 The changelog provides a list of dated updates, each of which contains a number of potentially backwards-incompatible changes. There is no explicit versioning in the API at this time; all changes will be either compatible or breaking. (If I attempt any brittle changes to the API that may break current implementations, I'll be sure to add version gates.)
 
+## 2022-11-24
+
+Added `/v1/email/:id/analytics`, which returns aggregated information about opens, clicks, and other events for a given email that you've sent.
+
 ## 2022-11-19
 
 Removed the `/v1/drafts`, `/v1/scheduled-emails`, and `/v1/unsubscribers` endpoints. The behavior of all three endpoints have been subsumed into `/v1/emails` and `/v1/subscribers`:
