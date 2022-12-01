@@ -58,5 +58,10 @@
   {
     "name": "Ashley Teoh",
     "reason": "Providing feedback on the beta branch of the new writing interface"
+  },
+  {
+    "name": "Anton Sotkov",
+    "reason": "Fixing a broken link and a bad JSON sample in the documentation",
+    "url": "https://sotkov.com/"
   }
 ]
