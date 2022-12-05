@@ -8,6 +8,8 @@ import Table from "../../../components/Table";
 import Pill from "../../../components/Pill";
 import ObjectDescription from "../../../components/api/ObjectDescription";
 import ParametersTable from "../../../components/api/ParametersTable";
+import PathTable from "../../../components/api/PathTable";
+import EnumTable from "../../../components/api/EnumTable";
 import ResponsesTable from "../../../components/api/ResponsesTable";
 import Endpoint from "../../../components/api/Endpoint";
 import ClosedBetaNotice from "../../../components/api/ClosedBetaNotice";
@@ -16,8 +18,15 @@ import { H2, H1, P, H3, H4, Pre, Code } from "../../../components/Markdown";
 import { CheckCircleIcon } from "@heroicons/react/outline";
 import DATA from "./metadata.json";
 import { PAGE_PARAMETER } from "../../../lib/parameters";
+import OpenAPI from "../../../lib/openapi.json";
+import OpenAPIFixtures from "../../../lib/fixtures.json";
+import OpenAPIEnums from "../../../lib/enums.json";
 
 export const custom = () => <h1 {...props} className="text-xl font-light" />;
+
+export const key = "SubscriberOutput";
+export const schema = OpenAPI.components.schemas[key];
+export const fixture = JSON.stringify(OpenAPIFixtures[key], null, 4);
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 export const meta = {
@@ -34,25 +43,12 @@ They're what you see on your [subscribers page](https://buttondown.email/subscri
 A subscriber looks like this:
 
 <ObjectDescription
-  example={JSON.stringify(DATA.object, null, 4)}
-  fields={[
-    { field: "creation_date", type: "datetime", description: "" },
-    { field: "email", type: "string" },
-    { field: "id", type: "uuid" },
-    { field: "metadata", type: "map" },
-    { field: "notes", type: "string" },
-    { field: "referrer_url", type: "url" },
-    { field: "secondary_id", type: "int" },
-    {
-      field: "subscriber_type",
-      type: <a href="#subscriber-type">SubscriberType</a>,
-    },
-    { field: "source", type: "string" },
-    { field: "tags", type: "array<uuid>" },
-    { field: "utm_campaign", type: "string" },
-    { field: "utm_medium", type: "string" },
-    { field: "utm_source", type: "string" },
-  ]}
+  example={fixture}
+  fields={Object.keys(schema.properties).map((key) => ({
+    field: key,
+    type: schema.properties[key].type || schema.properties[key]["$ref"],
+    description: schema.properties[key].description,
+  }))}
 />
 
 ---
@@ -99,99 +95,11 @@ A subscriber looks like this:
   ]}
 />
 
-<a name="subscriber-type"></a>
+<a name="SubscriberType"></a>
 
 #### Subscriber types
 
-<Table
-  columns={[
-    {
-      title: "type",
-      component: (row) => (
-        <Pill variant={row.variant}>{row.name || row.type}</Pill>
-      ),
-    },
-    {
-      title: "identifier",
-      component: (s) => <span className="font-mono">{s.type}</span>,
-    },
-    { title: "description" },
-  ]}
-  content={[
-    {
-      variant: "success",
-      type: "regular",
-      description:
-        "normal subscribers who have not unsubscribed or deactivated in any way",
-    },
-    {
-      variant: "success",
-      type: "premium",
-      description: "subscribers with active premium subscriptions",
-    },
-    {
-      variant: "info",
-      type: "trialed",
-      description:
-        "subscribers that are temporarily receiving a premium subscription to your newsletter",
-    },
-    {
-      variant: "info",
-      type: "unpaid",
-      description:
-        "subscribers who have not yet purchased a subscription to your newsletter",
-    },
-    {
-      variant: "info",
-      type: "gifted",
-      description:
-        "subscribers that have been gifted free premium subscriptions",
-    },
-    {
-      variant: "warning",
-      type: "churning",
-      description:
-        "subscribers who have elected to not renew their subscription to your newsletter and will become unpaid subscribers at the end of their current billing period",
-    },
-    {
-      variant: "warning",
-      type: "unactivated",
-      description:
-        "subscribers who have not yet confirmed their email or opted in",
-    },
-    {
-      variant: "warning",
-      type: "paused",
-      description:
-        "subscribers that are on a temporary hold from their premium subscription, but are still subscribed to your newsletter",
-    },
-    {
-      variant: "error",
-      type: "unsubscribed",
-      description:
-        "subscribers that have voluntarily unsubscribed from your newsletter",
-    },
-    {
-      variant: "error",
-      type: "spammy",
-      description:
-        "subscribers that have been deemed spammy by Buttondown's automated systems",
-    },
-    {
-      variant: "error",
-      type: "removed",
-      description:
-        "subscribers who have been explicitly removed by the newsletter (notably, this does not mean unsubscribers: use /v1/unsubscribers for that!)",
-    },
-    {
-      variant: "error",
-      type: "past_due",
-      name: "Past due",
-      description:
-        "subscribers who technically have active paid subscriptions, but have not paid their invoices in time",
-    },
-  ]}
-/>
+<EnumTable e={OpenAPIEnums.SubscriberType} />
 
 <ResponsesTable
   content={[
@@ -202,7 +110,7 @@ A subscriber looks like this:
         count: 1,
         next: "foo",
         previous: null,
-        results: [DATA.object],
+        results: [],
       },
     },
   ]}
@@ -263,7 +171,7 @@ If Buttondown cannot create a new subscriber with the email address you've provi
     {
       Status: "201",
       description: "",
-      "Sample Response": DATA.object,
+      "Sample Response": {},
     },
     {
       Status: "400",
@@ -322,7 +230,7 @@ If Buttondown cannot create a new subscriber with the email address you've provi
     {
       Status: "200",
       description: "",
-      "Sample Response": DATA.object,
+      "Sample Response": {},
     },
   ]}
 />
@@ -357,7 +265,7 @@ If Buttondown cannot create a new subscriber with the email address you've provi
     {
       Status: "200",
       description: "",
-      "Sample Response": DATA.object,
+      "Sample Response": {},
     },
   ]}
 />

@@ -1,0 +1,2056 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "NinjaAPI",
+    "version": "1.0.0",
+    "description": ""
+  },
+  "paths": {
+    "/exports": {
+      "post": {
+        "operationId": "api_views_exports_create_export",
+        "summary": "Create Export",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportOutput"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Payload",
+                "default": {
+                  "collections": [
+                    "subscribers",
+                    "emails",
+                    "scheduled_emails",
+                    "drafts",
+                    "unsubscribers",
+                    "events",
+                    "referrals"
+                  ]
+                },
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ExportInput"
+                  }
+                ]
+              }
+            }
+          },
+          "required": false
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "api_views_exports_list_exports",
+        "summary": "List Exports",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page_ExportOutput_"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/exports/{export_id}": {
+      "get": {
+        "operationId": "api_views_exports_retrieve_export",
+        "summary": "Retrieve Export",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "export_id",
+            "schema": {
+              "title": "Export Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportOutput"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/tags": {
+      "post": {
+        "operationId": "api_views_subscriber_tags_create_tag",
+        "summary": "Create Tag",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TagOutput"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TagInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "api_views_subscriber_tags_list_tags",
+        "summary": "List Tags",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page_TagOutput_"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/tags/{tag_id}": {
+      "get": {
+        "operationId": "api_views_subscriber_tags_retrieve_tag",
+        "summary": "Retrieve Tag",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tag_id",
+            "schema": {
+              "title": "Tag Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TagOutput"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "api_views_subscriber_tags_update_tag",
+        "summary": "Update Tag",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tag_id",
+            "schema": {
+              "title": "Tag Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TagOutput"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage_UpdateTagErrorCode_"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TagUpdateInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "api_views_subscriber_tags_delete_tag",
+        "summary": "Delete Tag",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tag_id",
+            "schema": {
+              "title": "Tag Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/ping": {
+      "get": {
+        "operationId": "api_views_ping_ping",
+        "summary": "Ping",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/images": {
+      "post": {
+        "operationId": "api_views_images_create_image",
+        "summary": "Create Image",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageOutput"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "title": "FileParams",
+                "type": "object",
+                "properties": {
+                  "image": {
+                    "title": "Image",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "image"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/images/{image_id}": {
+      "delete": {
+        "operationId": "api_views_images_delete_image",
+        "summary": "Delete Image",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "image_id",
+            "schema": {
+              "title": "Image Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/emails": {
+      "post": {
+        "operationId": "api_views_emails_create_email",
+        "summary": "Create Email",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailOutput"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage_EmailCreationErrorCode_"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "api_views_emails_list_emails",
+        "summary": "List Emails",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "default": [
+                "about_to_send",
+                "in_flight",
+                "sent"
+              ],
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/EmailStatus"
+              }
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "included_tags",
+            "schema": {
+              "title": "Included Tags",
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "excluded_tags",
+            "schema": {
+              "title": "Excluded Tags",
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page_EmailOutput_"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/emails/{pk}": {
+      "get": {
+        "operationId": "api_views_emails_retrieve_email",
+        "summary": "Retrieve Email",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "schema": {
+              "title": "Pk",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailOutput"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/emails/{pk}/analytics": {
+      "get": {
+        "operationId": "api_views_emails_retrieve_email_analytics",
+        "summary": "Retrieve Email Analytics",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "schema": {
+              "title": "Pk",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Analytics"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/subscribers": {
+      "post": {
+        "operationId": "api_views_subscribers_create_subscriber",
+        "summary": "Create Subscriber",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubscriberOutput"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscriberInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "api_views_subscribers_list_subscribers",
+        "summary": "List Subscribers",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "type",
+            "schema": {
+              "title": "Type",
+              "description": "An enumeration.",
+              "enum": [
+                "regular",
+                "premium",
+                "churning",
+                "past_due",
+                "gifted",
+                "unpaid",
+                "unactivated",
+                "unsubscribed",
+                "spammy",
+                "removed",
+                "trialed",
+                "disabled",
+                "paused"
+              ],
+              "type": "string"
+            },
+            "required": false,
+            "description": "An enumeration."
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "schema": {
+              "title": "Email",
+              "default": "",
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "tag",
+            "schema": {
+              "title": "Tag",
+              "default": "",
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "-tag",
+            "schema": {
+              "title": "-Tag",
+              "type": "string"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page_SubscriberOutput_"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage_ListSubscribersErrorCode_"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/subscribers/{pk}": {
+      "get": {
+        "operationId": "api_views_subscribers_retrieve_subscriber",
+        "summary": "Retrieve Subscriber",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "schema": {
+              "title": "Pk",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubscriberOutput"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "api_views_subscribers_delete_subscriber",
+        "summary": "Delete Subscriber",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "schema": {
+              "title": "Pk",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "api_views_subscribers_update_subscriber",
+        "summary": "Update Subscriber",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "schema": {
+              "title": "Pk",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubscriberOutput"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage_UpdateSubscriberErrorCode_"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscriberUpdateInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/subscribers/{pk}/send-reminder": {
+      "post": {
+        "operationId": "api_views_subscribers_send_reminder",
+        "summary": "Send Reminder",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "schema": {
+              "title": "Pk",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/subscribers/{pk}/emails/{email_pk}": {
+      "post": {
+        "operationId": "api_views_subscribers_send_email_to",
+        "summary": "Send Email To",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "schema": {
+              "title": "Pk",
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "email_pk",
+            "schema": {
+              "title": "Email Pk",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/newsletters": {
+      "get": {
+        "operationId": "api_views_newsletters_list_newsletters",
+        "summary": "List Newsletters",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page_NewsletterOutput_"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      },
+      "post": {
+        "operationId": "api_views_newsletters_create_newsletter",
+        "summary": "Create Newsletter",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsletterOutput"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage_CreateNewsletterErrorCode_"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewsletterInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/newsletters/{pk}": {
+      "patch": {
+        "operationId": "api_views_newsletters_update_newsletter",
+        "summary": "Update Newsletter",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "schema": {
+              "title": "Pk",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsletterOutput"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewsletterUpdateInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "api_views_newsletters_delete_newsletter",
+        "summary": "Delete Newsletter",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "schema": {
+              "title": "Pk",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ExportStatus": {
+        "title": "Status",
+        "description": "An enumeration.",
+        "enum": [
+          "error",
+          "in_progress",
+          "not_started",
+          "ready"
+        ],
+        "type": "string"
+      },
+      "ExportOutput": {
+        "title": "ExportOutput",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ExportStatus"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "completion_date": {
+            "title": "Completion Date",
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "creation_date",
+          "status",
+          "url"
+        ]
+      },
+      "ErrorMessage": {
+        "title": "ErrorMessage",
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "Code"
+          },
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "detail"
+        ]
+      },
+      "ExportCollection": {
+        "title": "Collection",
+        "description": "An enumeration.",
+        "enum": [
+          "subscribers",
+          "emails",
+          "scheduled_emails",
+          "drafts",
+          "unsubscribers",
+          "events",
+          "referrals"
+        ],
+        "type": "string"
+      },
+      "ExportInput": {
+        "title": "ExportInput",
+        "type": "object",
+        "properties": {
+          "collections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExportCollection"
+            }
+          }
+        },
+        "required": [
+          "collections"
+        ]
+      },
+      "Page_ExportOutput_": {
+        "title": "Page[ExportOutput]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExportOutput"
+            }
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
+      "TagOutput": {
+        "title": "TagOutput",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "color": {
+            "title": "Color",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "secondary_id": {
+            "title": "Secondary Id",
+            "type": "integer"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "color",
+          "secondary_id",
+          "creation_date"
+        ]
+      },
+      "TagInput": {
+        "title": "TagInput",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "color": {
+            "title": "Color",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "color"
+        ]
+      },
+      "Page_TagOutput_": {
+        "title": "Page[TagOutput]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TagOutput"
+            }
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
+      "UpdateTagErrorCode": {
+        "title": "UpdateTagErrorCode",
+        "description": "An enumeration.",
+        "enum": [
+          "name_already_exists"
+        ],
+        "type": "string"
+      },
+      "ErrorMessage_UpdateTagErrorCode_": {
+        "title": "ErrorMessage[UpdateTagErrorCode]",
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/UpdateTagErrorCode"
+          },
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "code",
+          "detail"
+        ]
+      },
+      "TagUpdateInput": {
+        "title": "TagUpdateInput",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "color": {
+            "title": "Color",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          }
+        }
+      },
+      "ImageOutput": {
+        "title": "ImageOutput",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "image": {
+            "title": "Image",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "creation_date",
+          "image"
+        ]
+      },
+      "EmailType": {
+        "title": "Type",
+        "description": "An enumeration.",
+        "enum": [
+          "public",
+          "private",
+          "premium",
+          "free",
+          "archival",
+          "hidden"
+        ],
+        "type": "string"
+      },
+      "EmailStatus": {
+        "title": "Status",
+        "description": "An enumeration.",
+        "enum": [
+          "draft",
+          "about_to_send",
+          "scheduled",
+          "in_flight",
+          "deleted",
+          "errored",
+          "sent",
+          "imported"
+        ],
+        "type": "string"
+      },
+      "EmailOutput": {
+        "title": "EmailOutput",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "included_tags": {
+            "title": "Included Tags",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "excluded_tags": {
+            "title": "Excluded Tags",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "publish_date": {
+            "title": "Publish Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "subject": {
+            "title": "Subject",
+            "type": "string"
+          },
+          "body": {
+            "title": "Body",
+            "type": "string"
+          },
+          "secondary_id": {
+            "title": "Secondary Id",
+            "type": "integer"
+          },
+          "email_type": {
+            "$ref": "#/components/schemas/EmailType"
+          },
+          "slug": {
+            "title": "Slug",
+            "type": "string"
+          },
+          "external_url": {
+            "title": "External Url",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/EmailStatus"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "default": {},
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "subject",
+          "body",
+          "email_type",
+          "slug",
+          "external_url",
+          "status"
+        ]
+      },
+      "EmailCreationErrorCode": {
+        "title": "EmailCreationErrorCode",
+        "description": "An enumeration.",
+        "enum": [
+          "subject_invalid",
+          "email_duplicate",
+          "email_invalid"
+        ],
+        "type": "string"
+      },
+      "ErrorMessage_EmailCreationErrorCode_": {
+        "title": "ErrorMessage[EmailCreationErrorCode]",
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/EmailCreationErrorCode"
+          },
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "code",
+          "detail"
+        ]
+      },
+      "EmailInput": {
+        "title": "EmailInput",
+        "type": "object",
+        "properties": {
+          "included_tags": {
+            "title": "Included Tags",
+            "default": [],
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "excluded_tags": {
+            "title": "Excluded Tags",
+            "default": [],
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "publish_date": {
+            "title": "Publish Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "subject": {
+            "title": "Subject",
+            "type": "string"
+          },
+          "body": {
+            "title": "Body",
+            "default": "",
+            "type": "string"
+          },
+          "email_type": {
+            "default": "public",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EmailType"
+              }
+            ]
+          },
+          "status": {
+            "default": "about_to_send",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EmailStatus"
+              }
+            ]
+          },
+          "metadata": {
+            "title": "Metadata",
+            "default": {},
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "subject"
+        ]
+      },
+      "Page_EmailOutput_": {
+        "title": "Page[EmailOutput]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmailOutput"
+            }
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
+      "Analytics": {
+        "title": "Analytics",
+        "type": "object",
+        "properties": {
+          "recipients": {
+            "title": "Recipients",
+            "type": "integer"
+          },
+          "deliveries": {
+            "title": "Deliveries",
+            "type": "integer"
+          },
+          "opens": {
+            "title": "Opens",
+            "type": "integer"
+          },
+          "clicks": {
+            "title": "Clicks",
+            "type": "integer"
+          },
+          "temporary_failures": {
+            "title": "Temporary Failures",
+            "type": "integer"
+          },
+          "permanent_failures": {
+            "title": "Permanent Failures",
+            "type": "integer"
+          },
+          "unsubscriptions": {
+            "title": "Unsubscriptions",
+            "type": "integer"
+          },
+          "complaints": {
+            "title": "Complaints",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "recipients",
+          "deliveries",
+          "opens",
+          "clicks",
+          "temporary_failures",
+          "permanent_failures",
+          "unsubscriptions",
+          "complaints"
+        ]
+      },
+      "SubscriberType": {
+        "title": "Type",
+        "description": "An enumeration.",
+        "enum": [
+          "regular",
+          "premium",
+          "churning",
+          "past_due",
+          "gifted",
+          "unpaid",
+          "unactivated",
+          "unsubscribed",
+          "spammy",
+          "removed",
+          "trialed",
+          "disabled",
+          "paused"
+        ],
+        "type": "string"
+      },
+      "SubscriberSource": {
+        "title": "Source",
+        "description": "An enumeration.",
+        "enum": [
+          "api",
+          "buttondown",
+          "csv",
+          "mailchimp",
+          "organic",
+          "nouveau",
+          "substack",
+          "tinyletter",
+          "typeform",
+          "user",
+          "admin",
+          "drip"
+        ],
+        "type": "string"
+      },
+      "SubscriberOutput": {
+        "title": "SubscriberOutput",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "notes": {
+            "title": "Notes",
+            "default": "",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "default": {},
+            "type": "object"
+          },
+          "tags": {
+            "title": "Tags",
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "referrer_url": {
+            "title": "Referrer Url",
+            "default": "",
+            "type": "string"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "secondary_id": {
+            "title": "Secondary Id",
+            "type": "integer"
+          },
+          "subscriber_type": {
+            "$ref": "#/components/schemas/SubscriberType"
+          },
+          "source": {
+            "$ref": "#/components/schemas/SubscriberSource"
+          },
+          "utm_campaign": {
+            "title": "Utm Campaign",
+            "type": "string"
+          },
+          "utm_medium": {
+            "title": "Utm Medium",
+            "type": "string"
+          },
+          "utm_source": {
+            "title": "Utm Source",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "email",
+          "creation_date",
+          "secondary_id",
+          "subscriber_type",
+          "source",
+          "utm_campaign",
+          "utm_medium",
+          "utm_source"
+        ]
+      },
+      "SubscriberInput": {
+        "title": "SubscriberInput",
+        "type": "object",
+        "properties": {
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "notes": {
+            "title": "Notes",
+            "default": "",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "default": {},
+            "type": "object"
+          },
+          "tags": {
+            "title": "Tags",
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "referrer_url": {
+            "title": "Referrer Url",
+            "default": "",
+            "type": "string"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      },
+      "Page_SubscriberOutput_": {
+        "title": "Page[SubscriberOutput]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubscriberOutput"
+            }
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
+      "ListSubscribersErrorCode": {
+        "title": "ListSubscribersErrorCode",
+        "description": "An enumeration.",
+        "enum": [
+          "invalid_tag"
+        ],
+        "type": "string"
+      },
+      "ErrorMessage_ListSubscribersErrorCode_": {
+        "title": "ErrorMessage[ListSubscribersErrorCode]",
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/ListSubscribersErrorCode"
+          },
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "code",
+          "detail"
+        ]
+      },
+      "UpdateSubscriberErrorCode": {
+        "title": "UpdateSubscriberErrorCode",
+        "description": "An enumeration.",
+        "enum": [
+          "email_already_exists",
+          "email_invalid",
+          "subscriber_type_invalid"
+        ],
+        "type": "string"
+      },
+      "ErrorMessage_UpdateSubscriberErrorCode_": {
+        "title": "ErrorMessage[UpdateSubscriberErrorCode]",
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/UpdateSubscriberErrorCode"
+          },
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "code",
+          "detail"
+        ]
+      },
+      "SubscriberUpdateInput": {
+        "title": "SubscriberUpdateInput",
+        "type": "object",
+        "properties": {
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "notes": {
+            "title": "Notes",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "type": "object"
+          },
+          "tags": {
+            "title": "Tags",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "referrer_url": {
+            "title": "Referrer Url",
+            "default": "",
+            "type": "string"
+          },
+          "subscriber_type": {
+            "$ref": "#/components/schemas/SubscriberType"
+          }
+        }
+      },
+      "NewsletterOutput": {
+        "title": "NewsletterOutput",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "username": {
+            "title": "Username",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "api_key": {
+            "title": "Api Key",
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "id",
+          "username",
+          "name",
+          "description",
+          "creation_date",
+          "api_key"
+        ]
+      },
+      "Page_NewsletterOutput_": {
+        "title": "Page[NewsletterOutput]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewsletterOutput"
+            }
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
+      "CreateNewsletterErrorCode": {
+        "title": "CreateNewsletterErrorCode",
+        "description": "An enumeration.",
+        "enum": [
+          "username_already_exists"
+        ],
+        "type": "string"
+      },
+      "ErrorMessage_CreateNewsletterErrorCode_": {
+        "title": "ErrorMessage[CreateNewsletterErrorCode]",
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/CreateNewsletterErrorCode"
+          },
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "code",
+          "detail"
+        ]
+      },
+      "NewsletterInput": {
+        "title": "NewsletterInput",
+        "type": "object",
+        "properties": {
+          "username": {
+            "title": "Username",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "name",
+          "description"
+        ]
+      },
+      "NewsletterUpdateInput": {
+        "title": "NewsletterUpdateInput",
+        "type": "object",
+        "properties": {
+          "username": {
+            "title": "Username",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "GlobalAuth": {
+        "type": "http",
+        "scheme": "token"
+      }
+    }
+  }
+}

@@ -5,19 +5,27 @@ description: An API reference for the 'export' object in Buttondown
 
 import Layout from "../../../components/Layout";
 import ResponsesTable from "../../../components/api/ResponsesTable";
+import PathTable from "../../../components/api/PathTable";
 import ObjectDescription from "../../../components/api/ObjectDescription";
 import ParametersTable from "../../../components/api/ParametersTable";
 import Endpoint from "../../../components/api/Endpoint";
 import DATA from "./metadata.json";
 
-import { PAGE_PARAMETER } from '../../../lib/parameters';
+import { PAGE_PARAMETER } from "../../../lib/parameters";
+import OpenAPI from "../../../lib/openapi.json";
+import OpenAPIFixtures from "../../../lib/fixtures.json";
+
 export const meta = {
   title: DATA.title,
 };
 
-export const serializedExport = JSON.stringify(DATA.object, null, 4);
+export const key = "ExportOutput";
+export const schema = OpenAPI.components.schemas[key];
+export const fixture = JSON.stringify(OpenAPIFixtures[key], null, 4);
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+export const foo = console.log(OpenAPIFixtures[key]) && 3;
 
 # Exports
 
@@ -30,67 +38,23 @@ on email events. In general, you probably won't _need_ to use this endpoint unle
 An export looks like this:
 
 <ObjectDescription
-  example={serializedExport}
-  fields={[
-    { field: "creation_date", type: "datetime", description: "" },
-    { field: "completion_date", type: "datetime", description: "" },
-    { field: "status", type: "status", description: "" },
-    { field: "id", type: "uuid" },
-    { field: "url", type: "string" },
-  ]}
+  example={fixture}
+  fields={Object.keys(schema.properties).map((key) => ({
+    field: key,
+    type: schema.properties[key].type || schema.properties[key]["$ref"],
+    description: schema.properties[key].description,
+  }))}
 />
 
 <Endpoint title="Listing exports" method="GET" path={DATA.endpoint} />
-<ParametersTable
-  content={[
-    PAGE_PARAMETER
-  ]}
-/>
-<ResponsesTable
-  content={[
-    {
-      Status: "200",
-      description: "",
-      "Sample Response": {
-        count: 1,
-        next: "foo",
-        previous: null,
-        results: [JSON.parse(serializedExport)],
-      },
-    },
-  ]}
-/>
+<ParametersTable content={[PAGE_PARAMETER]} />
+<PathTable content={OpenAPI.paths["/exports"].get.responses} />
 
 ---
 
 <Endpoint title="Creating a new export" method="POST" path={DATA.endpoint} />
 <ParametersTable content={[]} />
-<ResponsesTable
-  content={[
-    {
-      Status: "201",
-      description: "",
-      "Sample Response": DATA.object,
-    },
-  ]}
-/>
-
----
-
-<Endpoint
-  title="Deleting an export"
-  method="DELETE"
-  path={DATA.endpoint + "/<id>"}
-/>
-<ResponsesTable
-  content={[
-    {
-      Status: "204",
-      description: "",
-      "Sample Response": {},
-    },
-  ]}
-/>
+<PathTable content={OpenAPI.paths["/exports"].post.responses} />
 
 ---
 
@@ -99,12 +63,4 @@ An export looks like this:
   method="GET"
   path={DATA.endpoint + "/<id>"}
 />
-<ResponsesTable
-  content={[
-    {
-      Status: "200",
-      description: "",
-      "Sample Response": DATA.object,
-    },
-  ]}
-/>
+<PathTable content={OpenAPI.paths["/exports/{export_id}"].get.responses} />

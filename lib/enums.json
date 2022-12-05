@@ -1,0 +1,53 @@
+{
+  "SubscriberType": {
+    "regular": {
+      "variant": "success",
+      "description": "normal subscribers who have not unsubscribed or deactivated in any way"
+    },
+    "premium": {
+      "variant": "success",
+      "description": "subscribers with active premium subscriptions"
+    },
+    "trialed": {
+      "variant": "info",
+      "description": "subscribers that are temporarily receiving a premium subscription to your newsletter"
+    },
+    "unpaid": {
+      "variant": "info",
+      "description": "subscribers who have not yet purchased a subscription to your newsletter"
+    },
+    "gifted": {
+      "variant": "info",
+      "description": "subscribers that have been gifted free premium subscriptions"
+    },
+    "churning": {
+      "variant": "warning",
+      "description": "subscribers who have elected to not renew their subscription to your newsletter and will become unpaid subscribers at the end of their current billing period"
+    },
+    "unactivated": {
+      "variant": "warning",
+      "description": "subscribers who have not yet confirmed their email or opted in"
+    },
+    "paused": {
+      "variant": "warning",
+      "description": "subscribers that are on a temporary hold from their premium subscription, but are still subscribed to your newsletter"
+    },
+    "unsubscribed": {
+      "variant": "error",
+      "description": "subscribers that have voluntarily unsubscribed from your newsletter"
+    },
+    "spammy": {
+      "variant": "error",
+      "description": "subscribers that have been deemed spammy by Buttondown's automated systems"
+    },
+    "removed": {
+      "variant": "error",
+      "description": "subscribers who have been explicitly removed by the newsletter (notably, this does not mean unsubscribers: use /v1/unsubscribers for that!)"
+    },
+    "past_due": {
+      "variant": "error",
+      "name": "Past due",
+      "description": "subscribers who technically have active paid subscriptions, but have not paid their invoices in time"
+    }
+  }
+}

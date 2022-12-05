@@ -1,6 +1,7 @@
 import classNames from "../../lib/classNames";
 import { Code, H3 } from "../Markdown";
 import Table, { Row } from "../Table";
+import OpenAPIFixtures from "../../lib/fixtures.json";
 
 function ResponseCodeBadge(text: string) {
   return (
@@ -19,12 +20,25 @@ function ResponseCodeBadge(text: string) {
   );
 }
 
+const fixtureForRef = (ref: string) => {
+  // Pages are wrapped like so: "Page_FOO_".
+  // We want to extract 'FOO'.
+  if (ref.startsWith("Page_")) {
+    const pageName = ref.split("_")[1];
+    const pageRef = OpenAPIFixtures[pageName];
+    return {
+      results: [pageRef],
+      count: 1,
+    };
+  }
+  return OpenAPIFixtures[ref] || ref;
+};
+
 function SampleResponse(text: any) {
-  return (
-    <Code language="json">
-      {JSON.stringify(text["Sample Response"], null, 4)}
-    </Code>
-  );
+  const relevantText = text["Sample Response"]["$ref"]
+    ? fixtureForRef(text["Sample Response"]["$ref"].split("/").pop())
+    : text["Sample Response"];
+  return <Code language="json">{JSON.stringify(relevantText, null, 4)}</Code>;
 }
 
 type Response = {

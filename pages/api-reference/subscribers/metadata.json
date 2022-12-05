@@ -1,22 +1,5 @@
 {
   "title": "Subscriber",
   "noun": "subscriber",
-  "endpoint": "/v1/subscribers",
-  "object": {
-    "creation_date": "2019-08-24T14:15:22Z",
-    "email": "user@example.com",
-    "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-    "metadata": {
-      "foo": "bar"
-    },
-    "notes": "",
-    "referrer_url": "http://jmduke.com",
-    "secondary_id": 3,
-    "source": "api",
-    "subscriber_type": "regular",
-    "tags": [],
-    "utm_campaign": "",
-    "utm_medium": "",
-    "utm_source": ""
-  }
+  "endpoint": "/v1/subscribers"
 }
