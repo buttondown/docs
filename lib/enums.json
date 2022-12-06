@@ -1,4 +1,116 @@
 {
+  "EventType": {
+    "subscriber.created": {
+      "name": "subscriber.created",
+      "description": "Whenever a new subscriber is created"
+    },
+    "subscriber.unsubscribed": {
+      "name": "subscriber.unsubscribed",
+      "description": "When a subscriber has manually unsubscribed from your newsletter"
+    },
+    "subscriber.confirmed": {
+      "name": "subscriber.confirmed",
+      "description": "When a subscriber has confirmed that they are enrolled in your newsletter. (For newsletters without double opt-in, this event is created immediately after `subscriber.created`.)"
+    },
+    "subscriber.trial_started": {
+      "name": "subscriber.trial_started",
+      "description": "When the trial has started for a subscriber. (For newsletters with automatic free trials, this will be created immediately after `subscriber.confirmed`.)"
+    },
+    "subscriber.trial_ended": {
+      "name": "subscriber.trial_ended",
+      "description": "When the trial has ended for a subscriber."
+    },
+    "subscriber.paid": {
+      "name": "subscriber.paid",
+      "description": "When a subscriber has enrolled in your newsletter's paid offering"
+    },
+    "subscriber.churned": {
+      "name": "subscriber.churned",
+      "description": "When a subscriber has unenrolled from your newsletter's paid offering"
+    },
+    "subscriber.updated": {
+      "name": "subscriber.updated",
+      "description": "When a subscriber's notes or metadata has changed"
+    },
+    "email.created": {
+      "name": "email.created",
+      "description": "Whenever a new email is created and begins delivery. Note that event happens immediately before the emails themselves are sent."
+    },
+    "email.sent": {
+      "name": "email.sent",
+      "description": "Whenever an email has finished its delivery. Note that event happens immediately after all emails have been sent, but some email events may not have finished processing."
+    }
+  },
+  "BulkActionStatus": {
+    "not_started": {
+      "variant": "info",
+      "name": "Not started",
+      "description": "The bulk action has not yet started"
+    },
+    "in_progress": {
+      "variant": "info",
+      "name": "In progress",
+      "description": "The bulk action is currently being processed"
+    },
+    "processed": {
+      "variant": "success",
+      "description": "The bulk action has completed"
+    },
+    "failed": {
+      "variant": "error",
+      "description": "The bulk action was unable to be completed. Buttondown is looking into it."
+    }
+  },
+  "BulkActionType": {
+    "apply_tags": {
+      "variant": "info",
+      "name": "Apply tags"
+    },
+    "ban_subscribers": {
+      "variant": "info",
+      "name": "Ban subscribers"
+    },
+    "delete_emails": {
+      "variant": "info",
+      "name": "Delete emails"
+    },
+    "delete_subscribers": {
+      "variant": "info",
+      "name": "Delete subscribers"
+    },
+    "delete_tags": {
+      "variant": "info",
+      "name": "Delete tags"
+    },
+    "reactivate_subscribers": {
+      "variant": "info",
+      "name": "Reactivate subscribers"
+    },
+    "replay_events": {
+      "variant": "info",
+      "name": "Replay events"
+    },
+    "resubscribe_subscribers": {
+      "variant": "info",
+      "name": "Resubscribe subscribers"
+    },
+    "send_emails": {
+      "variant": "info",
+      "name": "Send emails"
+    },
+    "send_reminders": {
+      "variant": "info",
+      "name": "Send reminders"
+    },
+    "update_email_types": {
+      "variant": "info",
+      "name": "Update email types"
+    },
+    "unsubscribe_subscribers": {
+      "variant": "info",
+      "name": "Unsubscribe subscribers"
+    }
+  },
   "SubscriberType": {
     "regular": {
       "variant": "success",

@@ -133,6 +133,16 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -443,6 +453,16 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
           }
         },
         "requestBody": {
@@ -528,6 +548,16 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -559,6 +589,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EmailOutput"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
                 }
               }
             }
@@ -596,6 +636,16 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -630,6 +680,16 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
           }
         },
         "requestBody": {
@@ -656,27 +716,9 @@
             "in": "query",
             "name": "type",
             "schema": {
-              "title": "Type",
-              "description": "An enumeration.",
-              "enum": [
-                "regular",
-                "premium",
-                "churning",
-                "past_due",
-                "gifted",
-                "unpaid",
-                "unactivated",
-                "unsubscribed",
-                "spammy",
-                "removed",
-                "trialed",
-                "disabled",
-                "paused"
-              ],
-              "type": "string"
+              "$ref": "#/components/schemas/SubscriberType"
             },
-            "required": false,
-            "description": "An enumeration."
+            "required": false
           },
           {
             "in": "query",
@@ -725,6 +767,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorMessage_ListSubscribersErrorCode_"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
                 }
               }
             }
@@ -787,6 +839,16 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -829,6 +891,16 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
           }
         },
         "requestBody": {
@@ -866,6 +938,16 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -912,6 +994,16 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -939,6 +1031,16 @@
           },
           "400": {
             "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
             "content": {
               "application/json": {
                 "schema": {
@@ -975,6 +1077,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorMessage_CreateNewsletterErrorCode_"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
                 }
               }
             }
@@ -1032,6 +1144,16 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
           }
         },
         "requestBody": {
@@ -1067,6 +1189,104 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/bulk_actions": {
+      "post": {
+        "operationId": "api_views_bulk_actions_create_bulk_action",
+        "summary": "Create Bulk Action",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkActionOutput"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BulkActionInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
+    "/bulk_actions/{pk}": {
+      "get": {
+        "operationId": "api_views_bulk_actions_retrieve_bulk_action",
+        "summary": "Retrieve Bulk Action",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "schema": {
+              "title": "Pk",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkActionOutput"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1137,6 +1357,7 @@
           },
           "metadata": {
             "title": "Metadata",
+            "default": {},
             "type": "object",
             "additionalProperties": {
               "type": "string"
@@ -1300,6 +1521,7 @@
           },
           "metadata": {
             "title": "Metadata",
+            "default": {},
             "type": "object",
             "additionalProperties": {
               "type": "string"
@@ -1480,6 +1702,7 @@
           },
           "metadata": {
             "title": "Metadata",
+            "default": {},
             "type": "object",
             "additionalProperties": {
               "type": "string"
@@ -1832,6 +2055,7 @@
           },
           "metadata": {
             "title": "Metadata",
+            "default": {},
             "type": "object",
             "additionalProperties": {
               "type": "string"
@@ -1866,6 +2090,7 @@
           },
           "metadata": {
             "title": "Metadata",
+            "default": {},
             "type": "object",
             "additionalProperties": {
               "type": "string"
@@ -1993,6 +2218,7 @@
           },
           "metadata": {
             "title": "Metadata",
+            "default": {},
             "type": "object",
             "additionalProperties": {
               "type": "string"
@@ -2044,6 +2270,97 @@
             "type": "string"
           }
         }
+      },
+      "BulkActionStatus": {
+        "title": "Status",
+        "description": "An enumeration.",
+        "enum": [
+          "not_started",
+          "in_progress",
+          "processed",
+          "failed"
+        ],
+        "type": "string"
+      },
+      "BulkActionType": {
+        "title": "Type",
+        "description": "An enumeration.",
+        "enum": [
+          "apply_tags",
+          "ban_subscribers",
+          "delete_emails",
+          "delete_subscribers",
+          "delete_tags",
+          "reactivate_subscribers",
+          "replay_events",
+          "resubscribe_subscribers",
+          "send_emails",
+          "send_reminders",
+          "update_email_types",
+          "unsubscribe_subscribers"
+        ],
+        "type": "string"
+      },
+      "BulkActionOutput": {
+        "title": "BulkActionOutput",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/BulkActionStatus"
+          },
+          "type": {
+            "$ref": "#/components/schemas/BulkActionType"
+          },
+          "completion_date": {
+            "title": "Completion Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "creation_date",
+          "status",
+          "type",
+          "metadata"
+        ]
+      },
+      "BulkActionInput": {
+        "title": "BulkActionInput",
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/BulkActionType"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ]
       }
     },
     "securitySchemes": {

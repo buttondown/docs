@@ -1,6 +1,10 @@
-import { Code } from "../Markdown";
-import Table, { Row } from "../Table";
-import OpenAPIEnum from "../../lib/enums.json";
+import { Code, H4 } from "../Markdown";
+import Table from "../Table";
+import { extractRefFromType } from "../../lib/openapi-utils";
+import EnumTable from "./EnumTable";
+import OpenAPI from "../../lib/openapi.json";
+import OpenAPIEnums from "../../lib/enums";
+import EndpointDescription from "./EndpointDescription";
 
 function MonospacedSpan(s: string) {
   return <span className="font-mono">{s}</span>;
@@ -15,21 +19,16 @@ type Field = {
 type Props = {
   example: string;
   fields: Array<Field>;
+  enums: Array<string>;
+  endpoints: Array<string>;
 };
 
-const extractRefFromType = (type: string) => {
-  // If #/components/schemas/ is present, extract the name of the schema
-  const match = type.match(/#\/components\/schemas\/(.*)/);
-  if (match) {
-    const ref = match[1];
-    if (OpenAPIEnum[ref] !== undefined) {
-      return ref;
-    }
-  }
-  return null;
-};
-
-export default function ObjectDescription({ example, fields }: Props) {
+export default function ObjectDescription({
+  example,
+  fields,
+  enums,
+  endpoints,
+}: Props) {
   return (
     <div>
       <Code language="json">{example}</Code>
@@ -59,6 +58,30 @@ export default function ObjectDescription({ example, fields }: Props) {
         ]}
         content={fields}
       />
+
+      {enums !== undefined &&
+        enums.map((e) => {
+          return (
+            <div key={e}>
+              <a name={e} />
+              <H4>
+                {OpenAPI.components.schemas[e].title} ({MonospacedSpan(e)})
+              </H4>
+              <p>{OpenAPI.components.schemas[e].description}</p>
+              <br />
+              <EnumTable e={OpenAPIEnums[e]} />
+            </div>
+          );
+        })}
+
+      {endpoints !== undefined &&
+        endpoints.map((e) => {
+          return (
+            <div key={e}>
+              <EndpointDescription path={e} />
+            </div>
+          );
+        })}
     </div>
   );
 }

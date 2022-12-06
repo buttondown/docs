@@ -1,0 +1,49 @@
+---
+title: Bulk actions
+description: An API reference for the 'bulk action' object in Buttondown
+---
+
+import Layout from "../../components/Layout";
+import ResponsesTable from "../../components/api/ResponsesTable";
+import PathTable from "../../components/api/PathTable";
+import ObjectDescription from "../../components/api/ObjectDescription";
+import ParametersTable from "../../components/api/ParametersTable";
+import Endpoint from "../../components/api/Endpoint";
+import EndpointDescription from "../../components/api/EndpointDescription";
+import EnumTable from "../../components/api/EnumTable";
+import OpenAPIEnums from "../../lib/enums.json";
+
+import { PAGE_PARAMETER } from "../../lib/parameters";
+import OpenAPI from "../../lib/openapi.json";
+import OpenAPIFixtures from "../../lib/fixtures.json";
+
+export const meta = {
+  title: "Bulk actions",
+};
+
+export const key = "BulkActionOutput";
+export const schema = OpenAPI.components.schemas[key];
+export const fixture = JSON.stringify(OpenAPIFixtures[key], null, 4);
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Bulk actions
+
+Some software applications may want programmatic access to their newsletter exports. This assists with a few niche
+use cases, such as regular backups or data ingestion (into a data warehouse), or post-publishing processes that hinge
+on email events. In general, you probably won't _need_ to use this endpoint unless you _absolutely_ need to use this endpoint.
+
+## The bulk action object
+
+A bulk action looks like this:
+
+<ObjectDescription
+  example={fixture}
+  fields={Object.keys(schema.properties).map((key) => ({
+    field: key,
+    type: schema.properties[key].type || schema.properties[key]["$ref"],
+    description: schema.properties[key].description,
+  }))}
+  enums={["BulkActionType", "BulkActionStatus"]}
+  endpoints={["/bulk_actions", "/bulk_actions/{pk}"]}
+/>
