@@ -1,5 +1,11 @@
 import Table from "../Table";
-import Pill from "../Pill";
+import Pill, { Variant } from "../Pill";
+
+type Row = {
+  type: string;
+  name?: string;
+  variant: Variant;
+};
 
 export default function EnumTable({ e }: any) {
   return (
@@ -7,13 +13,15 @@ export default function EnumTable({ e }: any) {
       columns={[
         {
           title: "type",
-          component: (row) => (
+          component: (row: Row) => (
             <Pill variant={row.variant}>{row.name || row.type}</Pill>
           ),
         },
         {
           title: "identifier",
-          component: (s) => <span className="font-mono">{s.type}</span>,
+          component: (row: Row) => (
+            <span className="font-mono">{row.type}</span>
+          ),
         },
         { title: "description" },
       ]}

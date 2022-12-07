@@ -66,6 +66,12 @@
     "description": "How to authenticate API requests to Buttondown's servers"
   },
   {
+    "path": "/api-reference/bulk-actions",
+    "text": "Bulk actions ",
+    "title": "Bulk actions",
+    "description": "An API reference for the 'bulk action' object in Buttondown"
+  },
+  {
     "path": "/api-reference/changelog",
     "text": "Changelog The changelog provides a list of dated updates, each of which contains a number of potentially backwards-incompatible changes. There is no explicit versioning in the API at this time; all changes will be either compatible or breaking. (If I attempt any brittle changes to the API that may break current implementations, I'll be sure to add version gates.) 2022-11-24 Added  , which returns aggregated information about opens, clicks, and other events for a given email that you've sent. 2022-11-19 Removed the  ,  , and   endpoints. The behavior of all three endpoints have been subsumed into   and  : you can create (or list) drafts by specifying  you can create (or list) scheduled emails by specifying  you can list unsubscribers by specifying  2022-03-08 Added support for filtering emails in   on   and  . 2021-11-26 Took the ability to send specific emails to subscribers out of beta; added  , which allows you to send\nreminders to your subscribers to confirm their email address. 2021-08-27 Added support for Exports via the   endpoint. 2021-01-02 Added support to set and retrieve metadata on Emails. 2020-12-23 Added deletion and update abilities to the Scheduled emails endpoint, giving you much more programmability than the hitherto append-only state of the world. 2020-12-09 Added a deletion endpoint to the Images endpoint, allowing you to delete unused images. ",
     "title": "Changelog",

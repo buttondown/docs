@@ -3,11 +3,11 @@ import Table from "../Table";
 import { extractRefFromType } from "../../lib/openapi-utils";
 import EnumTable from "./EnumTable";
 import OpenAPI from "../../lib/openapi.json";
-import OpenAPIEnums from "../../lib/enums";
+import OpenAPIEnums from "../../lib/enums.json";
 import OpenAPIFixtures from "../../lib/fixtures.json";
 import EndpointDescription from "./EndpointDescription";
 
-function MonospacedSpan(s: string) {
+function MonospacedSpan(s: string | JSX.Element) {
   return <span className="font-mono">{s}</span>;
 }
 
@@ -17,20 +17,36 @@ type Field = {
   description: string;
 };
 
+type KeysOfType<T, V> = keyof {
+  [P in keyof T as V extends keyof T[P] ? P : never]: any;
+};
+
+type SchemaElementWithProperties = KeysOfType<
+  typeof OpenAPI.components.schemas,
+  "properties"
+> &
+  KeysOfType<typeof OpenAPI.components.schemas, "description">;
+
 type Props = {
-  name: string;
+  name: SchemaElementWithProperties & keyof typeof OpenAPIFixtures;
   fields: Array<Field>;
-  enums: Array<string>;
-  endpoints: Array<string>;
+  enums: Array<
+    keyof typeof OpenAPIEnums & keyof typeof OpenAPI.components.schemas
+  >;
+  endpoints: Array<keyof typeof OpenAPI.paths>;
 };
 
 export default function ObjectDescription({ name, enums, endpoints }: Props) {
   const schema = OpenAPI.components.schemas[name];
-  const fields = Object.keys(schema.properties).map((key) => ({
-    field: key,
-    type: schema.properties[key].type || schema.properties[key]["$ref"],
-    description: schema.properties[key].description,
-  }));
+  const fields = Object.entries(schema.properties).map(([key, property]) => {
+    return {
+      field: key,
+      // @ts-ignore
+      type: property.type || property["$ref"],
+      // @ts-ignore
+      description: property.description,
+    };
+  });
   const fixtures = OpenAPIFixtures[name];
 
   return (
@@ -78,7 +94,7 @@ export default function ObjectDescription({ name, enums, endpoints }: Props) {
         enums.map((e) => {
           return (
             <div key={e}>
-              <a name={e} />
+              <a id={e} />
               <H4>
                 {OpenAPI.components.schemas[e].title} ({MonospacedSpan(e)})
               </H4>
