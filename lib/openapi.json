@@ -1219,7 +1219,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BulkActionOutput"
+                  "$ref": "#/components/schemas/BulkAction"
                 }
               }
             }
@@ -1273,7 +1273,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BulkActionOutput"
+                  "$ref": "#/components/schemas/BulkAction"
                 }
               }
             }
@@ -1408,6 +1408,14 @@
               "$ref": "#/components/schemas/ExportOutput"
             }
           },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
+          },
           "count": {
             "title": "Count",
             "type": "integer"
@@ -1489,6 +1497,14 @@
             "items": {
               "$ref": "#/components/schemas/TagOutput"
             }
+          },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
           },
           "count": {
             "title": "Count",
@@ -1804,6 +1820,14 @@
               "$ref": "#/components/schemas/EmailOutput"
             }
           },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
+          },
           "count": {
             "title": "Count",
             "type": "integer"
@@ -2024,6 +2048,14 @@
               "$ref": "#/components/schemas/SubscriberOutput"
             }
           },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
+          },
           "count": {
             "title": "Count",
             "type": "integer"
@@ -2187,6 +2219,14 @@
               "$ref": "#/components/schemas/NewsletterOutput"
             }
           },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
+          },
           "count": {
             "title": "Count",
             "type": "integer"
@@ -2273,7 +2313,7 @@
       },
       "BulkActionStatus": {
         "title": "Status",
-        "description": "An enumeration.",
+        "description": "\n        Represents the status of a bulk action.\n\n        No action is required to move from one state or another; Buttondown\n        internally handles the transitions, and exposing the status is for\n        observability purposes only.\n        ",
         "enum": [
           "not_started",
           "in_progress",
@@ -2284,7 +2324,7 @@
       },
       "BulkActionType": {
         "title": "Type",
-        "description": "An enumeration.",
+        "description": "\n        Represents the action being performed on a bulk of objects.\n\n        (Not to be coy, but these names should be self-explanatory.)\n        ",
         "enum": [
           "apply_tags",
           "ban_subscribers",
@@ -2301,8 +2341,9 @@
         ],
         "type": "string"
       },
-      "BulkActionOutput": {
-        "title": "BulkActionOutput",
+      "BulkAction": {
+        "title": "BulkAction",
+        "description": "A bulk action represents, well, a bulk action. It is used to perform\nactions on a large number of objects at once. For example, you can\nuse it to delete a large number of emails, or to unsubscribe a large\nnumber of subscribers. The actions within a bulk action are processed\nserially by Buttondown; this should be considered an ergonomic way to\nbatch API calls across the network rather than a net-new piece of functionality\nin of itself.",
         "type": "object",
         "properties": {
           "id": {
@@ -2330,7 +2371,20 @@
             "title": "Metadata",
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "object"
+                }
+              ]
             }
           }
         },
@@ -2353,7 +2407,20 @@
             "title": "Metadata",
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "object"
+                }
+              ]
             }
           }
         },

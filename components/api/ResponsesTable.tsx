@@ -25,13 +25,13 @@ const fixtureForRef = (ref: string) => {
   // We want to extract 'FOO'.
   if (ref.startsWith("Page_")) {
     const pageName = ref.split("_")[1];
-    const pageRef = OpenAPIFixtures[pageName];
+    const pageRef = OpenAPIFixtures[pageName][0].object;
     return {
       results: [pageRef],
       count: 1,
     };
   }
-  return OpenAPIFixtures[ref] || ref;
+  return OpenAPIFixtures[ref][0].object || ref;
 };
 
 function SampleResponse(text: any) {

@@ -21,29 +21,12 @@ export const meta = {
   title: "Bulk actions",
 };
 
-export const key = "BulkActionOutput";
-export const schema = OpenAPI.components.schemas[key];
-export const fixture = JSON.stringify(OpenAPIFixtures[key], null, 4);
-
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 # Bulk actions
 
-Some software applications may want programmatic access to their newsletter exports. This assists with a few niche
-use cases, such as regular backups or data ingestion (into a data warehouse), or post-publishing processes that hinge
-on email events. In general, you probably won't _need_ to use this endpoint unless you _absolutely_ need to use this endpoint.
-
-## The bulk action object
-
-A bulk action looks like this:
-
 <ObjectDescription
-  example={fixture}
-  fields={Object.keys(schema.properties).map((key) => ({
-    field: key,
-    type: schema.properties[key].type || schema.properties[key]["$ref"],
-    description: schema.properties[key].description,
-  }))}
+  name={"BulkAction"}
   enums={["BulkActionType", "BulkActionStatus"]}
   endpoints={["/bulk_actions", "/bulk_actions/{pk}"]}
 />

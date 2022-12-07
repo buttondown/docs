@@ -64,7 +64,8 @@
   "BulkActionType": {
     "apply_tags": {
       "variant": "info",
-      "name": "Apply tags"
+      "name": "Apply tags",
+      "description": "This action requires two additional parameters within `metadata`: `tag_id` (the ID of the tag which you'd like to either add or remove to the list of subscribers) and `action` (which can be either `add` or `remove`)."
     },
     "ban_subscribers": {
       "variant": "info",
@@ -96,7 +97,8 @@
     },
     "send_emails": {
       "variant": "info",
-      "name": "Send emails"
+      "name": "Send emails",
+      "description": "This action requires one additional parameter within `metadata`: `email_id` (the ID of the email which you'd like to send)."
     },
     "send_reminders": {
       "variant": "info",

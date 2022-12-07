@@ -1,9 +1,10 @@
-import { Code, H4 } from "../Markdown";
+import { Code, H4, P } from "../Markdown";
 import Table from "../Table";
 import { extractRefFromType } from "../../lib/openapi-utils";
 import EnumTable from "./EnumTable";
 import OpenAPI from "../../lib/openapi.json";
 import OpenAPIEnums from "../../lib/enums";
+import OpenAPIFixtures from "../../lib/fixtures.json";
 import EndpointDescription from "./EndpointDescription";
 
 function MonospacedSpan(s: string) {
@@ -17,21 +18,35 @@ type Field = {
 };
 
 type Props = {
-  example: string;
+  name: string;
   fields: Array<Field>;
   enums: Array<string>;
   endpoints: Array<string>;
 };
 
-export default function ObjectDescription({
-  example,
-  fields,
-  enums,
-  endpoints,
-}: Props) {
+export default function ObjectDescription({ name, enums, endpoints }: Props) {
+  const schema = OpenAPI.components.schemas[name];
+  const fields = Object.keys(schema.properties).map((key) => ({
+    field: key,
+    type: schema.properties[key].type || schema.properties[key]["$ref"],
+    description: schema.properties[key].description,
+  }));
+  const fixtures = OpenAPIFixtures[name];
+
   return (
     <div>
-      <Code language="json">{example}</Code>
+      <P>{schema.description}</P>
+      {fixtures.length > 0 &&
+        fixtures.map((fixture) => {
+          return (
+            <>
+              <H4>{fixture.description}</H4>
+              <Code language="json">
+                {JSON.stringify(fixture.object, null, 4)}
+              </Code>
+            </>
+          );
+        })}
 
       <br />
 
