@@ -1,6 +1,7 @@
 import OpenAPI from "./openapi.json";
 import OpenAPIEnums from "./enums.json";
 import OpenAPIFixtures from "./fixtures.json";
+import { Variant } from "../../components/Pill";
 
 type KeysOfType<T, V> = keyof {
   [P in keyof T as V extends keyof T[P] ? P : never]: any;
@@ -65,7 +66,11 @@ export type Operation<
 };
 export type Enum = keyof typeof OpenAPI.components.schemas &
   keyof typeof OpenAPIEnums;
-
+export type EnumDescription = {
+  description: string;
+  name: string;
+  variant: Variant;
+};
 export type Object = KeysOfType<
   typeof OpenAPI.components.schemas,
   "properties"

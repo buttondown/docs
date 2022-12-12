@@ -4,10 +4,7 @@ import { H3 } from "../Markdown";
 import Table, { Row } from "../Table";
 import remark from "remark";
 import remarkHtml from "remark-html";
-
-function MonospacedSpan(s: string) {
-  return <span className="font-mono">{s}</span>;
-}
+import MonospacedSpan from "../MonospacedSpan";
 
 function RawHTML(s: string) {
   return <div dangerouslySetInnerHTML={{ __html: s }} />;

@@ -1,7 +1,7 @@
 import { Code, H4, P } from "../Markdown";
 import Table from "../Table";
 import { extractRefFromType } from "../../lib/openapi/utils";
-import EnumTable from "./EnumTable";
+import EnumTable from "./openapi/EnumTable";
 import OpenAPI from "../../lib/openapi/openapi.json";
 import OpenAPIEnums from "../../lib/openapi/enums.json";
 import OpenAPIFixtures from "../../lib/openapi/fixtures.json";
@@ -97,7 +97,7 @@ export default function ObjectDescription({ name, enums, endpoints }: Props) {
             </H4>
             <p>{OpenAPI.components.schemas[e].description}</p>
             <br />
-            <EnumTable e={OpenAPIEnums[e]} />
+            <EnumTable enum={e} />
           </div>
         );
       })}
