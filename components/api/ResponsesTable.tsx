@@ -1,7 +1,8 @@
 import classNames from "../../lib/classNames";
 import { Code, H3 } from "../Markdown";
-import Table, { Row } from "../Table";
-import OpenAPIFixtures from "../../lib/fixtures.json";
+import Table from "../Table";
+import OpenAPIFixtures from "../../lib/openapi/fixtures.json";
+import { extractBackingFixtureFromRef } from "../../lib/openapi/utils";
 
 function ResponseCodeBadge(text: string) {
   return (
@@ -21,30 +22,29 @@ function ResponseCodeBadge(text: string) {
 }
 
 const fixtureForRef = (ref: string) => {
-  // Pages are wrapped like so: "Page_FOO_".
-  // We want to extract 'FOO'.
-  if (ref.startsWith("Page_")) {
-    const pageName = ref.split("_")[1];
-    const pageRef = OpenAPIFixtures[pageName][0].object;
+  const fixtureInformation = extractBackingFixtureFromRef(ref);
+  if (fixtureInformation.type === "Page") {
+    const pageRef = OpenAPIFixtures[fixtureInformation.value][0].object;
     return {
       results: [pageRef],
       count: 1,
     };
+  } else if (fixtureInformation.type === "ErrorMessage") {
+    return OpenAPIFixtures["ErrorMessage"][0].object;
+  } else {
+    return OpenAPIFixtures[fixtureInformation.value][0].object;
   }
-  return OpenAPIFixtures[ref][0].object || ref;
 };
 
-function SampleResponse(text: any) {
-  const relevantText = text["Sample Response"]["$ref"]
-    ? fixtureForRef(text["Sample Response"]["$ref"].split("/").pop())
-    : text["Sample Response"];
+function SampleResponse(fixtureName: string) {
+  const relevantText = fixtureForRef(fixtureName);
   return <Code language="json">{JSON.stringify(relevantText, null, 4)}</Code>;
 }
 
 type Response = {
   Status: string;
   description: string;
-  "Sample Response": string;
+  fixture: string | undefined;
 };
 
 type Props = {
@@ -62,7 +62,15 @@ export default function ResponsesTable({ content }: Props) {
             component: (c: Response) => ResponseCodeBadge(c.Status),
           },
           { title: "Description", key: "description" },
-          { title: "Sample Response", component: SampleResponse },
+          {
+            title: "Sample Response",
+            component: (c: Response) =>
+              c.fixture ? (
+                SampleResponse(c.fixture)
+              ) : (
+                <Code language="json">{"{}"}</Code>
+              ),
+          },
         ]}
         content={content}
       />

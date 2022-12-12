@@ -1,37 +1,45 @@
 import Endpoint from "./Endpoint";
 import ParametersTable from "./ParametersTable";
 import PathTable from "./PathTable";
-import OpenAPI from "../../lib/openapi.json";
-import { extractRefFromType } from "../../lib/openapi-utils";
+import OpenAPI from "../../lib/openapi/openapi.json";
+import { Method, Route, Operation } from "../../lib/openapi/types";
+import { extractRefFromType, extractOperation } from "../../lib/openapi/utils";
 
-type Path = keyof typeof OpenAPI.paths;
-type Operation = {
-  summary: string;
-  parameters: any[];
-  responses: any;
-  requestBody?: {
-    content: {
-      "application/json": {
-        schema: {
-          $ref: string;
-        };
-      };
-    };
-  };
-};
+// type Path = keyof typeof OpenAPI.paths;
+// type Operation = {
+//   summary: string;
+//   parameters: any[];
+//   responses: any;
+//   requestBody?: {
+//     content: {
+//       "application/json": {
+//         schema: {
+//           $ref: string;
+//         };
+//       };
+//     };
+//   };
+// };
 
-export default function EndpointDescription({ path }: { path: Path }) {
+export default function EndpointDescription<R extends Route>({
+  path,
+}: {
+  path: R;
+}) {
   const informationForPath = OpenAPI.paths[path];
-  const methods = Object.keys(
-    informationForPath
-  ) as (keyof typeof informationForPath)[];
+  const methods = Object.keys(informationForPath) as Method<R>[];
 
   return (
     <>
       {methods.map((method) => {
-        const operation = informationForPath[method] as Operation;
-        const parameters =
-          operation.requestBody?.content["application/json"].schema.$ref;
+        const operation = extractOperation(path, method) as any;
+        const body = operation.requestBody;
+        const parameters = body
+          ? (
+              body.content["application/json"] ||
+              body.content["multipart/form-data"]
+            ).schema.$ref
+          : undefined;
 
         const ref =
           parameters !== undefined ? extractRefFromType(parameters) : null;

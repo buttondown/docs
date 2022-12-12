@@ -1,39 +1,24 @@
 import { Code, H4, P } from "../Markdown";
 import Table from "../Table";
-import { extractRefFromType } from "../../lib/openapi-utils";
+import { extractRefFromType } from "../../lib/openapi/utils";
 import EnumTable from "./EnumTable";
-import OpenAPI from "../../lib/openapi.json";
-import OpenAPIEnums from "../../lib/enums.json";
-import OpenAPIFixtures from "../../lib/fixtures.json";
+import OpenAPI from "../../lib/openapi/openapi.json";
+import OpenAPIEnums from "../../lib/openapi/enums.json";
+import OpenAPIFixtures from "../../lib/openapi/fixtures.json";
 import EndpointDescription from "./EndpointDescription";
+import { Enum, Object as OpenAPIObject, Route } from "../../lib/openapi/types";
+import MonospacedSpan from "../MonospacedSpan";
 
-function MonospacedSpan(s: string | JSX.Element) {
-  return <span className="font-mono">{s}</span>;
-}
+type Props = {
+  name: OpenAPIObject;
+  enums: Array<Enum>;
+  endpoints: Array<Route>;
+};
 
 type Field = {
   field: string;
   type: string;
   description: string;
-};
-
-type KeysOfType<T, V> = keyof {
-  [P in keyof T as V extends keyof T[P] ? P : never]: any;
-};
-
-type SchemaElementWithProperties = KeysOfType<
-  typeof OpenAPI.components.schemas,
-  "properties"
-> &
-  KeysOfType<typeof OpenAPI.components.schemas, "description">;
-
-type Props = {
-  name: SchemaElementWithProperties & keyof typeof OpenAPIFixtures;
-  fields: Array<Field>;
-  enums: Array<
-    keyof typeof OpenAPIEnums & keyof typeof OpenAPI.components.schemas
-  >;
-  endpoints: Array<keyof typeof OpenAPI.paths>;
 };
 
 export default function ObjectDescription({ name, enums, endpoints }: Props) {
@@ -50,21 +35,21 @@ export default function ObjectDescription({ name, enums, endpoints }: Props) {
   const fixtures = OpenAPIFixtures[name];
 
   return (
-    <div>
-      <P>{schema.description}</P>
-      {fixtures.length > 0 &&
-        fixtures.map((fixture) => {
-          return (
-            <>
-              <H4>{fixture.description}</H4>
-              <Code language="json">
-                {JSON.stringify(fixture.object, null, 4)}
-              </Code>
-            </>
-          );
-        })}
-
-      <br />
+    <div className="space-y-32">
+      <div>
+        <P>{schema.description}</P>
+        {fixtures.length > 0 &&
+          fixtures.map((fixture) => {
+            return (
+              <>
+                <H4>{fixture.description}</H4>
+                <Code language="json">
+                  {JSON.stringify(fixture.object, null, 4)}
+                </Code>
+              </>
+            );
+          })}
+      </div>
 
       <Table
         columns={[
@@ -90,29 +75,27 @@ export default function ObjectDescription({ name, enums, endpoints }: Props) {
         content={fields}
       />
 
-      {enums !== undefined &&
-        enums.map((e) => {
-          return (
-            <div key={e}>
-              <a id={e} />
-              <H4>
-                {OpenAPI.components.schemas[e].title} ({MonospacedSpan(e)})
-              </H4>
-              <p>{OpenAPI.components.schemas[e].description}</p>
-              <br />
-              <EnumTable e={OpenAPIEnums[e]} />
-            </div>
-          );
-        })}
+      {enums.map((e) => {
+        return (
+          <div key={e}>
+            <a id={e} />
+            <H4>
+              {OpenAPI.components.schemas[e].title} ({MonospacedSpan(e)})
+            </H4>
+            <p>{OpenAPI.components.schemas[e].description}</p>
+            <br />
+            <EnumTable e={OpenAPIEnums[e]} />
+          </div>
+        );
+      })}
 
-      {endpoints !== undefined &&
-        endpoints.map((e) => {
-          return (
-            <div key={e}>
-              <EndpointDescription path={e} />
-            </div>
-          );
-        })}
+      {endpoints.map((e) => {
+        return (
+          <div key={e} className="space-y-32">
+            <EndpointDescription path={e} />
+          </div>
+        );
+      })}
     </div>
   );
 }

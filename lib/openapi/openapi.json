@@ -386,7 +386,9 @@
                     "format": "binary"
                   }
                 },
-                "required": ["image"]
+                "required": [
+                  "image"
+                ]
               }
             }
           },
@@ -487,7 +489,11 @@
             "in": "query",
             "name": "status",
             "schema": {
-              "default": ["about_to_send", "in_flight", "sent"],
+              "default": [
+                "about_to_send",
+                "in_flight",
+                "sent"
+              ],
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/EmailStatus"
@@ -1295,8 +1301,13 @@
     "schemas": {
       "ExportStatus": {
         "title": "Status",
-        "description": "An enumeration.",
-        "enum": ["error", "in_progress", "not_started", "ready"],
+        "description": "\n        Represents the status of an export.\n\n        No action is required to move from one state or another; Buttondown\n        internally handles the transitions, and exposing the status is for\n        observability purposes only.\n        ",
+        "enum": [
+          "error",
+          "in_progress",
+          "not_started",
+          "ready"
+        ],
         "type": "string"
       },
       "Export": {
@@ -1327,7 +1338,11 @@
             "format": "date-time"
           }
         },
-        "required": ["id", "creation_date", "status", "url"]
+        "required": [
+          "id",
+          "creation_date",
+          "status"
+        ]
       },
       "ErrorMessage": {
         "title": "ErrorMessage",
@@ -1349,11 +1364,13 @@
             }
           }
         },
-        "required": ["detail"]
+        "required": [
+          "detail"
+        ]
       },
       "ExportCollection": {
         "title": "Collection",
-        "description": "An enumeration.",
+        "description": "\n        A group of data that can be exported in an export.\n        ",
         "enum": [
           "subscribers",
           "emails",
@@ -1376,7 +1393,9 @@
             }
           }
         },
-        "required": ["collections"]
+        "required": [
+          "collections"
+        ]
       },
       "Page_Export_": {
         "title": "Page[Export]",
@@ -1402,10 +1421,14 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "Tag": {
         "title": "Tag",
+        "description": "Tags are a way to organize your subscribers. You can create, update, and\ndelete tags via the API. You can also list all tags for a given newsletter.\n\nTags don't have any strict functionality on their own, but you can send emails\nto subscribers with a given tag (or to all subscribers _without_ a given tag.)",
         "type": "object",
         "properties": {
           "id": {
@@ -1435,7 +1458,13 @@
             "format": "date-time"
           }
         },
-        "required": ["id", "name", "color", "secondary_id", "creation_date"]
+        "required": [
+          "id",
+          "name",
+          "color",
+          "secondary_id",
+          "creation_date"
+        ]
       },
       "TagInput": {
         "title": "TagInput",
@@ -1454,7 +1483,10 @@
             "type": "string"
           }
         },
-        "required": ["name", "color"]
+        "required": [
+          "name",
+          "color"
+        ]
       },
       "Page_Tag_": {
         "title": "Page[Tag]",
@@ -1480,12 +1512,17 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "UpdateTagErrorCode": {
         "title": "UpdateTagErrorCode",
-        "description": "An enumeration.",
-        "enum": ["name_already_exists"],
+        "description": "\n    A potential error code that can be returned when updating a tag.\n    ",
+        "enum": [
+          "name_already_exists"
+        ],
         "type": "string"
       },
       "ErrorMessage_UpdateTagErrorCode_": {
@@ -1508,7 +1545,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "TagUpdateInput": {
         "title": "TagUpdateInput",
@@ -1530,6 +1570,7 @@
       },
       "Image": {
         "title": "Image",
+        "description": "Images are, well, images! Buttondown allows you to upload images to its secure\nS3 bucket and do with them what you will. This is sort of an odd duck of an\nAPI, to be sure, but if you want to be able to do things like draft\nand send emails completely on your iPad you need a surefire way of creating images.",
         "type": "object",
         "properties": {
           "id": {
@@ -1547,17 +1588,28 @@
             "type": "string"
           }
         },
-        "required": ["id", "creation_date", "image"]
+        "required": [
+          "id",
+          "creation_date",
+          "image"
+        ]
       },
       "EmailType": {
         "title": "Type",
-        "description": "An enumeration.",
-        "enum": ["public", "private", "premium", "free", "archival", "hidden"],
+        "description": "\n        Represents the audience of an email, and to whom it is visible both in the initial\n        email and in online archives.\n        ",
+        "enum": [
+          "public",
+          "private",
+          "premium",
+          "free",
+          "archival",
+          "hidden"
+        ],
         "type": "string"
       },
       "EmailStatus": {
         "title": "Status",
-        "description": "An enumeration.",
+        "description": "\n        Represents the state of an email.\n\n        No action is required to move from one state or another; Buttondown\n        internally handles the transitions, and exposing the status is for\n        observability purposes only.\n        ",
         "enum": [
           "draft",
           "about_to_send",
@@ -1572,6 +1624,7 @@
       },
       "Email": {
         "title": "Email",
+        "description": "Emails are what you're for here on Buttondown at the end of the day, right?\nCreating an email via the API is just like creating one in the interface;\nit will instantly trigger sending actual emails,\nbased on the tags and email type you provide.",
         "type": "object",
         "properties": {
           "id": {
@@ -1647,8 +1700,12 @@
       },
       "EmailCreationErrorCode": {
         "title": "EmailCreationErrorCode",
-        "description": "An enumeration.",
-        "enum": ["subject_invalid", "email_duplicate", "email_invalid"],
+        "description": "\n    Represents the type of error that occurred when creating an email.\n\n    Human-readable error messages are provided in the `detail` field of the response;\n    these values are meant to be parseable by code or client logic.\n    ",
+        "enum": [
+          "subject_invalid",
+          "email_duplicate",
+          "email_invalid"
+        ],
         "type": "string"
       },
       "ErrorMessage_EmailCreationErrorCode_": {
@@ -1671,7 +1728,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "EmailInput": {
         "title": "EmailInput",
@@ -1748,7 +1808,9 @@
             }
           }
         },
-        "required": ["subject"]
+        "required": [
+          "subject"
+        ]
       },
       "Page_Email_": {
         "title": "Page[Email]",
@@ -1774,7 +1836,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "Analytics": {
         "title": "Analytics",
@@ -1826,7 +1891,7 @@
       },
       "SubscriberType": {
         "title": "Type",
-        "description": "An enumeration.",
+        "description": "\n        Represents the state of a subscriber and what emails they\n        should or should not be receiving. This type is meant to be fully expressive\n        so as to consolidate the logic of determining what emails a subscriber should\n        receive into a single place.\n        ",
         "enum": [
           "regular",
           "premium",
@@ -1846,25 +1911,19 @@
       },
       "SubscriberSource": {
         "title": "Source",
-        "description": "An enumeration.",
+        "description": "\n        Represents the original provenance of a subscriber. This value is not exposed\n        to subscribers; it's only used for internal tracking purposes and governs some\n        of the behavior of the subscriber (i.e. whether or not to require double\n        opt-in.)\n        ",
         "enum": [
           "api",
-          "buttondown",
-          "csv",
-          "mailchimp",
+          "import",
           "organic",
-          "nouveau",
-          "substack",
-          "tinyletter",
-          "typeform",
           "user",
-          "admin",
-          "drip"
+          "admin"
         ],
         "type": "string"
       },
       "Subscriber": {
         "title": "Subscriber",
+        "description": "Subscribers are the main way you collect email addresses and\nrecipients on Buttondown. They're what you see on your\n[subscribers page](https://buttondown.email/subscribers).",
         "type": "object",
         "properties": {
           "id": {
@@ -1971,7 +2030,9 @@
             "type": "string"
           }
         },
-        "required": ["email"]
+        "required": [
+          "email"
+        ]
       },
       "Page_Subscriber_": {
         "title": "Page[Subscriber]",
@@ -1997,12 +2058,17 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "ListSubscribersErrorCode": {
         "title": "ListSubscribersErrorCode",
-        "description": "An enumeration.",
-        "enum": ["invalid_tag"],
+        "description": "\n    Represents the type of error that occurred when listing subscribers.\n\n    Human-readable error messages are provided in the `detail` field of the response;\n    these values are meant to be parseable by code or client logic.\n    ",
+        "enum": [
+          "invalid_tag"
+        ],
         "type": "string"
       },
       "ErrorMessage_ListSubscribersErrorCode_": {
@@ -2025,11 +2091,14 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "UpdateSubscriberErrorCode": {
         "title": "UpdateSubscriberErrorCode",
-        "description": "An enumeration.",
+        "description": "\n    Represents the type of error that occurred when updating a subscriber.\n\n    Human-readable error messages are provided in the `detail` field of the response;\n    these values are meant to be parseable by code or client logic.\n    ",
         "enum": [
           "email_already_exists",
           "email_invalid",
@@ -2057,7 +2126,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "SubscriberUpdateInput": {
         "title": "SubscriberUpdateInput",
@@ -2094,6 +2166,7 @@
       },
       "Newsletter": {
         "title": "Newsletter",
+        "description": "You will likely not need to interact with your newsletter settings\nprogrammatically, but if you do, this is the endpoint for you. You can\ncreate, update, and list newsletters via the API; this is ideal for\nintegrating with Buttondown as a headless email or newsletter provider\n(e.g. for a SaaS product.)",
         "type": "object",
         "properties": {
           "id": {
@@ -2157,12 +2230,17 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "CreateNewsletterErrorCode": {
         "title": "CreateNewsletterErrorCode",
-        "description": "An enumeration.",
-        "enum": ["username_already_exists"],
+        "description": "\n    Represents the type of error that occurred when creating a newsletter.\n\n    Human-readable error messages are provided in the `detail` field of the response;\n    these values are meant to be parseable by code or client logic.\n    ",
+        "enum": [
+          "username_already_exists"
+        ],
         "type": "string"
       },
       "ErrorMessage_CreateNewsletterErrorCode_": {
@@ -2185,7 +2263,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "NewsletterInput": {
         "title": "NewsletterInput",
@@ -2204,7 +2285,11 @@
             "type": "string"
           }
         },
-        "required": ["username", "name", "description"]
+        "required": [
+          "username",
+          "name",
+          "description"
+        ]
       },
       "NewsletterUpdateInput": {
         "title": "NewsletterUpdateInput",
@@ -2227,7 +2312,12 @@
       "BulkActionStatus": {
         "title": "Status",
         "description": "\n        Represents the status of a bulk action.\n\n        No action is required to move from one state or another; Buttondown\n        internally handles the transitions, and exposing the status is for\n        observability purposes only.\n        ",
-        "enum": ["not_started", "in_progress", "processed", "failed"],
+        "enum": [
+          "not_started",
+          "in_progress",
+          "processed",
+          "failed"
+        ],
         "type": "string"
       },
       "BulkActionType": {
@@ -2297,7 +2387,13 @@
             }
           }
         },
-        "required": ["id", "creation_date", "status", "type", "metadata"]
+        "required": [
+          "id",
+          "creation_date",
+          "status",
+          "type",
+          "metadata"
+        ]
       },
       "BulkActionInput": {
         "title": "BulkActionInput",
@@ -2327,7 +2423,10 @@
             }
           }
         },
-        "required": ["type", "metadata"]
+        "required": [
+          "type",
+          "metadata"
+        ]
       }
     },
     "securitySchemes": {

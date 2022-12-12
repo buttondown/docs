@@ -4,64 +4,18 @@ description: An API reference for the 'export' object in Buttondown
 ---
 
 import Layout from "../../../components/Layout";
-import ResponsesTable from "../../../components/api/ResponsesTable";
-import PathTable from "../../../components/api/PathTable";
 import ObjectDescription from "../../../components/api/ObjectDescription";
-import ParametersTable from "../../../components/api/ParametersTable";
-import Endpoint from "../../../components/api/Endpoint";
-import DATA from "./metadata.json";
-
-import { PAGE_PARAMETER } from "../../../lib/parameters";
-import OpenAPI from "../../../lib/openapi.json";
-import OpenAPIFixtures from "../../../lib/fixtures.json";
 
 export const meta = {
-  title: DATA.title,
+  title: "Exports",
 };
-
-export const key = "ExportOutput";
-export const schema = OpenAPI.components.schemas[key];
-export const fixture = JSON.stringify(OpenAPIFixtures[key], null, 4);
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
-export const foo = console.log(OpenAPIFixtures[key]) && 3;
-
 # Exports
-
-Some software applications may want programmatic access to their newsletter exports. This assists with a few niche
-use cases, such as regular backups or data ingestion (into a data warehouse), or post-publishing processes that hinge
-on email events. In general, you probably won't _need_ to use this endpoint unless you _absolutely_ need to use this endpoint.
-
-## The export object
-
-An export looks like this:
 
 <ObjectDescription
   name={"Export"}
-  example={fixture}
-  fields={Object.keys(schema.properties).map((key) => ({
-    field: key,
-    type: schema.properties[key].type || schema.properties[key]["$ref"],
-    description: schema.properties[key].description,
-  }))}
+  enums={["ExportCollection", "ExportStatus"]}
+  endpoints={["/exports", "/exports/{pk}"]}
 />
-
-<Endpoint title="Listing exports" method="GET" path={DATA.endpoint} />
-<ParametersTable content={[PAGE_PARAMETER]} />
-<PathTable content={OpenAPI.paths["/exports"].get.responses} />
-
----
-
-<Endpoint title="Creating a new export" method="POST" path={DATA.endpoint} />
-<ParametersTable content={[]} />
-<PathTable content={OpenAPI.paths["/exports"].post.responses} />
-
----
-
-<Endpoint
-  title="Retrieving a specific export"
-  method="GET"
-  path={DATA.endpoint + "/<id>"}
-/>
-<PathTable content={OpenAPI.paths["/exports/{export_id}"].get.responses} />
