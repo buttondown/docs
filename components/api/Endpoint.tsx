@@ -17,7 +17,7 @@ export default function Endpoint<R extends Route>({
 }: Props<R>) {
   return (
     <>
-      <H2>{title}</H2>
+      <H2 mdxType={"h2"}>{title}</H2>
       {beta && (
         <>
           <ClosedBetaNotice />

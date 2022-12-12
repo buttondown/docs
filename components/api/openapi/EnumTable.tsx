@@ -1,5 +1,4 @@
 import OpenAPIEnums from "../../../lib/openapi/enums.json";
-import { EnumDescription } from "../../../lib/openapi/types";
 import Table, { Row } from "../../Table";
 import Pill, { Variant } from "../../Pill";
 
