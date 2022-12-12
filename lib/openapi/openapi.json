@@ -17,7 +17,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ExportOutput"
+                  "$ref": "#/components/schemas/Export"
                 }
               }
             }
@@ -75,7 +75,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Page_ExportOutput_"
+                  "$ref": "#/components/schemas/Page_Export_"
                 }
               }
             }
@@ -108,16 +108,16 @@
         ]
       }
     },
-    "/exports/{export_id}": {
+    "/exports/{pk}": {
       "get": {
         "operationId": "api_views_exports_retrieve_export",
         "summary": "Retrieve Export",
         "parameters": [
           {
             "in": "path",
-            "name": "export_id",
+            "name": "pk",
             "schema": {
-              "title": "Export Id",
+              "title": "Pk",
               "type": "string"
             },
             "required": true
@@ -129,7 +129,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ExportOutput"
+                  "$ref": "#/components/schemas/Export"
                 }
               }
             }
@@ -163,7 +163,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TagOutput"
+                  "$ref": "#/components/schemas/Tag"
                 }
               }
             }
@@ -215,7 +215,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Page_TagOutput_"
+                  "$ref": "#/components/schemas/Page_Tag_"
                 }
               }
             }
@@ -249,7 +249,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TagOutput"
+                  "$ref": "#/components/schemas/Tag"
                 }
               }
             }
@@ -281,7 +281,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TagOutput"
+                  "$ref": "#/components/schemas/Tag"
                 }
               }
             }
@@ -367,7 +367,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ImageOutput"
+                  "$ref": "#/components/schemas/Image"
                 }
               }
             }
@@ -386,9 +386,7 @@
                     "format": "binary"
                   }
                 },
-                "required": [
-                  "image"
-                ]
+                "required": ["image"]
               }
             }
           },
@@ -439,7 +437,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EmailOutput"
+                  "$ref": "#/components/schemas/Email"
                 }
               }
             }
@@ -489,11 +487,7 @@
             "in": "query",
             "name": "status",
             "schema": {
-              "default": [
-                "about_to_send",
-                "in_flight",
-                "sent"
-              ],
+              "default": ["about_to_send", "in_flight", "sent"],
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/EmailStatus"
@@ -534,7 +528,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Page_EmailOutput_"
+                  "$ref": "#/components/schemas/Page_Email_"
                 }
               }
             }
@@ -588,7 +582,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EmailOutput"
+                  "$ref": "#/components/schemas/Email"
                 }
               }
             }
@@ -666,7 +660,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SubscriberOutput"
+                  "$ref": "#/components/schemas/Subscriber"
                 }
               }
             }
@@ -756,7 +750,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Page_SubscriberOutput_"
+                  "$ref": "#/components/schemas/Page_Subscriber_"
                 }
               }
             }
@@ -810,7 +804,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SubscriberOutput"
+                  "$ref": "#/components/schemas/Subscriber"
                 }
               }
             }
@@ -877,7 +871,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SubscriberOutput"
+                  "$ref": "#/components/schemas/Subscriber"
                 }
               }
             }
@@ -1024,7 +1018,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Page_NewsletterOutput_"
+                  "$ref": "#/components/schemas/Page_Newsletter_"
                 }
               }
             }
@@ -1066,7 +1060,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NewsletterOutput"
+                  "$ref": "#/components/schemas/Newsletter"
                 }
               }
             }
@@ -1130,7 +1124,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NewsletterOutput"
+                  "$ref": "#/components/schemas/Newsletter"
                 }
               }
             }
@@ -1302,16 +1296,12 @@
       "ExportStatus": {
         "title": "Status",
         "description": "An enumeration.",
-        "enum": [
-          "error",
-          "in_progress",
-          "not_started",
-          "ready"
-        ],
+        "enum": ["error", "in_progress", "not_started", "ready"],
         "type": "string"
       },
-      "ExportOutput": {
-        "title": "ExportOutput",
+      "Export": {
+        "title": "Export",
+        "description": "Some software applications may want programmatic access to their newsletter exports.\nThis assists with a few niche use cases, such as regular backups or data ingestion\n(into a data warehouse), or post-publishing processes that hinge on email events.\n\nIn general, you probably won't _need_ to use this endpoint unless you\n _absolutely_ need to use this endpoint.",
         "type": "object",
         "properties": {
           "id": {
@@ -1337,12 +1327,7 @@
             "format": "date-time"
           }
         },
-        "required": [
-          "id",
-          "creation_date",
-          "status",
-          "url"
-        ]
+        "required": ["id", "creation_date", "status", "url"]
       },
       "ErrorMessage": {
         "title": "ErrorMessage",
@@ -1364,9 +1349,7 @@
             }
           }
         },
-        "required": [
-          "detail"
-        ]
+        "required": ["detail"]
       },
       "ExportCollection": {
         "title": "Collection",
@@ -1393,19 +1376,17 @@
             }
           }
         },
-        "required": [
-          "collections"
-        ]
+        "required": ["collections"]
       },
-      "Page_ExportOutput_": {
-        "title": "Page[ExportOutput]",
+      "Page_Export_": {
+        "title": "Page[Export]",
         "type": "object",
         "properties": {
           "results": {
             "title": "Results",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ExportOutput"
+              "$ref": "#/components/schemas/Export"
             }
           },
           "next": {
@@ -1421,13 +1402,10 @@
             "type": "integer"
           }
         },
-        "required": [
-          "results",
-          "count"
-        ]
+        "required": ["results", "count"]
       },
-      "TagOutput": {
-        "title": "TagOutput",
+      "Tag": {
+        "title": "Tag",
         "type": "object",
         "properties": {
           "id": {
@@ -1457,13 +1435,7 @@
             "format": "date-time"
           }
         },
-        "required": [
-          "id",
-          "name",
-          "color",
-          "secondary_id",
-          "creation_date"
-        ]
+        "required": ["id", "name", "color", "secondary_id", "creation_date"]
       },
       "TagInput": {
         "title": "TagInput",
@@ -1482,20 +1454,17 @@
             "type": "string"
           }
         },
-        "required": [
-          "name",
-          "color"
-        ]
+        "required": ["name", "color"]
       },
-      "Page_TagOutput_": {
-        "title": "Page[TagOutput]",
+      "Page_Tag_": {
+        "title": "Page[Tag]",
         "type": "object",
         "properties": {
           "results": {
             "title": "Results",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TagOutput"
+              "$ref": "#/components/schemas/Tag"
             }
           },
           "next": {
@@ -1511,17 +1480,12 @@
             "type": "integer"
           }
         },
-        "required": [
-          "results",
-          "count"
-        ]
+        "required": ["results", "count"]
       },
       "UpdateTagErrorCode": {
         "title": "UpdateTagErrorCode",
         "description": "An enumeration.",
-        "enum": [
-          "name_already_exists"
-        ],
+        "enum": ["name_already_exists"],
         "type": "string"
       },
       "ErrorMessage_UpdateTagErrorCode_": {
@@ -1544,10 +1508,7 @@
             }
           }
         },
-        "required": [
-          "code",
-          "detail"
-        ]
+        "required": ["code", "detail"]
       },
       "TagUpdateInput": {
         "title": "TagUpdateInput",
@@ -1567,8 +1528,8 @@
           }
         }
       },
-      "ImageOutput": {
-        "title": "ImageOutput",
+      "Image": {
+        "title": "Image",
         "type": "object",
         "properties": {
           "id": {
@@ -1586,23 +1547,12 @@
             "type": "string"
           }
         },
-        "required": [
-          "id",
-          "creation_date",
-          "image"
-        ]
+        "required": ["id", "creation_date", "image"]
       },
       "EmailType": {
         "title": "Type",
         "description": "An enumeration.",
-        "enum": [
-          "public",
-          "private",
-          "premium",
-          "free",
-          "archival",
-          "hidden"
-        ],
+        "enum": ["public", "private", "premium", "free", "archival", "hidden"],
         "type": "string"
       },
       "EmailStatus": {
@@ -1620,8 +1570,8 @@
         ],
         "type": "string"
       },
-      "EmailOutput": {
-        "title": "EmailOutput",
+      "Email": {
+        "title": "Email",
         "type": "object",
         "properties": {
           "id": {
@@ -1698,11 +1648,7 @@
       "EmailCreationErrorCode": {
         "title": "EmailCreationErrorCode",
         "description": "An enumeration.",
-        "enum": [
-          "subject_invalid",
-          "email_duplicate",
-          "email_invalid"
-        ],
+        "enum": ["subject_invalid", "email_duplicate", "email_invalid"],
         "type": "string"
       },
       "ErrorMessage_EmailCreationErrorCode_": {
@@ -1725,10 +1671,7 @@
             }
           }
         },
-        "required": [
-          "code",
-          "detail"
-        ]
+        "required": ["code", "detail"]
       },
       "EmailInput": {
         "title": "EmailInput",
@@ -1805,19 +1748,17 @@
             }
           }
         },
-        "required": [
-          "subject"
-        ]
+        "required": ["subject"]
       },
-      "Page_EmailOutput_": {
-        "title": "Page[EmailOutput]",
+      "Page_Email_": {
+        "title": "Page[Email]",
         "type": "object",
         "properties": {
           "results": {
             "title": "Results",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EmailOutput"
+              "$ref": "#/components/schemas/Email"
             }
           },
           "next": {
@@ -1833,10 +1774,7 @@
             "type": "integer"
           }
         },
-        "required": [
-          "results",
-          "count"
-        ]
+        "required": ["results", "count"]
       },
       "Analytics": {
         "title": "Analytics",
@@ -1925,8 +1863,8 @@
         ],
         "type": "string"
       },
-      "SubscriberOutput": {
-        "title": "SubscriberOutput",
+      "Subscriber": {
+        "title": "Subscriber",
         "type": "object",
         "properties": {
           "id": {
@@ -2033,19 +1971,17 @@
             "type": "string"
           }
         },
-        "required": [
-          "email"
-        ]
+        "required": ["email"]
       },
-      "Page_SubscriberOutput_": {
-        "title": "Page[SubscriberOutput]",
+      "Page_Subscriber_": {
+        "title": "Page[Subscriber]",
         "type": "object",
         "properties": {
           "results": {
             "title": "Results",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SubscriberOutput"
+              "$ref": "#/components/schemas/Subscriber"
             }
           },
           "next": {
@@ -2061,17 +1997,12 @@
             "type": "integer"
           }
         },
-        "required": [
-          "results",
-          "count"
-        ]
+        "required": ["results", "count"]
       },
       "ListSubscribersErrorCode": {
         "title": "ListSubscribersErrorCode",
         "description": "An enumeration.",
-        "enum": [
-          "invalid_tag"
-        ],
+        "enum": ["invalid_tag"],
         "type": "string"
       },
       "ErrorMessage_ListSubscribersErrorCode_": {
@@ -2094,10 +2025,7 @@
             }
           }
         },
-        "required": [
-          "code",
-          "detail"
-        ]
+        "required": ["code", "detail"]
       },
       "UpdateSubscriberErrorCode": {
         "title": "UpdateSubscriberErrorCode",
@@ -2129,10 +2057,7 @@
             }
           }
         },
-        "required": [
-          "code",
-          "detail"
-        ]
+        "required": ["code", "detail"]
       },
       "SubscriberUpdateInput": {
         "title": "SubscriberUpdateInput",
@@ -2167,8 +2092,8 @@
           }
         }
       },
-      "NewsletterOutput": {
-        "title": "NewsletterOutput",
+      "Newsletter": {
+        "title": "Newsletter",
         "type": "object",
         "properties": {
           "id": {
@@ -2208,15 +2133,15 @@
           "api_key"
         ]
       },
-      "Page_NewsletterOutput_": {
-        "title": "Page[NewsletterOutput]",
+      "Page_Newsletter_": {
+        "title": "Page[Newsletter]",
         "type": "object",
         "properties": {
           "results": {
             "title": "Results",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NewsletterOutput"
+              "$ref": "#/components/schemas/Newsletter"
             }
           },
           "next": {
@@ -2232,17 +2157,12 @@
             "type": "integer"
           }
         },
-        "required": [
-          "results",
-          "count"
-        ]
+        "required": ["results", "count"]
       },
       "CreateNewsletterErrorCode": {
         "title": "CreateNewsletterErrorCode",
         "description": "An enumeration.",
-        "enum": [
-          "username_already_exists"
-        ],
+        "enum": ["username_already_exists"],
         "type": "string"
       },
       "ErrorMessage_CreateNewsletterErrorCode_": {
@@ -2265,10 +2185,7 @@
             }
           }
         },
-        "required": [
-          "code",
-          "detail"
-        ]
+        "required": ["code", "detail"]
       },
       "NewsletterInput": {
         "title": "NewsletterInput",
@@ -2287,11 +2204,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "username",
-          "name",
-          "description"
-        ]
+        "required": ["username", "name", "description"]
       },
       "NewsletterUpdateInput": {
         "title": "NewsletterUpdateInput",
@@ -2314,12 +2227,7 @@
       "BulkActionStatus": {
         "title": "Status",
         "description": "\n        Represents the status of a bulk action.\n\n        No action is required to move from one state or another; Buttondown\n        internally handles the transitions, and exposing the status is for\n        observability purposes only.\n        ",
-        "enum": [
-          "not_started",
-          "in_progress",
-          "processed",
-          "failed"
-        ],
+        "enum": ["not_started", "in_progress", "processed", "failed"],
         "type": "string"
       },
       "BulkActionType": {
@@ -2327,6 +2235,7 @@
         "description": "\n        Represents the action being performed on a bulk of objects.\n\n        (Not to be coy, but these names should be self-explanatory.)\n        ",
         "enum": [
           "apply_tags",
+          "apply_metadata",
           "ban_subscribers",
           "delete_emails",
           "delete_subscribers",
@@ -2388,13 +2297,7 @@
             }
           }
         },
-        "required": [
-          "id",
-          "creation_date",
-          "status",
-          "type",
-          "metadata"
-        ]
+        "required": ["id", "creation_date", "status", "type", "metadata"]
       },
       "BulkActionInput": {
         "title": "BulkActionInput",
@@ -2424,10 +2327,7 @@
             }
           }
         },
-        "required": [
-          "type",
-          "metadata"
-        ]
+        "required": ["type", "metadata"]
       }
     },
     "securitySchemes": {

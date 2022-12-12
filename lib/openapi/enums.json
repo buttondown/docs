@@ -1,4 +1,168 @@
 {
+  "UpdateTagErrorCode": {
+    "name_already_exists": {
+      "variant": "error",
+      "name": "Name already exists",
+      "description": "The name of the tag already exists"
+    }
+  },
+  "CreateNewsletterErrorCode": {
+    "username_already_exists": {
+      "variant": "error",
+      "name": "Username already exists",
+      "description": "A newsletter already exists with that username"
+    }
+  },
+  "SubscriberSource": {
+    "api": {
+      "name": "API",
+      "variant": "info"
+    },
+    "import": {
+      "variant": "info"
+    },
+    "organic": {
+      "variant": "info"
+    },
+    "admin": {
+      "variant": "info"
+    },
+    "user": {
+      "variant": "info"
+    }
+  },
+  "UpdateSubscriberErrorCode": {
+    "invalid_tag": {
+      "variant": "error",
+      "name": "Invalid tag"
+    }
+  },
+  "ListSubscribersErrorCode": {
+    "invalid_tag": {
+      "variant": "error",
+      "name": "Invalid tag"
+    }
+  },
+  "EmailCreationErrorCode": {
+    "subject_invalid": {
+      "variant": "error",
+      "name": "Invalid subject"
+    },
+    "email_duplicate": {
+      "variant": "error",
+      "name": "Duplicate email"
+    },
+    "email_invalid": {
+      "variant": "error",
+      "name": "Invalid email"
+    }
+  },
+  "EmailStatus": {
+    "draft": {
+      "variant": "info",
+      "name": "Draft"
+    },
+    "about_to_send": {
+      "variant": "info",
+      "name": "About to send"
+    },
+    "scheduled": {
+      "variant": "info",
+      "name": "Scheduled"
+    },
+    "in_flight": {
+      "variant": "info",
+      "name": "In flight"
+    },
+    "imported": {
+      "variant": "info",
+      "name": "Imported"
+    },
+    "deleted": {
+      "variant": "warning",
+      "name": "Deleted"
+    },
+    "sent": {
+      "variant": "success",
+      "name": "Sent"
+    },
+    "errored": {
+      "variant": "error",
+      "name": "Errored"
+    }
+  },
+  "EmailType": {
+    "public": {
+      "variant": "info",
+      "name": "Public",
+      "description": "Public emails are sent out to all of your subscribers and are available in your web archives."
+    },
+    "private": {
+      "variant": "info",
+      "name": "Private",
+      "description": "Private emails are sent out to all of your subscribers but are not viewable in your web archives."
+    },
+    "premium": {
+      "variant": "info",
+      "name": "Premium",
+      "description": "Premium emails are sent out to only paying subscribers (including those with gift subscriptions or on a free trial), and only premium subscribers can view them in online archives."
+    },
+    "free": {
+      "variant": "info",
+      "name": "Free",
+      "description": "Free emails are sent out only to subscribers who are not paying for your newsletter (so you can send specific emails to convince them to pay, for instance!)"
+    }
+  },
+  "ExportCollection": {
+    "subscribers": {
+      "variant": "info",
+      "name": "Subscribers"
+    },
+    "emails": {
+      "variant": "info",
+      "name": "Emails"
+    },
+    "scheduled_emails": {
+      "variant": "info",
+      "name": "Scheduled emails"
+    },
+    "drafts": {
+      "variant": "info",
+      "name": "Drafts"
+    },
+    "unsubscribers": {
+      "variant": "info",
+      "name": "Unsubscribers"
+    },
+    "events": {
+      "variant": "info",
+      "name": "Events"
+    },
+    "referrals": {
+      "variant": "info",
+      "name": "Referrals"
+    }
+  },
+  "ExportStatus": {
+    "not_started": {
+      "variant": "info",
+      "name": "Not started",
+      "description": "The export has not yet started"
+    },
+    "in_progress": {
+      "variant": "info",
+      "name": "In progress",
+      "description": "The export is currently being processed"
+    },
+    "ready": {
+      "variant": "success",
+      "description": "The export has completed"
+    },
+    "error": {
+      "variant": "error",
+      "description": "The export was unable to be completed. Buttondown is looking into it."
+    }
+  },
   "EventType": {
     "subscriber.created": {
       "name": "subscriber.created",
@@ -66,6 +230,11 @@
       "variant": "info",
       "name": "Apply tags",
       "description": "This action requires two additional parameters within `metadata`: `tag_id` (the ID of the tag which you'd like to either add or remove to the list of subscribers) and `action` (which can be either `add` or `remove`)."
+    },
+    "apply_metadata": {
+      "variant": "info",
+      "name": "Apply metadata (to subscribers)",
+      "description": "This action requires two additional parameters within `metadata`: `action` (which can be either `add`, `set`, or `remove`), and `metadata` (the value of the metadata which you'd like to either add or remove to the list of subscribers)."
     },
     "ban_subscribers": {
       "variant": "info",
