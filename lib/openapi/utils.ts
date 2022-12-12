@@ -1,4 +1,6 @@
 import OpenAPI from "./openapi.json";
+import OpenAPIEnums from "./enums.json";
+import OpenAPIFixtures from "./fixtures.json";
 import { Method, Operation, Route } from "./types";
 
 export const extractRefFromType = (
@@ -13,19 +15,28 @@ export const extractRefFromType = (
   return null;
 };
 
-export const extractBackingFixtureFromRef = (
-  ref: string
-): {
-  type?: "Page" | "ErrorMessage";
-  value: string;
-} => {
+type BackingFixture =
+  | {
+      type: "ErrorMessage";
+      value: keyof typeof OpenAPIEnums;
+    }
+  | {
+      type: "Page";
+      value: keyof typeof OpenAPIFixtures;
+    }
+  | {
+      type: "Object";
+      value: keyof typeof OpenAPIFixtures;
+    };
+
+export const extractBackingFixtureFromRef = (ref: string): BackingFixture => {
   // Pages are wrapped like so: "Page_FOO_".
   // We want to extract 'FOO'.
   if (ref.startsWith("Page_")) {
     const pageName = ref.split("_")[1];
     return {
       type: "Page",
-      value: pageName,
+      value: pageName as keyof typeof OpenAPIFixtures,
     };
   }
 
@@ -35,12 +46,13 @@ export const extractBackingFixtureFromRef = (
     const errorMessageName = ref.split("_")[1];
     return {
       type: "ErrorMessage",
-      value: errorMessageName,
+      value: errorMessageName as keyof typeof OpenAPIEnums,
     };
   }
 
   return {
-    value: ref,
+    type: "Object",
+    value: ref as keyof typeof OpenAPIFixtures,
   };
 };
 
@@ -48,7 +60,7 @@ export const extractOperation = <R extends Route>(
   route: R,
   method: Method<R>
 ): Operation<R, Method<R>> => {
-  return OpenAPI.paths[route][method];
+  return OpenAPI.paths[route][method] as Operation<R, Method<R>>;
 };
 
 export const extractRouteInformation = <R extends Route, M extends Method<R>>(

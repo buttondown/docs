@@ -5,21 +5,21 @@ import OpenAPI from "../../lib/openapi/openapi.json";
 import { Method, Route, Operation } from "../../lib/openapi/types";
 import { extractRefFromType, extractOperation } from "../../lib/openapi/utils";
 
-// type Path = keyof typeof OpenAPI.paths;
-// type Operation = {
-//   summary: string;
-//   parameters: any[];
-//   responses: any;
-//   requestBody?: {
-//     content: {
-//       "application/json": {
-//         schema: {
-//           $ref: string;
-//         };
-//       };
-//     };
-//   };
-// };
+const extractRef = <R extends Route>(
+  operation: Operation<R, Method<R>>
+): string | undefined => {
+  const body = operation.requestBody;
+  if (body === undefined) {
+    return undefined;
+  }
+  if ("application/json" in body.content) {
+    return body.content["application/json"].schema.$ref;
+  }
+  if ("multipart/form-data" in body.content) {
+    return body.content["multipart/form-data"].schema.$ref;
+  }
+  return undefined;
+};
 
 export default function EndpointDescription<R extends Route>({
   path,
@@ -32,15 +32,8 @@ export default function EndpointDescription<R extends Route>({
   return (
     <>
       {methods.map((method) => {
-        const operation = extractOperation(path, method) as any;
-        const body = operation.requestBody;
-        const parameters = body
-          ? (
-              body.content["application/json"] ||
-              body.content["multipart/form-data"]
-            ).schema.$ref
-          : undefined;
-
+        const operation = extractOperation(path, method);
+        const parameters = extractRef(operation);
         const ref =
           parameters !== undefined ? extractRefFromType(parameters) : null;
         const schema = ref !== null ? OpenAPI.components.schemas[ref] : null;

@@ -6,7 +6,13 @@ import OpenAPI from "../../lib/openapi/openapi.json";
 import OpenAPIEnums from "../../lib/openapi/enums.json";
 import OpenAPIFixtures from "../../lib/openapi/fixtures.json";
 import EndpointDescription from "./EndpointDescription";
-import { Enum, Object as OpenAPIObject, Route } from "../../lib/openapi/types";
+import {
+  Enum,
+  Object as OpenAPIObject,
+  Route,
+  ObjectDescription as OpenAPIObjectDescription,
+  Fixture,
+} from "../../lib/openapi/types";
 import MonospacedSpan from "../MonospacedSpan";
 
 type Props = {
@@ -21,8 +27,14 @@ type Field = {
   description: string;
 };
 
+const getFixtures = (name: keyof typeof OpenAPIFixtures): Fixture[] => {
+  const fixture = OpenAPIFixtures[name];
+  return fixture;
+};
+
 export default function ObjectDescription({ name, enums, endpoints }: Props) {
-  const schema = OpenAPI.components.schemas[name];
+  const schema = OpenAPI.components.schemas[name] as OpenAPIObjectDescription;
+  // @ts-ignore
   const fields = Object.entries(schema.properties).map(([key, property]) => {
     return {
       field: key,
@@ -32,7 +44,8 @@ export default function ObjectDescription({ name, enums, endpoints }: Props) {
       description: property.description,
     };
   });
-  const fixtures = OpenAPIFixtures[name];
+
+  const fixtures = getFixtures(name);
 
   return (
     <div className="space-y-32">
