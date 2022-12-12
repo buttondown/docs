@@ -8,7 +8,7 @@ export type Column = {
 };
 
 export type Row = {
-  [key: string]: string | undefined;
+  [key: string]: string | boolean | undefined;
 };
 
 type TableProps = {

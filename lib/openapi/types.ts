@@ -32,6 +32,20 @@ export type RequestBody = {
         "multipart/form-data": Content;
       };
 };
+export type Parameter = {
+  in: "path" | "query";
+  name: string;
+  schema:
+    | {
+        title: string;
+        type: string;
+        description?: string;
+      }
+    | {
+        $ref: string;
+      };
+  required: boolean;
+};
 export type Operation<
   R extends Route,
   M extends Method<R>
@@ -39,7 +53,7 @@ export type Operation<
   operationId: string;
   summary: string;
   requestBody: RequestBody;
-  parameters: string[];
+  parameters: Parameter[];
   responses: {
     [key in string]: {
       description: string;

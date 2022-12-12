@@ -13,7 +13,7 @@ function RawHTML(s: string) {
   return <div dangerouslySetInnerHTML={{ __html: s }} />;
 }
 
-function CheckMark(s: string) {
+function CheckMark(s: boolean) {
   return (
     s && (
       <CheckCircleIcon
@@ -26,10 +26,11 @@ function CheckMark(s: string) {
   );
 }
 
-type Parameter = {
+export type Parameter = {
   parameter: string;
   type: string;
   description: string;
+  optional: boolean;
 };
 
 type Props = {
@@ -61,7 +62,7 @@ export default function ParametersTable({ content }: Props) {
           {
             title: "optional",
             alignment: "right",
-            component: CheckMark,
+            component: (c: Parameter) => CheckMark(c.optional),
           },
         ]}
         content={content.map((row) => ({

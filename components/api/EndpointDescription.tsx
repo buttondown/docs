@@ -1,5 +1,5 @@
 import Endpoint from "./Endpoint";
-import ParametersTable from "./ParametersTable";
+import ParametersTable, { Parameter } from "./ParametersTable";
 import PathTable from "./PathTable";
 import OpenAPI from "../../lib/openapi/openapi.json";
 import { Method, Route, Operation } from "../../lib/openapi/types";
@@ -21,6 +21,49 @@ const extractRef = <R extends Route>(
   return undefined;
 };
 
+const extractParameters = <R extends Route>(
+  operation: Operation<R, Method<R>>
+): Parameter[] => {
+  if (operation.parameters.length > 0) {
+    return operation.parameters
+      .filter((parameter) => parameter.in !== "path")
+      .map((parameter) => {
+        const type =
+          "type" in parameter.schema
+            ? parameter.schema.type
+            : extractRefFromType(parameter.schema.$ref);
+        return {
+          parameter: parameter.name,
+          type: type || "unknown",
+          description: "",
+          optional: !parameter.required,
+        };
+      });
+  }
+  const parameters = extractRef(operation);
+  const ref = parameters !== undefined ? extractRefFromType(parameters) : null;
+  const schema = ref !== null ? OpenAPI.components.schemas[ref] : null;
+  if (schema === null) {
+    return [];
+  }
+  if ("properties" in schema) {
+    return Object.keys(schema.properties).map((parameter: any) => {
+      const qualifiedParameter = (schema.properties as any)[parameter] as {
+        type: string;
+        description: string;
+      };
+      return {
+        parameter,
+        type: qualifiedParameter.type,
+        description: qualifiedParameter.description,
+        optional:
+          "required" in schema ? !schema.required.includes(parameter) : true,
+      };
+    });
+  }
+  return [];
+};
+
 export default function EndpointDescription<R extends Route>({
   path,
 }: {
@@ -33,32 +76,11 @@ export default function EndpointDescription<R extends Route>({
     <>
       {methods.map((method) => {
         const operation = extractOperation(path, method);
-        const parameters = extractRef(operation);
-        const ref =
-          parameters !== undefined ? extractRefFromType(parameters) : null;
-        const schema = ref !== null ? OpenAPI.components.schemas[ref] : null;
+        const parameters = extractParameters(operation);
         return (
           <div key={method}>
             <Endpoint title={operation.summary} method={method} path={path} />
-            {parameters && schema && "properties" in schema && (
-              <ParametersTable
-                content={Object.keys(schema.properties).map(
-                  (parameter: any) => {
-                    const qualifiedParameter = (schema.properties as any)[
-                      parameter
-                    ] as {
-                      type: string;
-                      description: string;
-                    };
-                    return {
-                      parameter,
-                      type: qualifiedParameter.type,
-                      description: qualifiedParameter.description,
-                    };
-                  }
-                )}
-              />
-            )}
+            {parameters.length > 0 && <ParametersTable content={parameters} />}
             <PathTable content={operation.responses} />
           </div>
         );
