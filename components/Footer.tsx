@@ -60,8 +60,12 @@ const navigation = {
   ],
 };
 
-const pathToPermalink = (path: string) =>
-  `https://github.com/buttondown-email/docs/blob/main/pages${path}.mdx`;
+const pathToPermalink = (path: string) => {
+  if (path === '/') {
+    path = '/index';
+  }
+  return `https://github.com/buttondown-email/docs/blob/main/pages${path}.mdx`;
+}
 
 export default function Footer() {
   const { asPath, pathname } = useRouter();
