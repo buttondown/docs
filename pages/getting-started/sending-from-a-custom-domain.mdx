@@ -31,34 +31,33 @@ If you're using one of the following domain registrars, Buttondown offers a step
 
 ## Dealing with 'softfails' due to SPF
 
-Depending on your newsletter configuration, you might have been asked to set up an [SPF entry](https://postmarkapp.com/guides/spf) for your custom domain. This is a DNS record that begins with the string:
+Depending on your newsletter configuration, you might have been asked to set up an [SPF (Sender Policy Framework) entry](https://postmarkapp.com/guides/spf) for your custom domain. This is a DNS record, listing the domain names that legitimally can send e-mail on your domain's behalf. The record is of type TXT and begins with the string:
 
 ```
 v=spf1
 ```
 
-However, this record can only be used once in a single domain. If you're using the same custom email domain for Buttondown and for an inbox provider such as GSuite, you need to take an extra step
-to combine the two records.
-
-Instead of having two separate records, like:
-
-```
-v=spf1 include:_spf.google.com
-```
-
-and
+For Buttondown emails this record should include the domain `mailgun.org`. _If you don't have an existing DNS record for SPF for your Buttondown custom domain_, add a TXT record with the name/address `<your custom domain>`, and with this content:
 
 ```
 v=spf1 include:mailgun.org
 ```
 
-The proper solution is actually to edit the existing one into something like that references both domains:
+However, _this record can only be used once for a single domain_. If you're using the same custom email domain for Buttondown and for an inbox provider such as GSuite, you need to _combine the two records_.
+
+Say the existing record looks like:
+
+```
+v=spf1 include:_spf.google.com
+```
+
+Edit the record to make it reference both domains:
 
 ```
 v=spf1 include:_spf.google.com include:mailgun.org ~all
 ```
 
-Otherwise, some mailboxes may read the GSuite one and ignore the Mailgun one (set by Buttondown), causing a softfail and thus lower deliverability.
+If you use two separate records, some mailboxes may read the GSuite one and ignore the Mailgun one, or vice versa, causing a softfail and thus lower deliverability.
 
 ## The difference between hosting domains and sending domains
 
