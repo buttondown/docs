@@ -167,6 +167,7 @@ const NAVIGATION: Array<NavigationItem> = [
       { name: "Images", href: "/api-reference/images" },
       { name: "Newsletters", href: "/api-reference/newsletters" },
       { name: "Exports", href: "/api-reference/exports" },
+      { name: "Bulk actions", href: "/api-reference/bulk-actions" },
     ],
   },
   {

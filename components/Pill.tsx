@@ -2,9 +2,11 @@ import { ReactNode } from "react";
 import classNames from "../lib/classNames";
 
 // This should match the Pill in `buttondown-app`.
+
+export type Variant = "success" | "info" | "error" | "warning";
 type Props = {
   children: ReactNode;
-  variant: "success" | "info" | "error" | "warning";
+  variant: Variant;
 };
 
 const Pill = (props: Props) => (

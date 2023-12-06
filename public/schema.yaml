@@ -19,8 +19,8 @@ components:
         subject:
           type: string
       required:
-      - subject
-      - body
+        - subject
+        - body
       type: object
     Email:
       properties:
@@ -28,10 +28,10 @@ components:
           type: string
         email_type:
           enum:
-          - public
-          - private
-          - premium
-          - promoted
+            - public
+            - private
+            - premium
+            - promoted
           type: string
         excluded_tags:
           nullable: true
@@ -39,7 +39,8 @@ components:
         external_url:
           format: uri
           maxLength: 200
-          pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+          pattern:
+            "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
             d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\[[0-9a-f:\\\
             .]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1-\uFFFF\
             0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1\
@@ -72,8 +73,8 @@ components:
         subject:
           type: string
       required:
-      - subject
-      - body
+        - subject
+        - body
       type: object
     Newsletter:
       properties:
@@ -96,9 +97,9 @@ components:
         username:
           type: string
       required:
-      - username
-      - name
-      - description
+        - username
+        - name
+        - description
       type: object
     ScheduledEmail:
       properties:
@@ -106,10 +107,10 @@ components:
           type: string
         email_type:
           enum:
-          - public
-          - private
-          - premium
-          - promoted
+            - public
+            - private
+            - premium
+            - promoted
           type: string
         excluded_tags:
           nullable: true
@@ -127,9 +128,9 @@ components:
         subject:
           type: string
       required:
-      - publish_date
-      - subject
-      - body
+        - publish_date
+        - subject
+        - body
       type: object
     SendEmail:
       properties: {}
@@ -160,30 +161,30 @@ components:
           type: integer
         source:
           enum:
-          - api
-          - buttondown
-          - csv
-          - mailchimp
-          - organic
-          - substack
-          - tinyletter
-          - typeform
-          - user
-          - drip
+            - api
+            - buttondown
+            - csv
+            - mailchimp
+            - organic
+            - substack
+            - tinyletter
+            - typeform
+            - user
+            - drip
           readOnly: true
           type: string
         subscriber_type:
           enum:
-          - regular
-          - premium
-          - gifted
-          - unpaid
-          - unactivated
-          - unsubscribed
-          - spammy
-          - removed
-          - trialed
-          - disabled
+            - regular
+            - premium
+            - gifted
+            - unpaid
+            - unactivated
+            - unsubscribed
+            - spammy
+            - removed
+            - trialed
+            - disabled
           readOnly: true
           type: string
         tags:
@@ -200,7 +201,7 @@ components:
           readOnly: true
           type: string
       required:
-      - email
+        - email
       type: object
     SubscriberTag:
       properties:
@@ -222,7 +223,7 @@ components:
           maxLength: 100
           type: string
       required:
-      - name
+        - name
       type: object
     UploadedImage:
       properties:
@@ -238,7 +239,7 @@ components:
           format: binary
           type: string
       required:
-      - image
+        - image
       type: object
 info:
   description: |+
@@ -282,6 +283,14 @@ info:
     brittle changes to the API that may break current implementations, I'll be sure to add
     version gates.)
 
+    ## 2022-11-19
+
+    Removed the `/v1/drafts`, `/v1/scheduled-emails`, and `/v1/unsubscribers` endpoints. The behavior of all three endpoints have been subsumed into `/v1/emails` and `/v1/subscribers`:
+
+    -   you can create (or list) drafts by specifying `status='draft'`
+    -   you can create (or list) scheduled emails by specifying `status='scheduled'`
+    -   you can list unsubscribers by specifying `subscriber_type='unsubscribed'`
+
     ## 2021-01-02
 
     Added support to set and retrieve metadata on Emails.
@@ -301,17 +310,17 @@ openapi: 3.0.2
 paths:
   /v1/drafts:
     get:
-      description: ''
+      description: ""
       operationId: List all drafts
       parameters:
-      - description: A page number within the paginated result set.
-        in: query
-        name: page
-        required: false
-        schema:
-          type: integer
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
@@ -331,68 +340,68 @@ paths:
                     type: string
                   results:
                     items:
-                      $ref: '#/components/schemas/Draft'
+                      $ref: "#/components/schemas/Draft"
                     type: array
                 type: object
-          description: ''
+          description: ""
       tags:
-      - Drafts
+        - Drafts
     post:
-      description: ''
+      description: ""
       operationId: Create a new draft
       parameters: []
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Draft'
+              $ref: "#/components/schemas/Draft"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Draft'
+              $ref: "#/components/schemas/Draft"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Draft'
+              $ref: "#/components/schemas/Draft"
       responses:
-        '201':
+        "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Draft'
-          description: ''
+                $ref: "#/components/schemas/Draft"
+          description: ""
       tags:
-      - Drafts
+        - Drafts
   /v1/drafts/{id}:
     get:
-      description: ''
+      description: ""
       operationId: Retrieve an existing draft
       parameters:
-      - description: A UUID string identifying this draft.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this draft.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Draft'
-          description: ''
+                $ref: "#/components/schemas/Draft"
+          description: ""
       tags:
-      - Drafts
+        - Drafts
   /v1/emails:
     get:
       operationId: List all emails
       parameters:
-      - description: A page number within the paginated result set.
-        in: query
-        name: page
-        required: false
-        schema:
-          type: integer
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
@@ -412,12 +421,12 @@ paths:
                     type: string
                   results:
                     items:
-                      $ref: '#/components/schemas/Email'
+                      $ref: "#/components/schemas/Email"
                     type: array
                 type: object
-          description: ''
+          description: ""
       tags:
-      - Emails
+        - Emails
     post:
       operationId: Create a new email
       parameters: []
@@ -425,54 +434,54 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Email'
+              $ref: "#/components/schemas/Email"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Email'
+              $ref: "#/components/schemas/Email"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Email'
+              $ref: "#/components/schemas/Email"
       responses:
-        '201':
+        "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Email'
-          description: ''
+                $ref: "#/components/schemas/Email"
+          description: ""
       tags:
-      - Emails
+        - Emails
   /v1/emails/{id}:
     get:
       operationId: Retrieve an existing email
       parameters:
-      - description: A UUID string identifying this email.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this email.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Email'
-          description: ''
+                $ref: "#/components/schemas/Email"
+          description: ""
       tags:
-      - Emails
+        - Emails
   /v1/images:
     get:
-      description: ''
+      description: ""
       operationId: List all uploaded images
       parameters:
-      - description: A page number within the paginated result set.
-        in: query
-        name: page
-        required: false
-        schema:
-          type: integer
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
@@ -492,85 +501,86 @@ paths:
                     type: string
                   results:
                     items:
-                      $ref: '#/components/schemas/UploadedImage'
+                      $ref: "#/components/schemas/UploadedImage"
                     type: array
                 type: object
-          description: ''
+          description: ""
       tags:
-      - Images
+        - Images
     post:
-      description: ''
+      description: ""
       operationId: Upload a new image
       parameters: []
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UploadedImage'
+              $ref: "#/components/schemas/UploadedImage"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/UploadedImage'
+              $ref: "#/components/schemas/UploadedImage"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/UploadedImage'
+              $ref: "#/components/schemas/UploadedImage"
       responses:
-        '201':
+        "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UploadedImage'
-          description: ''
+                $ref: "#/components/schemas/UploadedImage"
+          description: ""
       tags:
-      - Images
+        - Images
   /v1/images/{id}:
     delete:
-      description: Be sure to verify that this image hasn't been referenced in your
+      description:
+        Be sure to verify that this image hasn't been referenced in your
         emails before deleting it!
       operationId: Delete an uploaded image
       parameters:
-      - description: A UUID string identifying this uploaded image.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this uploaded image.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       responses:
-        '204':
-          description: ''
+        "204":
+          description: ""
       tags:
-      - Images
+        - Images
     get:
-      description: ''
+      description: ""
       operationId: Retrieve an uploaded image
       parameters:
-      - description: A UUID string identifying this uploaded image.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this uploaded image.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UploadedImage'
-          description: ''
+                $ref: "#/components/schemas/UploadedImage"
+          description: ""
       tags:
-      - Images
+        - Images
   /v1/newsletters:
     get:
-      description: ''
+      description: ""
       operationId: List all newsletters
       parameters:
-      - description: A page number within the paginated result set.
-        in: query
-        name: page
-        required: false
-        schema:
-          type: integer
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
@@ -590,161 +600,162 @@ paths:
                     type: string
                   results:
                     items:
-                      $ref: '#/components/schemas/Newsletter'
+                      $ref: "#/components/schemas/Newsletter"
                     type: array
                 type: object
-          description: ''
+          description: ""
       tags:
-      - Newsletters
+        - Newsletters
     post:
-      description: ''
+      description: ""
       operationId: Create a newsletter
       parameters: []
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Newsletter'
+              $ref: "#/components/schemas/Newsletter"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Newsletter'
+              $ref: "#/components/schemas/Newsletter"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Newsletter'
+              $ref: "#/components/schemas/Newsletter"
       responses:
-        '201':
+        "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Newsletter'
-          description: ''
+                $ref: "#/components/schemas/Newsletter"
+          description: ""
       tags:
-      - Newsletters
+        - Newsletters
   /v1/newsletters/{id}:
     delete:
-      description: ''
+      description: ""
       operationId: Delete a newsletter
       parameters:
-      - description: A UUID string identifying this newsletter.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this newsletter.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       responses:
-        '204':
-          description: ''
+        "204":
+          description: ""
       tags:
-      - Newsletters
+        - Newsletters
     get:
-      description: ''
+      description: ""
       operationId: Retrieve an existing newsletter
       parameters:
-      - description: A UUID string identifying this newsletter.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this newsletter.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Newsletter'
-          description: ''
+                $ref: "#/components/schemas/Newsletter"
+          description: ""
       tags:
-      - Newsletters
+        - Newsletters
     patch:
-      description: ''
+      description: ""
       operationId: Partially update an existing newsletter
       parameters:
-      - description: A UUID string identifying this newsletter.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this newsletter.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Newsletter'
+              $ref: "#/components/schemas/Newsletter"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Newsletter'
+              $ref: "#/components/schemas/Newsletter"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Newsletter'
+              $ref: "#/components/schemas/Newsletter"
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Newsletter'
-          description: ''
+                $ref: "#/components/schemas/Newsletter"
+          description: ""
       tags:
-      - Newsletters
+        - Newsletters
     put:
-      description: ''
+      description: ""
       operationId: Update an existing newsletter
       parameters:
-      - description: A UUID string identifying this newsletter.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this newsletter.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Newsletter'
+              $ref: "#/components/schemas/Newsletter"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Newsletter'
+              $ref: "#/components/schemas/Newsletter"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Newsletter'
+              $ref: "#/components/schemas/Newsletter"
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Newsletter'
-          description: ''
+                $ref: "#/components/schemas/Newsletter"
+          description: ""
       tags:
-      - Newsletters
+        - Newsletters
   /v1/ping:
     get:
-      description: A simple view to let you easily test authentication and health
+      description:
+        A simple view to let you easily test authentication and health
         of the API.
       operationId: Ping
       parameters: []
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 items: {}
                 type: array
-          description: ''
+          description: ""
       tags:
-      - Miscellany
+        - Miscellany
   /v1/scheduled-emails:
     description: Scheduled emails are analogous to, well, scheduled emails.
     get:
-      description: ''
+      description: ""
       operationId: List all scheduled emails
       parameters:
-      - description: A page number within the paginated result set.
-        in: query
-        name: page
-        required: false
-        schema:
-          type: integer
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
@@ -764,155 +775,157 @@ paths:
                     type: string
                   results:
                     items:
-                      $ref: '#/components/schemas/ScheduledEmail'
+                      $ref: "#/components/schemas/ScheduledEmail"
                     type: array
                 type: object
-          description: ''
+          description: ""
       tags:
-      - Scheduled emails
+        - Scheduled emails
     post:
-      description: ''
+      description: ""
       operationId: Schedule a new email
       parameters: []
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ScheduledEmail'
+              $ref: "#/components/schemas/ScheduledEmail"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/ScheduledEmail'
+              $ref: "#/components/schemas/ScheduledEmail"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/ScheduledEmail'
+              $ref: "#/components/schemas/ScheduledEmail"
       responses:
-        '201':
+        "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ScheduledEmail'
-          description: ''
+                $ref: "#/components/schemas/ScheduledEmail"
+          description: ""
       tags:
-      - Scheduled emails
+        - Scheduled emails
     summary: scheduled-emails
   /v1/scheduled-emails/{id}:
     delete:
       operationId: Delete a scheduled email
       parameters:
-      - description: A UUID string identifying this scheduled email.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this scheduled email.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       responses:
-        '204':
-          description: ''
+        "204":
+          description: ""
       tags:
-      - Scheduled emails
+        - Scheduled emails
     get:
-      description: ''
+      description: ""
       operationId: Retrieve an existing scheduled email
       parameters:
-      - description: A UUID string identifying this scheduled email.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this scheduled email.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ScheduledEmail'
-          description: ''
+                $ref: "#/components/schemas/ScheduledEmail"
+          description: ""
       tags:
-      - Scheduled emails
+        - Scheduled emails
     patch:
-      description: ''
+      description: ""
       operationId: Update a scheduled email
       parameters:
-      - description: A UUID string identifying this scheduled email.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this scheduled email.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ScheduledEmail'
+              $ref: "#/components/schemas/ScheduledEmail"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/ScheduledEmail'
+              $ref: "#/components/schemas/ScheduledEmail"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/ScheduledEmail'
+              $ref: "#/components/schemas/ScheduledEmail"
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ScheduledEmail'
-          description: ''
+                $ref: "#/components/schemas/ScheduledEmail"
+          description: ""
       tags:
-      - Scheduled emails
+        - Scheduled emails
   /v1/subscribers:
     get:
-      description: It's worth noting that the various parametric options in this API
+      description:
+        It's worth noting that the various parametric options in this API
         work in tandem; you can, for instance, filter down your results to all "unpaid"
         subscribers matching a certain tag.
       operationId: List all subscribers
       parameters:
-      - description: "An optional filter to allow you to only retrieve a subset of\
-          \ subscribers. The API accepts\nthe following values:\n\n- `regular` \u2014\
-          \ normal subscribers who have not unsubscribed or deactivated in any way.\n\
-          - `unactivated` \u2014 subscribers who have not yet confirmed their email\
-          \ or opted in.\n- `unpaid` \u2014 subscribers who have not yet purchased\
-          \ a subscription to your newsletter.\n- `removed` \u2014 subscribers who\
-          \ have been explicitly removed by the newsletter (notably, this does not\
-          \ mean unsubscribers: use [/v1/unsubscribers](/v1/schema#tag/Unsubscribers)\
-          \ for that!\n"
-        example: regular
-        in: query
-        name: type
-        required: false
-        schema:
-          type: string
-      - description: |
-          An optional filter allowing you to filter subscribers based on a given tag. Provide the ID of the
-          tag, not the name.
-        example: cc661ca9-2c2b-487e-a46c-33d3bfb1c7f7
-        in: query
-        name: tag
-        required: false
-        schema:
-          type: string
-      - description: |
-          An optional filter allowing you to filter subscribers based on a substring. Providing a value of "doe"
-          would match both `jane.doe@gmail.com` and `john.doe@gmail.com`, but not `jane.dooe@gmail.com`.
-        example: gmail.com
-        in: query
-        name: email
-        required: false
-        schema:
-          type: string
-      - description: A page number within the paginated result set.
-        in: query
-        name: page
-        required: false
-        schema:
-          type: integer
-      - description: Which field to use when ordering the results.
-        in: query
-        name: ordering
-        required: false
-        schema:
-          type: string
+        - description:
+            "An optional filter to allow you to only retrieve a subset of\
+            \ subscribers. The API accepts\nthe following values:\n\n- `regular` \u2014\
+            \ normal subscribers who have not unsubscribed or deactivated in any way.\n\
+            - `unactivated` \u2014 subscribers who have not yet confirmed their email\
+            \ or opted in.\n- `unpaid` \u2014 subscribers who have not yet purchased\
+            \ a subscription to your newsletter.\n- `removed` \u2014 subscribers who\
+            \ have been explicitly removed by the newsletter (notably, this does not\
+            \ mean unsubscribers: use [/v1/unsubscribers](/v1/schema#tag/Unsubscribers)\
+            \ for that!\n"
+          example: regular
+          in: query
+          name: type
+          required: false
+          schema:
+            type: string
+        - description: |
+            An optional filter allowing you to filter subscribers based on a given tag. Provide the ID of the
+            tag, not the name.
+          example: cc661ca9-2c2b-487e-a46c-33d3bfb1c7f7
+          in: query
+          name: tag
+          required: false
+          schema:
+            type: string
+        - description: |
+            An optional filter allowing you to filter subscribers based on a substring. Providing a value of "doe"
+            would match both `jane.doe@gmail.com` and `john.doe@gmail.com`, but not `jane.dooe@gmail.com`.
+          example: gmail.com
+          in: query
+          name: email
+          required: false
+          schema:
+            type: string
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Which field to use when ordering the results.
+          in: query
+          name: ordering
+          required: false
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
@@ -932,12 +945,12 @@ paths:
                     type: string
                   results:
                     items:
-                      $ref: '#/components/schemas/Subscriber'
+                      $ref: "#/components/schemas/Subscriber"
                     type: array
                 type: object
-          description: ''
+          description: ""
       tags:
-      - Subscribers
+        - Subscribers
     post:
       description: |
         If Buttondown cannot create a new subscriber with the email address you've provided, there are a few likely reasons why. They're enumerated below:
@@ -951,191 +964,193 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Subscriber'
+              $ref: "#/components/schemas/Subscriber"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Subscriber'
+              $ref: "#/components/schemas/Subscriber"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Subscriber'
+              $ref: "#/components/schemas/Subscriber"
       responses:
-        '201':
+        "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Subscriber'
-          description: ''
-        '400':
-          description: If the email is invalid for any reason or if the subscriber
+                $ref: "#/components/schemas/Subscriber"
+          description: ""
+        "400":
+          description:
+            If the email is invalid for any reason or if the subscriber
             already exists in our system.
       tags:
-      - Subscribers
+        - Subscribers
   /v1/subscribers/{id}:
     delete:
       operationId: Delete a subscriber
       parameters:
-      - description: A UUID string identifying this subscriber.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
-      - description: Which field to use when ordering the results.
-        in: query
-        name: ordering
-        required: false
-        schema:
-          type: string
+        - description: A UUID string identifying this subscriber.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: Which field to use when ordering the results.
+          in: query
+          name: ordering
+          required: false
+          schema:
+            type: string
       responses:
-        '204':
-          description: ''
+        "204":
+          description: ""
       tags:
-      - Subscribers
+        - Subscribers
     get:
       operationId: Retrieve an existing subscriber
       parameters:
-      - description: A UUID string identifying this subscriber.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
-      - description: Which field to use when ordering the results.
-        in: query
-        name: ordering
-        required: false
-        schema:
-          type: string
+        - description: A UUID string identifying this subscriber.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: Which field to use when ordering the results.
+          in: query
+          name: ordering
+          required: false
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Subscriber'
-          description: ''
+                $ref: "#/components/schemas/Subscriber"
+          description: ""
       tags:
-      - Subscribers
+        - Subscribers
     patch:
       operationId: Partially update an existing subscriber
       parameters:
-      - description: A UUID string identifying this subscriber.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
-      - description: Which field to use when ordering the results.
-        in: query
-        name: ordering
-        required: false
-        schema:
-          type: string
+        - description: A UUID string identifying this subscriber.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: Which field to use when ordering the results.
+          in: query
+          name: ordering
+          required: false
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Subscriber'
+              $ref: "#/components/schemas/Subscriber"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Subscriber'
+              $ref: "#/components/schemas/Subscriber"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Subscriber'
+              $ref: "#/components/schemas/Subscriber"
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Subscriber'
-          description: ''
+                $ref: "#/components/schemas/Subscriber"
+          description: ""
       tags:
-      - Subscribers
+        - Subscribers
     put:
       operationId: Update an existing subscriber
       parameters:
-      - description: A UUID string identifying this subscriber.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
-      - description: Which field to use when ordering the results.
-        in: query
-        name: ordering
-        required: false
-        schema:
-          type: string
+        - description: A UUID string identifying this subscriber.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: Which field to use when ordering the results.
+          in: query
+          name: ordering
+          required: false
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Subscriber'
+              $ref: "#/components/schemas/Subscriber"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Subscriber'
+              $ref: "#/components/schemas/Subscriber"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Subscriber'
+              $ref: "#/components/schemas/Subscriber"
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Subscriber'
-          description: ''
+                $ref: "#/components/schemas/Subscriber"
+          description: ""
       tags:
-      - Subscribers
+        - Subscribers
   /v1/subscribers/{id}/emails/{email_id}:
     post:
-      description: This endpoint is currently in closed beta. If you're interested
+      description:
+        This endpoint is currently in closed beta. If you're interested
         in using it, please [email me](mailto:justin@buttondown.email) to tell me
         more about your use case!
       operationId: Send an email to an active subscriber
       parameters:
-      - description: A UUID string identifying this subscriber.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
-      - description: ''
-        in: path
-        name: email_id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this subscriber.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: ""
+          in: path
+          name: email_id
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SendEmail'
+              $ref: "#/components/schemas/SendEmail"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/SendEmail'
+              $ref: "#/components/schemas/SendEmail"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/SendEmail'
+              $ref: "#/components/schemas/SendEmail"
       responses:
-        '201':
+        "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SendEmail'
-          description: ''
+                $ref: "#/components/schemas/SendEmail"
+          description: ""
       tags:
-      - Subscribers
+        - Subscribers
   /v1/tags:
     get:
       operationId: List all tags
       parameters:
-      - description: A page number within the paginated result set.
-        in: query
-        name: page
-        required: false
-        schema:
-          type: integer
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
@@ -1155,12 +1170,12 @@ paths:
                     type: string
                   results:
                     items:
-                      $ref: '#/components/schemas/SubscriberTag'
+                      $ref: "#/components/schemas/SubscriberTag"
                     type: array
                 type: object
-          description: ''
+          description: ""
       tags:
-      - Tags
+        - Tags
     post:
       operationId: Create a new tag
       parameters: []
@@ -1168,125 +1183,125 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SubscriberTag'
+              $ref: "#/components/schemas/SubscriberTag"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/SubscriberTag'
+              $ref: "#/components/schemas/SubscriberTag"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/SubscriberTag'
+              $ref: "#/components/schemas/SubscriberTag"
       responses:
-        '201':
+        "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SubscriberTag'
-          description: ''
+                $ref: "#/components/schemas/SubscriberTag"
+          description: ""
       tags:
-      - Tags
+        - Tags
   /v1/tags/{id}:
     delete:
       operationId: Delete a tag
       parameters:
-      - description: A UUID string identifying this subscriber tag.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this subscriber tag.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       responses:
-        '204':
-          description: ''
+        "204":
+          description: ""
       tags:
-      - Tags
+        - Tags
     get:
       operationId: Retrieve an existing tag
       parameters:
-      - description: A UUID string identifying this subscriber tag.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this subscriber tag.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SubscriberTag'
-          description: ''
+                $ref: "#/components/schemas/SubscriberTag"
+          description: ""
       tags:
-      - Tags
+        - Tags
     patch:
       operationId: Partially update an existing tag
       parameters:
-      - description: A UUID string identifying this subscriber tag.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this subscriber tag.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SubscriberTag'
+              $ref: "#/components/schemas/SubscriberTag"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/SubscriberTag'
+              $ref: "#/components/schemas/SubscriberTag"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/SubscriberTag'
+              $ref: "#/components/schemas/SubscriberTag"
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SubscriberTag'
-          description: ''
+                $ref: "#/components/schemas/SubscriberTag"
+          description: ""
       tags:
-      - Tags
+        - Tags
     put:
       operationId: Update an existing tag
       parameters:
-      - description: A UUID string identifying this subscriber tag.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this subscriber tag.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SubscriberTag'
+              $ref: "#/components/schemas/SubscriberTag"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/SubscriberTag'
+              $ref: "#/components/schemas/SubscriberTag"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/SubscriberTag'
+              $ref: "#/components/schemas/SubscriberTag"
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SubscriberTag'
-          description: ''
+                $ref: "#/components/schemas/SubscriberTag"
+          description: ""
       tags:
-      - Tags
+        - Tags
   /v1/unsubscribers:
     get:
       operationId: List unsubscribers
       parameters:
-      - description: A page number within the paginated result set.
-        in: query
-        name: page
-        required: false
-        schema:
-          type: integer
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
@@ -1306,62 +1321,68 @@ paths:
                     type: string
                   results:
                     items:
-                      $ref: '#/components/schemas/Subscriber'
+                      $ref: "#/components/schemas/Subscriber"
                     type: array
                 type: object
-          description: ''
+          description: ""
       tags:
-      - Unsubscribers
+        - Unsubscribers
   /v1/unsubscribers/{id}:
     get:
       operationId: Retrieve a specific unsubscriber
       parameters:
-      - description: A UUID string identifying this subscriber.
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
+        - description: A UUID string identifying this subscriber.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Subscriber'
-          description: ''
+                $ref: "#/components/schemas/Subscriber"
+          description: ""
       tags:
-      - Unsubscribers
+        - Unsubscribers
 tags:
-- description: Miscellaneous API endpoints that don't belong anywhere else.
-  name: Miscellany
-- description: Subscribers are the main way you collect email addresses and recipients
-    on Buttondown.
-  name: Subscribers
-- description: Emails are what you're for here on Buttondown at the end of the day,
-    right? Creating an email via the API is just like creating one in the interface;
-    it will instantly trigger sending actual emails, based on the tags and email type
-    you provide.
-  name: Emails
-- name: Tags
-- description: Scheduled emails are analogous to, well, [scheduled emails](https://buttondown.email/emails/scheduled);
-    emails that you create to be sent at some point in the future. Depending on your
-    integration, it might make more sense for you to create scheduled emails ahead
-    of time rather than wait to create an email at exactly the time you want it going
-    out (and, just like emails scheduled via Buttondown's UI, scheduled emails created
-    via the API will automatically be sent out without requiring any further intervention.)
-  name: Scheduled emails
-- description: It's mostly a historical quirk that these API methods exist on their
-    own and not alongside your general Subscriber methods.
-  name: Unsubscribers
-- description: Images are, well, images! Buttondown allows you to upload images to
-    its secure [S3](https://aws.amazon.com/s3/) bucket and do with them what you will.
-    This is sort of an odd duck of an API, to be sure, but if you want to be able
-    to do things like draft and send emails completely on your iPad you need a surefire
-    way of creating images.
-  name: Images
-- description: Please note that this group of endpoints is currently in closed beta!
-    If you're interested in programmatically managing your newsletters, please [email
-    me](mailto:justin@buttondown.email).
-  name: Newsletters
-- description: Drafts are analogous to, well, [drafts](https://buttondown.email/emails/drafts).
-  name: Drafts
+  - description: Miscellaneous API endpoints that don't belong anywhere else.
+    name: Miscellany
+  - description:
+      Subscribers are the main way you collect email addresses and recipients
+      on Buttondown.
+    name: Subscribers
+  - description:
+      Emails are what you're for here on Buttondown at the end of the day,
+      right? Creating an email via the API is just like creating one in the interface;
+      it will instantly trigger sending actual emails, based on the tags and email type
+      you provide.
+    name: Emails
+  - name: Tags
+  - description:
+      Scheduled emails are analogous to, well, [scheduled emails](https://buttondown.email/emails/scheduled);
+      emails that you create to be sent at some point in the future. Depending on your
+      integration, it might make more sense for you to create scheduled emails ahead
+      of time rather than wait to create an email at exactly the time you want it going
+      out (and, just like emails scheduled via Buttondown's UI, scheduled emails created
+      via the API will automatically be sent out without requiring any further intervention.)
+    name: Scheduled emails
+  - description:
+      It's mostly a historical quirk that these API methods exist on their
+      own and not alongside your general Subscriber methods.
+    name: Unsubscribers
+  - description:
+      Images are, well, images! Buttondown allows you to upload images to
+      its secure [S3](https://aws.amazon.com/s3/) bucket and do with them what you will.
+      This is sort of an odd duck of an API, to be sure, but if you want to be able
+      to do things like draft and send emails completely on your iPad you need a surefire
+      way of creating images.
+    name: Images
+  - description:
+      Please note that this group of endpoints is currently in closed beta!
+      If you're interested in programmatically managing your newsletters, please [email
+      me](mailto:justin@buttondown.email).
+    name: Newsletters
+  - description: Drafts are analogous to, well, [drafts](https://buttondown.email/emails/drafts).
+    name: Drafts
