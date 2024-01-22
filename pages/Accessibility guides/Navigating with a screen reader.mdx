@@ -1,0 +1,50 @@
+---
+title: Navigating with a screen reader
+description: An overview of navigating the dashboard and documentation with a screen reader
+---
+
+import Layout from "../../components/Layout";
+import { H4, P, Code, Pre } from "../../components/Markdown";
+import Table from "../../components/Table";
+
+export const meta = {
+  title: "Navigating with a screen reader",
+  description:
+    "An overview of navigating the dashboard and documentation with a screen reader",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+If you have accessibility bugs to report, [contact Buttondown directly via email.](mailto:justin@buttondown.email)
+
+# Best configurations.
+
+Buttondown is an email newsletter service that allows you to start, and maintain, newsletters. While the dashboard does use conventional web design, there are certain screen reader configurations that will make your experience easier.
+
+Note that NVDA instructions are given below. Consult the [JAWS documentation](https://support.freedomscientific.com/Products/Blindness/JawsDocumentation) or other screen reader documentation to find the corresponding settings.
+
+## Disabling screen layout.
+
+On Buttondown, elements and links often appear very close together so disabling screen layout will aid in keeping track of these elements.
+
+To disable screen layout in NVDA,
+
+1. Press and hold Control, NVDA modifier key, insert or caps lock, then press B, to bring up the browse mode settings dialog box.
+2 Tab to the, use screen layout, checkbox. Uncheck it by pressing space, then tab to the okay button and press okay.
+
+## Dashboard navigation overview.
+
+After you login to your account, you will land on the emails view. This view contains a table of your emails that were drafted, sent, and more.
+
+If you wish to quickly navigate this list, press X, to navigate via checkboxes.
+
+The dashboard has links that lead to settings and other important account pages. The navigation menu doesn't have a navigation landmark, so the best way to navigate is to use your links key commands to jump through the links at the top of the page.
+
+## Settings overview.
+
+In the settings overview, you will find a wide array of edit boxes and buttons to control settings. The best way to navigate the settings screen is to enable forms mode, disabling browse mode, before navigating. There is one heading at the top of the page.
+
+One thing to note, picking a newsletter background and font color is currently not accessible to screen readers.
+
+There are certain multiline edit fields where the tab key doesn't let you escape the edit field. To bypass this, enable browse mode and navigate away from that edit field.
+
+When you are finished making changes, The save button is above the settings heading. To the left of the settings button is a reset button, just in case you want to revert changes.
