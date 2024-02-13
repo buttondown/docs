@@ -36,6 +36,10 @@ const NAVIGATION: Array<NavigationItem> = [
     icon: PresentationChartBarIcon,
     children: [
       {
+        name: "Quickstart",
+        href: "/getting-started/quickstart",
+      },
+      {
         name: "Registration & setup",
         href: "/getting-started/registration-and-setup",
       },
