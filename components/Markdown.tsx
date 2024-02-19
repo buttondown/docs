@@ -8,7 +8,8 @@ import classNames from "../lib/classNames";
 import slugify from "../lib/slugify";
 
 (typeof global !== "undefined" ? global : window).Prism = Prism;
-
+require("prismjs/components/prism-python");
+require("prismjs/components/prism-ruby");
 require("prismjs/components/prism-django");
 
 export const A = (props: any) => (
@@ -81,17 +82,24 @@ export const Li = (props: any) => <li className="text-lg" {...props} />;
 const isEmptyTrailingLine = (tokens: Array<any>, tokenIndex: number) =>
   tokenIndex === tokens.length - 1 && tokens[tokenIndex][0].empty;
 
-export const Code = ({ children, language, classes }: any) => {
+export const Code = (props: any) => {
+  const language = props.className
+    ? props.className.replace("language-", "")
+    : "json";
+
   return (
     <Highlight
       {...defaultProps}
       theme={theme}
-      code={children}
-      language={language || "json"}
+      code={props.children}
+      language={language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
-          className={classNames(className, "rounded", classes)}
+          className={classNames(
+            className,
+            "rounded overflow-x-scroll max-w-full"
+          )}
           style={{ ...style, padding: "20px" }}
         >
           {tokens.map(
@@ -112,7 +120,5 @@ export const Code = ({ children, language, classes }: any) => {
 
 export const Pre = (props: any) => <div {...props} />;
 export const InlineCode = (props: any) => (
-  <span className="bg-gray-300 font-mono p-0.5 rounded">
-    `{props.children}`
-  </span>
+  <span className="bg-gray-200 font-mono p-0.5 rounded">{props.children}</span>
 );

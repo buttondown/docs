@@ -19,9 +19,21 @@ Buttondown uses a lot of terms. Here's all of them — defined.
 
 API stands for "application programming interface". It's a way for software to talk to other software. Buttondown has an API that allows you to programmatically send emails, manage subscribers, and more.
 
+### Attachment
+
+An attachment is a file that you can add to an email. Buttondown supports attachments in a variety of formats, including PDFs, images, and videos.
+
+### CAC
+
+CAC stands for "customer acquisition cost". It's a metric that measures how much it costs to acquire a new customer.
+
 ### CAN-SPAM Act
 
 The CAN-SPAM Act is a law that regulates commercial email. It's a federal law, and it's enforced by the Federal Trade Commission. Buttondown is compliant with the CAN-SPAM Act.
+
+### CPM
+
+CPM stands for "cost per mille". It's a metric that measures how much it costs to reach 1,000 people with an ad.
 
 ### CSV
 
@@ -34,9 +46,21 @@ justin@buttondown.email,justin,duke
 telly@buttondown.email,telemachus,duke
 ```
 
+### Dedicated IP
+
+A dedicated IP is an IP address that is used exclusively by one sender.
+
 ### DKIM
 
 DomainKeys Identified Mail, or DKIM, is a technology used to authenticate email by verifying the sending domain and ensuring that the message has not been tampered with in transit. DKIM is also used to protect against spam by verifying that the message was sent from an authorised email server.
+
+### Double opt-in
+
+Double opt-in is a process that requires a subscriber to confirm their subscription before they can receive emails from you. It's a way to ensure that subscribers are actually interested in your content.
+
+### Drip sequence
+
+Also known as a "welcome sequence" or "automation", a drip sequence is a series of emails automatically sent to a new subscriber over a period of time. For example, you might send a welcome email to a new subscriber, followed by a series of emails that introduce them to your content (one after a day, one after a week, etc.).
 
 ### Email
 
@@ -64,6 +88,10 @@ Metadata is an attribute shared by both emails and subscribers: it is a key-valu
 
 "Sending domain" (as opposed to "hosting domain", defined above) is a domain that you own and use to send emails.
 
+### Single opt-in
+
+Single opt-in is a process that allows a subscriber to sign up for your list without having to confirm their subscription.
+
 ### SPF
 
 SPF (Sender Policy Framework) is a type of email authentication that verifies the sender of an email. It does this by checking the sending server's SPF record to see if it matches the domain name in the "From" header of the message. If it doesn't match, then the email is likely fake and can be filtered out. SPF is also used to prevent unauthorized senders from using your domain name in their messages.
@@ -75,3 +103,16 @@ A subscriber is an individual who has signed up to receive your emails. Buttondo
 ### Transactional email
 
 A transactional email is an email that is sent to a subscriber in response to an action they've taken. For example, if a subscriber signs up to your list, you might send them a welcome email. That's a transactional email. If you send an email to your subscribers every week, that's not a transactional email.
+
+### Webhooks
+
+**[Webhooks](https://docs.buttondown.email/api-reference/events-and-webhooks) are useful tools that can automate workflows between two or more apps. When a webhook is triggered by a specific event in one app, it will automatically complete an action in another app.**
+
+The sky’s the limit when it comes to using webhooks to automate Buttondown workflows. Whether you’re looking to sync your subscribers or contents with Notion, grow your subscriber base through [Linktree](https://docs.buttondown.email/integrations/linktree), or create a community for your subscribers on Slack, webhooks are an incredibly useful way to connect Buttondown with your other favorite apps.
+
+So, how do you create a webhook? Buttondown integrates seamlessly with [Zapier](https://zapier.com/), a paid platform that guides users through the process of generating webhooks. Check out our [Linktree](https://docs.buttondown.email/integrations/linktree) guide for an in-depth example of how to get started.
+
+### Webmentions
+
+Webmentions are a way for websites to notify each other when they link to each other. They're a way to let people know that you've linked to them, and they're a way to let people know that they've linked to you. Buttondown supports webmentions,
+and you can read more about them [here](https://webmention.io/).

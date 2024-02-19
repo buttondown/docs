@@ -59,10 +59,6 @@ const recursivelyCompilePosts = function* (root) {
   }
 };
 
-export default function compileSearchResults() {
-  return;
-}
-
 const results = Array.from(recursivelyCompilePosts(PAGES_DIRECTORY));
 const serializeContent = (content) => JSON.stringify(content, null, 2);
 fs.writeFile(OUTPUT_FILENAME, serializeContent(results), function (err) {

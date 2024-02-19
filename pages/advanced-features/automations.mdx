@@ -1,0 +1,170 @@
+---
+title: Automations
+description: Explanation of how to use the automations feature in Buttondown
+---
+
+import Layout from "../../components/Layout";
+import Notice from "../../components/Notice";
+
+export const meta = {
+  title: "Automations",
+  description:
+    "Explanation of how to use the automations feature in Buttondown",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Automations
+
+<Notice variant="info">
+  Automations are only available on Standard plans or higher.
+</Notice>
+
+Automations are tools that can help you grow and tend your subscriber base—all without lifting a finger! They run behind the scenes to deploy “Welcome” emails to new subscribers, schedule follow-up surveys for existing subscribers, edit subscriber tags and metadata, and more. Read on to discover how automations can help you to streamline your Buttondown workflow.
+
+## Getting Started
+
+Ready to explore the exciting world of automations? All you need is a [paid](https://buttondown.email/pricing) Buttondown account.
+
+## Understanding Automations
+
+There are four key components to any automation: A trigger, a filter, a time, and an action.
+
+- A **trigger** sparks the start of an automated sequence.
+
+- Once the automation’s set in motion, a **filter** determines if that automation meets certain requirements.
+
+- If the filter’s requirements are met, the automation schedules a **time** to perform an action, whether it’s immediately following the trigger or after some time has passed.
+
+- When the time is right, the automation’s end result—an **action**—is performed.
+
+If we put all these pieces together, an automated sequence might look something like this.
+
+![Sample automation](/images/visualizations/automations_visualization.png)
+
+Now let’s put each of these components into practice.
+
+## Using Automations
+
+### Create a new automation
+
+We’ll start in the “[Automations](https://buttondown.email/automations)” tab of your Buttondown dashboard. Toggle to the “New” button to create your first automation. Don’t forget to name it!
+
+<video
+  src="/images/automations-images/automations_create-automation.mp4"
+  controls
+></video>
+
+### Select a trigger
+
+Next, it’s time to choose a trigger to set off the automation process. There are four possible trigger options, including:
+
+- When a subscriber confirms their subscription
+
+- When a subscriber becomes a paid subscriber
+
+- When a subscriber clicks a link in an email
+
+- When a subscriber responds to a survey
+
+Let’s go with “When a subscriber confirms their subscription” for this example.
+
+<video
+  src="/images/automations-images/automations_select-trigger.mp4"
+  controls
+></video>
+
+### Add a filter
+
+Do you want your automation to apply to all subscribers, or only to subscribers who meet certain requirements? If it’s the former, feel free to skip over this section. If it’s the latter, then click the option to add a new filter. Filters can comb through subscriber tags, metadata, types (e.g. regular, paid, gifted, unsubscribed), or payment tiers.
+
+In this example, we’ll filter for new subscribers who found your newsletter via Linktree, as marked by the “Linktree” tag.
+
+<video
+  src="/images/automations-images/automations_specify-filter.mp4"
+  controls
+></video>
+
+You can add as many filters as you like, but note that any given subscriber must meet all your requirements in order for the automation to work.
+
+### Schedule a time
+
+Automations can either run immediately or after a specified number of minutes, hours, days, or weeks. We’ll go with “Immediately” in this case.
+
+<video
+  src="/images/automations-images/automations_schedule-time.mp4"
+  controls
+></video>
+
+### Choose an action
+
+We’ve been building up to this moment! Now it’s time to decide what the end result of your automation will be. You can set up your “Action” to:
+
+- Send a custom, archived, or recent email
+
+- Add or remove tags
+
+- Add metadata
+
+Here’s an example of a custom “Welcome” email that you might send to a new subscriber.
+
+<video
+  src="/images/automations-images/automations_customize-action.mp4"
+  controls
+></video>
+
+### Send a test email
+
+Our automation’s almost finished! All that’s left to do is test it out. Once you click “Send test email,” you’ll receive a preview email like the one below.
+
+<video
+  src="/images/emails/automations_sample-email-in-inbox.mp4"
+  controls
+></video>
+
+Preview email looking good? If so, go ahead and click “Create” to publish your automation. Take a moment to kick back, relax, and let the automation do its thing!
+
+## Going Above & Beyond
+
+### Schedule reminders
+
+Looking for a way to boost engagement for your newsletter? Share your archives with new subscribers by scheduling an automated email.
+
+<video
+  src="/images/automations-images/automations_reminder-automation-example.mp4"
+  controls
+></video>
+
+### Deploy surveys
+
+Want to know what you’re doing right—or wrong—with your newsletter? Send [surveys](https://docs.buttondown.email/advanced-features/surveys) to find out! You can do so by setting your automation “Action” to a custom email with a [survey code](https://docs.buttondown.email/advanced-features/surveys).
+
+<video
+  src="/images/automations-images/automations_survey-example.mp4"
+  controls
+></video>
+
+Here's what that sample survey email might look like.
+
+<video
+  src="/images/emails/automations_email-survey-example.mp4"
+  controls
+></video>
+
+### Add tags and metadata
+
+[Tags](https://docs.buttondown.email/advanced-features/tags) and [metadata](https://docs.buttondown.email/advanced-features/metadata) come in handy for organizing your subscriber base. Let’s say you want to make a note that a subscriber responds to one of your surveys. You can do so by setting your automation’s trigger as “When a subscriber responds to a survey,” and your action as “Add metadata.”
+
+<video
+  src="/images/automations-images/automations_metadata-example.mp4"
+  controls
+></video>
+
+Pro tip: It’s best to use underscores instead of hyphens when naming your metadata keys, as hyphens may result in syntax errors down the line.
+
+### Send RSS to email
+
+Want to automatically update your subscribers every time you publish a new piece of content? Our “[RSS-to-Email](https://docs.buttondown.email/advanced-features/rss-to-email)” doc is the perfect place to learn more about setting up an RSS automation!
+
+### Explore automations
+
+Check out our "[Automations Reference](https://docs.buttondown.email/odds-and-ends/automations-reference)" page for a broader overview of automations (along with even more examples for how you can use them!).

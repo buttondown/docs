@@ -1,0 +1,220 @@
+{
+  "Webhook": [
+    {
+      "description": "Basic webhook",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "url": "https://example.com",
+        "description": "Register in remote database every time we get a new subscriber",
+        "event": "subscriber.created"
+      }
+    }
+  ],
+  "Comment": [
+    {
+      "description": "Basic comment",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "subscriber_id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "email_id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "body": "I really liked this email!",
+        "parent_id": "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+      }
+    }
+  ],
+  "ExternalFeed": [
+    {
+      "description": "Basic automation",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "status": "active",
+        "behavior": "emails",
+        "cadence": "every",
+        "subject": "New post: {{ item.title }}",
+        "body": "I just published a new post: {{ item.url }}"
+      }
+    }
+  ],
+  "Subscriber": [
+    {
+      "description": "Basic subscriber",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "email": "user@example.com",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "metadata": {
+          "foo": "bar"
+        },
+        "notes": "",
+        "referrer_url": "http://jmduke.com",
+        "secondary_id": 3,
+        "source": "api",
+        "subscriber_type": "regular",
+        "tags": [],
+        "utm_campaign": "",
+        "utm_medium": "",
+        "utm_source": ""
+      }
+    }
+  ],
+  "Export": [
+    {
+      "description": "Basic export",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "completion_date": "2019-08-24T15:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "url": "s3://buttondown/path-to-export",
+        "status": "completed"
+      }
+    }
+  ],
+  "Analytics": [
+    {
+      "description": "Basic analytics response",
+      "object": {
+        "recipients": 100,
+        "deliveries": 99,
+        "opens": 50,
+        "clicks": 25,
+        "temporary_failures": 1,
+        "permanent_failures": 2,
+        "unsubscriptions": 3,
+        "complaints": 1
+      }
+    }
+  ],
+  "Email": [
+    {
+      "description": "Basic email",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "publish_date": "2024-08-24T14:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "body": "Lorem ipsum yadda yadda",
+        "subject": "This is my first email on Buttondown!",
+        "excluded_tags": [],
+        "included_tags": [],
+        "email_type": "public",
+        "status": "sent",
+        "metadata": {},
+        "secondary_id": 3,
+        "external_url": "https://buttondown.email/jmduke/my-first-email"
+      }
+    },
+    {
+      "description": "Basic draft",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "body": "Lorem ipsum yadda yadda",
+        "subject": "This is my first email on Buttondown!",
+        "excluded_tags": [],
+        "included_tags": [],
+        "status": "draft",
+        "email_type": "public",
+        "metadata": {},
+        "secondary_id": 3,
+        "external_url": "https://buttondown.email/jmduke/my-first-email"
+      }
+    },
+    {
+      "description": "Basic scheduled email",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "publish_date": "2024-08-24T14:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "body": "Lorem ipsum yadda yadda",
+        "subject": "This is my first email on Buttondown!",
+        "excluded_tags": [],
+        "included_tags": [],
+        "status": "scheduled",
+        "email_type": "public",
+        "metadata": {},
+        "secondary_id": 3,
+        "external_url": "https://buttondown.email/jmduke/my-first-email"
+      }
+    }
+  ],
+  "Newsletter": [
+    {
+      "description": "Basic newsletter",
+      "object": {
+        "api_key": "7f819f8f-8220-4dcd-b7e3-37c81ead8b7a",
+        "creation_date": "2019-08-24T14:15:22Z",
+        "description": "I write about corgis and Python and lifting and all sorts of stuff!",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "name": "Justin's neat newsletter",
+        "username": "jmduke",
+        "footer": "Thanks, as always, for reading!",
+        "header": "Howdy, gang!",
+        "tint_color": "#0069FF",
+        "from_name": "Justin Duke"
+      }
+    }
+  ],
+  "Image": [
+    {
+      "description": "Basic image",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "image": "string"
+      }
+    }
+  ],
+  "Tag": [
+    {
+      "description": "Basic tag",
+      "object": {
+        "color": "string",
+        "creation_date": "2019-08-24T14:15:22Z",
+        "description": "string",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "name": "string"
+      }
+    }
+  ],
+  "BulkAction": [
+    {
+      "description": "Basic bulk action",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "completion_date": "2019-08-24T14:17:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "status": "completed",
+        "type": "delete_subscribers",
+        "metadata": {
+          "ids": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"]
+        }
+      }
+    },
+    {
+      "description": "Bulk action to apply tags (which has a slightly different payload)",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "completion_date": "2019-08-24T14:17:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "status": "completed",
+        "type": "apply_tags",
+        "metadata": {
+          "tag": "4931-4f5c-9b5b-2c9f6c9f6c9f",
+          "action": "add",
+          "ids": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"]
+        }
+      }
+    }
+  ],
+  "ErrorMessage": [
+    {
+      "description": "Basic error",
+      "object": {
+        "code": "something_went_wrong",
+        "detail": "Your call is very important to us."
+      }
+    }
+  ]
+}

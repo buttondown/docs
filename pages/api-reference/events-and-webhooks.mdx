@@ -5,7 +5,7 @@ description: How to get a full lens of your Buttondown newsletter through struct
 
 import Layout from "../../components/Layout";
 import Table from "../../components/Table";
-import EVENT_TYPES from "./event_types.json";
+import OpenAPIEnums from "../../lib/openapi/enums.json";
 
 export const meta = {
   title: "Events & webhooks",
@@ -33,5 +33,5 @@ The payload of most events are fairly simple, and look something like this:
 
 <Table
   columns={[{ title: "Event type", key: "name" }, { title: "description" }]}
-  content={EVENT_TYPES}
+  content={Object.values(OpenAPIEnums["EventType"])}
 />

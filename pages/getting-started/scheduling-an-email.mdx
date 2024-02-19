@@ -1,5 +1,5 @@
 ---
-title: Scheduling an email
+title: Scheduling an Email
 description: A step-by-step guide through sending your email at a later date
 ---
 
@@ -7,27 +7,56 @@ import Layout from "../../components/Layout";
 import { H4, P } from "../../components/Markdown";
 
 export const meta = {
-  title: "Scheduling an email",
+  title: "Scheduling an Email",
   description:
     "A step-by-step guide through sending your email at a later date",
 };
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
-# Scheduling an email
+# Scheduling an Email
 
-Scheduling an email is easy and — well, not _fun_, but not _not_ fun.
+Can Buttondown see the future? Sadly, no. But we do know one thing for certain—that your scheduled emails will be sent at the exact date and time that you wish. Read on to learn more about how you can schedule and send your email.
 
-1. Click the "_Sending immediately_" button in the Write view to choose a time at which to send your email.
-2. When you're ready to send the email, click the blue "_Schedule to your subscribers_" button to set a time to schedule it!
+## Getting Started
 
-**Note**: Your email will not be scheduled until you confirm your schedule by hitting that big blue button in step two! This trips up a lot of people; for that I apologize.
+To set this in motion, you’ll need:
 
-![A screenshot of the Write page, mid-scheduling.](/images/scheduling.png)
+- An email [draft](https://docs.buttondown.email/getting-started/registration-and-setup#draft-your-first-newsletter) that’s reviewed and ready to go
 
-## FAQs
+- A [subscriber base](https://docs.buttondown.email/getting-started/building-your-subscriber-base) that’s excited for new content (Need to import your subscribers? Our “[Registration & Setup](https://docs.buttondown.email/getting-started/registration-and-setup#import-your-subscribers)” page will walk you through it)
 
-### If I schedule an email for next week, will it go out to subscribers who have joined between now and then?
+Now we're ready to go.
 
-Yes!
+## Configuring Your Email
 
-The “send to 1239 subscribers” (or maybe more — or maybe less — who am I to judge?) count appearing in the interface is an estimate, not a sacrosanct guideline. If you schedule an email for two weeks from now, that email will still send to folks who have subscribed between now and then, not just the 1239 who exist right once you hit the button. (Think of it as the computer equivalent of you manually logging in and going and hitting send — nothing gets set in stone!)
+### Determine your recipients
+
+Do you want to send your email to your entire subscriber base, or only to a specific segment of your subscriber base? If it’s the latter, this is where [tags](https://docs.buttondown.email/api-reference/tags) come in handy.
+
+Let’s say that you’ve assigned tags according to how subscribers signed up for your email, and that you only want to send this particular email to subscribers who signed up through Linktree. Click the “Tags” button at the bottom of your email, and a list of your assigned tags will appear. From here, click “Linktree,” followed by “Save.”
+
+<video src="/images/email-interface/scheduling-email_pop-up-for-selecting-tags_AdobeExpress.mp4" controls></video>
+
+Choose as many tags as you’d like! Your email will go out to any and all subscribers with the selected tags.
+
+Fun Fact: Even if you schedule your email to send days or weeks later, that email will also go out to any new subscribers who sign up (and are given the appropriate tags) between now and then.
+
+### Set your target date and time
+
+Buttondown can schedule your email to send whenever you like—as long as it’s in the future. To set a specific date and time, click the “Scheduling” button at the bottom of your email draft. Fill in your target date and time, and double check that your time zone is correct before clicking “Save.”
+
+<video src="/images/email-interface/scheduling-email_pop-up-for-selecting-date-and-time.mp4" controls></video>
+
+You’re almost there! Only one more step, which is…
+
+### Don't forget to click send
+
+Make sure you click “Send” in the bottom right corner before exiting your draft. Don’t worry—your email won’t actually send until the date and time you specified in the “Scheduling” pop-up.
+
+<video src="/images/email-interface/scheduling-email_click-send.mp4" controls></video>
+
+You’ll see a congratulatory pop-up with buttons to share your email via social media or a copy-and-paste-able URL. And, in case of emergency, you’ll also have an option to “Undo” sending your email.
+
+### Sit back and relax
+
+You did it! Now you won’t even need to see the future to know that your email will be sent and published just as you scheduled it.

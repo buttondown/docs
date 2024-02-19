@@ -6,6 +6,7 @@ import { Fragment } from "react";
 
 import icon from "../../public/images/icon@72.png";
 import Search from "../Search/Search";
+import SearchButton from "../Search/SearchButton";
 import NAVIGATION from "./NavigationHierarchy";
 import SidebarLink from "./SidebarLink";
 
@@ -90,10 +91,7 @@ export default function Sidebar({
                   </div>
                 </div>
                 <div className="bg-gray-800 px-2 space-y-1 pt-4 text-gray-400">
-                  <Search
-                    setSearchOpen={setSearchOpen}
-                    searchOpen={searchOpen}
-                  />
+                  <SearchButton setSearchOpen={setSearchOpen} />
                 </div>
                 <div className="mt-5 flex-1 h-0 overflow-y-auto">
                   <nav className="px-2 space-y-1">
@@ -125,7 +123,7 @@ export default function Sidebar({
                 </div>
               </div>
               <div className="bg-gray-800 px-2 space-y-1 pt-4 text-gray-400">
-                <Search setSearchOpen={setSearchOpen} searchOpen={searchOpen} />
+                <SearchButton setSearchOpen={setSearchOpen} />
               </div>
               <nav className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
                 {NAVIGATION.map((i) => SidebarLink(router, i))}
@@ -134,6 +132,8 @@ export default function Sidebar({
           </div>
         </div>
       </div>
+
+      <Search setSearchOpen={setSearchOpen} searchOpen={searchOpen} />
     </>
   );
 }

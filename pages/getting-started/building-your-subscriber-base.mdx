@@ -1,5 +1,5 @@
 ---
-title: Building your subscriber base
+title: Building Your Subscriber Base
 description: Tips and resources for growing your subscribers and imbuing them with data
 ---
 
@@ -12,13 +12,13 @@ import ConditionallyRender from "../../components/ConditionallyRender";
 export const username = getCookie("newsletter_username") || "<your username>";
 
 export const meta = {
-  title: "Building your subscriber base",
+  title: "Building Your Subscriber Base",
   description:
     "Tips and resources for growing your subscribers and imbuing them with data",
 };
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
-# Building your subscriber base
+# Building Your Subscriber Base
 
 There are _three_ main ways you can grow your subscriber base without writing a single line of code:
 
@@ -70,7 +70,7 @@ Below is an example of a basic form using this endpoint:
   <input
     type="email"
     name="email"
-    placeholder="you@gmail.com"
+    placeholder="you@example.com"
   />
   <input type="hidden" value="1" name="embed" />
   <input type="submit" value="Subscribe" />
@@ -99,7 +99,9 @@ If you want a seamless, pre-styled way to include a subscription option on your 
     html={`<iframe
     scrolling="no"
     style="width:100%!important;height:220px;border:1px #ccc solid !important"
-    src="https://buttondown.email/${username}?as_embed=true"
+    src="https://buttondown.email/${
+      username === "<your username>" ? "weeknotes" : username
+    }?as_embed=true"
 ></iframe>
 `}
   />
@@ -143,16 +145,16 @@ will do the right thing (including automatically creating a tag with the given n
   <input
     type="email"
     name="email"
-    placeholder="you@gmail.com"
-  />
+    placeholder="you@example.com"
+  //>
   <label for="email">Pokemon</label>
   <br />
-  <input type="radio" id="Squirtle" name="tag" value="Squirtle">
+  <input type="radio" id="Squirtle" name="tag" value="Squirtle" />
   <label for="Squirtle">Squirtle</label>
-  <input type="radio" id="Bulbasaur" name="tag" value="Bulbasaur">
+  <input type="radio" id="Bulbasaur" name="tag" value="Bulbasaur" />
   <label for="Bulbasaur">Bulbasaur</label>
-  <input type="radio" id="Charmander" name="tag" value="Charmander">
-  <label for="Charmander">Charmander</label><br>
+  <input type="radio" id="Charmander" name="tag" value="Charmander" />
+  <label for="Charmander">Charmander</label><br />
   <br />
   <input type="hidden" value="1" name="embed" />
   <input type="submit" value="Subscribe" />
@@ -213,7 +215,7 @@ Another example playground is below:
   <input
     type="email"
     name="email"
-    placeholder="you@gmail.com"
+    placeholder="you@example.com"
   />
   <label for="first-name">First name</label>
   <input
@@ -235,7 +237,7 @@ Another example playground is below:
 
 ## Automatically sending an email to new subscribers
 
-You can do this by going to your [Subscribing settings page](https://buttondown.email/settings) and checking out the section entitled **I'd like to send my new subscribers...**:
+You can do this by going to your [settings page](https://buttondown.email/settings) and checking out the section entitled **Welcome**:
 
 ![A screenshot of the Subscribing settings page.](/images/subscribing.png)
 

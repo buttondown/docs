@@ -1,0 +1,62 @@
+---
+title: Getting a Custom Domain
+description: A step-by-step guide through chosing a custom domain
+---
+
+import Layout from "../../components/Layout";
+
+# Getting a Custom Domain
+
+## Why would you want a custom domain?
+
+There are two reasons you'd want a custom domain for your newsletter:
+
+1. To _send_ from your custom domain. This means that the email Buttondown sends comes from your domain rather than Buttondown's; it improves your deliverability and means your subscribers will be looking for your email even if you end up using another newsletter service other than Buttondown.
+
+2. To _host_ archives on your custom domain. This is useful for building a distinct brand and presence for your newsletter on the web instead of using "buttondown.email/yourusername".
+
+## How much does a custom domain cost?
+
+The answer, as always, is "it depends". Domains on their own generally cost around $10—$20 annually; rare or in-demand domains can cost much, much more than that.
+
+## Choosing a domain name
+
+When choosing a custom domain for your website or online project, here are a few things to consider:
+
+1. Choose a domain that is short, easy to remember, and relevant to your business or project. Avoid using hyphens or numbers, as these can be confusing and harder to remember.
+
+2. Check to see if the domain you want is available. You can do this by using a domain name registrar or checking the WHOIS database.
+
+3. Consider purchasing multiple variations of the domain, such as the .com, .net, and .org versions, to protect your brand and prevent others from using similar names.
+
+4. Be aware of any potential trademark issues. Make sure you are not using a domain that infringes on someone else's trademark or intellectual property rights.
+
+5. Think about the long-term. Choose a domain that you will be happy with for the foreseeable future, as it can be costly and time-consuming to switch to a new domain later on.
+
+6. Consider the cost of the domain. Some domains can be expensive, particularly if they are in high demand or have premium features. Make sure you are willing to invest in the domain you choose.
+
+At the end of the day, I recommend finding a domain that is _as close to_ you or your newsletter's name as possible. This will make it easier for people to remember and find your newsletter, and improve the synergy between your newsletter and the domain on which its hosted.
+
+## Registering your domain
+
+Once you've got a domain name (or perhaps multiple names) in mind, it's time to actually purchase it! There are a number of different services — called "domain registrars" — which allow you to do this.
+
+If you already have a Google account, I recommend using [Google Domains](https://domains.google.com/). It hooks into your existing Google account and is easy to use.
+
+If you don't have a Google account, I recommend using [Namecheap](https://www.namecheap.com/). It's cheap, easy to use, and has a good reputation.
+
+Both services will prompt you for a domain name. If your top choice is available, it will let you purchase your domain (at what is hopefully a reasonable price!) and you're set. If not, they will suggest variations on that domain that may be available (perhaps with a different 'TLD', like .net instead of .com, or with some hyphens or additional words included.)
+
+## What's next?
+
+Now that you've got a custom domain, it's time to set it up with Buttondown! Read one of these articles to learn more:
+
+- [Sending from a custom domain](/getting-started/sending-from-a-custom-domain)
+- [Hosting on a custom domain](/getting-started/hosting-on-a-custom-domain)
+
+export const meta = {
+  title: "Hosting on a custom domain",
+  description:
+    "A step-by-step guide through setting up a custom domain to host your newsletter",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

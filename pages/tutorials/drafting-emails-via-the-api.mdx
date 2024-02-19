@@ -1,0 +1,269 @@
+﻿---
+title: Drafting Emails via the API
+description: An explanation of how to draft emails via the API.
+---
+
+import Layout from "../../components/Layout";
+import { MultiLanguageSnippet } from "../../components/api/Endpoint";
+
+export const meta = {
+  title: "Drafting Emails via the API",
+  description:
+    "An explanation of how to draft emails via the API.",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Drafting Emails via the API 
+
+Got a great idea for an email, and want to jot it down quickly? Buttondown’s API makes it possible to create a draft at the drop of a hat.
+
+One thing before we get going: It’s always a good idea to have our [API reference](https://docs.buttondown.email/api-reference/emails) doc on hand in case you need it!
+
+## Starting Your Draft
+
+Ready to put pen to paper? All you’ll need is a catchy subject line, a fun idea for your body text, and a few lines of code.
+
+<MultiLanguageSnippet
+    snippets={{
+        python:`
+import requests
+import json
+headers = {
+    "Authorization": f"Token #{API_KEY}"
+}
+base_url = "https://api.buttondown.email"
+endpoint = "/v1/emails"
+data = {
+    "subject": "My fantastic draft idea!",
+    "body": "Here's my amazing email draft!",
+    "status": "draft",
+}
+response = requests.post(
+    base_url + endpoint,
+    headers=headers,
+    data=json.dumps(data)
+).json()
+print(response)`, ruby: `
+require "HTTParty"
+require "json"
+response = HTTParty.post("https://api.buttondown.email/v1/emails",
+    body: {
+        subject: "My fantastic draft idea!",
+        body: "Here's my amazing email draft!",
+        status: "draft",
+    }.to_json,
+    headers: {
+        "Authorization" => "Token #{API_KEY}",
+        "Content-Type" => "application/json"
+        }
+    )
+    puts JSON.parse(response.body)
+    print(response)`, curl: `
+curl -X POST "https://api.buttondown.email/v1/emails" \
+-H "Authorization: Token {API_KEY}" \
+-H "Content-Type: application/json" \
+-d '{
+    "subject": "My fantastic draft idea!",
+    "body": "Here is my amazing email draft!",
+    "status": "draft"
+    }' `
+}}
+/>
+
+### Parameters
+
+Drafts follow a similar set of parameters as [regular emails](https://docs.buttondown.email/api-reference/emails), with just one exception: The “Status” must be set as “Draft.”
+
+### Results
+
+You’ve jotted down your draft—but how do you know if your API request was successful? Here are three ways to check:
+  
+-   Visit the [API reference](https://buttondown.email/requests) tab of your Buttondown dashboard.
+    
+-   Compare your response to the ones listed in our [API reference doc](https://docs.buttondown.email/api-reference/emails).
+    
+- Take a look at the “[Emails](https://buttondown.email/emails)” tab of your Buttondown dashboard. You should see your email “Status” listed as a “Draft.”
+
+
+!["Emails" tab in the Buttondown dashboard](/images/email-interface/draft-apis:emails-tab.png)
+
+
+## Retrieving Your Draft
+
+Want to see how your draft is shaping up? You can conjure it with an email ID, along with a few new lines of code.
+
+Before we get to the code, here are two ways to find your email ID:
+
+- Pinpoint your email ID in the response of your last successful request for that particular draft.
+- Mosey over to the “Emails” tab of your Buttondown dashboard, and click on the draft in question. From there, you can copy your email ID from the draft’s URL.
+
+![Sample draft in Buttondown's email interface](/images/email-interface/draft-apis:email-interface.png)
+
+Now you're ready to use the following code.
+
+<MultiLanguageSnippet
+    snippets={{
+        python:`
+import requests
+headers = {
+    "Authorization": f"Token #{API_KEY}"
+}
+BASE_URL = "https://api.buttondown.email"
+ENDPOINT = "/v1/emails/#{EMAIL_ID}"
+response = requests.get(f"{BASE_URL}{ENDPOINT}", headers=headers)
+print(response.json())`, ruby: `
+require "HTTParty"
+require "json"
+response = HTTParty.get("https://api.buttondown.email/v1/emails/#{EMAIL_ID}",
+    headers: {
+        "Authorization" => "Token #{API_KEY}",
+        "Content-Type" => "application/json"
+    }
+)
+JSON.parse(response.body)
+print(response)`, curl: `
+curl -X GET "https://api.buttondown.email/v1/emails/{EMAIL_ID}" \
+-H "Authorization: Token {API_KEY}"`
+}}
+/>
+
+## Editing Your Draft
+
+If the editing mood strikes, you can always update the body of your draft using the code below.
+
+<MultiLanguageSnippet
+    snippets={{
+        python:`
+import json
+import requests
+headers = {
+    "Authorization": f"Token #{API_KEY}"
+}
+data = {
+    "body": "These are my edits!"
+}
+base_url = "https://api.buttondown.email"
+endpoint = "/v1/emails/#{EMAIL_ID}"
+response = requests.patch(
+    base_url + endpoint,
+    headers=headers,
+    data=json.dumps(data)
+)
+print(response)`, ruby: `
+require "HTTParty"
+require "json"
+response = HTTParty.patch("https://api.buttondown.email/v1/emails/#{EMAIL_ID}",
+    body: {
+        body: "These are my edits!"
+    }.to_json,
+    headers: {
+        "Authorization" => "Token #{API_KEY}",
+        "Content-Type" => "application/json"
+    }
+)
+puts JSON.parse(response.body)
+print(response)`, curl: `
+curl -X PATCH "https://api.buttondown.email/v1/emails/{EMAIL_ID}" \
+-H "Authorization: Token {API_KEY}" \
+-d '{"body": "These are my edits!"}'
+`
+}}
+/>
+
+## Sending Your Draft
+
+Congratulations, your draft is ready to become a fully-fledged email! Go ahead and send it out with just a few more adjustments to your code.
+
+The main change will be to your draft’s “Status.” We’ll switch it from “Draft” to “About to Send.” Once you submit your request, Buttondown will automatically begin the process of sending your email.
+
+(Pro tip: If you spot a typo and want to undo sending your email, you’ll still have a few minutes to do so! All you need to do is change the “Status” back to “Draft.”)
+
+<MultiLanguageSnippet
+    snippets={{
+        python:`
+import json
+import requests
+headers = {
+    "Authorization": f"Token #{API_KEY}",
+}
+data = {
+    "status": "about_to_send",
+}
+base_url = "https://api.buttondown.email"
+endpoint = "/v1/emails/#{EMAIL_ID}"
+response = requests.patch(
+    base_url + endpoint,
+    headers=headers,
+    data=json.dumps(data)
+)
+print(response)`, ruby: `
+require "HTTParty"
+require "json"
+response = HTTParty.patch("https://api.buttondown.email/v1/emails/#{EMAIL_ID}",
+    body: {
+        status: "about_to_send"
+    }.to_json,
+    headers: {
+        "Authorization" => "Token #{API_KEY}",
+        "Content-Type" => "application/json"
+    }
+)
+puts JSON.parse(response.body)
+print(response)`, curl: `
+curl -X PATCH "https://api.buttondown.email/v1/emails/{EMAIL_ID}" \
+-H "Authorization: Token {API_KEY}" \
+-d '{"status": "about_to_send"}'`
+}}
+/>
+
+## Scheduling Your Draft
+
+If you’d rather wait a bit to send your draft, you can simply change your draft “Status” to “Scheduled” instead. You’ll also need to add a “Publish date” in the following format: “YYYY-MM-DDTHH:MM:SSZ.”
+
+<MultiLanguageSnippet
+    snippets={{
+        python:`
+import json
+import requests
+headers = {
+    "Authorization": f"Token #{API_KEY}",
+}
+data = {
+    "status": "scheduled",
+    "publish_date": "2027-08-24T14:15:22Z",
+}
+base_url = "https://api.buttondown.email"
+endpoint = "/v1/emails/#{EMAIL_ID}"
+response = requests.patch(
+    base_url + endpoint,
+    headers=headers,
+    data=json.dumps(data)
+)
+print(response)`, ruby: `
+require "HTTParty"
+require "json"
+response = HTTParty.patch("https://api.buttondown.email/v1/emails/#{EMAIL_ID}",
+    body: {
+        status: "scheduled",
+        publish_date: "2027-08-24T14:15:22Z"
+    }.to_json,
+    headers: {
+        "Authorization" => "Token #{API_KEY}",
+        "Content-Type" => "application/json"
+    }
+)
+puts JSON.parse(response.body)
+print(response)`, curl: `
+curl -X PATCH "https://api.buttondown.email/v1/emails/{EMAIL_ID}" \
+-H "Authorization: Token {API_KEY}" \
+-d '{"status": "scheduled", "publish_date": "2027-08-24T14:15:22Z"}'`
+}}
+/>
+
+Want to learn more about scheduling emails via the API? Check out our dedicated [tutorial](https://docs.buttondown.email/tutorials/scheduling-emails-via-the-api)!
+
+## Asking Buttondown 
+
+We’re always here to help! Feel free to reach out to us at support@buttondown.email with any questions.
+
+

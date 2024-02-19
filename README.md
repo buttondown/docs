@@ -1,3 +1,16 @@
-Want to report an issue?
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), with Typescript and MDX (and Storybook!)
 
-File it [on the general roadmap](https://github.com/buttondown-email/roadmap/issues)!
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+## Testing
+
+No tests (hopefully forever) but you can verify that things look good with:
+
+```bash
+npm run build
+```

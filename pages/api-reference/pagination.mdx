@@ -1,0 +1,59 @@
+---
+title: Pagination
+description: How to paginate in Buttondown's API.
+---
+
+import Layout from "../../components/Layout";
+import { Code } from "../../components/Markdown";
+
+export const meta = {
+  title: "Pagination",
+};
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Pagination
+
+If you've got a non-trivial number of subscribers or emails, you'll almost certainly need to paginate through them at some point.
+
+Buttondown's API uses number-based pagination: you'll need to specify the page number you want to retrieve with the `page` query parameter. Like so:
+
+```
+  $ curl GET https://api.buttondown.email/v1/subscribers?page=2
+```
+
+(If you don't specify a page, we'll assume you want the first page.)
+
+Additionally, responses that can be paginated always include a `next` field that contains the URL for the next page of results. If you're on the last page, the `next` field will be `null`. This looks something like the following:
+
+```
+  {
+    "count": 100,
+    "next": "https://api.buttondown.email/v1/subscribers?page=3",
+    "previous": "https://api.buttondown.email/v1/subscribers?page=1",
+    "results": [
+      ...
+    ]
+  }
+```
+
+This means that you can easily paginate through results by following the `next` field until it's `null`. Here's an example in JavaScript:
+
+```
+const fetchSubscribers = async () => {
+    let subscribers = [];
+    let next = "https://api.buttondown.email/v1/subscribers";
+
+    while (next) {
+        // Note that authentication is not handled in this code snippet,
+        // for clarity's sake!
+        const response = await fetch(next);
+        const data = await response.json();
+
+        subscribers = subscribers.concat(data.results);
+        next = data.next;
+    }
+
+    return subscribers;
+};
+```

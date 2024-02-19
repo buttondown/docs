@@ -1,0 +1,33 @@
+---
+title: Discord
+description: Connecting your Discord server to Buttondown to send newsletters to your community
+---
+
+import Layout from "../../components/Layout";
+import Playground from "../../components/Playground/Playground";
+import Notice from "../../components/Notice";
+import { getCookie } from "cookies-next";
+import ConditionallyRender from "../../components/ConditionallyRender";
+
+export const username = getCookie("newsletter_username") || "<your username>";
+
+export const meta = {
+  title: "Discord",
+  description:
+    "Connecting your Discord server to Buttondown to send newsletters to your community",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Discord
+
+Buttondown's webhooks are _magical_. They automatically detect Discord and
+format your newsletters to be sent as Discord messages:
+
+![](/images/discord.png)
+
+This means that it takes all of five seconds to start having notifications for new emails
+or subscribers sent to your Discord server.
+
+![](/images/discord-2.png)
+
+Head on over to the [webhooks](/api-reference/events-and-webhooks) doc to learn more.

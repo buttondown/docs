@@ -14,6 +14,18 @@ export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 The changelog provides a list of dated updates, each of which contains a number of potentially backwards-incompatible changes. There is no explicit versioning in the API at this time; all changes will be either compatible or breaking. (If I attempt any brittle changes to the API that may break current implementations, I'll be sure to add version gates.)
 
+## 2023-08-23
+
+You can now filter emails by `creation_date` and `publish_date` in the [`/v1/emails`](/api-reference/emails) endpoint.
+
+## 2023-08-21
+
+Added [`/v1/webhooks`](/api-reference/webhooks), which allows you to create and list webhooks that will be called when certain events happen in your account.
+
+## 2023-07-23
+
+Added `utm_campaign`, `utm_medium`, and `utm_source` to the [`/v1/subscribers`](/api-reference/subscribers) endpoint. If these fields are not present, the values will be inferred from a provided `referer_url`.
+
 ## 2022-11-24
 
 Added `/v1/email/:id/analytics`, which returns aggregated information about opens, clicks, and other events for a given email that you've sent.

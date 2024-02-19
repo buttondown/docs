@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import React from "react";
 
 import Playground from "../components/Playground/Playground";
 
@@ -26,7 +25,7 @@ Basic.args = {
   <input
     type="email"
     name="email"
-    placeholder="you@gmail.com"
+    placeholder="you@example.com"
   />
   <input type="hidden" value="1" name="embed" />
   <input type="submit" value="Subscribe" />
@@ -52,7 +51,7 @@ WithMetadata.args = {
   <input
     type="email"
     name="email"
-    placeholder="you@gmail.com"
+    placeholder="you@example.com"
   />
   <label for="email">First name</label>
   <input
@@ -86,16 +85,16 @@ WithTags.args = {
   <input
     type="email"
     name="email"
-    placeholder="you@gmail.com"
+    placeholder="you@example.com"
   />
   <label for="email">Pokemon</label>
   <br />
-  <input type="radio" id="Squirtle" name="tag" value="Squirtle">
+  <input type="radio" id="Squirtle" name="tag" value="Squirtle" />
   <label for="Squirtle">Squirtle</label>
-  <input type="radio" id="Bulbasaur" name="tag" value="Bulbasaur">
+  <input type="radio" id="Bulbasaur" name="tag" value="Bulbasaur" />
   <label for="Bulbasaur">Bulbasaur</label>
-  <input type="radio" id="Charmander" name="tag" value="Charmander">
-  <label for="Charmander">Charmander</label><br>
+  <input type="radio" id="Charmander" name="tag" value="Charmander" />
+  <label for="Charmander">Charmander</label><br />
   <br />
   <input type="hidden" value="1" name="embed" />
   <input type="submit" value="Subscribe" />

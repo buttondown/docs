@@ -1,7 +1,7 @@
 type Anchor = {
   depth: Number;
   text: string;
-  url: string;
+  url?: string;
 };
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 
 export default function TableOfContents({ anchors }: Props) {
   return (
-    <div className="ml-8 w-40 mt-8 flex-shrink-0 hidden xl:block">
+    <div className="ml-8 w-40 mt-8 flex-shrink-0 hidden lg:block">
       <div className="sticky top-8">
         {anchors.length > 0 && (
           <div className="font-bold text-xs uppercase pb-2 text-gray-600">
@@ -18,12 +18,12 @@ export default function TableOfContents({ anchors }: Props) {
           </div>
         )}
         {anchors.map((anchor, i) => {
-          return anchor.text === "FAQs" ? (
+          return anchor.text === "FAQs" || anchor.url === undefined ? (
             <div
               key={i}
               className="py-1 pt-3 text-gray-500 text-xs uppercase font-semibold"
             >
-              FAQs
+              {anchor.text}
             </div>
           ) : (
             <div

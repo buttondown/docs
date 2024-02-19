@@ -1,20 +1,20 @@
 ---
-title: Importing your data
+title: Importing Your Data
 description: A launchpad for integrating your data from a previous newsletter tool
 ---
 
 import Layout from "../../components/Layout";
 import { H4, P } from "../../components/Markdown";
-import Table from "../../components/Table";
+import CSV from "../../components/CSV";
 
 export const meta = {
-  title: "Importing your data",
+  title: "Importing Your Data",
   description:
     "A launchpad for integrating your data from a previous newsletter tool",
 };
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
-# Importing your data
+# Importing Your Data
 
 ## Importing subscribers
 
@@ -25,6 +25,30 @@ Navigate to your [settings page](https://buttondown.email/settings) and click _I
 ![A screenshot of the import subscribers modal.](/images/import-subscribers.png)
 
 Once you do so, you can map each column in your CSV, allowing you to bring in subscribers while keeping their existing tags, join dates, and metadata.
+
+## Importing tags
+
+If your CSV contains a column for [tags](/getting-started/sending-your-first-email#tags-and-segmentation), you can import them alongside your subscribers. You can use these tags to include or exclude subscribers from receiving particular emails.
+
+The column can be named whatever you’d like — you'll select the column while importing.
+
+Multiple tags can be included in that column too! Just separate them with a comma, like `First Tag, Second Tag`.
+
+## Importing metadata
+
+Metadata allows you to attach arbitrary additional information to your subscribers. You can learn more about metadata on the [dedicated documentation page](/advanced-features/metadata).
+
+You can have multiple columns in your CSV that correspond to metadata keys, like `Location` and `Industry`. During the import process, you'll be asked to map columns to metadata keys. For example:
+
+<CSV
+  data={[
+    { Email: "a@example.com", Location: "Seattle", Industry: "Finance" },
+    { Email: "b@example.com", Location: "New York", Industry: "Construction" },
+    { Email: "c@example.com", Location: "Springfield", Industry: "Education" },
+  ]}
+/>
+
+That means that metadata should be separated into columns in your CSV, _not_ a single column with all metadata.
 
 ## Importing archives
 

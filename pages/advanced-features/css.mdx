@@ -1,0 +1,448 @@
+---
+title: CSS
+description: How to make your emails uniquely styled using CSS and Buttondown's tooling
+---
+
+import Layout from "../../components/Layout";
+import Notice from "../../components/Notice";
+
+export const meta = {
+  title: "CSS",
+  description:
+    "How to make your emails uniquely styled using CSS and Buttondown's tooling",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# CSS
+
+Buttondown is fairly opinionated about the best emails being
+plain-text friendly and minimal, but it offers you a variety of ways
+to customize your email through HTML and CSS.
+
+<Notice variant="info">
+  All HTML is technically valid Markdown, so if you ever want to just completely
+  override Buttondown's styles and provide your own email template, you're
+  welcome to do so!
+</Notice>
+
+## What to avoid
+
+Most email clients don't support the wide variety of HTML and content that you can see on the web.
+Things like `<iframe>` elements, embedded videos, or custom layouts and fonts are hard if not impossible
+to replicate in the limited confines of your average inbox. This isn't a Buttondown limitation; it's a Gmail (or whomever) one.
+
+A brief (and inexhaustive) list of things that emails won't be able to handle:
+
+- **JavaScript or other run-time scripts**. JavaScript is a programming language that makes web content interactive. It's common in websites, but the vast majority of email clients block scripts since they can hide malicious content. Avoid all JavaScript.
+- **`<iframes>`**. An `<iframe>` (inline frame) is an HTML element that embeds content from one website into another. Inline frames are often used to insert advertisements, video, audio, or forms in other websites. Iframes often contain scripts, so most email clients block them.
+- **embedded audio or video, such as Spotify or Bandcamp playlists**. Autoplay and click-to-play media won't play in an inbox unless your subscriber's email client supports HTML5 `<video>` and `<audio>` tags. Only one major email client, Apple Mail, supports these tags, so it's best to avoid embedded media and consider an alternative.
+- **custom forms**. Forms and interactive content is impossible in email.
+- **CSS3**. Unfortunately, the CSS standard that Gmail and other clients are working off of is fairly old. You'll want to extensively test any custom CSS you are using to make sure it plays nice with many browsers; when in doubt, default to CSS that worked in, say, 2005.
+
+## Using web fonts in your email
+
+With the caveat that [many email clients do not support custom web fonts](https://www.litmus.com/blog/the-ultimate-guide-to-web-fonts/) (the main ones that do support it are Apple Mail, Outlook for Mac, and HEY), it's actually fairly straightforward to specify a custom web font!
+
+You'll need the `@font-face` declarations for your font. With Google Fonts, you can do this by taking the URL that Google provides you (e.g. `https://fonts.googleapis.com/css?family=Montserrat`), visiting that URL in your browser (e.g., [this URL](https://fonts.googleapis.com/css?family=Montserrat)), and copying the entire resulting page into [Buttondown's design settings](https://buttondown.email/settings#css) for your newsletter:
+
+```css
+/* cyrillic-ext */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw0aXp-p7K4KLjztg.woff2)
+    format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
+    U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw9aXp-p7K4KLjztg.woff2)
+    format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw2aXp-p7K4KLjztg.woff2)
+    format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+    U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw3aXp-p7K4KLjztg.woff2)
+    format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw5aXp-p7K4KLg.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+```
+
+Then, under that CSS in the same box in settings, you can add the following CSS to use the font:
+
+```css
+/* @font-face declarations from above, etc... */
+
+body,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+table,
+tr,
+td,
+* {
+  font-family: "Montserrat", sans-serif;
+}
+```
+
+## Using fonts to customize your web presence
+
+You can customize the web CSS in [Buttondown's design settings](https://buttondown.email/settings#css) to use a custom font for your newsletter archives.
+
+For example, using the Montserrat font from Google Fonts:
+
+```css
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+```
+
+
+## Buttondown's default CSS
+
+Here is the default CSS that Buttondown applies to your emails:
+
+```css
+p,
+div,
+ul,
+li {
+  max-width: 600px;
+  line-height: 1.4em;
+  font-size: 16px;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px #000 dotted;
+  max-width: 600px;
+  margin-left: 0;
+}
+
+h4 {
+  font-size: 14px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+img {
+  max-width: 100%;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Handle tweet emoji in Gmail. */
+img[goomoji] {
+  width: 24px !important;
+}
+
+blockquote {
+  border-left: 4px solid #acb3be;
+  color: #7e8a9a;
+  margin-left: 0;
+  padding-left: 1em;
+}
+
+figcaption {
+  text-align: center;
+  width: 100%;
+  margin-top: 10px;
+  color: #7e7e82;
+  margin-bottom: 0.25em;
+}
+
+.newsletter-notice {
+  background-color: #d9edf7;
+  color: #31708f;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px 30px;
+}
+
+/* Tweet embedding stuff. */
+.tweet {
+  display: block;
+  font: normal normal 16px/1.4 Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
+  color: #1c2022 !important;
+  white-space: normal;
+  white-space: initial;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff 0 0;
+  border: 1px solid #e1e8ed;
+  border-radius: 4px;
+  max-width: 460px;
+  /* 500px - 20px on either side */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.tweet a,
+.tweet a:visited,
+.tweet a:active {
+  color: #222 !important;
+  text-decoration: none;
+}
+
+.tweet a:focus,
+.tweet a:hover {
+  color: #3b94d9;
+}
+
+.tweet a:focus {
+  text-decoration: underline;
+}
+
+.tweet .screen_name {
+  line-height: 0px;
+  font-size: 14px;
+  color: #697882;
+}
+
+.tweet .screen_name:before {
+  white-space: pre;
+  content: "\A";
+  /*\200e";*/
+}
+
+.tweet .name {
+  font-weight: 700;
+}
+
+.tweet .text + .metadata {
+  margin-top: 3.2px;
+}
+
+.tweet .metadata {
+  font-size: 14px;
+  color: #697882;
+}
+
+.tweet .text {
+  white-space: normal;
+  cursor: text;
+}
+
+.tweet .header,
+.tweet .body {
+  padding: 20px;
+}
+
+.tweet .header {
+  position: relative;
+  padding-bottom: 0px;
+  padding-top: 10px;
+  white-space: nowrap;
+}
+
+.tweet .body {
+  margin-top: 14px;
+  padding-top: 0px;
+  padding-bottom: 14px;
+}
+
+.tweet .media {
+  border-bottom: 1px solid #e1e8ed;
+  line-height: 0;
+}
+
+.tweet .author {
+  margin-top: 2px;
+  line-height: 0;
+  max-width: 100%;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  word-wrap: normal !important;
+}
+
+.tweet .author .link {
+  line-height: 1.2;
+}
+
+.tweet .author .avatar {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  background-color: transparent;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.tweet .author .avatar img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.tweet .link_blend:not(:focus):not(:hover):not(:active) {
+  font-weight: inherit;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.tweet blockquote,
+.tweet p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: none;
+
+  // Google is a jerk and replaces emoji
+  // with image tags, which we by default set to 100% width.
+  // This should hopefully fix that issue.
+  img {
+    width: auto !important;
+  }
+}
+
+.tweet img.media {
+  margin-left: -20px;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: calc(100% + 40px);
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.tweet img {
+  width: 100%;
+}
+
+.tweet:hover {
+  border-color: #ccd6dd;
+}
+
+.tweet:hover .media {
+  border-color: #ccd6dd;
+}
+
+.tweet blockquote {
+  background: none;
+}
+
+.favorite-count__icon,
+.retweet-count__icon {
+  width: 1.25em;
+  transform: scaleX(1);
+  display: inline-block;
+  height: 1.25em;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: text-bottom;
+}
+
+.tweet-actions {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.identifier {
+  display: inline-block;
+}
+
+.video {
+  position: relative;
+  display: inline-block;
+}
+.video::before {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  left: 35%;
+  top: 35%;
+  z-index: 10;
+}
+
+pre {
+  background: #ebedef;
+  border-radius: 0 0.25rem 0.25rem 0;
+  overflow-x: auto;
+  padding: 1em;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.codehilite pre {
+  background: none;
+}
+
+code {
+  background: #ebedef;
+  border-radius: 0 0.25rem 0.25rem 0;
+  font-size: 14px;
+  padding: 3px 6px;
+}
+```
+
+## Centering your emails
+
+Buttondown's emails are constrained in width and left-aligned by default. This is because I think it is readable and legible and scans easily.
+
+But if you want a center-aligned email, I won't begrudge you! It's very easy with CSS. Just apply the following rule:
+
+```python
+p, div, ul, li {
+  margin: 0 auto 0 auto;
+}
+```
+
+This will keep the text in your email left-aligned, but center the text in the browser:
+
+![A screenshot of Gmail to show the final, rendered, email.](/images/centered-email.png)
+
+## Customizing the Gmail icon of your email
+
+Unfortunately, this is out of my (or Buttondown)'s hands — the "avatar" or icon that shows up in an email in Gmail is just based on whether or not that email address is registered in Google's various systems. If you're sending from a Google-adjacent email address — say a domain registered in Google Suite, or a Gmail account directly — it should show up: otherwise, it won't.
+
+(Google is exploring support for BIMI, a protocol that allows services like Buttondown to arbitrarily provide icons: I'm monitoring these developments and will be pursuing them once they become generally available!)

@@ -5,6 +5,7 @@ import {
   EmojiHappyIcon,
   InboxInIcon,
   LightningBoltIcon,
+  MapIcon,
   PresentationChartBarIcon,
   QuestionMarkCircleIcon,
   TerminalIcon,
@@ -31,7 +32,7 @@ const NAVIGATION: Array<NavigationItem> = [
     icon: EmojiHappyIcon,
   },
   {
-    name: "Getting started",
+    name: "Getting Started",
     href: "/getting-started",
     icon: PresentationChartBarIcon,
     children: [
@@ -40,7 +41,7 @@ const NAVIGATION: Array<NavigationItem> = [
         href: "/getting-started/quickstart",
       },
       {
-        name: "Registration & setup",
+        name: "Registration and setup",
         href: "/getting-started/registration-and-setup",
       },
       {
@@ -50,6 +51,10 @@ const NAVIGATION: Array<NavigationItem> = [
       {
         name: "Building your subscriber base",
         href: "/getting-started/building-your-subscriber-base",
+      },
+      {
+        name: "Getting a custom domain",
+        href: "/getting-started/getting-a-custom-domain",
       },
       {
         name: "Hosting on a custom domain",
@@ -68,61 +73,99 @@ const NAVIGATION: Array<NavigationItem> = [
         href: "/getting-started/scheduling-an-email",
       },
       {
+        name: "Using Markdown",
+        href: "/getting-started/using-markdown",
+      },
+      {
+        name: "Share images",
+        href: "/advanced-features/share-images",
+      },
+      {
         name: "Billing",
         href: "/getting-started/billing",
       },
     ],
   },
   {
-    name: "Advanced features",
+    name: "Advanced Features",
     href: "/advanced-features",
     icon: LightningBoltIcon,
     children: [
       {
-        name: "Customizing your emails",
-        href: "/advanced-features/customizing-your-emails",
+        name: "CSS",
+        href: "/advanced-features/css",
       },
       {
-        name: "Customizing your web presence",
-        href: "/advanced-features/customizing-your-web-presence",
+        name: "Tags",
+        href: "/advanced-features/tags",
       },
       {
-        name: "Using template variables",
-        href: "/advanced-features/template-variables",
-      },
-      {
-        name: "Collecting and using metadata",
+        name: "Metadata",
         href: "/advanced-features/metadata",
       },
       {
-        name: "Managing multiple newsletters",
-        href: "/advanced-features/managing-multiple-newsletters",
+        name: "RSS-to-email",
+        href: "/advanced-features/rss-to-email",
       },
       {
-        name: "Markdown",
-        href: "/advanced-features/markdown",
+        name: "Surveys",
+        href: "/advanced-features/surveys",
       },
       {
-        name: "Affiliate program",
-        href: "/advanced-features/affiliate-program",
+        name: "Paid subscriptions",
+        href: "/advanced-features/paid-subscriptions",
       },
       {
-        name: "Monetizing your newsletter",
-        href: "/advanced-features/monetizing-your-newsletter",
+        name: "Multiple newsletters",
+        href: "/advanced-features/multiple-newsletters",
       },
       {
-        name: "Email automation",
-        href: "/advanced-features/email-automation",
+        name: "Automations",
+        href: "/advanced-features/automations",
       },
       {
-        name: "Subscriber referrals",
-        href: "/advanced-features/subscriber-referrals",
-        beta: true,
+        name: "Teams",
+        href: "/advanced-features/teams",
+      },
+      {
+        name: "Dedicated IP",
+        href: "/advanced-features/dedicated-ip",
+      },
+      {
+        name: "Comments",
+        href: "/advanced-features/comments",
       },
     ],
   },
   {
-    name: "Sending domain guides",
+    name: "Tutorials",
+    href: "/tutorials",
+    icon: MapIcon,
+    children: [
+      {
+        name: "Automating welcome sequences",
+        href: "/tutorials/welcome-sequence",
+      },
+      {
+        name: "Collecting and using subscriber names",
+        href: "/tutorials/names",
+      },
+      {
+        name: "Customizing email and subscriber list views",
+        href: "/tutorials/customizing-list-views",
+      },
+      {
+        name: "Drafting emails via the API",
+        href: "/tutorials/drafting-emails-via-the-api",
+      },
+      {
+        name: "Scheduling emails via the API",
+        href: "/tutorials/scheduling-emails-via-the-api",
+      },
+    ],
+  },
+  {
+    name: "Sending Domain Guides",
     href: "/sending-domains",
     icon: GlobeAltIcon,
     children: [
@@ -133,7 +176,7 @@ const NAVIGATION: Array<NavigationItem> = [
     ],
   },
   {
-    name: "Migration guides",
+    name: "Migration Guides",
     href: "/migration-guides",
     icon: InboxInIcon,
     children: [
@@ -154,12 +197,16 @@ const NAVIGATION: Array<NavigationItem> = [
     ],
   },
   {
-    name: "API reference",
+    name: "API Reference",
     href: "/api-reference",
     icon: TerminalIcon,
     children: [
       { name: "Introduction", href: "/api-reference/introduction" },
       { name: "Authentication", href: "/api-reference/authentication" },
+      {
+        name: "Pagination",
+        href: "/api-reference/pagination",
+      },
       {
         name: "Events and webhooks",
         href: "/api-reference/events-and-webhooks",
@@ -171,6 +218,9 @@ const NAVIGATION: Array<NavigationItem> = [
       { name: "Images", href: "/api-reference/images" },
       { name: "Newsletters", href: "/api-reference/newsletters" },
       { name: "Exports", href: "/api-reference/exports" },
+      { name: "Bulk actions", href: "/api-reference/bulk-actions" },
+      { name: "Automations", href: "/api-reference/automations" },
+      { name: "Comments", href: "/api-reference/comments" },
     ],
   },
   {
@@ -178,30 +228,40 @@ const NAVIGATION: Array<NavigationItem> = [
     href: "/integrations",
     icon: BeakerIcon,
     children: [
-      { name: "Fathom", href: "/integrations/fathom" },
-      { name: "Plausible", href: "/integrations/plausible" },
       { name: "Blogger", href: "/integrations/blogger" },
+      { name: "Carrd", href: "/integrations/carrd" },
+      { name: "Discord", href: "/integrations/discord" },
+      { name: "Duda", href: "/integrations/duda" },
+      { name: "Fathom", href: "/integrations/fathom" },
+      { name: "Framer", href: "/integrations/framer" },
+      { name: "Linktree", href: "/integrations/linktree" },
+      { name: "Plausible", href: "/integrations/plausible" },
+      { name: "Stripe", href: "/integrations/stripe" },
+      { name: "Wordpress", href: "/integrations/wordpress" },
       // { name: "Simple Analytics", href: "#" },
       // { name: "Zapier", href: "#" },
     ],
   },
   {
-    name: "Behind the scenes",
+    name: "Behind the Scenes",
     href: "/behind-the-scenes",
     icon: BriefcaseIcon,
     children: [
       // { name: "Changelog", href: "#" },
       { name: "Esoterica", href: "/behind-the-scenes/esoterica" },
       { name: "Kudos", href: "/behind-the-scenes/kudos" },
-      { name: "Running costs", href: "/behind-the-scenes/running-costs" },
       {
-        name: "Funding open source software",
-        href: "/behind-the-scenes/funding",
+        name: "Affiliate program",
+        href: "/behind-the-scenes/affiliate-program",
+      },
+      {
+        name: "Subscriber referrals",
+        href: "/behind-the-scenes/subscriber-referrals",
       },
     ],
   },
   {
-    name: "Odds and ends",
+    name: "Odds and Ends",
     href: "/odds-and-ends",
     icon: AnnotationIcon,
     children: [
@@ -210,22 +270,34 @@ const NAVIGATION: Array<NavigationItem> = [
         href: "/odds-and-ends/glossary",
       },
       {
+        name: "Template variables",
+        href: "/odds-and-ends/template-variables",
+      },
+      {
+        name: "Automations reference",
+        href: "/odds-and-ends/automations-reference",
+      },
+      {
         name: "Privacy and security",
         href: "/odds-and-ends/privacy-and-security",
       },
       {
-        name: "Exporting your data",
-        href: "/odds-and-ends/exporting-your-data",
+        name: "Data exports",
+        href: "/odds-and-ends/data-exports",
       },
       { name: "Offboarding", href: "/odds-and-ends/offboarding" },
       {
         name: "Law enforcement requests",
         href: "/odds-and-ends/law-enforcement-requests",
       },
+      {
+        name: "Using a screen reader",
+        href: "/odds-and-ends/screen-reader",
+      },
     ],
   },
   {
-    name: "Need more help?",
+    name: "Need More Help?",
     href: "/need-more-help",
     icon: QuestionMarkCircleIcon,
   },

@@ -1,0 +1,195 @@
+---
+title: Scheduling emails via the API
+description: An explanation of how to schedule emails via the API.
+---
+
+import Layout from "../../components/Layout";
+import { MultiLanguageSnippet } from "../../components/api/Endpoint";
+
+export const meta = {
+  title: "Scheduling emails via the API",
+  description:
+    "An explanation of how to schedule emails via the API.",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Scheduling Emails via the API
+
+We've already covered how to create, list, and update emails using the [Buttondown API](https://docs.buttondown.email/api-reference/emails#EmailType). Here, we’ll take things a step further by learning how to programmatically schedule emails. This may come in handy if:
+
+-   You like to plan ahead.
+    
+-   You want to send your email at a time when your subscribers are most likely to read and engage with it.
+    
+-   The content of your email is timed to a specific holiday, event, or other notable date.
+
+The best part? We only have to add two new lines of code.
+
+## Schedule your email
+
+As promised, it only takes two extra lines of code to specify your email’s “Status” and “Publish Date.”
+
+<MultiLanguageSnippet
+    snippets={{
+        python:`
+import requests
+import json
+headers = {
+    "Authorization": f"Token #{API_KEY}"
+}
+base_url = "https://api.buttondown.email"
+endpoint = "/v1/emails"
+data = {
+    "subject": "Scheduled for the future",
+    "body": "Welcome to my time-traveling email!",
+    "status": "scheduled",
+    "publish_date": "2027-08-24T14:15:22Z"
+}
+response = requests.post(
+    base_url + endpoint,
+    headers=headers,
+    data=json.dumps(data)
+).json()
+print(response)`, ruby: `
+require "HTTParty"
+require "json"
+response = HTTParty.post("https://api.buttondown.email/v1/emails",
+    body: {
+        subject: "Scheduled for the future",
+        body: "Welcome to my time-traveling email!",
+        status: "scheduled",
+        publish_date: "2027-08-24T14:15:22Z"
+    }.to_json,
+    headers: {
+        "Authorization" => "Token #{API_KEY}",
+        "Content-Type" => "application/json"
+        }
+    )
+    puts JSON.parse(response.body)`, curl: `
+curl -X POST "https://api.buttondown.email/v1/emails" \
+-H "Authorization: Token {API_KEY}" \
+-H "Content-Type: application/json" \
+-d '{
+    "subject": "Scheduled for the future",
+    "body": "Welcome to my time-traveling email!",
+    "status": "scheduled",
+    "publish_date": "2027-08-24T14:15:22Z"
+}'`
+}}
+/>
+
+### Parameters
+
+Scheduled emails follow a similar set of [parameters](https://docs.buttondown.email/api-reference/emails) as [non-scheduled emails](https://docs.buttondown.email/api-reference/emails)—that is, except for the “Publish Date” and “Status.” In this case, “Publish Date” should be a date and time in the future, and “[Status](https://docs.buttondown.email/api-reference/emails#EmailStatus)” should be “Scheduled.”
+
+### Results
+
+So you’ve submitted your request to the Buttondown API. How do you know if it worked? There are three ways to check:
+
+- Visit the [API reference](https://buttondown.email/requests) tab in your Buttondown dashboard.
+- Compare your response to the ones listed in our “[Emails](https://docs.buttondown.email/api-reference/emails)” API reference doc.
+- Take a look at the “[Emails](https://buttondown.email/emails)” tab of your Buttondown dashboard. If your request was successful, you’ll see your email subject, along with a status of “Scheduled”!
+
+  ![Email interface](/images/email-interface/scheduling-emails-api-reference-emails-tab-2.png)
+
+
+## Reschedule your email
+
+Change your mind about your email's pub date? No worries—it’s a quick fix. All you need is an "Email ID" and a few more lines of code.
+
+  
+How do you find your "Email ID" you may ask? There are two ways: 
+- Pinpoint your "Email ID" in the response of your last successful request for that particular email. 
+- Mosey over to the “[Emails](https://buttondown.email/emails)” tab of your Buttondown dashboard, and click on the email in question. From there, you can copy the "Email ID" from the email’s URL.
+
+![Sample "Email ID" in URL](/images/emails/scheduling-emails-api-reference-email-id.png)
+
+Once you have your "Email ID" at the ready, you can use the following code to update your "Publish Date."
+
+<MultiLanguageSnippet
+    snippets={{
+        python: `
+import json
+import requests
+headers = {
+    "Authorization": f"Token #{API_KEY}",
+}
+data = {
+    "publish_date": "#{NEW_PUBLISH_DATE}",
+}
+base_url = "https://api.buttondown.email"
+endpoint = "/v1/emails/#{EMAIL_ID}"
+response = requests.patch(
+    base_url + endpoint,
+    headers=headers,
+    data=json.dumps(data)
+)
+print(response)`, ruby: `
+require "HTTParty"
+require "json"
+response = HTTParty.patch("https://api.buttondown.email/v1/emails/#{EMAIL_ID}",
+    body: {
+        publish_date: "#{NEW_PUBLISH_DATE}"
+    }.to_json,
+    headers: {
+        "Authorization" => "Token #{API_KEY}",
+        "Content-Type" => "application/json"
+    }
+)
+puts JSON.parse(response.body)`, curl: `
+curl -X PATCH "https://api.buttondown.email/v1/emails/{EMAIL_ID}" \
+-H "Authorization: Token {API_KEY}" \
+-d '{"publish_date": "{NEW_PUBLISH_DATE}"}'`
+}}
+/>
+
+## Unschedule your email
+
+Stuff happens. If you decide that you’d rather save your scheduled email as a draft for later, you can do so by changing your email’s "[Status](https://docs.buttondown.email/api-reference/emails#EmailStatus)."
+
+<MultiLanguageSnippet
+    snippets={{
+        python: `
+import json
+import requests
+headers = {
+    "Authorization": f"Token #{API_KEY}",
+}
+data = {
+    "status": "draft",
+}
+base_url = "https://api.buttondown.email"
+endpoint = "/v1/emails/#{EMAIL_ID}"
+response = requests.patch(
+    base_url + endpoint,
+    headers=headers,
+    data=json.dumps(data)
+)
+print(response)`,
+        ruby: `
+require "HTTParty"
+require "json"
+response = HTTParty.patch("https://api.buttondown.email/v1/emails/#{EMAIL_ID}", 
+    body: {
+        status: "draft"
+    }.to_json,
+    headers: {
+    "Authorization" => "Token #{API_KEY}",
+    "Content-Type" => "application/json"
+    }
+)
+puts JSON.parse(response.body)`, curl: `
+curl -X PATCH "https://api.buttondown.email/v1/emails/{EMAIL_ID}" \
+-H "Authorization: Token {API_KEY}" \
+-d '{"status": "draft"'`
+}}
+/>
+
+### Reach out to your friends at Buttondown
+
+As always, we’re happy to answer any questions you may have via support@buttondown.email.
+
+
+
+
+

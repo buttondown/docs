@@ -1,138 +1,28 @@
 ---
 title: Customizing your web presence
-description: How to take advantage of Buttondown's CSS and custom settings to tailor your web presence
+description: How to style and customize your Buttondown archive
 ---
 
 import Layout from "../../components/Layout";
-import Table from "../../components/Table";
-import BFPNotice from "../../components/BFPNotice";
 
 export const meta = {
   title: "Customizing your web presence",
-  description:
-    "How to take advantage of Buttondown's CSS and custom settings to tailor your web presence",
+  description: "How to style and customize your Buttondown archive",
 };
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 # Customizing your web presence
 
-## Date format syntax
+## Using a custom font
 
-Date formats are, of course, a bit of a touchy subject. I'm an American and have to deal with the terrible hegemony of MM/DD/YYYY;
-Buttondown offers a bit of flexibility in the Design settings page to let you choose what date format you wish to present to your
-subscribers on the web archive. You can follow the key below for more information (or, if the prospect of dealing with date formatting at all
-is terrifying, you can ignore this section entirely.)
+You can customize the web CSS in [Buttondown's design settings](https://buttondown.email/settings#css) to use a custom font for your newsletter archives.
 
-<Table
-  columns={[
-    {
-      title: "Input",
-      key: "input",
-    },
-    {
-      title: "Example",
-      key: "example",
-    },
-    {
-      title: "Description",
-      key: "description",
-    },
-  ]}
-  content={[
-    {
-      input: "YYYY",
-      example: 2014,
-      description: "4 or 2 digit year",
-    },
-    {
-      input: "YY",
-      example: 14,
-      description: "2 digit year",
-    },
-    {
-      input: "Y",
-      example: -25,
-      description: "Year with any number of digits and sign",
-    },
-    {
-      input: "Q",
-      example: "1..4",
-      description: "Quarter of year. Sets month to first month in quarter.",
-    },
-    {
-      input: "M MM",
-      example: "1..12",
-      description: "Month number",
-    },
-    {
-      input: "MMM MMMM",
-      example: "Jan..December",
-      description: "Month name in locale",
-    },
-    {
-      input: "D DD",
-      example: "1..31",
-      description: "Day of month",
-    },
-    {
-      input: "Do",
-      example: "1st..31st",
-      description: "Day of month with ordinal",
-    },
-    {
-      input: "DDD DDDD",
-      example: "1..365",
-      description: "Day of year",
-    },
-    {
-      input: "X",
-      example: "1410715640.579",
-      description: "Unix timestamp",
-    },
-    {
-      input: "x",
-      example: "1410715640579",
-      description: "Unix ms timestamp",
-    },
-    {
-      input: "H HH",
-      example: "0..23",
-      description: "Hours (24 hour time)",
-    },
-    {
-      input: "h hh",
-      example: "1..12",
-      description: "Hours (12 hour time)",
-    },
-    {
-      input: "k kk",
-      example: "1..24",
-      description: "Hours (24 hour time with 1-index)",
-    },
-    {
-      input: "a A",
-      example: "am pm",
-      description: "Post or ante meridiem",
-    },
-    {
-      input: "m mm",
-      example: "0..59",
-      description: "minutes",
-    },
-    {
-      input: "s ss",
-      example: "0..59",
-      description: "seconds",
-    },
-    {
-      input: "S SS SSS",
-      example: "0..999",
-      description: "fractional seconds",
-    },
-    {
-      input: "Z ZZ",
-      example: "+12:00",
-      description: "UTC Offset",
-    },
-  ]}
-/>
+For example, using the Montserrat font from Google Fonts:
+
+```css
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+```

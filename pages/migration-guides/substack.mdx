@@ -20,13 +20,20 @@ export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 (This guide assumes that you have already registered a Buttondown account. If you haven't head on over to [Registration & setup](/getting-started/registration-and-setup).)
 
 1. **Obtain a full export of your Substack data.** Follow this [Substack support article](https://support.substack.com/hc/en-us/articles/360037466012-How-do-I-export-my-posts-) to export your data. You'll end up receiving a `.zip` file filled with subscriber and archive data — that's the magic ticket!
-2. **Upload your subscriber data**. Go to your [Settings page](https://buttondown.email/settings/import-subscribers) and click on the "Import subscribers" button at the bottom of the page; you should be prompted to upload a CSV. Find the CSV in your Substack `.zip` and upload it; you'll be prompted to map some of the
+2. **Upload your subscriber data**. Go to your [Subscribers page](https://buttondown.email/subscribers/import) and click on the "Import" button at the top of the page; you should be prompted to upload a CSV. Find the CSV in your Substack `.zip` and upload it; you'll be prompted to map some of the
    fields in that export to Buttondown ones in order to make sure Buttondown understands your previous subscribers.
-3. **Upload your archive data**. Go back to your [Settings page](https://buttondown.email/settings/import-substack-archives)and click on the "Import archives" button, choosing the "Substack" option. This time, you can upload the entire `.zip` file, not just the CSV — Buttondown
-   will parse it and pull out all your previous emails, marking them as free or paid-only as appropriate.
-4. **Connect your Stripe account**. Lastly, if you offer paid subscriptions and want to migrate your paid subscribers over, head over to the [Paid subscriptions](https://buttondown.email/settings/paid-subscriptions) page and go ahead and connect your Stripe account. Be sure to connect the same account you used for Substack, and not a new one — Stripe needs access to the previous account and payments in order to ensure that subscribers are mapped over gracefully.
+3. **Upload your archive data**. Go back to your [Archives page](https://buttondown.email/emails/import) and click on the "Import" button, choosing the "Substack" option. This time, you can upload the entire `.zip` file, not just the CSV — Buttondown will parse it and pull out all your previous emails, marking them as free or paid-only as appropriate.
+4. **Connect your Stripe account**. Lastly, if you offer paid subscriptions and want to migrate your paid subscribers over, head over to the [Settings](https://buttondown.email/settings) page and go ahead and connect your Stripe account. Be sure to connect the same account you used for Substack, and not a new one — Stripe needs access to the previous account and payments in order to ensure that subscribers are mapped over gracefully. _(You'll need a paid Buttondown plan to do this, but if you just want to try things out we offer a full refund if you want to cancel in the first month.)_
 
 That's it! Once you've done all of the above steps, Buttondown will kick off an audit and migration process to make sure everything is in tip-top order, and then you should be safe to disable or deactivate your Substack account.
+
+### Disconnecting your Stripe account from Substack
+
+Make sure you disconnect your Stripe account from the **Stripe dashboard** (under Settings > Installed apps). If you disconnect your account from within Substack, your subscriptions will all be cancelled and refunded, preventing you from continuing them with Buttondown. Alternatively, you can [submit a request with Substack](https://support.substack.com/hc/en-us/articles/360060408872-How-do-I-turn-off-paid-subscriptions-on-Substack-) to disconnect Stripe without cancelling subscriptions.
+
+## What's next
+
+In your Buttondown settings, under "Paid subscriptions," you'll be able to create new Stripe plans for subscribers going forward. Buttondown will continue to honor your old Substack subscriptions for existing subscribers.
 
 ## FAQs
 
@@ -34,12 +41,16 @@ That's it! Once you've done all of the above steps, Buttondown will kick off an 
 
 Both Substack and Buttondown use the same payments processor — [Stripe](https://stripe.com/). Stripe is actually the source of truth when it comes to things like your subscribers' registered payment methods (ie credit cards) and what they've purchased / subscribed to.
 
-When you connect your Stripe account to Buttondown, you're also bringing over the history of what customers and subscribers you have and what they've paid. Over time, I'd like to make this process a little more automatic but at the moment it requires a bit of manual labor on my part to make sure everything is wired up correctly (free of charge, of course.)
+When you connect your Stripe account to Buttondown, you're also bringing over the history of what customers and subscribers you have and what they've paid.
 
-What this means for you is **your paying subscribers don't need to do anything extra on their end just because you're switching providers**. Just email me when you've connected your Stripe account and I'll take of the rest!
+What this means for you is **your paying subscribers don't need to do anything extra on their end just because you're switching providers**.
 
 ### Importing 'founding members'
 
 Buttondown can handle the _existing_ "pay what you want" prices for subscribers but not allow them to change the amount they're paying (beyond unsubscribing and resubscribing).
 
-Additionally, Buttondown supports a **Pay What You Want** model if you want to allow your subscribers to be patrons and support your writing without gating any specific content. You can head over to the [Paid Subscriptions](http://buttondown.email/settings) page to get started.
+Additionally, Buttondown supports a **Pay What You Want** model if you want to allow your subscribers to be patrons and support your writing without gating any specific content. You can head over to [Settings](https://buttondown.email/settings) to get started.
+
+### Why are my images still hosted on Substack's CDN?
+
+We automatically replace images that are hosted on Substack's CDN with ones that are hosted on Buttondown's infrastructure, so that your images won't disappear in the future. However, the replacement process can take some time.

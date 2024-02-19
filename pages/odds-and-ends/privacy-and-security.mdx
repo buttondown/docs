@@ -1,18 +1,18 @@
 ---
-title: Privacy & security
+title: Privacy and Security
 description: Various privacy and security aspects important to Buttondown (and its users)
 ---
 
 import Layout from "../../components/Layout";
 
 export const meta = {
-  title: "Privacy & security",
+  title: "Privacy and Security",
   description:
     "Various privacy and security aspects important to Buttondown (and its users)",
 };
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
-# Privacy and security
+# Privacy and Security
 
 ### Protecting your account
 
@@ -24,7 +24,7 @@ to learn more about it. At a high level, it means adding an additional piece of 
 you say you are. (Ever had to type in a six-digit code sent to your phone after putting in your username and password? That's
 MFA!)
 
-To register an authentication token and enroll your account in MFA, [head over to your Account page](https://buttondown.email/account) and scroll
+To register an authentication token and enroll your account in MFA, [head over to your Account page](https://buttondown.email/settings) and scroll
 down to the bottom of the page; you should see a table called **Multi-factor authentication tokens**:
 
 ![](/images/mfa.png)
@@ -41,7 +41,16 @@ in the future.
 
 ### GDPR compliance
 
-Buttondown is of course fully GDPR compliant. You can read Buttondown's privacy policy [here](https://buttondown.email/legal/privacy) and its cookie policy [here](https://buttondown.email/legal/cookies).
+Buttondown is of course fully GDPR compliant.
+
+You can read Buttondown's privacy policy [here](https://buttondown.email/legal/privacy) and its cookie policy [here](https://buttondown.email/legal/cookies), but the tl;dr is that Buttondown does not collect any information about you other than what you explicitly provide to it. In addition:
+
+1. All subscribers to your newsletter have the ability to unsubscribe at any time, and all unsubscribe requests are honored immediately.
+2. All subscribers to your newsletter have the ability to request a copy of their data at any time, and all data requests are honored immediately.
+3. All subscribers to your newsletter have the ability to request the deletion of their data at any time, and all deletion requests are honored immediately.
+4. No data is ever shared with third parties, except for the purposes of sending your newsletter (e.g. Mailgun, Postmark, etc.).
+5. No data is ever sold to third parties.
+6. No data is ever used for advertising purposes.
 
 If you're interested in a full data request, please [email me](mailto:justin@buttondown.email).
 
@@ -73,7 +82,11 @@ However, _paid newsletters_ are a bit of a different story. Buttondown uses [Str
 
 > Pornography and other obscene materials (including literature, imagery and other media) depicting nudity or explicitly sexual acts; sites offering any sexually-related services such as prostitution, escorts, pay-per view, adult live chat features; sexually oriented items (e.g., adult toys); adult video stores and sexually oriented massage parlors; gentleman's clubs, topless bars, and strip clubs; sexually oriented dating services
 
-Unfortunately, that means things are out of my hands: if you want to send adult content over Buttondown you cannot use its paid subscriptions functionality.
+A couple notes on this:
+
+- I am not a lawyer, and I am not your lawyer. If you have questions about whether your content is allowed on Stripe, please consult a lawyer.
+- Our payment provider is the same as — at the time of this writing — every other major content provider platform (Ghost, Substack, Patreon, etc.)
+- Our interpretation and experience with Stripe is such that this restriction does not apply to nudity in the context of art, education, or other non-sexual contexts. (For example, a newsletter about the history of art that includes a nude painting would be fine, or a scene of a sexual nature in a non-erotic novel.) Additionally, linking to external content that is adult in nature is not prohibited so long as that link can be accessed without payment.
 
 ### Does Buttondown offer stipends or financial assistance to writers?
 

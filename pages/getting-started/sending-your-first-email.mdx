@@ -1,5 +1,5 @@
 ---
-title: Sending your first email
+title: Sending Your First Email
 description: A step-by-step guide through sending your first email on Buttondown
 ---
 
@@ -8,13 +8,13 @@ import { H4, P, Code, Pre } from "../../components/Markdown";
 import Table from "../../components/Table";
 
 export const meta = {
-  title: "Sending your first email",
+  title: "Sending Your First Email",
   description:
     "A step-by-step guide through sending your first email on Buttondown",
 };
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
-# Sending your first email
+# Sending Your First Email
 
 ## Uploading images
 
@@ -30,8 +30,8 @@ Buttondown automatically appends an unsubscribe link to the footer of all emails
 
 Combining this with Markdown, a link would look something like:
 
-```markdown
-[Click here to unsubscribe!]({{ unsubscribe_url }}).
+```handlebars
+[Click here to unsubscribe!]({{unsubscribe_url}}).
 ```
 
 (This link will render on draft emails, but the resultant URL won't do anything of importance. I'm working on a better solution so you can 'click through' and verify that the URL is well-formed.)
@@ -47,7 +47,7 @@ There are many ways to apply a tag to a subscriber, once you've created them:
 
 - Customizing your [subscription form](https://blog.buttondown.email/2019/07/17/customizing-your-subscription-form-to-tag-new-subscribers)
 - Manually tagging them
-- Setting them via the [API](https://api.buttondown.email/v1/schema)
+- Setting them via the [API](https://docs.buttondown.email/api-reference/introduction)
 
 ## Mail merges
 
@@ -66,7 +66,7 @@ You can then refer to metadata (such as the metadata above) in your email by usi
 You can also conditionally show a paragraph if metadata is set using a snippet like the following:
 
 <!-- prettier-ignore -->
-```html
+```handlebars
 {% if subscriber.metadata.first_name %}
 Hello {{ subscriber.metadata.first_name}}!
 {% else %}
@@ -76,7 +76,7 @@ Hello friend!
 
 ## Sending emails based on an RSS feed
 
-You'll want to get set up with our [RSS automation](https://docs.buttondown.email/advanced-features/rss-automation).
+You'll want to get set up with our [RSS automation](/advanced-features/rss-to-email).
 
 ## After sending
 
@@ -102,7 +102,7 @@ You can add share links to your email by customizing your newsletter's footer in
 
 Then, you can add custom Markdown links using some template variables that Buttondown assigns you:
 
-```markup
+```markdown
 If you liked this email, please share it:
 
 - on [Twitter](https://twitter.com/intent/tweet?url={{email_link}}&text={{email.subject}})

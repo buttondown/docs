@@ -1,0 +1,44 @@
+---
+title: Tags
+description: How to decide between methods of segmenting subscribers
+---
+
+import Layout from "../../components/Layout";
+
+export const meta = {
+  title: "Tags",
+  description: "How to decide between methods of segmenting subscribers",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+# Tags
+
+Buttondown has two ways of segmenting subscribers who might want to receive
+different content:
+
+- Using one newsletter, but having subscribers tag themselves into different
+  groups.
+- Creating multiple separate newsletters.
+
+## Using Tags
+
+Subscribers can opt into different tags when they subscribe
+(via [Buttondown URL or embedded HTML form](/getting-started/building-your-subscriber-base)),
+but they can't remove themselves from a tag. The unsubscribe link unsubscribes
+them from the newsletter entirely.
+
+However, since these subscribers are under the same newsletter, you can easily
+send the same email to a combination of tags that might be interested.
+
+## Using Multiple Newsletters
+
+You can [create multiple newsletters](/advanced-features/multiple-newsletters)
+in Buttondown. Each newsletter has a completely separate list of subscribers,
+and a completely separate archive.
+
+When a subscriber clicks the unsubscribe link at the bottom of one newsletter,
+they'll stay subscribed to your other newsletters.
+
+However, there's no easy way to send an email to a combination of newsletters.
+People who are subscribed to multiple newsletters of yours will receive
+duplicate emails if you copy the same content and send it to multiple newsletters.

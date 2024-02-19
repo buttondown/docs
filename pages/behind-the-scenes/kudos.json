@@ -63,5 +63,76 @@
     "name": "Anton Sotkov",
     "reason": "Fixing a broken link and a bad JSON sample in the documentation",
     "url": "https://sotkov.com/"
+  },
+  {
+    "name": "Jay Cuthrell",
+    "reason": "Identifying a bug with Open Graph parsing",
+    "url": "https://jaycuthrell.com/"
+  },
+  {
+    "name": "Casey Watts",
+    "reason": "Incredibly thorough friction logging",
+    "url": "https://caseywatts.com/"
+  },
+  {
+    "name": "Ajit Panigrahi",
+    "reason": "Fixing a broken link in the docs site",
+    "url": "https://ajitpanigrahi.com/"
+  },
+  {
+    "name": "Andrew Stiefel",
+    "reason": "Contributing a guest essay on Netlify",
+    "url": "https://andrewstiefel.com/"
+  },
+  {
+    "name": "Rias Van der Veken",
+    "reason": "Improving documentation for Mailcoach",
+    "url": "https://rias.be/"
+  },
+  {
+    "name": "Predrag Gruevski",
+    "reason": "Fixing a malformed link inside a documentation page",
+    "url": "https://predr.ag/"
+  },
+  {
+    "name": "Daniel Compton",
+    "reason": "Updating a link in the documentation to a more relevant page",
+    "url": "https://danielcompton.net/"
+  },
+  {
+    "name": "Floris Jansen",
+    "reason": "Suggesting more options in the Google Analytics Alternatives guide",
+    "url": "https://fmjansen.com/"
+  },
+  {
+    "name": "Predrag Gruevski",
+    "reason": "Reporting a security vulnerability",
+    "url": "https://predr.ag/"
+  },
+  {
+    "name": "Peter Downs",
+    "reason": "Advising on database performance",
+    "url": "https://peterdowns.com/"
+  },
+  {
+    "name": "Al Iverson",
+    "reason": "Consulting on email deliverability best practices",
+    "url": "https://www.spamresource.com/"
+  },
+  {
+    "name": "M.J. Hoag",
+    "reason": "Reporting broken links on the marketing site"
+  },
+  {
+    "name": "Vicki Boykis",
+    "reason": "Improving documentation for setting up custom domains"
+  },
+  {
+    "name": "Justin Gage",
+    "reason": "Just an absolute mountain of feedback, bug reports, and good suggestions"
+  },
+  {
+    "name": "Robert Kingett",
+    "reason": "Reporting and improving a number of accessibility issues"
   }
 ]

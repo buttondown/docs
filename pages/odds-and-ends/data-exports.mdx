@@ -1,0 +1,51 @@
+---
+title: Data Exports
+description: An explanation of backing up your data off of Buttondown
+---
+
+import Layout from "../../components/Layout";
+
+export const meta = {
+  title: "Data Exports",
+  description: "An explanation of backing up your data off of Buttondown",
+};
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+
+# Data Exports
+
+Fancy yourself a meticulous bookkeeper? A methodical analyst? A punctilious archivist? (Phew, that’s a mouthful.) If so, you might find it useful to export your data from time to time, whether it’s for safekeeping or just general reference down the line. Read on to learn more about the kinds of data you can export, as well as the most convenient ways to export it. 
+
+## Subscriber data
+
+Head on over to the “Subscriber” tab of your Buttondown dashboard. Then on the top right, click “Export.” 
+
+<video src="/images/subscribers/data-export_subscribers.mp4" controls></video>
+
+After a moment or two, you’ll find a .csv file in your downloads. This .csv file will list each subscriber’s unique ID, along with their email address and any tags or metadata. 
+
+
+## Survey data
+
+If you’d like to analyze your survey data as a .csv file, venture over to “Surveys.” Select your survey of choice before clicking the “Export” button. 
+
+<video src="/images/surveys/data-export_surveys.mp4" controls></video>
+
+Once you receive your survey .csv, you’ll be able to see your survey identifier along with each subscriber’s email address and answer. 
+
+## Email data
+
+In the “Emails” tab, check off the email—or emails—you’d like to export. Then click the good ol’ “Export” button!
+
+<video src="/images/email-interface/data-export_emails.mp4" controls></video>
+
+Your email .csv file will have columns for each of your emails’ unique IDs, subject lines, publication dates, and more. 
+
+## Event data
+
+Perhaps you’re integrating with Buttondown’s API, or using webhooks for custom workflows—either way, you might need to pay a visit to your [events](https://buttondown.email/events) log. From there, select the event you’d like to export and then click “Export” in the upper right hand corner. 
+
+<video src="/images/events/data-exports_events.mp4" controls></video>
+
+When your export’s completed, you’ll receive a .csv file featuring your event ID, [type](https://docs.buttondown.email/api-reference/events-and-webhooks), timestamp, and more. 
+

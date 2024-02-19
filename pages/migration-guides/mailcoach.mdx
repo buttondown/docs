@@ -26,23 +26,22 @@ export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 ![A screenshot of the import subscribers modal.](/images/import-subscribers.png)
 
-
 ### Importing your archives (campaigns)
 
 <Notice variant="info">
   Mailcoach campaigns are like Buttondown archives.
 </Notice>
 
-According to Mailcoach (as of January 2022), "there is no way to export \[campaigns] in the interface." You can, however, retrieve all of your campaigns [via the API](https://spatie.be/docs/laravel-mailcoach/v4/using-the-api/campaigns). Once you get your data, [email me](mailto:justin@buttondown.email) and I’ll help you with importing your archives.
+Since Mailcoach v5 (and in Mailcoach Cloud as well) you can export all Mailcoach data by visiting the /export url in your Mailcoach instance. The self-hosted instance also includes a link to import/export in the footer.
 
+This will export a zip file with all data in either csv or json format (depending on the resource that was exported). Which should make it easier to import into other services as well.
 
 ### You did it!
 
 Once you finish all of the above steps, Buttondown will kick off an audit and migration process to make sure everything is in order. Then you should be safe to disable or deactivate your AWeber account.
 
-
 ### By the way
 
-With Buttondown, it’s easy to [export _all_ your data](https://docs.buttondown.email/odds-and-ends/exporting-your-data):
+With Buttondown, it’s easy to [export _all_ your data](https://docs.buttondown.email/odds-and-ends/data-exports):
 
 ![A screenshot of the "export data" button.](/images/exporting.png)

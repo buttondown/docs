@@ -1,6 +1,8 @@
 import classNames from "../../lib/classNames";
+import OpenAPIFixtures from "../../lib/openapi/fixtures.json";
+import { extractBackingFixtureFromRef } from "../../lib/openapi/utils";
 import { Code, H3 } from "../Markdown";
-import Table, { Row } from "../Table";
+import Table from "../Table";
 
 function ResponseCodeBadge(text: string) {
   return (
@@ -19,22 +21,42 @@ function ResponseCodeBadge(text: string) {
   );
 }
 
-function SampleResponse(text: any) {
-  return (
-    <Code language="json">
-      {JSON.stringify(text["Sample Response"], null, 4)}
-    </Code>
-  );
+const fixtureForRef = (ref: string) => {
+  const fixtureInformation = extractBackingFixtureFromRef(ref);
+  if (fixtureInformation.type === "Page") {
+    const pageRef = OpenAPIFixtures[fixtureInformation.value][0].object;
+    return {
+      results: [pageRef],
+      count: 1,
+    };
+  } else if (fixtureInformation.type === "ErrorMessage") {
+    return OpenAPIFixtures["ErrorMessage"][0].object;
+  } else {
+    return OpenAPIFixtures[fixtureInformation.value][0].object;
+  }
+};
+
+function SampleResponse(fixtureName: string) {
+  const relevantText = fixtureForRef(fixtureName);
+  return <Code language="json">{JSON.stringify(relevantText, null, 4)}</Code>;
 }
 
 type Response = {
   Status: string;
   description: string;
-  "Sample Response": string;
+  fixture: string | undefined;
 };
 
 type Props = {
   content: Array<Response>;
+};
+
+const SampleResponseCode = (c: Response) => {
+  return c.fixture ? (
+    SampleResponse(c.fixture)
+  ) : (
+    <Code language="json">{"{}"}</Code>
+  );
 };
 
 export default function ResponsesTable({ content }: Props) {
@@ -48,7 +70,10 @@ export default function ResponsesTable({ content }: Props) {
             component: (c: Response) => ResponseCodeBadge(c.Status),
           },
           { title: "Description", key: "description" },
-          { title: "Sample Response", component: SampleResponse },
+          {
+            title: "Sample Response",
+            component: SampleResponseCode,
+          },
         ]}
         content={content}
       />
