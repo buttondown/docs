@@ -15,69 +15,90 @@ export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 # Registration and Setup
 
-Ready to dive into Buttondown? Look no further for everything you need to sign up, configure your settings, and send your first newsletter.
+Ready to dive into Buttondown? This topic will help you sign up and configure some important settings before you send a newsletter your subscribers. If you want help sending a newsletter, read [Sending your first email](/getting-started/sending-your-first-email). 
 
 ## Getting Ready
 
-Buttondown is entirely based in your browser (nifty, right?). This makes registration quick and easy—but it’ll be even quicker if you have a few things at the ready:
+Buttondown is entirely based in your browser (nifty, right?). There's nothing to install, so registration is quick and easy—but it’ll be even easier if you have a few things ready before you start.
+
+You must have:
 
 - A browser with cookies, JavaScript, and in-browser pop-ups enabled
+- An active email address that you know the password to
+- A strong password for your Buttondown account (hint: this should be different than the password to your email!)
 
-- An active email address
+## Signing Up for A Buttondown Account
 
-- A strong password
+When you’re ready to roll, [register for a Buttondown account](https://buttondown.email/register).
 
-Once you’re ready to roll, you can begin by registering [here](https://buttondown.email/register).
+Here are the steps you must complete when you create a Buttondown account:
 
-## Signing Up
+1. [Choose your username](#choose-your-username)
+2. [Add your email](#add-your-email)
+3. [Create a password](#create-a-password)
+4. [Confirm your account](#confirm-your-account)
 
 ### Choose your username
 
-First thing’s first: You’ll need to think up your username. This username is not only what you’ll use to log in—it’ll also be part of your public Buttondown URL. With this in mind, you may want to pick a username that’s memorable, identifiable, and unique to your newsletter. (Don’t worry, you can change this later if you need to.)
+First thing’s first: you’ll need to create your username. If you have existing subscribers that you're migrating to Buttondown, you may want to use the username they're familiar with. Whether you have existing subscribers or not, you should pick a username that is unique and memorable. Your username is part of your public Buttondown URL (but don’t worry, you can change this later if you need to).
 
-### Add your email
+Enter your username in the "Username" field and continue. If the username you chose is already being used by another account, an error will display and you'll have to choose a different username.
 
-Enter your go-to email for receiving notifications, account updates, and billing information.
+### Add your email address
 
-Later on, if you decide to send your newsletter from the Buttondown server, your subscribers won’t see the email address that you registered with. Instead, they’ll see a Buttondown email address formatted as “username@mail.buttondown.email.” It’ll look something like this:
+Enter your go-to email address for receiving notifications, account updates, and billing information. This might be your personal email or an email associated with your business.
+
+Later, if you decide to send your newsletter from the Buttondown server, your subscribers won’t see the email address that you registered with. Instead, they’ll see a Buttondown email address formatted as `username@mail.buttondown.email.` 
+
+It’ll look something like this:
 
 ![Sample email address if sending from Buttondown server](/images/settings/registration_sample-email-address.png)
 
-You also have the option to send your newsletter from a [custom domain](https://docs.buttondown.email/getting-started/getting-a-custom-domain). It’s totally up to you, but if you choose to do this, then make sure your email address matches your domain in order to avoid any delivery issues.
+Alternatively, you can send your newsletter from a [custom domain](/getting-started/getting-a-custom-domain). This is optional--there's nothing wrong with using a common email domain like Gmail or Protonmail. If you want to send from a custom domain, make sure your email address matches your domain.
 
-### Devise your password
+### Create a password
 
-You know the drill—use lots of numbers, letters, and symbols.
+You know the drill—use lots of numbers, letters, and symbols. If you use a password manager that has a password generating feature, that's a great option to get a complex, secure password.
 
-Once you’ve completed these three steps, click “Create an Account” and you’ll be well on your way.
+After you've chosen a username, entered your email, and created a password, you're all set. Click "Create an account."
 
 <video
   src="/images/registration/registration_registration-page_AdobeExpress.mp4"
   controls
 ></video>
 
+This video shows the "Register" screen with information in all the fields.
+
 ### Confirm your account
 
-Keep an eye out for a confirmation email from “justin@buttondown.email.” Then click the link in that email to make your account official!
+After you create an account, Buttondown sends a confirmation email to the email address you entered. Check your email for an email from "justin@buttondown.email". There's a link in that email. Click it to verify your account.
 
 <video
   src="/images/emails/registration_confirmation-email_AdobeExpress.mp4"
   controls
 ></video>
 
+This video shows the confirmation email and moves the cursor onto a link that says "click here."
+
+Still waiting for the confirmation email? Check your spam folder.
+
 ## Crafting Your Newsletter's Look and Feel
+
+Boom, you’re in! You can start sending newsletters right away (if you want to do this, read [Sending your first email](/getting-started/sending-your-first-email)), but before you do, you might want to customize your newsletter a bit more. 
+
+Adding some details like your name and a description of your newsletter will help readers recognize you and understand what your newsletter is about. You can also customize your newsletter's appearance. If you want to do that, continue reading.
 
 ### Fill out your general newsletter details
 
-Boom, you’re in! After perusing your administrative [settings](https://buttondown.email/settings), scroll down to the “General” section to start shaping your newsletter.
+When you log in to Buttondown, you're taken to your newsletter's "Settings" page. 
 
-With your username and email taken care of, we can move on to the fun part: Coming up with your newsletter’s name, author, description, and more. This is your time to shine—customize this section however you like! Just three quick things to note:
+The first section is the "General" section. This is the fun part. Customize the fields in the "General" section however you like! 
 
-- What you put in the “Author” field will populate your newsletter’s “From” field
+Three of these fields are particularly important:
 
-- Your newsletter “Description” can be written in Markdown, HTML, or plaintext
-
-- Your time zone will be used for scheduled newsletter recommendations, as well as for timestamps in your archives
+- What you put in the “Author” field appears to your readers as your email's "From" field.
+- Write your newsletter's “Description” in Markdown, HTML, or plaintext.
+- Your time zone is used for scheduled newsletter recommendations, as well as for timestamps in your archives.
 
 When you’re done filling out the details, your “General” settings should look a little something like this:
 
@@ -86,25 +107,30 @@ When you’re done filling out the details, your “General” settings should l
   controls
 ></video>
 
-### Build out your newsletter's "Scaffolding"
+This video shows a newsletter's "General" section with information in all the fields.
 
-Your “Header” and “Footer” will appear at the top and bottom (respectively) of every newsletter that you send. These fields can be written out in Markdown, HTML, or plaintext.
+### Customize your newsletter's design
 
-In this section, you also have the option to customize each newsletter’s CSS, or style, with HTML. You can learn more about building out your newsletter’s CSS [here](https://docs.buttondown.email/advanced-features/css).
+The "Design" section lets you customize the visual elements that appear consistently in every newsletter you send: the header and footer, custom colors or other elements with CSS, and which email template you want to use.
+
+The content you put in the “Header” and “Footer” will appear at the top and bottom (respectively) of every newsletter that you send. For example, you might want to put a link to your website in the footer. You can write in Markdown, HTML, or plaintext.
+
+The "CSS" section lets you customize your newsletter’s appearance. To learn more, read [CSS](/advanced-features/css).
 
 <video
   src="/images/settings/registration_scaffolding-settings-section_AdobeExpress.mp4"
   controls
 ></video>
 
+This video shows a newsletter's "Design" section with information in the "Header" and "Footer" sections.
+
 ### Establish your newsletter's "Branding"
 
-Your newsletter’s branding includes its color palette, or “Tint Color,” as well as its logo, or “Icon.” Your “Tint Color” will pop up as an accent in places like hyperlinks or your “Subscribe” button. Your “Icon” will appear on top of your newsletters, in your archives, and as part of your social “Share” button. Upload a square image (ideally a PNG) with a 300 x 300 resolution for the best results.
+Your newsletter’s branding includes its color palette, or “Tint Color,” as well as its logo, or “Icon.” Your “Tint color” appears an accent in places like hyperlinks or the “Subscribe” button. The “Icon” appears on top of your newsletters, in your archives, and as part of your social “Share” button. The "Share image" appears when you or your subscribers share your newsletter on social media.
 
-<video
-  src="/images/settings/registration_branding-settings-section_AdobeExpress.mp4"
-  controls
-></video>
+* To customize the "Tint color," choose one of the default colors from the menu, or click the three-dot overflow menu to choose a different color. 
+* To customize the "Icon," click to upload a 300 x 300 pixel image. Square PNGs display the best.
+* To customize the "Share image," click to upload a 1080 x 1080 share image. Square PNGs display the best.
 
 ## Sending Your First Newsletter
 
