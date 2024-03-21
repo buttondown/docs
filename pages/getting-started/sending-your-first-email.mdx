@@ -144,11 +144,17 @@ To learn more, read [Scheduling an Email](/getting-started/scheduling-an-email).
 
 ## Images
 
-Buttondown uses Amazon S3 (a common file hosting platform) to safely and securely store your images. Images you upload to Buttondown last indefinitely by default. This means that even if you were to delete the email in which images are referenced, the images themselves still exist on Buttondown's servers.
+You can upload images to Buttondown and insert those images in your emails. Buttondown supports all visual file formats, including .jpg, .png, .gif, and many more.
 
-<!-- TKTK What file formats are supported? Also should add real procedure here. -->
+Buttondown uses Amazon S3 (a common file hosting platform) to safely and securely store your images. Images you upload to Buttondown last indefinitely by default. This means that even if you were to delete the email in which images are referenced, the images themselves still exist on Buttondown's servers. There's no option in the Buttondown UI to delete uploaded images, but you can do so with the API.
 
-There's no option in the Buttondown UI to delete uploaded images, but you can do so with the API.
+To upload an image:
+
+1. In the "Emails" page, click **New** in the upper right corner. The writing interface appears.
+2. In the rich text editor, click the **Insert image** button.
+3. Choose the image you wish to upload. 
+
+After the upload completes, the image becomes available to insert into an email. Click **Insert image** to see all the images you've previously uploaded to Buttondown.
 
 ## Custom unsubscribe links
 
@@ -174,7 +180,14 @@ There are a few different ways to apply a tag to a subscriber:
 - Customizing your [subscription form](https://blog.buttondown.email/2019/07/17/customizing-your-subscription-form-to-tag-new-subscribers)
 - Setting tags with the [API](/api-reference/introduction)
 
-<!-- TKTK Should document how to manually tag subscribers, at least -->
+To manually add a tag to a subscriber:
+
+1. Click **Subscribers**. The "Subscribers" page appears with a list of subscribers to your newsletter.
+2. Find the subscriber you wish to add a tag to and click to select them. The subscriber's "Details" page opens.
+3. Scroll to the "Tags" section and choose the tags that you wish to apply to the subscriber.
+4. Click **Save changes**.
+
+To learn more, read [Tags](/advanced-features/tags).
 
 ## Mail merges
 
@@ -227,7 +240,11 @@ If you update the slug of an email that you've already sent, don't worry! The ol
 
 Buttondown tries determine what issue number your newsletter is on. For example, your first email will be labeled number 1. But it doesn't always get this right. This is particularly a problem for people who have imported the archives of an existing newsletter from another system. If you need to, you can manually edit your issue numbers in your Archive page. 
 
-<!-- TKTK This is another thing that wants a procedure, but I can't find the UI. -->
+To edit your issue numbers:
+
+1. Navigate to the "Emails" page and find the email you wish to change the issue number for.
+2. Click to open the email, then click **Web archive**.
+3. Set the "Issue number" field to whatever number you like, then click **Save**.
 
 The **ID** field corresponds with the issue number:
 
