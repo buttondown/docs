@@ -16,54 +16,198 @@ export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
 
 # Sending Your First Email
 
-## Uploading images
+This topic explains everything about how to send your first email, from importing subscribers to Buttondown to scheduling an email to send in the future.
 
-Uploading images is easy! You can just drag and drop them into the main text area of your email; it'll be automatically uploaded to S3 and inserted into the text.
+## (Optional) Import your subscribers
 
-Buttondown uses Amazon S3 (a fairly common file hosting platform) to safely and securely store your images. They last indefinitely by default; there's no interface to delete images that you've uploaded to Buttondown, but you can do so via the API (or email me and I can manually delete them on your behalf.) This means that even if you were to delete the email in which images are referenced, the images themselves still exist on Buttondown's servers.
+If you already have a list of subscribers, you can upload that list to Buttondown as a comma-separated values, or [CSV](/odds-and-ends/glossary#csv), file. If you don't, no worries! Start by reading [Draft your first newsletter](#draft-your-first-newsletter) below.
+
+Buttondown automatically imports the following values for each of your subscribers, if available:
+
+* Email address
+* Time joined (format this in a “month/day/year” format)
+* Notes (these are completely open-ended and don’t have to follow a specific format)
+* [Tags](/getting-started/building-your-subscriber-base#adding-tags-to-your-subscribers)
+* [Metadata](/getting-started/building-your-subscriber-base#adding-metadata-to-your-subscribers)
+
+In either Google Sheets or Excel:
+
+1. Choose **File** and then **Download** to initiate a download of your spreadsheet. 
+2. Select “Comma-Separated Values (.csv)” to export your CSV file.
+
+<video
+  src="/images/spreadsheets/registration_exporting-csv-from-google-sheets_AdobeExpress.mp4"
+  controls
+></video>
+
+ This video shows the process to export a Google Sheet to CSV.
+
+3. In Buttondown, navigate to the **Subscribers** page. 
+4. Click **Import** to upload your CSV file. 
+5. After your CSV uploads, answer a series of questions to help Buttondown identify the columns of your CSV file and click **Done**.
+
+<video
+  src="/images/subscribers/registration_guided-questions-for-importing-subscribers.mp4"
+  controls
+></video>
+
+ This video shows the steps to import a CSV file to Buttondown and identify the columns. At the end, a confirmation screen explaining that the upload has begun appears.
+
+If you’re uploading a large quantity of subscribers, it may take a few hours to process.
+
+When the upload completes, your subscriber list will appear in the "Subscribers" page, with their accompanying notes, tags, and metadata. 
+
+<video
+  src="/images/subscribers/registration_notes-for-imported-subscriber_AdobeExpress.mp4"
+  controls
+></video>
+
+This video shows Buttondown's "Subscribers" screen with an imported subscriber. The overflow menu expands to show configuration options, including the "Notes" section.
+
+To learn more about downloading CSVs and importing subscribers and newsletter archives, read [Importing Your Data](/getting-started/importing-your-data).
+
+## Draft your first newsletter
+
+The “Emails” page is the command center for your newsletter. When you write, schedule, and send newsletters, they'll appear here. You may not have any newsletters there yet, but you will soon! 
+
+Here's how to write a newsletter:
+
+1. In the "Emails" page, click **New** in the upper right corner. The writing interface appears.
+2. (Optional) Click the buttons in the upper right corner to toggle between “Preview Mode” and “Editor Mode. 
+- "Preview Mode" renders your Markdown or HTML draft as you write so you can verify that your formatting looks the way you want. 
+- "Editor Mode" adds a toolbar you can use to format your text, add links, add images, and more.
+3. Enter the text for your email in Markdown or HTML. Buttondown saves what you write automatically.
+
+<video
+  src="/images/email-interface/registration_email-page-and-writing-interface.mp4"
+  controls
+></video>
+
+ This video shows how to start a new email draft and toggle between the different editing view modes.
+
+### Send a test newsletter
+
+Before you send a newsletter email to your subscribers, you can send a draft of it to yourself to confirm that everything is working as expected. 
+
+1. Follow the procedure in [Draft your first newsletter
+](#draft-your-first-newsletter) to draft an email.
+2. Click **Send Draft**. The "Choose draft recipients" modal appears. 
+3. Enter the email address of the person you wish to receive your test newsletter and click **Add recipient**.
+4. Click **Send draft**.
+
+<video
+  src="/images/email-interface/registration_pop-up-for-choosing-draft-recipients.mp4"
+  controls
+></video>
+
+This movie shows how to send a draft email to one person.
+
+The draft will appear in the recipient's email shortly. You can identify it because it will have the string `[PREVIEW]` in the subject line.
+
+<video
+  src="/images/emails/registration_newsletter-draft_AdobeExpress.mp4"
+  controls
+></video>
+
+This video shows a preview of a newsletter email in an email inbox.
+
+### Send your first newsletter email
+
+If you sent a draft email to yourself, you can review it now in Buttondown and make any edits you think are necessary. You’re almost ready to click **Send** and deliver this email to your subscribers. But before you do, you should make sure everything is polished and ready.
+
+Here’s a checklist to make sure everything’s ready:
+
+- Verify that all the links in your email work.
+- Decide who you want to send this email to. You can send it to all your subscribers, or only those with certain [tags](/getting-started/sending-your-first-email#tags-and-segmentation)?
+- Decide if you want to send this email immediately, or [schedule it for later](/getting-started/scheduling-an-email).
+
+After you double-check all the details, you can send your email. Here's how:
+
+1. From the email drafting screen, click **Send.** The "Ready to send?" modal appears.
+2. Review the screen and verify everything looks correct.
+3. Click **Send**. Your email sends.
+
+<video
+  src="/images/email-interface/registration_pop-up-after-sending-newsletter_AdobeExpress.mp4"
+  controls
+></video>
+
+This video shows the process of sending an email.
+
+After you send the email, a congratulatory pop-up appears with buttons to share it on social media or a copy-and-paste-able URL. You'll also see an option to **Undo** sending the email if you change your mind at the last minute.
+
+### Schedule your newsletter email
+
+You don't have to send an email as soon as you write it. You can schedule it to send later, at a specific date or time. You can do this by clicking the “Scheduling” button at the bottom of your draft.
+
+To learn more, read [Scheduling an Email](/getting-started/scheduling-an-email).
+
+## Images
+
+You can upload images to Buttondown and insert those images in your emails. Buttondown supports all visual file formats, including .jpg, .png, .gif, and many more.
+
+Buttondown uses Amazon S3 (a common file hosting platform) to safely and securely store your images. Images you upload to Buttondown last indefinitely by default. This means that even if you were to delete the email in which images are referenced, the images themselves still exist on Buttondown's servers. There's no option in the Buttondown UI to delete uploaded images, but you can do so with the API.
+
+To upload an image:
+
+1. In the "Emails" page, click **New** in the upper right corner. The writing interface appears.
+2. In the rich text editor, click the **Insert image** button.
+3. Choose the image you wish to upload. 
+
+After the upload completes, the image becomes available to insert into an email. Click **Insert image** to see all the images you've previously uploaded to Buttondown.
 
 ## Custom unsubscribe links
 
-This answer assumes a baseline familiarity with Markdown.
+Buttondown automatically appends an unsubscribe link at the end of all emails you send, but you may want to manually place one in your email as well (for instance, if you send your newsletter infrequently, you might place it at the top of the email). The unsubscribe link for your newsletter is unique. You can generate it with the `{{ unsubscribe_url }}` shortcode and use that in place of a URL in an email.
 
-Buttondown automatically appends an unsubscribe link to the footer of all emails you send, but you may want to manually place one in your email as well (for instance, at the top of the email, if it's an infrequent newsletter). To generate the unsubscription URL, use the `{{ unsubscribe_url }}` shortcode.
-
-Combining this with Markdown, a link would look something like:
+Here is an example unsubscribe link in Markdown:
 
 ```handlebars
 [Click here to unsubscribe!]({{unsubscribe_url}}).
 ```
 
-(This link will render on draft emails, but the resultant URL won't do anything of importance. I'm working on a better solution so you can 'click through' and verify that the URL is well-formed.)
+This link renders on draft emails, but the URL won't do anything if you click it.
 
 ## Tags and segmentation
 
-Buttondown offers _tags_ to do this; subscribers can have one or more tags.
+Tags let you create subgroups of your subscribers. Subscribers can have one or more tags, so if you want to include someone in more than one tag group, you can.
 
-You can send emails including (or excluding!) certain tags, making it easy to
-tailor your newsletters' content to who's going to enjoy it the most or find it the most relevant
+You can send emails including certain tags, making it easy to tailor your newsletter's content to who's going to enjoy it the most or find it the most relevant.
 
-There are many ways to apply a tag to a subscriber, once you've created them:
+There are a few different ways to apply a tag to a subscriber:
 
+- Tagging subscribers manually
 - Customizing your [subscription form](https://blog.buttondown.email/2019/07/17/customizing-your-subscription-form-to-tag-new-subscribers)
-- Manually tagging them
-- Setting them via the [API](https://docs.buttondown.email/api-reference/introduction)
+- Setting tags with the [API](/api-reference/introduction)
+
+To manually add a tag to a subscriber:
+
+1. Click **Subscribers**. The "Subscribers" page appears with a list of subscribers to your newsletter.
+2. Find the subscriber you wish to add a tag to and click to select them. The subscriber's "Details" page opens.
+3. Scroll to the "Tags" section and choose the tags that you wish to apply to the subscriber.
+4. Click **Save changes**.
+
+To learn more, read [Tags](/advanced-features/tags).
 
 ## Mail merges
 
-A mail merge is a catch-call term for sending out emails with specific fields changed. For example, being able to send out an email that says something like:
+A mail merge is a catchall term for sending out emails with specific fields changed. 
+
+For example, being able to send out an email that says something like:
 
 > Hello, {first_name}!
 
-With "{first_name}" being replaced by the first name of the recipient of that email.
+where "{first_name}" displays the first name of the recipient of that email.
 
-Buttondown supports mail merges through subscriber metadata. You can set metadata for a given subscriber either via the API or manually, by going to the "Notes" section for a given subscriber:
+Buttondown supports mail merges with subscriber metadata. You can set metadata for a given subscriber with the API, or manually in that subscriber's "Notes" section:
 
-![A screenshot of the subscriber details modal, where metadata can be set.](/images/metadata.png)
+![A screenshot of the subscriber details modal, where you can set metadata.](/images/metadata.png)
 
-You can then refer to metadata (such as the metadata above) in your email by using the following variable: `{{ subscriber.metadata.first_name }}`.
+After you set the metadata, you can refer to it in an email by including this variable: `{{ subscriber.metadata.first_name }}`.
 
-You can also conditionally show a paragraph if metadata is set using a snippet like the following:
+Metadata doesn't just let you change small fields like names. You can also use a code snippet to show a paragraph, or define a conditional statement based on whether or not metadata is defined.
+
+Here's an example:
 
 <!-- prettier-ignore -->
 ```handlebars
@@ -74,31 +218,47 @@ Hello friend!
 {% endif %}
 ```
 
+In this example, the first two lines state that if a subscriber has the `first_name` object, the opening line of the email should greet the subscriber using that name. If the subscriber's `first_name` is Alice, the opening line will read "Hello Alice!" The third and fourth lines specify that if there is not a `first_name` object defined, the opening line of the email should read "Hello friend!" 
+
 ## Sending emails based on an RSS feed
 
-You'll want to get set up with our [RSS automation](/advanced-features/rss-to-email).
+To learn about using an RSS feed, read [RSS automation](/advanced-features/rss-to-email).
 
-## After sending
+## Things to do after you send your first email
 
-### Updating your email's slug
+So you've sent your newsletter's first email. That's great! What happens next?
 
-If you update the slug of an email that's already been sent out, worry not! The old link that references an old slug will still work; Buttondown keeps track of historical slugs for each email and redirects readers who go to the old link accordingly.
+### Update your email's slug
 
-### Updating your email's issue number
+The "slug" is the end of a URL. Each email has a unique slug. You can change the slug of an email if you need to. 
 
-Buttondown tries to be clever with determining what issue number your newsletter is on. Sometimes it is either _too_ clever or not nearly clever enough, though, and you end up in a situation where your seventh issue is showing up as your eighth or vice-versa. This is particularly pernicious as a problem if you're bringing in archives from another system.
+If you update the slug of an email that you've already sent, don't worry! The old link that references an old slug still works. Buttondown keeps track of historical slugs for each email and redirects readers who go to the old link accordingly.
 
-You can manually edit your issue numbers by going to the **Edit Email** screen in your Archive page. The **ID** field corresponds with the issue number:
+<!-- How do you do this? I couldn't find it in the UI at all. If it's an API-only feature, we should probably remove this from the docs, or link to the API docs. -->
+
+### Update your email's issue number
+
+Buttondown tries determine what issue number your newsletter is on. For example, your first email will be labeled number 1. But it doesn't always get this right. This is particularly a problem for people who have imported the archives of an existing newsletter from another system. If you need to, you can manually edit your issue numbers in your Archive page. 
+
+To edit your issue numbers:
+
+1. Navigate to the "Emails" page and find the email you wish to change the issue number for.
+2. Click to open the email, then click **Web archive**.
+3. Set the "Issue number" field to whatever number you like, then click **Save**.
+
+The **ID** field corresponds with the issue number:
 
 ![A screenshot of the 'edit email' modal, available after sending the email.](/images/edit-email-modal.png)
 
-In particular, Buttondown will respect your existing issue numbers and always go one greater than the largest issue number, so if you change your most recent email to be the "right" number everything subsequent from that should be in order.
+In particular, Buttondown will respect your existing issue numbers and always go one greater than the largest issue number, so if you change your most recent email to the number you want, everything after that will be in the correct order.
 
-(And, of course, you can disable issue numbers altogether by signing up for either the [Standard or Professional plans](https://buttondown.email/pricing).)
+You can disable issue numbers completely by signing up for either a [Standard or Professional plan](https://buttondown.email/pricing).
 
-### Adding share links to your email
+### Add share links to your email
 
-You can add share links to your email by customizing your newsletter's footer in your [settings](https://buttondown.email/settings) page.
+You can customize the [Social](https://buttondown.email/settings/design) section of your account by adding sharing options in the "Suggested sharing options" section. We support most large social media and networking platforms and add more regularly.
+
+Alternatively, you can add share links to your email by customizing your newsletter's footer in the [settings](https://buttondown.email/settings) page.
 
 Then, you can add custom Markdown links using some template variables that Buttondown assigns you:
 
@@ -110,21 +270,25 @@ If you liked this email, please share it:
 - on [LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url={{email_url}})
 ```
 
-Interested in other social networks besides Twitter and Facebook? [Email me](mailto:justin@buttondown.email) and I'll add them!
-
 ## FAQs
 
-### A warning about the in-browser preview
+Here are responses to some common questions we get about writing and sending your first email in Buttondown.
 
-This is a common and unfortunate question. The short answer is: **email is weird, email inboxes are weird, and there's nothing you or I or anyone can do about it.** Buttondown's markdown previewing is meant to closely resemble the inbox from a content perspective (links and HTML tags and all of those things appear as they should), but will never be able to accurate resemble the inbox from a _stylistic_ perspective (things being arranged and formatted as you'd expect.)
+### A note about the in-browser preview
+
+This is a common and unfortunate problem. The short answer is: **email is weird, email inboxes are weird, and there's nothing you or I or anyone can do about it.** 
+
+Buttondown's Markdown preview is meant to closely resemble an email inbox from a content perspective (links and HTML tags and all of those things appear as they should), but will never be able to accurate resemble the inbox from a _stylistic_ perspective (things being arranged and formatted as you'd expect.)
 
 Our friends over at Litmus have a [really useful, detailed answer](https://help.litmus.com/article/158-why-do-some-email-clients-show-my-email-differently-than-others):
 
 > Web-based email clients (such as [Outlook.com](http://outlook.com/) or Gmail) will certainly perform most the tasks listed above, but they also have a larger, more difficult job. They have to prepare the HTML to be converted into HTML that's safe to show within their own email client's HTML. This is a surprisingly difficult thing to do and most web-based email clients' preprocessors will err on the side of being overly restrictive and removing anything with even the slightest potential to affect the layout of their email client. We'll cover the various mistakes made by these preprocessors a little later, but you should expect this to be the second biggest cause of headaches when designing HTML emails - the first biggest cause is still to be discussed.
 
-### Why is my email all ...purple?
+### Why is my email all... purple?
 
-If you're previewing multiple drafts of an email in Gmail, you might notice that the text is all purple! This isn't a Buttondown thing — this is Gmail thinking that multiple emails sent in the same day with the same subject are responses to one another, and it displays the thread of emails in a "conversation view". You can read about Gmail's conversation view [here](https://support.google.com/mail/thread/5162234?hl=en):
+If you're previewing multiple drafts of an email in Gmail, you might notice that the text is all purple! This isn't a Buttondown problem. This is Gmail thinking that multiple emails sent in the same day with the same subject are responses to one another, and it displays the thread of emails in a "conversation view". 
+
+Read about Gmail's [conversation view](https://support.google.com/mail/thread/5162234?hl=en):
 
 > The purple colouration is a display only feature that only exists in the display where it is being seen. It is not sent in any messages and you can use Gmail's show original feature to verify that - you will need to know a little about HTML coding.
 
@@ -132,23 +296,17 @@ If you're previewing multiple drafts of an email in Gmail, you might notice that
 
 ### How do I avoid the "Promotions" tab in Gmail?
 
-Ah, yes. The dreaded Promotions tab.
+Every author wants their email to be read as much as possible. Emails that show up in the "Primary" tab in Gmail are
+going to be read much more often than ones in secondary tabs like the Promotions tab.
 
-Every author wants their email to be read as much as possible, and emails that show up in the 'primary' inbox in Gmail are
-going to be read much more often than ones in secondary tabs like Promotions.
+The Promotions tab is not the enemy. It is your subscribers' friend. By filtering things into the Promotions tab, Gmail is making an effort to make reading email better. It's your job to make sure your email stands out.
 
-I think the trap a lot of authors fall into is thinking that the Promotions tab is the _enemy_. It's not: it's the friend of your subscribers!
-Gmail is making a concerted effort to make the process of reading email better, and it's your job to make sure your email stands out.
+You can help your email show up in the right place by using the same best practices you use to make sure your email doesn't end up in the spam folder:
 
-Coincidentally, the way you make sure your email shows up in the right place is also the way you make sure that your email doesn't show up in spam
-(and is read & interacted with in general):
+- Avoid using too many links or images. These give the impression that the email is low-quality or used solely for directing readers elsewhere.
+- Send emails that are not too short, or not too long. (500 to 750 words is a pretty good range.)
+- Cull subscribers that aren't opening or interacting with your content. Gmail and other email clients care a lot about how often readers click, open, and reply to email. The more interaction an email gets, the more likely it is that it's a legitimate email the subscriber wants to read.
 
-- Avoid using too many links or images, giving the impression that the email is low-quality or used solely for directing readers elsewhere.
-- Send emails that are not too short, or not too long. (500 to 750 words is a pretty good area to aim for.)
-- Cull subscribers that aren't opening or interacting with your content. A major input into Gmail and other inbox's decisions is how often it sees
-  readers clicking, opening, and replying to emails — the higher those numbers are, the more likely it is that it's a legitimate email.
+Unfortunately, this is not a foolproof method. There isn't one: Gmail's categorization schemes are deliberately vague. The best way to land in your subscribers' primary inbox is to produce great content.
 
-Note, of course, that this is not a foolproof method. There isn't one: Gmail's various categorization schemes are a deliberate black box, but
-time and time again the best way to land in your subscribers' primary inbox is to just produce great content.
-
-You can read more about avoiding the Promotions tab [here, on SalesHandy](https://www.saleshandy.com/blog/avoid-gmail-promotions-tab/#4_Keep_the_HTML_to_text_ratio).
+You can read more about avoiding the Promotions tab [on SalesHandy](https://www.saleshandy.com/blog/avoid-gmail-promotions-tab/#4_Keep_the_HTML_to_text_ratio).

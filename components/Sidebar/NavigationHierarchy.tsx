@@ -49,6 +49,10 @@ const NAVIGATION: Array<NavigationItem> = [
         href: "/getting-started/importing-your-data",
       },
       {
+        name: "Sending your first email",
+        href: "/getting-started/sending-your-first-email",
+      },
+      {
         name: "Building your subscriber base",
         href: "/getting-started/building-your-subscriber-base",
       },
@@ -63,10 +67,6 @@ const NAVIGATION: Array<NavigationItem> = [
       {
         name: "Sending from a custom domain",
         href: "/getting-started/sending-from-a-custom-domain",
-      },
-      {
-        name: "Sending your first email",
-        href: "/getting-started/sending-your-first-email",
       },
       {
         name: "Scheduling an email",
