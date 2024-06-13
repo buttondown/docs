@@ -1,0 +1,22 @@
+---
+title: How can I hide the top of the Modern template?
+description: >-
+  The top of the Modern template has the newsletter's icon and name, and the
+  email's subject and publication date, which some authors opt to hide using
+  CSS. 
+relatedPages:
+  - customizing-email-design
+---
+Buttondown's [Modern](/customizing-email-design#modern-template) email template comes with a section at the top that has the newsletter's name and icon, and the email's subject and publication date.
+
+![A screenshot of the Modern template with the top section marked in blue.](/modern-template-hide-top/modern-top.png)
+
+Some authors want to hide this, so their emails get straight to the writing.
+
+To do this, go to your [Design settings](https://buttondown.email/settings/design) and add the following CSS under **Design (email) > CSS**:
+
+```css
+.newsletter-icon, .newsletter-masthead, .email-preamble {
+    display: none !important;
+}
+```

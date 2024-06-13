@@ -1,0 +1,126 @@
+---
+title: Retrieving email analytics data via the API
+navigationTitle: Retrieving analytics data via the API
+relatedPages: 
+- api-emails-analytics
+- api-emails-list
+- api-emails-events
+- glossary-temporary-failure
+- glossary-permanent-failure
+---
+
+{% noticeInfo text="This guide assumes a familiarity with REST APIs" /%}
+
+
+Want to know how your last email performed? The [analytics modal](https://buttondown.email/features/analytics) in the Buttondown dashboard makes it easy to see emails stats like deliveries, failures, open rates, click through rates. 
+
+But there might be times when you'd like to do something a bit more complex. Maybe you need to pull data into another tool programmatically, or build a custom dashboard. For projects like this, look no further than the Buttondown API!
+
+## Setup
+Before you can use analytics, you'll need to enable Tracking in your [Buttondown settings](https://buttondown.email/settings/tracking). If Tracking is not enabled, the request will still be successful but will not return any data.
+
+
+## Retrieving email analytics
+
+{% multilanguageSnippets
+   python="public/code/retrieving-analytics-data/1.py"
+   ruby="public/code/retrieving-analytics-data/1.rb"
+   curl="public/code/retrieving-analytics-data/1.sh"
+   javascript="public/code/retrieving-analytics-data/1.js" /%}
+
+### Parameters
+
+Retrieving analytics only required a single parameter: the email ID. 
+
+The email ID can be located by first [listing all emails](/api-emails-list).
+
+
+### Results
+A successful (200) request will return an object with the data for this particular email. For example:
+
+```json
+{
+    "recipients": 100,
+    "deliveries": 99,
+    "opens": 50,
+    "clicks": 25,
+    "temporary_failures": 1,
+    "permanent_failures": 2,
+    "unsubscriptions": 3,
+    "complaints": 1
+}
+```
+
+You can also visit the [API Requests tab](https://buttondown.email/requests) in your Buttondown dashboard for more details. Here's what this looks like:
+
+![Screenshot of the API Requests tab in Buttondown](/images/analytics-api-tab.png)
+
+{% noticeWarn text="Not seeing the data you expect? Make sure that Tracking is enabled in your Buttondown settings." /%}
+
+
+## Email events
+Now that you have the overall data on how your email performed, you can dig a bit deeper and learn how subscribers interacted with your emails!
+
+You can request more information about each email event by making a request like so: `/events?event_type={event-type}`
+
+
+### Email event types
+
+_Note: The name in the Analytics response differs from the Event Type name._
+
+| Analytics response  | Event Type | Description |
+| -------- | ------- | ------- |
+| recipients |  sent | The email was sent by Buttondown. |
+| deliveries |  delivered | The email was accepted by the recepient's email server. |
+| opens |  opened | The recipient opened the email. |
+| clicks |  clicked | The recipient clicked a link in the email. |
+| temporary_failures |  bounced | The recipient's address is invalid, or misconfigured. |
+| permanent_failures |  rejected | The email could not be delivered. |
+| unsubscriptions | unsubscribed  | The recipient has unsubscribed from the email. |
+| complaints |  complained | The recipient marked the email as spam. |
+| replies | replied | The recipient replied to your email. |
+
+For example, if you wanted to learn more about your subscribers who received your newsletter, you could make the following request:
+
+{% multilanguageSnippets
+   python="public/code/retrieving-analytics-data/2.py"
+   ruby="public/code/retrieving-analytics-data/2.rb"
+   curl="public/code/retrieving-analytics-data/2.sh"
+   javascript="public/code/retrieving-analytics-data/2.js" /%}
+
+
+A successful (200) request will would return an array of all subscribers to whom your email was delivered:
+
+```json
+   [{
+      "id": "ba9fefc2-55e8-4ada-5555-057fe34d5a49",
+      "subscriber_id": "9a9b7d4b-5555-45bb-bf2f-1e1d0f55555",
+      "subscriber_email": "liz.lemon@tgs-nbc.com",
+      "creation_date": "2013-01-01T19:38:09.725430Z",
+      "metadata": {}
+    },
+    {
+      "id": "77d51a78-53a7-45e4-9b4e-8ee83ac53c0d",
+      "subscriber_id": "255130a1-ab3d-463d-5155-6569b6e9e521",
+      "subscriber_email": "jack.donaghy@tgs-nbc.com",
+      "creation_date": "2013-05-20T19:38:22.560044Z",
+      "metadata": {}
+    },
+    {
+      "id": "9a9b7d4b-a1ae-4e22-ab3d-3ecf7655561b",
+      "subscriber_id": "36549f8b-3fgh-5555-59813-214690e8ee1b",
+      "subscriber_email": "tracy.jordan@tgs-nbc.com",
+      "creation_date": "2013-04-11T19:38:58.581378Z",
+      "metadata": {}
+    },
+    {
+      "id": "9ede730f-5555-4d0f-d3fg-6fc0d79043e4",
+      "subscriber_id": "19a43766-5555-1234-abcd-582e6402e947",
+      "subscriber_email": "kenneth.parcell@tgs-nbc.com",
+      "creation_date": "2013-02-02T19:40:23.090060Z",
+      "metadata": {}
+    }]
+```
+
+
+{% supportSnippet /%}

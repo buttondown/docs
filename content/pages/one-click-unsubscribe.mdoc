@@ -1,0 +1,10 @@
+---
+title: Does Buttondown support one-click unsubscribe?
+navigationTitle: Does Buttondown support one-click unsubscribe?
+relatedPages:
+  - glossary-precedence-bulk
+---
+
+We sure do! We implement one-click unsubscribe headers (aka `List-Unsubscribe` headers) in every email we send out to make it easy for clients like Gmail to automatically detect and display an unsubscribe link in the email header.
+
+If you're analyzing the headers of a _preview_ or draft email, you won't see the `List-Unsubscribe` header. This is because the header is only added when the email is sent out to your subscribers (since previews are technically [transactional](/glossary-transactional-email).)

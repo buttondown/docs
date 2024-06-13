@@ -1,0 +1,248 @@
+---
+title: Template variables
+relatedPages:
+- using-templating
+---
+Template variables are a concept that have multiple names: "mail merges" might be one you're more familiar with if you have a marketing and email background. 
+
+The concept is to add snippets in your email that are programmatically replaced when Buttondown sends out an email. This with [a little templating logic](/using-templating) allows you to customize your content per-subscriber or to repeat certain key concepts in your email without having to change them over and over again.
+
+#### subscriber.id
+
+{% preview
+   before="Your subscriber ID is {{ subscriber.id }}."
+   after="Your subscriber ID is 497f6eca-6276-4993-bfeb-53cbbbba6f08." /%}
+
+The unique ID for a given subscriber.
+
+---
+
+#### subscriber.can_view_premium_content
+
+{% preview
+   before="{% if subscriber.can_view_premium_content %}<br />Click here to check out the full version of the podcast!<br />{% endif %}."
+   after="Click here to view to view a full version of the podcast." /%}
+
+A boolean that is `true` if the subscriber is on a paid plan and `false` if they are not.
+
+---
+
+#### subscriber.metadata
+
+{% preview
+   before="Hi there, {{ subscriber.metadata.first_name }}! You're looking dapper today."
+   after="Hi there, Luke! You're looking dapper today." /%}
+
+Access to the metadata for a given subscriber
+
+---
+
+#### subscriber.email
+
+{% preview
+   before="You signed up for this email via {{ subscriber.email }}."
+   after="You signed up for this email via vader@deathstar.com" /%}
+
+Access to the email address for a given subscriber
+
+---
+
+#### subscriber.can_be_upsold
+
+{% preview
+   before="{% if subscriber.can_be_upsold %}Want to get even more content? Click [here]({{ subscriber.get_upgrade_url }})!{% endif %}"
+   after="Want to get even more content? Click <a href=\"#subscribercan_be_upsold\">here</a>!" /%}
+
+Whether or not a subscriber is able to be upsold to a paid subscription
+
+---
+
+#### subscriber.subscriber_type
+
+{% preview
+   before="{% if subscriber.subscriber_type == 'premium' %}Thanks for your patronage!{% endif %}"
+   after="Thanks for your patronage!" /%}
+
+Access to the subscriber type (premium, regular, etc) for a given subscriber
+
+---
+
+#### subscriber.tags
+
+{% preview
+   before="{% if 'python' in subscriber.tags %}You know, I bet you're interested in Python!{% elif 'html' in subscriber.tags %}You know, you strike me as a web developer.{% else %}I don't know what you're interested in!{% endif %}"
+   after="You know, you strike me as a web developer." /%}
+
+Access to the tag names of a given subscriber
+
+---
+
+#### email.subject
+
+{% preview
+   before="Today, we'll be discussing {{ email.subject }}."
+   after="Today, we'll be discussing Jar Jar Binks." /%}
+
+The subject of the email you're sending out
+
+---
+
+#### unsubscribe_url
+
+{% preview
+   before="Not interested in this email? No worries — [unsubscribe here]({{ unsubscribe_url }})"
+   after="Not interested in this email? No worries — <a href=\"#unsubscribe_url\">unsubscribe here</a>" /%}
+
+A personalized URL for the given subscriber to unsubscribe with
+
+---
+
+#### subscribe_url
+
+{% preview
+   before="Did someone forward you this email? If so, you can [subscribe here]({{ subscribe_url }})."
+   after="Did someone forward you this email? If so, you can <a href=\"#subscribe_url\">subscribe here</a>." /%}
+
+A generic URL for your subscription page.
+
+---
+
+#### email_url
+
+{% preview
+   before="You can also view this email [online]({{ email_url }})."
+   after="You can also view this email online." /%}
+
+The permalink of the email being sent out.
+
+---
+
+#### upgrade_url
+
+{% preview
+   before="You can upgrade to a premium subscription [here]({{ upgrade_url }})."
+   after="You can upgrade to a premium subscription <a href=\"#upgrade_url\">here</a>." /%}
+
+A link to prompt existing free subscribers to upgrade. (Only relevant for paid newsletters.)
+
+---
+
+#### premium_subscribe_url
+
+{% preview
+   before="You can upgrade to a premium subscription [here]({{ premium_subscribe_url }})."
+   after="You can upgrade to a premium subscription <a href=\"#premium_subscribe_url\">here</a>." /%}
+
+A link to prompt existing free subscribers to upgrade. (Only relevant for paid newsletters.) This is the exact same thing as upgrade_url.
+
+---
+
+#### email.secondary_id
+
+{% preview
+   before="This is issue #{{ email.secondary_id }} of my newsletter!"
+   after="This is issue #11 of my newsletter!" /%}
+
+The issue number of the email being sent out.
+
+---
+
+#### email.publish_date
+
+{% preview before="Sent on {{ email.publish_date }}." /%}
+
+The raw date time of the email being sent out.
+
+---
+
+#### subscribe_form
+
+{% preview
+   before="Want more sweet insights like these? {{ subscribe_form }}"
+   after="Want more sweet insights like these?" /%}
+
+An embedded subscribe form for your newsletter, just like the one that appears at the bottom of your archives.
+
+{% noticeWarn
+   text="This only appears on the web/archive version of your email; it will not appear in the actual emails sent to subscribers." /%}
+
+---
+
+#### medium
+
+{% preview
+   before="You're reading this via {{ medium }}."
+   after="You're reading this via web." /%}
+
+Either 'email' (for emails) or 'web' (for web views).
+
+---
+
+#### random_number
+
+{% preview
+   before="{% load random_numbers %}\n\n{% random_number 0 1 as number %}\n\n{% if number %}\n[Click this link](https://google.com?utm_source=a)\n{% else %}\n[Smash this link](https://google.com?utm_source=b)\n{% endif %}"
+   after="<a href=\"https://google.com?utm_source=b\">Smash this link.</a>" /%}
+
+A random number between two values for things like A/B testing.
+
+## Template variable library
+
+{% table %}
+- Variable
+- Description
+---
+- **subscriber.id**
+- The unique ID for a given subscriber.
+---
+- **subscriber.can\_view\_premium\_content**
+- Whether or not a subscriber is able to view premium content.
+---
+- **subscriber.metadata**
+- Access to the metadata for a given subscriber.
+---
+- **subscriber.email**
+- Access to the email address for a given subscriber.
+---
+- **subscriber.can\_be\_upsold**
+- Whether or not a subscriber is able to be upsold to a paid subscription.
+---
+- **subscriber.subscriber\_type**
+- Access to the subscriber type (premium, regular, etc) for a given subscriber.
+---
+- **subscriber.tags**
+- Access to the tag names of a given subscriber.
+---
+- **email.subject**
+- The subject of the email you're sending out.
+---
+- **unsubscribe\_url**
+- A personalized URL for the given subscriber to unsubscribe with.
+---
+- **subscribe\_url**
+- A generic URL for your subscription page.
+---
+- **email\_url**
+- The permalink of the email being sent out.
+---
+- **upgrade\_url**
+- A link to prompt existing free subscribers to upgrade. (Only relevant for paid newsletters.)
+---
+- **premium\_subscribe\_url**
+- A link to prompt existing free subscribers to upgrade. (Only relevant for paid newsletters.) This is the exact same thing as upgrade_url.
+---
+- **email.secondary\_id**
+- The issue number of the email being sent out.
+---
+- **email.publish\_date**
+- The raw date time of the email being sent out.
+---
+- **subscribe\_form**
+- An embedded subscribe form for your newsletter, just like the one that appears at the bottom of your archives. Note that this only appears on the web/archive version of your email; it will not appear in the actual emails sent to subscribers.
+---
+- **medium**
+- Either 'email' (for emails) or 'web' (for web views).
+---
+- **random\_number**
+- A random number between two values for things like A/B testing.
+{% /table %}

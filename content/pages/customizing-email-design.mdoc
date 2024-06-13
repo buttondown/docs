@@ -1,0 +1,72 @@
+---
+title: Customizing your emails
+navigationTitle: Custom emails
+relatedPages:
+- 'customizing-web-design'
+- 'can-i-use-a-custom-font'
+- 'how-do-i-include-audio-in-my-newsletter'
+- 'what-s-a-good-tutorial-for-learning-css'
+- 'can-i-center-my-email'
+---
+
+{% paidFeature feature="css" /%}
+
+Buttondown is fairly opinionated about the best emails being plain-text friendly and minimal, but it offers you a variety of ways to customize your email through HTML and CSS.
+
+
+## What to avoid
+
+Most email clients don't support the wide variety of HTML and content that you can see on the web.
+
+Things like `<iframe>` elements, embedded videos, or custom layouts and fonts are hard if not impossible to replicate in the limited confines of your average inbox. This isn't a Buttondown limitation; it's a Gmail (or whomever) one.
+
+A brief (and inexhaustive) list of things that emails won't be able to handle:
+
+### JavaScript or other run-time scripts
+JavaScript is a programming language that makes web content interactive. It's common in websites, but the vast majority of email clients block scripts since they can hide malicious content. Avoid all JavaScript.
+
+### iframes
+An `<iframe>` (inline frame) is an HTML element that embeds content from one website into another. Inline frames are often used to insert advertisements, video, audio, or forms in other websites. Iframes often contain scripts, so most email clients block them.
+
+### Embedded audio or video
+Autoplay and click-to-play media won't play in an inbox unless your subscriber's email client supports HTML5 `<video>` and `<audio>` tags. Only one major email client, Apple Mail, supports these tags, so it's best to avoid embedded media.
+
+Instead, we recommend using one of our [integrations](https://buttondown.email/features/integrations) to host your audio and video! We have integrations with Youtube, Vimeo, Soundcloud and Bandcamp that make it easy to share with your readers.
+
+### Custom forms
+Forms and interactive content is impossible in email.
+
+### CSS3
+Unfortunately, the CSS standard that Gmail and other clients are working off of is fairly old. You'll want to extensively test any custom CSS you are using to make sure it plays nice with many browsers; when in doubt, default to CSS that worked in, say, 2005.
+
+{% noticeInfo text="All HTML is technically valid Markdown, so if you ever want to just completely override Buttondown's styles and provide your own email template, you're welcome to do so!" /%}
+
+## Buttondown's default templates
+Buttondown comes with two default templates: Classic and Modern.
+
+### Classic template
+The Classic template is simple, functional, and minimalist. Did we mention that it's in plain text? This template puts the emphasis on your content.
+
+Here's how the Classic template looks:
+
+![Preview of the Classic template](/customizing-design/classic-theme.png)
+
+You can review the CSS for the Classic template [here](/subscriber_facing_styles/email-classic.css).
+
+
+### Modern template
+The Modern theme is still clean and accessible, but does more to emphasize your newsletter's branding.
+
+Here's how the Modern template looks:
+
+![Preview of the Modern template](/customizing-design/modern-theme.png)
+
+You can review the CSS for the Modern template [here](/subscriber_facing_styles/email-modern.css), and below are some common classes and targets you might want to style:
+
+
+| Class | Description |
+|-----|---------------|
+| subject | The subject line of the email |
+| description | The description of the email |
+| colophon | The small subhead containing the newsletter name and date |
+| preamble | The introductory text of the email ("Did someone forward you this?") |

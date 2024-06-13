@@ -1,0 +1,58 @@
+<!-- An example of a Buttondown subscription form with metadata support. -->
+
+<form
+  action="https://buttondown.email/api/emails/embed-subscribe/jmduke"
+  method="post"
+  target="popupwindow"
+  class="p-4 antialiased"
+>
+  <div class="pb-3">
+    <label for="email" class="block pb-2 text-gray-300 font-semibold text-sm"
+      >Email Address</label
+    >
+    <input
+      id="email"
+      type="email"
+      name="email"
+      required
+      placeholder="jane@example.com"
+      class="w-64 mr-2 py-2 px-3 bg-gray-400 rounded focus:outline-none focus:bg-white"
+    />
+  </div>
+
+  <div class="pb-2">
+    <label for="message" class="block pb-2 text-gray-300 font-semibold text-sm"
+      >First name</label
+    >
+    <input
+      id="first-name"
+      type="text"
+      name="metadata__first-name"
+      required
+      placeholder="John"
+      class="w-full mr-2 py-2 px-3 bg-gray-400 rounded focus:outline-none focus:bg-white"
+    />
+  </div>
+
+  <div class="pb-2">
+    <label for="message" class="block pb-2 text-gray-300 font-semibold text-sm"
+      >Last name</label
+    >
+    <input
+      id="last-name"
+      type="text"
+      name="metadata__last-name"
+      required
+      placeholder="Doe"
+      class="w-full mr-2 py-2 px-3 bg-gray-400 rounded focus:outline-none focus:bg-white"
+    />
+  </div>
+  <br />
+
+  <button
+    type="submit"
+    class="py-2 px-6 bg-indigo-600 rounded text-white font-bold"
+  >
+    Send
+  </button>
+</form>

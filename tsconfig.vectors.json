@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "target": "es2022",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "incremental": false
+  },
+  "include": ["scripts/compile_vectors.ts"],
+  "exclude": ["node_modules"]
+}

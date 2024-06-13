@@ -1,0 +1,403 @@
+{
+  "Webhook": [
+    {
+      "description": "Basic webhook",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "url": "https://example.com",
+        "description": "Register in remote database every time we get a new subscriber",
+        "event": "subscriber.created"
+      }
+    }
+  ],
+  "Survey": [
+    {
+      "description": "Basic survey",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "identifier": "color",
+        "question": "What's your favorite color?",
+        "response_count": 0,
+        "answers": ["Red", "Green", "Blue"],
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "notes": "",
+        "response_cadence": "once",
+        "status": "active",
+        "is_freeform_response_enabled": false
+      }
+    },
+    {
+      "description": "Feedback survey",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "identifier": "feedback",
+        "question": "How can we improve?",
+        "response_count": 0,
+        "answers": ["More content", "Better content", "Other"],
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "notes": "",
+        "response_cadence": "once_per_email",
+        "status": "active",
+        "is_freeform_response_enabled": false
+      }
+    }
+  ],
+  "Comment": [
+    {
+      "description": "Basic comment",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "subscriber_id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "email_id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "body": "I really liked this email!",
+        "parent_id": "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+      }
+    }
+  ],
+  "ExternalFeed": [
+    {
+      "description": "Basic automation",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "status": "active",
+        "behavior": "emails",
+        "cadence": "every",
+        "subject": "New post: {{ item.title }}",
+        "body": "I just published a new post: {{ item.url }}"
+      }
+    }
+  ],
+  "Subscriber": [
+    {
+      "description": "Basic subscriber",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "email": "telemachus@buttondown.email",
+        "notes": "",
+        "metadata": {
+          "name": "Telemachus"
+        },
+        "tags": [],
+        "referrer_url": "",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "secondary_id": 1,
+        "subscriber_type": "unactivated",
+        "source": "organic",
+        "utm_campaign": "",
+        "utm_medium": "",
+        "utm_source": "",
+        "referral_code": "",
+        "avatar_url": "",
+        "stripe_customer_id": null,
+        "stripe_coupon": null,
+        "unsubscription_date": null,
+        "churn_date": null,
+        "unsubscription_reason": "",
+        "transitions": [],
+        "ip_address": null,
+        "last_open_date": null,
+        "last_click_date": null
+      }
+    },
+    {
+      "description": "Unsubscribed subscriber",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "email": "telemachus@buttondown.email",
+        "notes": "",
+        "metadata": {
+          "name": "Telemachus"
+        },
+        "tags": [],
+        "referrer_url": "",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "secondary_id": 1,
+        "subscriber_type": "unsubscribed",
+        "source": "organic",
+        "utm_campaign": "",
+        "utm_medium": "",
+        "utm_source": "",
+        "referral_code": "",
+        "avatar_url": "",
+        "stripe_customer_id": null,
+        "stripe_coupon": null,
+        "unsubscription_date": "2020-09-30T00:00:00+00:00",
+        "churn_date": null,
+        "unsubscription_reason": "Too many emails",
+        "transitions": [],
+        "ip_address": null,
+        "last_open_date": null,
+        "last_click_date": null
+      }
+    },
+    {
+      "description": "Premium subscriber with coupon",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "email": "telemachus@buttondown.email",
+        "notes": "",
+        "metadata": {
+          "name": "Telemachus"
+        },
+        "tags": [],
+        "referrer_url": "",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "secondary_id": 1,
+        "subscriber_type": "premium",
+        "source": "organic",
+        "utm_campaign": "",
+        "utm_medium": "",
+        "utm_source": "",
+        "referral_code": "",
+        "avatar_url": "",
+        "stripe_customer_id": "cus_whatever",
+        "stripe_coupon": {
+          "coupon_id": "coupon_whatever",
+          "percent_off": "10",
+          "amount_off": null,
+          "name": "Holiday Sale"
+        },
+        "unsubscription_date": null,
+        "churn_date": null,
+        "unsubscription_reason": "",
+        "transitions": [],
+        "ip_address": null,
+        "last_open_date": null,
+        "last_click_date": null
+      }
+    }
+  ],
+  "Export": [
+    {
+      "description": "Basic export",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "completion_date": "2019-08-24T15:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "url": "s3://buttondown/path-to-export",
+        "status": "completed"
+      }
+    }
+  ],
+  "Analytics": [
+    {
+      "description": "Basic analytics response",
+      "object": {
+        "recipients": 100,
+        "deliveries": 99,
+        "opens": 50,
+        "clicks": 25,
+        "temporary_failures": 1,
+        "permanent_failures": 2,
+        "unsubscriptions": 3,
+        "complaints": 1
+      }
+    }
+  ],
+  "Email": [
+    {
+      "description": "Basic email",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "publish_date": "2024-08-24T14:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "body": "Lorem ipsum yadda yadda",
+        "subject": "This is my first email on Buttondown!",
+        "excluded_tags": [],
+        "included_tags": [],
+        "email_type": "public",
+        "status": "sent",
+        "metadata": {},
+        "secondary_id": 3,
+        "external_url": "https://buttondown.email/jmduke/my-first-email"
+      }
+    },
+    {
+      "description": "Basic draft",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "body": "Lorem ipsum yadda yadda",
+        "subject": "This is my first email on Buttondown!",
+        "excluded_tags": [],
+        "included_tags": [],
+        "status": "draft",
+        "email_type": "public",
+        "metadata": {},
+        "secondary_id": 3,
+        "external_url": "https://buttondown.email/jmduke/my-first-email"
+      }
+    },
+    {
+      "description": "Basic scheduled email",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "publish_date": "2024-08-24T14:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "body": "Lorem ipsum yadda yadda",
+        "subject": "This is my first email on Buttondown!",
+        "excluded_tags": [],
+        "included_tags": [],
+        "status": "scheduled",
+        "email_type": "public",
+        "metadata": {},
+        "secondary_id": 3,
+        "external_url": "https://buttondown.email/jmduke/my-first-email"
+      }
+    }
+  ],
+  "Response": [
+    {
+      "description": "Basic survey response",
+      "object": {
+        "id": "9f894eb9-67c7-4fd9-9244-0ec8363159c4",
+        "subscriber_id": "ad12b374-be20-4456-82ce-71f4a94d2b8f",
+        "subscriber_email": "justin@buttondown.email",
+        "answer": "I'm trying to build an audience and write professionally.",
+        "creation_date": "2024-03-09T10:47:59.831951Z",
+        "survey_id": "1c3b14c6-8515-4746-8ba6-7e23c4f27d8b"
+      }
+    },
+    {
+      "description": "Basic survey response with an expanded survey object",
+      "object": {
+        "id": "9f894eb9-67c7-4fd9-9244-0ec8363159c4",
+        "subscriber_id": "ad12b374-be20-4456-82ce-71f4a94d2b8f",
+        "subscriber_email": "justin@buttondown.email",
+        "answer": "I'm trying to build an audience and write professionally.",
+        "creation_date": "2024-03-09T10:47:59.831951Z",
+        "survey_id": "1c3b14c6-8515-4746-8ba6-7e23c4f27d8b",
+        "survey": {
+          "id": "1c3b14c6-8515-4746-8ba6-7e23c4f27d8b",
+          "identifier": "why",
+          "question": "Why are you writing your newsletter?",
+          "response_count": 391,
+          "answers": [
+            "I just want to write for fun!",
+            "I want to stay connected with friends and family.",
+            "I'm trying to build an audience and write professionally.",
+            "I'm organizing an event or specific occasion.",
+            "I'm trying to market and grow my business.",
+            "I want to stay connected with my fans and followers.",
+            "Something else. (Just reply to this email and let me know!)"
+          ],
+          "creation_date": "2023-12-16T16:55:41.614970Z"
+        }
+      }
+    }
+  ],
+  "EmailEvent": [
+    {
+      "description": "Email events",
+      "object": {
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "subscriber_id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "subscriber_email": "user@example.com",
+        "creation_date": "2019-08-24T14:15:22Z"
+      }
+    }
+  ],
+  "Newsletter": [
+    {
+      "description": "Basic newsletter",
+      "object": {
+        "api_key": "7f819f8f-8220-4dcd-b7e3-37c81ead8b7a",
+        "creation_date": "2019-08-24T14:15:22Z",
+        "description": "I write about corgis and Python and lifting and all sorts of stuff!",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "name": "Justin's neat newsletter",
+        "username": "jmduke",
+        "footer": "Thanks, as always, for reading!",
+        "header": "Howdy, gang!",
+        "tint_color": "#0069FF",
+        "from_name": "Justin Duke"
+      }
+    }
+  ],
+  "Image": [
+    {
+      "description": "Basic image",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "image": "string"
+      }
+    }
+  ],
+  "Tag": [
+    {
+      "description": "Basic tag",
+      "object": {
+        "color": "string",
+        "creation_date": "2019-08-24T14:15:22Z",
+        "description": "string",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "name": "string"
+      }
+    }
+  ],
+  "BulkAction": [
+    {
+      "description": "Basic bulk action",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "completion_date": "2019-08-24T14:17:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "status": "completed",
+        "type": "delete_subscribers",
+        "metadata": {
+          "ids": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"]
+        }
+      }
+    },
+    {
+      "description": "Bulk action to apply tags (which has a slightly different payload)",
+      "object": {
+        "creation_date": "2019-08-24T14:15:22Z",
+        "completion_date": "2019-08-24T14:17:22Z",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "status": "completed",
+        "type": "apply_tags",
+        "metadata": {
+          "tag": "4931-4f5c-9b5b-2c9f6c9f6c9f",
+          "action": "add",
+          "ids": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"]
+        }
+      }
+    }
+  ],
+  "ErrorMessage": [
+    {
+      "description": "Basic error",
+      "object": {
+        "code": "something_went_wrong",
+        "detail": "Your call is very important to us."
+      }
+    }
+  ],
+  "Coupon": [
+    {
+      "description": "Basic coupon",
+      "object": {
+        "coupon_id": "coupon_whatever",
+        "percent_off": "10",
+        "amount_off": null,
+        "name": "Holiday Sale"
+      }
+    }
+  ],
+  "StripeCoupon": [
+    {
+      "description": "Basic coupon",
+      "object": {
+        "coupon_id": "coupon_whatever",
+        "percent_off": "10",
+        "amount_off": null,
+        "name": "Holiday Sale"
+      }
+    }
+  ]
+}

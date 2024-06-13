@@ -1,0 +1,26 @@
+---
+title: Subscriber autonomy
+description: >-
+  Buttondown lets you let your subscribers change their metadata, tags, and more.
+date: 2024-06-11
+relatedPages:
+  - names
+---
+
+Buttondown has the ability to let you give your subscribers the ability to change their metadata, tags, and more. This is called "subscriber autonomy."
+
+When subscriber autonomy is enabled, subscribers can change their email address, name, and tags. They can also unsubscribe (or resubscribe) from your list:
+
+![A screenshot of the subscriber management page, as seen through the eyes of a subscriber](./images/autonomy.png)
+
+To turn the setting on, go to [Settings > Subscribing](https://buttondown.email/settings/subscribing) and toggle the setting labeled "Autonomy".
+
+The forms displayed in the subscriber management page are the same as the forms you use to subscribe people to your list: [subscribe form inputs](/building-your-subscriber-base#adding-metadata-to-your-subscribers). By default,
+these inputs only change a subscriber's metadata — but, combined with [tags](/tags) and [automations](/automations-introduction), you can use them to give subscribers the ability to change their tags, too.
+
+For simple cases, all you'll need to do is make sure to check the "Automatically tag?" input when creating a new Subscribe form input; this will ensure that, when a subscriber changes their metadata, the corresponding tags will change as well.
+
+Some caveats:
+
+- It is not currently possible to only allow _some_ subscribe form inputs to be changed by subscribers. If you enable subscriber autonomy, all fields will be editable.
+- At the moment, the only possible inputs you can vend to your subscribers are "free text" and "select". Support for checkboxes and other input types is planned in the near future.

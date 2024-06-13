@@ -1,0 +1,27 @@
+---
+title: Subscriber cleanup
+description: >-
+  Buttondown can clean up spammy or unactivated email addresses from your
+  subscriber list.
+date: 2024-05-21
+relatedPages:
+  - api-subscribers-type
+---
+Buttondown has the ability to clean up spammy or unactivated email addresses from your subscriber list.
+
+To turn the setting on, go to [Settings > Subscribing](https://buttondown.email/settings/subscribing).
+
+![The "Subscriber cleanup" toggle in Settings > Subscribing.](/subscriber-cleanup/subscriber-cleanup.png)
+
+- Unsubscribed email addresses will be deleted after 7 days.
+- Unactivated (never clicked the link in the confirmation email) email address will be deleted after 30 days.
+- Malformed email addresses will be deleted after 30 days.
+- Complained (people who marked your email as spam and are therefore blocked from receiving further emails from you) email addresses will be deleted after 30 days.
+- Spammy email addresses will be deleted after 30 days.
+- Disposable email addresses will be deleted after 30 days.
+
+## Cleaning up subscribers who haven't opened emails
+
+Notably, this does *not* clean up subscribers who haven't opened your emails or clicked links in your emails recently.
+
+We generally recommend against this, since click and open tracking is blocked by some email clients, making it look like these subscribers haven't opened your emails. Cleaning up these subscribers would remove actual readers from your subscriber list.

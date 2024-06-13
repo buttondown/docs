@@ -1,0 +1,21 @@
+---
+title: "Precedence: Bulk"
+---
+
+If you've been digging around the source code of the emails Buttondown sends on your behalf — or if you've been scouring the web for information about how to send emails in bulk — you might have come across the term "precedence: bulk."
+
+This is a bit of metadata that tools like Buttondown can add to the emails they send on your behalf. It's a way of telling the email client that the email is part of a bulk send, and that it should be treated as such.
+
+But what does that mean, exactly? And why does it matter?
+
+Depending on what you read, you might come across some folks claiming that setting precedence: bulk will help your emails avoid the spam folder — or might bias clients towards throwing you in the Promotions tab — or might do any number of things.
+
+In reality — and as with many things in the world of email deliverability — the truth is a bit more nuanced. The precedence: bulk header is a bit of a relic from the early days of email, and it's not something that most email clients pay much attention to these days, with _one_ exception:
+
+**If you set precedence: bulk, clients like Outlook and Gmail will not send you automatic replies like out-of-office messages.** This is _really_ nice: it means that you won't get a flood of auto-replies when you send out a newsletter to a large list.
+
+(And, yes — Buttondown automatically sets precedence: bulk on all emails it sends on your behalf.)
+
+---
+
+(Still morbidly curious? Check out [RFC 3834](https://datatracker.ietf.org/doc/html/rfc3834#section-3.1.8), which is the standard that defines the precedence header.)

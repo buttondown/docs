@@ -1,0 +1,14 @@
+---
+title: Authentication
+---
+Clients should authenticate by passing the token key in the `Authorization` HTTP header, prepended with the string `Token `(note the trailing space!).
+
+For example, if your token was `401f7ac837da42b97f613d789819ff93537bee6a`, your headers may look like this.
+
+```python
+headers = {
+    'Authorization': 'Token 401f7ac837da42b97f613d789819ff93537bee6a'
+}
+```
+
+You can find your API key at the top of your [API requests page](https://buttondown.email/requests).

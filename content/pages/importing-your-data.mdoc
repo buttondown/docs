@@ -1,0 +1,127 @@
+---
+title: Importing your data
+---
+
+Moving your data—much like moving IRL—can be incredibly stressful. Buttondown is here to lighten the load by seamlessly importing your subscribers, tags, metadata, archives, and more.
+
+## Getting started
+
+Before we get to work, it’s a good idea to make sure that your Buttondown account is fully set up. Let’s start by checking the following:
+
+- Have you [confirmed](/registration-and-setup#confirm-your-account) your Buttondown account?
+- Have you filled out your [general newsletter details](/registration-and-setup#crafting-your-newsletters-look-and-feel), like your newsletter’s name, author, and description?
+- Have you built out your newsletter’s [CSS](/registration-and-setup#build-out-your-newsletters-scaffolding)?
+- Have you established your newsletter’s [branding](/registration-and-setup#establish-your-newsletters-branding), including your preferred color palette and logo?
+
+Once your account is ready to go, it’s important to make sure that your subscribers are expecting your move to Buttondown. Here are a few quick questions to ask yourself before we proceed:
+
+If Buttondown recognizes the columns in your CSV because it's from one of our common import sources (like [Substack](/substack) or [Mailchimp](/mailchimp)), it will automatically map them to the appropriate fields!
+
+If not, you'll be prompted to map them yourself. Buttondown will prompt you to choose which columns correspond to certain pieces of data, allowing you to bring in subscribers while keeping their existing tags, join dates, and metadata.
+
+- Have all of your subscribers consented to receive your newsletter via your previous email service? If so, they don’t need to re-confirm their subscription when you move to Buttondown.
+- Are you importing your subscribers via a listserv? And is everyone on that listserv aware that your newsletter is moving to Buttondown? For context, Buttondown sees any given listserv as a single subscriber. If a person on your listserv unsubscribes, it may affect the listserv as a whole.
+
+Now that you and your subscribers are prepared for the move to Buttondown, you’re in a great place to kick off the data import process.
+
+## Compiling your data
+
+### Create your CSV file
+
+Let’s make sure that your data is packaged up nicely before you move it over to Buttondown. The best way to do this is by formatting your data in a CSV file. What’s a [CSV file](/glossary-csv), you may ask? As a quick refresher, CSV files consist of “comma-separated values.” Here’s an example of what a CSV file might look like both as a table and as a raw file.
+
+#### As a table
+
+| Email                     | Date   | Interests            | Name     | Location | Notes                               |
+|---------------------------|--------|----------------------|----------|-----------|-------------------------------------|
+| icarus@buttondown.email   | 1/1/23 | Tech                 | Icarus   | Crete     | Flew too high                      |
+| odysseus@buttondown.email | 1/2/23 | "Sports, Politics"     | Odysseus | Ithaca    | Stuck at sea                       |
+| helen@buttondown.email    | 1/3/23 | "World News, Politics" | Helen    | Troy      | Face that launched a thousand ships |
+
+#### As a raw file
+
+```
+Email,Date,Interests,Name,Location,Notes
+icarus@buttondown.email,1/1/23,Tech,Icarus,Crete,Flew too high
+odysseus@buttondown.email,1/2/23,"Sports, Politics",Odysseus,Ithaca,Stuck at sea
+helen@buttondown.email,1/3/23,"World News, Politics", Helen,Troy,Face that launched a thousand ships
+```
+
+
+If you’re migrating to Buttondown from another email service like [ConvertKit](/convertkit), [Mailchimp](/mailchimp), or [Substack](/substack), then you’ll most likely be exporting your subscriber data as a CSV file. Using that CSV file, Buttondown can automatically import the following values for each of your subscribers:
+
+- Their email
+- The date they joined your newsletter
+- Any assigned [tags](/tags), which can be used for grouping your subscriber or for sending tailored content
+- Any assigned [metadata](/metadata), such as your subscriber’s [name](/names), location, or other structured-key values
+- Any free-form notes you may have jotted down for your personal reference
+
+Other than your subscriber’s email, all the above values are completely optional, and don’t have to be included in your CSV file. Note that you can also add details like tags, metadata, and notes to subscribers after they’ve been imported to Buttondown.
+
+
+### Format your CSV file
+
+When moving large quantities of data, organizing that data is half the battle. Here are a few of our go-to tips for formatting your CSV file:
+
+- You don’t need to include a **header row** unless it’s for your own reference. If you do choose to include a header row, feel free to format it however you like.
+- Any **dates** should follow the “Day/Month/Year” format.
+- If you have multiple **tags** for a given subscriber, we recommend adding them all in the same column and separating each tag with a comma, like so: “`Sports`, `Politics`”
+- If you have multiple instances of **metadata** for a given subscriber, it’s best to add them in separate columns rather than lumping them all into the same column. Take a look at the example below, where we have two separate metadata columns for `Name` and `Location`.
+- Last, but not least, you can format your subscriber **notes** however you like. If you don’t have any notes, that’s completely fine too!
+
+Once you're satisfied with the contents of your CSV file, go ahead an export it from Google Sheets, Excel, or your preferred app.
+
+
+{% video file="/importing-your-data/importing-your-data_export-csv-file.mp4" /%}
+
+
+## Importing your subscribers
+
+### Import your CSV file
+
+With your formatted CSV file at the ready, it’s time for us to head on over to the “[Subscribers](https://buttondown.email/subscribers)" tab of your Buttondown dashboard. From there, click “Import,” drag your CSV file over to the ensuing pop-up window, and follow along with the pop-up prompts. These prompts will ask you to pick the values you’d like to assign as tags, metadata, notes, and more.
+
+{% video file="/importing-your-data/importing-your-data_import-subscribers.mp4" /%}
+
+It can take anywhere from a few seconds to a few hours for Buttondown to import all of your data, depending on the number of new subscribers you’re adding.
+
+In some cases, if you’re importing a large quantity of new subscribers, we may temporarily deactivate your account to make sure your subscriber emails are all up to code. If you need to step away, no worries! We’ll send you an email to confirm that your import is complete.
+
+{% noticeWarn text="If you’re uploading a large quantity of subscribers, it may take a few hours to process." /%}
+
+### View your data
+
+Want to check up on your subscriber data? There are a couple places you can look, including the “[Subscribers](https://buttondown.email/subscribers)” tab of your Buttondown dashboard. From here, you can [customize your subscriber list view](/customizing-subscriber-list-view) to include tags, metadata, and other useful information by clicking the “+” button in the upper right hand corner. You can also click any given subscriber’s email address in order to view your notes or to make any manual edits to your data for that subscriber.
+
+{% video file="/importing-your-data/importing-your-data_tags-metadata-notes.mp4" /%}
+
+You can also try the “[Tags](https://buttondown.email/subscribers/tags)” tab of the Buttondown dashboard. Here, you’ll have the option to edit each tag, view the subscribers grouped by each tag, and more.
+
+{% video file="/importing-your-data/importing-your-data_view-tags.mp4" /%}
+
+## Importing your archives
+
+No email left behind! Start by exporting your archives as a ZIP file from your previous email service. Every email service goes about data exports in a slightly different way; with this in mind, we recommend checking out Buttondown’s migration guide for your previous email service.
+
+All of our migration guides can be found in the main menu to your left.
+
+Once you have your ZIP file, head on over to the “[Emails](https://buttondown.email/emails)” tab of your Buttondown dashboard. From there, click the “Import” button, select the email service that you’re migrating your emails from, and drop your ZIP file over the “Choose a ZIP” button.
+
+{% noticeInfo text="If you’re having trouble uploading your ZIP file, try refreshing your page and clicking the “Choose a Zip” button before dragging and dropping your ZIP file." /%}
+
+{% snippetSpacer /%}
+
+{% video file="/importing-your-data/importing-data_buttondown-email-interface.mp4" /%}
+
+You’ve done it! After a moment or two, your archives should appear in the “Emails” tab of your Buttondown dashboard.
+
+
+## Going above and beyond
+
+### Send your first email
+
+Now that you’ve successfully imported your data, there’s no better way to celebrate than by crafting the first edition of your brand new newsletter. Our [dedicated guide](/sending-your-first-email) will lead you through the process of uploading images, adding custom links, leveraging tags, completing mail merges, and more.
+
+### Build your subscriber base
+
+The more the merrier! Learn how to grow your newsletter’s following by [sharing your Buttondown URL](/building-your-subscriber-base#sharing-your-buttondown-url), [embedding an HTML form](/building-your-subscriber-base#embedding-an-html-form), or [embedding an iFrame](/building-your-subscriber-base#embedding-an-iframe).

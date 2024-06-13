@@ -1,0 +1,25 @@
+---
+title: Integrating shadcn/ui
+navigationTitle: shadcn/ui
+relatedPages: []
+---
+## Getting started
+
+To use the examples below, you'll need to install the Card, Button, Input, and Label components:
+
+```bash
+npx shadcn-ui@latest add button card input label
+```
+
+You'll notice that we _don't_ pull in the [`Form` component](https://ui.shadcn.com/docs/components/form). That's intentional; shadcn's form boilerplate pulls in React Hook Form and Zod, both of which are great libraries
+but overkill for simple subscription forms. (If you've already pulled them in and want to use them, that's fine too! Just make sure to plug in the URL shown in the below examples for the `action` prop of `Form`.
+
+## Basic example
+
+{% liveCodeBlock
+   filename="public/code/shadcn/basic.tsx" /%}
+
+## With dropdown
+
+{% liveCodeBlock
+   filename="public/code/shadcn/dropdown.tsx" /%}

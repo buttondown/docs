@@ -1,0 +1,173 @@
+---
+title: Sending your first email
+relatedPages:
+- registration-and-setup
+- sending-your-first-email-advanced
+---
+
+Ready to send your first email? This article outlines every step of the process, from importing subscribers to Buttondown to scheduling an email to send in the future.
+
+## Import your subscribers (Optional)
+
+If you already have a list of subscribers, you can upload that list to Buttondown as a comma-separated values, or [CSV](/glossary-csv), file. To learn more about downloading CSVs and importing subscribers and newsletter archives, read [Importing your data](/importing-your-data).
+
+If you don't have that list, no worries! Start by reading [Draft your first newsletter](#draft-your-first-newsletter) below.
+
+## Draft your first newsletter
+
+The “Emails” page is the command center for your newsletter. When you write, schedule, and send newsletters, they'll appear here. You may not have any newsletters there yet, but you will soon!
+
+Here's how to write a newsletter:
+
+In the "Emails" page, click **New** in the upper right corner. The writing interface appears.
+
+(Optional) Click the buttons in the upper right corner to toggle between “Preview Mode” and “Editor Mode.
+- "Preview Mode" renders your Markdown or HTML draft as you write so you can verify that your formatting looks the way you want.
+- "Editor Mode" adds a toolbar you can use to format your text, add links, add images, and more.
+
+Enter the text for your email in Markdown or HTML. Buttondown saves what you write automatically.
+
+{% video file="/sending-your-first-email/registration_email-page-and-writing-interface.mp4" /%}
+
+This video shows how to start a new email draft and toggle between the different editing view modes.
+
+### Send a test newsletter
+
+Before you send a newsletter email to your subscribers, you can send a draft of it to yourself to confirm that everything is working as expected.
+
+1. Follow the procedure in [Draft your first newsletter
+   ](#draft-your-first-newsletter) to draft an email.
+2. Click **Send Draft**. The "Choose draft recipients" modal appears.
+3. Enter the email address of the person you wish to receive your test newsletter and click **Add recipient**.
+4. Click **Send draft**.
+
+{% video file="/sending-your-first-email/registration_pop-up-for-choosing-draft-recipients.mp4" /%}
+
+This movie shows how to send a draft email to one person.
+
+The draft will appear in the recipient's email shortly. You can identify it because it will have the string `[PREVIEW]` in the subject line.
+
+{% video file="/sending-your-first-email/registration_newsletter-draft_AdobeExpress.mp4" /%}
+
+This video shows a preview of a newsletter email in an email inbox.
+
+### Send your first newsletter email
+
+If you sent a draft email to yourself, you can review it now in Buttondown and make any edits you think are necessary. You’re almost ready to click **Send** and deliver this email to your subscribers. But before you do, you should make sure everything is polished and ready.
+
+Here’s a checklist to make sure everything’s ready:
+
+- Verify that all the links in your email work.
+- Decide who you want to send this email to. You can send it to all your subscribers, or only those with certain [tags](/sending-your-first-email#tags-and-segmentation)?
+- Decide if you want to send this email immediately, or [schedule it for later](/scheduling-an-email).
+
+After you double-check all the details, you can send your email. Here's how:
+
+1. From the email drafting screen, click **Send.** The "Ready to send?" modal appears.
+2. Review the screen and verify everything looks correct.
+3. Click **Send**. Your email sends.
+
+{% video file="/sending-your-first-email/registration_pop-up-after-sending-newsletter_AdobeExpress.mp4" /%}
+
+This video shows the process of sending an email.
+
+After you send the email, a congratulatory pop-up appears with buttons to share it on social media or a copy-and-paste-able URL. You'll also see an option to **Undo** sending the email if you change your mind at the last minute.
+
+### Schedule your newsletter email
+
+You don't have to send an email as soon as you write it. You can schedule it to send later, at a specific date or time. You can do this by clicking the “Scheduling” button at the bottom of your draft.
+
+To learn more, read [Scheduling an Email](/scheduling-an-email).
+
+## Images
+
+You can upload images to Buttondown and insert those images in your emails. Buttondown supports all visual file formats, including .jpg, .png, .gif, and many more.
+
+Buttondown uses Amazon S3 (a common file hosting platform) to safely and securely store your images. Images you upload to Buttondown last indefinitely by default. This means that even if you were to delete the email in which images are referenced, the images themselves still exist on Buttondown's servers. There's no option in the Buttondown UI to delete uploaded images, but you can do so with the API.
+
+To upload an image:
+
+1. In the "Emails" page, click **New** in the upper right corner. The writing interface appears.
+2. In the rich text editor, click the **Insert image** button.
+3. Choose the image you wish to upload.
+
+After the upload completes, the image becomes available to insert into an email.
+
+## Custom unsubscribe links
+
+Buttondown automatically appends an unsubscribe link at the end of all emails you send, but you may want to manually place one in your email as well (for instance, if you send your newsletter infrequently, you might place it at the top of the email). The unsubscribe link for your newsletter is unique. You can generate it with the `{{ unsubscribe_url }}` shortcode and use that in place of a URL in an email.
+
+Here is an example unsubscribe link in Markdown:
+
+```handlebars
+[Click here to unsubscribe!]({{unsubscribe_url}}).
+```
+
+This link renders on draft emails, but the URL won't do anything if you click it.
+
+You can read more about the different available variables [here](/template-variables).
+
+## Tags and segmentation
+
+Tags let you create subgroups of your subscribers. Subscribers can have one or more tags, so if you want to include someone in more than one tag group, you can.
+
+You can send emails including certain tags, making it easy to tailor your newsletter's content to who's going to enjoy it the most or find it the most relevant.
+
+There are a few different ways to apply a tag to a subscriber:
+
+- Tagging subscribers manually
+- Customizing your [subscription form](https://blog.buttondown.email/2019/07/17/customizing-your-subscription-form-to-tag-new-subscribers)
+- Setting tags with the [API](/api-introduction)
+
+To manually add a tag to a subscriber:
+
+1. Click **Subscribers**. The "Subscribers" page appears with a list of subscribers to your newsletter.
+2. Find the subscriber you wish to add a tag to and click to select them. The subscriber's "Details" page opens.
+3. Scroll to the "Tags" section and choose the tags that you wish to apply to the subscriber.
+4. Click **Save changes**.
+
+To learn more, read [Tags](/tags).
+
+## Mail merges
+
+A mail merge is a catchall term for sending out emails with specific fields changed.
+
+For example, programmatically displaying the first name of the email recipient. Something like:
+
+{% preview
+before="Hello, {first_name}!"
+after="Hello, Justin!"
+/%}
+
+Buttondown supports mail merges with subscriber metadata. You can set metadata for a given subscriber with the API, or manually in that subscriber's "Notes" section:
+
+![A screenshot of the subscriber details modal, where you can set metadata.](/images/metadata.png)
+
+After you set the metadata, you can refer to it in an email by including this variable: `{{ subscriber.metadata.first_name }}`.
+
+Metadata doesn't just let you change small fields like names. You can also use a code snippet to show a paragraph, or define a conditional statement based on whether or not metadata is defined.
+
+Here's an example:
+
+{% preview
+before="{% if subscriber.metadata.first_name %}\n  Hello {{ subscriber.metadata.first_name}}!\n{% else %}\n   Hello friend!\n{% endif %}"
+after="Hello friend!" /%}
+
+
+In this example, the first two lines state that if a subscriber has the `first_name` object, the opening line of the email should greet the subscriber using that name. If the subscriber's `first_name` is Alice, the opening line will read "Hello Alice!" The third and fourth lines specify that if there is not a `first_name` object defined, the opening line of the email should read "Hello friend!"
+
+## Above and beyond
+
+So you've sent your newsletter's first email. That's great! What happens next? You can:
+- Continue customizing your email with our [advanced email configuration options](/sending-your-first-email-advanced)
+- Start cultivating your [subscriber base](/building-your-subscriber-base)
+
+## FAQs
+
+Here are responses to some common questions we get about writing and sending your first email in Buttondown.
+
+- [Why is my email all... purple?](/why-is-my-email-purple)
+- [How do I avoid the "Promotions" tab in Gmail?](/how-do-i-avoid-the-promotions-tab)
+- [Why does my email look different on some clients?](/why-some-email-clients-look-different)
+
+{% supportSnippet /%}

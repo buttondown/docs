@@ -1,0 +1,102 @@
+---
+title: Framer
+---
+
+
+Buttondown forms are easy to build, and can drive newsletter subscriptions directly from your website. If you're in need of a website, [Framer](https://www.framer.com/) is a sleek, no-code tool that can help you build one. By the end of this tutorial, you'll know how to embed a subscription form for your newsletter in Framer.
+
+ ## Getting started
+
+Before we get going, make sure that you have:
+
+- A [Framer](https://www.framer.com/) site that's up, running, and ready for new content
+- A Buttondown account (don't be shy, [sign up here](https://buttondown.email/register)!)
+
+## Connecting Buttondown to Framer
+
+### Retrieve your form
+
+Our journey begins in the "Embedding" section of your Buttondown [settings](https://buttondown.email/settings/embedding). Scroll down to the "Form" tab to find HTML code for adding a subscription form. Copy this code and keep it in your back pocket—you'll need it later!
+
+### Insert an "Embed" block
+
+Mosey on over to your canvas in [Framer](https://www.framer.com/). From here, click "Insert" and scroll through the dropdown menu until you arrive at "Utility." Then click "Embed."
+
+{% video file="/framer/framer_embed-block.mp4" /%}
+
+### Switch your "Embed" type to "HTML"
+
+Click your newly embedded block, and glance over at the properties panel that pops up.
+
+{% video file="/framer/framer_select-block.mp4" /%}
+
+Scroll down to the "Embed" section and switch your "Embed" type to "HTML."
+
+{% video file="/framer/framer_switch-HTML.mp4" /%}
+
+### Copy and paste your HTML form
+
+Remember that code you put in your back pocket? Pull it back out and paste it into the HTML field.
+
+{% video file="/framer/framer_paste-HTML.mp4" /%}
+
+You've done it! Your new Buttondown form should look a little something like this.
+
+{% video file="/framer/framer_subscription-form.mp4" /%}
+
+## Going above and beyond
+
+### Add subscriber tags
+
+As your subscriber base grows (congrats!), you may want to organize it by assigning tags to individual subscribers. These tags can be used to sort your subscriber base, as well as to send out targeted email blasts.
+
+You can automatically add tags to any new subscribers by modifying the HTML code you used to create your subscription form. All you have to do is add a new <span class="bg-gray-200 font-mono p-0.5 rounded">input</span> tag that matches the following format.
+
+```html
+<input type="radio" id="Fettuccine" name="tag" value="Fettuccine" />
+<label for="Fettuccine">Fettuccine Alfredo</label>
+```
+
+Here's an example of how your HTML code might look with three new tag options.
+```html
+<form
+  action="
+    https://buttondown.email/api/emails/
+  "
+  method="post"
+  target="popupwindow"
+  class="embeddable-buttondown-form"
+>
+  <label for="email">Email</label>
+  <input
+    type="email"
+    name="email"
+    placeholder="you@example.com"
+  />
+  <label for="email">What Is Your Favorite Pasta Dish?</label>
+  <br />
+  <input type="radio" id="Fettuccine" name="tag" value="Fettuccine" />
+  <label for="Fettuccine">Fettuccine Alfredo</label>
+  <input type="radio" id="Carbonara" name="tag" value="Carbonara" />
+  <label for="Carbonara">Spaghetti Carbonara</label>
+  <input type="radio" id="penne" name="tag" value="penner" />
+  <label for="penne">Penne alla Vodka</label><br />
+  <br />
+  <input type="hidden" value="1" name="embed" />
+  <input type="submit" value="Subscribe" />
+  <p>
+    <a href="https://buttondown.email" target="_blank">
+        Powered by Buttondown.
+    </a>
+  </p>
+</form>
+```
+Here's what that code looks like when it's rendered.
+
+{% video file="/framer/framer_subscription-form-with-tags.mp4" /%}
+
+Feel free to add as many tags as your heart desires. If you're interested in learning more about tags, check out our doc on "[Building your subscriber base](/building-your-subscriber-base)."
+
+### Customize your form
+
+You may want to style your form so that it matches your website's aesthetic—that's all good! You can do that in Framer by referencing their "[Creating Custom Forms](https://www.framer.com/learn/how-to-create-a-custom-form/)" doc.

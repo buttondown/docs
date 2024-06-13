@@ -1,0 +1,58 @@
+---
+title: Mailchimp
+---
+
+### Exporting your subscribers (contacts)
+{% noticeInfo text="Mailchimp contacts are like Buttondown subscribers." /%}
+
+Export your Mailchimp contacts [here](https://mailchimp.com/help/view-export-contacts/ "here").
+
+Go to [https://buttondown.email/subscribers](https://buttondown.email/subscribers). You may need to log in first.
+
+Click the _Import_ button at the top of the page, then choose the `.csv` file you just downloaded from Mailchimp.
+
+### Exporting your archives (campaigns)
+
+{% noticeInfo text="Mailchimp campaigns are like Buttondown archives. " /%}
+
+Export your Mailchimp campaigns [here](https://mailchimp.com/help/download-a-campaign-report/ "here").
+
+Go to [https://buttondown.email/emails.](https://buttondown.email/emails). You may need to log in first.
+
+Click the _Import_ button at the top of the page, then choose "Mailchimp", then choose the ZIP file you just downloaded from Mailchimp.
+
+### You did it!
+
+Once you finish all of the above steps, Buttondown will kick off an audit and migration process to make sure everything is in order. Then you should be safe to disable or deactivate your Mailchimp account.
+
+## FAQs
+
+### Do subscribers need to re-enter their credit card?
+
+Mailchimp and Buttondown use the same payments processor — [Stripe](https://stripe.com/ "Stripe").
+
+Stripe has your subscribers' information:
+
+- credit cards
+- purchases
+- subscriptions
+
+You bring your subscribers' history to Buttondown when you connect your Stripe account to Buttondown. You will have their payment histories, too.
+
+**Your paying subscribers do not need to do anything extra when you switch to Buttondown**. Just email me when you've connected your Stripe account. I'll take care of the rest, for free!
+
+P.S. Over time, I'd like to make this process a little more automatic but at the moment it requires a bit of manual labor on my part to make sure everything is wired up correctly (free of charge, of course.)
+
+---
+
+### I see a bunch of different subscriber lists in my export! Which one should I choose?
+
+If you're seeing three CSVs, with names like:
+
+- `cleaned_members_export.csv`
+- `unsubscribed_members_export.csv`
+- `subscribed_members_export.csv`
+
+You should choose `subscribed_members_export.csv`. This is the list of all of your _active_ subscribers.
+
+While "cleaned" and "unsubscribed" members are still in your Mailchimp account, they are not active subscribers. They are either unsubscribed or have been cleaned from your list, and so you don't want to bring them over to Buttondown.

@@ -1,0 +1,100 @@
+---
+title: Collecting and using subscribers’ names
+navigationTitle: Collecting subscribers’ names
+relatedPages: []
+---
+When you can write a newsletter email using a subscriber's first name, it can give a friendly, personal feeling to your words. If you’ve ever received an email that starts with “Dear [Your Name Here]” as opposed to “Dear Reader,” it’s likely that there was a mail merge or substitution string involved—and those mail merges and substitution strings rely on [metadata](/metadata) to work properly.
+
+Read on to learn about how you, too, can collect and use metadata to personalize your newsletter!
+
+## Collecting subscriber names
+
+By default, Buttondown’s subscription forms only collect subscribers’ email addresses. Without any adjustments, your subscription form will look something like this.
+
+![Default Buttondown subscription form](/names/names_default-subscription-form.jpg)
+
+But with a few customizations, you can use Buttondown's subscription forms to ask subscribers for their names, the names of the companies they work for, their interests, or any other facts that might be useful for your newsletter!
+
+![Customized Buttondown subscription form](/names/names_customized-subscription-form.jpg)
+
+### Customize your subscription form
+
+Buttondown’s “Subscribe Form Inputs” feature is a convenient way to collect metadata from subscribers who fill out your subscription form. Here's how to modify it.
+
+You’ll be prompted to provide the following values for your new form input:
+- An input key. You'll need this key to access your metadata later on, so you’ll want it to be both memorable and syntax-friendly. For example, if you're collecting subscribers' first names, you can use “first_name.” (It’s best to use underscores instead of hyphens you name keys, because hyphens can cause syntax errors later.)
+- A label. This is what your subscribers will see on your form, so this value should be written in plain language. To continue the example of collecting a subscriber's first name, you could use "First" or "First name" as a label.
+- A “Required” checkbox. If you designate an input as required, the subscriber will not be able to continue until they complete that part of the form.
+
+
+1. Navigate to the “Subscribe Form Inputs” section of your Buttondown [settings](https://buttondown.email/settings/subscribing). 
+2. Set the key and label values and choose whether or not the input will be required.
+3. When you're done configuring the values, click **Save**.
+
+When you add all these things to your form, it looks something like this:
+
+{% video file="/names/names_subscribe-form-input-settings.mp4" /%}
+
+This video shows the process of creating a form input and saving it.
+
+After you create a form input, navigate to your newsletter landing page to see the changes you’ve made.
+
+{% video file="/names/names_sample-subscription-form.mp4" /%}
+
+This video shows a subscription form being completed, including new metadata fields.
+
+When a subscriber fills out this new form, you’ll be able to see their response in the “Metadata” section of the subscriber's “Notes.” Here's how:
+
+1. Navigate to ["Subscribers"](https://buttondown.email/subscribers) and find the subscriber whose metadata you wish to view.
+2. Click the three-dot **overflow** menu and choose **Notes**. The subscriber's "Notes" page appears.
+3. Scroll to see any metadata associated with that subscriber in the "Metadata" section.
+
+### Add metadata manually
+
+Prefer to go the manual route for updating your subscribers’ metadata? Go ahead and add your input key and value in the “Metadata” section of your subscriber’s “Notes” page. Here's how:
+
+1. Navigate to ["Subscribers"](https://buttondown.email/subscribers) and find the subscriber whose metadata you wish to view.
+2. Click the three-dot **overflow** menu and choose **Notes**. The subscriber's "Notes" page appears.
+3. Scroll to the "Metadata" section and click **Add**. A key/value field opens.
+4. Specify a key and value, such as "first_name" and "John".
+5. Click **Add another** to add more metadata, or click **Save changes**.
+
+### Update metadata through Buttondown’s API
+
+Want to add metadata to an existing subscriber using our [API](/api-subscribers-introduction)? Copy the code below and plug in your subscriber ID (which you can find in the subscriber’s “Notes”), as well as your personal API key (which you can find in the “API” section of your Buttondown [settings](https://buttondown.email/requests)). Then add your input key and its corresponding value.
+
+{% multilanguageSnippets
+   python="public/code/names/1.py"
+   ruby="public/code/names/1.rb"
+   curl="public/code/names/1.sh"
+   javascript="" /%}
+
+Run this code, and the metadata in your subscriber “Notes” should be updated and ready to go.
+
+## Using Subscriber Names
+
+### Send personalized emails
+
+Instead of addressing emails one at a time, you can address them automatically using Buttondown’s `{{ subscriber.metadata }}` [template variable](/template-variables). By plugging your “first_name” key into this template variable, you'll direct Buttondown to retrieve each subscriber’s first name for you!
+
+```handlebars
+{{ subscriber.metadata.first_name }}
+```
+
+Paste this template into your email writing interface, then sit back and let Buttondown do the rest.
+
+{% video file="/names/names_template-variable-to-add-first-name.mp4" /%}
+
+This video shows the email writing client with a first name metadata variable in the salutation line.
+
+After your email goes out, your personalized email greeting will look something like this.
+
+{% video file="/names/names_sample-email.mp4" /%}
+
+This video shows the email after it was delivered, with the subscriber's first name replacing the metadata variable in the salutation line.
+
+But wait! What if you don’t have first names for every subscriber? Then it’s time to break out our “If / Else” template. This lets Buttondown choose between using a first name, if one is available, and a placeholder name if not. Check out the example below.
+
+{% preview
+before="{% if subscriber.metadata.first_name %}}\n  Howdy {{subscriber.metadata.first_name}}!\n{% else %}\n  Howdy Pikachu!\n{% endif %}"
+after="Howdy Pikachu!" /%}

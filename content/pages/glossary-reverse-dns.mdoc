@@ -1,0 +1,34 @@
+---
+title: Reverse DNS
+relatedPages:
+---
+
+Reverse DNS lookup is the process of resolving an IP address back to a domain name. This is the opposite of the more common forward [DNS](/glossary-dns) lookup, where a domain name is resolved to an IP address (usually via the `A` tag.)
+
+How this happens practically is that that the IP address is placed in the `in-addr.arpa` domain, and a PTR record is created for the IP address. This PTR record is then queried to get the domain name. Using something like `dig`, you can query the PTR record for an IP address like so:
+
+```bash
+$ dig -x 172.217.13.174
+```
+
+This is equivalent to the following query:
+
+```bash
+$ dig ptr 174.13.217.172.in-addr.arpa.
+```
+
+Reverse DNS isn't magic; it's just a very widely adopted convention. Most cloud providers (e.g. [AWS](https://aws.amazon.com/blogs/aws/reverse-dns-for-ec2s-elastic-ip-addresses/)) will let you set up reverse DNS for your IP addresses.
+
+## Why do I care about any of this?
+
+This is important for email deliverability, as many email servers will check the reverse DNS of the sending IP address to see if it matches the domain in the `From` header of the email.
+
+A reverse DNS (or `rDNS`) lookup that _doesn't_ match the domain in the `From` header is a red flag for spam, and can cause your email to be marked as spam or rejected outright.
+
+## How do I set up reverse DNS?
+
+You don't need to! We handle this all for you.
+
+## Even if I have a custom domain?
+
+Yup. Technical explanation ahead for the morbidly curious: when you set up a custom domain, one of the records we have you set is a `CNAME` record on one of your subdomains that points to a `proxy` subdomain on our domain. This means that the IP address of the email server that sends your email is actually our IP address, so the reverse DNS lookup will resolve to our domain.

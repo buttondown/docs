@@ -1,0 +1,10 @@
+---
+title: Creating a subscriber
+endpoint: /subscribers
+method: post
+---
+
+By default, newly created subscribers are subject to [double opt-in](/glossary-double-optin) — they will receive an email asking them to confirm their subscription,
+and have a state of [`unactivated`](/api-subscribers-type#unactivated) until they do so.
+
+You can't disable this behavior globally, but you _can_ disable it on a per-subscriber basis by providing a `subscriber_type` of `regular` in the request body.

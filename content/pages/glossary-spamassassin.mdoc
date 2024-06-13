@@ -1,0 +1,12 @@
+---
+title: SpamAssassin
+---
+
+SpamAssassin (technically [Apache SpamAssassin](https://spamassassin.apache.org/)) is an open-source project that helps identify and filter spam emails. It uses a variety of techniques to analyze email content and headers, assigning a score to each message based on the likelihood that it is spam. Users can configure SpamAssassin to automatically filter out messages that exceed a certain score threshold.
+
+[Postmark has a great online tool for testing SpamAssassin](https://spamcheck.postmarkapp.com/), which can help you understand how SpamAssassin might score your emails.
+
+It's good to note a couple things about SpamAssassin:
+
+1. SpamAssassin is not perfect. It can sometimes incorrectly flag legitimate emails as spam, and it can sometimes miss actual spam messages. Testing your email against SpamAssassin is a good way to get a sense of how it might be scored, but it's not a guarantee of how it will be treated by a recipient's SpamAssassin installation.
+2. The number of inboxes that use SpamAssassin is relatively small compared to the number of inboxes that use other spam filters. The vast majority of your recipients are using tools like Gmail, Yahoo, and Outlook — closed-source inboxes like these rely on their own proprietary spam filters, which are generally more sophisticated than SpamAssassin.

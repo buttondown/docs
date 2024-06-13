@@ -1,0 +1,133 @@
+---
+title: Building your subscriber base
+relatedPages:
+  - dealing-with-spam-subscribers
+  - subscriber-autonomy
+---
+Now that you've got a newsletter up and running, you can think about how to add more subscribers so more people can read and engage with what you write. You might spread the word about your newsletter through social media, other publications, or simple word of mouth. However you start, potential subscribers need a place to go where they can find your newsletter and subscribe.
+
+There are *three* main ways you can grow your subscriber base without writing a single line of code:
+
+- sharing your newsletter's unique Buttondown URL
+- embedding an HTML form on a webpage
+- embedding an iFrame on a webpage
+
+## Sharing your Buttondown URL
+
+Every newsletter has a unique URL. When someone loads that URL, a page with the option to subscribe to your newsletter appears.
+
+{% customizableContent
+   loggedIn="Your newsletter's URL is `https://buttondown.email/{{username}}`. You can use this link anywhere on the internet, like in emails or blog posts, to give folks a place to go when they want to subscribe or read your past emails.\n\nFun fact: if you use tags, you can automatically tag subscribers by adding a `GET` parameter of `tag` to this URL! For instance, to add the tag `sandwich` to all subscribers, you'd use the URL:\n\nhttps://buttondown.email/{{username}}?tag=sandwich"
+   anonymous="Your newsletter's URL is `https://buttondown.email/{{username}}`, where \"{{ username }}\" is replaced with the username of your Buttondown account. You can use this link anywhere on the internet, like in emails or blog posts, to give folks a place to go when they want to subscribe or read your past emails.\n\nFun fact: if you use tags, you can automatically tag subscribers by adding a `GET` parameter of `tag` to this URL! For instance, to add the tag `sandwich` to all subscribers, you'd use the URL:\n\nhttps://buttondown.email/{{username}}?tag=sandwich" /%}
+
+## Embedding an HTML form
+
+Buttondown exposes a URL endpoint that you can point any `<form>` tag at to get an HTML-friendly form. This is great for platforms like Wordpress or Cargo that are very HTML-friendly. Additionally, you can style this form to your heart's content.
+
+Below is an example of a basic form that uses this endpoint:
+
+{% liveCodeBlock
+   filename="public/code/building-your-subscriber-base/1.html" /%}
+
+You can also specify one or more tags to automatically apply to new subscribers by using the `tag` value in your form. The following example tags a new subscriber with `foo`:
+
+```html
+<input type="hidden" name="tag" value="foo" />
+```
+
+## Embedding an iFrame
+
+If you want a seamless, pre-styled way to include a subscription option on your site, the iFrame may be the tool for you. Here's an example:
+
+{% liveCodeBlock
+   filename="public/code/building-your-subscriber-base/2.html" /%}
+
+## Adding tags to your subscribers
+
+**Using query parameters**
+
+If you're using the subscribe page available at [your newsletter's URL](#sharing-your-buttondown-url), you can automatically add new tags to new subscribers by adding a **query parameter** to the URL. The example below automatically gives people who subscribe through the link a tag called `python`:
+
+```html
+https://buttondown.email/jmduke?tag=python
+```
+
+If you want to apply multiple tags at once, you can add multiple such query parameters. Here's an example:
+
+```html
+https://buttondown.email/jmduke?tag=python&tag=vue
+```
+
+**Using HTML**
+
+If you'd prefer to use HTML, augment your form to add an `input` tag with a name of `tag`. If you want to, you can supply multiple `input`s. Buttondown will apply *all* tags.
+
+In the example below, the `value` associated with the tag being passed is the *name* of the tag, not the *ID*. You can in fact use either the *name* or the *ID* and Buttondown will do the right thing (including automatically creating a tag with the given name, if no such tag exists yet).
+
+{% liveCodeBlock
+   filename="public/code/building-your-subscriber-base/3.html" /%}
+
+You can read our docs to learn more about [tags](/tags).
+
+## Adding metadata to your subscribers
+
+**On your Buttondown subscribe form**
+
+Buttondown's subscription form doesn't ask for any metadata by default. All it needs is a subscriber's email address and, if you're running a paid newsletter, their payment information.
+
+If you want to collect more information, though, you can add *custom subscribe form inputs*. You can find these at the bottom of your [design settings page](https://buttondown.email/settings/design). Inputs have three attributes:
+
+1. A **key**, which corresponds with the key that will be set in the metadata for your subscriber.
+1. A **label**, which is the text that will be displayed to the user.
+1. Whether or not the metadata is **required**. If the metadata is required, then the input is required to be filled out by the subscriber.
+
+**Using HTML**
+
+Here's an example that uses HTML:
+
+{% liveCodeBlock
+   filename="public/code/building-your-subscriber-base/5.html" /%}
+
+
+Set inputs with the `name` of `metadata__<key>`, as you can see in the code sample above:
+
+```html
+<input
+  id="first-name"
+  type="text"
+  name="metadata__first-name"
+  required
+  placeholder="John"
+/>
+```
+
+These inputs can be freeform text, like above, or `hidden` inputs if you want to invisibly augment your subscription forms with metadata. For example, you can imagine setting metadata for everyone who accesses your newsletter from a particular tag or webpage.
+
+Another example is below:
+
+{% liveCodeBlock
+   filename="public/code/building-your-subscriber-base/4.html" /%}
+
+You can read our docs to learn more about [metadata](/metadata).
+
+## Automatically sending an email to new subscribers
+
+To learn how to create an automated email to send to new subscribers, read [Automations](/automations-introduction).
+
+## Changing an existing subscriber's email address
+
+If you need to change a subscriber's address, you can go into the Notes screen for that subscriber and tap their address to change it. To learn more, watch this [video](https://www.loom.com/share/6ff952d18f0a40288bec93843fbd1024).
+
+## Integrating with other tools
+
+### [Captcha](/glossary-captcha) support
+
+We're piloting a program using [https://www.hcaptcha.com/](https://www.hcaptcha.com/) and will be bringing it (on an opt-in basis) to GA soon!
+
+### Instagram
+
+Instagram's browser is a little, uh, finicky. Take out the `target="popupwindow"` attribute from the form tag and it should work.
+
+### Medium
+
+To embed your subscription widget in Medium, all you need to do is post [your newsletter's URL](#sharing-your-buttondown-url) in Medium. It should automatically embed.

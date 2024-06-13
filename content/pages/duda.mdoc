@@ -1,0 +1,97 @@
+---
+title: Duda
+---
+
+Looking to build a streamlined website for yourself, or for a client of yours? [Duda](https://www.duda.co/)'s a great way to go, and it integrates seamlessly with Buttondown. Read on to learn how you can connect Duda with Buttondown—all while collecting new subscribers!
+
+## Getting started
+
+It'll be useful to have these on hand:
+
+- A [Duda](https://www.duda.co/) website
+- A paid [Zapier](https://zapier.com/) account
+- A paid Buttondown account (Zapier is a part of our "[Standard](https://buttondown.email/pricing)" pricing plan)
+
+Ready? Let's do this thing!
+
+## Connecting Duda and Buttondown
+
+### Create a contact form
+
+Go ahead and pull up your [Duda](https://www.duda.co/) website builder, then select "Widgets" from the side panel. From there, find and select "Contact Form."
+
+{% video file="/duda/duda_widgets-menu-in-duda.mp4" /%}
+
+With Duda's "Flex" editing mode, you can drag and reposition your contact form however you like.
+
+### Edit your contact form
+
+Click your brand-new contact form, and a toolbar will pop up. By selecting the "Content" button, you'll have the chance to customize your form's fields—as well as to add a [Zapier](https://zapier.com/) integration.
+
+{% video file="/duda/duda_menu-to-edit-contact-form-content.mp4" /%}
+
+Why Zapier, you may ask? Read on to find out!
+
+### Familiarize yourself with webhooks
+
+[Zapier](https://zapier.com/) uses [webhooks](/events-and-webhooks-introduction) to create "Zaps." "Zaps" are useful tools that can automate workflows between two or more apps—like Duda and Buttondown, for example!
+
+In this case, our webhook will take the information submitted via your Duda contact form, and then use that information to create a new subscriber in Buttondown.
+
+![Visualization of webhook connecting Duda and Buttondown](/images/visualizations/duda_webhook-visualization.png)
+
+### Create a "Zap"
+
+Following our brief intermission, we're back in [Duda](https://www.duda.co/)!
+
+After you've added a Zapier integration to your Duda contact form, a menu of pre-existing "Zap" templates will pop up. Scroll right on past them and click "See More" at the bottom of the menu. You'll arrive at a landing page where you can search for Buttondown manually.
+
+{% video file="/duda/duda_menu-to-add-zapier-template.mp4" /%}
+
+From here, you'll be able to choose a "Trigger" and an "Action" for your "Zap."
+
+{% video file="/duda/duda_create-zap.mp4" /%}
+
+Before we move on, take a moment to confirm that your Duda account and preferred website are listed under the "Account" and "Trigger" tabs of your "Zap" editor. Once that's done, it's time to test your "Zap"!
+
+### Test your "Zap"
+
+When you're ready, click "Test Trigger." Even if you don't have any existing members in Duda just yet, Duda will use test data to make sure that your "Trigger" works smoothly.
+
+{% video file="/duda/duda_trigger-test-results.mp4" /%}
+
+Looking good! Click "Continue" to move on to the fun part: The "Action"!
+
+Toggle to the "Action" tab in your "Zap" editor. Here, you can specify exactly what information your "Zap" should deliver to Buttondown. In this case, we'll include our new subscriber's email address, as well as metadata such as their first name and last name.
+
+A quick note on adding metadata: While metadata values (e.g. "John," or "Smith") can be added to the field on the right, the field on the left can be used to create keys for those values. These keys can be used to access your metadata in Buttondown later on, so you'll want them to be both memorable and syntax-friendly. Since we're asking for our new subscribers' first names and last names, let's use "first_name" and "last_name" as our keys.
+
+{% video file="/duda/duda_action-menu.mp4" /%}
+
+Onwards! It's time to test our "Zap" in action.
+
+### Check your results
+
+During this final test, Zapier will send our test data to Buttondown to create a new subscriber. Successful test results might look something like this in Zapier:
+
+{% video file="/duda/duda_action-test-results.mp4" /%}
+
+However, we'll see the real results in [Buttondown](https://buttondown.email/login). Head on over to your "Subscribers" tab, and look out for the test subscriber from Duda.
+
+{% video file="/duda/duda_buttondown-subscriber-tab.mp4" /%}>
+
+You've done it! Your "Zap" is ready to be published—which means your Duda and Buttondown accounts will be working perfectly in tandem.
+
+## Going above and beyond
+
+### Manage your subscribers' metadata
+
+Want to learn more about collecting metadata from Duda, and using it in Buttondown? Our docs on "[Metadata](/metadata)" and "[Collecting and Using Subscriber Names](/names)" are both great places to start.
+
+### Manage your subscribers' tags
+
+Tags are useful for organizing your subscriber base, as well as for sending out targeted newsletters. Check out our "[Tags](/tags)" doc for a helpful overview of both of these use cases!
+
+### Send a welcome email
+
+Perhaps you'd like to send an automated welcome email to the subscribers who sign up through Duda? Pay a visit to our "[Automations](/automations-introduction)" doc for more information on establishing "Triggers," "Filters," "Timing," and "Actions."

@@ -1,0 +1,41 @@
+---
+title: What's included in "weekly" or "monthly" RSS emails?
+navigationTitle: How RSS email cadence works
+relatedPages: []
+---
+With Buttondown's RSS-to-email functionality, you can have Buttondown aggregate posts from your RSS feed in daily, weekly, or monthly increments, then sending one email with all those posts.
+
+![Buttondown allows you to pick Cadence (daily, weekly, monthly), Schedule (when to send the actual email), and Behavior (whether to just draft it or send it). ](/rss-cadence/configuration.png)
+
+## Monthly cadence
+
+Buttondown checks your RSS feed every hour, and when it finds new posts for the current month, it appends them onto a draft (marked with an "Automated" status).
+
+Finally on the day you choose under "Schedule," the *previous* month's draft is finalized (and sent, if you chose this Behavior).
+
+## Monthly cadence example
+
+Let's say you publish posts to your RSS feed on these dates:
+
+- January 1
+- January 15
+- January 31
+- February 1
+
+Throughout January, a draft will be created with the posts from January.
+
+Once January is over, the January draft is finalized, and the February 1 post is added to a new draft for February.
+
+Then, on the correct day in February (i.e. first Monday, or whichever is chosen under Schedule), the January email is sent out.
+
+## Test emails with monthly cadence
+
+When you send a test email to yourself, the behavior is a bit different:
+
+Buttondown takes all the posts in the *current* month and compiles them into a test email, which it sends to the email address on file for your account.
+
+This is meant more as a way to preview your template to make sure everything's working, not to emulate the usual process of compiling posts over the course of a month.
+
+## Weekly cadence
+
+When your automation's cadence is set to Weekly, the same logic applies, just from one *week* to the next instead of one *month* to the next.

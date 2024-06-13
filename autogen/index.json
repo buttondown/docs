@@ -1,0 +1,2397 @@
+[
+  {
+    "title": "Introduction",
+    "url": "introduction",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "introduction",
+      "quickstart"
+    ]
+  },
+  {
+    "title": "Quickstart",
+    "url": "quickstart",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "introduction"
+    ]
+  },
+  {
+    "title": "Registration and setup",
+    "url": "registration-and-setup",
+    "section": "guides",
+    "schema": null,
+    "description": "Ready to dive into Buttondown? This resource will help you sign up and configure some important settings before you send a newsletter to your subscribers.",
+    "references": [
+      "quickstart",
+      "registration-and-setup",
+      "surveys",
+      "importing-your-data",
+      "aweber",
+      "substack",
+      "scheduling-an-email",
+      "welcome-sequence",
+      "teams"
+    ]
+  },
+  {
+    "title": "Sending your first email",
+    "url": "sending-your-first-email",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "registration-and-setup",
+      "sending-your-first-email",
+      "surveys",
+      "importing-your-data",
+      "welcome-sequence",
+      "glossary-preheader",
+      "glossary-slug"
+    ]
+  },
+  {
+    "title": "Advanced email configuration",
+    "url": "sending-your-first-email-advanced",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "sending-your-first-email",
+      "glossary-preheader",
+      "glossary-slug"
+    ]
+  },
+  {
+    "title": "Building your subscriber base",
+    "url": "building-your-subscriber-base",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "quickstart",
+      "sending-your-first-email",
+      "sending-your-first-email-advanced",
+      "building-your-subscriber-base",
+      "private-mode",
+      "tags",
+      "metadata",
+      "importing-your-data",
+      "scheduling-an-email",
+      "blogger",
+      "framer",
+      "glossary-headless-mode"
+    ]
+  },
+  {
+    "title": "Collecting and using subscribers\u2019 names",
+    "url": "names",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "names",
+      "importing-your-data",
+      "substack",
+      "duda"
+    ]
+  },
+  {
+    "title": "Keeping your newsletter private",
+    "url": "private-mode",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Dealing with spammy subscribers",
+    "url": "dealing-with-spam-subscribers",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Tags",
+    "url": "tags",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "quickstart",
+      "sending-your-first-email",
+      "building-your-subscriber-base",
+      "tags",
+      "surveys",
+      "how-can-i-segment-users",
+      "importing-your-data",
+      "substack",
+      "scheduling-an-email",
+      "welcome-sequence",
+      "multiple-newsletters",
+      "duda",
+      "linktree",
+      "draft-send",
+      "api-tags-list",
+      "api-tags-retrieve",
+      "api-tags-create",
+      "api-tags-update",
+      "api-tags-delete"
+    ]
+  },
+  {
+    "title": "Metadata",
+    "url": "metadata",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "sending-your-first-email",
+      "building-your-subscriber-base",
+      "names",
+      "metadata",
+      "surveys",
+      "how-can-i-segment-users",
+      "importing-your-data",
+      "constant-contact",
+      "moosend",
+      "substack",
+      "duda",
+      "linktree",
+      "customizing-subscriber-list-view",
+      "draft-send",
+      "using-templating"
+    ]
+  },
+  {
+    "title": "Surveys",
+    "url": "surveys",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "surveys",
+      "welcome-sequence",
+      "data-exports-survey",
+      "api-surveys-list",
+      "api-surveys-create",
+      "api-surveys-update",
+      "api-surveys-delete",
+      "api-surveys-list-responses"
+    ]
+  },
+  {
+    "title": "Subscriber referrals",
+    "url": "subscriber-referrals",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "affiliate-program"
+    ]
+  },
+  {
+    "title": "How can I segment users?",
+    "url": "how-can-i-segment-users",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Importing your data",
+    "url": "importing-your-data",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "introduction",
+      "quickstart",
+      "sending-your-first-email",
+      "importing-your-data",
+      "aweber",
+      "benchmark",
+      "campaign-monitor",
+      "constant-contact",
+      "convertkit",
+      "emailoctopus",
+      "feedblitz",
+      "mailcoach",
+      "mailerlite",
+      "moosend",
+      "revue"
+    ]
+  },
+  {
+    "title": "AWeber",
+    "url": "aweber",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "aweber"
+    ]
+  },
+  {
+    "title": "Benchmark",
+    "url": "benchmark",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "benchmark"
+    ]
+  },
+  {
+    "title": "Campaign Monitor",
+    "url": "campaign-monitor",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Constant Contact",
+    "url": "constant-contact",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "ConvertKit",
+    "url": "convertkit",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "importing-your-data",
+      "convertkit"
+    ]
+  },
+  {
+    "title": "EmailOctopus",
+    "url": "emailoctopus",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "emailoctopus"
+    ]
+  },
+  {
+    "title": "FeedBlitz",
+    "url": "feedblitz",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "feedblitz"
+    ]
+  },
+  {
+    "title": "Mailchimp",
+    "url": "mailchimp",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "importing-your-data",
+      "mailchimp"
+    ]
+  },
+  {
+    "title": "Mailcoach",
+    "url": "mailcoach",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "MailerLite",
+    "url": "mailerlite",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "mailerlite"
+    ]
+  },
+  {
+    "title": "Moosend",
+    "url": "moosend",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "moosend"
+    ]
+  },
+  {
+    "title": "Revue",
+    "url": "revue",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "revue"
+    ]
+  },
+  {
+    "title": "Substack",
+    "url": "substack",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "importing-your-data",
+      "substack"
+    ]
+  },
+  {
+    "title": "Tinyletter",
+    "url": "tinyletter",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "tinyletter"
+    ]
+  },
+  {
+    "title": "Do imported subscribers have to re-confirm their subscription?",
+    "url": "do-imported-subscribers-have-to-re-confirm-their-subscription",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Scheduling an email",
+    "url": "scheduling-an-email",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "quickstart",
+      "sending-your-first-email",
+      "scheduling-an-email"
+    ]
+  },
+  {
+    "title": "How do I avoid the \"Promotions\" tab in Gmail?",
+    "url": "how-do-i-avoid-the-promotions-tab",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "sending-your-first-email"
+    ]
+  },
+  {
+    "title": "Why is my email all... purple?",
+    "url": "why-is-my-email-purple",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "sending-your-first-email"
+    ]
+  },
+  {
+    "title": "Why does my email look different on some clients?",
+    "url": "why-some-email-clients-look-different",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "sending-your-first-email"
+    ]
+  },
+  {
+    "title": "Does Buttondown support one-click unsubscribe?",
+    "url": "one-click-unsubscribe",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Does Buttondown support AMP?",
+    "url": "support-amp-for-email",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Buying a custom domain",
+    "url": "getting-a-custom-domain",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "quickstart",
+      "registration-and-setup",
+      "sending-your-first-email-advanced"
+    ]
+  },
+  {
+    "title": "Sending from a custom domain",
+    "url": "sending-from-a-custom-domain",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "quickstart",
+      "sending-your-first-email-advanced",
+      "sending-from-dreamhost",
+      "glossary-dns"
+    ]
+  },
+  {
+    "title": "Hosting on a custom domain",
+    "url": "hosting-on-a-custom-domain",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "quickstart",
+      "sending-your-first-email-advanced",
+      "sending-from-a-custom-domain",
+      "glossary-dns"
+    ]
+  },
+  {
+    "title": "Sending from DreamHost",
+    "url": "sending-from-dreamhost",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "sending-from-a-custom-domain"
+    ]
+  },
+  {
+    "title": "Creating your first automation",
+    "url": "creating-your-first-automation",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Automating welcome sequences",
+    "url": "welcome-sequence",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "welcome-sequence"
+    ]
+  },
+  {
+    "title": "RSS-to-email",
+    "url": "rss-to-email",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "quickstart",
+      "glossary-headless-mode",
+      "glossary-posse",
+      "glossary-rss"
+    ]
+  },
+  {
+    "title": "Paid subscriptions",
+    "url": "paid-subscriptions",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "quickstart",
+      "substack",
+      "paid-subscriptions",
+      "affiliate-program",
+      "draft-send"
+    ]
+  },
+  {
+    "title": "Integrating with Stripe",
+    "url": "stripe",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "metadata",
+      "aweber",
+      "benchmark",
+      "convertkit",
+      "mailchimp",
+      "revue",
+      "substack",
+      "paid-subscriptions",
+      "stripe",
+      "stripe-test-mode",
+      "how-do-i-handle-taxes",
+      "adult-content-policy"
+    ]
+  },
+  {
+    "title": "Can I use Stripe Test mode with Buttondown?",
+    "url": "stripe-test-mode",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Can I pay using something other than Stripe?",
+    "url": "can-i-pay-using-something-other-than-stripe",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "How can I calculate and report my taxes?",
+    "url": "how-do-i-handle-taxes",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Multiple newsletters",
+    "url": "multiple-newsletters",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "how-can-i-segment-users",
+      "constant-contact",
+      "moosend",
+      "sending-from-a-custom-domain",
+      "teams"
+    ]
+  },
+  {
+    "title": "Data exports",
+    "url": "data-exports",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "subscriber-referrals",
+      "data-exports",
+      "offboarding",
+      "deleting-your-account",
+      "data-exports-api",
+      "data-exports-comments",
+      "data-exports-email",
+      "data-exports-event",
+      "data-exports-subscriber",
+      "data-exports-survey"
+    ]
+  },
+  {
+    "title": "Can I recover my deleted data?",
+    "url": "help-i-deleted-everything",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Teams",
+    "url": "teams",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "teams"
+    ]
+  },
+  {
+    "title": "Blogger",
+    "url": "blogger",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Carrd",
+    "url": "carrd",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "carrd"
+    ]
+  },
+  {
+    "title": "Discord",
+    "url": "discord",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "discord"
+    ]
+  },
+  {
+    "title": "Duda",
+    "url": "duda",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "duda"
+    ]
+  },
+  {
+    "title": "Fathom",
+    "url": "fathom",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "fathom"
+    ]
+  },
+  {
+    "title": "Framer",
+    "url": "framer",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "framer"
+    ]
+  },
+  {
+    "title": "Linktree",
+    "url": "linktree",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "linktree"
+    ]
+  },
+  {
+    "title": "Plausible",
+    "url": "plausible",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "plausible"
+    ]
+  },
+  {
+    "title": "Integrating shadcn/ui",
+    "url": "shadcn-ui",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Wordpress",
+    "url": "wordpress",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "wordpress"
+    ]
+  },
+  {
+    "title": "Migrating away from Buttondown",
+    "url": "offboarding",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "can-i-point-my-old-buttondown-newsletter-to-a-new-url"
+    ]
+  },
+  {
+    "title": "Deleting your account",
+    "url": "deleting-your-account",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "offboarding"
+    ]
+  },
+  {
+    "title": "Can I point my old Buttondown newsletter to a new URL?",
+    "url": "can-i-point-my-old-buttondown-newsletter-to-a-new-url",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Kudos",
+    "url": "kudos",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Affiliate program",
+    "url": "affiliate-program",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "affiliate-program"
+    ]
+  },
+  {
+    "title": "My favorite newsletters",
+    "url": "my-favorite-newsletters",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Pricing",
+    "url": "billing",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "quickstart",
+      "sending-your-first-email-advanced",
+      "paid-subscriptions"
+    ]
+  },
+  {
+    "title": "Privacy and security",
+    "url": "privacy-and-security",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Customizing email list view",
+    "url": "customizing-email-list-view",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "customizing-email-list-view"
+    ]
+  },
+  {
+    "title": "Customizing subscriber list views",
+    "url": "customizing-subscriber-list-view",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "importing-your-data",
+      "customizing-subscriber-list-view"
+    ]
+  },
+  {
+    "title": "Why is my account disabled?",
+    "url": "auditing",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Previewing your email in an email inbox",
+    "url": "draft-send",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "draft-send",
+      "api-emails-send-draft"
+    ]
+  },
+  {
+    "title": "Template variables",
+    "url": "template-variables",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "sending-your-first-email",
+      "names",
+      "using-templating"
+    ]
+  },
+  {
+    "title": "Date formats",
+    "url": "date-formats",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Using Markdown",
+    "url": "using-markdown",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "quickstart",
+      "uploading-images"
+    ]
+  },
+  {
+    "title": "Buttondown's templating language",
+    "url": "using-templating",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "rss-to-email",
+      "template-variables"
+    ]
+  },
+  {
+    "title": "Uploading images in the editor",
+    "url": "uploading-images",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "How do I include audio in my newsletter?",
+    "url": "how-do-i-include-audio-in-my-newsletter",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "What's the maximum size of a file that I can attach?",
+    "url": "what-s-the-maximum-size-of-a-file-that-i-can-attach",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Subscriber cleanup",
+    "url": "subscriber-cleanup",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown can clean up spammy or unactivated email addresses from your subscriber list.",
+    "references": [
+      "subscriber-cleanup"
+    ]
+  },
+  {
+    "title": "Customizing your emails",
+    "url": "customizing-email-design",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "registration-and-setup",
+      "uploading-images",
+      "modern-template-hide-top"
+    ]
+  },
+  {
+    "title": "Customizing your archives",
+    "url": "customizing-web-design",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "registration-and-setup"
+    ]
+  },
+  {
+    "title": "What's a good tutorial for learning CSS?",
+    "url": "what-s-a-good-tutorial-for-learning-css",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Can I use a custom web font?",
+    "url": "can-i-use-a-custom-font",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "How can I hide the top of the Modern template?",
+    "url": "modern-template-hide-top",
+    "section": "reference",
+    "schema": null,
+    "description": "The top of the Modern template has the newsletter's icon and name, and the email's subject and publication date, which some authors opt to hide using CSS. ",
+    "references": [
+      "modern-template-hide-top"
+    ]
+  },
+  {
+    "title": "Can I center my email?",
+    "url": "can-i-center-my-email",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Can I customize the Gmail icon of my email?",
+    "url": "can-i-customize-my-gmail-icon",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Comments",
+    "url": "comments",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "data-exports-comments",
+      "api-comments-list",
+      "api-changelog-2024-04-03"
+    ]
+  },
+  {
+    "title": "RSS",
+    "url": "email-to-rss",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "glossary-rss"
+    ]
+  },
+  {
+    "title": "Social sharing images",
+    "url": "share-images",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "share-images",
+      "why-arent-i-seeing-my-new-share-image"
+    ]
+  },
+  {
+    "title": "SEO",
+    "url": "seo",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Does Buttondown automatically index my web archives?",
+    "url": "does-buttondown-automatically-index-my-web-archives",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "How do subscribers customize their name and profile photo?",
+    "url": "how-do-subscribers-customize-their-name-photo",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Why aren't I seeing my new share image?",
+    "url": "why-arent-i-seeing-my-new-share-image",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "API request data exports",
+    "url": "data-exports-api",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "data-exports"
+    ]
+  },
+  {
+    "title": "Comment data exports",
+    "url": "data-exports-comments",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "data-exports"
+    ]
+  },
+  {
+    "title": "Email data exports",
+    "url": "data-exports-email",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "data-exports"
+    ]
+  },
+  {
+    "title": "Email event data exports",
+    "url": "data-exports-event",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "data-exports"
+    ]
+  },
+  {
+    "title": "Subscriber data exports",
+    "url": "data-exports-subscriber",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "data-exports"
+    ]
+  },
+  {
+    "title": "Survey data exports",
+    "url": "data-exports-survey",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "data-exports"
+    ]
+  },
+  {
+    "title": "Automations",
+    "url": "automations-introduction",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "building-your-subscriber-base",
+      "creating-your-first-automation",
+      "welcome-sequence",
+      "duda"
+    ]
+  },
+  {
+    "title": "Types of automation triggers",
+    "url": "automation-triggers",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "automation-filters"
+    ]
+  },
+  {
+    "title": "Types of automation filters",
+    "url": "automation-filters",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Automation timing",
+    "url": "automation-timing",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Types of automation actions",
+    "url": "automation-actions",
+    "section": "Reference",
+    "schema": "AutomationActionType",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "What happens if I change an existing automation?",
+    "url": "what-happens-if-i-change-an-automation",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Events and webhooks",
+    "url": "events-and-webhooks-introduction",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "discord",
+      "duda",
+      "linktree",
+      "data-exports-event"
+    ]
+  },
+  {
+    "title": "Event types",
+    "url": "event-types",
+    "section": "Reference",
+    "schema": "ExternalEventType",
+    "description": null,
+    "references": [
+      "automation-triggers",
+      "events-and-webhooks-introduction"
+    ]
+  },
+  {
+    "title": "Dedicated IP",
+    "url": "dedicated-ip",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Does Buttondown offer A/B testing?",
+    "url": "does-buttondown-offer-a-b-testing",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "What's included in \"weekly\" or \"monthly\" RSS emails?",
+    "url": "rss-cadence",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "rss-cadence"
+    ]
+  },
+  {
+    "title": "Using a screen reader",
+    "url": "using-a-screen-reader",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Adult content policy",
+    "url": "adult-content-policy",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Law enforcement requests",
+    "url": "law-enforcement-requests",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Does Buttondown offer stipends or financial assistance to writers?",
+    "url": "does-buttondown-offer-stipends",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Alt text",
+    "url": "glossary-alt-text",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "uploading-images"
+    ]
+  },
+  {
+    "title": "AMP",
+    "url": "glossary-amp",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "support-amp-for-email"
+    ]
+  },
+  {
+    "title": "API",
+    "url": "glossary-api",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-introduction"
+    ]
+  },
+  {
+    "title": "BIMI",
+    "url": "glossary-bimi",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "can-i-customize-my-gmail-icon"
+    ]
+  },
+  {
+    "title": "CAC",
+    "url": "glossary-cac",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "CAN-SPAM act",
+    "url": "glossary-can-spam",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Captcha",
+    "url": "glossary-captcha",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "building-your-subscriber-base",
+      "dealing-with-spam-subscribers"
+    ]
+  },
+  {
+    "title": "CSV",
+    "url": "glossary-csv",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "sending-your-first-email",
+      "importing-your-data",
+      "substack"
+    ]
+  },
+  {
+    "title": "CPM",
+    "url": "glossary-cpm",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "DKIM",
+    "url": "glossary-dkim",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "glossary-dmarc"
+    ]
+  },
+  {
+    "title": "DNS",
+    "url": "glossary-dns",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "sending-from-a-custom-domain",
+      "hosting-on-a-custom-domain",
+      "glossary-reverse-dns"
+    ]
+  },
+  {
+    "title": "DMARC",
+    "url": "glossary-dmarc",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "glossary-bimi"
+    ]
+  },
+  {
+    "title": "Double opt-in",
+    "url": "glossary-double-optin",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "dealing-with-spam-subscribers",
+      "api-subscribers-create"
+    ]
+  },
+  {
+    "title": "Drip sequence",
+    "url": "glossary-drip-sequence",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "automation-triggers"
+    ]
+  },
+  {
+    "title": "ESP",
+    "url": "glossary-esp",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "introduction"
+    ]
+  },
+  {
+    "title": "GDPR",
+    "url": "glossary-gdpr",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "fathom",
+      "privacy-and-security"
+    ]
+  },
+  {
+    "title": "Gravatar",
+    "url": "glossary-gravatar",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Headless mode",
+    "url": "glossary-headless-mode",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Hosting domain",
+    "url": "glossary-hosting-domain",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "hosting-on-a-custom-domain",
+      "glossary-sending-domain"
+    ]
+  },
+  {
+    "title": "JSON-LD",
+    "url": "glossary-json-ld",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "comments",
+      "seo"
+    ]
+  },
+  {
+    "title": "OpenAPI",
+    "url": "glossary-openapi",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Permanent failure",
+    "url": "glossary-permanent-failure",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "POSSE",
+    "url": "glossary-posse",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Precedence: Bulk",
+    "url": "glossary-precedence-bulk",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Preheader",
+    "url": "glossary-preheader",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Reverse DNS",
+    "url": "glossary-reverse-dns",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "REST",
+    "url": "glossary-rest",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-introduction"
+    ]
+  },
+  {
+    "title": "RSS",
+    "url": "glossary-rss",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "sending-your-first-email-advanced",
+      "rss-to-email",
+      "does-buttondown-automatically-index-my-web-archives"
+    ]
+  },
+  {
+    "title": "Sending domain",
+    "url": "glossary-sending-domain",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "hosting-on-a-custom-domain",
+      "glossary-hosting-domain"
+    ]
+  },
+  {
+    "title": "Slug",
+    "url": "glossary-slug",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "sending-your-first-email-advanced",
+      "seo",
+      "glossary-slug"
+    ]
+  },
+  {
+    "title": "SpamAssassin",
+    "url": "glossary-spamassassin",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "SPF",
+    "url": "glossary-spf",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "sending-from-a-custom-domain",
+      "glossary-dmarc"
+    ]
+  },
+  {
+    "title": "Temporary failure",
+    "url": "glossary-temporary-failure",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Transactional email",
+    "url": "glossary-transactional-email",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "one-click-unsubscribe",
+      "auditing"
+    ]
+  },
+  {
+    "title": "Webhooks",
+    "url": "glossary-webhook",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "events-and-webhooks-introduction"
+    ]
+  },
+  {
+    "title": "Webmentions",
+    "url": "glossary-webmentions",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "customizing-email-list-view"
+    ]
+  },
+  {
+    "title": "WYSIWYG",
+    "url": "glossary-wysiwyg",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "quickstart",
+      "using-markdown"
+    ]
+  },
+  {
+    "title": "API introduction",
+    "url": "api-introduction",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "sending-your-first-email",
+      "glossary-api",
+      "glossary-headless-mode"
+    ]
+  },
+  {
+    "title": "Authentication",
+    "url": "api-authentication",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Pagination",
+    "url": "api-pagination",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Drafting emails via the API",
+    "url": "drafting-emails-via-the-api",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "drafting-emails-via-the-api"
+    ]
+  },
+  {
+    "title": "Scheduling emails via the API",
+    "url": "scheduling-emails-via-the-api",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "scheduling-emails-via-the-api"
+    ]
+  },
+  {
+    "title": "Retrieving email analytics data via the API",
+    "url": "retrieving-analytics-data",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "retrieving-analytics-data"
+    ]
+  },
+  {
+    "title": "Introduction",
+    "url": "api-emails-introduction",
+    "section": "api",
+    "schema": "Email",
+    "description": null,
+    "references": [
+      "glossary-rest",
+      "glossary-slug",
+      "drafting-emails-via-the-api",
+      "scheduling-emails-via-the-api"
+    ]
+  },
+  {
+    "title": "Email status",
+    "url": "api-emails-status",
+    "section": "Reference",
+    "schema": "EmailStatus",
+    "description": null,
+    "references": [
+      "customizing-email-list-view",
+      "scheduling-emails-via-the-api"
+    ]
+  },
+  {
+    "title": "Email source",
+    "url": "api-emails-source",
+    "section": "Reference",
+    "schema": "EmailSource",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Email audience type",
+    "url": "api-emails-type",
+    "section": "Reference",
+    "schema": "EmailType",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Email analytics",
+    "url": "api-emails-analytic",
+    "section": "api",
+    "schema": "Analytics",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating an email",
+    "url": "api-emails-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "drafting-emails-via-the-api",
+      "scheduling-emails-via-the-api"
+    ]
+  },
+  {
+    "title": "Listing emails",
+    "url": "api-emails-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "retrieving-analytics-data",
+      "api-changelog-2023-08-23",
+      "api-changelog-2022-03-08"
+    ]
+  },
+  {
+    "title": "Retrieving email",
+    "url": "api-emails-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Updating an email",
+    "url": "api-emails-update",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Retrieving email analytics",
+    "url": "api-emails-analytics",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Sending a draft email",
+    "url": "api-emails-send-draft",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing email events",
+    "url": "api-emails-events",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Introduction",
+    "url": "api-subscribers-introduction",
+    "section": "api",
+    "schema": "Subscriber",
+    "description": null,
+    "references": [
+      "names",
+      "metadata",
+      "glossary-rest",
+      "api-changelog-2023-07-23",
+      "api-changelog-2021-11-26"
+    ]
+  },
+  {
+    "title": "Subscriber types",
+    "url": "api-subscribers-type",
+    "section": "Reference",
+    "schema": "SubscriberType",
+    "description": null,
+    "references": [
+      "automation-filters",
+      "api-subscribers-create"
+    ]
+  },
+  {
+    "title": "Subscriber source",
+    "url": "api-subscribers-source",
+    "section": "Reference",
+    "schema": "SubscriberSource",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing subscribers",
+    "url": "api-subscribers-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog-2024-05-22"
+    ]
+  },
+  {
+    "title": "Retrieving a subscriber",
+    "url": "api-subscribers-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating a subscriber",
+    "url": "api-subscribers-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Updating a subscriber",
+    "url": "api-subscribers-update",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Deleting a subscriber",
+    "url": "api-subscribers-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Sending a reminder",
+    "url": "api-subscribers-reminder",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Sending an email",
+    "url": "api-subscribers-send-email",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing a subscriber's survey responses",
+    "url": "api-subscribers-retrieve-responses",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Introduction",
+    "url": "api-tags-introduction",
+    "section": "api",
+    "schema": "Tag",
+    "description": null,
+    "references": [
+      "tags"
+    ]
+  },
+  {
+    "title": "Listing tags",
+    "url": "api-tags-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Retrieving a tag",
+    "url": "api-tags-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating a tag",
+    "url": "api-tags-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Updating a tag",
+    "url": "api-tags-update",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Deleting a tag",
+    "url": "api-tags-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Introduction",
+    "url": "api-images-introduction",
+    "section": "api",
+    "schema": "Image",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating an image",
+    "url": "api-images-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Deleting an image",
+    "url": "api-images-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Introduction",
+    "url": "api-newsletters-introduction",
+    "section": "api",
+    "schema": "Newsletter",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing newsletters",
+    "url": "api-newsletters-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating a newsletter",
+    "url": "api-newsletters-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Updating a newsletter",
+    "url": "api-newsletters-update",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Deleting a newsletter",
+    "url": "api-newsletters-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Introduction",
+    "url": "api-exports-introduction",
+    "section": "api",
+    "schema": "Export",
+    "description": null,
+    "references": [
+      "api-changelog-2021-08-27"
+    ]
+  },
+  {
+    "title": "Export statuses",
+    "url": "api-exports-status",
+    "section": "Reference",
+    "schema": "ExportStatus",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Export collections",
+    "url": "api-exports-collections",
+    "section": "Reference",
+    "schema": "ExportCollection",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating an export",
+    "url": "api-exports-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Retrieving an export",
+    "url": "api-exports-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Introduction",
+    "url": "api-bulk-actions-introduction",
+    "section": "api",
+    "schema": "BulkAction",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Bulk action statuses",
+    "url": "api-bulk-action-status",
+    "section": "Reference",
+    "schema": "BulkActionStatus",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Bulk action type",
+    "url": "api-bulk-action-type",
+    "section": "Reference",
+    "schema": "BulkActionType",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating a bulk action",
+    "url": "api-bulk-actions-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Retrieving a bulk action",
+    "url": "api-bulk-actions-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Introduction",
+    "url": "api-external-feed-introduction",
+    "section": "api",
+    "schema": "ExternalFeed",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "External feed statuses",
+    "url": "api-external-feed-status",
+    "section": "Reference",
+    "schema": "ExternalFeedAutomationStatus",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "External feed cadence",
+    "url": "api-external-feed-cadence",
+    "section": "Reference",
+    "schema": "ExternalFeedAutomationCadence",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "External feed behavior",
+    "url": "api-external-feed-behavior",
+    "section": "Reference",
+    "schema": "ExternalFeedAutomationBehavior",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "External feed item statuses",
+    "url": "api-external-feed-item-status",
+    "section": "Reference",
+    "schema": "ExternalFeedItemStatus",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing external feeds",
+    "url": "api-external-feed-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating an external feed",
+    "url": "api-external-feed-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Updating an external feed",
+    "url": "api-external-feed-update",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Deleting an external feed",
+    "url": "api-external-feed-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Introduction",
+    "url": "api-webhooks-introduction",
+    "section": "api",
+    "schema": "Webhook",
+    "description": null,
+    "references": [
+      "api-changelog-2023-08-21"
+    ]
+  },
+  {
+    "title": "Webhook external events",
+    "url": "api-webhooks-event-types",
+    "section": "Reference",
+    "schema": "ExternalEventType",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing webhooks",
+    "url": "api-webhooks-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating a webhook",
+    "url": "api-webhooks-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Introduction",
+    "url": "api-comments-introduction",
+    "section": "api",
+    "schema": "Comment",
+    "description": null,
+    "references": [
+      "api-changelog-2024-04-03"
+    ]
+  },
+  {
+    "title": "Listing comments",
+    "url": "api-comments-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Introduction",
+    "url": "api-surveys-introduction",
+    "section": "api",
+    "schema": "Survey",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Survey status",
+    "url": "api-surveys-status",
+    "section": "Reference",
+    "schema": "SurveyStatus",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Survey cadence",
+    "url": "api-surveys-cadence",
+    "section": "Reference",
+    "schema": "SurveyResponseCadence",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing surveys",
+    "url": "api-surveys-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating a survey",
+    "url": "api-surveys-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Updating a survey",
+    "url": "api-surveys-update",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Deleting a survey",
+    "url": "api-surveys-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing a survey's responses",
+    "url": "api-surveys-list-responses",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Introduction",
+    "url": "api-coupons-introduction",
+    "section": "api",
+    "schema": "StripeCoupon",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Changelog",
+    "url": "api-changelog",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-introduction",
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2024-05-22",
+    "url": "api-changelog-2024-05-22",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2024-04-03",
+    "url": "api-changelog-2024-04-03",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-introduction",
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2023-08-23",
+    "url": "api-changelog-2023-08-23",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2023-08-21",
+    "url": "api-changelog-2023-08-21",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2023-07-23",
+    "url": "api-changelog-2023-07-23",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2022-11-24",
+    "url": "api-changelog-2022-11-24",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2022-11-19",
+    "url": "api-changelog-2022-11-19",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2022-03-08",
+    "url": "api-changelog-2022-03-08",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2021-11-26",
+    "url": "api-changelog-2021-11-26",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2021-08-27",
+    "url": "api-changelog-2021-08-27",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2021-01-02",
+    "url": "api-changelog-2021-01-02",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2020-12-23",
+    "url": "api-changelog-2020-12-23",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2020-12-09",
+    "url": "api-changelog-2020-12-09",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  }
+]

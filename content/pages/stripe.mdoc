@@ -1,0 +1,57 @@
+---
+title: Integrating with Stripe
+relatedPages:
+- paid-subscriptions
+- stripe-test-mode
+- can-i-pay-using-something-other-than-stripe
+- how-do-i-handle-taxes
+---
+Earning money through your newsletter can be fun. Figuring out taxes, less so. But have no fear! [Stripe](https://stripe.com/) is here to save the day by collecting payments and reporting taxes on behalf of your paid newsletter.
+
+## Getting started
+
+Here's what you'll need to set up your Stripe account:
+1. A paid Buttondown account—visit our [pricing](https://buttondown.email/pricing) page to find the plan that works best for you!
+2.  Personal information, including the last four digits of your social security number
+3.  Business information, such as an address to register with your local tax authority
+4.  Bank information, namely your account number and routing number
+
+Ready? Let's do this!
+
+## Connecting Buttondown and Stripe
+
+### Access Stripe through Buttondown
+
+Buttondown works hand in hand with Stripe to automate payments and taxes related to your newsletter. We’ve even built a shortcut right into the "Paid Subscriptions" section of your Buttondown [settings](https://buttondown.email/settings).
+
+{% video file="/stripe/monetizing_link-to-sign-up-for-stripe-tax.mp4" /%}
+
+Once you've verified your Buttondown email address and phone number, you'll be prompted to answer a series of tax-related questions to activate your new Stripe account. For further information about account requirements and setup, check out Stripe's in-depth guide on "[Activating Your Account](https://stripe.com/docs/account/activate)."
+
+### Review your tax settings
+
+Stripe [automatically reports and collects taxes](https://stripe.com/docs/tax/set-up) for your paid newsletter—neat, right? There are just a few things to review before your start collecting revenue.
+
+Start by toggling to your "Tax Settings" in Stripe.
+
+{% video file="/stripe/stripe_navigation-to-stripe-tax-settings.mp4" /%}
+
+From these settings, you can add your "Origin Address," or rather, the address where your business is located. This address will help Stripe to figure out whether it needs to collect sales tax, VAT, or GST.
+
+Next, jump down to the "Products and Prices" section, and set your "Default Product Tax Category" to "General - Electronically Supplied Services." While you're there, we also recommend allowing Stripe to automatically collect taxes on all transactions (which you can do by selecting the "Automatic" option from the "Include Tax in Prices" drop-down menu).
+
+{% video file="/stripe/stripe_tax-settings.mp4" /%}
+
+Once you've finished reviewing your settings, we'll need to backtrack a bit. Find your way back to your tax "Overview" page for the next step of our Stripe integration journey.
+
+### Add your preferred payment methods
+
+From credit cards to virtual wallets to bank debits and beyond, Stripe accepts dozens of different [payment methods](https://stripe.com/docs/invoicing/payment-methods). You can customize your preferred payment methods via Stripe's "Payment Methods" page.
+
+{% video file="/stripe/stripe_stripe-payment-methods.mp4" /%}
+
+Once you're happy with your selection, it's time to pop some bubbly! You're officially ready to start collecting revenue for your newsletter.
+
+### Explore Stripe's docs
+
+Have any lingering questions about using Stripe? Stripe's [docs](https://stripe.com/docs) are a great place to learn more. We find Stripe's doc on "[Collecting Taxes For Recurring Payments](https://stripe.com/docs/tax/subscriptions)" to be especially helpful when it comes to managing paid newsletters.

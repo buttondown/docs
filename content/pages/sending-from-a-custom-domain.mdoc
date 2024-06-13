@@ -1,0 +1,81 @@
+---
+title: Sending from a custom domain
+relatedPages:
+  - sending-from-dreamhost
+  - glossary-reverse-dns
+---
+
+Unlike [hosting on a custom domain](/hosting-on-a-custom-domain) which is largely a cosmetic
+feature, there are significant benefits to sending your emails from a custom domain.
+
+By default, Buttondown sends your emails from its own domain and webserver. This is a good thing — it means when you are first
+starting your newsletter you can focus on writing, editing, and growing instead of dealing with arcane [DNS issues](/glossary-dns).
+
+However, as your newsletter matures it becomes a better idea to think about sending directly from your domain instead. This has a number of benefits:
+
+- Your emails look more professional. Open and click rates are non-trivially improved for newsletters that are coming from, say, `newsletter.this-week-in-poetry.com` instead of `mail.buttondown.email`.
+- You can start accruing "domain reputation" for your own domain. This improves the overall engagement rate for your emails. More importantly, that domain reputation carries with you — even if you leave Buttondown for another service, so long as that service also allows you to send from a custom domain.
+
+If you're using one of the following domain registrars, Buttondown offers a step-by-step guide:
+
+- [DreamHost](/sending-from-dreamhost)
+
+## Dealing with 'softfails' due to SPF
+
+Depending on your newsletter configuration, you might have been asked to set up an [SPF entry](/glossary-spf) for your custom domain. This is a DNS record that begins with the string:
+
+```
+v=spf1
+```
+
+However, this record can only be used once in a single domain. If you're using the same custom email domain for Buttondown and for an inbox provider such as GSuite, you need to take an extra step
+to combine the two records.
+
+Instead of having two separate records, like:
+
+```
+v=spf1 include:_spf.google.com
+```
+
+and
+
+```
+v=spf1 include:mailgun.org
+```
+
+The proper solution is actually to edit the existing one into something like that references both domains:
+
+```
+v=spf1 include:_spf.google.com include:mailgun.org ~all
+```
+
+Otherwise, some mailboxes may read the GSuite one and ignore the one sent by Buttondown, causing a softfail and thus lower deliverability.
+
+## The difference between hosting domains and sending domains
+
+**Hosting on a custom domain** means using a domain outside of buttondown.email to host your newsletter and archives — for example, `newsletter.example.com`
+
+**Sending from a custom domain** means setting up your DNS records so that Buttondown sends outgoing emails from your domain, improving reputation and delivery metrics.
+
+Hosting requires you sign up for [either Standard or Professional plans](https://buttondown.email/pricing); sending does not. This is because, well, sending emails that [actually get delivered](https://blog.buttondown.email/2019/05/16/sending-newsletters-that-get-delivered) is pretty dang important, and it's scummy to hide that behind a paywall.
+
+## Frequently asked questions
+
+### Can I use the same domain for hosting and sending?
+
+Unfortunately, some DNS providers will not let you set up the exact same domain or subdomain for both sending emails and as your custom archive.
+
+For these DNSes, we recommend setting up completely separate subdomains — something along the lines of the following:
+
+- newsletter.janedoe.com for your custom newsletter domain (where folks view archives and subscribe to your newsletter)
+- mail.janedoe.com for your custom sending domain (where outgoing emails come from)
+
+This is the best option to preserve the deliverability of your newsletter (and, frankly, most people are not particularly confused by this at all.)
+
+### Can I use multiple sending domains for multiple newsletters?
+
+Yes! If you're taking advantage of [Buttondown's multi-newsletter feature](/multiple-newsletters), you can set up multiple sending domains for each newsletter for no additional cost.
+
+### What about the same sending domain on multiple newsletters?
+
+_Also_ yes, with a caveat: Buttondown tries to be clever and detect when you're sending from the same domain on multiple newsletters. If you're doing this, we'll automatically set up the DNS records for you. If you're having trouble, [reach out](mailto:support@buttondown.email) so we can take a look.

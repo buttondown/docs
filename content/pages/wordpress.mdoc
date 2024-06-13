@@ -1,0 +1,40 @@
+---
+title: Wordpress
+relatedPages: []
+---
+WordPress integration is a breeze! All you need to do is leverage the power of [Custom HTML blocks](https://wordpress.com/support/wordpress-editor/blocks/custom-html-block/).
+
+First, create a new Custom HTML block:
+
+![An example screenshot of 'Custom HTML' in the WordPress UI.](/images/wordpress.png)
+
+
+Next, paste in the following code:
+
+
+```html
+<form
+  action="
+    https://buttondown.email/api/emails/embed-subscribe/${username}
+  "
+  method="post"
+  target="popupwindow"
+  class="embeddable-buttondown-form"
+>
+  <label for="email">Email</label>
+  <input
+    type="email"
+    name="email"
+    placeholder="you@example.com"
+  />
+  <input type="hidden" value="1" name="embed" />
+  <input type="submit" value="Subscribe" />
+  <p>
+    <a href="https://buttondown.email" target="_blank">
+        Powered by Buttondown.
+    </a>
+  </p>
+</form>
+```
+
+And you're set!

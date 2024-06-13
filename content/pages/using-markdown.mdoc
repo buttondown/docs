@@ -1,0 +1,117 @@
+---
+title: Using Markdown
+relatedPages: []
+---
+Markdown is a lightweight markup language that makes it easy to add things like links, images, lists, and styles to plain text.
+
+It was created by [John Gruber](https://daringfireball.net) back in 2004 and has quickly become nigh-ubiquitous thanks to its simple goal:
+
+> The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions.
+
+There's a good chance that, even if you haven't heard of Markdown, you've used it before! It powers applications like Reddit and GitHub.
+
+Using Markdown is different than using a [WYSIWYG](/glossary-wysiwyg) editor. In an application like Microsoft Word, you click buttons to format words and phrases, and the changes are visible immediately. Markdown isn’t like that. When you create a Markdown-formatted file, you add Markdown syntax to the text to indicate which words and phrases should look different
+
+For example, to denote a heading, you add a number sign before it (e.g., # Heading One). Or to make a phrase bold, you add two asterisks before and after it (e.g., **this text is bold**). It may take a while to get used to seeing Markdown syntax in your text, but it's very quick to learn.
+
+Markdown doesn’t have all the bells and whistles of word processors like Microsoft Word or other WYSIWYG editors, but it shines at creating simple, elegant documents — which is what Buttondown is all about.
+
+## Markdown syntax guide
+
+{% noticeInfo
+   text="All HTML is valid Markdown, so if you ever want to use something more complex than what the Markdown syntax offers you can just use HTML!" /%}
+
+#### Heading
+
+{% preview
+   before="# H1 \n\n## H2 \n\n### H3"
+   after="<h1>H1</h1>\n<h2>H2</h2>\n<h3>H3</h3>" /%}
+
+### Bold
+
+{% preview before="**bold text**" after="<strong>bold text</strong>" /%}
+
+### Italic
+
+{% preview before="*italic text*  " after="<em>italic text</em>" /%}
+
+### Ordered List
+
+{% preview
+   before="1. Foo \n2. Bar \n3. Baz "
+   after="<ol>\n<li>Foo</li>\n<li>Bar</li>\n<li>Baz</li>\n</ol>" /%}
+
+### Unordered List
+
+{% preview
+   before="- Foo \n- Baz \n- Bar "
+   after="<ul>\n<li>Foo</li>\n<li>Bar</li>\n<li>Baz</li>\n</ul>" /%}
+
+### Code
+
+{% preview before="`code` " after="<code>code</code>" /%}
+
+### Horizontal Rule
+
+{% preview before="--- " after="<hr />" /%}
+
+### Link
+
+{% preview
+   before="[link](https://google.com)"
+   after="<a href=\"https://google.com\">link</a>" /%}
+
+### Image
+
+{% preview
+   before="![description](https://picsum.photos/200/300)"
+   after="<img src=\"https://picsum.photos/200/300\" alt=\"description\" />" /%}
+
+If you're looking for a in-depth guide for more Markdown tips and tricks, I highly recommend the unofficial but authoritative [Markdown Guide](https://www.markdownguide.org).
+
+## Buttondown's Markdown rendering engine
+
+Buttondown's Markdown rendering engine is [Python-Markdown](https://github.com/Python-Markdown/markdown). Some details about the gnarly implementation below: feel free to ignore this unless you're a Buttondown (and/or Markdown) power user!
+
+### Extensions
+
+In addition, Buttondown uses a handful of extensions:
+
+- [smarty](https://python-markdown.github.io/extensions/smarty/), to convert ASCII characters into HTML entities
+- [tables](https://python-markdown.github.io/extensions/tables/), to allow basic tables
+- [footnotes](https://python-markdown.github.io/extensions/footnotes/), to allow basic footnotes. (These are rendered in your online archives using [littlefoot.js](https://littlefoot.js.org/))
+- [fenced_code](https://python-markdown.github.io/extensions/fenced_code_blocks/), to allow a more common approach for embedding code snippets
+- [pymdownx.tilde](https://facelessuser.github.io/pymdown-extensions/extensions/tilde/), for allowing of deletions and subscripts
+- [CodeHilite](https://python-markdown.github.io/extensions/code_hilite/), for syntax highlighting of code snippets
+
+### Embeds
+
+In addition to all of *those*, Buttondown uses some proprietary extensions for embedding things like tweets, YouTube videos, and gifs — but none of these should affect your general rendering experience.
+
+Embeds can be invoked by putting the URL of the resource (Tweet, post, image, etc.) on its own line. *Only* the URL should be on the line. Any additional whitespace or characters will intercept the magic of embeds.
+
+Embeds support URLs from the following sources:
+
+- [Bandcamp](https://bandcamp.com)
+- [Gist](https://gist.github.com)
+- [Giphy](https://giphy.com/)
+- [Instagram](https://www.instagram.com)
+- [Spotify](https://spotify.com)
+- [SoundCloud](https://soundcloud.com)
+- [Twitter](https://twitter.com/home)
+- [Vimeo](https://vimeo.com)
+- [YouTube](https://www.youtube.com)
+
+Play around with it!
+
+#### Escaping
+
+Embeds only trigger on their own self-contained lines. If you're looking for an escape hatch out of these embeds, you can simply wrap the link in an HTML tag, like so:
+
+
+{% preview before="Here is a tweet I liked!\n\n<div>https://twitter.com/rachsyme/status/1352057677359288321</div>"
+            after="Here is a tweet I liked!\nhttps://twitter.com/rachsyme/status/1352057677359288321" /%}
+
+### Tables of contents
+
+If you're interested in creating a table of contents in your Buttondown newsletter, be sure to use *names* (such as `<a name='heading'>`) rather than *ids* (such as `<a id='heading'>`)! Gmail and many other email clients strip `id` tags from emails, which will break internal links.

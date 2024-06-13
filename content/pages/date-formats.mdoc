@@ -1,0 +1,30 @@
+---
+title: Date formats
+---
+{% noticeInfo text="Date formats are a hidden setting. Please send us an email (support@buttondown.email) if you'd like to change them on your account." /%}
+
+Date formats are, of course, a bit of a touchy subject. I'm an American and have to deal with the terrible hegemony of MM/DD/YYYY;
+
+Buttondown offers a bit of flexibility in the Design settings page to let you choose what date format you wish to present to your subscribers on the web archive. You can follow the key below for more information (or, if the prospect of dealing with date formatting at all is terrifying, you can ignore this section entirely.)
+
+| Input    | Example        | Description                                             |
+|----------|----------------|--------------------------------------------------------|
+| YYYY     | 2014           | 4 or 2 digit year                                      |
+| YY       | 14             | 2 digit year                                           |
+| Y        | -25            | Year with any number of digits and sign                |
+| Q        | 1..4           | Quarter of year. Sets month to first month in quarter. |
+| M MM     | 1..12          | Month number                                           |
+| MMM MMMM | Jan..December  | Month name in locale                                   |
+| D DD     | 1..31          | Day of month                                           |
+| Do       | 1st..31st      | Day of month with ordinal                              |
+| DDD DDDD | 1..365         | Day of year                                            |
+| X        | 1410715640.579 | Unix timestamp                                         |
+| x        | 1410715640579  | Unix ms timestamp                                      |
+| H HH     | 0..23          | Hours (24 hour time)                                   |
+| h hh     | 1..12          | Hours (12 hour time)                                   |
+| k kk     | 1..24          | Hours (24 hour time with 1-index)                      |
+| a A      | am pm          | Post or ante meridiem                                  |
+| m mm     | 0..59          | minutes                                                |
+| s ss     | 0..59          | seconds                                                |
+| S SS SSS | 0..999         | fractional seconds                                     |
+| Z ZZ     | +12:00         | UTC Offset                                             |
