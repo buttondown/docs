@@ -6,10 +6,9 @@
 
 To run Docs v2 for the first time you'll:
 
-1. Clone the `monorepo`
-2. Navigate to `docs-v2`
-3. Use `just install` to install all packages and dependencies
-4. Run `just build`
+1. Clone the `monorepo` and navigate to `docs-v2` (or, if you don't have access, clone the `docs` repo)
+2. Use `just install` to install all packages and dependencies
+3. Run `just build`
 
 Now you're ready to work! You can now run `pnpm dev` in your command line.
 
@@ -25,10 +24,10 @@ Terminal will watch for changes, and recompile when they're detected.
 
 You can check your Node version by running `node -v` in your command line.
 
-> Docs v2 is running on Node `18.11.0`
+> Docs v2 is running on Node `20.10.0`
 
 **Check your NPM version**
-You can check your Node version by running `npm -v` in your command line.
+You can check your NPM version by running `npm -v` in your command line.
 
 **Clear the server cache**
 Run `just clear_cache` to reset Next.js
