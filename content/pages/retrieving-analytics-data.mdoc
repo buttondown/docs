@@ -1,7 +1,7 @@
 ---
 title: Retrieving email analytics data via the API
 navigationTitle: Retrieving analytics data via the API
-relatedPages: 
+relatedPages:
 - api-emails-analytics
 - api-emails-list
 - api-emails-events
@@ -12,12 +12,12 @@ relatedPages:
 {% noticeInfo text="This guide assumes a familiarity with REST APIs" /%}
 
 
-Want to know how your last email performed? The [analytics modal](https://buttondown.email/features/analytics) in the Buttondown dashboard makes it easy to see emails stats like deliveries, failures, open rates, click through rates. 
+Want to know how your last email performed? The [analytics modal](https://buttondown.com/features/analytics) in the Buttondown dashboard makes it easy to see emails stats like deliveries, failures, open rates, click through rates.
 
 But there might be times when you'd like to do something a bit more complex. Maybe you need to pull data into another tool programmatically, or build a custom dashboard. For projects like this, look no further than the Buttondown API!
 
 ## Setup
-Before you can use analytics, you'll need to enable Tracking in your [Buttondown settings](https://buttondown.email/settings/tracking). If Tracking is not enabled, the request will still be successful but will not return any data.
+Before you can use analytics, you'll need to enable Tracking in your [Buttondown settings](https://buttondown.com/settings/tracking). If Tracking is not enabled, the request will still be successful but will not return any data.
 
 
 ## Retrieving email analytics
@@ -30,7 +30,7 @@ Before you can use analytics, you'll need to enable Tracking in your [Buttondown
 
 ### Parameters
 
-Retrieving analytics only required a single parameter: the email ID. 
+Retrieving analytics only required a single parameter: the email ID.
 
 The email ID can be located by first [listing all emails](/api-emails-list).
 
@@ -51,7 +51,7 @@ A successful (200) request will return an object with the data for this particul
 }
 ```
 
-You can also visit the [API Requests tab](https://buttondown.email/requests) in your Buttondown dashboard for more details. Here's what this looks like:
+You can also visit the [API Requests tab](https://buttondown.com/requests) in your Buttondown dashboard for more details. Here's what this looks like:
 
 ![Screenshot of the API Requests tab in Buttondown](/images/analytics-api-tab.png)
 
@@ -77,7 +77,7 @@ _Note: The name in the Analytics response differs from the Event Type name._
 | temporary_failures |  bounced | The recipient's address is invalid, or misconfigured. |
 | permanent_failures |  rejected | The email could not be delivered. |
 | unsubscriptions | unsubscribed  | The recipient has unsubscribed from the email. |
-| complaints |  complained | The recipient marked the email as spam. |
+| complaints |  complained | The recipient [marked the email as spam](/glossary-cfl). |
 | replies | replied | The recipient replied to your email. |
 
 For example, if you wanted to learn more about your subscribers who received your newsletter, you could make the following request:

@@ -1,0 +1,106 @@
+---
+title: "2024-08-15"
+navigationTitle: "2024-08-15"
+---
+
+**Breaking change**: we've combined the two fields of `included_tags` and `excluded_tags` on [Emails](/api-emails-introduction) into the `filters` field, which is now more flexible and composable.
+
+Historically, the `included_tags` and `excluded_tags` fields have been _intersections_ rather than _unions_:
+
+- An email with `included_tags` `["foo"]` and `excluded_tags` `[]` would only be sent to subscribers with the `foo` tag.
+- An email with `included_tags` `["foo", "bar"]` and `excluded_tags` `[]` would be sent to subscribers with the `foo` _and_ `bar` tag.
+- An email with `included_tags` `["foo", "bar"]` and `excluded_tags` `["baz"]` would be sent to subscribers with the `foo` _and_ `bar` tag _except_ for subscribers with the `baz` tag.
+
+This meant it was impossible to model more complex filters or audiences, such as:
+
+- Sending an email to subscribers tagged foo _or_ bar.
+- Sending an email to subscribers tagged foo _and_ either bar _or_ baz.
+- Sending an email to subscribers tagged foo _or_ those with a given metadata key-value pair.
+
+Our [new `filters` field allows you to express these kinds of filters](/api-emails-filters) in a more flexible way by letting you nest specific fields. It's more verbose, but within that verbosity lies power.
+
+Here are some examples of how you can use the `filters` field to express the same filters as above.
+
+## A simple filter
+
+### Before
+
+```json
+{
+  "email": {
+    // ...other fields...
+    "included_tags": ["foo"],
+    "excluded_tags": []
+  }
+}
+```
+
+### After
+
+```json
+{
+  "email": {
+    // ...other fields...
+    "filters": {
+      "predicate": "and",
+      "groups": [],
+      "filters": [
+        {
+          "operator": "contains",
+          "field": "subscriber.tags",
+          "value": "foo"
+        }
+      ]
+    }
+  }
+}
+```
+
+## A more complex filter
+
+### Before
+
+```json
+{
+  "email": {
+    // ...other fields...
+    "included_tags": ["foo", "bar"],
+    "excluded_tags": ["baz"]
+  }
+}
+```
+
+### After
+
+```json
+{
+  "email": {
+    // ...other fields...
+    "filters": {
+      "predicate": "and",
+      "groups": [],
+      "filters": [
+        {
+          "operator": "contains",
+          "field": "subscriber.tags",
+          "value": "foo"
+        },
+        {
+          "operator": "contains",
+          "field": "subscriber.tags",
+          "value": "bar"
+        },
+        {
+          "operator": "not_contains",
+          "field": "subscriber.tags",
+          "value": "baz"
+        }
+      ]
+    }
+  }
+}
+```
+
+(Note that these changes do not apply to the [RSS feeds](/api-external-feed-introduction) endpoints, which similarly have taken an optional `included_tags` field. That change will come too, in good time.)
+
+*Super-breaking change*: we're also _removing_ the `included_tags` and `excluded_tags` filters from the list endpoint. This is _not_ backwards compatible: I investigated the possibility of adding a new `filters` field to the list endpoint, but decided that it would be too confusing and too onerous for what it achieves. No active API clients have used either filter in the past 90 days, so we're deeming it safe; if you have a specific use case in mind that hinged on this functionality, [email us](mailto:support@buttondown.email) and we can discuss your options.

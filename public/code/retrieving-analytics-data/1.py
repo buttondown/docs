@@ -1,7 +1,7 @@
 import requests
 
 # You can find this key in your API requests page:
-# https://buttondown.email/requests
+# https://buttondown.com/requests
 BUTTONDOWN_API_KEY = "your-api-key-here"
 
 headers = {"Authorization": f"Token #{BUTTONDOWN_API_KEY}"}

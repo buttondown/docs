@@ -625,7 +625,7 @@
     },
     "/emails": {
       "post": {
-        "operationId": "api_views_emails_create_email",
+        "operationId": "api_views_emails_routes_create_email",
         "summary": "Create Email",
         "parameters": [],
         "responses": {
@@ -680,7 +680,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_emails_list_emails",
+        "operationId": "api_views_emails_routes_list_emails",
         "summary": "List Emails",
         "parameters": [
           {
@@ -696,32 +696,6 @@
             },
             "required": false,
             "description": "Note that for historical reasons, if `status` is not included in the query, the default is to only return emails with a status of `about_to_send`, `in_flight`, or `sent`. This is a legacy behavior and may change in the future.\n\nIf you want to include drafts, you must explicitly include `draft` in the `status` query parameter. (Same thing with imported emails.)\n"
-          },
-          {
-            "in": "query",
-            "name": "included_tags",
-            "schema": {
-              "title": "Included Tags",
-              "default": [],
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "excluded_tags",
-            "schema": {
-              "title": "Excluded Tags",
-              "default": [],
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "required": false
           },
           {
             "in": "query",
@@ -925,7 +899,7 @@
     },
     "/emails/{id}": {
       "patch": {
-        "operationId": "api_views_emails_update_email",
+        "operationId": "api_views_emails_routes_update_email",
         "summary": "Update Email",
         "parameters": [
           {
@@ -1001,7 +975,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_emails_retrieve_email",
+        "operationId": "api_views_emails_routes_retrieve_email",
         "summary": "Retrieve Email",
         "parameters": [
           {
@@ -1059,7 +1033,7 @@
     },
     "/emails/{id}/history": {
       "get": {
-        "operationId": "api_views_emails_retrieve_email_history",
+        "operationId": "api_views_emails_routes_retrieve_email_history",
         "summary": "Retrieve Email History",
         "parameters": [
           {
@@ -1080,6 +1054,35 @@
               "type": "string"
             },
             "required": true
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "title": "Page",
+              "type": "integer"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "ordering",
+            "schema": {
+              "title": "Ordering",
+              "default": "creation_date",
+              "enum": ["creation_date", "-creation_date"],
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "query",
+            "schema": {
+              "title": "Query",
+              "type": "string"
+            },
+            "required": false
           }
         ],
         "responses": {
@@ -1088,11 +1091,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Response",
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/History"
-                  }
+                  "$ref": "#/components/schemas/HistoryPage"
                 }
               }
             }
@@ -1130,7 +1129,7 @@
     },
     "/emails/{id}/analytics": {
       "get": {
-        "operationId": "api_views_emails_retrieve_email_analytics",
+        "operationId": "api_views_emails_routes_retrieve_email_analytics",
         "summary": "Retrieve Email Analytics",
         "parameters": [
           {
@@ -1186,220 +1185,9 @@
         ]
       }
     },
-    "/emails/{id}/unsubscribers": {
-      "get": {
-        "operationId": "api_views_emails_list_unsubscribers",
-        "summary": "List Unsubscribers",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "title": "Id",
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EmailEventPage"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict"
-          }
-        },
-        "security": [
-          {
-            "AuthenticationRequirement": []
-          }
-        ]
-      }
-    },
-    "/emails/{id}/events": {
-      "get": {
-        "operationId": "api_views_emails_list_events",
-        "summary": "List Events",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "title": "Id",
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "event_type",
-            "schema": {
-              "title": "Event Type",
-              "type": "string"
-            },
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EmailEventPage"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict"
-          }
-        },
-        "security": [
-          {
-            "AuthenticationRequirement": []
-          }
-        ]
-      }
-    },
-    "/emails/{id}/survey-responses": {
-      "get": {
-        "operationId": "api_views_emails_retrieve_survey_responses",
-        "summary": "Retrieve Survey Responses",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "title": "Id",
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponsePage"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict"
-          }
-        },
-        "security": [
-          {
-            "AuthenticationRequirement": []
-          }
-        ]
-      }
-    },
-    "/emails/{id}/webmentions": {
-      "get": {
-        "operationId": "api_views_emails_retrieve_webmentions",
-        "summary": "Retrieve Webmentions",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "title": "Id",
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WebmentionPage"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict"
-          }
-        },
-        "security": [
-          {
-            "AuthenticationRequirement": []
-          }
-        ]
-      }
-    },
     "/emails/{id}/send-draft": {
       "post": {
-        "operationId": "api_views_emails_send_draft",
+        "operationId": "api_views_emails_routes_send_draft",
         "summary": "Send Draft",
         "parameters": [
           {
@@ -1470,9 +1258,20 @@
     },
     "/subscribers": {
       "post": {
-        "operationId": "api_views_subscribers_create_subscriber",
+        "operationId": "api_views_subscribers_routes_create_subscriber",
         "summary": "Create Subscriber",
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Buttondown-Collision-Behavior",
+            "schema": {
+              "title": "X-Buttondown-Collision-Behavior",
+              "default": "no_op",
+              "type": "string"
+            },
+            "required": false
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created",
@@ -1525,13 +1324,14 @@
         ]
       },
       "get": {
-        "operationId": "api_views_subscribers_list_subscribers",
+        "operationId": "api_views_subscribers_routes_list_subscribers",
         "summary": "List Subscribers",
         "parameters": [
           {
             "in": "query",
             "name": "type",
             "schema": {
+              "proxy": "subscriber_type",
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/SubscriberType"
@@ -1554,9 +1354,9 @@
           },
           {
             "in": "query",
-            "name": "email",
+            "name": "email_address",
             "schema": {
-              "title": "Email",
+              "title": "Email Address",
               "default": "",
               "type": "string"
             },
@@ -1567,6 +1367,7 @@
             "name": "tag",
             "schema": {
               "title": "Tag",
+              "proxy": "tags",
               "type": "array",
               "items": {
                 "type": "string"
@@ -1610,36 +1411,45 @@
             "name": "price",
             "schema": {
               "title": "Price",
+              "description": "Filter by price ID.",
+              "proxy": "stripe_customer__subscriptions__price__price_id",
               "type": "array",
               "items": {
                 "type": "string"
               }
             },
-            "required": false
+            "required": false,
+            "description": "Filter by price ID."
           },
           {
             "in": "query",
             "name": "coupon",
             "schema": {
               "title": "Coupon",
+              "description": "Filter by coupon ID.",
+              "proxy": "stripe_customer__coupon__coupon_id",
               "type": "array",
               "items": {
                 "type": "string"
               }
             },
-            "required": false
+            "required": false,
+            "description": "Filter by coupon ID."
           },
           {
             "in": "query",
             "name": "date",
             "schema": {
               "title": "Date",
+              "description": "Filter by creation date.",
+              "proxy": "creation_date",
               "type": "array",
               "items": {
                 "type": "string"
               }
             },
-            "required": false
+            "required": false,
+            "description": "Filter by creation date."
           },
           {
             "in": "query",
@@ -1671,11 +1481,29 @@
             "schema": {
               "title": "Subscriber Import",
               "description": "If provided, only return subscribers that were imported by the given subscriber import.",
-              "type": "string",
-              "format": "uuid"
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
             },
             "required": false,
             "description": "If provided, only return subscribers that were imported by the given subscriber import."
+          },
+          {
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "title": "Expand",
+              "description": "If provided, expand the given field. (Only supported fields: 'stripe_customer')",
+              "type": "array",
+              "items": {
+                "enum": ["stripe_customer"],
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, expand the given field. (Only supported fields: 'stripe_customer')"
           }
         ],
         "responses": {
@@ -1732,7 +1560,7 @@
     },
     "/subscribers/{id_or_email}": {
       "get": {
-        "operationId": "api_views_subscribers_retrieve_subscriber",
+        "operationId": "api_views_subscribers_routes_retrieve_subscriber",
         "summary": "Retrieve Subscriber",
         "parameters": [
           {
@@ -1743,6 +1571,20 @@
               "type": "string"
             },
             "required": true
+          },
+          {
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "title": "Expand",
+              "default": [],
+              "type": "array",
+              "items": {
+                "enum": ["stripe_customer"],
+                "type": "string"
+              }
+            },
+            "required": false
           }
         ],
         "responses": {
@@ -1787,7 +1629,7 @@
         ]
       },
       "delete": {
-        "operationId": "api_views_subscribers_delete_subscriber",
+        "operationId": "api_views_subscribers_routes_delete_subscriber",
         "summary": "Delete Subscriber",
         "parameters": [
           {
@@ -1835,7 +1677,7 @@
         ]
       },
       "patch": {
-        "operationId": "api_views_subscribers_update_subscriber",
+        "operationId": "api_views_subscribers_routes_update_subscriber",
         "summary": "Update Subscriber",
         "parameters": [
           {
@@ -1912,7 +1754,7 @@
     },
     "/subscribers/{id_or_email}/send-reminder": {
       "post": {
-        "operationId": "api_views_subscribers_send_reminder",
+        "operationId": "api_views_subscribers_routes_send_reminder",
         "summary": "Send Reminder",
         "parameters": [
           {
@@ -1952,7 +1794,7 @@
     },
     "/subscribers/{id_or_email}/emails/{email_id}": {
       "post": {
-        "operationId": "api_views_subscribers_send_email_to",
+        "operationId": "api_views_subscribers_routes_send_email_to",
         "summary": "Send Email To",
         "parameters": [
           {
@@ -1977,7 +1819,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Empty"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -2022,7 +1871,7 @@
     },
     "/subscribers/{id_or_email}/clients": {
       "get": {
-        "operationId": "api_views_subscribers_get_clients",
+        "operationId": "api_views_subscribers_routes_get_clients",
         "summary": "Get Clients",
         "parameters": [
           {
@@ -2079,7 +1928,7 @@
     },
     "/subscribers/{id_or_email}/referrals": {
       "get": {
-        "operationId": "api_views_subscribers_get_referrals",
+        "operationId": "api_views_subscribers_routes_get_referrals",
         "summary": "Get Referrals",
         "parameters": [
           {
@@ -2134,152 +1983,9 @@
         ]
       }
     },
-    "/subscribers/{id_or_email}/survey-responses": {
-      "get": {
-        "operationId": "api_views_subscribers_get_survey_responses",
-        "summary": "Get Survey Responses",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id_or_email",
-            "schema": {
-              "title": "Id Or Email",
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "title": "Expand",
-              "description": "If provided, expand the given field. (Only supported field: 'survey').",
-              "type": "string"
-            },
-            "required": false,
-            "description": "If provided, expand the given field. (Only supported field: 'survey')."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponsePage"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict"
-          }
-        },
-        "security": [
-          {
-            "AuthenticationRequirement": []
-          }
-        ]
-      },
-      "post": {
-        "operationId": "api_views_subscribers_create_survey_response",
-        "summary": "Create Survey Response",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id_or_email",
-            "schema": {
-              "title": "Id Or Email",
-              "type": "string"
-            },
-            "required": true
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Response"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ResponseInput"
-              }
-            }
-          },
-          "required": true
-        },
-        "security": [
-          {
-            "AuthenticationRequirement": []
-          }
-        ]
-      }
-    },
     "/subscribers/{id}/automations": {
       "get": {
-        "operationId": "api_views_subscribers_get_automations",
+        "operationId": "api_views_subscribers_routes_get_automations",
         "summary": "Get Automations",
         "parameters": [
           {
@@ -2335,66 +2041,9 @@
         ]
       }
     },
-    "/subscribers/{id_or_email}/email-events": {
-      "get": {
-        "operationId": "api_views_subscribers_get_email_events",
-        "summary": "Get Email Events",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id_or_email",
-            "schema": {
-              "title": "Id Or Email",
-              "type": "string"
-            },
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EmailEventForSubscriberPage"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict"
-          }
-        },
-        "security": [
-          {
-            "AuthenticationRequirement": []
-          }
-        ]
-      }
-    },
     "/subscribers/{id_or_email}/stripe-subscriptions": {
       "get": {
-        "operationId": "api_views_subscribers_get_stripe_subscriptions",
+        "operationId": "api_views_subscribers_routes_get_stripe_subscriptions",
         "summary": "Get Stripe Subscriptions",
         "parameters": [
           {
@@ -2598,6 +2247,16 @@
               }
             }
           },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
           "409": {
             "description": "Conflict"
           }
@@ -2785,7 +2444,7 @@
     },
     "/external_feeds": {
       "post": {
-        "operationId": "api_views_external_feeds_create_external_feed",
+        "operationId": "api_views_external_feeds_routes_create_external_feed",
         "summary": "Create External Feed",
         "parameters": [],
         "responses": {
@@ -2840,7 +2499,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_external_feeds_list_external_feed",
+        "operationId": "api_views_external_feeds_routes_list_external_feed",
         "summary": "List External Feed",
         "parameters": [],
         "responses": {
@@ -2877,7 +2536,7 @@
     },
     "/external_feeds/{id}": {
       "patch": {
-        "operationId": "api_views_external_feeds_update_external_feed",
+        "operationId": "api_views_external_feeds_routes_update_external_feed",
         "summary": "Update External Feed",
         "parameters": [
           {
@@ -2922,6 +2581,16 @@
               }
             }
           },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
           "409": {
             "description": "Conflict"
           }
@@ -2943,7 +2612,7 @@
         ]
       },
       "delete": {
-        "operationId": "api_views_external_feeds_delete_external_feed",
+        "operationId": "api_views_external_feeds_routes_delete_external_feed",
         "summary": "Delete External Feed",
         "parameters": [
           {
@@ -2992,7 +2661,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_external_feeds_retrieve_external_feed",
+        "operationId": "api_views_external_feeds_routes_retrieve_external_feed",
         "summary": "Retrieve External Feed",
         "parameters": [
           {
@@ -3050,7 +2719,7 @@
     },
     "/external_feeds/{id}/items": {
       "post": {
-        "operationId": "api_views_external_feeds_poll_items",
+        "operationId": "api_views_external_feeds_routes_poll_items",
         "summary": "Poll Items",
         "parameters": [
           {
@@ -3070,7 +2739,27 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EmptyMessage"
+                  "$ref": "#/components/schemas/Empty"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
                 }
               }
             }
@@ -3086,7 +2775,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_external_feeds_retrieve_items",
+        "operationId": "api_views_external_feeds_routes_retrieve_items",
         "summary": "Retrieve Items",
         "parameters": [
           {
@@ -3098,6 +2787,21 @@
               "format": "uuid"
             },
             "required": true
+          },
+          {
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "title": "Expand",
+              "description": "If provided, expand the given field.",
+              "type": "array",
+              "items": {
+                "enum": ["email"],
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, expand the given field."
           }
         ],
         "responses": {
@@ -3121,6 +2825,16 @@
               }
             }
           },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
           "409": {
             "description": "Conflict"
           }
@@ -3134,7 +2848,7 @@
     },
     "/automations": {
       "get": {
-        "operationId": "api_views_automations_list_automations",
+        "operationId": "api_views_automations_routes_list_automations",
         "summary": "List Automations",
         "parameters": [],
         "responses": {
@@ -3179,7 +2893,7 @@
         ]
       },
       "post": {
-        "operationId": "api_views_automations_create_automation",
+        "operationId": "api_views_automations_routes_create_automation",
         "summary": "Create Automation",
         "parameters": [],
         "responses": {
@@ -3236,7 +2950,7 @@
     },
     "/automations/{id}/subscribers": {
       "get": {
-        "operationId": "api_views_automations_retrieve_automation_subscribers",
+        "operationId": "api_views_automations_routes_retrieve_automation_subscribers",
         "summary": "Retrieve Automation Subscribers",
         "parameters": [
           {
@@ -3254,9 +2968,15 @@
             "name": "expand",
             "schema": {
               "title": "Expand",
-              "type": "string"
+              "description": "If provided, expand the given field. (Only supported field: 'subscriber').",
+              "type": "array",
+              "items": {
+                "enum": ["subscriber"],
+                "type": "string"
+              }
             },
-            "required": false
+            "required": false,
+            "description": "If provided, expand the given field. (Only supported field: 'subscriber')."
           },
           {
             "in": "query",
@@ -3322,8 +3042,64 @@
       }
     },
     "/automations/{id}": {
+      "get": {
+        "operationId": "api_views_automations_routes_retrieve_automation",
+        "summary": "Retrieve Automation",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Automation"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "security": [
+          {
+            "AuthenticationRequirement": []
+          }
+        ]
+      },
       "patch": {
-        "operationId": "api_views_automations_update_automation",
+        "operationId": "api_views_automations_routes_update_automation",
         "summary": "Update Automation",
         "parameters": [
           {
@@ -3368,6 +3144,16 @@
               }
             }
           },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
           "409": {
             "description": "Conflict"
           }
@@ -3389,7 +3175,7 @@
         ]
       },
       "delete": {
-        "operationId": "api_views_automations_delete_automation",
+        "operationId": "api_views_automations_routes_delete_automation",
         "summary": "Delete Automation",
         "parameters": [
           {
@@ -3438,9 +3224,60 @@
         ]
       }
     },
+    "/automations/{id}/invoke": {
+      "post": {
+        "operationId": "api_views_automations_routes_invoke_automation",
+        "summary": "Invoke Automation",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "security": [
+          {
+            "AuthenticationRequirement": []
+          }
+        ]
+      }
+    },
     "/automations/{id}/analytics": {
       "get": {
-        "operationId": "api_views_automations_retrieve_automation_analytics",
+        "operationId": "api_views_automations_routes_retrieve_automation_analytics",
         "summary": "Retrieve Automation Analytics",
         "parameters": [
           {
@@ -3496,111 +3333,6 @@
         ]
       }
     },
-    "/automations/{id}/events": {
-      "get": {
-        "operationId": "api_views_automations_list_events",
-        "summary": "List Events",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "title": "Id",
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "event_type",
-            "schema": {
-              "title": "Event Type",
-              "type": "string"
-            },
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EmailEventPage"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict"
-          }
-        },
-        "security": [
-          {
-            "AuthenticationRequirement": []
-          }
-        ]
-      }
-    },
-    "/automations/{id}/unsubscribers": {
-      "get": {
-        "operationId": "api_views_automations_list_unsubscribers",
-        "summary": "List Unsubscribers",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "title": "Id",
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EmailEventPage"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict"
-          }
-        },
-        "security": [
-          {
-            "AuthenticationRequirement": []
-          }
-        ]
-      }
-    },
     "/users": {
       "post": {
         "operationId": "api_views_users_create_user",
@@ -3629,6 +3361,16 @@
           },
           "403": {
             "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
             "content": {
               "application/json": {
                 "schema": {
@@ -3723,6 +3465,16 @@
               }
             }
           },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
           "409": {
             "description": "Conflict"
           }
@@ -3779,6 +3531,16 @@
               }
             }
           },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
           "409": {
             "description": "Conflict"
           }
@@ -3810,9 +3572,15 @@
             "name": "expand",
             "schema": {
               "title": "Expand",
-              "type": "string"
+              "description": "If provided, expand the given field.",
+              "type": "array",
+              "items": {
+                "enum": ["product"],
+                "type": "string"
+              }
             },
-            "required": false
+            "required": false,
+            "description": "If provided, expand the given field."
           }
         ],
         "responses": {
@@ -3961,7 +3729,7 @@
     },
     "/surveys": {
       "post": {
-        "operationId": "api_views_surveys_create_survey",
+        "operationId": "api_views_surveys_routes_create_survey",
         "summary": "Create Survey",
         "parameters": [],
         "responses": {
@@ -4016,7 +3784,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_surveys_list_surveys",
+        "operationId": "api_views_surveys_routes_list_surveys",
         "summary": "List Surveys",
         "parameters": [],
         "responses": {
@@ -4053,7 +3821,7 @@
     },
     "/surveys/{id}": {
       "get": {
-        "operationId": "api_views_surveys_retrieve_survey",
+        "operationId": "api_views_surveys_routes_retrieve_survey",
         "summary": "Retrieve Survey",
         "parameters": [
           {
@@ -4109,7 +3877,7 @@
         ]
       },
       "patch": {
-        "operationId": "api_views_surveys_update_survey",
+        "operationId": "api_views_surveys_routes_update_survey",
         "summary": "Update Survey",
         "parameters": [
           {
@@ -4144,6 +3912,16 @@
               }
             }
           },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
           "409": {
             "description": "Conflict"
           }
@@ -4165,7 +3943,7 @@
         ]
       },
       "delete": {
-        "operationId": "api_views_surveys_delete_survey",
+        "operationId": "api_views_surveys_routes_delete_survey",
         "summary": "Delete Survey",
         "parameters": [
           {
@@ -4195,91 +3973,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict"
-          }
-        },
-        "security": [
-          {
-            "AuthenticationRequirement": []
-          }
-        ]
-      }
-    },
-    "/surveys/{id}/responses": {
-      "get": {
-        "operationId": "api_views_surveys_retrieve_survey_responses",
-        "summary": "Retrieve Survey Responses",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "title": "Id",
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "email",
-            "schema": {
-              "title": "Email",
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "subscriber",
-            "schema": {
-              "title": "Subscriber",
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "creation_date__start",
-            "schema": {
-              "title": "Creation Date  Start",
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "creation_date__end",
-            "schema": {
-              "title": "Creation Date  End",
-              "type": "string"
-            },
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponsePage"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
             "content": {
               "application/json": {
                 "schema": {
@@ -4383,6 +4076,32 @@
               "default": [],
               "type": "array",
               "items": {
+                "type": "string"
+              }
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "source",
+            "schema": {
+              "default": [],
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/APIRequestSource"
+              }
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "version",
+            "schema": {
+              "title": "Version",
+              "proxy": "headers__x-api-version__endswith",
+              "type": "array",
+              "items": {
+                "enum": ["2024-07-01", "2024-08-01", "2024-08-15"],
                 "type": "string"
               }
             },
@@ -4580,6 +4299,16 @@
               }
             }
           },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
           "409": {
             "description": "Conflict"
           }
@@ -4621,6 +4350,16 @@
           },
           "400": {
             "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
             "content": {
               "application/json": {
                 "schema": {
@@ -4825,6 +4564,16 @@
               }
             }
           },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
           "409": {
             "description": "Conflict"
           }
@@ -4895,6 +4644,57 @@
         ]
       }
     },
+    "/webhooks/{id}/test": {
+      "post": {
+        "operationId": "api_views_webhooks_test_webhook",
+        "summary": "Test Webhook",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "security": [
+          {
+            "AuthenticationRequirement": []
+          }
+        ]
+      }
+    },
     "/comments": {
       "get": {
         "operationId": "api_views_comments_list_comments",
@@ -4929,11 +4729,15 @@
             "name": "expand",
             "schema": {
               "title": "Expand",
-              "description": "If provided, expand the given field. (Only supported field: 'subscriber').",
-              "type": "string"
+              "description": "If provided, expand the given field. (Only supported fields: 'subscriber', 'email').",
+              "type": "array",
+              "items": {
+                "enum": ["subscriber", "email"],
+                "type": "string"
+              }
             },
             "required": false,
-            "description": "If provided, expand the given field. (Only supported field: 'subscriber')."
+            "description": "If provided, expand the given field. (Only supported fields: 'subscriber', 'email')."
           },
           {
             "in": "query",
@@ -4990,10 +4794,374 @@
           }
         ]
       }
+    },
+    "/survey_responses": {
+      "get": {
+        "operationId": "api_views_survey_responses_retrieve_survey_responses",
+        "summary": "Retrieve Survey Responses",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "email",
+            "schema": {
+              "title": "Email",
+              "description": "If provided, only return responses made to the given email.",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": false,
+            "description": "If provided, only return responses made to the given email."
+          },
+          {
+            "in": "query",
+            "name": "subscriber",
+            "schema": {
+              "title": "Subscriber",
+              "description": "If provided, only return responses made by the given subscriber.",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": false,
+            "description": "If provided, only return responses made by the given subscriber."
+          },
+          {
+            "in": "query",
+            "name": "survey",
+            "schema": {
+              "title": "Survey",
+              "description": "If provided, only return responses made to the given survey.",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": false,
+            "description": "If provided, only return responses made to the given survey."
+          },
+          {
+            "in": "query",
+            "name": "creation_date__start",
+            "schema": {
+              "title": "Creation Date  Start",
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "creation_date__end",
+            "schema": {
+              "title": "Creation Date  End",
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "title": "Expand",
+              "description": "If provided, expand the given field.",
+              "type": "array",
+              "items": {
+                "enum": ["email", "subscriber", "survey", "automation"],
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, expand the given field."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponsePage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "security": [
+          {
+            "AuthenticationRequirement": []
+          }
+        ]
+      },
+      "post": {
+        "operationId": "api_views_survey_responses_create_survey_response",
+        "summary": "Create Survey Response",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResponseInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "AuthenticationRequirement": []
+          }
+        ]
+      }
+    },
+    "/events": {
+      "get": {
+        "operationId": "api_views_events_list_events",
+        "summary": "List Events",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "event_type",
+            "schema": {
+              "$ref": "#/components/schemas/EmailEventType"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "ordering",
+            "schema": {
+              "default": "-creation_date",
+              "allOf": [
+                {
+                  "title": "Ordering",
+                  "description": "An enumeration.",
+                  "enum": ["creation_date", "-creation_date"],
+                  "type": "string"
+                }
+              ]
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "title": "Expand",
+              "description": "If provided, expand the given field. (Only supported field: 'subscriber').",
+              "type": "array",
+              "items": {
+                "enum": ["automation", "subscriber", "email"],
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, expand the given field. (Only supported field: 'subscriber')."
+          },
+          {
+            "in": "query",
+            "name": "email_id",
+            "schema": {
+              "title": "Email Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "automation_id",
+            "schema": {
+              "title": "Automation Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "subscriber_id",
+            "schema": {
+              "title": "Subscriber Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailEventPage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "security": [
+          {
+            "AuthenticationRequirement": []
+          }
+        ]
+      }
+    },
+    "/events/{id}": {
+      "get": {
+        "operationId": "api_views_events_get_event",
+        "summary": "Get Event",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "title": "Expand",
+              "description": "If provided, expand the given field. (Only supported field: 'subscriber').",
+              "type": "array",
+              "items": {
+                "enum": ["automation", "subscriber", "email"],
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, expand the given field. (Only supported field: 'subscriber')."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailEvent"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AuthenticationRequirement": []
+          }
+        ]
+      }
     }
   },
   "components": {
     "schemas": {
+      "ExportCollection": {
+        "title": "Collection",
+        "description": "A group of data that can be exported in an export.",
+        "enum": [
+          "subscribers",
+          "emails",
+          "events",
+          "referrals",
+          "surveys",
+          "comments",
+          "requests",
+          "mentions"
+        ],
+        "type": "string"
+      },
       "ExportStatus": {
         "title": "Status",
         "description": "Represents the status of an export.\n\nNo action is required to move from one state or another; Buttondown\ninternally handles the transitions, and exposing the status is for\nobservability purposes only.",
@@ -5005,18 +5173,23 @@
         "description": "Some software applications may want programmatic access to their newsletter exports.\nThis assists with a few niche use cases, such as regular backups or data ingestion\n(into a data warehouse), or post-publishing processes that hinge on email events.\n\nIn general, you probably won't _need_ to use this endpoint unless you\n _absolutely_ need to use this endpoint.",
         "type": "object",
         "properties": {
+          "collections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExportCollection"
+            }
+          },
           "id": {
             "title": "Id",
+            "description": "A unique UUID associated with the object.",
             "type": "string",
             "format": "uuid"
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was created.",
             "type": "string",
             "format": "date-time"
-          },
-          "status": {
-            "$ref": "#/components/schemas/ExportStatus"
           },
           "url": {
             "title": "Url",
@@ -5026,9 +5199,12 @@
             "title": "Completion Date",
             "type": "string",
             "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ExportStatus"
           }
         },
-        "required": ["id", "creation_date", "status"]
+        "required": ["collections", "id", "creation_date", "status"]
       },
       "ErrorMessage": {
         "title": "ErrorMessage",
@@ -5080,20 +5256,6 @@
         },
         "required": ["code", "detail"]
       },
-      "ExportCollection": {
-        "title": "Collection",
-        "description": "A group of data that can be exported in an export.",
-        "enum": [
-          "subscribers",
-          "emails",
-          "events",
-          "referrals",
-          "surveys",
-          "comments",
-          "requests"
-        ],
-        "type": "string"
-      },
       "ExportInput": {
         "title": "ExportInput",
         "type": "object",
@@ -5138,22 +5300,24 @@
         "description": "Tags are a way to organize your subscribers. You can create, update, and\ndelete tags via the API. You can also list all tags for a given newsletter.\n\nTags don't have any strict functionality on their own, but you can send emails\nto subscribers with a given tag (or to all subscribers _without_ a given tag.)",
         "type": "object",
         "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string",
-            "format": "uuid"
-          },
           "name": {
             "title": "Name",
+            "example": "VIP",
             "type": "string"
           },
           "color": {
             "title": "Color",
+            "example": "#FFD700",
             "type": "string"
           },
           "description": {
             "title": "Description",
             "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid"
           },
           "secondary_id": {
             "title": "Secondary Id",
@@ -5165,7 +5329,7 @@
             "format": "date-time"
           }
         },
-        "required": ["id", "name", "color", "secondary_id", "creation_date"]
+        "required": ["name", "color", "id", "secondary_id", "creation_date"]
       },
       "TagInput": {
         "title": "TagInput",
@@ -5173,10 +5337,12 @@
         "properties": {
           "name": {
             "title": "Name",
+            "example": "VIP",
             "type": "string"
           },
           "color": {
             "title": "Color",
+            "example": "#FFD700",
             "type": "string"
           },
           "description": {
@@ -5215,7 +5381,7 @@
       "UpdateTagErrorCode": {
         "title": "UpdateTagErrorCode",
         "description": "A potential error code that can be returned when updating a tag.",
-        "enum": ["name_already_exists"],
+        "enum": ["name_already_exists", "name_too_long"],
         "type": "string"
       },
       "ErrorMessage_UpdateTagErrorCode_": {
@@ -5246,10 +5412,12 @@
         "properties": {
           "name": {
             "title": "Name",
+            "example": "VIP",
             "type": "string"
           },
           "color": {
             "title": "Color",
+            "example": "#FFD700",
             "type": "string"
           },
           "description": {
@@ -5349,6 +5517,66 @@
         ],
         "type": "string"
       },
+      "Operator": {
+        "title": "Operator",
+        "description": "An enumeration.",
+        "enum": [
+          "equals",
+          "not_equals",
+          "contains",
+          "not_contains",
+          "is_empty",
+          "is_not_empty",
+          "greater_than",
+          "less_than"
+        ],
+        "type": "string"
+      },
+      "Filter": {
+        "title": "Filter",
+        "type": "object",
+        "properties": {
+          "field": {
+            "title": "Field",
+            "type": "string"
+          },
+          "operator": {
+            "$ref": "#/components/schemas/Operator"
+          },
+          "value": {
+            "title": "Value",
+            "type": "string"
+          }
+        },
+        "required": ["field", "operator", "value"]
+      },
+      "FilterGroup": {
+        "title": "FilterGroup",
+        "type": "object",
+        "properties": {
+          "filters": {
+            "title": "Filters",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Filter"
+            }
+          },
+          "groups": {
+            "title": "Groups",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FilterGroup"
+            }
+          },
+          "predicate": {
+            "title": "Predicate",
+            "description": "The logical operator to use when combining filters (either 'and' or 'or').",
+            "enum": ["and", "or"],
+            "type": "string"
+          }
+        },
+        "required": ["filters", "groups", "predicate"]
+      },
       "Analytics": {
         "title": "Analytics",
         "type": "object",
@@ -5440,9 +5668,22 @@
           }
         }
       },
+      "NewsletterEmailTemplate": {
+        "title": "EmailTemplate",
+        "description": "Represents the template of an email.\n\nEach template has a different layout/style.",
+        "enum": [
+          "classic",
+          "modern",
+          "modern-german",
+          "airy",
+          "plaintext",
+          "naked"
+        ],
+        "type": "string"
+      },
       "Email": {
         "title": "Email",
-        "description": "Emails are what you're for here on Buttondown at the end of the day, right?\nCreating an email via the API is just like creating one in the interface;\nit will instantly trigger sending actual emails,\nbased on the tags and email type you provide.",
+        "description": "Emails are what you're for here on Buttondown at the end of the day, right?\nCreating an email via the API is just like creating one in the interface;\nit will instantly trigger sending actual emails,\nbased on the tags and email type you provide.\n\nRelevant changes to the schema:\n\n- [2024-08-15](https://docs.buttondown.com/api-changelog-2024-08-15): unshipped the `included_tags` and `excluded_tags` fields.",
         "type": "object",
         "properties": {
           "id": {
@@ -5450,29 +5691,15 @@
             "type": "string",
             "format": "uuid"
           },
-          "included_tags": {
-            "title": "Included Tags",
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          "excluded_tags": {
-            "title": "Excluded Tags",
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time the object was first created.",
             "type": "string",
             "format": "date-time"
           },
           "modification_date": {
             "title": "Modification Date",
+            "description": "The date and time the object was last modified.",
             "type": "string",
             "format": "date-time"
           },
@@ -5524,15 +5751,12 @@
             "title": "Slug",
             "type": "string"
           },
-          "external_url": {
-            "title": "External Url",
-            "type": "string"
-          },
           "status": {
             "$ref": "#/components/schemas/EmailStatus"
           },
           "metadata": {
             "title": "Metadata",
+            "description": "A structured key-value blob that you can use to store arbitrary data on the object.",
             "default": {},
             "type": "object",
             "additionalProperties": {
@@ -5556,17 +5780,13 @@
             "type": "string"
           },
           "filters": {
-            "title": "Filters",
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            }
+            "$ref": "#/components/schemas/FilterGroup"
           },
           "analytics": {
             "$ref": "#/components/schemas/Analytics"
+          },
+          "template": {
+            "$ref": "#/components/schemas/NewsletterEmailTemplate"
           }
         },
         "required": [
@@ -5580,7 +5800,6 @@
           "source",
           "body",
           "email_type",
-          "external_url",
           "status",
           "should_send_teaser",
           "is_comments_disabled",
@@ -5632,38 +5851,6 @@
         "title": "EmailInput",
         "type": "object",
         "properties": {
-          "included_tags": {
-            "title": "Included Tags",
-            "default": [],
-            "type": "array",
-            "items": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "format": "uuid"
-                },
-                {
-                  "type": "string"
-                }
-              ]
-            }
-          },
-          "excluded_tags": {
-            "title": "Excluded Tags",
-            "default": [],
-            "type": "array",
-            "items": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "format": "uuid"
-                },
-                {
-                  "type": "string"
-                }
-              ]
-            }
-          },
           "attachments": {
             "title": "Attachments",
             "default": [],
@@ -5680,6 +5867,7 @@
           },
           "subject": {
             "title": "Subject",
+            "example": "The subject line for the email",
             "type": "string"
           },
           "slug": {
@@ -5705,6 +5893,7 @@
             "title": "Body",
             "description": "Can be either HTML or markdown.",
             "default": "",
+            "example": "This is an example of the body of an email.",
             "type": "string"
           },
           "email_type": {
@@ -5725,6 +5914,7 @@
           },
           "metadata": {
             "title": "Metadata",
+            "description": "A structured key-value blob that you can use to store arbitrary data on the object.",
             "default": {},
             "type": "object",
             "additionalProperties": {
@@ -5752,14 +5942,16 @@
           },
           "filters": {
             "title": "Filters",
-            "default": [],
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
+            "default": {
+              "filters": [],
+              "groups": [],
+              "predicate": "and"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterGroup"
               }
-            }
+            ]
           }
         },
         "required": ["subject"]
@@ -5822,39 +6014,8 @@
         "title": "EmailUpdateInput",
         "type": "object",
         "properties": {
-          "included_tags": {
-            "title": "Included Tags",
-            "type": "array",
-            "items": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "format": "uuid"
-                },
-                {
-                  "type": "string"
-                }
-              ]
-            }
-          },
-          "excluded_tags": {
-            "title": "Excluded Tags",
-            "type": "array",
-            "items": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "format": "uuid"
-                },
-                {
-                  "type": "string"
-                }
-              ]
-            }
-          },
           "attachments": {
             "title": "Attachments",
-            "default": [],
             "type": "array",
             "items": {
               "type": "string",
@@ -5868,6 +6029,7 @@
           },
           "subject": {
             "title": "Subject",
+            "example": "The subject line for the email",
             "type": "string"
           },
           "description": {
@@ -5881,6 +6043,7 @@
           "body": {
             "title": "Body",
             "description": "Can be either HTML or markdown.",
+            "example": "This is an example of the body of an email.",
             "type": "string"
           },
           "email_type": {
@@ -5891,6 +6054,7 @@
           },
           "metadata": {
             "title": "Metadata",
+            "description": "A structured key-value blob that you can use to store arbitrary data on the object.",
             "type": "object",
             "additionalProperties": {
               "type": "string"
@@ -5898,6 +6062,7 @@
           },
           "image": {
             "title": "Image",
+            "default": "",
             "type": "string"
           },
           "should_send_teaser": {
@@ -5921,14 +6086,10 @@
             "type": "integer"
           },
           "filters": {
-            "title": "Filters",
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            }
+            "$ref": "#/components/schemas/FilterGroup"
+          },
+          "template": {
+            "$ref": "#/components/schemas/NewsletterEmailTemplate"
           }
         }
       },
@@ -5948,245 +6109,15 @@
         },
         "required": ["creation_date", "value"]
       },
-      "EmailEvent": {
-        "title": "EmailEvent",
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "subscriber_id": {
-            "title": "Subscriber Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "subscriber_email": {
-            "title": "Subscriber Email",
-            "type": "string"
-          },
-          "creation_date": {
-            "title": "Creation Date",
-            "type": "string",
-            "format": "date-time"
-          },
-          "metadata": {
-            "title": "Metadata",
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          }
-        },
-        "required": [
-          "id",
-          "subscriber_id",
-          "subscriber_email",
-          "creation_date",
-          "metadata"
-        ]
-      },
-      "EmailEventPage": {
-        "title": "Page[EmailEvent]",
+      "HistoryPage": {
+        "title": "Page[History]",
         "type": "object",
         "properties": {
           "results": {
             "title": "Results",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EmailEvent"
-            }
-          },
-          "next": {
-            "title": "Next",
-            "type": "string"
-          },
-          "previous": {
-            "title": "Previous",
-            "type": "string"
-          },
-          "count": {
-            "title": "Count",
-            "type": "integer"
-          }
-        },
-        "required": ["results", "count"]
-      },
-      "SurveyResponseCadence": {
-        "title": "ResponseCadence",
-        "description": "An enumeration.",
-        "enum": ["once", "once_per_email"],
-        "type": "string"
-      },
-      "SurveyStatus": {
-        "title": "Status",
-        "description": "An enumeration.",
-        "enum": ["active", "inactive"],
-        "type": "string"
-      },
-      "Survey": {
-        "title": "Survey",
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "identifier": {
-            "title": "Identifier",
-            "type": "string"
-          },
-          "question": {
-            "title": "Question",
-            "type": "string"
-          },
-          "response_count": {
-            "title": "Response Count",
-            "type": "integer"
-          },
-          "answers": {
-            "title": "Answers",
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "creation_date": {
-            "title": "Creation Date",
-            "type": "string",
-            "format": "date-time"
-          },
-          "notes": {
-            "title": "Notes",
-            "type": "string"
-          },
-          "response_cadence": {
-            "$ref": "#/components/schemas/SurveyResponseCadence"
-          },
-          "status": {
-            "$ref": "#/components/schemas/SurveyStatus"
-          },
-          "is_freeform_response_enabled": {
-            "title": "Is Freeform Response Enabled",
-            "type": "boolean"
-          }
-        },
-        "required": [
-          "id",
-          "identifier",
-          "question",
-          "response_count",
-          "answers",
-          "creation_date",
-          "notes",
-          "response_cadence",
-          "status",
-          "is_freeform_response_enabled"
-        ]
-      },
-      "Response": {
-        "title": "Response",
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "subscriber_id": {
-            "title": "Subscriber Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "subscriber_email": {
-            "title": "Subscriber Email",
-            "type": "string"
-          },
-          "answer": {
-            "title": "Answer",
-            "type": "string"
-          },
-          "creation_date": {
-            "title": "Creation Date",
-            "type": "string",
-            "format": "date-time"
-          },
-          "survey_id": {
-            "title": "Survey Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "survey": {
-            "$ref": "#/components/schemas/Survey"
-          }
-        },
-        "required": [
-          "id",
-          "subscriber_id",
-          "subscriber_email",
-          "answer",
-          "creation_date",
-          "survey_id"
-        ]
-      },
-      "ResponsePage": {
-        "title": "Page[Response]",
-        "type": "object",
-        "properties": {
-          "results": {
-            "title": "Results",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Response"
-            }
-          },
-          "next": {
-            "title": "Next",
-            "type": "string"
-          },
-          "previous": {
-            "title": "Previous",
-            "type": "string"
-          },
-          "count": {
-            "title": "Count",
-            "type": "integer"
-          }
-        },
-        "required": ["results", "count"]
-      },
-      "Webmention": {
-        "title": "Webmention",
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "url": {
-            "title": "Url",
-            "type": "string"
-          },
-          "creation_date": {
-            "title": "Creation Date",
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "required": ["id", "url", "creation_date"]
-      },
-      "WebmentionPage": {
-        "title": "Page[Webmention]",
-        "type": "object",
-        "properties": {
-          "results": {
-            "title": "Results",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Webmention"
+              "$ref": "#/components/schemas/History"
             }
           },
           "next": {
@@ -6211,6 +6142,10 @@
           "subscribers": {
             "title": "Subscribers",
             "description": "A list of subscriber ids to which to send the email.",
+            "example": [
+              "bc5601f4-b180-4e02-8501-c18080662376",
+              "24ee3338-daaf-42b0-bf7b-0cab38972fe5"
+            ],
             "type": "array",
             "items": {
               "type": "string",
@@ -6220,6 +6155,7 @@
           "recipients": {
             "title": "Recipients",
             "description": "A list of email addresses to send the email to.",
+            "example": ["telemachus@buttondown.email"],
             "type": "array",
             "items": {
               "type": "string"
@@ -6242,6 +6178,7 @@
           "unsubscribed",
           "malformed",
           "complained",
+          "undeliverable",
           "spammy",
           "removed",
           "trialed",
@@ -6297,24 +6234,37 @@
       },
       "Subscriber": {
         "title": "Subscriber",
-        "description": "Subscribers are the main way you collect email addresses and\nrecipients on Buttondown. They're what you see on your\n[subscribers page](https://buttondown.email/subscribers).",
+        "description": "Subscribers are the main way you collect email addresses and\nrecipients on Buttondown. They're what you see on your\n[subscribers page](https://buttondown.com/subscribers).\n\nRelevant changes to the schema:\n\n- [2024-08-01](https://docs.buttondown.com/api-changelog-2024-08-01): renamed `subscriber_type` and `email` to `type` and `email_address` respectively.\n- [2024-07-13](https://docs.buttondown.com/api-changelog-2024-08-01): removed `external_url` in favor of `absolute_url`.",
         "type": "object",
         "properties": {
           "id": {
             "title": "Id",
+            "description": "A unique UUID associated with the object.",
             "type": "string",
             "format": "uuid"
           },
-          "email": {
-            "title": "Email",
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was created.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "email_address": {
+            "title": "Email Address",
+            "description": "The email address of the subscriber.",
+            "example": "telemachus@buttondown.email",
             "type": "string"
           },
           "notes": {
             "title": "Notes",
+            "description": "Any notes you want to attach to the subscriber. These are not publicly visible.",
+            "default": "",
             "type": "string"
           },
           "metadata": {
             "title": "Metadata",
+            "description": "A structured key-value blob that you can use to store arbitrary data on the object.",
+            "default": {},
             "type": "object",
             "additionalProperties": {
               "type": "string"
@@ -6332,16 +6282,11 @@
             "default": "",
             "type": "string"
           },
-          "creation_date": {
-            "title": "Creation Date",
-            "type": "string",
-            "format": "date-time"
-          },
           "secondary_id": {
             "title": "Secondary Id",
             "type": "integer"
           },
-          "subscriber_type": {
+          "type": {
             "$ref": "#/components/schemas/SubscriberType"
           },
           "source": {
@@ -6365,10 +6310,6 @@
           },
           "avatar_url": {
             "title": "Avatar Url",
-            "type": "string"
-          },
-          "stripe_customer_id": {
-            "title": "Stripe Customer Id",
             "type": "string"
           },
           "stripe_coupon": {
@@ -6409,17 +6350,28 @@
             "title": "Last Click Date",
             "type": "string",
             "format": "date-time"
+          },
+          "stripe_customer_id": {
+            "title": "Stripe Customer Id",
+            "type": "string"
+          },
+          "stripe_customer": {
+            "title": "Stripe Customer",
+            "type": "object"
+          },
+          "subscriber_import_id": {
+            "title": "Subscriber Import Id",
+            "type": "string",
+            "format": "uuid"
           }
         },
         "required": [
           "id",
-          "email",
-          "notes",
-          "metadata",
-          "tags",
           "creation_date",
+          "email_address",
+          "tags",
           "secondary_id",
-          "subscriber_type",
+          "type",
           "source",
           "utm_campaign",
           "utm_medium",
@@ -6464,8 +6416,9 @@
         "title": "SubscriberInput",
         "type": "object",
         "properties": {
-          "email": {
-            "title": "Email",
+          "email_address": {
+            "title": "Email Address",
+            "example": "telemachus@buttondown.email",
             "type": "string"
           },
           "notes": {
@@ -6514,11 +6467,16 @@
             "type": "string",
             "format": "uuid"
           },
-          "subscriber_type": {
-            "$ref": "#/components/schemas/SubscriberType"
+          "type": {
+            "example": "regular",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SubscriberType"
+              }
+            ]
           }
         },
-        "required": ["email"]
+        "required": ["email_address"]
       },
       "SubscriberPage": {
         "title": "Page[Subscriber]",
@@ -6612,12 +6570,14 @@
         "title": "SubscriberUpdateInput",
         "type": "object",
         "properties": {
-          "email": {
-            "title": "Email",
+          "email_address": {
+            "title": "Email Address",
+            "example": "telemachus@buttondown.email",
             "type": "string"
           },
           "notes": {
             "title": "Notes",
+            "example": "One of our first subscribers!",
             "type": "string"
           },
           "metadata": {
@@ -6639,7 +6599,7 @@
             "default": "",
             "type": "string"
           },
-          "subscriber_type": {
+          "type": {
             "$ref": "#/components/schemas/SubscriberType"
           },
           "unsubscription_reason": {
@@ -6712,26 +6672,6 @@
         },
         "required": ["results", "count"]
       },
-      "ResponseInput": {
-        "title": "ResponseInput",
-        "type": "object",
-        "properties": {
-          "survey_id": {
-            "title": "Survey Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "email_id": {
-            "title": "Email Id",
-            "type": "string"
-          },
-          "answer": {
-            "title": "Answer",
-            "type": "integer"
-          }
-        },
-        "required": ["survey_id", "email_id", "answer"]
-      },
       "AutomationAttemptStatus": {
         "title": "Status",
         "description": "An enumeration.",
@@ -6790,75 +6730,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AutomationForSubscriber"
-            }
-          },
-          "next": {
-            "title": "Next",
-            "type": "string"
-          },
-          "previous": {
-            "title": "Previous",
-            "type": "string"
-          },
-          "count": {
-            "title": "Count",
-            "type": "integer"
-          }
-        },
-        "required": ["results", "count"]
-      },
-      "EmailEventForSubscriber": {
-        "title": "EmailEventForSubscriber",
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "email_id": {
-            "title": "Email Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "email_subject": {
-            "title": "Email Subject",
-            "type": "string"
-          },
-          "creation_date": {
-            "title": "Creation Date",
-            "type": "string",
-            "format": "date-time"
-          },
-          "event_type": {
-            "title": "Event Type",
-            "type": "string"
-          },
-          "metadata": {
-            "title": "Metadata",
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          }
-        },
-        "required": [
-          "id",
-          "email_subject",
-          "creation_date",
-          "event_type",
-          "metadata"
-        ]
-      },
-      "EmailEventForSubscriberPage": {
-        "title": "Page[EmailEventForSubscriber]",
-        "type": "object",
-        "properties": {
-          "results": {
-            "title": "Results",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EmailEventForSubscriber"
             }
           },
           "next": {
@@ -7095,14 +6966,17 @@
         "properties": {
           "username": {
             "title": "Username",
+            "example": "sheinhardt",
             "type": "string"
           },
           "name": {
             "title": "Name",
+            "example": "Sheinhardt Wig Company",
             "type": "string"
           },
           "description": {
             "title": "Description",
+            "example": "Stay up to date with the latest trends in wigs and hairpieces",
             "type": "string"
           },
           "tint_color": {
@@ -7156,14 +7030,17 @@
         "properties": {
           "username": {
             "title": "Username",
+            "example": "sheinhardt",
             "type": "string"
           },
           "name": {
             "title": "Name",
+            "example": "Sheinhardt Wig Company",
             "type": "string"
           },
           "description": {
             "title": "Description",
+            "example": "Stay up to date with the latest trends in wigs and hairpieces",
             "type": "string"
           },
           "tint_color": {
@@ -7203,12 +7080,6 @@
           }
         }
       },
-      "BulkActionStatus": {
-        "title": "Status",
-        "description": "Represents the status of a bulk action.\n\nNo action is required to move from one state or another; Buttondown\ninternally handles the transitions, and exposing the status is for\nobservability purposes only.",
-        "enum": ["not_started", "in_progress", "processed", "failed"],
-        "type": "string"
-      },
       "BulkActionType": {
         "title": "Type",
         "description": "Represents the action being performed on a bulk of objects.\n\n(Not to be coy, but these names should be self-explanatory.)",
@@ -7216,22 +7087,28 @@
           "apply_tags",
           "apply_metadata",
           "ban_subscribers",
-          "delete_emails",
           "delete_subscribers",
-          "delete_tags",
-          "delete_surveys",
           "gift_subscribers",
           "reactivate_subscribers",
           "mark_subscribers_as_not_spammy",
-          "replay_events",
           "resubscribe_subscribers",
           "send_emails",
-          "send_reminders",
-          "update_email_types",
           "unsubscribe_subscribers",
+          "send_reminders",
+          "delete_emails",
+          "update_email_types",
+          "delete_tags",
+          "delete_surveys",
+          "replay_events",
           "delete_comments",
           "update_survey_statuses"
         ],
+        "type": "string"
+      },
+      "BulkActionStatus": {
+        "title": "Status",
+        "description": "Represents the status of a bulk action.\n\nNo action is required to move from one state or another; Buttondown\ninternally handles the transitions, and exposing the status is for\nobservability purposes only.",
+        "enum": ["not_started", "in_progress", "processed", "failed"],
         "type": "string"
       },
       "BulkAction": {
@@ -7239,29 +7116,22 @@
         "description": "A bulk action represents, well, a bulk action. It is used to perform\nactions on a large number of objects at once. For example, you can\nuse it to delete a large number of emails, or to unsubscribe a large\nnumber of subscribers. The actions within a bulk action are processed\nserially by Buttondown; this should be considered an ergonomic way to\nbatch API calls across the network rather than a net-new piece of functionality\nin of itself.",
         "type": "object",
         "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "creation_date": {
-            "title": "Creation Date",
-            "type": "string",
-            "format": "date-time"
-          },
-          "status": {
-            "$ref": "#/components/schemas/BulkActionStatus"
-          },
           "type": {
-            "$ref": "#/components/schemas/BulkActionType"
-          },
-          "completion_date": {
-            "title": "Completion Date",
-            "type": "string",
-            "format": "date-time"
+            "example": "delete_emails",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BulkActionType"
+              }
+            ]
           },
           "metadata": {
             "title": "Metadata",
+            "example": {
+              "ids": [
+                "611c8825-6f21-4544-bb47-9f50453e9cb0",
+                "418c701a-efe3-4e3d-a404-e635a2f28775"
+              ]
+            },
             "type": "object",
             "additionalProperties": {
               "anyOf": [
@@ -7279,19 +7149,51 @@
                 }
               ]
             }
+          },
+          "id": {
+            "title": "Id",
+            "description": "A unique UUID associated with the object.",
+            "type": "string",
+            "format": "uuid"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was created.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/BulkActionStatus"
+          },
+          "completion_date": {
+            "title": "Completion Date",
+            "description": "The date and time at which the bulk action was completed.",
+            "type": "string",
+            "format": "date-time"
           }
         },
-        "required": ["id", "creation_date", "status", "type", "metadata"]
+        "required": ["type", "metadata", "id", "creation_date", "status"]
       },
       "BulkActionInput": {
         "title": "BulkActionInput",
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/BulkActionType"
+            "example": "delete_emails",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BulkActionType"
+              }
+            ]
           },
           "metadata": {
             "title": "Metadata",
+            "example": {
+              "ids": [
+                "611c8825-6f21-4544-bb47-9f50453e9cb0",
+                "418c701a-efe3-4e3d-a404-e635a2f28775"
+              ]
+            },
             "type": "object",
             "additionalProperties": {
               "anyOf": [
@@ -7398,7 +7300,6 @@
           "behavior",
           "cadence",
           "cadence_metadata",
-          "included_tags",
           "url",
           "subject",
           "body",
@@ -7411,13 +7312,24 @@
         "properties": {
           "url": {
             "title": "Url",
+            "example": "http://lorem-rss.herokuapp.com/feed",
             "type": "string"
           },
           "behavior": {
-            "$ref": "#/components/schemas/ExternalFeedAutomationBehavior"
+            "example": "draft",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ExternalFeedAutomationBehavior"
+              }
+            ]
           },
           "cadence": {
-            "$ref": "#/components/schemas/ExternalFeedAutomationCadence"
+            "example": "daily",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ExternalFeedAutomationCadence"
+              }
+            ]
           },
           "cadence_metadata": {
             "title": "Cadence Metadata",
@@ -7488,10 +7400,20 @@
         "type": "object",
         "properties": {
           "behavior": {
-            "$ref": "#/components/schemas/ExternalFeedAutomationBehavior"
+            "example": "draft",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ExternalFeedAutomationBehavior"
+              }
+            ]
           },
           "cadence": {
-            "$ref": "#/components/schemas/ExternalFeedAutomationCadence"
+            "example": "daily",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ExternalFeedAutomationCadence"
+              }
+            ]
           },
           "cadence_metadata": {
             "title": "Cadence Metadata",
@@ -7522,21 +7444,7 @@
           "status": {
             "$ref": "#/components/schemas/ExternalFeedAutomationStatus"
           }
-        },
-        "required": [
-          "behavior",
-          "cadence",
-          "cadence_metadata",
-          "included_tags",
-          "subject",
-          "body",
-          "status"
-        ]
-      },
-      "EmptyMessage": {
-        "title": "EmptyMessage",
-        "type": "object",
-        "properties": {}
+        }
       },
       "ExternalFeedItemStatus": {
         "title": "Status",
@@ -7594,10 +7502,13 @@
             "title": "Author",
             "type": "string"
           },
-          "email": {
-            "title": "Email",
+          "email_id": {
+            "title": "Email Id",
             "type": "string",
             "format": "uuid"
+          },
+          "email": {
+            "$ref": "#/components/schemas/Email"
           }
         },
         "required": [
@@ -7678,6 +7589,7 @@
           "scheduled_email.converted",
           "mention.created",
           "advertising_slot.purchased",
+          "automation.invoked",
           "stripe.checkout.session.completed",
           "stripe.subscription.activated",
           "stripe.subscription.deactivated",
@@ -7687,6 +7599,42 @@
           "memberful.member.updated"
         ],
         "type": "string"
+      },
+      "Delay": {
+        "title": "Delay",
+        "type": "object",
+        "properties": {
+          "value": {
+            "title": "Value",
+            "type": "string"
+          },
+          "unit": {
+            "title": "Unit",
+            "enum": ["minutes", "hours", "days", "weeks"],
+            "type": "string"
+          },
+          "time_of_day": {
+            "title": "Time Of Day",
+            "enum": ["morning", "evening", ""],
+            "type": "string"
+          }
+        },
+        "required": ["value", "unit"]
+      },
+      "Timing": {
+        "title": "Timing",
+        "type": "object",
+        "properties": {
+          "time": {
+            "title": "Time",
+            "enum": ["immediate", "delay"],
+            "type": "string"
+          },
+          "delay": {
+            "$ref": "#/components/schemas/Delay"
+          }
+        },
+        "required": ["time"]
       },
       "AutomationActionType": {
         "title": "ActionType",
@@ -7706,7 +7654,9 @@
           "shopify_unsubscribe",
           "send_notification",
           "forward_reply",
-          "create_linkedin_post"
+          "create_linkedin_post",
+          "create_twitter_post",
+          "create_bluesky_post"
         ],
         "type": "string"
       },
@@ -7723,39 +7673,6 @@
           }
         },
         "required": ["type", "metadata"]
-      },
-      "Operator": {
-        "title": "Operator",
-        "description": "An enumeration.",
-        "enum": [
-          "equals",
-          "not_equals",
-          "contains",
-          "not_contains",
-          "is_empty",
-          "is_not_empty",
-          "greater_than",
-          "less_than"
-        ],
-        "type": "string"
-      },
-      "Filter": {
-        "title": "Filter",
-        "type": "object",
-        "properties": {
-          "field": {
-            "title": "Field",
-            "type": "string"
-          },
-          "operator": {
-            "$ref": "#/components/schemas/Operator"
-          },
-          "value": {
-            "title": "Value",
-            "type": "string"
-          }
-        },
-        "required": ["field", "operator", "value"]
       },
       "Automation": {
         "title": "Automation",
@@ -7782,8 +7699,7 @@
             "$ref": "#/components/schemas/ExternalEventType"
           },
           "timing": {
-            "title": "Timing",
-            "type": "object"
+            "$ref": "#/components/schemas/Timing"
           },
           "actions": {
             "title": "Actions",
@@ -7890,8 +7806,7 @@
             "$ref": "#/components/schemas/ExternalEventType"
           },
           "timing": {
-            "title": "Timing",
-            "type": "object"
+            "$ref": "#/components/schemas/Timing"
           },
           "actions": {
             "title": "Actions",
@@ -7914,6 +7829,14 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          "status": {
+            "default": "inactive",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AutomationStatus"
+              }
+            ]
           }
         },
         "required": ["name", "trigger", "timing", "actions", "filters"]
@@ -7981,8 +7904,7 @@
             "$ref": "#/components/schemas/ExternalEventType"
           },
           "timing": {
-            "title": "Timing",
-            "type": "object"
+            "$ref": "#/components/schemas/Timing"
           },
           "actions": {
             "title": "Actions",
@@ -8006,12 +7928,6 @@
             }
           }
         }
-      },
-      "InvitationStatus": {
-        "title": "Status",
-        "description": "An enumeration.",
-        "enum": ["pending", "accepted", "declined", "revoked"],
-        "type": "string"
       },
       "AccessLevel": {
         "title": "AccessLevel",
@@ -8062,40 +7978,56 @@
                 "$ref": "#/components/schemas/AccessLevel"
               }
             ]
+          },
+          "surveys": {
+            "default": "none",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccessLevel"
+              }
+            ]
           }
         }
+      },
+      "InvitationStatus": {
+        "title": "Status",
+        "description": "An enumeration.",
+        "enum": ["pending", "accepted", "declined", "revoked", "owner"],
+        "type": "string"
       },
       "User": {
         "title": "User",
         "type": "object",
         "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "creation_date": {
-            "title": "Creation Date",
-            "type": "string",
-            "format": "date-time"
-          },
-          "status": {
-            "$ref": "#/components/schemas/InvitationStatus"
-          },
           "permissions": {
             "$ref": "#/components/schemas/Permissions"
           },
           "email_address": {
             "title": "Email Address",
             "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "description": "A unique UUID associated with the object.",
+            "type": "string",
+            "format": "uuid"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was created.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/InvitationStatus"
           }
         },
         "required": [
+          "permissions",
+          "email_address",
           "id",
           "creation_date",
-          "status",
-          "permissions",
-          "email_address"
+          "status"
         ]
       },
       "Failure": {
@@ -8375,6 +8307,81 @@
         },
         "required": ["results", "count"]
       },
+      "SurveyResponseCadence": {
+        "title": "ResponseCadence",
+        "description": "An enumeration.",
+        "enum": ["once", "once_per_email"],
+        "type": "string"
+      },
+      "SurveyStatus": {
+        "title": "Status",
+        "description": "An enumeration.",
+        "enum": ["active", "inactive"],
+        "type": "string"
+      },
+      "Survey": {
+        "title": "Survey",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "description": "A unique UUID associated with the object.",
+            "type": "string",
+            "format": "uuid"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was created.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "identifier": {
+            "title": "Identifier",
+            "type": "string"
+          },
+          "question": {
+            "title": "Question",
+            "type": "string"
+          },
+          "response_count": {
+            "title": "Response Count",
+            "type": "integer"
+          },
+          "answers": {
+            "title": "Answers",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notes": {
+            "title": "Notes",
+            "type": "string"
+          },
+          "response_cadence": {
+            "$ref": "#/components/schemas/SurveyResponseCadence"
+          },
+          "status": {
+            "$ref": "#/components/schemas/SurveyStatus"
+          },
+          "is_freeform_response_enabled": {
+            "title": "Is Freeform Response Enabled",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "creation_date",
+          "identifier",
+          "question",
+          "response_count",
+          "answers",
+          "notes",
+          "response_cadence",
+          "status",
+          "is_freeform_response_enabled"
+        ]
+      },
       "CreateSurveyErrorCode": {
         "title": "CreateSurveyErrorCode",
         "description": "Represents the type of error that occurred when creating a survey.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
@@ -8409,14 +8416,17 @@
         "properties": {
           "identifier": {
             "title": "Identifier",
+            "example": "color",
             "type": "string"
           },
           "question": {
             "title": "Question",
+            "example": "What's your favorite color?",
             "type": "string"
           },
           "answers": {
             "title": "Answers",
+            "example": ["Red", "Green", "Blue"],
             "type": "array",
             "items": {
               "type": "string"
@@ -8425,15 +8435,18 @@
           "notes": {
             "title": "Notes",
             "default": "",
+            "example": "",
             "type": "string"
           },
           "is_freeform_response_enabled": {
             "title": "Is Freeform Response Enabled",
             "default": false,
+            "example": false,
             "type": "boolean"
           },
           "response_cadence": {
             "default": "once",
+            "example": "once",
             "allOf": [
               {
                 "$ref": "#/components/schemas/SurveyResponseCadence"
@@ -8507,13 +8520,19 @@
           },
           "answers": {
             "title": "Answers",
+            "example": ["Red", "Green", "Blue"],
             "type": "array",
             "items": {
               "type": "string"
             }
           },
           "response_cadence": {
-            "$ref": "#/components/schemas/SurveyResponseCadence"
+            "example": "once",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SurveyResponseCadence"
+              }
+            ]
           },
           "status": {
             "$ref": "#/components/schemas/SurveyStatus"
@@ -8533,16 +8552,18 @@
       },
       "APIRequestDetail": {
         "title": "APIRequestDetail",
-        "description": "Represents a request to the API (api.buttondown.email).",
+        "description": "Represents a request to the API (api.buttondown.com).",
         "type": "object",
         "properties": {
           "id": {
             "title": "Id",
+            "description": "A unique UUID associated with the object.",
             "type": "string",
             "format": "uuid"
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was created.",
             "type": "string",
             "format": "date-time"
           },
@@ -8556,6 +8577,14 @@
           },
           "method": {
             "title": "Method",
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/APIRequestSource"
+          },
+          "version": {
+            "title": "Version",
+            "enum": ["2024-07-01", "2024-08-01", "2024-08-15"],
             "type": "string"
           },
           "request_data": {
@@ -8569,9 +8598,6 @@
           "ip_address": {
             "title": "Ip Address",
             "type": "string"
-          },
-          "source": {
-            "$ref": "#/components/schemas/APIRequestSource"
           }
         },
         "required": [
@@ -8580,24 +8606,27 @@
           "status_code",
           "path",
           "method",
+          "source",
+          "version",
           "request_data",
           "response_data",
-          "ip_address",
-          "source"
+          "ip_address"
         ]
       },
       "APIRequest": {
         "title": "APIRequest",
-        "description": "Represents a request to the API (api.buttondown.email).",
+        "description": "Represents a request to the API (api.buttondown.com).",
         "type": "object",
         "properties": {
           "id": {
             "title": "Id",
+            "description": "A unique UUID associated with the object.",
             "type": "string",
             "format": "uuid"
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was created.",
             "type": "string",
             "format": "date-time"
           },
@@ -8615,6 +8644,11 @@
           },
           "source": {
             "$ref": "#/components/schemas/APIRequestSource"
+          },
+          "version": {
+            "title": "Version",
+            "enum": ["2024-07-01", "2024-08-01", "2024-08-15"],
+            "type": "string"
           }
         },
         "required": [
@@ -8623,7 +8657,8 @@
           "status_code",
           "path",
           "method",
-          "source"
+          "source",
+          "version"
         ]
       },
       "APIRequestPage": {
@@ -8839,23 +8874,35 @@
         "properties": {
           "id": {
             "title": "Id",
+            "description": "A unique UUID associated with the object.",
             "type": "string",
             "format": "uuid"
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was created.",
             "type": "string",
             "format": "date-time"
           },
           "event_type": {
-            "$ref": "#/components/schemas/ExternalEventType"
+            "description": "The type of event for which the webhook will be triggered.",
+            "example": "email.created",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ExternalEventType"
+              }
+            ]
           },
           "url": {
             "title": "Url",
+            "description": "The URL to which the webhook will send POST requests.",
+            "example": "https://my.api/webhook",
             "type": "string"
           },
           "description": {
             "title": "Description",
+            "description": "An optional description of the webhook, for reference.",
+            "example": "Trigger when an email is created to notify in Slack.",
             "type": "string"
           }
         },
@@ -8866,14 +8913,24 @@
         "type": "object",
         "properties": {
           "event_type": {
-            "$ref": "#/components/schemas/ExternalEventType"
+            "description": "The type of event for which the webhook will be triggered.",
+            "example": "email.created",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ExternalEventType"
+              }
+            ]
           },
           "url": {
             "title": "Url",
+            "description": "The URL to which the webhook will send POST requests.",
+            "example": "https://my.api/webhook",
             "type": "string"
           },
           "description": {
             "title": "Description",
+            "description": "An optional description of the webhook, for reference.",
+            "example": "Trigger when an email is created to notify in Slack.",
             "type": "string"
           }
         },
@@ -8912,8 +8969,15 @@
         "properties": {
           "id": {
             "title": "Id",
+            "description": "A unique UUID associated with the object.",
             "type": "string",
             "format": "uuid"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was created.",
+            "type": "string",
+            "format": "date-time"
           },
           "email_id": {
             "title": "Email Id",
@@ -8927,6 +8991,7 @@
           },
           "parent_id": {
             "title": "Parent Id",
+            "description": "The ID of the parent comment, if this comment is a reply to another comment.",
             "type": "string",
             "format": "uuid"
           },
@@ -8934,16 +8999,14 @@
             "title": "Text",
             "type": "string"
           },
-          "creation_date": {
-            "title": "Creation Date",
-            "type": "string",
-            "format": "date-time"
-          },
           "subscriber": {
             "$ref": "#/components/schemas/Subscriber"
+          },
+          "email": {
+            "$ref": "#/components/schemas/Email"
           }
         },
-        "required": ["id", "email_id", "text", "creation_date"]
+        "required": ["id", "creation_date", "email_id", "text"]
       },
       "CommentPage": {
         "title": "Page[Comment]",
@@ -8954,6 +9017,222 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Comment"
+            }
+          },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": ["results", "count"]
+      },
+      "Response": {
+        "title": "Response",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "description": "A unique UUID associated with the object.",
+            "type": "string",
+            "format": "uuid"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was created.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "answer": {
+            "title": "Answer",
+            "description": "The answer given to the survey.",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "description": "Optional text included by the subscriber with the response. Subscribers are only prompted to supply a text response if the `is_freeform_response_enabled` field is set to `true` on the survey.",
+            "type": "string"
+          },
+          "survey_id": {
+            "title": "Survey Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "survey": {
+            "$ref": "#/components/schemas/Survey"
+          },
+          "subscriber_id": {
+            "title": "Subscriber Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "subscriber": {
+            "$ref": "#/components/schemas/Subscriber"
+          },
+          "email_id": {
+            "title": "Email Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "email": {
+            "$ref": "#/components/schemas/Email"
+          },
+          "automation_id": {
+            "title": "Automation Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "automation": {
+            "$ref": "#/components/schemas/Automation"
+          }
+        },
+        "required": [
+          "id",
+          "creation_date",
+          "answer",
+          "text",
+          "survey_id",
+          "subscriber_id"
+        ]
+      },
+      "ResponsePage": {
+        "title": "Page[Response]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Response"
+            }
+          },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": ["results", "count"]
+      },
+      "ResponseInput": {
+        "title": "ResponseInput",
+        "type": "object",
+        "properties": {
+          "subscriber_id": {
+            "title": "Subscriber Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "survey_id": {
+            "title": "Survey Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "email_id": {
+            "title": "Email Id",
+            "type": "string"
+          },
+          "answer": {
+            "title": "Answer",
+            "type": "integer"
+          }
+        },
+        "required": ["subscriber_id", "survey_id", "email_id", "answer"]
+      },
+      "EmailEventType": {
+        "title": "EmailEventType",
+        "description": "An enumeration.",
+        "enum": [
+          "activation_clicked",
+          "activation_delivered",
+          "activation_opened",
+          "bounced",
+          "complained",
+          "clicked",
+          "dropped",
+          "delivered",
+          "opened",
+          "sent",
+          "rejected",
+          "replied",
+          "unsubscribed"
+        ],
+        "type": "string"
+      },
+      "EmailEvent": {
+        "title": "EmailEvent",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "subscriber_id": {
+            "title": "Subscriber Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "subscriber": {
+            "$ref": "#/components/schemas/Subscriber"
+          },
+          "email_id": {
+            "title": "Email Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "email": {
+            "$ref": "#/components/schemas/Email"
+          },
+          "automation_id": {
+            "title": "Automation Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "automation": {
+            "$ref": "#/components/schemas/Automation"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "event_type": {
+            "$ref": "#/components/schemas/EmailEventType"
+          }
+        },
+        "required": ["id", "creation_date", "metadata", "event_type"]
+      },
+      "EmailEventPage": {
+        "title": "Page[EmailEvent]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmailEvent"
             }
           },
           "next": {
@@ -8990,5 +9269,10 @@
         "scheme": "token"
       }
     }
-  }
+  },
+  "servers": [
+    {
+      "url": "api.buttondown.com"
+    }
+  ]
 }

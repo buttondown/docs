@@ -11,16 +11,46 @@
       }
     }
   ],
+  "FilterGroup": [
+    {
+      "description": "Empty filters",
+      "object": {
+        "filters": [],
+        "groups": [],
+        "predicate": "and"
+      }
+    },
+    {
+      "description": "Filtering by a tag",
+      "object": {
+        "filters": [
+          {
+            "field": "subscriber.tags",
+            "operator": "contains",
+            "value": "tgs-cast-member"
+          }
+        ],
+        "groups": [],
+        "predicate": "and"
+      }
+    }
+  ],
+  "Empty": [
+    {
+      "description": "Empty response",
+      "object": {}
+    }
+  ],
   "Survey": [
     {
       "description": "Basic survey",
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "color",
         "question": "What's your favorite color?",
-        "response_count": 0,
+        "response_count": 10,
         "answers": ["Red", "Green", "Blue"],
-        "creation_date": "2020-09-29T00:00:00+00:00",
         "notes": "",
         "response_cadence": "once",
         "status": "active",
@@ -31,11 +61,11 @@
       "description": "Feedback survey",
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "feedback",
         "question": "How can we improve?",
-        "response_count": 0,
+        "response_count": 10,
         "answers": ["More content", "Better content", "Other"],
-        "creation_date": "2020-09-29T00:00:00+00:00",
         "notes": "",
         "response_cadence": "once_per_email",
         "status": "active",
@@ -75,23 +105,22 @@
       "description": "Basic subscriber",
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
-        "email": "telemachus@buttondown.email",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "email_address": "telemachus@buttondown.email",
         "notes": "",
         "metadata": {
           "name": "Telemachus"
         },
         "tags": [],
         "referrer_url": "",
-        "creation_date": "2020-09-29T00:00:00+00:00",
         "secondary_id": 1,
-        "subscriber_type": "unactivated",
+        "type": "unactivated",
         "source": "organic",
         "utm_campaign": "",
         "utm_medium": "",
         "utm_source": "",
         "referral_code": "",
         "avatar_url": "",
-        "stripe_customer_id": null,
         "stripe_coupon": null,
         "unsubscription_date": null,
         "churn_date": null,
@@ -99,30 +128,32 @@
         "transitions": [],
         "ip_address": null,
         "last_open_date": null,
-        "last_click_date": null
+        "last_click_date": null,
+        "stripe_customer_id": null,
+        "stripe_customer": null,
+        "subscriber_import_id": null
       }
     },
     {
       "description": "Unsubscribed subscriber",
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
-        "email": "telemachus@buttondown.email",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "email_address": "telemachus@buttondown.email",
         "notes": "",
         "metadata": {
           "name": "Telemachus"
         },
         "tags": [],
         "referrer_url": "",
-        "creation_date": "2020-09-29T00:00:00+00:00",
         "secondary_id": 1,
-        "subscriber_type": "unsubscribed",
+        "type": "unsubscribed",
         "source": "organic",
         "utm_campaign": "",
         "utm_medium": "",
         "utm_source": "",
         "referral_code": "",
         "avatar_url": "",
-        "stripe_customer_id": null,
         "stripe_coupon": null,
         "unsubscription_date": "2020-09-30T00:00:00+00:00",
         "churn_date": null,
@@ -130,30 +161,32 @@
         "transitions": [],
         "ip_address": null,
         "last_open_date": null,
-        "last_click_date": null
+        "last_click_date": null,
+        "stripe_customer_id": null,
+        "stripe_customer": null,
+        "subscriber_import_id": null
       }
     },
     {
       "description": "Premium subscriber with coupon",
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
-        "email": "telemachus@buttondown.email",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "email_address": "telemachus@buttondown.email",
         "notes": "",
         "metadata": {
           "name": "Telemachus"
         },
         "tags": [],
         "referrer_url": "",
-        "creation_date": "2020-09-29T00:00:00+00:00",
         "secondary_id": 1,
-        "subscriber_type": "premium",
+        "type": "premium",
         "source": "organic",
         "utm_campaign": "",
         "utm_medium": "",
         "utm_source": "",
         "referral_code": "",
         "avatar_url": "",
-        "stripe_customer_id": "cus_whatever",
         "stripe_coupon": {
           "coupon_id": "coupon_whatever",
           "percent_off": "10",
@@ -166,7 +199,10 @@
         "transitions": [],
         "ip_address": null,
         "last_open_date": null,
-        "last_click_date": null
+        "last_click_date": null,
+        "stripe_customer_id": "cus_whatever",
+        "stripe_customer": null,
+        "subscriber_import_id": null
       }
     }
   ],
@@ -193,7 +229,16 @@
         "temporary_failures": 1,
         "permanent_failures": 2,
         "unsubscriptions": 3,
-        "complaints": 1
+        "complaints": 1,
+        "survey_responses": 0,
+        "webmentions": 0,
+        "page_views__lifetime": 0,
+        "page_views__30": 0,
+        "page_views__7": 0,
+        "subscriptions": 0,
+        "paid_subscriptions": 0,
+        "replies": 0,
+        "comments": 0
       }
     }
   ],
@@ -201,102 +246,179 @@
     {
       "description": "Basic email",
       "object": {
-        "creation_date": "2019-08-24T14:15:22Z",
-        "publish_date": "2024-08-24T14:15:22Z",
         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "body": "Lorem ipsum yadda yadda",
-        "subject": "This is my first email on Buttondown!",
-        "excluded_tags": [],
-        "included_tags": [],
+        "creation_date": "2000-01-01T00:00:00+00:00",
+        "modification_date": "2000-01-01T00:00:00+00:00",
+        "publish_date": "2000-01-01T00:00:00+00:00",
+        "attachments": [],
+        "subject": "Welcome to the newsletter",
+        "canonical_url": "",
+        "image": "",
+        "description": "",
+        "source": "app",
+        "body": "I hope you really enjoy it!",
+        "secondary_id": null,
         "email_type": "public",
+        "slug": "welcome-to-the-newsletter",
         "status": "sent",
         "metadata": {},
-        "secondary_id": 3,
-        "external_url": "https://buttondown.email/jmduke/my-first-email"
+        "should_send_teaser": false,
+        "is_comments_disabled": false,
+        "custom_teaser": "",
+        "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
+        "filters": {
+          "filters": [],
+          "groups": [],
+          "predicate": "and"
+        },
+        "analytics": null,
+        "template": null
       }
     },
     {
-      "description": "Basic draft",
+      "description": "Draft email",
       "object": {
-        "creation_date": "2019-08-24T14:15:22Z",
         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "body": "Lorem ipsum yadda yadda",
-        "subject": "This is my first email on Buttondown!",
-        "excluded_tags": [],
-        "included_tags": [],
+        "creation_date": "2000-01-01T00:00:00+00:00",
+        "modification_date": "2000-01-01T00:00:00+00:00",
+        "publish_date": null,
+        "attachments": [],
+        "subject": "Welcome to the newsletter",
+        "canonical_url": "",
+        "image": "",
+        "description": "",
+        "source": "app",
+        "body": "I hope you really enjoy it!",
+        "secondary_id": null,
+        "email_type": "public",
+        "slug": "welcome-to-the-newsletter",
         "status": "draft",
-        "email_type": "public",
         "metadata": {},
-        "secondary_id": 3,
-        "external_url": "https://buttondown.email/jmduke/my-first-email"
+        "should_send_teaser": false,
+        "is_comments_disabled": false,
+        "custom_teaser": "",
+        "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
+        "filters": {
+          "filters": [],
+          "groups": [],
+          "predicate": "and"
+        },
+        "analytics": null,
+        "template": null
       }
     },
     {
-      "description": "Basic scheduled email",
+      "description": "Scheduled email",
       "object": {
-        "creation_date": "2019-08-24T14:15:22Z",
-        "publish_date": "2024-08-24T14:15:22Z",
         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "body": "Lorem ipsum yadda yadda",
-        "subject": "This is my first email on Buttondown!",
-        "excluded_tags": [],
-        "included_tags": [],
-        "status": "scheduled",
+        "creation_date": "2000-01-01T00:00:00+00:00",
+        "modification_date": "2000-01-01T00:00:00+00:00",
+        "publish_date": "2000-01-02T00:00:00+00:00",
+        "attachments": [],
+        "subject": "Welcome to the newsletter",
+        "canonical_url": "",
+        "image": "",
+        "description": "",
+        "source": "app",
+        "body": "I hope you really enjoy it!",
+        "secondary_id": null,
         "email_type": "public",
+        "slug": "welcome-to-the-newsletter",
+        "status": "scheduled",
         "metadata": {},
-        "secondary_id": 3,
-        "external_url": "https://buttondown.email/jmduke/my-first-email"
+        "should_send_teaser": false,
+        "is_comments_disabled": false,
+        "custom_teaser": "",
+        "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
+        "filters": {
+          "filters": [],
+          "groups": [],
+          "predicate": "and"
+        },
+        "analytics": null,
+        "template": null
       }
     }
   ],
   "Response": [
     {
-      "description": "Basic survey response",
+      "description": "Basic response",
       "object": {
-        "id": "9f894eb9-67c7-4fd9-9244-0ec8363159c4",
-        "subscriber_id": "ad12b374-be20-4456-82ce-71f4a94d2b8f",
-        "subscriber_email": "justin@buttondown.email",
-        "answer": "I'm trying to build an audience and write professionally.",
-        "creation_date": "2024-03-09T10:47:59.831951Z",
-        "survey_id": "1c3b14c6-8515-4746-8ba6-7e23c4f27d8b"
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "answer": "Red",
+        "text": "",
+        "survey_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "survey": null,
+        "subscriber_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "subscriber": null,
+        "email_id": null,
+        "email": null,
+        "automation_id": null,
+        "automation": null
       }
     },
     {
-      "description": "Basic survey response with an expanded survey object",
+      "description": "Basic response with expanded subscriber",
       "object": {
-        "id": "9f894eb9-67c7-4fd9-9244-0ec8363159c4",
-        "subscriber_id": "ad12b374-be20-4456-82ce-71f4a94d2b8f",
-        "subscriber_email": "justin@buttondown.email",
-        "answer": "I'm trying to build an audience and write professionally.",
-        "creation_date": "2024-03-09T10:47:59.831951Z",
-        "survey_id": "1c3b14c6-8515-4746-8ba6-7e23c4f27d8b",
-        "survey": {
-          "id": "1c3b14c6-8515-4746-8ba6-7e23c4f27d8b",
-          "identifier": "why",
-          "question": "Why are you writing your newsletter?",
-          "response_count": 391,
-          "answers": [
-            "I just want to write for fun!",
-            "I want to stay connected with friends and family.",
-            "I'm trying to build an audience and write professionally.",
-            "I'm organizing an event or specific occasion.",
-            "I'm trying to market and grow my business.",
-            "I want to stay connected with my fans and followers.",
-            "Something else. (Just reply to this email and let me know!)"
-          ],
-          "creation_date": "2023-12-16T16:55:41.614970Z"
-        }
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "answer": "Red",
+        "text": "",
+        "survey_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "survey": null,
+        "subscriber_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "subscriber": {
+          "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+          "creation_date": "2020-09-29T00:00:00+00:00",
+          "email_address": "telemachus@buttondown.email",
+          "notes": "",
+          "metadata": {
+            "name": "Telemachus"
+          },
+          "tags": [],
+          "referrer_url": "",
+          "secondary_id": 1,
+          "type": "unactivated",
+          "source": "organic",
+          "utm_campaign": "",
+          "utm_medium": "",
+          "utm_source": "",
+          "referral_code": "",
+          "avatar_url": "",
+          "stripe_coupon": null,
+          "unsubscription_date": null,
+          "churn_date": null,
+          "unsubscription_reason": "",
+          "transitions": [],
+          "ip_address": null,
+          "last_open_date": null,
+          "last_click_date": null,
+          "stripe_customer_id": null,
+          "stripe_customer": null,
+          "subscriber_import_id": null
+        },
+        "email_id": null,
+        "email": null,
+        "automation_id": null,
+        "automation": null
       }
     }
   ],
   "EmailEvent": [
     {
-      "description": "Email events",
+      "description": "Open event",
       "object": {
-        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "subscriber_id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "subscriber_email": "user@example.com",
-        "creation_date": "2019-08-24T14:15:22Z"
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "subscriber_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "subscriber": null,
+        "email_id": null,
+        "email": null,
+        "automation_id": null,
+        "automation": null,
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "metadata": {},
+        "event_type": "opened"
       }
     }
   ],
@@ -397,6 +519,158 @@
         "percent_off": "10",
         "amount_off": null,
         "name": "Holiday Sale"
+      }
+    }
+  ],
+  "SurveyResponse": [
+    {
+      "description": "Basic survey response",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "answer": "Red",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "survey_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "survey": null,
+        "subscriber_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "subscriber": null,
+        "email_id": null,
+        "email": null,
+        "automation_id": null,
+        "automation": null
+      }
+    }
+  ],
+  "Automation": [
+    {
+      "description": "Basic automation",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2000-01-01T00:00:00+00:00",
+        "name": "Welcome email",
+        "status": "inactive",
+        "trigger": "subscriber.confirmed",
+        "timing": {
+          "time": "immediate",
+          "delay": null
+        },
+        "actions": [
+          {
+            "type": "send_email",
+            "metadata": {
+              "email_id": "eml_1234"
+            }
+          }
+        ],
+        "filters": [],
+        "metadata": {}
+      }
+    },
+    {
+      "description": "Automation in the future",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb4",
+        "creation_date": "2000-01-01T00:00:00+00:00",
+        "name": "Welcome email",
+        "status": "inactive",
+        "trigger": "subscriber.confirmed",
+        "timing": {
+          "time": "delay",
+          "delay": {
+            "value": "1",
+            "unit": "days",
+            "time_of_day": "morning"
+          }
+        },
+        "actions": [
+          {
+            "type": "send_email",
+            "metadata": {
+              "email_id": "eml_1234"
+            }
+          }
+        ],
+        "filters": [],
+        "metadata": {}
+      }
+    }
+  ],
+  "Delay": [
+    {
+      "description": "Basic delay",
+      "object": {
+        "value": "1",
+        "unit": "days",
+        "time_of_day": "morning"
+      }
+    }
+  ],
+  "Timing": [
+    {
+      "description": "Immediate timing",
+      "object": {
+        "time": "immediate",
+        "delay": null
+      }
+    },
+    {
+      "description": "Future timing",
+      "object": {
+        "time": "delay",
+        "delay": {
+          "value": "1",
+          "unit": "days",
+          "time_of_day": "morning"
+        }
+      }
+    }
+  ],
+  "AutomationInput": [
+    {
+      "description": "Basic automation",
+      "object": {
+        "name": "Welcome email",
+        "trigger": "subscriber.confirmed",
+        "timing": {
+          "time": "immediate",
+          "delay": null
+        },
+        "actions": [
+          {
+            "type": "send_email",
+            "metadata": {
+              "email_id": "eml_1234"
+            }
+          }
+        ],
+        "filters": [],
+        "metadata": {},
+        "status": "inactive"
+      }
+    },
+    {
+      "description": "Automation in the future",
+      "object": {
+        "name": "Welcome email",
+        "trigger": "subscriber.confirmed",
+        "timing": {
+          "time": "delay",
+          "delay": {
+            "value": "1",
+            "unit": "days",
+            "time_of_day": "morning"
+          }
+        },
+        "actions": [
+          {
+            "type": "send_email",
+            "metadata": {
+              "email_id": "eml_1234"
+            }
+          }
+        ],
+        "filters": [],
+        "metadata": {},
+        "status": "inactive"
       }
     }
   ]

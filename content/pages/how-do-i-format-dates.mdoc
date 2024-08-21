@@ -1,0 +1,20 @@
+---
+title: Formatting dates in an email
+navigationTitle: How do I format dates in an email?
+relatedPages:
+- using-templating
+---
+
+By default, Buttondown will format dates like `Feb. 4, 2003, 4 p.m.`. For example:
+
+{% preview
+   before="This email was sent on {{ email.publish_date }}."
+   after="This email was sent on Jan. 9, 2024, 2 p.m." /%}
+
+If you're interested in customizing this format, you can use the `date` filter in Django.
+
+For example, to format the date as `2024-01-09`, you can use the following:
+
+{% preview
+   before="This email was sent on {{ email.publish_date|date:'Y-m-d' }}."
+   after="This email was sent on 2024-01-09." /%}

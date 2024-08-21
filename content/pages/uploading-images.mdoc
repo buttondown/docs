@@ -15,33 +15,27 @@ If you write in Markdown, you'll simply "drag and drop" your image into the edit
 
 Once the image is uploaded, you can update the [alt text](/glossary-alt-text) by changing the contents of the text in the square brackets. This will look something like:
 
-```markdown
-![Black and white cat inside a cardboard box](https://assets.buttondown.email/images/sample-image.jpeg)
-```
+{% preview
+  before="![Black and white cat inside a cardboard box](https://placehold.co/600x400)"
+  after="<img src=\"https://placehold.co/600x400\" alt=\"Black and white cat inside a cardboard box\" />"
+/%}
 
 If you'd like to turn the image into a link you can with Markdown! To do this, you'll wrap all the image code inside a [Markdown link](/using-markdown#link), like so:
 
-```markdown
-[![Black and white cat inside a cardboard box](https://assets.buttondown.email/images/sample-image.jpeg)](https://buttondown.email/)
-```
+{% preview
+    before="[![Black and white cat inside a cardboard box](https://placehold.co/600x400)](https://google.com/)"
+    after="<a href=\"https://google.com/\"><img src=\"https://placehold.co/600x400\" alt=\"Black and white cat inside a cardboard box\" /></a>"
+/%}
 
 {% snippetSpacer /%}
 
 {% noticeInfo text="Drag and drop upload works in all writing modes!" /%}
-
-
-## Rich Text
-If you're working in Rich Text mode, you'll click the photo button in the toolbar to open the upload modal. Here's what this looks like:
-
-{% video file="/images/emails/email-upload_rich-text.mp4" /%}
 
 ## Fancy mode
 If you're a fan of Fancy Mode, you can upload an image by starting a new line, then begin typing `/image`. This will autocomplete, and open the upload modal. Here's what this looks like:
 
 {% video file="/images/emails/email-upload_fancy-mode.mp4" /%}
 
-
-## Updating your images (Rich text and Fancy mode)
 ### Adding a caption
 Once the image is uploaded you can add a caption. This will appear for all readers, right below the image.
 

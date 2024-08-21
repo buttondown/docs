@@ -20,6 +20,7 @@ type Props = {
   required?: boolean;
   description?: string;
   type: TypeProp;
+  example?: string | string[] | object;
 };
 
 const Parameter = (props: Props) => {
@@ -53,7 +54,19 @@ const Parameter = (props: Props) => {
       <h4 className="my-1" id={props.id || props.name}>
         {props.name}
       </h4>
-      <p>{props.description || "No description."}</p>
+      <div className="mb-4 leading-snug">
+        <p className="my-0 mb-2">{props.description || "No description."}</p>
+        {props.example && (
+          <>
+            <span>Example: </span>
+            {typeof props.example !== "string" ? (
+              <code>{JSON.stringify(props.example, null, 2)}</code>
+            ) : (
+              <code>&quot;{props.example}&quot;</code>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 };

@@ -7,9 +7,10 @@ const noticeContainer = cva(
   {
     variants: {
       variant: {
-        info: "bg-green-50 border-green-300 text-green-600",
-        warning: "bg-yellow-50 border-yellow-300 text-yellow-600",
-        danger: "bg-red-50 border-red-300 text-red-600",
+        info: "bg-green-50 border-green-300 text-green-600 [&_*]:text-green-600",
+        warning:
+          "bg-yellow-50 border-yellow-300 text-yellow-600 [&_*]:text-yellow-600",
+        danger: "bg-red-50 border-red-300 text-red-600 [&_*]:text-red-600",
       },
     },
   },

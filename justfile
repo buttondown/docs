@@ -6,7 +6,7 @@ default:
 clear_cache:
   rm -rf ./.next/
 
-install_dependencies:
+install:
   pnpm install
 
 # Unfortunately, this must be two separate commands because Next
@@ -31,6 +31,9 @@ build-indexes:
 
 build: lint build-indexes
   pnpm build
+
+dev:
+  pnpm dev
 
 test:
   pnpm test

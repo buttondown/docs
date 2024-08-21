@@ -33,6 +33,7 @@ export type RequestBody = {
         "multipart/form-data": Content;
       };
 };
+
 export type Parameter = {
   in: "path" | "query";
   name: string;
@@ -44,8 +45,15 @@ export type Parameter = {
       }
     | {
         $ref: string;
+      }
+    | {
+        type: "array";
+        items: {
+          $ref: string;
+        };
       };
   required: boolean;
+  description: string;
 };
 export type Operation<
   R extends Route,

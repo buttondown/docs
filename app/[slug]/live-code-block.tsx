@@ -1,20 +1,26 @@
 import { promises as fs } from "node:fs";
 import Code from "@/components/code";
+import { MantineProvider } from "@mantine/core";
 import React from "react";
 import type { Lang } from "shiki";
 import ExpandableCodeBlock from "./expandable-code-block";
 import SelfResizingIframe from "./self-resizing-iframe";
 
 const REGISTRY: {
-  [key: string]: { component: React.ComponentType };
+  [key: string]: { [key: string]: { component: React.ComponentType } };
 } = {
-  // We will need to be more clever than here at some point in the future,
-  // but this is a good proof-of-concept.
-  basic: {
-    component: React.lazy(() => import("@/public/code/shadcn/basic")),
+  shadcn: {
+    basic: {
+      component: React.lazy(() => import("@/public/code/shadcn/basic")),
+    },
+    dropdown: {
+      component: React.lazy(() => import("@/public/code/shadcn/dropdown")),
+    },
   },
-  dropdown: {
-    component: React.lazy(() => import("@/public/code/shadcn/dropdown")),
+  mantine: {
+    basic: {
+      component: React.lazy(() => import("@/public/code/mantine/basic")),
+    },
   },
 };
 
@@ -26,12 +32,16 @@ export default async function LiveCodeBlock({ path }: { path: string }) {
   // If the language is JSX, load the `.html` file to put into the iframe.
   const html = code;
 
-  const componentName = path.split("/").pop()?.replace(".tsx", "");
-  const Component = componentName
-    ? REGISTRY[componentName]
-      ? REGISTRY[componentName].component
-      : null
-    : null;
+  const decomposedPath = path.split("/");
+  const componentName = decomposedPath.pop()?.replace(".tsx", "");
+  const groupName = decomposedPath.pop();
+
+  const Component =
+    componentName && groupName
+      ? REGISTRY[groupName]?.[componentName]
+        ? REGISTRY[groupName]?.[componentName].component
+        : null
+      : null;
 
   return (
     <div className="not-prose">
@@ -43,8 +53,23 @@ export default async function LiveCodeBlock({ path }: { path: string }) {
         </div>
         <div className="p-4 pt-0">
           <div className="bg-white border border-gray-200 p-4 rounded-lg">
-            {/* Use iframe to get that sweet default browser styling. */}
-            {Component ? <Component /> : <SelfResizingIframe srcDoc={html} />}
+            {groupName === "mantine" && Component ? (
+              <MantineProvider>
+                <link
+                  rel="stylesheet"
+                  href="https://unpkg.com/@mantine/core@7.12.1/styles.css"
+                />
+                <link
+                  rel="stylesheet"
+                  href="https://unpkg.com/@mantine/forms@7.12.1/styles.css"
+                />
+                <Component />
+              </MantineProvider>
+            ) : Component ? (
+              <Component />
+            ) : (
+              <SelfResizingIframe srcDoc={html} />
+            )}
           </div>
         </div>
       </div>

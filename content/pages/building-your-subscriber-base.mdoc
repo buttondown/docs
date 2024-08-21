@@ -17,8 +17,8 @@ There are *three* main ways you can grow your subscriber base without writing a 
 Every newsletter has a unique URL. When someone loads that URL, a page with the option to subscribe to your newsletter appears.
 
 {% customizableContent
-   loggedIn="Your newsletter's URL is `https://buttondown.email/{{username}}`. You can use this link anywhere on the internet, like in emails or blog posts, to give folks a place to go when they want to subscribe or read your past emails.\n\nFun fact: if you use tags, you can automatically tag subscribers by adding a `GET` parameter of `tag` to this URL! For instance, to add the tag `sandwich` to all subscribers, you'd use the URL:\n\nhttps://buttondown.email/{{username}}?tag=sandwich"
-   anonymous="Your newsletter's URL is `https://buttondown.email/{{username}}`, where \"{{ username }}\" is replaced with the username of your Buttondown account. You can use this link anywhere on the internet, like in emails or blog posts, to give folks a place to go when they want to subscribe or read your past emails.\n\nFun fact: if you use tags, you can automatically tag subscribers by adding a `GET` parameter of `tag` to this URL! For instance, to add the tag `sandwich` to all subscribers, you'd use the URL:\n\nhttps://buttondown.email/{{username}}?tag=sandwich" /%}
+   loggedIn="Your newsletter's URL is `https://buttondown.com/{{username}}`. You can use this link anywhere on the internet, like in emails or blog posts, to give folks a place to go when they want to subscribe or read your past emails.\n\nFun fact: if you use tags, you can automatically tag subscribers by adding a `GET` parameter of `tag` to this URL! For instance, to add the tag `sandwich` to all subscribers, you'd use the URL:\n\nhttps://buttondown.com/{{username}}?tag=sandwich"
+   anonymous="Your newsletter's URL is `https://buttondown.com/{{username}}`, where \"{{ username }}\" is replaced with the username of your Buttondown account. You can use this link anywhere on the internet, like in emails or blog posts, to give folks a place to go when they want to subscribe or read your past emails.\n\nFun fact: if you use tags, you can automatically tag subscribers by adding a `GET` parameter of `tag` to this URL! For instance, to add the tag `sandwich` to all subscribers, you'd use the URL:\n\nhttps://buttondown.com/{{username}}?tag=sandwich" /%}
 
 ## Embedding an HTML form
 
@@ -44,18 +44,21 @@ If you want a seamless, pre-styled way to include a subscription option on your 
 
 ## Adding tags to your subscribers
 
+{% noticeInfo text="Not seeing Tags for your subscribers? Make sure this feature is enabled in Settings." /%}
+
+
 **Using query parameters**
 
 If you're using the subscribe page available at [your newsletter's URL](#sharing-your-buttondown-url), you can automatically add new tags to new subscribers by adding a **query parameter** to the URL. The example below automatically gives people who subscribe through the link a tag called `python`:
 
 ```html
-https://buttondown.email/jmduke?tag=python
+https://buttondown.com/jmduke?tag=python
 ```
 
 If you want to apply multiple tags at once, you can add multiple such query parameters. Here's an example:
 
 ```html
-https://buttondown.email/jmduke?tag=python&tag=vue
+https://buttondown.com/jmduke?tag=python&tag=vue
 ```
 
 **Using HTML**
@@ -69,13 +72,52 @@ In the example below, the `value` associated with the tag being passed is the *n
 
 You can read our docs to learn more about [tags](/tags).
 
+**Using the API**
+
+{% noticeInfo text="First time using the Buttondown API? Make sure this feature is enabled in Settings." /%}
+
+If you're feeling clever, you can [update the tags](/api-subscribers-update) of your subscribers using Buttondown's API.
+
+The API also enables you to automatically tag users by setting up an [automation](/api-automation-introduction).
+
+For example, if you wanted to immediately apply a tag to any reader who clicked a link in a certain email, the automation might look like this:
+
+```js
+{
+    "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb4",
+    "creation_date": "2000-01-01T00:00:00+00:00",
+    "name": "Very important newsletter",
+    "status": "active",
+    "trigger": "subscriber.clicked",
+    "timing": {
+        "time": "immediate",
+        "delay": null
+    },
+    "actions": [
+        {
+            "type": "apply_tags",
+            "metadata": {
+                "tag_id": "fg6817b9-427a-ge61-0d2f-43f318712cb3",
+                "action": "add"
+            }
+        }
+    ]
+}
+```
+In the example above, we use the bulk action of `apply_tags` to tag the users. That requires two pieces of information to be passed as metadata: The ID of the desired tag, and the action we'd like to take (`add` or `remove`)
+
+Here are some resources for creating your own tagging automation:
+- [Introduction to automations](/api-automation-introduction)
+- [Bulk action types](/api-bulk-action-type)
+- [Listing tags](/api-tags-list)
+
 ## Adding metadata to your subscribers
 
 **On your Buttondown subscribe form**
 
 Buttondown's subscription form doesn't ask for any metadata by default. All it needs is a subscriber's email address and, if you're running a paid newsletter, their payment information.
 
-If you want to collect more information, though, you can add *custom subscribe form inputs*. You can find these at the bottom of your [design settings page](https://buttondown.email/settings/design). Inputs have three attributes:
+If you want to collect more information, though, you can add *custom subscribe form inputs*. You can find these at the bottom of your [design settings page](https://buttondown.com/settings/design). Inputs have three attributes:
 
 1. A **key**, which corresponds with the key that will be set in the metadata for your subscriber.
 1. A **label**, which is the text that will be displayed to the user.
@@ -130,4 +172,4 @@ Instagram's browser is a little, uh, finicky. Take out the `target="popupwindow"
 
 ### Medium
 
-To embed your subscription widget in Medium, all you need to do is post [your newsletter's URL](#sharing-your-buttondown-url) in Medium. It should automatically embed.
+To embed your subscription widget in Medium, all you need to do is post [your newsletter's URL](#sharing-your-buttondown-url) in Medium. It should automatically embed, thanks to the powers of [oEmbed](/glossary-oembed).

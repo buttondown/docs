@@ -1312,21 +1312,6 @@ button[disabled],
 .share-form svg {
   height: 24px;
 }
-.widget--success {
-  background: #d1fae5;
-  color: #047857;
-  border-color: #047857;
-}
-.widget--warning {
-  background: #fef9c3;
-  color: #ca8a04;
-  border-color: #ca8a04;
-}
-.widget--error {
-  background: #fee2e2;
-  color: #dc2626;
-  border-color: #dc2626;
-}
 .widget--takeover {
   position: fixed;
   top: 30%;

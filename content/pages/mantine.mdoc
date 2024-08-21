@@ -1,0 +1,22 @@
+---
+title: Integrating Mantine with Buttondown
+navigationTitle: Mantine
+relatedPages: []
+---
+## Getting started
+
+To use the examples below, you'll need to install `@mantine/core` and `@mantine/form`:
+
+```bash
+pnpm install @mantine/core @mantine/form
+```
+
+You'll notice two things:
+
+1. We use "Uncontrolled mode" when building this form. This means that rather than storing form state within React proper, we manage state in a ref for performance reasons. (This is not the _biggest_ deal in the world either way, since this form is small, but it's still better.)
+2. We do use `mantine`'s built-in form validations a good amount, but Buttondown also has its own suite of validations that we use to ensure all incoming subscribers are valid.
+
+## Basic example
+
+{% liveCodeBlock
+   filename="public/code/mantine/basic.tsx" /%}

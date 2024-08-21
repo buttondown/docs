@@ -1,0 +1,52 @@
+---
+title: Expansion
+---
+
+You can automatically expand certain fields in Buttondown's API by passing the `expand` query parameter. This is useful when you want to retrieve related objects in a single request, rather than making multiple requests to fetch them individually. (If you're familiar with [Stripe's expansion concept](https://docs.stripe.com/expand), it's very similar.)
+
+## How it works
+
+By default, Buttondown's API only returns the ID of related objects. For example, when you retrieve a comment, you can make a basic API call:
+
+```sh
+curl 'https://api.buttondown.com/v1/comments/497f6eca-6276-4993-bfeb-53cbbbba6f08'
+```
+
+And you'll only see the ID of the subscriber who left the comment:
+
+```json
+{
+    "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+    "subscriber_id": "a1b2c3d4-6276-4993-bfeb-53cbbbba6f08",
+    "text": "Great post!",
+    // other fields...
+}
+```
+
+If you want to see the full subscriber object, you can pass the `expand` query parameter:
+
+```sh
+curl 'https://api.buttondown.com/v1/comments/497f6eca-6276-4993-bfeb-53cbbbba6f08?expand=subscriber'
+```
+
+And you'll see the full subscriber object back alongside the ID:
+
+```json
+{
+    "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+    "subscriber_id": "a1b2c3d4-6276-4993-bfeb-53cbbbba6f08",
+    "subscriber": {
+        "id": "a1b2c3d4-6276-4993-bfeb-53cbbbba6f08",
+        "email": "tracy@tgs.com",
+        // other fields...
+    },
+    "text": "Great post!",
+    // other fields...
+}
+```
+
+Some other notes about expansion:
+
+- The above example shows expanding a `detail` endpoint that only returns a single object, but the same principles apply to `list` endpoints that return multiple objects. The only requirement is that the endpoint supports the expanded field; you can [check the relevant path](/api-comments-list) to confirm that it does.
+- You can expand multiple fields by passing them in sequence (e.g. `expand=subscriber&expand=webhook`).
+- At this moment in time, we do not support nested expansion nor expansion within webhooks.

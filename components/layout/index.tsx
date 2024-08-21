@@ -1,4 +1,4 @@
-import keystaticConfig, { contentBaseUrl } from "@/keystatic.config";
+import keystaticConfig, { localBaseURL } from "@/keystatic.config";
 import { createReader } from "@keystatic/core/reader";
 import Sidebar from "./Sidebar";
 import AccountButtons from "./account-buttons";
@@ -18,7 +18,7 @@ export default async function Layout({
   title: string;
   children: React.ReactNode;
 }) {
-  const reader = createReader(contentBaseUrl, keystaticConfig);
+  const reader = createReader(localBaseURL, keystaticConfig);
   const navigation = await reader.singletons.navigation.read();
   const pages = await reader.collections.pages.all();
 
@@ -46,8 +46,9 @@ export default async function Layout({
           </h1>
 
           <div
-            className="mt-4 prose prose-lg prose-h2:text-2xl prose-h3:text-xl prose-img:border-[50px] prose-img:border-gray-100 prose-img:outline prose-img:outline-1 prose-img:outline-gray-300 prose-img:mx-auto [&_td>p]:!my-0 [&_th>p]:!my-0 glossary:prose-a:after:mask-[url('/book.svg')] glossary:prose-a:notable-link app-link:prose-a:after:mask-[url('/icon.svg')] app-link:prose-a:notable-link
+            className="mt-4 prose prose-lg prose-h2:text-2xl prose-h3:text-xl prose-img:border-[50px] prose-img:border-gray-100 prose-img:outline prose-img:outline-1 prose-img:outline-gray-300 prose-img:mx-auto prose-img:block [&_td>p]:!my-0 [&_th>p]:!my-0 glossary:prose-a:after:mask-[url('/book.svg')] github:prose-a:after:mask-[url('/github.svg')] github:prose-a:notable-link glossary:prose-a:notable-link app-link:prose-a:after:mask-[url('/icon.svg')] app-link:prose-a:notable-link
             pricing:prose-a:after:mask-[url('/dollar.svg')] pricing:prose-a:notable-link [&_a:hover]:bg-[color-mix(in_srgb,currentColor_10%,transparent)]
+            [&_li>code]:inline-block [&_li>code]:px-1.5 [&_li>code]:mx-1.5 [&_li>code]:bg-gray-200 [&_li>code]:before:hidden [&_li>code]:after:hidden [&_li>code]:rounded-md [&_p>code]:inline-block [&_p>code]:px-1.5 [&_p>code]:mx-1.5 [&_p>code]:bg-gray-200 [&_p>code]:before:hidden [&_p>code]:after:hidden [&_p>code]:rounded-md
           "
           >
             {children}

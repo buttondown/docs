@@ -8,6 +8,7 @@ INPUT_PATH = "docs-v2/content/navigation.json"
 OUTPUT_PATH = "docs-v2/autogen/index.json"
 OPENAPI_PATH = "docs-v2/lib/openapi/openapi.json"
 
+
 @dataclass
 class NavigationItem:
     title: str
@@ -16,6 +17,7 @@ class NavigationItem:
     schema: str
     description: str
     references: list[str]
+
 
 def get_raw_data():
     with open(INPUT_PATH, "r") as f:
@@ -26,6 +28,7 @@ def read_file(slug: str) -> str:
     file_path = FILE_PATH_TEMPLATE.format(slug)
     with open(file_path, "r") as f:
         return f.read()
+
 
 def reshape_data(raw_data):
     openapi_data = json.load(open(OPENAPI_PATH))
@@ -43,9 +46,13 @@ def reshape_data(raw_data):
     slug_to_full_content = {slug: read_file(slug) for (_, _, slug) in pages}
 
     # Another caching mechanism that is probably overkill...
-    openapi_enum_to_slug = {yaml.safe_load(slug_to_full_content[slug].split("---")[1]).get("enum"): slug for (_, _, slug) in pages if "enum" in slug_to_full_content[slug]}
+    openapi_enum_to_slug = {
+        yaml.safe_load(slug_to_full_content[slug].split("---")[1]).get("enum"): slug
+        for (_, _, slug) in pages
+        if "enum" in slug_to_full_content[slug]
+    }
 
-    for (section, subsection, slug) in pages:
+    for section, subsection, slug in pages:
         raw_frontmatter = slug_to_full_content[slug].split("---")[1]
         frontmatter = yaml.safe_load(raw_frontmatter)
         title = frontmatter["title"]
@@ -53,27 +60,32 @@ def reshape_data(raw_data):
             section_name = "Reference"
         else:
             section_name = section
-        references = []
+        references = set()
 
         # Add references from the OpenAPI spec.
         for schema_name, schema in schemas.items():
-            if any(title in prop.get("$ref", "") for prop in schema.get("properties", {}).values()):
+            if any(
+                title in prop.get("$ref", "")
+                for prop in schema.get("properties", {}).values()
+            ):
                 if schema_name in openapi_enum_to_slug:
-                    references.append(openapi_enum_to_slug[schema_name])
+                    references.add(openapi_enum_to_slug[schema_name])
 
         # Add references from other pages.
-        for (_, _, other_slug) in pages:
+        for _, _, other_slug in pages:
             if f"/{slug}" in read_file(other_slug):
-                references.append(other_slug)
+                references.add(other_slug)
 
-        data.append(NavigationItem(
-            title=title,
-            url=slug,
-            section=section_name,
-            schema=frontmatter.get("schema") or frontmatter.get("enum"),
-            description=frontmatter.get("description"),
-            references=references,
-        ).__dict__)
+        data.append(
+            NavigationItem(
+                title=title,
+                url=slug,
+                section=section_name,
+                schema=frontmatter.get("schema") or frontmatter.get("enum"),
+                description=frontmatter.get("description"),
+                references=sorted(list(references)),
+            ).__dict__
+        )
     return data
 
 
@@ -82,5 +94,6 @@ def main():
     data = reshape_data(raw_data)
     with open(OUTPUT_PATH, "w") as f:
         f.write(json.dumps(data, indent=2))
+
 
 main()

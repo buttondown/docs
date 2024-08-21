@@ -170,6 +170,11 @@ const REDIRECTS = [
     destination: "/api-tags-introduction",
   },
   {
+    source: "/webhooks",
+    permanent: false,
+    destination: "/events-and-webhooks-introduction",
+  },
+  {
     source: "/api-reference/webhooks",
     permanent: false,
     destination: "/api-webhooks-introduction",
@@ -182,12 +187,12 @@ const REDIRECTS = [
   {
     source: "/behind-the-scenes/esoterica",
     permanent: false,
-    destination: "/my-favorite-newsletters",
+    destination: "https://buttondown.com/blog/my-favorite-newsletters",
   },
   {
     source: "/behind-the-scenes/funding",
     permanent: false,
-    destination: "https://buttondown.email/open-source",
+    destination: "https://buttondown.com/open-source",
   },
   {
     source: "/behind-the-scenes/kudos",

@@ -20,7 +20,7 @@ You can also sort your subscribers based on any column of your choosing. Note th
 |---------------------|------------------------------------------------------------------------------------------------|
 | Email               | A subscriber's email address.                                                                   |
 | Tags                | A comma-separated list of tags associated with the subscriber.                                  |
-| Status              | Regular, paid, unactivated, etc.                                                                |
+| [Status](api-subscribers-type)              | Regular, paid, unactivated, etc.                                                                |
 | Subscription date   | The date the subscriber signed up.                                                              |
 | Unsubscription date | The date on which a subscriber unsubscribed from your newsletter.                               |
 | Churn date          | The date on which a premium subscriber canceled their subscription.                             |
@@ -28,7 +28,11 @@ You can also sort your subscribers based on any column of your choosing. Note th
 | UTM Medium          | UTM Medium.                                                                                     |
 | UTM Source          | UTM Source.                                                                                     |
 | Referrer URL        | Referrer URL.                                                                                   |
+| IP address          | The IP address from which the subscriber originally subscribed.                                |
+| Import         | The [subscriber import](/importing-your-data) via which the subscriber was originally added.       |
 | Metadata            | Custom keys and values to sort your subscriber base. (You can learn more about metadata here!) |
+| Last opened date    | The date on which the subscriber last opened your newsletter.                                   |
+| Last clicked date   | The date on which the subscriber last clicked a link in your newsletter.                        |
 
 
 Not seeing some of these columns listed? That’s because you might not have certain data available. For instance, if you don’t use [metadata](/metadata), the “Metadata” column won’t be listed as an option—because, well, there’d be nothing to populate it with! However, if you ever do want to start using metadata to [sort your subscriber base](/metadata), then the option will pop up.

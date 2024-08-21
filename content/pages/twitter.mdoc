@@ -1,0 +1,33 @@
+---
+title: Twitter
+description: Automatically share your newsletters to your Twitter profile to promote your newsletter.
+date: 2024-08-04
+relatedPages:
+  - automations-introduction
+  - linkedin
+---
+{% paidFeature feature="automations" /%}
+
+Buttondown allows you to connect your Twitter account to your newsletter. This allows you to automatically share your newsletters to your Twitter profile, powered by our [automations](/automations-introduction) feature.
+
+## Setting up your Twitter integration
+
+To get started, head over to the [Integrations page](https://buttondown.com/settings/integrations) and click on the "Connect" button next to Twitter. This will prompt you to log in to your Twitter account and authorize Buttondown to tweet on your behalf.
+
+Once you've connected your Twitter account, you should be able to see a "Connected to Twitter" message on the Integrations page.
+
+## Sharing your newsletters to Twitter
+
+{% automation
+   name="Automatically post to Twitter"
+   description="This automation will automatically post new emails onto Twitter"
+   trigger="When an email is sent"
+   url="https://buttondown.com/automations/new?trigger=email.sent&action=create_twitter_post&name=Automatically+tweet+new+emails"
+   action="Post on Twitter" /%}
+
+To share your newsletters to Twitter, you can create an automation that tweets whenever you send them. To do this, create a new [Automation](https://buttondown.com/automations/new) with the following settings:
+
+1. A **trigger** of [when an email is sent](/api-webhooks-event-types#email.sent).
+1. An **action** of [Create a Twitter post](/automation-actions#create_twitter_post).
+
+You can leave the "filters" and "timing" sections blank, and you should be good to go!

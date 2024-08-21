@@ -1,0 +1,20 @@
+---
+title: "2024-06-27"
+navigationTitle: "2024-06-27"
+---
+
+**Breaking change**: we've removed the ability to send non-final emails like [drafts](api-emails-status#draft) from [/v1/subscribers/{id}/emails](/api-subscribers-send-email). Such requests will now return an error message:
+
+```json
+{
+  "code": "email_invalid_status",
+  "detail": "You can't programmatically send emails with status 'draft'. Finalize the email first or use the /v1/emails/{id}/send-drafts endpoint instead.",
+  "metadata": {
+    "email_status": "draft",
+    "email_id": "{{ email.id }}",
+    "subscriber_id": "{{ subscriber.id }}"
+  }
+}
+```
+
+This is a breaking change, and apologies if you suddenly started getting 400s as a result of it, but the fix should hopefully be simple: just migrate that call to [/v1/emails/{id}/send-draft](/api-emails-send-draft) instead.

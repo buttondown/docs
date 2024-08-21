@@ -39,16 +39,21 @@ const navigationGroupSchema = (label: string) =>
     }
   );
 
-const shouldUseGitHub = process.env.NODE_ENV === "production";
-
-export const contentBaseUrl = shouldUseGitHub ? "../" : process.cwd();
-
+// NON-OBVIOUS LOGIC ALERT!
+// When deploying a Keystatic application within the monorepo to Vercel, we deploy
+// the entire monorepo, _not_ just this directory — which means that the process _serving_ the
+// application is in the root directory of the monorepo, not this directory. As a result, this process
+// should be run from the root directory of the monorepo even when local — this helps ensure that the
+// behavior is similar to production.
+const SHOULD_USE_GITHUB = process.env.NODE_ENV === "production";
+const APPLICATION_DIRECTORY = "docs-v2";
+export const localBaseURL = "../";
 const generatePath = (path: string) => {
-  return shouldUseGitHub ? `docs-v2/${path}` : path;
+  return `${APPLICATION_DIRECTORY}/${path}`;
 };
 
 export default config({
-  storage: shouldUseGitHub
+  storage: SHOULD_USE_GITHUB
     ? {
         kind: "github",
         repo: {
@@ -64,10 +69,13 @@ export default config({
       label: "Navigation",
       path: generatePath("content/navigation"),
       format: { data: "json" },
-      schema: NAVIGATION_GROUPS.reduce((acc, group) => {
-        acc[group] = navigationGroupSchema(NAVIGATION_GROUP_LABELS[group]);
-        return acc;
-      }, {} as Record<string, any>),
+      schema: NAVIGATION_GROUPS.reduce(
+        (acc, group) => {
+          acc[group] = navigationGroupSchema(NAVIGATION_GROUP_LABELS[group]);
+          return acc;
+        },
+        {} as Record<string, any>
+      ),
     }),
   },
   collections: {
@@ -112,6 +120,28 @@ export default config({
           },
           tables: true,
           componentBlocks: {
+            automation: component({
+              label: "Automation",
+              schema: {
+                url: fields.url({ label: "URL" }),
+                name: fields.text({ label: "Name" }),
+                description: fields.text({ label: "Description" }),
+                trigger: fields.text({ label: "Trigger" }),
+                action: fields.text({ label: "Action" }),
+              },
+              preview(props) {
+                return (
+                  <div>
+                    <h2>{props.fields.name.value}</h2>
+                    <p>{props.fields.description.value}</p>
+                    <p>
+                      Trigger: {props.fields.trigger.value} - Action:{" "}
+                      {props.fields.action.value}
+                    </p>
+                  </div>
+                );
+              },
+            }),
             video: component({
               label: "Video",
               schema: {

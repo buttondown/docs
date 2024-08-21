@@ -1,0 +1,13 @@
+---
+title: oEmbed
+relatedPages: []
+---
+
+oEmbed is a format for allowing an embedded representation of a URL on third party sites. The simple API allows a website to display embedded content (such as photos or videos) when a user posts a link to that resource, without having to parse the resource directly. (You can read more about the spec [here](https://oembed.com/).)
+
+Buttondown leverages `oEmbed` in two ways:
+
+1. We're a [valid and registered provider](https://oembed.com/providers.json) of `oEmbed` content. This means that if you paste a Buttondown link into a service that supports `oEmbed`, it should automatically expand into a preview of the content — whether that's a subscribe form or an archive of your newsletters.
+2. We detect and parse `oEmbed` links in your newsletters. If you paste a link to a YouTube video, for example, we'll automatically expand that into a preview of the video.
+
+If all of this sounds like gibberish, don't worry! It's a pretty technical concept that you don't need to worry about unless you're building a service that needs to support `oEmbed` links. If you're a traditional author, everything should "just work" without you needing to worry about it.

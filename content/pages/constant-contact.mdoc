@@ -4,56 +4,57 @@ relatedPages:
 - importing-your-data
 ---
 
+Welcome to Buttondown! After you've read through our "[Getting Started](/registration-and-setup)" guide, we're here to help you with your next step: transferring your subscribers from your old email platform to Buttondown.
 
 ### Exporting your subscribers
-{% noticeInfo text="Constant Contact contacts are like Buttondown subscribers." /%}
-Export your Constant Contact contacts [here](https://knowledgebase.constantcontact.com/articles/KnowledgeBase/33114-Export-Contacts-Out-of-Constant-Contact-and-into-a-Spreadsheet).
 
-![A screenshot of the Constant Contact export process](/images/migration-guides/constantcontact-export.png)
+{% noticeInfo text="Constant Contact uses the word 'contacts' to refer to what Buttondown calls 'subscribers'." /%}
 
-Constant Contact will prompt you to select any fields you want to export. When you import into Buttondown, you’ll be able to include notes, date created, and tags - plus anything else as custom [metadata](/metadata).
+Export your Constant Contact contacts by following the instructions in [Constant Contact's documentation](https://knowledgebase.constantcontact.com/articles/KnowledgeBase/33114-Export-Contacts-Out-of-Constant-Contact-and-into-a-Spreadsheet).
 
-![A screenshot of the Constant Contact export field selector](/images/migration-guides/constantcontact-export-selector.png)
+![A screenshot of the Constant Contact export process.](/images/migration-guides/constantcontact-export.png)
 
-### Importing your subscribers
+Constant Contact will prompt you to select any fields you want to export. When you import your data into Buttondown, you’ll be able to include notes, date created, and tags. Anything else you want to include can be added as custom [metadata](/metadata).
 
-Now that you have the file from Constant Contact, you can head on over to the “[Subscribers](https://buttondown.email/subscribers)" tab of your Buttondown dashboard. 
+![A screenshot of the Constant Contact export field selector.](/images/migration-guides/constantcontact-export-selector.png)
 
-You can read more about this in our [guide to importing subscribers](/importing-your-data#importing-your-subscribers).
+### Importing your subscribers to Buttondown
+
+Navigate to the “[Subscribers](https://buttondown.com/subscribers)" tab of your Buttondown dashboard to complete the import process.
+
+To learn more, read [Importing your subscribers](/importing-your-data#importing-your-subscribers).
 
 ### Importing your archives (campaigns)
-{% noticeInfo text="Constant Contact campaigns are like Buttondown archives." /%}
+
+{% noticeInfo text="Constant Contact uses the word 'campaigns' to refer to what Buttondown calls 'archives.'" /%}
 
 According to Constant Contact (as of November 2021):
 > There isn't a way to export the campaigns. The one way is to download the email campaigns as an image or PDF.
 
-You can save or print your email campaigns as PDFs using [these instructions](https://knowledgebase.constantcontact.com/articles/KnowledgeBase/6130-download-an-email-campaign). [Email us](mailto:support@buttondown.email) and we’ll help you with importing your archives.
+You can save or print your email campaigns as PDFs by following the instructions in [Constant Contact's documentation](https://knowledgebase.constantcontact.com/articles/KnowledgeBase/6130-download-an-email-campaign). [Email us](mailto:support@buttondown.email) and we’ll help you with importing your archives.
 
 ### You did it!
 
-Once you finish all of the above steps, Buttondown will kick off an audit and migration process to make sure everything is in order. Then you should be safe to disable or deactivate your Constant Contact account.
+After you complete the procedures above, Buttondown begins an audit and migration process to make sure everything is in order. After that completes, you should be safe to disable or deactivate your Constant Contact account.
 
 ### I have multiple lists in Constant Contact. Can I have multiple lists in Buttondown, too?
 
 Yes! There are two ways to group subscribers in Buttondown:
 
-- If you want to be able to completely separate out multiple verticals of a newsletter (and, say, keep track of different archives) or have two entirely different publications with disjoint subscriber bases, your best bet is to [set them up as separate newsletters entirely](/multiple-newsletters). Then you can follow the import instructions above for each one.
-- If you want all your subscribers in one place, but you want to be able to send some messages to certain groups of subscribers, use tags and [metadata](/metadata). To add list names from Constant Contact as tags to your Constant Contact data before importing:
+- If you want to be able to completely separate out multiple verticals of a newsletter (and, optionally, keep track of different archives) or have two entirely different publications with separate subscriber bases, you can [set them up as separate newsletters entirely](/multiple-newsletters). Then you can follow the import instructions above for each one.
+- If you want all your subscribers in one place, but you want to be able to send some messages to certain groups of subscribers, use [tags](/tags) and [metadata](/metadata).
 
-Export your Constant Contact subscribers [here](https://knowledgebase.constantcontact.com/articles/KnowledgeBase/33114-Export-Contacts-Out-of-Constant-Contact-and-into-a-Spreadsheet). (Select the lists you want to export, then chose “Export” from the Actions menu.)
+To add list names from Constant Contact as tags to your Constant Contact data before you import to Buttondown:
 
-![A screenshot of the Constant Contact export process](/images/migration-guides/constantcontact-export.png)
+1. Export your Constant Contact subscribers by following the instructions in [Constant Contact's documentation](https://knowledgebase.constantcontact.com/articles/KnowledgeBase/33114-Export-Contacts-Out-of-Constant-Contact-and-into-a-Spreadsheet).
+2. Choose the lists you want to export, then chose **Export** from the Actions menu.
+3. Choose the fields you want to export. Make sure to include “Lists.” When you import into Buttondown, you’ll be able to include notes, date created, and tags, plus anything else you want to save as custom [metadata](/metadata).
 
-Choose the fields you want to export. Make sure to include “Lists”! When you import into Buttondown, you’ll be able to include notes, date created, and tags - plus anything else as custom [metadata](/metadata).
+ If you don’t use tags in Constant Contact, you can just import the email lists as tags. If you also have tags from Constant Contact that you want to import, you can open the CSV file in a spreadsheet editor, create a new column, and use a formula such as `=concat(E2,",",D2)` to add the list name(s) to the tags, then save it as a CSV file.
 
-![A screenshot of the Constant Contact export field selector](/images/migration-guides/constantcontact-export-selector.png)
-
-If you don’t use tags in Constant Contact, you can just import the email lists as tags (see below). If you also have tags from Constant Contact that you want to import, you can open the CSV file in a spreadsheet editor, create a new column, and use a formula like `=concat(E2,",",D2)` to add the list name(s) to the tags, then save it as a CSV file.
+4. Save the spreadsheet as a CSV file.
+5. Follow the steps in [Importing your subscribers](/importing-your-data#importing-your-subscribers).
 
 ![Screenshot of a spreadsheet in which existing tags and list names are being combined in a new column](/images/migration-guides/constantcontact-lists-to-tags.png)
-
-Save the spreadsheet as a CSV file.
-
-Follow the steps in our [guide to importing](/importing-your-data#importing-your-subscribers).
 
 {% exportButtondownData /%}

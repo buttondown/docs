@@ -21,15 +21,21 @@ Here's how to write a newsletter:
 
 In the "Emails" page, click **New** in the upper right corner. The writing interface appears.
 
-(Optional) Click the buttons in the upper right corner to toggle between “Preview Mode” and “Editor Mode.
-- "Preview Mode" renders your Markdown or HTML draft as you write so you can verify that your formatting looks the way you want.
-- "Editor Mode" adds a toolbar you can use to format your text, add links, add images, and more.
+![A screenshot of a new, blank email](/sending-your-first-email/email-new-1.png)
 
-Enter the text for your email in Markdown or HTML. Buttondown saves what you write automatically.
+Now write your email! Buttondown will save what you write automatically.
 
-{% video file="/sending-your-first-email/registration_email-page-and-writing-interface.mp4" /%}
+You can change between editor modes with the dropdown located in the top-right corner, there are a few modes you can choose:
 
-This video shows how to start a new email draft and toggle between the different editing view modes.
+- **Fancy mode** lets you write in an editor where it appears just like how it'd appear on the emails that will be sent out.
+- **Markdown mode** lets you write in [Markdown](/using-markdown), a plain text format familiar to developers.
+- **Naked mode** lets you fully control the email that gets sent out to your subscribers.
+
+![A screenshot of all the available editor modes shown in a dropdown](/sending-your-first-email/email-mode-dropdown-1.png)
+
+You can preview how your email is going to look like in the sent emails and web archive by clicking on **Preview** on the top-right corner.
+
+![A screenshot of an email with the preview drawer open](/sending-your-first-email/email-preview-drawer-1.png)
 
 ### Send a test newsletter
 
@@ -43,7 +49,7 @@ Before you send a newsletter email to your subscribers, you can send a draft of 
 
 {% video file="/sending-your-first-email/registration_pop-up-for-choosing-draft-recipients.mp4" /%}
 
-This movie shows how to send a draft email to one person.
+This video shows how to send a draft email to one person.
 
 The draft will appear in the recipient's email shortly. You can identify it because it will have the string `[PREVIEW]` in the subject line.
 
@@ -53,9 +59,9 @@ This video shows a preview of a newsletter email in an email inbox.
 
 ### Send your first newsletter email
 
-If you sent a draft email to yourself, you can review it now in Buttondown and make any edits you think are necessary. You’re almost ready to click **Send** and deliver this email to your subscribers. But before you do, you should make sure everything is polished and ready.
+If you sent a draft email to yourself, you can review it now in Buttondown and make any edits you think are necessary. You're almost ready to click **Send** and deliver this email to your subscribers. But before you do, you should make sure everything is polished and ready.
 
-Here’s a checklist to make sure everything’s ready:
+Here's a checklist to make sure everything's ready:
 
 - Verify that all the links in your email work.
 - Decide who you want to send this email to. You can send it to all your subscribers, or only those with certain [tags](/sending-your-first-email#tags-and-segmentation)?
@@ -63,35 +69,27 @@ Here’s a checklist to make sure everything’s ready:
 
 After you double-check all the details, you can send your email. Here's how:
 
-1. From the email drafting screen, click **Send.** The "Ready to send?" modal appears.
-2. Review the screen and verify everything looks correct.
-3. Click **Send**. Your email sends.
+1. From the draft you're currently working on, click on **Send** that is located at the bottom. The "Send this email" drawer will appear.
+2. Review the summary provided within the drawer, and verify that everything looks correct.
+3. In the "Ready to send?" section, click **Send**. Your email will be sent shortly.
 
-{% video file="/sending-your-first-email/registration_pop-up-after-sending-newsletter_AdobeExpress.mp4" /%}
-
-This video shows the process of sending an email.
+![A screenshot of the send email drawer](/sending-your-first-email/email-send-drawer-1.png)
 
 After you send the email, a congratulatory pop-up appears with buttons to share it on social media or a copy-and-paste-able URL. You'll also see an option to **Undo** sending the email if you change your mind at the last minute.
 
 ### Schedule your newsletter email
 
-You don't have to send an email as soon as you write it. You can schedule it to send later, at a specific date or time. You can do this by clicking the “Scheduling” button at the bottom of your draft.
+You don't have to send an email as soon as you write it. You can schedule it to send later, at a specific date or time.
 
-To learn more, read [Scheduling an Email](/scheduling-an-email).
+Within the Schedule section of the "Send this email" drawer, select **Send at a specified time**, then you can configure when it should be sent.
+
+![A screenshot of the Schedule section](/sending-your-first-email/email-send-schedule-1.png)
 
 ## Images
 
-You can upload images to Buttondown and insert those images in your emails. Buttondown supports all visual file formats, including .jpg, .png, .gif, and many more.
+You can upload images to Buttondown and insert those images in your emails. Buttondown supports most visual file formats, including .jpg, .png, .gif, and many more.
 
-Buttondown uses Amazon S3 (a common file hosting platform) to safely and securely store your images. Images you upload to Buttondown last indefinitely by default. This means that even if you were to delete the email in which images are referenced, the images themselves still exist on Buttondown's servers. There's no option in the Buttondown UI to delete uploaded images, but you can do so with the API.
-
-To upload an image:
-
-1. In the "Emails" page, click **New** in the upper right corner. The writing interface appears.
-2. In the rich text editor, click the **Insert image** button.
-3. Choose the image you wish to upload.
-
-After the upload completes, the image becomes available to insert into an email.
+To learn more, read [Uploading Images](/uploading-images).
 
 ## Custom unsubscribe links
 
@@ -116,7 +114,7 @@ You can send emails including certain tags, making it easy to tailor your newsle
 There are a few different ways to apply a tag to a subscriber:
 
 - Tagging subscribers manually
-- Customizing your [subscription form](https://blog.buttondown.email/2019/07/17/customizing-your-subscription-form-to-tag-new-subscribers)
+- Customizing your [subscription form](https://buttondown.com/blog/2019-07-17-customizing-your-subscription-form-to-tag-new-subscribers)
 - Setting tags with the [API](/api-introduction)
 
 To manually add a tag to a subscriber:

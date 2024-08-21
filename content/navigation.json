@@ -160,6 +160,10 @@
           "value": "scheduling-an-email"
         },
         {
+          "discriminant": "page",
+          "value": "sending-via-email"
+        },
+        {
           "discriminant": "divider",
           "value": "FAQ"
         },
@@ -228,7 +232,7 @@
       ]
     },
     {
-      "name": "Paid newsletters",
+      "name": "Monetizing your newsletter",
       "items": [
         {
           "discriminant": "page",
@@ -236,11 +240,15 @@
         },
         {
           "discriminant": "page",
-          "value": "stripe"
+          "value": "sponsorships"
         },
         {
           "discriminant": "divider",
           "value": "FAQ"
+        },
+        {
+          "discriminant": "page",
+          "value": "premium-teaser"
         },
         {
           "discriminant": "page",
@@ -306,7 +314,15 @@
         },
         {
           "discriminant": "page",
+          "value": "linkedin"
+        },
+        {
+          "discriminant": "page",
           "value": "linktree"
+        },
+        {
+          "discriminant": "page",
+          "value": "mantine"
         },
         {
           "discriminant": "page",
@@ -315,6 +331,14 @@
         {
           "discriminant": "page",
           "value": "shadcn-ui"
+        },
+        {
+          "discriminant": "page",
+          "value": "stripe"
+        },
+        {
+          "discriminant": "page",
+          "value": "twitter"
         },
         {
           "discriminant": "page",
@@ -353,10 +377,6 @@
         {
           "discriminant": "page",
           "value": "affiliate-program"
-        },
-        {
-          "discriminant": "page",
-          "value": "my-favorite-newsletters"
         }
       ]
     }
@@ -372,6 +392,10 @@
         {
           "discriminant": "page",
           "value": "privacy-and-security"
+        },
+        {
+          "discriminant": "page",
+          "value": "date-formats"
         },
         {
           "discriminant": "page",
@@ -396,7 +420,15 @@
       "items": [
         {
           "discriminant": "page",
+          "value": "using-markdown"
+        },
+        {
+          "discriminant": "page",
           "value": "fancy-mode"
+        },
+        {
+          "discriminant": "page",
+          "value": "naked-mode"
         },
         {
           "discriminant": "page",
@@ -404,15 +436,7 @@
         },
         {
           "discriminant": "page",
-          "value": "template-variables"
-        },
-        {
-          "discriminant": "page",
-          "value": "date-formats"
-        },
-        {
-          "discriminant": "page",
-          "value": "using-markdown"
+          "value": "uploading-images"
         },
         {
           "discriminant": "page",
@@ -420,11 +444,15 @@
         },
         {
           "discriminant": "page",
-          "value": "uploading-images"
+          "value": "template-variables"
         },
         {
           "discriminant": "divider",
           "value": "FAQ"
+        },
+        {
+          "discriminant": "page",
+          "value": "how-do-i-format-dates"
         },
         {
           "discriminant": "page",
@@ -461,6 +489,10 @@
           "value": "customizing-web-design"
         },
         {
+          "discriminant": "page",
+          "value": "localization"
+        },
+        {
           "discriminant": "divider",
           "value": "FAQ"
         },
@@ -471,6 +503,10 @@
         {
           "discriminant": "page",
           "value": "can-i-use-a-custom-font"
+        },
+        {
+          "discriminant": "page",
+          "value": "can-i-exclude-an-email-from-archive"
         },
         {
           "discriminant": "page",
@@ -520,6 +556,15 @@
         {
           "discriminant": "page",
           "value": "why-arent-i-seeing-my-new-share-image"
+        }
+      ]
+    },
+    {
+      "name": "Deliverability",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "gmail-suspicious-link"
         }
       ]
     },
@@ -646,6 +691,10 @@
         {
           "discriminant": "page",
           "value": "does-buttondown-offer-stipends"
+        },
+        {
+          "discriminant": "page",
+          "value": "self-hosting"
         }
       ]
     },
@@ -682,11 +731,23 @@
         },
         {
           "discriminant": "page",
+          "value": "glossary-cfl"
+        },
+        {
+          "discriminant": "page",
+          "value": "glossary-cold-email"
+        },
+        {
+          "discriminant": "page",
           "value": "glossary-cpm"
         },
         {
           "discriminant": "page",
           "value": "glossary-csv"
+        },
+        {
+          "discriminant": "page",
+          "value": "glossary-cta"
         },
         {
           "discriminant": "page",
@@ -738,6 +799,14 @@
         },
         {
           "discriminant": "page",
+          "value": "glossary-oembed"
+        },
+        {
+          "discriminant": "page",
+          "value": "glossary-omnichannel"
+        },
+        {
+          "discriminant": "page",
           "value": "glossary-openapi"
         },
         {
@@ -782,6 +851,10 @@
         },
         {
           "discriminant": "page",
+          "value": "glossary-smtp"
+        },
+        {
+          "discriminant": "page",
           "value": "glossary-spamassassin"
         },
         {
@@ -795,6 +868,10 @@
         {
           "discriminant": "page",
           "value": "glossary-transactional-email"
+        },
+        {
+          "discriminant": "page",
+          "value": "glossary-ugc"
         },
         {
           "discriminant": "page",
@@ -825,12 +902,28 @@
         },
         {
           "discriminant": "page",
+          "value": "api-formatting"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-filtering"
+        },
+        {
+          "discriminant": "page",
           "value": "api-pagination"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-expansion"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-versioning"
         }
       ]
     },
     {
-      "name": "API Recipes",
+      "name": "API recipes",
       "items": [
         {
           "discriminant": "page",
@@ -868,6 +961,14 @@
         {
           "discriminant": "page",
           "value": "api-emails-analytic"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-filters"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-template"
         },
         {
           "discriminant": "divider",
@@ -964,6 +1065,10 @@
           "value": "api-tags-introduction"
         },
         {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
           "discriminant": "page",
           "value": "api-tags-list"
         },
@@ -993,6 +1098,10 @@
           "value": "api-images-introduction"
         },
         {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
           "discriminant": "page",
           "value": "api-images-create"
         },
@@ -1008,6 +1117,10 @@
         {
           "discriminant": "page",
           "value": "api-newsletters-introduction"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
         },
         {
           "discriminant": "page",
@@ -1043,6 +1156,10 @@
           "value": "api-exports-collections"
         },
         {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
           "discriminant": "page",
           "value": "api-exports-create"
         },
@@ -1053,7 +1170,7 @@
       ]
     },
     {
-      "name": "Bulk Actions",
+      "name": "Bulk actions",
       "items": [
         {
           "discriminant": "page",
@@ -1068,6 +1185,10 @@
           "value": "api-bulk-action-type"
         },
         {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
           "discriminant": "page",
           "value": "api-bulk-actions-create"
         },
@@ -1078,7 +1199,7 @@
       ]
     },
     {
-      "name": "Automations",
+      "name": "RSS feeds",
       "items": [
         {
           "discriminant": "page",
@@ -1134,12 +1255,24 @@
           "value": "api-webhooks-event-types"
         },
         {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
           "discriminant": "page",
           "value": "api-webhooks-list"
         },
         {
           "discriminant": "page",
           "value": "api-webhooks-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-webhooks-delete"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-webhooks-test"
         }
       ]
     },
@@ -1149,6 +1282,10 @@
         {
           "discriminant": "page",
           "value": "api-comments-introduction"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
         },
         {
           "discriminant": "page",
@@ -1170,6 +1307,10 @@
         {
           "discriminant": "page",
           "value": "api-surveys-cadence"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-survey-responses"
         },
         {
           "discriminant": "divider",
@@ -1207,11 +1348,52 @@
       ]
     },
     {
+      "name": "Automations",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-automation-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automation-status"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automation-timing"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automation-delay"
+        }
+      ]
+    },
+    {
       "name": "Changelog",
       "items": [
         {
           "discriminant": "page",
           "value": "api-changelog"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2024-08-15"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2024-08-01"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2024-07-13"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2024-06-27"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2024-06-21"
         },
         {
           "discriminant": "page",

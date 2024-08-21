@@ -33,7 +33,8 @@ const config: Config = {
       // And have the link styled in a consistent way without having to manually scour the rendered Markdown.
       addVariant("glossary", '&[href*="glossary-"]');
       addVariant("app-link", '&[href*="https://buttondown.email"]');
-      addVariant("pricing", '&[href*="https://buttondown.email/pricing"]');
+      addVariant("github", '&[href*="https://github.com"]');
+      addVariant("pricing", '&[href*="https://buttondown.com/pricing"]');
 
       // This component allows us to add arbitrary masks to elements, like as follows:
       //   <div class="mask-image:url(/path/to/image.png)"></div>
@@ -65,7 +66,7 @@ const config: Config = {
             maskSize: "16px",
             maskRepeat: "no-repeat",
           },
-        }
+        },
       });
     }),
     require("@tailwindcss/typography"),

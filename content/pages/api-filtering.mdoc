@@ -1,0 +1,41 @@
+---
+title: Filtering in the API
+navigationTitle: Filtering
+description:
+  Fundamentals of how to filter objects in the Buttondown API in a RESTful manner.
+---
+
+If you've got a non-trivial number of subscribers or emails, you'll almost certainly need to filter through them at some point — maybe it's to pull out all the subscribers who signed up in the last week, or to find all the emails that were sent to a specific audience.
+
+Buttondown adheres to fairly strict [REST](/glossary-rest) principles, which means that filtering is done through query parameters.
+
+## Filtering by a single field
+
+The simplest way to filter is by a single field. For example, if you want to find all emails that have a status of "draft", you can do so by adding a `status` query parameter to your request:
+
+```
+https://api.buttondown.com/v1/emails?status=draft
+```
+
+## Filtering by multiple fields
+
+If you want to filter by multiple fields, you can do so by adding multiple query parameters. For example, if you want to find all emails that have a status of "draft" and a source of "api", you can do so by adding both `status` and `source` query parameters to your request:
+
+```
+https://api.buttondown.com/v1/emails?status=draft&source=api
+```
+
+## Filtering by multiple values on a single field
+
+If you want to filter by multiple values on a single field, you can do so by adding the same query parameter multiple times. For example, if you want to find all emails that have a status of "draft" or "scheduled", you can do so by adding the `status` query parameter twice:
+
+```
+https://api.buttondown.com/v1/emails?status=draft&status=scheduled
+```
+
+---
+
+Please note that the fields on which you can filter in a given endpoint vary, and you'll want to consult the individual endpoint's documentation to see what fields are available for filtering. For instance:
+
+- [Filtering subscribers](/api-subscribers-list)
+- [Filtering emails](/api-emails-list)

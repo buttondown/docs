@@ -11,6 +11,11 @@
       "variant": "error",
       "name": "Name already exists",
       "description": "The name of the tag already exists."
+    },
+    "name_too_long": {
+      "variant": "error",
+      "name": "Name too long",
+      "description": "The name of the tag is too long."
     }
   },
   "SurveyStatus": {
@@ -110,6 +115,18 @@
       "variant": "info"
     }
   },
+  "AutomationStatus": {
+    "active": {
+      "name": "Active",
+      "description": "Active.",
+      "variant": "info"
+    },
+    "inactive": {
+      "name": "Inactive",
+      "description": "Inactive.",
+      "variant": "warning"
+    }
+  },
   "ExternalFeedAutomationStatus": {
     "active": {
       "name": "Active",
@@ -206,17 +223,17 @@
     "about_to_send": {
       "variant": "info",
       "name": "About to send",
-      "description": "This email has been queued to send out to subscribers, and will be sent automatically within a few minutes."
+      "description": "This email has been queued to send out to subscribers, and will be sent automatically within a few minutes.\n\nIf you're seeing that an email you just sent out is 'stuck' here, worry not — Buttondown sometimes takes a little bit longer to send out emails to ensure deliverability, but once it's marked as 'about to send' it will get sent out."
     },
     "scheduled": {
       "variant": "info",
       "name": "Scheduled",
-      "description": "This email has been scheduled to send out to subscribers at a specific time (stored in `publish_date`)."
+      "description": "This email has been scheduled to send out to subscribers at a specific time. This specific time is available on the email as its `publish_date`."
     },
     "in_flight": {
       "variant": "info",
       "name": "In flight",
-      "description": "This email is currently being sent out to subscribers, and is visible in your web archives if enabled."
+      "description": "This email is currently being sent out to subscribers, and is visible in your web archives if enabled.\n\nSome emails, especially those with large subscriber lists, may take a while to send out — Buttondown sends emails out in batches to ensure deliverability, so if you're seeing an email 'stuck' here, it's because our systems have detected that that's the optimal way to reach your subscribers."
     },
     "imported": {
       "variant": "info",
@@ -309,6 +326,10 @@
     "drafts": {
       "variant": "info",
       "name": "Drafts"
+    },
+    "mentions": {
+      "variant": "info",
+      "name": "Mentions"
     },
     "unsubscribers": {
       "variant": "info",
@@ -437,6 +458,10 @@
     "stripe.customer.updated": {
       "name": "stripe.customer.updated",
       "description": "Whenever a customer changes their email address in Stripe."
+    },
+    "automation.invoked": {
+      "name": "automation.invoked",
+      "description": "Whenever an automation is manually invoked (e.g. by a webhook or API call)."
     }
   },
   "BulkActionStatus": {
@@ -577,10 +602,15 @@
       "name": "Spammy",
       "description": "Subscribers that have been deemed spammy by Buttondown's automated systems."
     },
+    "undeliverable": {
+      "variant": "error",
+      "name": "Undeliverable",
+      "description": "Subscribers who have been unable to receive their email."
+    },
     "complained": {
       "variant": "error",
       "name": "Complained",
-      "description": "Subscribers that have registered a complaint with their email provider."
+      "description": "Subscribers that have registered a complaint with their email provider. Buttondown will not try to send them any future emails; no action is required on your part."
     },
     "malformed": {
       "variant": "error",
@@ -684,10 +714,54 @@
       "name": "Create LinkedIn post",
       "description": "Create a LinkedIn post."
     },
+    "create_twitter_post": {
+      "variant": "info",
+      "name": "Create Twitter post",
+      "description": "Create a Twitter post."
+    },
+    "create_bluesky_post": {
+      "variant": "info",
+      "name": "Create Bluesky post",
+      "description": "Create a Bluesky post."
+    },
     "forward_reply": {
       "variant": "info",
       "name": "Forward reply",
       "description": "Forward the reply to a given recipient."
+    }
+  },
+  "NewsletterEmailTemplate": {
+    "classic": {
+      "variant": "info",
+      "name": "Classic",
+      "description": "A plaintext template that puts emphasis on your content."
+    },
+    "modern": {
+      "variant": "info",
+      "name": "Modern",
+      "description": "The default email template."
+    },
+    "modern-german": {
+      "variant": "info",
+      "name": "Modern German",
+      "description": "The German-translated version of the modern template."
+    },
+    "airy": {
+      "variant": "info",
+      "name": "Airy"
+    },
+    "legal": {
+      "variant": "info",
+      "name": "Legal"
+    },
+    "plaintext": {
+      "variant": "info",
+      "name": "Plaintext"
+    },
+    "naked": {
+      "variant": "warning",
+      "name": "Naked",
+      "description": "The email body is used as the template."
     }
   }
 }

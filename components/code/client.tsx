@@ -2,6 +2,7 @@
 
 import useButtondownCookie, {
   API_KEY_COOKIE,
+  USERNAME_COOKIE,
 } from "@/hooks/useButtondownCookie";
 import * as Tabs from "@radix-ui/react-tabs";
 import clsx from "clsx";
@@ -32,6 +33,7 @@ export default function CodeInteractive({
   const hideTabs = blocks.length === 1 && blocks[0].name === undefined;
 
   const apiKey = useButtondownCookie(API_KEY_COOKIE);
+  const username = useButtondownCookie(USERNAME_COOKIE);
 
   return (
     <Tabs.Root defaultValue={blocks[0].name ?? "default"}>
@@ -67,6 +69,11 @@ export default function CodeInteractive({
             replacements.to.replace(API_KEY_PLACEHOLDER_SENTINEL, apiKey),
           );
         }
+
+        html = html.replace(
+          "{username}",
+          username ?? "YOUR-BUTTONDOWN-USERNAME",
+        );
 
         return (
           <Tabs.Content

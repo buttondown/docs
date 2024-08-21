@@ -8,18 +8,18 @@ If you've got a non-trivial number of subscribers or emails, you'll almost certa
 Buttondown's API uses number-based pagination: you'll need to specify the page number you want to retrieve with the `page` query parameter. Like so:
 
 ```bash
-curl 'https://api.buttondown.email/v1/subscribers?page=2'
+curl 'https://api.buttondown.com/v1/subscribers?page=2'
 ```
 
-(If you don't specify a page, we'll assume you want the first page.)
+If you don't specify a page, we'll assume you want the first page of results. This is because pagination is technically a subset of [filtering](/api-filtering), and the same principles apply!
 
 Additionally, responses that can be paginated always include a `next` field that contains the URL for the next page of results. If you're on the last page, the `next` field will be `null`. This looks something like the following:
 
 ```json
   {
     "count": 100,
-    "next": "https://api.buttondown.email/v1/subscribers?page=3",
-    "previous": "https://api.buttondown.email/v1/subscribers?page=1",
+    "next": "https://api.buttondown.com/v1/subscribers?page=3",
+    "previous": "https://api.buttondown.com/v1/subscribers?page=1",
     "results": [
       ...
     ]
@@ -31,7 +31,7 @@ This means that you can easily paginate through results by following the `next` 
 ```javascript
 const fetchSubscribers = async () => {
     let subscribers = [];
-    let next = "https://api.buttondown.email/v1/subscribers";
+    let next = "https://api.buttondown.com/v1/subscribers";
 
     while (next) {
         // Note that authentication is not handled in this code snippet,

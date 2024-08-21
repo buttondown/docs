@@ -14,7 +14,7 @@ This guide assumes that you're already an active user of Plausible, and have set
 
 To get your Buttondown information into Plausible (and vice-versa), you need to do two things:
 
-**Create a site matching your Buttondown newsletter.** Note that this should match your permanent archive URL; if you have purchased a [custom domain](https://www.notion.so/How-do-I-use-a-custom-domain-482601ac879c4f8286eb704f2322a140), use that instead of `buttondown.email/yourusername`.
+**Create a site matching your Buttondown newsletter.** Note that this should match your permanent archive URL; if you have purchased a [custom domain](https://docs.buttondown.com/getting-a-custom-domain), use that instead of `buttondown.email/yourusername`.
 
 ![A screenshot of what your Plausible settings page should look like.](/images/plausible.png)
 
@@ -24,7 +24,7 @@ To get your Buttondown information into Plausible (and vice-versa), you need to 
 
 ### Tracking new subscribers
 
-The "new subscriber" event is similar to the [subscriber.created](https://www.notion.so/What-are-the-various-event-types-d8244ac6aaa242038d17a01a4584f184) event type: it will fire on _all_ new subscribers, even if they haven't confirmed their subscription.
+The "new subscriber" event is similar to the [subscriber.created](https://docs.buttondown.com/api-webhooks-event-types#subscriber.created) event type: it will fire on _all_ new subscribers, even if they haven't confirmed their subscription.
 
 In order to track new subscribers signing up for your newsletter, add a new [custom event](https://plausible.io/docs/buttondown#how-to-track-newsletter-signups) to your Plausible site with the exact text of `Subscribe`. That's all you need to do: Buttondown will automatically record new goals (including which page your subscriber is on!) whenever you get a new subscriber.
 

@@ -27,10 +27,9 @@ export default function SubscribeForm() {
     <Card className="w-full max-w-sm mx-auto shadow-md">
       <form
         action="
-      https://buttondown.email/api/emails/embed-subscribe/{username}
+      https://buttondown.com/api/emails/embed-subscribe/{username}
       "
         method="post"
-        target="popupwindow"
       >
         <CardHeader>
           <CardTitle className="text-2xl">Stay informed</CardTitle>

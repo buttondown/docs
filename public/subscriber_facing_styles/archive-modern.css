@@ -284,7 +284,11 @@ body {
 }
 .header-brand-icon {
   height: 3.5rem;
-  margin-right: 0;
+}
+@media (min-width: 1024px) {
+  .header-brand-icon {
+    margin-right: 0;
+  }
 }
 .header-brand {
   display: -webkit-box;
@@ -378,22 +382,55 @@ date {
   color: var(--tint-color);
   word-wrap: break-word;
 }
+.email-body-container .subscribe_button {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+}
+.email-body-container .subscribe_button .buttondown-button {
+  font-family: var(--brand-font) !important;
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+    0 4px 6px -4px var(--tw-shadow-color);
+  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-radius: 9999px !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 2.5rem !important;
+}
+.email-body-container .subscribe_button:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
 .email-list {
   font-family: var(--brand-font);
+  width: 100%;
   max-width: var(--content-width);
   margin: 0 auto;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  padding: 3em;
+  padding: 3em 0;
 }
 .email-list:has(.empty-state) {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.email-list .empty-state {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 .email-list svg {
   max-width: 24px;
@@ -402,10 +439,24 @@ date {
   text-decoration: none;
   color: inherit;
 }
+.email-list .search-form {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 3rem;
+}
+.email-list .search-form input {
+  width: 100%;
+  border-width: 0px;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  background-color: #e4e4e4;
+}
 .email-list .email {
   margin-bottom: 1.5em;
   border-bottom: 1px solid var(--medium-color);
-  padding-bottom: 1.5em;
+  padding: 0 0.5em 1.5em;
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
@@ -526,6 +577,9 @@ blockquote.pullquote {
   display: -ms-flexbox;
   display: flex;
   padding: 8rem 2rem;
+}
+.subscribe-container a {
+  color: var(--tint-color);
 }
 @media (max-width: 600px) {
   .subscribe-container {
@@ -854,6 +908,8 @@ h2.description {
   border-radius: 4px;
 }
 .empty-state {
+  display: grid;
+  place-items: center;
   text-align: center;
   font-family: var(--brand-font);
   margin-top: 2em;
@@ -1009,4 +1065,33 @@ h2.description {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y))
     rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
     scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+table.buttondown-block-styled {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+table.buttondown-block-styled td,
+table.buttondown-block-styled th {
+  min-width: 1em;
+  border: 2px solid #ced4da;
+  padding: 3px 5px;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+table.buttondown-block-styled td > *,
+table.buttondown-block-styled th > * {
+  margin-bottom: 0;
+}
+table.buttondown-block-styled th {
+  font-weight: 700;
+  text-align: left;
+  background-color: #f1f3f5;
+}
+table.buttondown-block-styled p {
+  margin: 0;
 }

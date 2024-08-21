@@ -1,0 +1,21 @@
+---
+title: Versioning
+---
+
+Whenever we make a backwards-incompatible change to the API, we release a new version of the API. (The current version is `2024-08-15`.)
+
+Buttondown determines the API version associated with a request in two ways:
+
+- If a request includes a `header` with the key `X-API-Version`, Buttondown will use that value as the API version.
+- If a request does not include a `header` with the key `X-API-Version`, Buttondown will use a _pinned_ version associated with the newsletter. This pinned version can be found (and changed) in the "API" section of your [settings page](https://buttondown.com/settings).
+- If a pinned version is not present on the newsletter, Buttondown will use the latest version of the API.
+
+## What constitutes a backwards-incompatible change?
+
+We consider a backwards-incompatible change to be any change that could potentially break existing code that uses the API. This includes (but is not limited to):
+
+- Renaming or removing fields from an object
+- Removing or renaming an endpoint
+- Changing the type of a field
+- Changing whether or not a field is required
+- Changing logic within an endpoint

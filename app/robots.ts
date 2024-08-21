@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://docs.buttondown.email/sitemap.xml",
+    sitemap: "https://docs.buttondown.com/sitemap.xml",
   };
 }

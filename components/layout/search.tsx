@@ -10,6 +10,7 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { useCommandState } from "cmdk";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   type Dispatch,
@@ -33,11 +34,21 @@ const SearchResult = ({
   const router = useRouter();
   const url = `/${result.slug}`;
 
+  const toggleSearchBox = (e: KeyboardEvent) => {
+    // Test if the user is cmd+click or ctrl+clicking on search results
+    if (e.metaKey || e.ctrlKey) {
+      // If yes, leave them be, and articles will open as new tabs
+      return;
+    }
+    // If no, send them to their selected article
+    router.push(url);
+  };
+
   return (
-    <CommandItem onSelect={() => router.push(url)}>
+    <CommandItem onSelect={() => toggleSearchBox}>
       <div className="ml-2 mr-4 text-gray-600">{icon}</div>
       <div>
-        <p>
+        <Link href={url}>
           {result.display.title}
           {result.display.subtitle && (
             <>
@@ -47,7 +58,7 @@ const SearchResult = ({
               </span>
             </>
           )}
-        </p>
+        </Link>
       </div>
     </CommandItem>
   );

@@ -30,7 +30,7 @@ export const API_KEY_PLACEHOLDER_SENTINEL = "BUTTONDOWN_API_KEY_PLACEHOLDER";
 
 export const PYTHON_API_KEY_CODE = `
 # You can find this key in your API requests page:
-# https://buttondown.email/requests
+# https://buttondown.com/requests
 BUTTONDOWN_API_KEY = "your-api-key-here"
 `.trim();
 
@@ -38,6 +38,6 @@ export const PYTHON_API_KEY_CODE_REPLACEMENT = `
 # NOTE: This is your actual API key. Make sure not to share
 # it publicly or check it into production!
 # You can find this key in your API requests page:
-# https://buttondown.email/requests
+# https://buttondown.com/requests
 BUTTONDOWN_API_KEY = "${API_KEY_PLACEHOLDER_SENTINEL}"
 `.trim();

@@ -26,19 +26,24 @@ Here’s a little overview of precisely what each column contains:
 
 | Column                | Description                                                                     |
 |-----------------------|---------------------------------------------------------------------------------|
-| Status                | Draft, Scheduled, etc. (See [EmailStatus](/api-emails-status).)                 |
+| Status                | Draft, Scheduled, etc. (See [the full list of statuses](/api-emails-status).)                 |
+| Source                | “API,” “Web,” etc. (See [the full list of sources](/api-emails-source).)                    |
 | Subject               | The subject line of the email.                                                   |
-| Audience              | The audience the email was sent to.                                              |
+| Audience              | Public, private, premium, etc. (See [the full list of audiences](/api-emails-type).)                                          |
 | Creation date         | The date on which the email was created.                                         |
 | Publication date      | The date on which the email was published (or will be in the future).           |
 | Modification date     | The date on which the email was last modified.                                   |
-| Webmentions           | The number of [webmentions](/glossary-webmentions) the email has received.                                |
 | Subscriptions         | The number of subscribers who signed up from the web archive of this email.      |
+| Deliveries            | The number of times the email was delivered.                                     |
 | Paid subscriptions    | The number of paid subscribers who signed up from the web archive of this email. |
+| Deliveries            | The number of recipients who received the email.                          |
 | Opens                 | The number of times the email was opened.                                        |
 | Clicks                | The number of times a link in the email was clicked.                             |
 | Click rate            | The percentage of recipients who clicked a link in the email.                    |
 | Open rate             | The percentage of recipients who opened the email.                               |
+| Webmentions           | The number of [webmentions](/glossary-webmentions) the email has received.                                |
+| Unsubscribes          | The number of subscribers who unsubscribed from the email.                      |
+| Complaints            | The number of recipients who marked the email as spam.                          |
 | Page views (lifetime) | The number of times the email was viewed on the web.                             |
 | Page views (30 days)  | The number of times the email was viewed on the web in the last 30 days.         |
 | Page views (7 days)   | The number of times the email was viewed on the web in the last 7 days.          |

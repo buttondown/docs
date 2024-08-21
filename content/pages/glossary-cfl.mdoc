@@ -1,0 +1,12 @@
+---
+title: CFBL
+relatedPages: []
+---
+
+A CFBL (or sometimes referred to as a CFL) is an acronym for "complaint feedback loop." It's a process by which recipients of an email can provide feedback to both their email provider _and_ the sender of a given email that they think the email they received was spam.
+
+If you're building out your own email platform from scratch, or using a close-to-the-metal piece of infrastructure like AWS or Sendgrid, you'll want to make sure that you have a way to ingest CFBL feedback and take action on it. Failure to do so can result in your being blacklisted by their email providers.
+
+If you're using Buttondown — no need to worry at all. Buttondown automatically takes care of this for you by listening for CFBL feedback from all of your subscribers and automatically taking action on it, marking relevant subscribers as [Complained](/api-subscribers-type#complained).
+
+Fun fact: [RFC 9477](https://www.rfc-editor.org/rfc/rfc9477.html) is a proposal to standardize this process and bake it into [SMTP](/glossary-smtp) as a worldwide standard.

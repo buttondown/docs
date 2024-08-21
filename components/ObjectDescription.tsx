@@ -60,17 +60,24 @@ export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
         const info = _info as OpenAPIProperty;
         const name = property;
         const description = info.description;
-        const type: TypeProp =
-          "$ref" in info
-            ? {
-                type: "ref",
-                url: urlForSchema(info.$ref as string)?.url || "",
-                name: urlForSchema(info.$ref as string)?.schema || "",
-              }
-            : {
-                type: "string",
-                value: info.type,
-              };
+
+        let $ref: string | null = null;
+        if ("$ref" in info) {
+          $ref = info.$ref as string;
+        } else if ("allOf" in info) {
+          $ref = (info.allOf as { $ref: string }[])[0].$ref;
+        }
+
+        const type: TypeProp = $ref
+          ? {
+              type: "ref",
+              url: urlForSchema($ref)?.url || "",
+              name: urlForSchema($ref)?.schema || "",
+            }
+          : {
+              type: "string",
+              value: info.type,
+            };
 
         return (
           <Parameter
@@ -182,6 +189,7 @@ type ParameterType = {
   type: TypeProp;
   description: string;
   optional: boolean;
+  example?: string | string[] | object;
 };
 
 type BackingFixture =
@@ -205,21 +213,32 @@ export const extractParameters = <R extends Route>(
     .filter((parameter) => parameter.in !== "path")
     .map((parameter) => {
       const type =
-        "type" in parameter.schema
-          ? parameter.schema.type
-          : parameter.schema.$ref
+        "type" in parameter.schema && "items" in parameter.schema
+          ? parameter.schema.items?.$ref
+            ? extractRefFromType(parameter.schema.items.$ref)
+            : parameter.schema.type
+          : "$ref" in parameter.schema
             ? extractRefFromType(parameter.schema.$ref)
             : null;
 
-      const typeProp: TypeProp = {
-        type: "string",
-        value: type || "string",
-      };
+      const typeProp: TypeProp =
+        "type" in parameter.schema &&
+        "items" in parameter.schema &&
+        parameter.schema.items?.$ref
+          ? {
+              type: "ref[]",
+              url: urlForSchema(parameter.schema.items.$ref)?.url || "",
+              name: urlForSchema(parameter.schema.items.$ref)?.schema || "",
+            }
+          : {
+              type: "string",
+              value: type || "string",
+            };
 
       return {
         parameter: parameter.name,
         type: typeProp,
-        description: "",
+        description: parameter.description || "",
         optional: !parameter.required,
       };
     });
@@ -246,11 +265,13 @@ export const parametersForRef = (
                 $ref: string;
               };
               description: undefined;
+              example?: string[];
             }
           | {
               type: "string";
               description: string;
               $ref: undefined;
+              example?: string;
             }
           | {
               $ref: string;
@@ -262,6 +283,7 @@ export const parametersForRef = (
               allOf: [{ $ref: string }];
               description: undefined;
               type: undefined;
+              example?: object;
               $ref: undefined;
             };
 
@@ -299,6 +321,10 @@ export const parametersForRef = (
             "required" in schema
               ? !(schema.required as string[]).includes(parameter)
               : true,
+          example:
+            "example" in qualifiedParameter
+              ? qualifiedParameter.example
+              : undefined,
         };
       }),
     ];

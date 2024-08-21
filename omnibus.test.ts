@@ -12,6 +12,134 @@ dotenv.config();
 
 const MARKDOC_DIRECTORY = "content/pages";
 
+const VALID_APPLICATION_ROUTES = [
+  "",
+  "analytics",
+  "analytics/<str:id>",
+  "automations",
+  "automations/new",
+  "automations/<uuid:pk>",
+  "automations/<uuid:pk>/delete",
+  "automations/<uuid:pk>.body",
+  "comments",
+  "comments/<uuid:pk>",
+  "emails",
+  "emails/analytics/<uuid:pks>",
+  "emails/imports/new",
+  "emails/new",
+  "emails/visibilities/<uuid:pks>",
+  "emails/<uuid:pk>",
+  "emails/<uuid:pk>/completed",
+  "emails/<uuid:pk>/drafting",
+  "emails/<uuid:pk>/finalization",
+  "emails/<uuid:pk>/history",
+  "emails/<uuid:pk>/metadata",
+  "emails/<uuid:pk>/recipients",
+  "emails/<uuid:pk>/schedule",
+  "emails/<uuid:pk>/tags",
+  "events",
+  "events/<uuid:pk>",
+  "events/replay/<uuid:pks>",
+  "feeds",
+  "feeds/new",
+  "feeds/<uuid:pk>/",
+  "feeds/<uuid:pk>/delete",
+  "login",
+  "mentions",
+  "register",
+  "requests",
+  "requests/<uuid:pk>",
+  "requests/api-key/",
+  "requests/api-key/regenerate",
+  "search",
+  "settings",
+  "settings/basics",
+  "settings/basics.description",
+  "settings/billing",
+  "settings/billing",
+  "settings/billing/pricing",
+  "settings/danger-zone",
+  "settings/danger-zone/add-newsletter",
+  "settings/danger-zone/delete-account",
+  "settings/danger-zone/delete-newsletter",
+  "settings/design",
+  "settings/design.email.footer",
+  "settings/design.email.header",
+  "settings/design.web.footer",
+  "settings/design.web.header",
+  "settings/domains",
+  "settings/domains.hosting",
+  "settings/domains.sending",
+  "settings/embedding",
+  "settings/integrations",
+  "settings/integrations/<str:pk>",
+  "settings/notifications",
+  "settings/paid-subscriptions",
+  "settings/paid-subscriptions/disconnect",
+  "settings/paid-subscriptions/new",
+  "settings/profile",
+  "settings/referrals",
+  "settings/security",
+  "settings/security/<uuid:pk>/delete",
+  "settings/security/new",
+  "settings/sponsorships",
+  "settings/subscribing",
+  "settings/subscribing/inputs/new",
+  "settings/subscribing/unsubscription-reasons/new",
+  "settings/subscribing.confirmation",
+  "settings/subscribing.gift",
+  "settings/subscribing.premium_welcome",
+  "settings/subscribing.reminder",
+  "settings/subscribing.welcome",
+  "settings/subscriptions",
+  "settings/team",
+  "settings/team/<uuid:pk>/",
+  "settings/team/<uuid:pk>/delete/",
+  "settings/team/new",
+  "settings/tracking",
+  "sponsorships",
+  "sponsorships/<uuid:pk>",
+  "sponsorships/new",
+  "subscribers",
+  "subscribers/<uuid:pk>",
+  "subscribers/imports/<uuid:pk>",
+  "subscribers/imports/new",
+  "subscribers/new",
+  "surveys",
+  "surveys/<uuid:pk>",
+  "surveys/<uuid:pks>/delete",
+  "surveys/<uuid:pks>/status",
+  "surveys/new",
+  "tags",
+  "tags/new",
+  "tags/<uuid:pk>",
+  "unsubscription-from-lifecycle-emails-success",
+  "webhooks",
+  "webhooks/<uuid:pk>",
+  "webhooks/new",
+  "register",
+
+  // Marketing stuff.
+  "pricing",
+  "features/smtp-endpoint",
+  "features/analytics",
+  "features/integrations",
+  "features/integrations/soundcloud",
+  "features/integrations/youtube",
+  "features/concierge-migration",
+  "comparison-guides/esps",
+  "blog/lead-magnets",
+  "legal/privacy",
+  "legal/cookies",
+
+  // Specific pages.
+  "el-classico/archive/who-was-telemachus-anyway/",
+  "the-modern/archive/the-modern-template/",
+  "cryptography-dispatches",
+  "occasional-puzzles?tag=utm_source:buttondown_website",
+  "<yourusername>/referral/{{ subscriber.referral_code }}",
+];
+
 // Glossary pages that are linked less than 2x in the docs.
 // First try and find pages that could benefit from having a link to the page. But don't force it if it seems unnatural.
 // If you've checked through docs, and you're _really_ sure it can't be linked, add to this list.
@@ -27,6 +155,7 @@ const KNOWN_GLOSSARY_PAGES_WITHOUT_INTERNAL_LINKS = [
   "glossary-transactional-email.mdoc",
   "glossary-webmentions.mdoc",
   "glossary-latex.mdoc",
+  "glossary-omnichannel.mdoc",
 ];
 
 const CHANGELOG_FILE = `api-changelog.mdoc`;
@@ -102,20 +231,58 @@ const extractInternalLinks = (content: string): string[] => {
   return [...qualifiedInternalLinks, ...qualifiedRelatedPages];
 };
 
-const FILENAME_TO_RAW_CONTENT = fs
-  .readdirSync(MARKDOC_DIRECTORY)
-  .reduce((acc, filename) => {
+const extractApplicationLinks = (content: string): string[] => {
+  const links = (
+    content.match(/\(https:\/\/buttondown.email\/(.*?)\)/g) || []
+  ).map((link) => link.replace("(", "").replace(")", ""));
+
+  return links;
+};
+
+const FILENAME_TO_RAW_CONTENT = fs.readdirSync(MARKDOC_DIRECTORY).reduce(
+  (acc, filename) => {
     const fullyQualifiedFilename = `${MARKDOC_DIRECTORY}/${filename}`;
     acc[filename] = fs.readFileSync(fullyQualifiedFilename, "utf-8");
     return acc;
-  }, {} as { [filename: string]: string });
+  },
+  {} as { [filename: string]: string }
+);
 
 const FILENAME_TO_INTERNAL_LINKS = Object.entries(
   FILENAME_TO_RAW_CONTENT
-).reduce((acc, [filename, content]) => {
-  acc[filename] = extractInternalLinks(content);
-  return acc;
-}, {} as { [filename: string]: string[] });
+).reduce(
+  (acc, [filename, content]) => {
+    acc[filename] = extractInternalLinks(content);
+    return acc;
+  },
+  {} as { [filename: string]: string[] }
+);
+
+const FILENAME_TO_APPLICATION_LINKS = Object.entries(
+  FILENAME_TO_RAW_CONTENT
+).reduce(
+  (acc, [filename, content]) => {
+    acc[filename] = extractApplicationLinks(content);
+    return acc;
+  },
+  {} as { [filename: string]: string[] }
+);
+
+Object.entries(FILENAME_TO_APPLICATION_LINKS).forEach(([filename, routes]) => {
+  if (routes.length === 0) {
+    return;
+  }
+
+  test(filename + " only has valid application routes", () => {
+    routes.forEach((route) => {
+      expect(VALID_APPLICATION_ROUTES).toContain(
+        route
+          .replace("https://buttondown.email/", "")
+          .replace("https://buttondown.com/", "")
+      );
+    });
+  });
+});
 
 test("All redirect destinations are valid", () => {
   REDIRECTS.forEach(({ source, destination }) => {
@@ -174,6 +341,8 @@ Object.entries(FILENAME_TO_INTERNAL_LINKS).forEach(
   }
 );
 
+const MAXIMUM_TITLE_LENGTH = 60;
+
 // Make sure that there are no broken video links.
 Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
   test(filename + " has only valid video links", () => {
@@ -182,6 +351,11 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
       const path = match[1];
       expect(fs.existsSync(`public/${path}`)).toBeTruthy();
     }
+  });
+
+  test(filename + " has a recommended title length ", () => {
+    const title = content.match(/title: (.*)/)?.[1];
+    expect(title?.length).toBeLessThanOrEqual(MAXIMUM_TITLE_LENGTH);
   });
 });
 
@@ -203,10 +377,12 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
   );
   refs.forEach((ref) => {
     // @ts-ignore
-    test(`${ref.$ref} (referenced by ${filename}) has a URL`, () => {
+    test(`${ref.$ref} (referenced by ${filename}) has a URL in the schema`, () => {
       expect(
         // @ts-ignore
-        urlForSchema((ref as OpenAPIProperty).$ref as string)
+        urlForSchema((ref as OpenAPIProperty).$ref as string),
+        // @ts-ignore
+        `Reference to ${(ref as OpenAPIProperty).$ref} in ${filename} does not have a URL in the schema. Maybe try running \`just docs-v2/generate-indexes\`?`
       ).toBeTruthy();
     });
   });
@@ -236,4 +412,14 @@ test("Glossary is sorted correctly", () => {
   const glossaryItems = glossary?.items.map((item) => item.value) || [];
   const sortedGlossaryItems = [...glossaryItems].sort();
   expect(glossaryItems).toEqual(sortedGlossaryItems);
+});
+
+const ALL_IMAGES = fs
+  .readdirSync("public/images")
+  .filter((filename) => filename.endsWith(".png") || filename.endsWith(".jpg"));
+ALL_IMAGES.forEach((filename) => {
+  test(filename + " is under 1MB", () => {
+    const image = fs.readFileSync(`public/images/${filename}`);
+    expect(image.length).toBeLessThan(1024 * 1024);
+  });
 });
