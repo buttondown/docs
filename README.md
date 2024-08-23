@@ -7,8 +7,8 @@
 To run Docs v2 for the first time you'll:
 
 1. Clone the `monorepo` and navigate to `docs-v2` (or, if you don't have access, clone the `docs` repo)
-2. Use `just install` to install all packages and dependencies
-3. Run `just build`
+2. Use `just install` to install all packages and dependencies (or, if you're using the standalone `docs` repo, run `pnpm install`)
+3. Run `just build` (or, if you're using the standalone `docs` repo, go straight to `pnpm dev`)
 
 Now you're ready to work! You can now run `pnpm dev` in your command line.
 

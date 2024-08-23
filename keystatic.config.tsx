@@ -11,7 +11,7 @@ import {
   fields,
   singleton,
 } from "@keystatic/core";
-import { readFileSync } from "node:fs";
+import { existsSync } from "node:fs";
 
 const navigationGroupSchema = (label: string) =>
   fields.array(
@@ -48,7 +48,7 @@ const navigationGroupSchema = (label: string) =>
 // behavior is similar to production.
 // XXX: hack: we check if we are in the monorepo by checking for the presence of a file called heroku.yml,
 //      otherwise we assume we are not in the monorepo. this is necessary for the standalone docs repo.
-const RUNNING_IN_MONOREPO = readFileSync("heroku.yml");
+const RUNNING_IN_MONOREPO = existsSync("heroku.yml");
 const SHOULD_USE_GITHUB = process.env.NODE_ENV === "production";
 const APPLICATION_DIRECTORY = RUNNING_IN_MONOREPO ? "docs-v2" : ".";
 export const localBaseURL = RUNNING_IN_MONOREPO ? "../" : "./";
