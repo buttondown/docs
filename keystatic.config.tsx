@@ -11,6 +11,7 @@ import {
   fields,
   singleton,
 } from "@keystatic/core";
+import { readFileSync } from "node:fs";
 
 const navigationGroupSchema = (label: string) =>
   fields.array(
@@ -29,14 +30,14 @@ const navigationGroupSchema = (label: string) =>
             itemLabel: (props) => `Divider: ${props?.value}`,
           },
         },
-        { label: "Navigation" }
+        { label: "Navigation" },
       ),
     }),
     {
       label,
       itemLabel: (props) =>
         `${props.fields.name.value} (${props.fields.items.elements.length})`,
-    }
+    },
   );
 
 // NON-OBVIOUS LOGIC ALERT!
@@ -45,9 +46,12 @@ const navigationGroupSchema = (label: string) =>
 // application is in the root directory of the monorepo, not this directory. As a result, this process
 // should be run from the root directory of the monorepo even when local — this helps ensure that the
 // behavior is similar to production.
+// XXX: hack: we check if we are in the monorepo by checking for the presence of a file called heroku.yml,
+//      otherwise we assume we are not in the monorepo. this is necessary for the standalone docs repo.
+const RUNNING_IN_MONOREPO = readFileSync("heroku.yml");
 const SHOULD_USE_GITHUB = process.env.NODE_ENV === "production";
-const APPLICATION_DIRECTORY = "docs-v2";
-export const localBaseURL = "../";
+const APPLICATION_DIRECTORY = RUNNING_IN_MONOREPO ? "docs-v2" : ".";
+export const localBaseURL = RUNNING_IN_MONOREPO ? "../" : "./";
 const generatePath = (path: string) => {
   return `${APPLICATION_DIRECTORY}/${path}`;
 };
@@ -74,7 +78,7 @@ export default config({
           acc[group] = navigationGroupSchema(NAVIGATION_GROUP_LABELS[group]);
           return acc;
         },
-        {} as Record<string, any>
+        {} as Record<string, any>,
       ),
     }),
   },
@@ -330,7 +334,7 @@ export default config({
         }),
         relatedPages: fields.array(
           fields.relationship({ label: "Page", collection: "pages" }),
-          { label: "Related Pages", itemLabel: (props) => props.value ?? "" }
+          { label: "Related Pages", itemLabel: (props) => props.value ?? "" },
         ),
       },
     }),
