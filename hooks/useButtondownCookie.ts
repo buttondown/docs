@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const USERNAME_COOKIE = "buttondown_newsletter_username";
-export const API_KEY_COOKIE = "buttondown_newsletter_api_key";
 
-type CookieName = typeof USERNAME_COOKIE | typeof API_KEY_COOKIE;
+type CookieName = typeof USERNAME_COOKIE;
 
 // undefined = not yet loaded
 // null = no username

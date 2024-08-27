@@ -1,13 +1,12 @@
 "use client";
 
 import useButtondownCookie, {
-  API_KEY_COOKIE,
   USERNAME_COOKIE,
 } from "@/hooks/useButtondownCookie";
 import * as Tabs from "@radix-ui/react-tabs";
 import clsx from "clsx";
 import type { Lang } from "shiki";
-import { API_KEY_PLACEHOLDER_SENTINEL, type ProcessedBlock } from "./lib";
+import type { ProcessedBlock } from "./lib";
 
 // apiKeyReplacements are used to insert the user's live API key into code blocks.
 // We don't know whether that should be done until this component is run on the
@@ -32,7 +31,6 @@ export default function CodeInteractive({
 }) {
   const hideTabs = blocks.length === 1 && blocks[0].name === undefined;
 
-  const apiKey = useButtondownCookie(API_KEY_COOKIE);
   const username = useButtondownCookie(USERNAME_COOKIE);
 
   return (
@@ -61,14 +59,6 @@ export default function CodeInteractive({
 
       {blocks.map((block) => {
         let html = block.html;
-
-        const replacements = apiKeyReplacements[block.language];
-        if (replacements && apiKey) {
-          html = html.replace(
-            replacements.from,
-            replacements.to.replace(API_KEY_PLACEHOLDER_SENTINEL, apiKey),
-          );
-        }
 
         html = html.replace(
           "{username}",
