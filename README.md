@@ -169,3 +169,9 @@ It'll look something like this:
 ### Why do we have three `tsconfig` files?
 
 The core tsconfig.json file contains an `incremental: true` flag which does not work in the context of tests or stand-alone files.
+
+### What's the deal with `RUNNING_IN_MONOREPO`?
+
+Buttondown [runs in a monorepo](https://buttondown.com/blog/just-use-a-monorepo) so that we can more easily share code between our various repos. This means that some processes around serving the application are a little different when we're in the monorepo vs. if you're interacting with it independently (through our [mirror](https://github.com/buttondown/docs).)
+
+In general, you should just Not Worry about this; it's only really referenced in `keystatic.config.tsx`.

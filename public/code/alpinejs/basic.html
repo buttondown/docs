@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alpine.js Buttondown Example</title>
+    <script
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <form x-data="contactForm()" @submit.prevent="submit">
+      <label>
+        <span>Email address</span>
+        <input type="email" name="email" x-model="data.email" />
+      </label>
+      <button type="submit" x-text="buttonText" :disabled="loading">
+        Subscribe
+      </button>
+    </form>
+
+    <script>
+      // replace this with your own unique endpoint URL
+      const BUTTONDOWN_ENDPOINT =
+        "https://buttondown.com/api/emails/embed-subscribe/{username}";
+
+      function contactForm() {
+        return {
+          data: {
+            email: "",
+            message: "",
+          },
+          buttonText: "Submit",
+          loading: false,
+          submit() {
+            this.buttonText = "Submitting...";
+            this.loading = true;
+            fetch(BUTTONDOWN_ENDPOINT, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify(this.data),
+            })
+              .then((response) => {
+                alert(response);
+              })
+              .catch((error) => {
+                alert(error);
+              })
+              .finally(() => {
+                this.data.message = "";
+                this.buttonText = "Submit";
+                this.loading = false;
+              });
+          },
+        };
+      }
+    </script>
+  </body>
+</html>

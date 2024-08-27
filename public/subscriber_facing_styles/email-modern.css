@@ -330,7 +330,8 @@ img[goomoji] {
 }
 .video {
   position: relative;
-  display: inline-block;
+  display: block;
+  margin: 16px 0 !important;
 }
 .video:before {
   content: "";

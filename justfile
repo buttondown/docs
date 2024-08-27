@@ -29,11 +29,12 @@ build-indexes:
   cd .. && python3 docs-v2/scripts/compile_index.py
   pnpm compile-vectors
 
+# See comments in README.md for more context on `RUNNING_IN_MONOREPO`.
 build: lint build-indexes
-  pnpm build
+  RUNNING_IN_MONOREPO=true pnpm build
 
 dev:
-  pnpm dev
+  RUNNING_IN_MONOREPO=true pnpm dev
 
 test:
-  pnpm test
+  RUNNING_IN_MONOREPO=true pnpm test

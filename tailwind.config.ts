@@ -32,14 +32,14 @@ const config: Config = {
       //   </div>
       // And have the link styled in a consistent way without having to manually scour the rendered Markdown.
       addVariant("glossary", '&[href*="glossary-"]');
-      addVariant("app-link", '&[href*="https://buttondown.email"]');
+      addVariant("app-link", '&[href*="https://buttondown.com"]');
       addVariant("github", '&[href*="https://github.com"]');
       addVariant("pricing", '&[href*="https://buttondown.com/pricing"]');
 
       // This component allows us to add arbitrary masks to elements, like as follows:
       //   <div class="mask-image:url(/path/to/image.png)"></div>
       // This is useful for adding icons to links, like so:
-      //   <a href="https://buttondown.email" class="notable-link mask-image:url(/path/to/icon.png)">Buttondown</a>
+      //   <a href="https://buttondown.com" class="notable-link mask-image:url(/path/to/icon.png)">Buttondown</a>
       matchUtilities({
         mask: (value) => ({
           maskImage: value,

@@ -1,0 +1,19 @@
+---
+title: JAMStack
+---
+
+JAMStack is an acronym short for:
+
+- **JavaScript**: A programming language that runs in the browser.
+- **API**: A way of exposing functionality to the client-side code.
+- **Markup**: A way of describing the structure of a document.
+
+It's a way of building websites that roughly reduces down to the following principles:
+
+1. Create static files (HTML, CSS, and images) that can be efficiently served by a CDN, generally using a tool like [Netlify](https://buttondown.com/blog/netlify) or a static site generator such as Jekyll or Hugo.
+2. For any non-static parts of the site, expose [API](/glossary-api) endpoints that can be called by the client-side code.
+3. Bridge the gap between the client-side code and the API by using JavaScript to make API calls and update the DOM.
+
+JAMStack is a popular approach to building websites because it's simple, fast, and easy to deploy.
+
+JAMStack sites play well with Buttondown; it's easy to [build your subscriber base on a JAMstack site using Buttondown's API and form endpoints](/building-your-subscriber-base), and our [RESTful API](/api-introduction) makes it easy to query Buttondown using JavaScript.

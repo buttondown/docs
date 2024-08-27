@@ -57,6 +57,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "alpinejs",
       "glossary-latex",
       "glossary-preheader",
       "glossary-slug",
@@ -92,6 +93,7 @@
       "fancy-mode",
       "framer",
       "glossary-headless-mode",
+      "glossary-jamstack",
       "importing-your-data",
       "metadata",
       "private-mode",
@@ -139,6 +141,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "alpinejs",
       "api-tags-create",
       "api-tags-delete",
       "api-tags-list",
@@ -168,6 +171,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "alpinejs",
       "building-your-subscriber-base",
       "constant-contact",
       "customizing-subscriber-list-view",
@@ -643,6 +647,16 @@
     "description": null,
     "references": [
       "teams"
+    ]
+  },
+  {
+    "title": "Building a newsletter subscription form with Alpine.js",
+    "url": "alpinejs",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "alpinejs"
     ]
   },
   {
@@ -1415,7 +1429,8 @@
     "schema": null,
     "description": null,
     "references": [
-      "api-introduction"
+      "api-introduction",
+      "glossary-jamstack"
     ]
   },
   {
@@ -1611,6 +1626,17 @@
     "references": [
       "glossary-sending-domain",
       "hosting-on-a-custom-domain"
+    ]
+  },
+  {
+    "title": "JAMStack",
+    "url": "glossary-jamstack",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "building-your-subscriber-base",
+      "rss-to-email"
     ]
   },
   {
@@ -1859,6 +1885,7 @@
     "references": [
       "glossary-api",
       "glossary-headless-mode",
+      "glossary-jamstack",
       "sending-your-first-email"
     ]
   },

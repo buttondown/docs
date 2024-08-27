@@ -129,7 +129,7 @@ const generateJSONLDMetadata = (page: Page) => {
     author: {
       "@type": "Organization",
       name: "Buttondown",
-      url: "https://buttondown.email",
+      url: "https://buttondown.com",
     },
     publisher: {
       "@type": "Organization",

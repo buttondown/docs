@@ -129,6 +129,7 @@
     "Woohoo",
     "WYSIWYG",
     "yourname",
+    "alpinejs",
     "yourusername"
   ],
   "ignorePaths": [
@@ -137,7 +138,5 @@
     "./content/pages/kudos.mdoc",
     "**/*.tsx"
   ],
-  "enableFiletypes": [
-    "markdoc"
-  ]
+  "enableFiletypes": ["markdoc"]
 }

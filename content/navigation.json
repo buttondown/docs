@@ -290,6 +290,10 @@
       "items": [
         {
           "discriminant": "page",
+          "value": "alpinejs"
+        },
+        {
+          "discriminant": "page",
           "value": "blogger"
         },
         {
@@ -788,6 +792,10 @@
         {
           "discriminant": "page",
           "value": "glossary-hosting-domain"
+        },
+        {
+          "discriminant": "page",
+          "value": "glossary-jamstack"
         },
         {
           "discriminant": "page",

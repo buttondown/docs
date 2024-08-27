@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="flex flex-col items-center">
         <p className="mb-2">
           <a
-            href="https://buttondown.email"
+            href="https://buttondown.com"
             target="_blank"
             className="hover:underline"
             rel="noreferrer"
