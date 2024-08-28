@@ -415,6 +415,14 @@
     "references": []
   },
   {
+    "title": "Replies to your emails",
+    "url": "replies",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "How do I avoid the \"Promotions\" tab in Gmail?",
     "url": "how-do-i-avoid-the-promotions-tab",
     "section": "guides",
@@ -645,6 +653,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "replies",
       "teams"
     ]
   },
@@ -1248,6 +1257,7 @@
       "creating-your-first-automation",
       "duda",
       "linkedin",
+      "replies",
       "subscriber-autonomy",
       "twitter",
       "welcome-sequence"
