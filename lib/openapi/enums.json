@@ -750,10 +750,6 @@
       "variant": "info",
       "name": "Airy"
     },
-    "legal": {
-      "variant": "info",
-      "name": "Legal"
-    },
     "plaintext": {
       "variant": "info",
       "name": "Plaintext"
