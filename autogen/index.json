@@ -627,7 +627,6 @@
       "data-exports-subscriber",
       "data-exports-survey",
       "deleting-your-account",
-      "offboarding",
       "subscriber-referrals"
     ]
   },
@@ -811,24 +810,12 @@
     ]
   },
   {
-    "title": "Migrating away from Buttondown",
-    "url": "offboarding",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": [
-      "can-i-point-my-old-buttondown-newsletter-to-a-new-url"
-    ]
-  },
-  {
     "title": "Deleting your account",
     "url": "deleting-your-account",
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "offboarding"
-    ]
+    "references": []
   },
   {
     "title": "Can I point my old Buttondown newsletter to a new URL?",

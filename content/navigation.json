@@ -355,10 +355,6 @@
       "items": [
         {
           "discriminant": "page",
-          "value": "offboarding"
-        },
-        {
-          "discriminant": "page",
           "value": "deleting-your-account"
         },
         {

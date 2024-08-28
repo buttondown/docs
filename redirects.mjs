@@ -407,7 +407,7 @@ const REDIRECTS = [
   {
     source: "/odds-and-ends/offboarding",
     permanent: false,
-    destination: "/offboarding",
+    destination: "/deleting-your-account",
   },
   {
     source: "/odds-and-ends/privacy-and-security",

@@ -414,12 +414,28 @@ test("Glossary is sorted correctly", () => {
   expect(glossaryItems).toEqual(sortedGlossaryItems);
 });
 
+const IMAGE_SUFFIXES = [".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".mp4"];
+const IMAGE_DIRECTORY = "public/images";
+
 const ALL_IMAGES = fs
-  .readdirSync("public/images")
-  .filter((filename) => filename.endsWith(".png") || filename.endsWith(".jpg"));
+  .readdirSync(IMAGE_DIRECTORY, {
+    recursive: true,
+    encoding: "utf-8",
+  })
+  .filter((filename) => IMAGE_SUFFIXES.some((suffix) => filename.endsWith(suffix)));
+
 ALL_IMAGES.forEach((filename) => {
   test(filename + " is under 1MB", () => {
-    const image = fs.readFileSync(`public/images/${filename}`);
+    // Skip the test if it's an `mp4`.
+    if (filename.endsWith(".mp4")) {
+      return;
+    }
+    const image = fs.readFileSync(`${IMAGE_DIRECTORY}/${filename}`);
     expect(image.length).toBeLessThan(1024 * 1024);
   });
+
+test(filename + " is referenced by at least one page", () => {
+    const references = Object.entries(FILENAME_TO_RAW_CONTENT).filter(([_, content]) => content.includes(filename));
+    expect(references.length).toBeGreaterThan(0);
+});
 });
