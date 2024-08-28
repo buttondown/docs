@@ -203,6 +203,7 @@
       "api-surveys-update",
       "data-exports-survey",
       "surveys",
+      "teams",
       "welcome-sequence"
     ]
   },
@@ -1259,6 +1260,7 @@
       "linkedin",
       "replies",
       "subscriber-autonomy",
+      "teams",
       "twitter",
       "welcome-sequence"
     ]

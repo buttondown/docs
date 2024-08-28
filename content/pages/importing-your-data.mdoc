@@ -30,7 +30,7 @@ After you've customized your newsletter and prepared your subscribers to move to
 
 ## Compiling your data
 
-The simplest way to import your subscriber data is by uploading a comma-separated values (CSV) file to Buttondown. Buttondown recognizes columns in CSVs from common import sources like [ConvertKit](/convertkit), [MailChimp](/mailchimp), or [SubStack](/substack). When Buttondown recognizes a column, it automatically maps the data in that column to corresponding fields in Buttondown.
+The simplest way to import your subscriber data is by uploading a comma-separated values (CSV) file to Buttondown. Buttondown recognizes columns in CSVs from common import sources like [ConvertKit](/convertkit), [MailChimp](/mailchimp), or [Substack](/substack). When Buttondown recognizes a column, it automatically maps the data in that column to corresponding fields in Buttondown.
 
 If Buttondown doesn't recognize a column, you receive a prompt to map columns to Buttondown fields manually. Buttondown prompts you to choose which columns correspond to certain pieces of data, which lets you import subscribers while keeping their existing tags, join dates, and metadata.
 
@@ -57,7 +57,7 @@ odysseus@buttondown.email,1/2/23,"Sports, Politics",Odysseus,Ithaca,Stuck at sea
 helen@buttondown.email,1/3/23,"World News, Politics", Helen,Troy,Face that launched a thousand ships
 ```
 
-Common newsletter email services like [ConvertKit](/convertkit), [MailChimp](/mailchimp), or [SubStack](/substack) let you export your subscriber data as a CSV file. After you upload the CSV file to Buttondown, it can automatically import the following values for each of your subscribers:
+Common newsletter email services like [ConvertKit](/convertkit), [MailChimp](/mailchimp), or [Substack](/substack) let you export your subscriber data as a CSV file. After you upload the CSV file to Buttondown, it can automatically import the following values for each of your subscribers:
 
 - Email address
 - The date they subscribed to your newsletter
@@ -78,14 +78,6 @@ Here are a few tips for formatting your CSV file:
 - If one subscriber has multiple **tags**, we recommend including all the tags in the same column and separating them with commas, like so: “`Sports`, `Politics`”
 - If one subscriber has multiple items of **metadata**, we recommend adding them in separate columns, not in the same column.The example below has two separate metadata columns for `Name` and `Location`.
 - Last, but not least, you can format your subscriber **Notes** however you like. If you don’t have any notes, that’s fine too!
-
-```
-<CSV
-  data={[
-    { Email: "odysseus@buttondown.email", Date: "1/2/23", Interests: "Sports, Politics", Name: "Odysseus", Location: "Ithaca", Notes: "Stuck at sea" },
-  ]}
-/>
-```
 
 When you're satisfied with the contents of your CSV file, export it from Google Sheets, Excel, or your preferred app.
 
