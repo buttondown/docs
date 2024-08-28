@@ -5675,7 +5675,7 @@
       },
       "NewsletterEmailTemplate": {
         "title": "EmailTemplate",
-        "description": "Represents the template of an email.\n\nEach template has a different layout/style.",
+        "description": "Represents the template of an email.\n\nEach template has a different layout/style; you can view screenshots and examples [in the docs](https://docs.buttondown.com/customizing-email-design#buttondowns-default-templates).",
         "enum": [
           "classic",
           "modern",

@@ -1,4 +1,3 @@
-import { promises as fs } from "node:fs";
 import SEARCH from "@/autogen/index.json";
 import PRICES from "@/autogen/prices.json";
 import Notice from "@/components/Notice";
@@ -357,7 +356,13 @@ export default async function DocsPage({ params: { slug } }: Props) {
 
     return (
       <Layout slug={slug} title={page.title}>
-        <p>{OpenAPI.components.schemas[pageEnum].description}</p>
+        <div
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: It's fine
+          dangerouslySetInnerHTML={{
+            __html: marked(OpenAPI.components.schemas[pageEnum].description),
+          }}
+          className="-my-2"
+        />
         <hr />
         {Object.entries(OpenAPIEnums[pageEnum]).map(([name, spec]) => (
           <Parameter

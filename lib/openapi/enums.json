@@ -741,23 +741,15 @@
       "name": "Modern",
       "description": "The default email template."
     },
-    "modern-german": {
-      "variant": "info",
-      "name": "Modern German",
-      "description": "The German-translated version of the modern template."
-    },
-    "airy": {
-      "variant": "info",
-      "name": "Airy"
-    },
     "plaintext": {
       "variant": "info",
-      "name": "Plaintext"
+      "name": "Plaintext",
+      "description": "A plaintext (like, literally plaintext, no HTML at all) template for the truly minimalist."
     },
     "naked": {
       "variant": "warning",
       "name": "Naked",
-      "description": "The email body is used as the template."
+      "description": "The email body itself is used as the template, with no outside scaffolding provided by Buttondown."
     }
   }
 }
