@@ -1276,6 +1276,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-webhooks-update"
+        },
+        {
+          "discriminant": "page",
           "value": "api-webhooks-delete"
         },
         {

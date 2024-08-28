@@ -2531,6 +2531,14 @@
     "references": []
   },
   {
+    "title": "Updating a webhook",
+    "url": "api-webhooks-update",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Deleting a webhook",
     "url": "api-webhooks-delete",
     "section": "api",
