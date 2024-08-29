@@ -8872,6 +8872,12 @@
         },
         "required": ["dates"]
       },
+      "WebhookStatus": {
+        "title": "WebhookStatus",
+        "description": "An enumeration.",
+        "enum": ["enabled", "disabled"],
+        "type": "string"
+      },
       "Webhook": {
         "title": "Webhook",
         "description": "Webhooks are used to notify external services of events that occur in the\nsystem. For example, when a newsletter is sent, a webhook can be used to\nnotify an external service that the newsletter has been sent.",
@@ -8888,6 +8894,16 @@
             "description": "The date and time at which the object was created.",
             "type": "string",
             "format": "date-time"
+          },
+          "status": {
+            "description": "Whether the webhook is enabled or not.",
+            "default": "enabled",
+            "example": "enabled",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WebhookStatus"
+              }
+            ]
           },
           "event_type": {
             "description": "The type of event for which the webhook will be triggered.",
@@ -8921,6 +8937,16 @@
         "title": "WebhookInput",
         "type": "object",
         "properties": {
+          "status": {
+            "description": "Whether the webhook is enabled or not.",
+            "default": "enabled",
+            "example": "enabled",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WebhookStatus"
+              }
+            ]
+          },
           "event_type": {
             "description": "The type of event for which the webhook will be triggered.",
             "example": "email.created",
