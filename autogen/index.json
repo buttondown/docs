@@ -95,6 +95,7 @@
       "glossary-headless-mode",
       "glossary-jamstack",
       "importing-your-data",
+      "manually-adding-subscribers",
       "metadata",
       "private-mode",
       "quickstart",
@@ -125,6 +126,16 @@
     "schema": null,
     "description": null,
     "references": []
+  },
+  {
+    "title": "How do I manually add subscribers?",
+    "url": "manually-adding-subscribers",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-subscribers-create"
+    ]
   },
   {
     "title": "Dealing with spammy subscribers",
@@ -262,7 +273,7 @@
     ]
   },
   {
-    "title": "Benchmark",
+    "title": "Importing your data from Benchmark",
     "url": "benchmark",
     "section": "guides",
     "schema": null,

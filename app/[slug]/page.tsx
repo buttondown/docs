@@ -1,6 +1,5 @@
 import SEARCH from "@/autogen/index.json";
-import PRICES from "@/autogen/prices.json";
-import Notice from "@/components/Notice";
+import Document from "@/components/Document";
 import ObjectDescription, {
   extractParameters,
   extractSchemaFromContent,
@@ -11,6 +10,7 @@ import Code from "@/components/code";
 import Layout from "@/components/layout";
 import keystaticConfig, { localBaseURL } from "@/keystatic.config";
 import { TITLE } from "@/lib/constants";
+import { generateJSONLDMetadata } from "@/lib/jsonld";
 import OpenAPIEnums from "@/lib/openapi/enums.json";
 import OpenAPI from "@/lib/openapi/openapi.json";
 import type {
@@ -18,23 +18,13 @@ import type {
   Object as OpenAPIObject,
   Operation,
 } from "@/lib/openapi/types";
-import { type Entry, createReader } from "@keystatic/core/reader";
-import { DocumentRenderer } from "@keystatic/core/renderer";
+import { createReader } from "@keystatic/core/reader";
 import oasToSnippet from "@readme/oas-to-snippet";
 import type { Language } from "@readme/oas-to-snippet/languages";
 import { marked } from "marked";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import type { Lang } from "shiki";
-import CustomizableContent from "./customizable-content";
-import Heading from "./heading";
-import Iframe from "./iframe";
-import ImageWithLightbox from "./image-with-lightbox";
-import LiveCodeBlock from "./live-code-block";
 import { circularOas, plainOas } from "./oas";
-import Video from "./video";
-
-const USERNAME_KEY = "buttondown_newsletter_username";
 
 type Props = {
   params: {
@@ -106,41 +96,6 @@ export async function generateMetadata({ params: { slug } }: Props) {
     },
   };
 }
-
-type Page = Omit<
-  Entry<(typeof keystaticConfig)["collections"]["pages"]>,
-  "relatedPages"
-> & {
-  slug: string;
-  relatedPages: Array<{ slug: string; title: string | null }>;
-};
-
-const generateJSONLDMetadata = (page: Page) => {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://docs.buttondown.com/${page.slug}`,
-    },
-    headline: page.title,
-    description: page.description,
-    author: {
-      "@type": "Organization",
-      name: "Buttondown",
-      url: "https://buttondown.com",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Buttondown",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://buttondown.com/static/images/icons/icon@400.png",
-      },
-    },
-    datePublished: page.date,
-  };
-};
 
 export default async function DocsPage({ params: { slug } }: Props) {
   const page = await pageFromSlug(slug);
@@ -230,20 +185,10 @@ export default async function DocsPage({ params: { slug } }: Props) {
 
     return (
       <Layout slug={slug} title={page.title}>
-        <DocumentRenderer
-          document={await page.content()}
-          componentBlocks={{
-            noticeWarn: (props) => {
-              return (
-                <Notice type="warning">
-                  <div
-                    // biome-ignore lint/security/noDangerouslySetInnerHtml: It's fine
-                    dangerouslySetInnerHTML={{ __html: marked(props.text) }}
-                    className="-my-2"
-                  />
-                </Notice>
-              );
-            },
+        <Document
+          page={{
+            ...page,
+            slug,
           }}
         />
         <h2 className="mb-1">Sample requests</h2>
@@ -394,202 +339,12 @@ export default async function DocsPage({ params: { slug } }: Props) {
 
   return (
     <Layout slug={slug} title={page.title}>
-      <DocumentRenderer
-        document={await page.content()}
-        renderers={{
-          block: {
-            heading: Heading,
-            image: ImageWithLightbox,
-            code: ({ children, language }) => (
-              <Code
-                blocks={[
-                  {
-                    language: (language as Lang) ?? "text",
-                    code: children,
-                  },
-                ]}
-              />
-            ),
-          },
-        }}
-        componentBlocks={{
-          multilanguageSnippets: (props) => {
-            return (
-              <div className="not-prose">
-                <Code
-                  blocks={
-                    [
-                      {
-                        name: "Python",
-                        code: props.python,
-                        language: "python",
-                      },
-                      {
-                        name: "Ruby",
-                        code: props.ruby,
-                        language: "ruby",
-                      },
-                      {
-                        name: "cURL",
-                        code: props.curl,
-                        language: "bash",
-                      },
-                      {
-                        name: "JavaScript",
-                        code: props.javascript,
-                        language: "javascript",
-                      },
-                    ].filter(
-                      (block) =>
-                        block.code !== undefined && block.code.trim() !== "",
-                    ) as {
-                      name: string;
-                      code: string;
-                      language: Lang;
-                    }[]
-                  }
-                />
-              </div>
-            );
-          },
-          customizableContent: (props) => (
-            <CustomizableContent
-              loggedInHtml={marked(props.loggedIn)}
-              anonymousHtml={marked(props.anonymous)}
-            />
-          ),
-          paidFeature: (props) => {
-            const price = PRICES.find((price) =>
-              price.features.includes(props.feature),
-            );
-            return (
-              <Notice type="info">
-                This feature requires a{" "}
-                <a
-                  href={`https://buttondown.com/pricing?count=${(price?.subscriber_count || 1) - 1}`}
-                  target="_blank"
-                  className="text-inherit font-normal whitespace-nowrap"
-                  rel="noreferrer"
-                >
-                  {price?.name}&nbsp;plan.
-                </a>
-              </Notice>
-            );
-          },
-          supportSnippet: () => {
-            return (
-              <div>
-                <h3>Reach out to your friends at Buttondown</h3>
-                <p>
-                  As always, we’re happy to answer any questions you may have
-                  via{" "}
-                  <a href="mailto:support@buttondown.email">
-                    support@buttondown.email.
-                  </a>
-                </p>
-              </div>
-            );
-          },
-          exportButtondownData: () => {
-            return (
-              <div>
-                <h3>By the way</h3>
-                <p>
-                  With Buttondown, it&#39;s easy to{" "}
-                  <a href="/data-exports">export</a> your subscribers, surveys,
-                  emails, and other data whenever you wish—no strings attached!
-                </p>
-                <img
-                  src="/images/exporting.png"
-                  alt='A screenshot of the "export data" button.'
-                  title=""
-                  className="cursor-zoom-in"
-                />
-              </div>
-            );
-          },
-          noticeInfo: (props) => {
-            return <Notice type="info">{props.text}</Notice>;
-          },
-          noticeWarn: (props) => {
-            return <Notice type="warning">{props.text}</Notice>;
-          },
-          snippetSpacer: () => {
-            return <br />;
-          },
-          renderable: (props) => {
-            return (
-              <div className="not-prose">
-                <Code
-                  blocks={[
-                    {
-                      name: "Before",
-                      code: props.html,
-                      language: "html",
-                    },
-                    {
-                      name: "After",
-                      code: props.html,
-                      language: "html",
-                    },
-                  ]}
-                />
-              </div>
-            );
-          },
-          preview: (props) => {
-            return (
-              <div className="border border-gray-200 text-center p-8 mt-4 bg-gray-100">
-                <div className="shadow-sm border border-gray-300 divide-y divide-gray-300">
-                  <div className="bg-white p-4 text-sm text-left border-b-0 overflow-x-scroll">
-                    <div className="font-mono whitespace-pre">
-                      {props.before}
-                    </div>
-                  </div>
-                  <div
-                    className="text-gray-800 bg-white p-4 text-left"
-                    // biome-ignore lint/security/noDangerouslySetInnerHtml: It's fine
-                    dangerouslySetInnerHTML={{ __html: props.after }}
-                  />
-                </div>
-              </div>
-            );
-          },
-          iframe: (props) => <Iframe src={props.src} />,
-          video: (props) => <Video src={props.file} />,
-          liveCodeBlock: (props) => <LiveCodeBlock path={props.filename} />,
-          automation: (props) => (
-            <a
-              href={props.url}
-              className="text-inherit no-underline after:!hidden"
-            >
-              <div className="border border-gray-300 bg-gray-50 p-4 px-8 text-center hover:scale-105 transition-all cursor-pointer relative overflow-hidden hover:border-green-600 hover:bg-green-100">
-                <div className="absolute right-0 top-0 h-12 w-12">
-                  <div className="absolute transform rotate-45 bg-gradient-to-tr from-green-500 to-green-600 text-center text-white font-semibold py-1 right-[-50px] top-[25px] w-[170px] text-xs uppercase">
-                    Click to use
-                  </div>
-                </div>
-                <div className="font-bold">{props.name}</div>
-                <div className="text-sm">{props.description}</div>
-                <div className="flex mt-8 items-center text-sm">
-                  <div className="bg-gray-700 text-white px-5 py-1 rounded-full">
-                    {props.trigger}
-                  </div>
-                  <div className="border-t border-t-gray-300 flex-1" />
-                  <div className="bg-gray-300 text-xs rounded-full px-2 py-1 uppercase -mx-2">
-                    then
-                  </div>
-                  <div className="border-t border-t-gray-300 flex-1" />
-                  <div className="bg-blue-600 text-white px-5 py-1 rounded-full">
-                    {props.action}
-                  </div>
-                </div>
-              </div>
-            </a>
-          ),
+      <Document
+        page={{
+          ...page,
+          slug,
         }}
       />
-
       {page.relatedPages.length > 0 && (
         <div>
           <h2 className="text-xl font-bold text-gray-800 mt-8">Related</h2>

@@ -46,6 +46,10 @@
         },
         {
           "discriminant": "page",
+          "value": "manually-adding-subscribers"
+        },
+        {
+          "discriminant": "page",
           "value": "dealing-with-spam-subscribers"
         }
       ]

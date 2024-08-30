@@ -27,7 +27,7 @@ export default function Nav({ data, slug }: { data: NavData; slug: string }) {
 
   if (!currentNavigationGroup || !currentFolderName) {
     throw new Error(
-      `Can’t find current navigation group and/or folder name for "${slug}". (Has it been added to the navigation hierarchy?) `,
+      `Can’t find current navigation group and/or folder name for "${slug}". (Has it been added to the navigation hierarchy in 'navigation.json'?) `,
     );
   }
 

@@ -4,6 +4,8 @@ endpoint: /subscribers
 method: post
 ---
 
+{% noticeInfo text="This endpoint is for creating a new subscriber via the API. If you're looking to just do this via the UI, [this doc](/manually-adding-subscribers) is for you." /%}
+
 By default, newly created subscribers are subject to [double opt-in](/glossary-double-optin) — they will receive an email asking them to confirm their subscription,
 and have a state of [`unactivated`](/api-subscribers-type#unactivated) until they do so.
 

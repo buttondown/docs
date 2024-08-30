@@ -28,9 +28,9 @@ const Notice = ({ children, type }: Props) => {
         <div className="pt-2">
           <Icon.Info />
         </div>
-        <div className="ml-2">
+        <div className="ml-2 text-md">
           <span className="uppercase text-sm font-semibold">{type}</span>
-          <p className="text-base my-1">{children}</p>
+          {children}
         </div>
       </div>
     </div>
