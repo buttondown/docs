@@ -8,7 +8,7 @@
   "paths": {
     "/exports": {
       "post": {
-        "operationId": "api_views_exports_create_export",
+        "operationId": "create_export",
         "summary": "Create Export",
         "parameters": [],
         "responses": {
@@ -63,7 +63,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_exports_list_exports",
+        "operationId": "list_exports",
         "summary": "List Exports",
         "parameters": [],
         "responses": {
@@ -110,7 +110,7 @@
     },
     "/exports/{id}": {
       "get": {
-        "operationId": "api_views_exports_retrieve_export",
+        "operationId": "retrieve_export",
         "summary": "Retrieve Export",
         "parameters": [
           {
@@ -168,7 +168,7 @@
     },
     "/tags": {
       "post": {
-        "operationId": "api_views_subscriber_tags_create_tag",
+        "operationId": "create_tag",
         "summary": "Create Tag",
         "parameters": [],
         "responses": {
@@ -223,7 +223,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_subscriber_tags_list_tags",
+        "operationId": "list_tags",
         "summary": "List Tags",
         "parameters": [],
         "responses": {
@@ -260,7 +260,7 @@
     },
     "/tags/{id}": {
       "get": {
-        "operationId": "api_views_subscriber_tags_retrieve_tag",
+        "operationId": "retrieve_tag",
         "summary": "Retrieve Tag",
         "parameters": [
           {
@@ -316,7 +316,7 @@
         ]
       },
       "patch": {
-        "operationId": "api_views_subscriber_tags_update_tag",
+        "operationId": "update_tag",
         "summary": "Update Tag",
         "parameters": [
           {
@@ -382,7 +382,7 @@
         ]
       },
       "delete": {
-        "operationId": "api_views_subscriber_tags_delete_tag",
+        "operationId": "delete_tag",
         "summary": "Delete Tag",
         "parameters": [
           {
@@ -433,7 +433,7 @@
     },
     "/tags/{id}/analytics": {
       "get": {
-        "operationId": "api_views_subscriber_tags_retrieve_tag_analytics",
+        "operationId": "retrieve_tag_analytics",
         "summary": "Retrieve Tag Analytics",
         "parameters": [
           {
@@ -491,7 +491,7 @@
     },
     "/ping": {
       "get": {
-        "operationId": "api_views_ping_ping",
+        "operationId": "ping",
         "summary": "Ping",
         "parameters": [],
         "responses": {
@@ -518,7 +518,7 @@
     },
     "/images": {
       "post": {
-        "operationId": "api_views_images_create_image",
+        "operationId": "create_image",
         "summary": "Create Image",
         "parameters": [],
         "responses": {
@@ -574,7 +574,7 @@
     },
     "/images/{id}": {
       "delete": {
-        "operationId": "api_views_images_delete_image",
+        "operationId": "delete_image",
         "summary": "Delete Image",
         "parameters": [
           {
@@ -625,7 +625,7 @@
     },
     "/emails": {
       "post": {
-        "operationId": "api_views_emails_routes_create_email",
+        "operationId": "create_email",
         "summary": "Create Email",
         "parameters": [],
         "responses": {
@@ -680,7 +680,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_emails_routes_list_emails",
+        "operationId": "list_emails",
         "summary": "List Emails",
         "parameters": [
           {
@@ -899,7 +899,7 @@
     },
     "/emails/{id}": {
       "patch": {
-        "operationId": "api_views_emails_routes_update_email",
+        "operationId": "update_email",
         "summary": "Update Email",
         "parameters": [
           {
@@ -975,7 +975,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_emails_routes_retrieve_email",
+        "operationId": "retrieve_email",
         "summary": "Retrieve Email",
         "parameters": [
           {
@@ -1033,7 +1033,7 @@
     },
     "/emails/{id}/history": {
       "get": {
-        "operationId": "api_views_emails_routes_retrieve_email_history",
+        "operationId": "retrieve_email_history",
         "summary": "Retrieve Email History",
         "parameters": [
           {
@@ -1129,7 +1129,7 @@
     },
     "/emails/{id}/analytics": {
       "get": {
-        "operationId": "api_views_emails_routes_retrieve_email_analytics",
+        "operationId": "retrieve_email_analytics",
         "summary": "Retrieve Email Analytics",
         "parameters": [
           {
@@ -1187,7 +1187,7 @@
     },
     "/emails/{id}/send-draft": {
       "post": {
-        "operationId": "api_views_emails_routes_send_draft",
+        "operationId": "send_draft",
         "summary": "Send Draft",
         "parameters": [
           {
@@ -1258,7 +1258,7 @@
     },
     "/subscribers": {
       "post": {
-        "operationId": "api_views_subscribers_routes_create_subscriber",
+        "operationId": "create_subscriber",
         "summary": "Create Subscriber",
         "parameters": [
           {
@@ -1324,7 +1324,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_subscribers_routes_list_subscribers",
+        "operationId": "list_subscribers",
         "summary": "List Subscribers",
         "parameters": [
           {
@@ -1566,7 +1566,7 @@
     },
     "/subscribers/{id_or_email}": {
       "get": {
-        "operationId": "api_views_subscribers_routes_retrieve_subscriber",
+        "operationId": "retrieve_subscriber",
         "summary": "Retrieve Subscriber",
         "parameters": [
           {
@@ -1635,7 +1635,7 @@
         ]
       },
       "delete": {
-        "operationId": "api_views_subscribers_routes_delete_subscriber",
+        "operationId": "delete_subscriber",
         "summary": "Delete Subscriber",
         "parameters": [
           {
@@ -1683,7 +1683,7 @@
         ]
       },
       "patch": {
-        "operationId": "api_views_subscribers_routes_update_subscriber",
+        "operationId": "update_subscriber",
         "summary": "Update Subscriber",
         "parameters": [
           {
@@ -1760,7 +1760,7 @@
     },
     "/subscribers/{id_or_email}/send-reminder": {
       "post": {
-        "operationId": "api_views_subscribers_routes_send_reminder",
+        "operationId": "send_reminder",
         "summary": "Send Reminder",
         "parameters": [
           {
@@ -1800,7 +1800,7 @@
     },
     "/subscribers/{id_or_email}/emails/{email_id}": {
       "post": {
-        "operationId": "api_views_subscribers_routes_send_email_to",
+        "operationId": "send_email_to",
         "summary": "Send Email To",
         "parameters": [
           {
@@ -1877,7 +1877,7 @@
     },
     "/subscribers/{id_or_email}/clients": {
       "get": {
-        "operationId": "api_views_subscribers_routes_get_clients",
+        "operationId": "get_clients",
         "summary": "Get Clients",
         "parameters": [
           {
@@ -1934,7 +1934,7 @@
     },
     "/subscribers/{id_or_email}/referrals": {
       "get": {
-        "operationId": "api_views_subscribers_routes_get_referrals",
+        "operationId": "get_referrals",
         "summary": "Get Referrals",
         "parameters": [
           {
@@ -1991,7 +1991,7 @@
     },
     "/subscribers/{id}/automations": {
       "get": {
-        "operationId": "api_views_subscribers_routes_get_automations",
+        "operationId": "get_automations",
         "summary": "Get Automations",
         "parameters": [
           {
@@ -2049,7 +2049,7 @@
     },
     "/subscribers/{id_or_email}/stripe-subscriptions": {
       "get": {
-        "operationId": "api_views_subscribers_routes_get_stripe_subscriptions",
+        "operationId": "get_stripe_subscriptions",
         "summary": "Get Stripe Subscriptions",
         "parameters": [
           {
@@ -2106,7 +2106,7 @@
     },
     "/newsletters": {
       "get": {
-        "operationId": "api_views_newsletters_list_newsletters",
+        "operationId": "list_newsletters",
         "summary": "List Newsletters",
         "parameters": [],
         "responses": {
@@ -2151,7 +2151,7 @@
         ]
       },
       "post": {
-        "operationId": "api_views_newsletters_create_newsletter",
+        "operationId": "create_newsletter",
         "summary": "Create Newsletter",
         "parameters": [],
         "responses": {
@@ -2208,7 +2208,7 @@
     },
     "/newsletters/{id}": {
       "patch": {
-        "operationId": "api_views_newsletters_update_newsletter",
+        "operationId": "update_newsletter",
         "summary": "Update Newsletter",
         "parameters": [
           {
@@ -2284,7 +2284,7 @@
         ]
       },
       "delete": {
-        "operationId": "api_views_newsletters_delete_newsletter",
+        "operationId": "delete_newsletter",
         "summary": "Delete Newsletter",
         "parameters": [
           {
@@ -2335,7 +2335,7 @@
     },
     "/bulk_actions": {
       "post": {
-        "operationId": "api_views_bulk_actions_create_bulk_action",
+        "operationId": "create_bulk_action",
         "summary": "Create Bulk Action",
         "parameters": [],
         "responses": {
@@ -2392,7 +2392,7 @@
     },
     "/bulk_actions/{id}": {
       "get": {
-        "operationId": "api_views_bulk_actions_retrieve_bulk_action",
+        "operationId": "retrieve_bulk_action",
         "summary": "Retrieve Bulk Action",
         "parameters": [
           {
@@ -2450,7 +2450,7 @@
     },
     "/external_feeds": {
       "post": {
-        "operationId": "api_views_external_feeds_routes_create_external_feed",
+        "operationId": "create_external_feed",
         "summary": "Create External Feed",
         "parameters": [],
         "responses": {
@@ -2505,7 +2505,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_external_feeds_routes_list_external_feed",
+        "operationId": "list_external_feed",
         "summary": "List External Feed",
         "parameters": [],
         "responses": {
@@ -2542,7 +2542,7 @@
     },
     "/external_feeds/{id}": {
       "patch": {
-        "operationId": "api_views_external_feeds_routes_update_external_feed",
+        "operationId": "update_external_feed",
         "summary": "Update External Feed",
         "parameters": [
           {
@@ -2618,7 +2618,7 @@
         ]
       },
       "delete": {
-        "operationId": "api_views_external_feeds_routes_delete_external_feed",
+        "operationId": "delete_external_feed",
         "summary": "Delete External Feed",
         "parameters": [
           {
@@ -2667,7 +2667,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_external_feeds_routes_retrieve_external_feed",
+        "operationId": "retrieve_external_feed",
         "summary": "Retrieve External Feed",
         "parameters": [
           {
@@ -2725,7 +2725,7 @@
     },
     "/external_feeds/{id}/items": {
       "post": {
-        "operationId": "api_views_external_feeds_routes_poll_items",
+        "operationId": "poll_items",
         "summary": "Poll Items",
         "parameters": [
           {
@@ -2781,7 +2781,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_external_feeds_routes_retrieve_items",
+        "operationId": "retrieve_items",
         "summary": "Retrieve Items",
         "parameters": [
           {
@@ -2854,7 +2854,7 @@
     },
     "/automations": {
       "get": {
-        "operationId": "api_views_automations_routes_list_automations",
+        "operationId": "list_automations",
         "summary": "List Automations",
         "parameters": [],
         "responses": {
@@ -2899,7 +2899,7 @@
         ]
       },
       "post": {
-        "operationId": "api_views_automations_routes_create_automation",
+        "operationId": "create_automation",
         "summary": "Create Automation",
         "parameters": [],
         "responses": {
@@ -2956,7 +2956,7 @@
     },
     "/automations/{id}/subscribers": {
       "get": {
-        "operationId": "api_views_automations_routes_retrieve_automation_subscribers",
+        "operationId": "retrieve_automation_subscribers",
         "summary": "Retrieve Automation Subscribers",
         "parameters": [
           {
@@ -3049,7 +3049,7 @@
     },
     "/automations/{id}": {
       "get": {
-        "operationId": "api_views_automations_routes_retrieve_automation",
+        "operationId": "retrieve_automation",
         "summary": "Retrieve Automation",
         "parameters": [
           {
@@ -3105,7 +3105,7 @@
         ]
       },
       "patch": {
-        "operationId": "api_views_automations_routes_update_automation",
+        "operationId": "update_automation",
         "summary": "Update Automation",
         "parameters": [
           {
@@ -3181,7 +3181,7 @@
         ]
       },
       "delete": {
-        "operationId": "api_views_automations_routes_delete_automation",
+        "operationId": "delete_automation",
         "summary": "Delete Automation",
         "parameters": [
           {
@@ -3232,7 +3232,7 @@
     },
     "/automations/{id}/invoke": {
       "post": {
-        "operationId": "api_views_automations_routes_invoke_automation",
+        "operationId": "invoke_automation",
         "summary": "Invoke Automation",
         "parameters": [
           {
@@ -3283,7 +3283,7 @@
     },
     "/automations/{id}/analytics": {
       "get": {
-        "operationId": "api_views_automations_routes_retrieve_automation_analytics",
+        "operationId": "retrieve_automation_analytics",
         "summary": "Retrieve Automation Analytics",
         "parameters": [
           {
@@ -3341,7 +3341,7 @@
     },
     "/users": {
       "post": {
-        "operationId": "api_views_users_create_user",
+        "operationId": "create_user",
         "summary": "Create User",
         "parameters": [],
         "responses": {
@@ -3406,7 +3406,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_users_list_users",
+        "operationId": "list_users",
         "summary": "List Users",
         "parameters": [],
         "responses": {
@@ -3443,7 +3443,7 @@
     },
     "/users/{id}": {
       "delete": {
-        "operationId": "api_views_users_delete_user",
+        "operationId": "delete_user",
         "summary": "Delete User",
         "parameters": [
           {
@@ -3492,7 +3492,7 @@
         ]
       },
       "patch": {
-        "operationId": "api_views_users_update_user",
+        "operationId": "update_user",
         "summary": "Update User",
         "parameters": [
           {
@@ -3570,7 +3570,7 @@
     },
     "/prices": {
       "get": {
-        "operationId": "api_views_prices_list_prices",
+        "operationId": "list_prices",
         "summary": "List Prices",
         "parameters": [
           {
@@ -3631,7 +3631,7 @@
         ]
       },
       "post": {
-        "operationId": "api_views_prices_create_price",
+        "operationId": "create_price",
         "summary": "Create Price",
         "parameters": [],
         "responses": {
@@ -3688,7 +3688,7 @@
     },
     "/coupons": {
       "get": {
-        "operationId": "api_views_coupons_list_coupons",
+        "operationId": "list_coupons",
         "summary": "List Coupons",
         "parameters": [],
         "responses": {
@@ -3735,7 +3735,7 @@
     },
     "/surveys": {
       "post": {
-        "operationId": "api_views_surveys_routes_create_survey",
+        "operationId": "create_survey",
         "summary": "Create Survey",
         "parameters": [],
         "responses": {
@@ -3790,7 +3790,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_surveys_routes_list_surveys",
+        "operationId": "list_surveys",
         "summary": "List Surveys",
         "parameters": [],
         "responses": {
@@ -3827,7 +3827,7 @@
     },
     "/surveys/{id}": {
       "get": {
-        "operationId": "api_views_surveys_routes_retrieve_survey",
+        "operationId": "retrieve_survey",
         "summary": "Retrieve Survey",
         "parameters": [
           {
@@ -3883,7 +3883,7 @@
         ]
       },
       "patch": {
-        "operationId": "api_views_surveys_routes_update_survey",
+        "operationId": "update_survey",
         "summary": "Update Survey",
         "parameters": [
           {
@@ -3949,7 +3949,7 @@
         ]
       },
       "delete": {
-        "operationId": "api_views_surveys_routes_delete_survey",
+        "operationId": "delete_survey",
         "summary": "Delete Survey",
         "parameters": [
           {
@@ -4000,7 +4000,7 @@
     },
     "/api_requests/{id}": {
       "get": {
-        "operationId": "api_views_api_requests_retrieve_api_request",
+        "operationId": "retrieve_api_request",
         "summary": "Retrieve Api Request",
         "parameters": [
           {
@@ -4058,7 +4058,7 @@
     },
     "/api_requests": {
       "get": {
-        "operationId": "api_views_api_requests_list_api_requests",
+        "operationId": "list_api_requests",
         "summary": "List Api Requests",
         "parameters": [
           {
@@ -4167,7 +4167,7 @@
     },
     "/advertising_units": {
       "get": {
-        "operationId": "api_views_advertising_units_list_advertising_units",
+        "operationId": "list_advertising_units",
         "summary": "List Advertising Units",
         "parameters": [],
         "responses": {
@@ -4212,7 +4212,7 @@
         ]
       },
       "post": {
-        "operationId": "api_views_advertising_units_create_advertising_unit",
+        "operationId": "create_advertising_unit",
         "summary": "Create Advertising Unit",
         "parameters": [],
         "responses": {
@@ -4269,7 +4269,7 @@
     },
     "/advertising_units/{id}": {
       "patch": {
-        "operationId": "api_views_advertising_units_update_advertising_unit",
+        "operationId": "update_advertising_unit",
         "summary": "Update Advertising Unit",
         "parameters": [
           {
@@ -4335,7 +4335,7 @@
         ]
       },
       "delete": {
-        "operationId": "api_views_advertising_units_delete_advertising_unit",
+        "operationId": "delete_advertising_unit",
         "summary": "Delete Advertising Unit",
         "parameters": [
           {
@@ -4386,7 +4386,7 @@
     },
     "/webhooks": {
       "post": {
-        "operationId": "api_views_webhooks_create_webhook",
+        "operationId": "create_webhook",
         "summary": "Create Webhook",
         "parameters": [],
         "responses": {
@@ -4441,7 +4441,7 @@
         ]
       },
       "get": {
-        "operationId": "api_views_webhooks_list_webhooks",
+        "operationId": "list_webhooks",
         "summary": "List Webhooks",
         "parameters": [],
         "responses": {
@@ -4478,7 +4478,7 @@
     },
     "/webhooks/{id}": {
       "get": {
-        "operationId": "api_views_webhooks_retrieve_webhook",
+        "operationId": "retrieve_webhook",
         "summary": "Retrieve Webhook",
         "parameters": [
           {
@@ -4534,7 +4534,7 @@
         ]
       },
       "patch": {
-        "operationId": "api_views_webhooks_update_webhook",
+        "operationId": "update_webhook",
         "summary": "Update Webhook",
         "parameters": [
           {
@@ -4600,7 +4600,7 @@
         ]
       },
       "delete": {
-        "operationId": "api_views_webhooks_delete_webhook",
+        "operationId": "delete_webhook",
         "summary": "Delete Webhook",
         "parameters": [
           {
@@ -4651,7 +4651,7 @@
     },
     "/webhooks/{id}/test": {
       "post": {
-        "operationId": "api_views_webhooks_test_webhook",
+        "operationId": "test_webhook",
         "summary": "Test Webhook",
         "parameters": [
           {
@@ -4702,7 +4702,7 @@
     },
     "/comments": {
       "get": {
-        "operationId": "api_views_comments_list_comments",
+        "operationId": "list_comments",
         "summary": "List Comments",
         "parameters": [
           {
@@ -4802,7 +4802,7 @@
     },
     "/survey_responses": {
       "get": {
-        "operationId": "api_views_survey_responses_retrieve_survey_responses",
+        "operationId": "retrieve_survey_responses",
         "summary": "Retrieve Survey Responses",
         "parameters": [
           {
@@ -4907,7 +4907,7 @@
         ]
       },
       "post": {
-        "operationId": "api_views_survey_responses_create_survey_response",
+        "operationId": "create_survey_response",
         "summary": "Create Survey Response",
         "parameters": [],
         "responses": {
@@ -4974,7 +4974,7 @@
     },
     "/events": {
       "get": {
-        "operationId": "api_views_events_list_events",
+        "operationId": "list_events",
         "summary": "List Events",
         "parameters": [
           {
@@ -5081,7 +5081,7 @@
     },
     "/events/{id}": {
       "get": {
-        "operationId": "api_views_events_get_event",
+        "operationId": "get_event",
         "summary": "Get Event",
         "parameters": [
           {
