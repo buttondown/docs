@@ -2123,6 +2123,22 @@
     ]
   },
   {
+    "title": "Retrieving email history",
+    "url": "api-emails-history-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Retrieving an email's historical body",
+    "url": "api-emails-history-body-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Introduction",
     "url": "api-subscribers-introduction",
     "section": "api",

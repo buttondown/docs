@@ -1013,6 +1013,14 @@
         {
           "discriminant": "page",
           "value": "api-emails-events"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-history-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-history-body-retrieve"
         }
       ]
     },

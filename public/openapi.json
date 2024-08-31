@@ -1127,6 +1127,73 @@
         ]
       }
     },
+    "/emails/{id}/history/body/{history_id}": {
+      "get": {
+        "operationId": "api_views_emails_routes_retrieve_email_history_by_id",
+        "summary": "Retrieve Email History By Id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "history_id",
+            "schema": {
+              "title": "History Id",
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/History"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "security": [
+          {
+            "AuthenticationRequirement": []
+          }
+        ]
+      }
+    },
     "/emails/{id}/analytics": {
       "get": {
         "operationId": "retrieve_email_analytics",
@@ -6102,6 +6169,10 @@
         "title": "History",
         "type": "object",
         "properties": {
+          "history_id": {
+            "title": "History Id",
+            "type": "integer"
+          },
           "creation_date": {
             "title": "Creation Date",
             "type": "string",
@@ -6112,7 +6183,7 @@
             "type": "string"
           }
         },
-        "required": ["creation_date", "value"]
+        "required": ["history_id", "creation_date", "value"]
       },
       "HistoryPage": {
         "title": "Page[History]",
