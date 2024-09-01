@@ -306,6 +306,10 @@
         },
         {
           "discriminant": "page",
+          "value": "bsky"
+        },
+        {
+          "discriminant": "page",
           "value": "carrd"
         },
         {

@@ -1,0 +1,31 @@
+---
+title: Bluesky
+relatedPages: []
+---
+{% paidFeature feature="automations" /%}
+
+Skeeters, rejoice! Buttondown allows you to connect your Bluesky account to your newsletter. This allows you to automatically cross-post your newsletters to Bluesky, powered by our [automations](/automations-introduction) feature.
+
+## Setting up your Bluesky integration
+
+To get started, head over to the [Integrations page](https://buttondown.com/settings/integrations) and click on the "Connect" button next to Bluesky.
+
+Unlike other platforms that provide authentication through OAuth, Bluesky requires you to generate an [app-specific password](https://bsky.app/settings/app-passwords) for your account. Go ahead and do that and then share the password with Buttondown.
+
+## Sharing your newsletters to Bluesky
+
+{% automation
+   name="Automatically post to Bluesky"
+   description="This automation will automatically post new emails onto Bluesky"
+   trigger="When an email is sent"
+   url="https://buttondown.com/automations/new?trigger=email.sent&action=create_bluesky_post&name=Automatically+post+to+Bluesky"
+   action="Post on Bluesky" /%}
+
+To share your newsletters to Bluesky, you can create an automation that posts your newsletters to Bluesky whenever you send them. To do this, create a new [Automation](https://buttondown.com/automations/new).
+
+The simplest and most common use case is to create an automation that posts your newsletters to LinkedIn whenever you send them. To do this, you'd want the following settings:
+
+1. A **trigger** of [when an email is sent](/api-webhooks-event-types#email.sent).
+1. An **action** of [Create a Bluesky post](/automation-actions#create_bsky_post).
+
+You can leave the "filters" and "timing" sections blank, and you should be good to go!
