@@ -29,14 +29,14 @@ const navigationGroupSchema = (label: string) =>
             itemLabel: (props) => `Divider: ${props?.value}`,
           },
         },
-        { label: "Navigation" },
+        { label: "Navigation" }
       ),
     }),
     {
       label,
       itemLabel: (props) =>
         `${props.fields.name.value} (${props.fields.items.elements.length})`,
-    },
+    }
   );
 
 // NON-OBVIOUS LOGIC ALERT!
@@ -45,16 +45,15 @@ const navigationGroupSchema = (label: string) =>
 // application is in the root directory of the monorepo, not this directory. As a result, this process
 // should be run from the root directory of the monorepo even when local — this helps ensure that the
 // behavior is similar to production.
-const RUNNING_IN_MONOREPO = process.env.RUNNING_IN_MONOREPO;
-const SHOULD_USE_GITHUB = process.env.NODE_ENV === "production";
-const APPLICATION_DIRECTORY = RUNNING_IN_MONOREPO ? "docs-v2" : ".";
-export const localBaseURL = RUNNING_IN_MONOREPO ? "../" : "./";
+const IN_PRODUCTION = process.env.NODE_ENV === "production";
+const APPLICATION_DIRECTORY = IN_PRODUCTION ? "docs-v2" : ".";
+export const localBaseURL = IN_PRODUCTION ? "../" : "./";
 const generatePath = (path: string) => {
   return `${APPLICATION_DIRECTORY}/${path}`;
 };
 
 export default config({
-  storage: SHOULD_USE_GITHUB
+  storage: IN_PRODUCTION
     ? {
         kind: "github",
         repo: {
@@ -75,7 +74,7 @@ export default config({
           acc[group] = navigationGroupSchema(NAVIGATION_GROUP_LABELS[group]);
           return acc;
         },
-        {} as Record<string, any>,
+        {} as Record<string, any>
       ),
     }),
   },
@@ -331,7 +330,7 @@ export default config({
         }),
         relatedPages: fields.array(
           fields.relationship({ label: "Page", collection: "pages" }),
-          { label: "Related Pages", itemLabel: (props) => props.value ?? "" },
+          { label: "Related Pages", itemLabel: (props) => props.value ?? "" }
         ),
       },
     }),
