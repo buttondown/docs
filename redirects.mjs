@@ -135,11 +135,6 @@ const REDIRECTS = [
     destination: "/api-emails-introduction",
   },
   {
-    source: "/api-reference/events-and-webhooks",
-    permanent: false,
-    destination: "/api-webhooks-introduction",
-  },
-  {
     source: "/api-reference/images",
     permanent: false,
     destination: "/api-images-introduction",
