@@ -1129,7 +1129,7 @@
     },
     "/emails/{id}/history/body/{history_id}": {
       "get": {
-        "operationId": "api_views_emails_routes_retrieve_email_history_by_id",
+        "operationId": "retrieve_email_history_by_id",
         "summary": "Retrieve Email History By Id",
         "parameters": [
           {
@@ -7905,14 +7905,6 @@
             "additionalProperties": {
               "type": "string"
             }
-          },
-          "status": {
-            "default": "inactive",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AutomationStatus"
-              }
-            ]
           }
         },
         "required": ["name", "trigger", "timing", "actions", "filters"]
@@ -9382,7 +9374,7 @@
   },
   "servers": [
     {
-      "url": "https://api.buttondown.com"
+      "url": "https://api.buttondown.com/v1"
     }
   ]
 }

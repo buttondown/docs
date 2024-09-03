@@ -643,8 +643,7 @@
           }
         ],
         "filters": [],
-        "metadata": {},
-        "status": "inactive"
+        "metadata": {}
       }
     },
     {
@@ -669,8 +668,7 @@
           }
         ],
         "filters": [],
-        "metadata": {},
-        "status": "inactive"
+        "metadata": {}
       }
     }
   ],
