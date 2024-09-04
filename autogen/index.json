@@ -950,7 +950,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "fancy-mode"
+    ]
   },
   {
     "title": "Naked mode",
