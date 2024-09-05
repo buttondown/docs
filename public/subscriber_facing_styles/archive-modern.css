@@ -785,12 +785,14 @@ dialog::backdrop {
   border-left: 5px var(--medium-color) solid;
   background-color: #d4d4d466;
 }
-.comment p {
+.comment p,
+.comment li {
   font-size: inherit !important;
   line-height: inherit;
   font-family: inherit;
 }
-.comment p:last-child {
+.comment p:last-child,
+.comment li:last-child {
   margin-bottom: 0;
 }
 .comment .comment {
