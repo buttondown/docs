@@ -1,0 +1,25 @@
+---
+title: Customizing transactional emails
+navigationTitle: Custom transactional emails
+description: >-
+  Buttondown's transactional emails, such as confirmation and welcome emails,
+  can be customized using the same email CSS settings as regular emails.
+date: 2024-09-07
+relatedPages:
+  - customizing-email-design
+---
+Buttondown's [transactional emails](/glossary-transactional-email), such as confirmation and welcome emails, can be customized using the same email CSS settings as [regular emails](/customizing-email-design).
+
+## Hiding the transactional email header
+
+Buttondown's default transactional email template includes a header at the top of the email:
+
+![Spotlighting the header of a transactional email, which shows a heading for the email and the name of the newsletter. ](/customizing-transactional-emails/image.png)
+
+For a more custom look, you can add this CSS to your newsletter's [email CSS settings](https://buttondown.com/settings/design) to hide the header:
+
+```css
+.transactional-email-header {
+    display: none;
+}
+```

@@ -505,6 +505,10 @@
           "value": "localization"
         },
         {
+          "discriminant": "page",
+          "value": "customizing-transactional-emails"
+        },
+        {
           "discriminant": "divider",
           "value": "FAQ"
         },

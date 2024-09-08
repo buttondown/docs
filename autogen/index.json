@@ -1062,6 +1062,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "customizing-transactional-emails",
       "modern-template-hide-top",
       "registration-and-setup",
       "uploading-images"
@@ -1084,6 +1085,16 @@
     "schema": null,
     "description": null,
     "references": []
+  },
+  {
+    "title": "Customizing transactional emails",
+    "url": "customizing-transactional-emails",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown's transactional emails, such as confirmation and welcome emails, can be customized using the same email CSS settings as regular emails.",
+    "references": [
+      "customizing-transactional-emails"
+    ]
   },
   {
     "title": "What's a good tutorial for learning CSS?",
@@ -1854,6 +1865,7 @@
     "description": null,
     "references": [
       "auditing",
+      "customizing-transactional-emails",
       "one-click-unsubscribe"
     ]
   },
