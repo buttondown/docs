@@ -4716,6 +4716,64 @@
         ]
       }
     },
+    "/webhooks/{id}/attempts": {
+      "get": {
+        "operationId": "retrieve_webhook_attempts",
+        "summary": "Retrieve Webhook Attempts",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebhookAttemptOutputPage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "security": [
+          {
+            "AuthenticationRequirement": []
+          }
+        ]
+      }
+    },
     "/webhooks/{id}/test": {
       "post": {
         "operationId": "test_webhook",
@@ -9047,6 +9105,66 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Webhook"
+            }
+          },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": ["results", "count"]
+      },
+      "WebhookAttemptStatus": {
+        "title": "Status",
+        "description": "An enumeration.",
+        "enum": ["unattempted", "successful", "failed"],
+        "type": "string"
+      },
+      "WebhookAttemptOutput": {
+        "title": "WebhookAttemptOutput",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "description": "A unique UUID associated with the object.",
+            "type": "string",
+            "format": "uuid"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was created.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "description": "The status of the webhook attempt.",
+            "example": "successful",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WebhookAttemptStatus"
+              }
+            ]
+          }
+        },
+        "required": ["id", "creation_date", "status"]
+      },
+      "WebhookAttemptOutputPage": {
+        "title": "Page[WebhookAttemptOutput]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookAttemptOutput"
             }
           },
           "next": {

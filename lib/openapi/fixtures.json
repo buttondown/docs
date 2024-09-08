@@ -681,5 +681,31 @@
         "value": "I really hope you enjoy it!"
       }
     }
+  ],
+  "WebhookAttemptOutput": [
+    {
+      "description": "Basic webhook attempt",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "status": "successful"
+      }
+    },
+    {
+      "description": "Failed webhook attempt",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb4",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "status": "failed"
+      }
+    },
+    {
+      "description": "Unattempted webhook attempt",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb5",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "status": "unattempted"
+      }
+    }
   ]
 }

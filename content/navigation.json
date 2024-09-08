@@ -1305,6 +1305,10 @@
         {
           "discriminant": "page",
           "value": "api-webhooks-test"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-webhooks-attempts-list"
         }
       ]
     },
