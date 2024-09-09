@@ -49,7 +49,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "color",
         "question": "What's your favorite color?",
-        "response_count": 10,
+        "response_count": 0,
         "answers": ["Red", "Green", "Blue"],
         "notes": "",
         "response_cadence": "once",
@@ -64,7 +64,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "feedback",
         "question": "How can we improve?",
-        "response_count": 10,
+        "response_count": 0,
         "answers": ["More content", "Better content", "Other"],
         "notes": "",
         "response_cadence": "once_per_email",
@@ -561,7 +561,11 @@
             }
           }
         ],
-        "filters": [],
+        "filters": {
+          "filters": [],
+          "groups": [],
+          "predicate": "and"
+        },
         "metadata": {}
       }
     },
@@ -589,7 +593,11 @@
             }
           }
         ],
-        "filters": [],
+        "filters": {
+          "filters": [],
+          "groups": [],
+          "predicate": "and"
+        },
         "metadata": {}
       }
     }
@@ -642,7 +650,11 @@
             }
           }
         ],
-        "filters": [],
+        "filters": {
+          "filters": [],
+          "groups": [],
+          "predicate": "and"
+        },
         "metadata": {}
       }
     },
@@ -667,7 +679,11 @@
             }
           }
         ],
-        "filters": [],
+        "filters": {
+          "filters": [],
+          "groups": [],
+          "predicate": "and"
+        },
         "metadata": {}
       }
     }

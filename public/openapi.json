@@ -7843,11 +7843,7 @@
             }
           },
           "filters": {
-            "title": "Filters",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Filter"
-            }
+            "$ref": "#/components/schemas/FilterGroup"
           },
           "metadata": {
             "title": "Metadata",
@@ -7950,11 +7946,7 @@
             }
           },
           "filters": {
-            "title": "Filters",
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
+            "$ref": "#/components/schemas/FilterGroup"
           },
           "metadata": {
             "title": "Metadata",
@@ -8040,11 +8032,7 @@
             }
           },
           "filters": {
-            "title": "Filters",
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
+            "$ref": "#/components/schemas/FilterGroup"
           },
           "metadata": {
             "title": "Metadata",

@@ -87,15 +87,17 @@ const Document = async ({ page }: Props) => (
         );
         return (
           <Notice type="info">
-            This feature requires a{" "}
-            <a
-              href={`https://buttondown.com/pricing?count=${(price?.subscriber_count || 1) - 1}`}
-              target="_blank"
-              className="text-inherit font-normal whitespace-nowrap"
-              rel="noreferrer"
-            >
-              {price?.name}&nbsp;plan.
-            </a>
+            <div className="">
+              This feature requires a{" "}
+              <a
+                href={`https://buttondown.com/pricing?count=${(price?.subscriber_count || 1) - 1}`}
+                target="_blank"
+                className="text-inherit font-normal whitespace-nowrap"
+                rel="noreferrer"
+              >
+                {price?.name}&nbsp;plan.
+              </a>
+            </div>
           </Notice>
         );
       },
