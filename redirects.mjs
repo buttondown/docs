@@ -30,11 +30,6 @@ const REDIRECTS = [
     destination: "/customizing-web-design",
   },
   {
-    source: "/advanced-features/date-formats",
-    permanent: false,
-    destination: "/date-formats",
-  },
-  {
     source: "/advanced-features/dedicated-ip",
     permanent: false,
     destination: "/dedicated-ip",

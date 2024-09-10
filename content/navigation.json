@@ -407,10 +407,6 @@
         },
         {
           "discriminant": "page",
-          "value": "date-formats"
-        },
-        {
-          "discriminant": "page",
           "value": "customizing-email-list-view"
         },
         {

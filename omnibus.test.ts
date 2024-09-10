@@ -407,6 +407,18 @@ fs.readdirSync(MARKDOC_DIRECTORY).forEach((filename) => {
     });
 });
 
+// Make sure that the navigation doesn't reference any pages that don't exist.
+Object.values(NAVIGATION).forEach((section) => {
+    section.forEach((subsection) => {
+        subsection.items.forEach((item) => {
+            if (item.discriminant === "page") {
+                test(`${item.value} exists`, () => {
+                    expect(fs.existsSync(`content/pages/${item.value}.mdoc`)).toBeTruthy();
+                });
+            }
+        });
+    });
+});
 test("Glossary is sorted correctly", () => {
     const glossary = NAVIGATION.reference.find(
         (section) => section.name === "Glossary"

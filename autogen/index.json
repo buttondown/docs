@@ -895,14 +895,6 @@
     "references": []
   },
   {
-    "title": "Date formats",
-    "url": "date-formats",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
     "title": "Customizing email list view",
     "url": "customizing-email-list-view",
     "section": "reference",
@@ -1005,7 +997,6 @@
     "schema": null,
     "description": null,
     "references": [
-      "date-formats",
       "names",
       "sending-your-first-email",
       "using-templating"
