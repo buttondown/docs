@@ -482,6 +482,14 @@
         {
           "discriminant": "page",
           "value": "subscriber-autonomy"
+        },
+        {
+          "discriminant": "divider",
+          "value": "FAQ"
+        },
+        {
+          "discriminant": "page",
+          "value": "can-i-set-a-custom-unsubscribe-link"
         }
       ]
     },
