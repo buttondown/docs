@@ -25,6 +25,7 @@ export type OpenAPIProperty = {
 };
 
 export const urlForSchema = (fullyQualifiedSchema: string) => {
+  if (!fullyQualifiedSchema) return undefined;
   const schema = fullyQualifiedSchema.split("/").pop();
   return SEARCH.find((s) => s.title === schema || s.schema === schema);
 };
@@ -66,6 +67,8 @@ export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
           $ref = info.$ref as string;
         } else if ("allOf" in info) {
           $ref = (info.allOf as { $ref: string }[])[0].$ref;
+        } else if ("anyOf" in info) {
+          $ref = (info.anyOf as { $ref: string }[])[0].$ref;
         }
 
         const type: TypeProp = $ref
@@ -285,6 +288,13 @@ export const parametersForRef = (
               type: undefined;
               example?: object;
               $ref: undefined;
+            }
+          | {
+              anyOf: [{ $ref: string }];
+              description: undefined;
+              type: undefined;
+              example?: object;
+              $ref: undefined;
             };
 
         const type: TypeProp = qualifiedParameter.type
@@ -306,12 +316,23 @@ export const parametersForRef = (
                 name:
                   urlForSchema(qualifiedParameter.allOf[0].$ref)?.schema || "",
               }
-            : {
-                type: "ref",
-                url: urlForSchema(qualifiedParameter.$ref as string)?.url || "",
-                name:
-                  urlForSchema(qualifiedParameter.$ref as string)?.schema || "",
-              };
+            : "anyOf" in qualifiedParameter
+              ? {
+                  type: "ref",
+                  url:
+                    urlForSchema(qualifiedParameter.anyOf[0].$ref)?.url || "",
+                  name:
+                    urlForSchema(qualifiedParameter.anyOf[0].$ref)?.schema ||
+                    "",
+                }
+              : {
+                  type: "ref",
+                  url:
+                    urlForSchema(qualifiedParameter.$ref as string)?.url || "",
+                  name:
+                    urlForSchema(qualifiedParameter.$ref as string)?.schema ||
+                    "",
+                };
 
         return {
           parameter,
