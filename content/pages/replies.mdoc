@@ -1,9 +1,21 @@
 ---
 title: Replies to your emails
+relatedPages:
+- 'can-i-set-custom-reply-to'
 ---
 
+## Default reply settings
 By default, when you send out an email to your subscribers, the email address to which folks can reply is _your_ email address, meaning that any subscriber who hits "reply" on their email client will send an email straight to your email address.
 
-This is totally fine for most use cases, but sometimes you want to be able to manage replies in a more sophisticated way: maybe you want to track which emails received most replies, or [trigger automations](/automations-introduction) based on who's replying, or forward replies to [other members of your newsletter](/teams). For that, Buttondown offers **tracked replies**.
+This address is set by the "Email address" field in [Settings → Basics](https://buttondown.com/settings/basics).
+
+## Tracked replies
+The default settings are totally fine for most use cases, but sometimes you want to be able to manage replies in a more sophisticated way: maybe you want to track which emails received most replies, or [trigger automations](/automations-introduction) based on who's replying, or forward replies to [other members of your newsletter](/teams). For that, Buttondown offers **tracked replies**.
 
 You can enable tracked replies on a per-newsletter basis in the [Tracking settings page](https://buttondown.com/settings/tracking).
+
+When Tracked replies are enabled, the reply-to address will no longer be your account email. Instead, it will use the following format: `replies+BIG-LONG-ID-NUMBER@buttondown.email`. 
+
+The reply will still be forwarded to your account email, so you won't miss a single comment!
+
+{% noticeInfo text="Tracked replies will override any other reply address settings."/%}

@@ -432,7 +432,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "how-do-i-set-sender-information"
+    ]
   },
   {
     "title": "How do I avoid the \"Promotions\" tab in Gmail?",
@@ -479,6 +481,24 @@
     "schema": null,
     "description": null,
     "references": []
+  },
+  {
+    "title": "Can I set a custom reply-to address?",
+    "url": "can-i-set-custom-reply-to",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "How do I set sender information?",
+    "url": "how-do-i-set-sender-information",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "can-i-set-custom-reply-to"
+    ]
   },
   {
     "title": "Buying a custom domain",

@@ -3,6 +3,7 @@
     "Administrivia",
     "Affordance",
     "alla",
+    "alpinejs",
     "asldkfjalsdkfj",
     "Autogen",
     "Automations",
@@ -13,8 +14,8 @@
     "Blockquote",
     "blockquotes",
     "bluesky",
-    "Bulbasaur",
     "bsky",
+    "Bulbasaur",
     "Bullecer",
     "Buttondown",
     "Buttondowns",
@@ -59,6 +60,7 @@
     "inexhaustive",
     "janedoe",
     "keystatic",
+    "L'Astname",
     "lightbox",
     "Linktree",
     "listname",
@@ -130,7 +132,6 @@
     "Woohoo",
     "WYSIWYG",
     "yourname",
-    "alpinejs",
     "yourusername"
   ],
   "ignorePaths": [
@@ -139,5 +140,7 @@
     "./content/pages/kudos.mdoc",
     "**/*.tsx"
   ],
-  "enableFiletypes": ["markdoc"]
+  "enableFiletypes": [
+    "markdoc"
+  ]
 }

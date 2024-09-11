@@ -194,6 +194,14 @@
         {
           "discriminant": "page",
           "value": "support-amp-for-email"
+        },
+        {
+          "discriminant": "page",
+          "value": "can-i-set-custom-reply-to"
+        },
+        {
+          "discriminant": "page",
+          "value": "how-do-i-set-sender-information"
         }
       ]
     },

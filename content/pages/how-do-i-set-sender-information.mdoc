@@ -1,0 +1,41 @@
+---
+title: How do I set sender information?
+navigationTitle: How do I set sender information?
+relatedPages:
+- 'replies'
+- 'can-i-set-custom-reply-to'
+---
+
+Sender information can be set in [Settings → Basics](https://buttondown.com/settings/basics). Here's what this looks like:
+
+![Screenshot of author information in Buttondown settings](/images/author-settings.jpg)
+
+By default the:
+- "Username" will be the "From address".
+- "Author name" will be the "From" name displayed in the email client.  
+- "Email address" will be the default "reply-to" address.
+
+For example, using the settings in the screenshot above, a newsletter header would look like this:
+
+```
+from:	Paul L'Astname <jenna@buttondown.email>
+reply-to:	paul@buttondown.email
+mailing list:	jenna@buttondown.email
+```
+If [Tracked replies](/replies#tracked-replies) are enabled, the reply-to address will instead be in the following format: `replies+BIG-LONG-ID-NUMBER@buttondown.email`
+
+```
+from:	Paul L'Astname <jenna@buttondown.email>
+reply-to:	replies+1234-5678-9101-1121@buttondown.email
+mailing list:	jenna@buttondown.email
+```
+
+{% snippetSpacer /%}
+
+
+{% noticeInfo text="Tracked replies are enabled will override the default email field."/%}
+
+## Choosing an Author name
+While there's no real "best" practice for setting a Author name, we recommend setting it to something you readers recognize and expect. That could be your name, or the name of your business or organization.
+
+To frame this differently: Your Author name is an opportunity to drive engagement with your newsletter. The best way to do this is by preventing reader confusion. 
