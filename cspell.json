@@ -140,7 +140,5 @@
     "./content/pages/kudos.mdoc",
     "**/*.tsx"
   ],
-  "enableFiletypes": [
-    "markdoc"
-  ]
+  "enableFiletypes": ["markdoc"]
 }

@@ -15,7 +15,6 @@ install:
 # https://github.com/vercel/next.js/discussions/59347
 lint-without-code-samples:
   pnpm check-for-typos --no-progress
-  pnpx @biomejs/biome check --write lib/ components/ app/ public/
   pnpm lint
   pnpm tsc
 

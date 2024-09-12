@@ -11,7 +11,9 @@
     "test": "vitest",
     "compile-vectors": "npx tsc --project tsconfig.vectors.json && node scripts/compile_vectors.js; tsc --build --clean",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "format": "biome format --write .",
+    "check": "biome check --apply ."
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
@@ -58,7 +60,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.7.0",
+    "@biomejs/biome": "1.8.3",
     "@chromatic-com/storybook": "^1.5.0",
     "@storybook/addon-essentials": "8.2.0-alpha.7",
     "@storybook/addon-interactions": "8.2.0-alpha.7",
