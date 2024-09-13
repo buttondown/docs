@@ -5,7 +5,10 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["introduction", "quickstart"]
+    "references": [
+      "introduction",
+      "quickstart"
+    ]
   },
   {
     "title": "Quickstart",
@@ -13,7 +16,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["introduction"]
+    "references": [
+      "introduction"
+    ]
   },
   {
     "title": "Registration and setup",
@@ -107,7 +112,12 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["duda", "importing-your-data", "names", "substack"]
+    "references": [
+      "duda",
+      "importing-your-data",
+      "names",
+      "substack"
+    ]
   },
   {
     "title": "Keeping your newsletter private",
@@ -123,7 +133,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["api-subscribers-create"]
+    "references": [
+      "api-subscribers-create"
+    ]
   },
   {
     "title": "Dealing with spammy subscribers",
@@ -212,7 +224,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["affiliate-program"]
+    "references": [
+      "affiliate-program"
+    ]
   },
   {
     "title": "How can I segment users?",
@@ -254,7 +268,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["aweber"]
+    "references": [
+      "aweber"
+    ]
   },
   {
     "title": "Importing your data from Benchmark",
@@ -262,7 +278,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["benchmark"]
+    "references": [
+      "benchmark"
+    ]
   },
   {
     "title": "Campaign Monitor",
@@ -286,7 +304,10 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["convertkit", "importing-your-data"]
+    "references": [
+      "convertkit",
+      "importing-your-data"
+    ]
   },
   {
     "title": "EmailOctopus",
@@ -294,7 +315,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["emailoctopus"]
+    "references": [
+      "emailoctopus"
+    ]
   },
   {
     "title": "FeedBlitz",
@@ -302,7 +325,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["feedblitz"]
+    "references": [
+      "feedblitz"
+    ]
   },
   {
     "title": "Mailchimp",
@@ -310,7 +335,10 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["importing-your-data", "mailchimp"]
+    "references": [
+      "importing-your-data",
+      "mailchimp"
+    ]
   },
   {
     "title": "Mailcoach",
@@ -326,7 +354,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["mailerlite"]
+    "references": [
+      "mailerlite"
+    ]
   },
   {
     "title": "Moosend",
@@ -334,7 +364,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["moosend"]
+    "references": [
+      "moosend"
+    ]
   },
   {
     "title": "Revue",
@@ -342,7 +374,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["revue"]
+    "references": [
+      "revue"
+    ]
   },
   {
     "title": "Substack",
@@ -350,7 +384,10 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["importing-your-data", "substack"]
+    "references": [
+      "importing-your-data",
+      "substack"
+    ]
   },
   {
     "title": "Tinyletter",
@@ -358,7 +395,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["tinyletter"]
+    "references": [
+      "tinyletter"
+    ]
   },
   {
     "title": "Double opt-in and imports",
@@ -374,7 +413,10 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["quickstart", "sending-your-first-email"]
+    "references": [
+      "quickstart",
+      "sending-your-first-email"
+    ]
   },
   {
     "title": "Sending via email",
@@ -390,7 +432,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["how-do-i-set-sender-information"]
+    "references": [
+      "how-do-i-set-sender-information"
+    ]
   },
   {
     "title": "How do I avoid the \"Promotions\" tab in Gmail?",
@@ -398,7 +442,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["sending-your-first-email"]
+    "references": [
+      "sending-your-first-email"
+    ]
   },
   {
     "title": "Why is my email all... purple?",
@@ -406,7 +452,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["sending-your-first-email"]
+    "references": [
+      "sending-your-first-email"
+    ]
   },
   {
     "title": "Why does my email look different on some clients?",
@@ -414,7 +462,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["sending-your-first-email"]
+    "references": [
+      "sending-your-first-email"
+    ]
   },
   {
     "title": "Does Buttondown support one-click unsubscribe?",
@@ -446,7 +496,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["can-i-set-custom-reply-to"]
+    "references": [
+      "can-i-set-custom-reply-to"
+    ]
   },
   {
     "title": "Buying a custom domain",
@@ -493,7 +545,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["sending-from-a-custom-domain"]
+    "references": [
+      "sending-from-a-custom-domain"
+    ]
   },
   {
     "title": "Creating your first automation",
@@ -509,7 +563,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["welcome-sequence"]
+    "references": [
+      "welcome-sequence"
+    ]
   },
   {
     "title": "RSS-to-email",
@@ -546,7 +602,9 @@
     "section": "guides",
     "schema": null,
     "description": "Learn how to find and work with sponsors for your newsletter.",
-    "references": ["sponsorships"]
+    "references": [
+      "sponsorships"
+    ]
   },
   {
     "title": "Sending a teaser of your paid newsletter to prospects",
@@ -626,7 +684,10 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["replies", "teams"]
+    "references": [
+      "replies",
+      "teams"
+    ]
   },
   {
     "title": "Building a newsletter subscription form with Alpine.js",
@@ -634,7 +695,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["alpinejs"]
+    "references": [
+      "alpinejs"
+    ]
   },
   {
     "title": "Blogger",
@@ -650,7 +713,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["bsky"]
+    "references": [
+      "bsky"
+    ]
   },
   {
     "title": "Carrd",
@@ -658,7 +723,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["carrd"]
+    "references": [
+      "carrd"
+    ]
   },
   {
     "title": "Discord",
@@ -666,7 +733,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["discord"]
+    "references": [
+      "discord"
+    ]
   },
   {
     "title": "Duda",
@@ -674,7 +743,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["duda"]
+    "references": [
+      "duda"
+    ]
   },
   {
     "title": "Fathom",
@@ -682,7 +753,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["fathom"]
+    "references": [
+      "fathom"
+    ]
   },
   {
     "title": "Framer",
@@ -690,7 +763,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["framer"]
+    "references": [
+      "framer"
+    ]
   },
   {
     "title": "LinkedIn",
@@ -698,7 +773,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["linkedin"]
+    "references": [
+      "linkedin"
+    ]
   },
   {
     "title": "Linktree",
@@ -706,7 +783,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["linktree"]
+    "references": [
+      "linktree"
+    ]
   },
   {
     "title": "Integrating Mantine with Buttondown",
@@ -714,7 +793,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["mantine"]
+    "references": [
+      "mantine"
+    ]
   },
   {
     "title": "Plausible",
@@ -722,7 +803,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["plausible"]
+    "references": [
+      "plausible"
+    ]
   },
   {
     "title": "Integrating shadcn/ui",
@@ -773,7 +856,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["wordpress"]
+    "references": [
+      "wordpress"
+    ]
   },
   {
     "title": "Deleting your account",
@@ -805,7 +890,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": ["affiliate-program"]
+    "references": [
+      "affiliate-program"
+    ]
   },
   {
     "title": "Pricing",
@@ -833,7 +920,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["customizing-email-list-view"]
+    "references": [
+      "customizing-email-list-view"
+    ]
   },
   {
     "title": "Customizing subscriber list views",
@@ -841,7 +930,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["customizing-subscriber-list-view", "importing-your-data"]
+    "references": [
+      "customizing-subscriber-list-view",
+      "importing-your-data"
+    ]
   },
   {
     "title": "Why is my account disabled?",
@@ -870,7 +962,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["fancy-mode"]
+    "references": [
+      "fancy-mode"
+    ]
   },
   {
     "title": "Naked mode",
@@ -878,7 +972,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["kudos", "naked-mode"]
+    "references": [
+      "kudos",
+      "naked-mode"
+    ]
   },
   {
     "title": "Previewing your email in an email inbox",
@@ -886,7 +983,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["api-emails-send-draft", "draft-send"]
+    "references": [
+      "api-emails-send-draft",
+      "draft-send"
+    ]
   },
   {
     "title": "Uploading images in the editor",
@@ -894,7 +994,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["fancy-mode", "sending-your-first-email"]
+    "references": [
+      "fancy-mode",
+      "sending-your-first-email"
+    ]
   },
   {
     "title": "Template tags",
@@ -902,7 +1005,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["rss-to-email", "template-variables"]
+    "references": [
+      "rss-to-email",
+      "template-variables"
+    ]
   },
   {
     "title": "Template variables",
@@ -910,7 +1016,11 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["names", "sending-your-first-email", "using-templating"]
+    "references": [
+      "names",
+      "sending-your-first-email",
+      "using-templating"
+    ]
   },
   {
     "title": "Formatting dates in an email",
@@ -942,7 +1052,9 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown can clean up spammy or unactivated email addresses from your subscriber list.",
-    "references": ["subscriber-cleanup"]
+    "references": [
+      "subscriber-cleanup"
+    ]
   },
   {
     "title": "Subscriber autonomy",
@@ -950,7 +1062,9 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown lets you let your subscribers change their metadata, tags, and more.",
-    "references": ["tags"]
+    "references": [
+      "tags"
+    ]
   },
   {
     "title": "Can I set my own unsubscribe redirect link?",
@@ -979,7 +1093,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["registration-and-setup"]
+    "references": [
+      "registration-and-setup"
+    ]
   },
   {
     "title": "Localization",
@@ -995,7 +1111,9 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown's transactional emails, such as confirmation and welcome emails, can be customized using the same email CSS settings as regular emails.",
-    "references": ["customizing-transactional-emails"]
+    "references": [
+      "customizing-transactional-emails"
+    ]
   },
   {
     "title": "What's a good tutorial for learning CSS?",
@@ -1027,7 +1145,9 @@
     "section": "reference",
     "schema": null,
     "description": "The top of the Modern template has the newsletter's icon and name, and the email's subject and publication date, which some authors opt to hide using CSS.",
-    "references": ["modern-template-hide-top"]
+    "references": [
+      "modern-template-hide-top"
+    ]
   },
   {
     "title": "Can I center my email?",
@@ -1065,7 +1185,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["glossary-rss"]
+    "references": [
+      "glossary-rss"
+    ]
   },
   {
     "title": "Social sharing images",
@@ -1073,7 +1195,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["share-images", "why-arent-i-seeing-my-new-share-image"]
+    "references": [
+      "share-images",
+      "why-arent-i-seeing-my-new-share-image"
+    ]
   },
   {
     "title": "SEO",
@@ -1121,7 +1246,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["data-exports"]
+    "references": [
+      "data-exports"
+    ]
   },
   {
     "title": "Comment data exports",
@@ -1129,7 +1256,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["data-exports"]
+    "references": [
+      "data-exports"
+    ]
   },
   {
     "title": "Email data exports",
@@ -1137,7 +1266,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["data-exports"]
+    "references": [
+      "data-exports"
+    ]
   },
   {
     "title": "Email event data exports",
@@ -1145,7 +1276,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["data-exports"]
+    "references": [
+      "data-exports"
+    ]
   },
   {
     "title": "Subscriber data exports",
@@ -1153,7 +1286,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["data-exports"]
+    "references": [
+      "data-exports"
+    ]
   },
   {
     "title": "Survey data exports",
@@ -1161,7 +1296,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["data-exports"]
+    "references": [
+      "data-exports"
+    ]
   },
   {
     "title": "Automations",
@@ -1188,7 +1325,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["automation-filters"]
+    "references": [
+      "automation-filters"
+    ]
   },
   {
     "title": "Types of automation filters",
@@ -1212,7 +1351,11 @@
     "section": "Reference",
     "schema": "AutomationActionType",
     "description": null,
-    "references": ["bsky", "linkedin", "twitter"]
+    "references": [
+      "bsky",
+      "linkedin",
+      "twitter"
+    ]
   },
   {
     "title": "What happens if I change an existing automation?",
@@ -1242,7 +1385,10 @@
     "section": "Reference",
     "schema": "ExternalEventType",
     "description": null,
-    "references": ["automation-triggers", "events-and-webhooks-introduction"]
+    "references": [
+      "automation-triggers",
+      "events-and-webhooks-introduction"
+    ]
   },
   {
     "title": "Dedicated IP",
@@ -1266,7 +1412,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["rss-cadence"]
+    "references": [
+      "rss-cadence"
+    ]
   },
   {
     "title": "Using a screen reader",
@@ -1314,7 +1462,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["uploading-images"]
+    "references": [
+      "uploading-images"
+    ]
   },
   {
     "title": "AMP",
@@ -1322,7 +1472,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["support-amp-for-email"]
+    "references": [
+      "support-amp-for-email"
+    ]
   },
   {
     "title": "API",
@@ -1330,7 +1482,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["api-introduction", "glossary-jamstack"]
+    "references": [
+      "api-introduction",
+      "glossary-jamstack"
+    ]
   },
   {
     "title": "BIMI",
@@ -1338,7 +1493,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["can-i-customize-my-gmail-icon"]
+    "references": [
+      "can-i-customize-my-gmail-icon"
+    ]
   },
   {
     "title": "CAC",
@@ -1354,7 +1511,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["glossary-cold-email"]
+    "references": [
+      "glossary-cold-email"
+    ]
   },
   {
     "title": "Captcha",
@@ -1373,7 +1532,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["auditing", "retrieving-analytics-data"]
+    "references": [
+      "auditing",
+      "retrieving-analytics-data"
+    ]
   },
   {
     "title": "Cold email",
@@ -1381,7 +1543,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["auditing", "glossary-double-optin"]
+    "references": [
+      "auditing",
+      "glossary-double-optin"
+    ]
   },
   {
     "title": "CPM",
@@ -1409,7 +1574,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["fancy-mode", "welcome-sequence"]
+    "references": [
+      "fancy-mode",
+      "welcome-sequence"
+    ]
   },
   {
     "title": "DKIM",
@@ -1417,7 +1585,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["glossary-dmarc"]
+    "references": [
+      "glossary-dmarc"
+    ]
   },
   {
     "title": "DMARC",
@@ -1425,7 +1595,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["glossary-bimi"]
+    "references": [
+      "glossary-bimi"
+    ]
   },
   {
     "title": "DNS",
@@ -1457,7 +1629,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["automation-triggers"]
+    "references": [
+      "automation-triggers"
+    ]
   },
   {
     "title": "ESP",
@@ -1465,7 +1639,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["introduction"]
+    "references": [
+      "introduction"
+    ]
   },
   {
     "title": "GDPR",
@@ -1501,7 +1677,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["glossary-sending-domain", "hosting-on-a-custom-domain"]
+    "references": [
+      "glossary-sending-domain",
+      "hosting-on-a-custom-domain"
+    ]
   },
   {
     "title": "JAMStack",
@@ -1509,7 +1688,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["building-your-subscriber-base", "rss-to-email"]
+    "references": [
+      "building-your-subscriber-base",
+      "rss-to-email"
+    ]
   },
   {
     "title": "JSON-LD",
@@ -1517,7 +1699,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["comments", "seo"]
+    "references": [
+      "comments",
+      "seo"
+    ]
   },
   {
     "title": "LaTeX",
@@ -1525,7 +1710,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["fancy-mode"]
+    "references": [
+      "fancy-mode"
+    ]
   },
   {
     "title": "oEmbed",
@@ -1533,7 +1720,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["building-your-subscriber-base", "seo"]
+    "references": [
+      "building-your-subscriber-base",
+      "seo"
+    ]
   },
   {
     "title": "Omnichannel",
@@ -1557,7 +1747,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["paid-subscriptions", "seo"]
+    "references": [
+      "paid-subscriptions",
+      "seo"
+    ]
   },
   {
     "title": "Permanent failure",
@@ -1597,7 +1790,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["api-filtering", "api-introduction"]
+    "references": [
+      "api-filtering",
+      "api-introduction"
+    ]
   },
   {
     "title": "Reverse DNS",
@@ -1624,7 +1820,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["glossary-hosting-domain", "hosting-on-a-custom-domain"]
+    "references": [
+      "glossary-hosting-domain",
+      "hosting-on-a-custom-domain"
+    ]
   },
   {
     "title": "Slug",
@@ -1632,7 +1831,11 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["glossary-slug", "sending-your-first-email-advanced", "seo"]
+    "references": [
+      "glossary-slug",
+      "sending-your-first-email-advanced",
+      "seo"
+    ]
   },
   {
     "title": "SMTP",
@@ -1640,7 +1843,11 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["glossary-cfl", "glossary-esp", "sending-via-email"]
+    "references": [
+      "glossary-cfl",
+      "glossary-esp",
+      "sending-via-email"
+    ]
   },
   {
     "title": "SpamAssassin",
@@ -1656,7 +1863,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["glossary-dmarc", "sending-from-a-custom-domain"]
+    "references": [
+      "glossary-dmarc",
+      "sending-from-a-custom-domain"
+    ]
   },
   {
     "title": "Temporary failure",
@@ -1684,7 +1894,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["comments", "seo"]
+    "references": [
+      "comments",
+      "seo"
+    ]
   },
   {
     "title": "Webhooks",
@@ -1692,7 +1905,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["events-and-webhooks-introduction"]
+    "references": [
+      "events-and-webhooks-introduction"
+    ]
   },
   {
     "title": "Webmentions",
@@ -1700,7 +1915,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["customizing-email-list-view"]
+    "references": [
+      "customizing-email-list-view"
+    ]
   },
   {
     "title": "WYSIWYG",
@@ -1708,7 +1925,11 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": ["fancy-mode", "quickstart", "using-markdown"]
+    "references": [
+      "fancy-mode",
+      "quickstart",
+      "using-markdown"
+    ]
   },
   {
     "title": "API introduction",
@@ -1745,7 +1966,9 @@
     "section": "api",
     "schema": null,
     "description": "Fundamentals of how to filter objects in the Buttondown API in a RESTful manner.",
-    "references": ["api-pagination"]
+    "references": [
+      "api-pagination"
+    ]
   },
   {
     "title": "Pagination",
@@ -1777,7 +2000,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["drafting-emails-via-the-api"]
+    "references": [
+      "drafting-emails-via-the-api"
+    ]
   },
   {
     "title": "Scheduling emails via the API",
@@ -1785,7 +2010,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["scheduling-emails-via-the-api"]
+    "references": [
+      "scheduling-emails-via-the-api"
+    ]
   },
   {
     "title": "Retrieving email analytics data via the API",
@@ -1793,7 +2020,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["retrieving-analytics-data"]
+    "references": [
+      "retrieving-analytics-data"
+    ]
   },
   {
     "title": "Introduction",
@@ -1827,7 +2056,9 @@
     "section": "Reference",
     "schema": "EmailSource",
     "description": null,
-    "references": ["customizing-email-list-view"]
+    "references": [
+      "customizing-email-list-view"
+    ]
   },
   {
     "title": "Email audience type",
@@ -1855,7 +2086,9 @@
     "section": "api",
     "schema": "FilterGroup",
     "description": null,
-    "references": ["api-changelog-2024-08-15"]
+    "references": [
+      "api-changelog-2024-08-15"
+    ]
   },
   {
     "title": "Email Template",
@@ -1919,7 +2152,10 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog-2024-06-27", "api-subscribers-send-email"]
+    "references": [
+      "api-changelog-2024-06-27",
+      "api-subscribers-send-email"
+    ]
   },
   {
     "title": "Listing email events",
@@ -1927,7 +2163,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog-2024-06-21"]
+    "references": [
+      "api-changelog-2024-06-21"
+    ]
   },
   {
     "title": "Retrieving email history",
@@ -1987,7 +2225,10 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog-2024-05-22", "api-filtering"]
+    "references": [
+      "api-changelog-2024-05-22",
+      "api-filtering"
+    ]
   },
   {
     "title": "Retrieving a subscriber",
@@ -2003,7 +2244,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-formatting"]
+    "references": [
+      "api-formatting"
+    ]
   },
   {
     "title": "Updating a subscriber",
@@ -2011,7 +2254,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["building-your-subscriber-base"]
+    "references": [
+      "building-your-subscriber-base"
+    ]
   },
   {
     "title": "Deleting a subscriber",
@@ -2035,7 +2280,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog-2024-06-27"]
+    "references": [
+      "api-changelog-2024-06-27"
+    ]
   },
   {
     "title": "Listing a subscriber's survey responses",
@@ -2051,7 +2298,9 @@
     "section": "api",
     "schema": "Tag",
     "description": null,
-    "references": ["tags"]
+    "references": [
+      "tags"
+    ]
   },
   {
     "title": "Listing tags",
@@ -2059,7 +2308,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["building-your-subscriber-base"]
+    "references": [
+      "building-your-subscriber-base"
+    ]
   },
   {
     "title": "Retrieving a tag",
@@ -2163,7 +2414,9 @@
     "section": "api",
     "schema": "Export",
     "description": null,
-    "references": ["api-changelog-2021-08-27"]
+    "references": [
+      "api-changelog-2021-08-27"
+    ]
   },
   {
     "title": "Export statuses",
@@ -2219,7 +2472,9 @@
     "section": "Reference",
     "schema": "BulkActionType",
     "description": null,
-    "references": ["building-your-subscriber-base"]
+    "references": [
+      "building-your-subscriber-base"
+    ]
   },
   {
     "title": "Creating a bulk action",
@@ -2243,7 +2498,9 @@
     "section": "api",
     "schema": "ExternalFeed",
     "description": null,
-    "references": ["api-changelog-2024-08-15"]
+    "references": [
+      "api-changelog-2024-08-15"
+    ]
   },
   {
     "title": "External feed statuses",
@@ -2315,7 +2572,9 @@
     "section": "api",
     "schema": "Webhook",
     "description": null,
-    "references": ["api-changelog-2023-08-21"]
+    "references": [
+      "api-changelog-2023-08-21"
+    ]
   },
   {
     "title": "Webhook external events",
@@ -2323,7 +2582,12 @@
     "section": "Reference",
     "schema": "ExternalEventType",
     "description": null,
-    "references": ["bsky", "linkedin", "plausible", "twitter"]
+    "references": [
+      "bsky",
+      "linkedin",
+      "plausible",
+      "twitter"
+    ]
   },
   {
     "title": "Listing webhooks",
@@ -2379,7 +2643,9 @@
     "section": "api",
     "schema": "Comment",
     "description": null,
-    "references": ["api-changelog-2024-04-03"]
+    "references": [
+      "api-changelog-2024-04-03"
+    ]
   },
   {
     "title": "Listing comments",
@@ -2387,7 +2653,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-expansion"]
+    "references": [
+      "api-expansion"
+    ]
   },
   {
     "title": "Introduction",
@@ -2427,7 +2695,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog-2024-06-21"]
+    "references": [
+      "api-changelog-2024-06-21"
+    ]
   },
   {
     "title": "Creating a survey",
@@ -2459,7 +2729,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog-2024-06-21"]
+    "references": [
+      "api-changelog-2024-06-21"
+    ]
   },
   {
     "title": "Introduction",
@@ -2475,7 +2747,9 @@
     "section": "api",
     "schema": "Automation",
     "description": null,
-    "references": ["building-your-subscriber-base"]
+    "references": [
+      "building-your-subscriber-base"
+    ]
   },
   {
     "title": "Automation statuses",
@@ -2507,7 +2781,10 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog", "api-introduction"]
+    "references": [
+      "api-changelog",
+      "api-introduction"
+    ]
   },
   {
     "title": "2024-08-15",
@@ -2515,7 +2792,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2024-08-01",
@@ -2523,7 +2802,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2024-07-13",
@@ -2531,7 +2812,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2024-06-27",
@@ -2539,7 +2822,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2024-06-21",
@@ -2547,7 +2832,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2024-05-22",
@@ -2555,7 +2842,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2024-04-03",
@@ -2563,7 +2852,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2023-08-23",
@@ -2571,7 +2862,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2023-08-21",
@@ -2579,7 +2872,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2023-07-23",
@@ -2587,7 +2882,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2022-11-24",
@@ -2595,7 +2892,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2022-11-19",
@@ -2603,7 +2902,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2022-03-08",
@@ -2611,7 +2912,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2021-11-26",
@@ -2619,7 +2922,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2021-08-27",
@@ -2627,7 +2932,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2021-01-02",
@@ -2635,7 +2942,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2020-12-23",
@@ -2643,7 +2952,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "2020-12-09",
@@ -2651,6 +2962,8 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": ["api-changelog"]
+    "references": [
+      "api-changelog"
+    ]
   }
 ]
