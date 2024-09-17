@@ -61,6 +61,7 @@
       "glossary-latex",
       "glossary-preheader",
       "glossary-slug",
+      "hidden-settings",
       "importing-your-data",
       "registration-and-setup",
       "scheduling-an-email",
@@ -78,6 +79,7 @@
     "references": [
       "glossary-preheader",
       "glossary-slug",
+      "hidden-settings",
       "sending-your-first-email"
     ]
   },
@@ -488,7 +490,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "hidden-settings"
+    ]
   },
   {
     "title": "How do I set sender information?",
@@ -564,6 +568,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "can-i-send-an-email-to-new-subscribers",
       "welcome-sequence"
     ]
   },
@@ -1072,6 +1077,16 @@
     "section": "reference",
     "schema": null,
     "description": null,
+    "references": [
+      "hidden-settings"
+    ]
+  },
+  {
+    "title": "Can I send a specific email to my new subscribers?",
+    "url": "can-i-send-an-email-to-new-subscribers",
+    "section": "reference",
+    "schema": null,
+    "description": null,
     "references": []
   },
   {
@@ -1309,6 +1324,7 @@
     "references": [
       "bsky",
       "building-your-subscriber-base",
+      "can-i-send-an-email-to-new-subscribers",
       "creating-your-first-automation",
       "duda",
       "linkedin",
@@ -1353,6 +1369,7 @@
     "description": null,
     "references": [
       "bsky",
+      "can-i-send-an-email-to-new-subscribers",
       "linkedin",
       "twitter"
     ]
@@ -1387,6 +1404,7 @@
     "description": null,
     "references": [
       "automation-triggers",
+      "can-i-send-an-email-to-new-subscribers",
       "events-and-webhooks-introduction"
     ]
   },
@@ -1451,6 +1469,14 @@
   {
     "title": "Self-hosting",
     "url": "self-hosting",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Hidden features and settings",
+    "url": "hidden-settings",
     "section": "reference",
     "schema": null,
     "description": null,
@@ -1620,7 +1646,8 @@
     "references": [
       "api-subscribers-create",
       "dealing-with-spam-subscribers",
-      "glossary-cold-email"
+      "glossary-cold-email",
+      "hidden-settings"
     ]
   },
   {

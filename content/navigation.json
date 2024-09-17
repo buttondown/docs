@@ -498,6 +498,10 @@
         {
           "discriminant": "page",
           "value": "can-i-set-a-custom-unsubscribe-link"
+        },
+        {
+          "discriminant": "page",
+          "value": "can-i-send-an-email-to-new-subscribers"
         }
       ]
     },
@@ -723,6 +727,10 @@
         {
           "discriminant": "page",
           "value": "self-hosting"
+        },
+        {
+          "discriminant": "page",
+          "value": "hidden-settings"
         }
       ]
     },

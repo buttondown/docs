@@ -64,7 +64,7 @@ const Document = async ({ page }: Props) => (
                   },
                 ].filter(
                   (block) =>
-                    block.code !== undefined && block.code.trim() !== "",
+                    block.code !== undefined && block.code.trim() !== ""
                 ) as {
                   name: string;
                   code: string;
@@ -83,7 +83,7 @@ const Document = async ({ page }: Props) => (
       ),
       paidFeature: (props) => {
         const price = PRICES.find((price) =>
-          price.features.includes(props.feature),
+          price.features.includes(props.feature)
         );
         return (
           <Notice type="info">
@@ -140,7 +140,17 @@ const Document = async ({ page }: Props) => (
         );
       },
       noticeWarn: (props) => {
-        return <Notice type="warning">{props.text}</Notice>;
+        return (
+          <Notice type="warning">
+            <div
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: It's fine
+              dangerouslySetInnerHTML={{
+                __html: marked(props.text),
+              }}
+              className="-my-4"
+            />
+          </Notice>
+        );
       },
       snippetSpacer: () => {
         return <br />;

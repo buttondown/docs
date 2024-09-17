@@ -13,7 +13,7 @@ const noticeContainer = cva(
         danger: "bg-red-50 border-red-300 text-red-600 [&_*]:text-red-600",
       },
     },
-  },
+  }
 );
 
 type Props = {
