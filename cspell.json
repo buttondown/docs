@@ -123,6 +123,7 @@
     "Valsorda",
     "Venmo",
     "Vivek",
+    "Webflow",
     "Webmentions",
     "webpanel",
     "webserver",
@@ -140,5 +141,7 @@
     "./content/pages/kudos.mdoc",
     "**/*.tsx"
   ],
-  "enableFiletypes": ["markdoc"]
+  "enableFiletypes": [
+    "markdoc"
+  ]
 }

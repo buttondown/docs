@@ -1,0 +1,49 @@
+---
+title: Webflow
+relatedPages: []
+---
+
+Did you build your site with Webflow? It's easy to connect Buttondown to your site, and start collecting email addresses!
+
+There are two possible ways to do this. You can either:
+
+1. **Embed your Buttondown form** in your Webflow site
+2. **Configure your Webflow form** to send form submissions to Buttondown
+
+
+## Embed your Buttondown form in Webflow
+1. Log in to your **Buttondown** account and go to Settings → [Embedding](https://buttondown.com/settings/embedding)
+2. Copy the HTML under the "Form" header
+3. Log in to your **Webflow** account
+4. Open your project in the Designer
+5. Add a ["Custom code"](https://university.webflow.com/lesson/custom-code-embed?topics=elements) element to your page
+6. Paste the HTML from Buttondown
+7. Add any styling you'd like
+8. Publish your site
+
+## Forward form submissions to Buttondown
+### Getting your subscription URL
+
+1. Log in to your Buttondown account and go to Settings → [Embedding](https://buttondown.com/settings/embedding)
+3. Copy the URL under the "Link" header (This will look like `https://buttondown.com/newsletter-name`)
+
+### Configure the form
+
+1. Log in to your **Webflow** account
+2. Open your project in the Designer
+2. Select the form on the canvas
+3. Go to **the Form Settings** section under the **Settings** tab
+4. Paste the action URL you just copied into the **Action** field
+5. Set the **Method** to `POST`
+6. Publish your site
+
+![Screenshot of the Webflow form UI](/webflow.jpg)
+
+{% noticeWarn text="Not seeing your changes? Make sure to [publish your Webflow site](https://university.webflow.com/lesson/publish-your-site#how-to-publish-your-site) for changes to take effect." /%}
+
+## What's next
+Feeling fancy? You can use [add tags](https://docs.buttondown.com/tags#adding-tags-to-your-subscription-form) to help segment your users that sign up through your website.
+
+## Any trouble?
+
+If you have any questions, [email us](mailto:support@buttondown.email) and we'll be happy to help!

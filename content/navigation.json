@@ -366,6 +366,10 @@
         },
         {
           "discriminant": "page",
+          "value": "webflow"
+        },
+        {
+          "discriminant": "page",
           "value": "wordpress"
         }
       ]
