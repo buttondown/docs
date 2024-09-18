@@ -365,12 +365,11 @@ date {
 }
 .widget input,
 .widget a[type="button"],
-.widget sniper-link::part(button) {
-  border-radius: 0 !important;
-}
 .widget select {
   border-radius: 0 !important;
   border: 1px solid var(--medium-color) !important;
+}
+.widget select {
   padding: 0.5rem;
 }
 .email-body-container {
