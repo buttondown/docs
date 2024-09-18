@@ -539,6 +539,7 @@
     "description": null,
     "references": [
       "glossary-dns",
+      "glossary-whitelabeling",
       "quickstart",
       "sending-from-a-custom-domain",
       "sending-your-first-email-advanced"
@@ -1108,6 +1109,7 @@
     "description": null,
     "references": [
       "customizing-transactional-emails",
+      "glossary-whitelabeling",
       "modern-template-hide-top",
       "registration-and-setup",
       "uploading-images"
@@ -1120,6 +1122,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "glossary-whitelabeling",
       "registration-and-setup"
     ]
   },
@@ -1956,6 +1959,14 @@
     "references": [
       "customizing-email-list-view"
     ]
+  },
+  {
+    "title": "Whitelabeling",
+    "url": "glossary-whitelabeling",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
   },
   {
     "title": "WYSIWYG",
