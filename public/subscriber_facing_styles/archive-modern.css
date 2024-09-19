@@ -381,7 +381,7 @@ date {
   color: var(--tint-color);
   word-wrap: break-word;
 }
-.email-body-container .subscribe_button {
+.email-body-container .buttondown-custom-button {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -389,7 +389,7 @@ date {
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
 }
-.email-body-container .subscribe_button .buttondown-button {
+.email-body-container .buttondown-custom-button .buttondown-button {
   font-family: var(--brand-font) !important;
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
     0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -403,7 +403,7 @@ date {
   margin-top: 2.5rem !important;
   margin-bottom: 2.5rem !important;
 }
-.email-body-container .subscribe_button:hover {
+.email-body-container .buttondown-custom-button:hover {
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
