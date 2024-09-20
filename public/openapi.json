@@ -8331,6 +8331,14 @@
               }
             ]
           },
+          "sending": {
+            "default": "none",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccessLevel"
+              }
+            ]
+          },
           "styling": {
             "default": "none",
             "allOf": [
