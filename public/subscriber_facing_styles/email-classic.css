@@ -184,7 +184,7 @@ img[goomoji] {
   color: #697882;
 }
 .tweet .text {
-  white-space: normal;
+  white-space: pre-line;
   cursor: text;
 }
 .tweet .header,
