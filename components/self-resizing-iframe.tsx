@@ -1,5 +1,8 @@
 "use client";
 
+import useButtondownCookie, {
+  USERNAME_COOKIE,
+} from "@/hooks/useButtondownCookie";
 import { useEffect, useRef } from "react";
 
 // Assume the default 8px margin on a body tag.
@@ -12,6 +15,9 @@ const resizeIframe = (iframe: HTMLIFrameElement) => {
 };
 
 const SelfResizingIframe = ({ srcDoc }: { srcDoc: string }) => {
+  const username = useButtondownCookie(USERNAME_COOKIE);
+  srcDoc = srcDoc.replace("{username}", username ?? "buttondown");
+
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   // When the iFrame finishes loading, adjust its height to match its content.
