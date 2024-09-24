@@ -599,6 +599,7 @@
       "draft-send",
       "glossary-paywall",
       "paid-subscriptions",
+      "perks",
       "quickstart",
       "substack"
     ]
@@ -614,7 +615,15 @@
     ]
   },
   {
-    "title": "Sending a teaser of your paid newsletter to prospects",
+    "title": "Offering perks for paid subscribers",
+    "url": "perks",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "How to send a teaser",
     "url": "premium-teaser",
     "section": "guides",
     "schema": null,
@@ -837,6 +846,7 @@
       "mailchimp",
       "metadata",
       "paid-subscriptions",
+      "perks",
       "revue",
       "sponsorships",
       "stripe",
@@ -918,7 +928,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "paid-subscriptions",
+      "perks",
       "quickstart",
       "sending-your-first-email-advanced"
     ]
@@ -1789,7 +1799,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "paid-subscriptions",
+      "perks",
       "seo"
     ]
   },

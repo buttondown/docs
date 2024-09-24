@@ -1,0 +1,98 @@
+---
+title: Offering perks for paid subscribers
+relatedPages:
+- paid-subscriptions
+- stripe-test-mode
+- can-i-pay-using-something-other-than-stripe
+- how-do-i-handle-taxes
+--- 
+
+Looking for incentives to draw in more paid subscribers? These premium features are a great way to win them over! You can advertise these options to free subscribers to encourage them to convert to paid subscribers.
+
+## Share your paid newsletter archive
+
+Did you know that you can reward paid subscribers by giving them access to your newsletter archives? You can generate a link to your newsletter archive that's unique to every subscriber who receives it. There are two ways to do this, and no matter which method you choose, the link will expire when a subscriber’s paid subscription lapses.
+
+There are two ways to create a view link: 
+
+* Using shortcode 
+* Inviting subscribers manually
+
+### Using shortcode 
+
+Use this code snippet to generate a link to your newsletter archive. This link is unique to every subscriber who receives it.
+
+```handlebars
+{{premium_archive_url}}
+```
+
+Buttondown automatically includes an extended version of this shortcode to the footer of your paid newsletter emails. The additional code ensures that your archives link only appears in your emails to paid subscribers.
+
+```handlebars {% process=false %}
+{% if subscriber.subscriber_type == "premium" %}
+    You can always view your full archives [here]({{premium_archive_url}}).
+{% endif %}
+```
+
+You can edit the footer in "[Design](https://buttondown.com/settings/design)" > "Footer". Here’s what that process looks like.
+
+{% video file="/paid-subscriptions/monetizing_email-footer-settings-hi-res_AdobeExpress.mp4" /%}
+
+This video shows how to customize your email footer.
+
+After you update the footer in Buttondown, it will appear at the bottom of every newsletter email you send. 
+
+{% video file="/paid-subscriptions/monetizing_sample-email-with-archive-link-in-footer-hi-res_AdobeExpress.mp4" /%}
+
+This video shows an example email with a customized footer.
+
+### Inviting subscribers manually
+
+If you're not comfortable working in code, you can manually generate a link to allow a subscriber to view your archives. Here's how:
+
+1. Navigate to ["Subscribers"](https://buttondown.com/subscribers).
+1. Choose any paid subscriber's email address and click the three-dot **overflow menu**. The menu appears.
+1. Choose **Archives** to generate a link you can use to manually invite the subscriber to view your archives.
+
+{% video file="/paid-subscriptions/monetizing_buttondown-subscriber-settings_AdobeExpress.mp4" /%}
+
+## Offer free trials
+
+You can give free subscribers a temporary preview of your paid content. You can do that through [Stripe](https://stripe.com/docs/tax) by editing an existing payment link or creating a new payment link. When you do, check the box to "Include a Free Trial" in your payment link editor.
+
+{% video file="/paid-subscriptions/monetizing_free-trial-button-in-stripe-hi-res_AdobeExpress.mp4" /%}
+
+This setting allows _all_ prospective subscribers to register for a free trial. If you would rather only offer discounted content to a select few subscribers, we recommend sending promo codes.
+
+## Send promo codes
+
+The Buttondown team is happy to help you create and send manual promo codes for discount subscriptions. Reach out to us at support@buttondown.email, and we’ll get your promo code set up ASAP.
+
+However, it’s also possible to create promo codes through [Stripe](https://stripe.com/docs/tax). You can do that by clicking **Allow Promotion Codes** in the advanced settings of your payment link editor.
+
+{% video file="/paid-subscriptions/monetizing_promo-code-hi-res_AdobeExpress.mp4" /%}
+
+We recommend following along with Stripe’s "[Discounts For Subscriptions](https://stripe.com/docs/billing/subscriptions/coupons#promotion-codes--promotion-codes)" doc for more information about creating and applying promo codes.
+
+## Give gift subscriptions
+
+If you’d like to give a gift newsletter subscription to any friend, family member, or subscriber, here's how:
+
+1. Navigate to the "Subscribers" page.
+1. Find the email address of the person to whom you wish to give a gift subscription and click the three-dot **overflow menu**. The menu appears.
+1. Select **Gift**. The "Gift one subscriber?" menu appears.
+1. Optionally, write the subscriber a message.
+1. Optionally, set an end date for the gift subscription to lapse on. If you don't configure this field, the gift subscription will last forever.
+1. Click **Gift.** 
+
+Your recipient will get a notification email when the gift subscription is created. If you wish to cancel the gift subscription, repeat the procedure above and select **Ungift** from the three-dot **overflow menu.** 
+
+## Setting up a free subscription model with paid features
+
+There are several ways to earn money for your newsletter without charging paid subscriptions.
+
+### Send both paid and free newsletters
+
+Buttondown lets you specify whether emails go to all your subscribers or just your paid subscribers. You can categorize emails as either "Premium" or "Free" in the "Recipients" section of the Buttondown "Email send" menu. 
+
+Alternatively, you can send one email to both paid and free subscribers, and then insert a [paywall](/glossary-paywall) to restrict access by free subscribers to the rest of your content. This way, you can offer a sample of paid content to free subscribers while still giving them a reason to upgrade to a paid subscription.

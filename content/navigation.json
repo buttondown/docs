@@ -259,6 +259,10 @@
           "value": "sponsorships"
         },
         {
+          "discriminant": "page",
+          "value": "perks"
+        },
+        {
           "discriminant": "divider",
           "value": "FAQ"
         },

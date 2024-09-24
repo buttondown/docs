@@ -1,14 +1,18 @@
 ---
-title: Sending a teaser of your paid newsletter to prospects
+title: How to send a teaser
 navigationTitle: How to send a teaser
 description: Sending a "teaser" version of a paid email to unpaid subscribers.
 date: 2024-08-02
 relatedPages:
   - paid-subscriptions
 ---
-If you have a paid newsletter, you might still want to send a "teaser" version of the email to your free subscribers, to encourage them to upgrade to the paid subscription.
+If you have a paid newsletter, you might want to send a "teaser" version of the email to your free subscribers.
 
-1. Write your full paid email.
-1. Add an empty line at the point in your email where you'd like to hide the rest. Type `/paywall` and select the Paywall option (making sure your editor is set to Fancy Mode).
-1. Now, everything below the Paywall block will only be visible to [Premium](/api-subscribers-type#premium) subscribers, and [Regular](/api-subscribers-type#regular) subscribers will see only what's above the Paywall along with a link to pay for a subscription.
+A teaser email displays to free subscribers as an abbreviated section of a newsletter email, with a prompt to subscribe to continue reading. This can encourage free subscribers to upgrade to a paid subscription.
+
+Here's how to send a teaser email:
+
+1. Navigate to the "Emails" page of your Buttondown account and start a new email draft.
+1. Insert an empty line at the point in your email where you'd like to hide the remainder of the text. Type `/paywall` and press **Enter**.
+1. Everything below the Paywall block will only be visible to [Premium](/api-subscribers-type#premium) subscribers. [Regular](/api-subscribers-type#regular) subscribers will see only the text above the paywall, followed by a link to pay for a subscription.
 1. Send the email to a [Public](/api-emails-type#public) audience. This way, the email will be sent to both paid and unpaid subscribers—but the different types of subscribers will see different content.
