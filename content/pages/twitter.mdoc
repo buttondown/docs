@@ -8,15 +8,23 @@ relatedPages:
 ---
 {% paidFeature feature="automations" /%}
 
-Buttondown allows you to connect your Twitter account to your newsletter. This allows you to automatically share your newsletters to your Twitter profile, powered by our [automations](/automations-introduction) feature.
+## Overview
+
+Buttondown lets you connect your Twitter account to your newsletter. This lets you automatically share your newsletters as tweets. This integration relies on Buttondown's [automations](/automations-introduction) feature.
 
 ## Setting up your Twitter integration
 
-To get started, head over to the [Integrations page](https://buttondown.com/settings/integrations) and click on the "Connect" button next to Twitter. This will prompt you to log in to your Twitter account and authorize Buttondown to tweet on your behalf.
+To get started,
 
-Once you've connected your Twitter account, you should be able to see a "Connected to Twitter" message on the Integrations page.
+1. Navigate to **Settings**, and then the [**Integrations**](https://buttondown.com/settings/integrations) and find the Twitter integration option. 
+1. Click **Connect**. A new tab opens, prompting you to log in to your Twitter account.
+1. Click **Authorize app** to authorize Buttondown to tweet on your behalf.
+
+After you connect your Twitter account to Buttondown, a confirmation message appears on the Integrations page.
 
 ## Sharing your newsletters to Twitter
+
+To share your newsletters to Twitter, you can create an automation that posts your newsletters to Twitter whenever you send them. To do this, create a new [Automation](https://buttondown.com/automations/new), or just click the Automation banner below: 
 
 {% automation
    name="Automatically post to Twitter"
@@ -25,9 +33,13 @@ Once you've connected your Twitter account, you should be able to see a "Connect
    url="https://buttondown.com/automations/new?trigger=email.sent&action=create_twitter_post&name=Automatically+tweet+new+emails"
    action="Post on Twitter" /%}
 
-To share your newsletters to Twitter, you can create an automation that tweets whenever you send them. To do this, create a new [Automation](https://buttondown.com/automations/new) with the following settings:
+The simplest and most common use case is to create an automation that posts your newsletters to Twitter whenever you send them. Here's how:
 
-1. A **trigger** of [when an email is sent](/api-webhooks-event-types#email.sent).
-1. An **action** of [Create a Twitter post](/automation-actions#create_twitter_post).
+1. Navigate to the [**Automations**](https://buttondown.com/automations) page and click **New**. The "New automation" panel opens.
+1. (Optional) Give your automation a human-readable "Name."
+1. Set the **Trigger** to  [when an email is sent](/api-webhooks-event-types#email.sent).
+1. Set the **Action** to [Create a Twitter post](/automation-actions#create_twitter_post).
+1. (Optional) Configure any other fields to customize the automation. If you leave these fields blank, the automation will post to your Twitter account as soon as you send a new newsletter email.
+1. Click **Save changes**. 
 
-You can leave the "filters" and "timing" sections blank, and you should be good to go!
+To enable the new automation, either click **Unpause** in the automation panel, or click to enable the automation's toggle in the [**Automations**](https://buttondown.com/automations) page.

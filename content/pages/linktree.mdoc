@@ -2,110 +2,145 @@
 title: Linktree
 ---
 
-Ever heard the phrase "link in bio"? Odds are that the link in question is accessible through [Linktree](https://linktr.ee/), a tool that compiles social media pages, websites, and (yep, you guessed it!) newsletters, all in a single shareable landing page. Follow along with this guide to learn how you can grow your Buttondown subscriber base through Linktree.
+## Overview
 
-## Getting started
+[Linktree](https://linktr.ee/) is a tool that compiles social media pages, websites, and newsletters in a single shareable landing page.
 
-Make sure that you have:
+This topic explains how you can grow your Buttondown subscriber base through Linktree. To do this, you must create a webhook in Zapier. 
+
+[Webhooks](/events-and-webhooks-introduction) are useful tools that can automate workflows between two or more apps. [Zapier](https://zapier.com/) relies on webhooks to create "Zaps" (which is just their term for "automated workflows"). In this doc, we'll use Zapier to create a webhook that takes new subscribers' information from Linktree and adds it to your Buttondown subscriber base.
+
+![Visualization of how webhook automates workflow between Linktree and Buttondown](/images/visualizations/linktree_webhooks-diagram.png)
+
+## Prerequisites
+
+To complete this process, you must have:
 
 - A paid [Zapier](https://zapier.com/) account
 - A [Linktree Pro](https://linktr.ee/s/pricing/) account
 - A Buttondown newsletter ([registration](https://buttondown.com/register)'s easy, and Zapier is already included in our [standard plan](https://buttondown.com/pricing))
 
-## Generating Your Webhook
+## Create your webhook
 
-### Create your webhook
-
-[Webhooks](/events-and-webhooks-introduction) are useful tools that can automate workflows between two or more apps. [Zapier](https://zapier.com/) relies on webhooks to create "Zaps" (which is just a fun way of saying "automated workflows"). In this guide, we'll be using Zapier to create a webhook that takes new subscribers' information from Linktree and adds it to your Buttondown subscriber base.
-
-![Visualization of how webhook automates workflow between Linktree and Buttondown](/images/visualizations/linktree_webhooks-diagram.png)
-
-Let's get started. Once you're logged in to your paid [Zapier](https://zapier.com/) account, click "Create Zap" to begin setting up your webhook.
-
-{% video file="/linktree/linktree_create-zap.mp4" /%}
+To create your webhook in Zapier, log into [Zapier](https://zapier.com/) account and click **Create Zap** to begin setting up your webhook.
 
 ### Determine your webhook's trigger
 
-Search for "Webhooks by Zapier" and select this as your trigger app. Then scroll through the menu of possible trigger events and select "Catch Hook."
+Next, you must assign the webhook's trigger, or the event that your webhook recognizes in order to perform a followup action. Here's how:
+
+1. Search for "Webhooks by Zapier" and select this as your trigger app. 
+1. Scroll through the menu of possible trigger events and select **Catch Hook.**
 
 {% video file="/linktree/linktree_full-step-one.mp4" /%}
 
-## Testing your webhook
+This video shows how to search for "Webhooks by Zapier" and choose the "Catch Hook" event.
 
-### Copy and paste your webhook URL
+## Test your webhook
 
-It's showtime! Skip down to the "Test" tab, and you should see a custom webhook URL. Copy that URL, but don't close out of your Zapier editor just yet.
+Now it's time to test your new webhook. Here's how:
+
+1. Scroll to the "Test" tab, where you should see a custom webhook URL. 
+1. Copy that URL, but don't close out of your Zapier editor yet.
 
 {% video file="/linktree/linktree_copy-url.mp4" /%}
 
-Hop over to your [Linktree Pro](https://linktr.ee/s/pricing/) settings and jump to the "Mailing List Integrations" section. Once you're there, flip the switch to add an "Email Sign-Up" field. Customize your sign-up field to your heart's content, then click the Zapier logo listed under "Storage." The accompanying section is where you'll paste your webhook URL. After pasting that URL, your new sign-up field should appear on the preview of your landing page.
+This video shows how to find and copy the webhook URL.
+
+Next, you'll add the webhook URL to Linktree. Here's how:
+
+1. Navigate to your [Linktree Pro](https://linktr.ee/s/pricing/) settings and find the "Mailing List Integrations" section. 
+1. Enable the switch to add an "Email Sign-Up" field. Customize your sign-up field however you like. 
+1. Click the Zapier logo listed under "Storage." 
+1. Paste the webhook URL you copied into this section.
+
+After you add the webhook URL, your new sign-up field should appear on the preview of your landing page.
 
 {% video file="/linktree/linktree_paste-url.mp4" /%}
 
+This video shows how to enable the "Email Sign-up" field and paste the webhook URL.
+
 ### Test your webhook's trigger
 
-Now it's time to trigger your webhook. You'll do this by navigating to your updated Linktree landing page and populating your new sign-up field with a test email address. This test email address must be a real email address, as Buttondown may not recognize it otherwise.
+Now it's time to trigger your webhook. Here's how:
 
-{% video file="/linktree/linktree_test-email.mp4" /%}
+1. Navigate to your updated Linktree landing page.
+2. Enter a test email address in the sign-up field. This test email address must be a real email address, as Buttondown may not recognize it otherwise.
 
-When you're back in Zapier, click "Test Trigger." Within a moment or two, Zapier should let you know that they've found a request that includes your test email address.
+ {% video file="/linktree/linktree_test-email.mp4" /%}
 
-{% video file="/linktree/linktree_first-step-test-result.mp4" /%}
+ This video shows someone using the sign-up field in Linktree.
 
-## Finalizing your webhook
+3. Back in Zapier, click **Test Trigger.** Within a moment or two, Zapier will let you know that they've found a request that includes your test email address.
 
-### Determine your webhook's action
+ {% video file="/linktree/linktree_first-step-test-result.mp4" /%}
+ 
+ This video shows a successful test result in Zapier.
 
-Woohoo! You're well on your way to finalizing your webhook. Next up, you'll determine the action that your webhook will complete after it's triggered.
+## Determine your webhook's action
 
-Start by searching for the latest version of "Buttondown" and selecting it as your action app. Then scroll through the menu of possible action events and select "Create Subscriber."
+Next, determine the action that your webhook will complete after it's triggered. Here's how:
+
+1. In Zapier, search for the latest version of "Buttondown" and choose it as your action app. 
+1. Then scroll through the menu of possible action events and select "Create Subscriber."
 
 {% video file="/linktree/linktree_full-step-two.mp4" /%}
 
+This video shows how to choose the "Create Subscriber" action in Zapier.
+
 ### Connect your Buttondown account
 
-At this stage, if you haven't already integrated your Buttondown account with Zapier, you may be prompted to sign in to your Buttondown account with your API Key. You can always access your API key in the "API" section of your Buttondown [settings](https://buttondown.com/requests).
-
-{% video file="/linktree/linktree_find-api-key.mp4" /%}
+At this stage, if you haven't already integrated your Buttondown account with Zapier, you may be prompted to sign in to your Buttondown account with your API Key. You can access your API key in the "API" section of your Buttondown [Settings](https://buttondown.com/requests).
 
 ### Inform your webhook's action
 
-From here, you can select the data that your webhook will deliver to Buttondown. Select "Email," but feel free to include as many other options as you'd like.
+Now you can select the data that your webhook will deliver to Buttondown. Select "Email," and otherwise include as many other options as you'd like.
 
 {% video file="/linktree/linktree_add-action-details.mp4" /%}
 
+This video shows further configuration options in Zapier.
+
 ### Test your webhook's action
 
-This is it: The moment of truth. Click "Test Action," and within a few seconds, Zapier should send you a result featuring your trusty test email.
+In Zapier, click **Test Action**, and within a few seconds, Zapier should send you a result featuring your test email.
 
 {% video file="/linktree/linktree_second-step-test-result.mp4" /%}
 
-We're almost there—we've just got one last thing to do. Pop over to your "Subscribers" page in your Buttondown [settings](https://buttondown.com/settings). You should see your test email here as well.
+This video shows a successful test event in Zapier.
+
+Now, navigate to your [Subscribers](https://buttondown.com/subscribers) page in Buttondown. Your test email should appear here as well.
 
 {% video file="/linktree/linktree_see-new-subscriber.mp4" /%}
 
-How exciting! That means your webhook is up, running, and ready to be published.
+This video shows a successful test user in the Buttondown "Subscribers" page.
 
-### Publish your webhook
+This means your webhook is up, running, and ready to be published.
 
-You've done it! Click "Publish your Zap" and marvel at the wonders of automated workflows.
+## Publish your webhook
+
+You've done it! Click **Publish Zap** in Zapier and marvel at the wonders of automated workflows.
 
 {% video file="/linktree/linktree_publish-zap.mp4" /%}
 
-## Going the extra mile
+This video shows the **Publish Zap** button being clicked.
+
+## Going above and beyond
 
 ### Add tags and metadata
 
-Webhooks can really do it all—including adding tags and metadata to new subscribers.
+Webhooks can do a lot, including adding tags and metadata to new subscribers.
 
-[Tags](/tags) can be used to sort your subscriber base, as well as to send out targeted email blasts. Like tags, [metadata](/metadata) can also provide additional context for subscribers. That context can come in handy when you're searching for a specific set of linktree.
+You can use [Tags](/tags) to sort your subscriber base, as well as to send out targeted email blasts. Like tags, [metadata](/metadata) can also provide additional context for subscribers.
 
-So, how do we add tags and metadata to webhooks? In this case, start by scrolling down to the "Action" tab in your Zapier editor. From here, you can populate the "Tag" and "Metadata" sections. Just make sure to double check that any new tags and metadata show up when you test your webhook action!
+So, how do you add tags and metadata to webhooks? In this case, start by scrolling down to the "Action" tab in your Zapier editor. From here, you can populate the "Tag" and "Metadata" sections. Just make sure to double check that any new tags and metadata show up when you test your webhook action!
 
 {% video file="/linktree/linktree_add-tag-and-metadata.mp4" /%}
 
-After testing your webhook's action in Zapier, your new subscriber (along with their tags and metadata) should appear in your Buttondown subscriber base. Toggle to the "Notes" for any given subscriber to manage tags, metadata, and other details.
+This video shows how to add tags and metadata in Zapier.
+
+After you test your webhook's action in Zapier, your new subscriber, their tags, and their metadata, will appear in your Buttondown subscriber base. Navigate to the "Notes" for any given subscriber to manage their tags, metadata, and other details.
 
 {% video file="/linktree/linktree_sample-subscriber-tag-metadata.mp4" /%}
 
-And voila! On top of sending new subscribers to Buttondown, your webhook will now also help you sort them into your subscriber base.
+This video shows how to access the "Notes" section for a subscriber.
+
+That's it! On top of sending new subscribers to Buttondown, your webhook will now also help you sort them into your subscriber base.

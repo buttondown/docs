@@ -4,15 +4,40 @@ relatedPages: []
 ---
 {% paidFeature feature="automations" /%}
 
-Skeeters, rejoice! Buttondown allows you to connect your Bluesky account to your newsletter. This allows you to automatically cross-post your newsletters to Bluesky, powered by our [automations](/automations-introduction) feature.
+Skeeters, rejoice! Buttondown lets you connect your Bluesky account to your newsletter in Buttondown. This lets you automatically cross-post your newsletter emails to Bluesky. This function is powered by our [automations](/automations-introduction) feature.
+
+To automatically cross-post your newsletter emails to Bluesky, you have to complete two steps:
+
+1. [Connect your Bluesky and Buttondown accounts](#setting-up-your-bluesky-integration)
+1. [Posting newsletters to Bluesky](#sharing-your-newsletters-to-bluesky)
 
 ## Setting up your Bluesky integration
 
-To get started, head over to the [Integrations page](https://buttondown.com/settings/integrations) and click on the "Connect" button next to Bluesky.
+First, you must connect your Bluesky and Buttondown accounts. Here's how:
 
-Unlike other platforms that provide authentication through OAuth, Bluesky requires you to generate an [app-specific password](https://bsky.app/settings/app-passwords) for your account. Go ahead and do that and then share the password with Buttondown.
+### Generating an app-specific password in Bluesky
+
+Bluesky requires you to generate an [app-specific password](https://bsky.app/settings/app-passwords) that Buttondown can use to connect to your Bluesky account. Here's how:
+
+1. In Buttondown, navigate to **Settings** and click [Integrations](https://buttondown.com/settings/integrations). 
+1. Find the "Bluesky" integration option and click **Configure**. The Bluesky configuration panel opens.
+1. Click **Generate password**. Bluesky opens in a new tab.
+1. Click **Add app password** and follow the prompts to create a new app password.
+1. **Important**: When you are prompted to copy the app password, do it and save it somewhere secure. You will not be able to view the password after you dismiss this screen.
+
+### Authenticating with Bluesky from Buttondown
+
+Now you can use the app-specific password you created to connect your Buttondown and Bluesky accounts. Here's how:
+
+1. In Buttondown, navigate to **Settings** and click [Integrations](https://buttondown.com/settings/integrations). 
+1. Find the "Bluesky" integration option and click **Configure**. The Bluesky configuration panel opens.
+1. Enter your **Bluesky username** in the appropriate field.
+1. Paste your **App-specific password** in the appropriate field.
+1. Click **Save changes**. 
 
 ## Sharing your newsletters to Bluesky
+
+To share your newsletters to Bluesky, you can create an automation that posts your newsletters to Bluesky whenever you send them. To do this, create a new [Automation](https://buttondown.com/automations/new), or just click the Automation banner below: 
 
 {% automation
    name="Automatically post to Bluesky"
@@ -21,11 +46,13 @@ Unlike other platforms that provide authentication through OAuth, Bluesky requir
    url="https://buttondown.com/automations/new?trigger=email.sent&action=create_bluesky_post&name=Automatically+post+to+Bluesky"
    action="Post on Bluesky" /%}
 
-To share your newsletters to Bluesky, you can create an automation that posts your newsletters to Bluesky whenever you send them. To do this, create a new [Automation](https://buttondown.com/automations/new).
+The simplest and most common use case is to create an automation that posts your newsletters to Bluesky whenever you send them. Here's how:
 
-The simplest and most common use case is to create an automation that posts your newsletters to Bluesky whenever you send them. To do this, you'd want the following settings:
+1. Navigate to the [**Automations**](https://buttondown.com/automations) page and click **New**. The "New automation" panel opens.
+1. (Optional) Give your automation a human-readable "Name."
+1. Set the **Trigger** to  [when an email is sent](/api-webhooks-event-types#email.sent).
+1. Set the **Action** to [Create a Bluesky post](/automation-actions#create_bsky_post).
+1. (Optional) Configure any other fields to customize the automation. If you leave these fields blank, the automation will post to your Bluesky account as soon as you send a new newsletter email.
+1. Click **Save changes**. 
 
-1. A **trigger** of [when an email is sent](/api-webhooks-event-types#email.sent).
-1. An **action** of [Create a Bluesky post](/automation-actions#create_bsky_post).
-
-You can leave the "filters" and "timing" sections blank, and you should be good to go!
+To enable the new automation, either click **Unpause** in the automation panel, or click to enable the automation's toggle in the [**Automations**](https://buttondown.com/automations) page.

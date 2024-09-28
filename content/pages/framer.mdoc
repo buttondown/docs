@@ -2,43 +2,47 @@
 title: Framer
 ---
 
+## Overview
 
-Buttondown forms are easy to build, and can drive newsletter subscriptions directly from your website. If you're in need of a website, [Framer](https://www.framer.com/) is a sleek, no-code tool that can help you build one. By the end of this tutorial, you'll know how to embed a subscription form for your newsletter in Framer.
+Buttondown forms are easy to build and can drive newsletter subscriptions directly from your website. If you need a website, [Framer](https://www.framer.com/) is a sleek, no-code tool that can help you build one. 
 
- ## Getting started
+This topic explains how to embed a subscription form for your newsletter in Framer.
 
-Before we get going, make sure that you have:
+## Prerequisites
 
-- A [Framer](https://www.framer.com/) site that's up, running, and ready for new content
-- A Buttondown account (don't be shy, [sign up here](https://buttondown.com/register)!)
+To complete this process, you must have:
+
+- A [Framer](https://www.framer.com/) site
+- A Buttondown account
 
 ## Connecting Buttondown to Framer
 
-### Retrieve your form
+### Retrieve your form from Buttondown
 
-Our journey begins in the "Embedding" section of your Buttondown [settings](https://buttondown.com/settings/embedding). Scroll down to the "Form" tab to find HTML code for adding a subscription form. Copy this code and keep it in your back pocket—you'll need it later!
+First, you must retrieve the HTML code for a subscription form from Buttondown.
 
-### Insert an "Embed" block
+1. In Buttondown, navigate to **Settings**, and then [**Embedding**](https://buttondown.com/settings/embedding).
+1. Scroll down to the "Form" section and find HTML code for adding a subscription form. 
+1. Copy this code to your clipboard.
 
-Mosey on over to your canvas in [Framer](https://www.framer.com/). From here, click "Insert" and scroll through the dropdown menu until you arrive at "Utility." Then click "Embed."
+### Insert an "Embed" block in Framer
 
-{% video file="/framer/framer_embed-block.mp4" /%}
+1. In [Framer](https://www.framer.com/), click **Insert**. Scroll through the dropdown menu until you arrive at "Utility." 
+2. Click **Embed**.
 
-### Switch your "Embed" type to "HTML"
+ {% video file="/framer/framer_embed-block.mp4" /%}
 
-Click your newly embedded block, and glance over at the properties panel that pops up.
+3. Click the new embed block and look at the properties panel that pops up.
 
-{% video file="/framer/framer_select-block.mp4" /%}
+ {% video file="/framer/framer_select-block.mp4" /%}
 
-Scroll down to the "Embed" section and switch your "Embed" type to "HTML."
+4. Scroll down to the "Embed" section and switch your "Embed" type to "HTML."
 
-{% video file="/framer/framer_switch-HTML.mp4" /%}
+ {% video file="/framer/framer_switch-HTML.mp4" /%}
 
-### Copy and paste your HTML form
+5. Paste the HTML form code from Buttondown into the HTML field.
 
-Remember that code you put in your back pocket? Pull it back out and paste it into the HTML field.
-
-{% video file="/framer/framer_paste-HTML.mp4" /%}
+ {% video file="/framer/framer_paste-HTML.mp4" /%}
 
 You've done it! Your new Buttondown form should look a little something like this.
 
@@ -48,7 +52,7 @@ You've done it! Your new Buttondown form should look a little something like thi
 
 ### Add subscriber tags
 
-As your subscriber base grows (congrats!), you may want to organize it by assigning tags to individual subscribers. These tags can be used to sort your subscriber base, as well as to send out targeted email blasts.
+As your subscriber base grows, you may want to organize it by assigning tags to individual subscribers. You can use these tags to sort your subscriber base, as well as to send out targeted email blasts.
 
 You can automatically add tags to any new subscribers by modifying the HTML code you used to create your subscription form. All you have to do is add a new <span class="bg-gray-200 font-mono p-0.5 rounded">input</span> tag that matches the following format.
 
@@ -94,8 +98,8 @@ Here's what that code looks like when it's rendered.
 
 {% video file="/framer/framer_subscription-form-with-tags.mp4" /%}
 
-Feel free to add as many tags as your heart desires. If you're interested in learning more about tags, check out our doc on "[Building your subscriber base](/building-your-subscriber-base)."
+You can add as many tags as you want. To learn more about tags, read [Building your subscriber base](/building-your-subscriber-base).
 
 ### Customize your form
 
-You may want to style your form so that it matches your website's aesthetic—that's all good! You can do that in Framer by referencing their "[Creating Custom Forms](https://www.framer.com/learn/how-to-create-a-custom-form/)" doc.
+You may want to style your form so that it matches your website's brand and styling. You can do that in Framer by referencing their "[Creating Custom Forms](https://www.framer.com/learn/how-to-create-a-custom-form/)" doc.
