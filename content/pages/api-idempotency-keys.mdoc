@@ -1,0 +1,29 @@
+---
+title: Idempotency keys
+navigationTitle: Idempotency keys
+---
+
+Idempotency keys are used to ensure that a request is processed only once, even if the request is sent multiple times.
+
+Idempotency keys are useful when you want to make sure that a request is processed only once, even if the request is sent multiple times. For example, if you are creating a new subscriber, you want to make sure that the subscriber is created only once, even if the request is sent multiple times.
+
+If you send a request to create a new subscriber with the same idempotency key, you'll get the same response as if you sent the request only once.
+
+(Our implementation of idempotency keys is inspired by [Stripe's idempotency keys](https://docs.stripe.com/api/idempotent_requests).)
+
+## How to use idempotency keys
+
+You can use idempotency keys for any request. To use an idempotency key, you pass the `X-Idempotency-Key` header with your request. The value of the header must be a randomly generated string of up to 200 characters such as a UUID.
+
+Here's an example in cURL:
+
+```bash {% process=false %}
+curl --request POST \
+     --url https://api.buttondown.com/v1/subscribers \
+     --header 'authorization: Token $BUTTONDOWN_API_KEY' \
+     --header 'content-type: application/json' \
+     --header 'X-Idempotency-Key: AaPYI03TpJgW7pgtPB09s' \
+     --data '{ "email_address": "telemachus@buttondown.email", "type": "regular" }'
+```
+
+We can rerun the request with the same idempotency key and it will return the same response as if we sent the request only once.
