@@ -2322,6 +2322,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "api-changelog-2024-09-30",
       "building-your-subscriber-base"
     ]
   },
@@ -2851,6 +2852,16 @@
     "references": [
       "api-changelog",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2024-09-30",
+    "url": "api-changelog-2024-09-30",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
     ]
   },
   {

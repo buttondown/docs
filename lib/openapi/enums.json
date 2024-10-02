@@ -595,7 +595,7 @@
     "unsubscribed": {
       "variant": "error",
       "name": "Unsubscribed",
-      "description": "Subscribers that have voluntarily unsubscribed from your newsletter."
+      "description": "Subscribers that have or have been unsubscribed from your newsletter."
     },
     "spammy": {
       "variant": "error",
