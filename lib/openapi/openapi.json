@@ -1054,6 +1054,23 @@
           },
           {
             "in": "query",
+            "name": "expand",
+            "schema": {
+              "title": "Expand",
+              "description": "If provided, expand the given field.",
+              "type": "array",
+              "items": {
+                "enum": [
+                  "user"
+                ],
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, expand the given field."
+          },
+          {
+            "in": "query",
             "name": "field",
             "schema": {
               "title": "Field",
@@ -1159,6 +1176,23 @@
               "type": "integer"
             },
             "required": true
+          },
+          {
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "title": "Expand",
+              "description": "If provided, expand the given field.",
+              "type": "array",
+              "items": {
+                "enum": [
+                  "user"
+                ],
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, expand the given field."
           }
         ],
         "responses": {
@@ -6356,6 +6390,125 @@
           }
         }
       },
+      "AccessLevel": {
+        "title": "AccessLevel",
+        "description": "An enumeration.",
+        "enum": [
+          "none",
+          "read",
+          "write"
+        ],
+        "type": "string"
+      },
+      "Permissions": {
+        "title": "Permissions",
+        "type": "object",
+        "properties": {
+          "subscriber": {
+            "default": "none",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccessLevel"
+              }
+            ]
+          },
+          "email": {
+            "default": "none",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccessLevel"
+              }
+            ]
+          },
+          "sending": {
+            "default": "none",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccessLevel"
+              }
+            ]
+          },
+          "styling": {
+            "default": "none",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccessLevel"
+              }
+            ]
+          },
+          "administrivia": {
+            "default": "none",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccessLevel"
+              }
+            ]
+          },
+          "automations": {
+            "default": "none",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccessLevel"
+              }
+            ]
+          },
+          "surveys": {
+            "default": "none",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccessLevel"
+              }
+            ]
+          }
+        }
+      },
+      "InvitationStatus": {
+        "title": "Status",
+        "description": "An enumeration.",
+        "enum": [
+          "pending",
+          "accepted",
+          "declined",
+          "revoked",
+          "owner"
+        ],
+        "type": "string"
+      },
+      "User": {
+        "title": "User",
+        "type": "object",
+        "properties": {
+          "permissions": {
+            "$ref": "#/components/schemas/Permissions"
+          },
+          "email_address": {
+            "title": "Email Address",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "description": "A unique UUID associated with the object.",
+            "type": "string",
+            "format": "uuid"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was created.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/InvitationStatus"
+          }
+        },
+        "required": [
+          "permissions",
+          "email_address",
+          "id",
+          "creation_date",
+          "status"
+        ]
+      },
       "History": {
         "title": "History",
         "type": "object",
@@ -6372,6 +6525,14 @@
           "value": {
             "title": "Value",
             "type": "string"
+          },
+          "user_id": {
+            "title": "User Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
           }
         },
         "required": [
@@ -8301,125 +8462,6 @@
             }
           }
         }
-      },
-      "AccessLevel": {
-        "title": "AccessLevel",
-        "description": "An enumeration.",
-        "enum": [
-          "none",
-          "read",
-          "write"
-        ],
-        "type": "string"
-      },
-      "Permissions": {
-        "title": "Permissions",
-        "type": "object",
-        "properties": {
-          "subscriber": {
-            "default": "none",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AccessLevel"
-              }
-            ]
-          },
-          "email": {
-            "default": "none",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AccessLevel"
-              }
-            ]
-          },
-          "sending": {
-            "default": "none",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AccessLevel"
-              }
-            ]
-          },
-          "styling": {
-            "default": "none",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AccessLevel"
-              }
-            ]
-          },
-          "administrivia": {
-            "default": "none",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AccessLevel"
-              }
-            ]
-          },
-          "automations": {
-            "default": "none",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AccessLevel"
-              }
-            ]
-          },
-          "surveys": {
-            "default": "none",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AccessLevel"
-              }
-            ]
-          }
-        }
-      },
-      "InvitationStatus": {
-        "title": "Status",
-        "description": "An enumeration.",
-        "enum": [
-          "pending",
-          "accepted",
-          "declined",
-          "revoked",
-          "owner"
-        ],
-        "type": "string"
-      },
-      "User": {
-        "title": "User",
-        "type": "object",
-        "properties": {
-          "permissions": {
-            "$ref": "#/components/schemas/Permissions"
-          },
-          "email_address": {
-            "title": "Email Address",
-            "type": "string"
-          },
-          "id": {
-            "title": "Id",
-            "description": "A unique UUID associated with the object.",
-            "type": "string",
-            "format": "uuid"
-          },
-          "creation_date": {
-            "title": "Creation Date",
-            "description": "The date and time at which the object was created.",
-            "type": "string",
-            "format": "date-time"
-          },
-          "status": {
-            "$ref": "#/components/schemas/InvitationStatus"
-          }
-        },
-        "required": [
-          "permissions",
-          "email_address",
-          "id",
-          "creation_date",
-          "status"
-        ]
       },
       "Failure": {
         "title": "Failure",

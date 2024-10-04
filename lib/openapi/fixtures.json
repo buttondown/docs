@@ -706,7 +706,9 @@
       "object": {
         "history_id": 123,
         "creation_date": "2000-01-01T00:00:00+00:00",
-        "value": "I really hope you enjoy it!"
+        "value": "I really hope you enjoy it!",
+        "user_id": null,
+        "user": null
       }
     }
   ],
