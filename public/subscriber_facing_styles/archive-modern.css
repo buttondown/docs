@@ -1002,7 +1002,7 @@ h2.description {
   background: #fff;
   text-align: center;
 }
-.widget--substack-price {
+.widget--prospective {
   position: fixed;
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
@@ -1026,21 +1026,21 @@ h2.description {
   -ms-flex-align: center;
   align-items: center;
 }
-.widget--substack-price div:first-child {
+.widget--prospective div:first-child {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
-.widget--substack-price div:first-child span {
+.widget--prospective div:first-child span {
   --tw-bg-opacity: 1;
   background-color: rgb(253 230 138 / var(--tw-bg-opacity));
 }
-.widget--substack-price .subtext {
+.widget--prospective .subtext {
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 400;
 }
-.widget--substack-price a {
+.widget--prospective a {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
   padding: 0.5rem 1rem;
@@ -1055,7 +1055,7 @@ h2.description {
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
 }
-.widget--substack-price a:hover {
+.widget--prospective a:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
   --tw-scale-x: 1.05;
