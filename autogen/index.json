@@ -675,6 +675,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "buttondown-editor-mode",
       "data-exports",
       "data-exports-api",
       "data-exports-comments",
@@ -1074,6 +1075,14 @@
     "references": []
   },
   {
+    "title": "What is `buttondown-editor-mode`?",
+    "url": "buttondown-editor-mode",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Subscriber cleanup",
     "url": "subscriber-cleanup",
     "section": "reference",
@@ -1306,6 +1315,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "buttondown-editor-mode",
       "data-exports"
     ]
   },
