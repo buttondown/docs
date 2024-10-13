@@ -152,3 +152,11 @@ We're the first to admit that there's a _lot_ of esoteric features and functiona
 
 - Buttondown supports the `xml:base` attribute, which allows you to specify a base URL for relative links in your RSS feed.
 - Buttondown doesn't support base-64 encoded images in RSS feeds; those images won't be displayed in most email clients.
+
+## Troubleshooting
+
+### Buttondown says it can't reach my RSS feed, but I can access it just fine in the browser.
+
+If Buttondown has trouble reaching your RSS feed (and you don't), the likely culprit is a firewall or proxy that's blocking access to the feed. In particular, Cloudflare's bot blocker is known to mistakenly block access to Buttondown's feed parser.
+
+To fix this, add a [custom WAF rule to your Cloudflare account](https://developers.cloudflare.com/waf/custom-rules/) to allow requests from the user agent `Buttondown RSS-Feed-Parser/1.0 (https://buttondown.com)`.
