@@ -913,6 +913,20 @@
     "references": []
   },
   {
+    "title": "Roadmap",
+    "url": "roadmap",
+    "section": "guides",
+    "schema": null,
+    "description": "Information on Buttondown's roadmap",
+    "references": [
+      "buttondown-editor-mode",
+      "how-do-i-include-audio-in-my-newsletter",
+      "localization",
+      "privacy-and-security",
+      "subscriber-referrals"
+    ]
+  },
+  {
     "title": "Affiliate program",
     "url": "affiliate-program",
     "section": "guides",
