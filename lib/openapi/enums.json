@@ -451,6 +451,10 @@
       "name": "stripe.subscription.activated",
       "description": "Whenever a subscription is activated in Stripe."
     },
+    "stripe.subscription.churning": {
+      "name": "stripe.subscription.churning",
+      "description": "Whenever a subscription is churning in Stripe."
+    },
     "stripe.subscription.deactivated": {
       "name": "stripe.subscription.deactivated",
       "description": "Whenever a subscription is deactivated in Stripe."
