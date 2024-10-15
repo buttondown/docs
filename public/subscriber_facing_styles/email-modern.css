@@ -119,6 +119,11 @@ table.buttondown-block-styled p {
     background: #44494e;
   }
 }
+.buttondown-reference-invalid {
+  color: #666 !important;
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
 .instagram {
   position: relative;
   color: #fff !important;
