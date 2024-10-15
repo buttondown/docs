@@ -6310,8 +6310,18 @@
           },
           "publish_date": {
             "title": "Publish Date",
-            "type": "string",
-            "format": "date-time"
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "enum": [
+                  "none"
+                ],
+                "type": "string"
+              }
+            ]
           },
           "subject": {
             "title": "Subject",
