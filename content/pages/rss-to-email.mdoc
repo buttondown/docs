@@ -159,4 +159,6 @@ We're the first to admit that there's a _lot_ of esoteric features and functiona
 
 If Buttondown has trouble reaching your RSS feed (and you don't), the likely culprit is a firewall or proxy that's blocking access to the feed. In particular, Cloudflare's bot blocker is known to mistakenly block access to Buttondown's feed parser.
 
-To fix this, add a [custom WAF rule to your Cloudflare account](https://developers.cloudflare.com/waf/custom-rules/) to allow requests from the user agent `Buttondown RSS-Feed-Parser/1.0 (https://buttondown.com)`.
+To fix this, add a [custom WAF rule to your Cloudflare account](https://developers.cloudflare.com/waf/custom-rules/) to allow requests from the IP address `54.221.205.107`.
+
+It's also possible that you might have a `robots.txt` file that's blocking access to your feed. Buttondown uses the `User-Agent: Buttondown RSS-Feed-Parser/1.0 (https://buttondown.com)` user agent to access your feed, so you can add a `Allow:` line to your `robots.txt` file to allow Buttondown's feed parser to access your feed.
