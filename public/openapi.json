@@ -6325,6 +6325,7 @@
           },
           "subject": {
             "title": "Subject",
+            "maxLength": 1000,
             "example": "The subject line for the email",
             "type": "string"
           },
@@ -6612,7 +6613,7 @@
       },
       "SubscriberType": {
         "title": "Type",
-        "description": "Represents the state of a subscriber and what emails they\nshould or should not be receiving. This type is meant to be fully expressive\nso as to consolidate the logic of determining what emails a subscriber should\nreceive into a single place.",
+        "description": "Represents the state of a subscriber and what emails they\nshould or should not be receiving. This type is meant to be fully expressive\nso as to consolidate the logic of determining what emails a subscriber should\nreceive into a single place.\n\nNote that the only types that can be set programmatically are REGULAR, UNSUBSCRIBED,\nGIFTED and UNPAID. All other types are meant to be user-visible and cannot\nbe set programmatically.",
         "enum": [
           "regular",
           "premium",
