@@ -22,7 +22,7 @@ lint-without-code-samples:
 # having to install rubyfmt (and other things down the line.)
 lint: lint-without-code-samples
   rubyfmt -i -- public/
-  cd ../app && rye run ruff check ../docs-v2/public --fix
+  cd ../app && uv run ruff check ../docs-v2/public --fix
 
 build-indexes:
   cd .. && python3 docs-v2/scripts/compile_index.py
