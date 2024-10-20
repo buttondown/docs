@@ -6,4 +6,11 @@ relatedPages:
 
 A temporary failure (also called a "soft bounce") is when delivery is temporarily unavailable.
 
- There are a number of different reasons that you may see a temporary failure: a mail server going down briefly, a subscriber's inbox being full, or a message has been blocked by spam filters.
+ There are a number of different reasons that you may see a temporary failure: a mail server going down briefly, a subscriber's inbox being full, or a message has been blocked by spam filters. We've listed a couple of the more esoteric ones below:
+
+| Reason | Description |
+| --- | --- |
+| Message delayed | The message was delayed because the recipient's mail server or _our_ mail server was busy. |
+| Soft bounce | The recipient's mail server could not accept the message at the moment, but it may accept it later. |
+
+In general, Buttondown will retry messages that have temporarily failed; you don't need to do anything.
