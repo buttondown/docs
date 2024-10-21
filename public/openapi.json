@@ -5365,7 +5365,8 @@
           "surveys",
           "comments",
           "requests",
-          "mentions"
+          "mentions",
+          "conversations"
         ],
         "type": "string"
       },

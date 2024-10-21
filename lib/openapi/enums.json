@@ -354,6 +354,10 @@
     "requests": {
       "variant": "info",
       "name": "API Requests"
+    },
+    "conversations": {
+      "variant": "info",
+      "name": "Conversations"
     }
   },
   "ExportStatus": {

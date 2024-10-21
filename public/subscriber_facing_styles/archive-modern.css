@@ -586,7 +586,7 @@ blockquote.pullquote {
     padding-left: 0;
     padding-right: 0;
   }
-  .subscribe-container img {
+  .subscribe-container .newsletter-icon {
     display: none;
   }
 }
