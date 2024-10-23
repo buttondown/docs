@@ -281,6 +281,10 @@
         {
           "discriminant": "page",
           "value": "how-do-i-handle-taxes"
+        },
+        {
+          "discriminant": "page",
+          "value": "price-changes"
         }
       ]
     },
