@@ -440,6 +440,14 @@
         {
           "discriminant": "page",
           "value": "auditing"
+        },
+        {
+          "discriminant": "page",
+          "value": "change-password"
+        },
+        {
+          "discriminant": "page",
+          "value": "change-login-method"
         }
       ]
     },

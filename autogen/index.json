@@ -987,6 +987,22 @@
     "references": []
   },
   {
+    "title": "How do I change my account password?",
+    "url": "change-password",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "How do I change my login method?",
+    "url": "change-login-method",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Markdown mode",
     "url": "using-markdown",
     "section": "reference",
