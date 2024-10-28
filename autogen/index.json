@@ -1320,11 +1320,19 @@
     "references": []
   },
   {
+    "title": "Monitoring your domain",
+    "url": "monitoring-your-domain",
+    "section": "reference",
+    "schema": null,
+    "description": "Keeping your deliverability high is largely about managing your domain's reputation.",
+    "references": []
+  },
+  {
     "title": "Fixing a \"suspicious link\" warning in Gmail",
     "url": "gmail-suspicious-link",
     "section": "reference",
     "schema": null,
-    "description": "You can appeal to Google when your website is flagged as a \"suspicious link\" in Gmail. ",
+    "description": "You can appeal to Google when your website is flagged as a \"suspicious link\" in Gmail.",
     "references": []
   },
   {
@@ -1633,6 +1641,7 @@
     "description": null,
     "references": [
       "auditing",
+      "monitoring-your-domain",
       "retrieving-analytics-data"
     ]
   },

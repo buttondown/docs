@@ -624,6 +624,10 @@
       "items": [
         {
           "discriminant": "page",
+          "value": "monitoring-your-domain"
+        },
+        {
+          "discriminant": "page",
           "value": "gmail-suspicious-link"
         }
       ]
