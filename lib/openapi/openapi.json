@@ -7744,6 +7744,7 @@
         "description": "Represents the status of the automation, and whether or not it is active. Inactive automations will not be processed.",
         "enum": [
           "active",
+          "failing",
           "inactive"
         ],
         "type": "string"
@@ -8724,7 +8725,8 @@
         "title": "CreatePriceErrorCode",
         "description": "Represents the type of error that occurred when listing a price.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
         "enum": [
-          "paid_subscriptions_uninitialized"
+          "paid_subscriptions_uninitialized",
+          "invalid_amount"
         ],
         "type": "string"
       },

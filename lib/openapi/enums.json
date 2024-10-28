@@ -137,6 +137,11 @@
       "name": "Inactive",
       "description": "Inactive.",
       "variant": "warning"
+    },
+    "failing": {
+      "name": "Failing",
+      "description": "Buttondown cannot retrieve items from this feed. It will continue to attempt to do so until it gives up, at which point the automation will be set to `inactive`.",
+      "variant": "error"
     }
   },
   "ExternalFeedAutomationCadence": {
