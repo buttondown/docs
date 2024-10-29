@@ -516,6 +516,33 @@
         ]
       }
     },
+    "/accounts/me": {
+      "get": {
+        "operationId": "get_account",
+        "summary": "Get Account",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "security": [
+          {
+            "GlobalAuth": []
+          }
+        ]
+      }
+    },
     "/images": {
       "post": {
         "operationId": "create_image",
@@ -5711,6 +5738,24 @@
         "type": "object",
         "properties": {}
       },
+      "Account": {
+        "title": "Account",
+        "type": "object",
+        "properties": {
+          "username": {
+            "title": "Username",
+            "type": "string"
+          },
+          "email_address": {
+            "title": "Email Address",
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "email_address"
+        ]
+      },
       "Image": {
         "title": "Image",
         "description": "Images are, well, images! Buttondown allows you to upload images to its secure\nS3 bucket and do with them what you will. This is sort of an odd duck of an\nAPI, to be sure, but if you want to be able to do things like draft\nand send emails completely on your iPad you need a surefire way of creating images.",
@@ -9478,14 +9523,16 @@
               }
             ]
           },
-          "event_type": {
-            "description": "The type of event for which the webhook will be triggered.",
-            "example": "email.created",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ExternalEventType"
-              }
-            ]
+          "event_types": {
+            "description": "The types of event for which the webhook will be triggered.",
+            "example": [
+              "email.created",
+              "email.sent"
+            ],
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalEventType"
+            }
           },
           "url": {
             "title": "Url",
@@ -9507,7 +9554,7 @@
         "required": [
           "id",
           "creation_date",
-          "event_type",
+          "event_types",
           "url"
         ]
       },
@@ -9525,14 +9572,16 @@
               }
             ]
           },
-          "event_type": {
-            "description": "The type of event for which the webhook will be triggered.",
-            "example": "email.created",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ExternalEventType"
-              }
-            ]
+          "event_types": {
+            "description": "The types of event for which the webhook will be triggered.",
+            "example": [
+              "email.created",
+              "email.sent"
+            ],
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalEventType"
+            }
           },
           "url": {
             "title": "Url",
@@ -9552,7 +9601,7 @@
           }
         },
         "required": [
-          "event_type",
+          "event_types",
           "url"
         ]
       },
