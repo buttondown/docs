@@ -8680,7 +8680,8 @@
         "enum": [
           "year",
           "month",
-          "one-time"
+          "one-time",
+          "email"
         ],
         "type": "string"
       },
@@ -8729,7 +8730,8 @@
             "title": "Style",
             "enum": [
               "pay-what-you-want",
-              "fixed"
+              "fixed",
+              "usage-based"
             ],
             "type": "string"
           },
@@ -8860,7 +8862,8 @@
             "title": "Style",
             "enum": [
               "pay-what-you-want",
-              "fixed"
+              "fixed",
+              "usage-based"
             ],
             "type": "string"
           },

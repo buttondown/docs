@@ -58,6 +58,7 @@
     "description": null,
     "references": [
       "alpinejs",
+      "customizing-email-design",
       "glossary-latex",
       "glossary-preheader",
       "glossary-slug",
@@ -77,6 +78,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "customizing-email-design",
       "glossary-preheader",
       "glossary-slug",
       "hidden-settings",
@@ -1891,7 +1893,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "sending-your-first-email-advanced"
+    ]
   },
   {
     "title": "REST",
