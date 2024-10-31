@@ -1659,6 +1659,14 @@
     ]
   },
   {
+    "title": "CORS",
+    "url": "glossary-cors",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "CPM",
     "url": "glossary-cpm",
     "section": "reference",

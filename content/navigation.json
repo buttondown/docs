@@ -807,6 +807,10 @@
         },
         {
           "discriminant": "page",
+          "value": "glossary-cors"
+        },
+        {
+          "discriminant": "page",
           "value": "glossary-cpm"
         },
         {

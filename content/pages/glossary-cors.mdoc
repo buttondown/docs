@@ -1,0 +1,13 @@
+---
+title: CORS
+relatedPages:
+- alpinejs
+---
+
+CORS stands for Cross-Origin Resource Sharing. It's a security feature that allows your browser to make requests to a different domain than the one that served the original page, but if you're on this page it means you're probably running into a CORS _issue_.
+
+If you're trying to use the `fetch` API to make a request to Buttondown and getting back a CORS error, you've got one of two options:
+
+1. Use a [proxy](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#submitting_requests_with_fetch)
+2. Use a [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) to bypass the CORS restriction
+3. Set the mode to `no-cors` when making the request. (This is unsafe and will break things like cookies, so don't do it unless you have a really good reason.)

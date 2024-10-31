@@ -158,6 +158,7 @@ const KNOWN_GLOSSARY_PAGES_WITHOUT_INTERNAL_LINKS = [
   "glossary-webmentions.mdoc",
   "glossary-latex.mdoc",
   "glossary-omnichannel.mdoc",
+  "glossary-cors.mdoc",
 ];
 
 const CHANGELOG_FILE = `api-changelog.mdoc`;
