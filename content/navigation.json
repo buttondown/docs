@@ -268,6 +268,10 @@
         },
         {
           "discriminant": "page",
+          "value": "pricing-models"
+        },
+        {
+          "discriminant": "page",
           "value": "premium-teaser"
         },
         {

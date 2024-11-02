@@ -2130,18 +2130,17 @@
         ]
       }
     },
-    "/subscribers/{id}/automations": {
+    "/subscribers/{id_or_email}/automations": {
       "get": {
         "operationId": "get_automations",
         "summary": "Get Automations",
         "parameters": [
           {
             "in": "path",
-            "name": "id",
+            "name": "id_or_email",
             "schema": {
-              "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "title": "Id Or Email",
+              "type": "string"
             },
             "required": true
           }
