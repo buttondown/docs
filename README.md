@@ -1,14 +1,14 @@
 <!-- Note that this file is public at https://github.com/buttondown/docs. -->
 
-# Buttondown Docs v2
+# Buttondown Docs
 
 ## Getting Started
 
-To run Docs v2 for the first time you'll:
+To run Docs for the first time you'll:
 
 1. Clone the `monorepo` and navigate to `docs-v2` (or, if you don't have access, clone the `docs` repo)
 2. Use `just install` to install all packages and dependencies (or, if you're using the standalone `docs` repo, run `pnpm install`)
-3. Run `just build` (or, if you're using the standalone `docs` repo, go straight to `pnpm dev`)
+3. Run `pnpm dev` (or, if you're trying to build the docs statically for production, run `just build`)
 
 Now you're ready to work! You can now run `pnpm dev` in your command line.
 
