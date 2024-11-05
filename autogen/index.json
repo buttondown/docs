@@ -763,6 +763,16 @@
     ]
   },
   {
+    "title": "Integrating daisyUI",
+    "url": "daisyui",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "daisyui"
+    ]
+  },
+  {
     "title": "Discord",
     "url": "discord",
     "section": "guides",

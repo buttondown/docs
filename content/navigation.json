@@ -334,6 +334,10 @@
         },
         {
           "discriminant": "page",
+          "value": "daisyui"
+        },
+        {
+          "discriminant": "page",
           "value": "discord"
         },
         {

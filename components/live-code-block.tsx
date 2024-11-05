@@ -17,6 +17,14 @@ const REGISTRY: {
       component: React.lazy(() => import("@/public/code/shadcn/dropdown")),
     },
   },
+  daisyui: {
+    basic: {
+      component: React.lazy(() => import("@/public/code/daisyui/basic")),
+    },
+    dropdown: {
+      component: React.lazy(() => import("@/public/code/daisyui/dropdown")),
+    },
+  },
   mantine: {
     basic: {
       component: React.lazy(() => import("@/public/code/mantine/basic")),
@@ -53,20 +61,30 @@ export default async function LiveCodeBlock({ path }: { path: string }) {
         </div>
         <div className="p-4 pt-0">
           <div className="bg-white border border-gray-200 p-4 rounded-lg">
-            {groupName === "mantine" && Component ? (
-              <MantineProvider>
-                <link
-                  rel="stylesheet"
-                  href="https://unpkg.com/@mantine/core@7.12.1/styles.css"
-                />
-                <link
-                  rel="stylesheet"
-                  href="https://unpkg.com/@mantine/forms@7.12.1/styles.css"
-                />
+            {Component ? (
+              groupName === "mantine" ? (
+                <MantineProvider>
+                  <link
+                    rel="stylesheet"
+                    href="https://unpkg.com/@mantine/core@7.12.1/styles.css"
+                  />
+                  <link
+                    rel="stylesheet"
+                    href="https://unpkg.com/@mantine/forms@7.12.1/styles.css"
+                  />
+                  <Component />
+                </MantineProvider>
+              ) : groupName === "daisyui" ? (
+                <>
+                  <link
+                    rel="stylesheet"
+                    href="https://unpkg.com/daisyui@4.12.14/dist/styled.css"
+                  />
+                  <Component />
+                </>
+              ) : (
                 <Component />
-              </MantineProvider>
-            ) : Component ? (
-              <Component />
+              )
             ) : (
               <SelfResizingIframe srcDoc={html} />
             )}
