@@ -72,7 +72,7 @@ const VALID_APPLICATION_ROUTES = [
   "settings/domains.sending",
   "settings/embedding",
   "settings/integrations",
-  "settings/integrations/<str:pk>",
+  "settings/integrations/umami",
   "settings/notifications",
   "settings/paid-subscriptions",
   "settings/paid-subscriptions/disconnect",
