@@ -1204,7 +1204,11 @@ ol {
   padding-inline-start: 0;
   margin-left: 1.7em;
 }
-.app-container {
+iframe.youtube {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+s .app-container {
   width: 720px;
   max-width: calc(100% - 4em);
   margin: 0 auto;

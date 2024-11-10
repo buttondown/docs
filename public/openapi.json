@@ -5470,6 +5470,10 @@
               "$ref": "#/components/schemas/ExportCollection"
             }
           },
+          "parameters": {
+            "title": "Parameters",
+            "type": "object"
+          },
           "id": {
             "title": "Id",
             "description": "A unique UUID associated with the object.",
@@ -5568,6 +5572,10 @@
             "items": {
               "$ref": "#/components/schemas/ExportCollection"
             }
+          },
+          "parameters": {
+            "title": "Parameters",
+            "type": "object"
           }
         },
         "required": [

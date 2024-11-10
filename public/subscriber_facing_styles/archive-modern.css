@@ -334,6 +334,10 @@ date {
   font-size: 14px;
   font-family: var(--brand-font);
 }
+iframe.youtube {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
 .footer {
   text-align: center;
   font-family: var(--brand-font);
