@@ -2,7 +2,7 @@
 
 import type { DialogProps } from "@radix-ui/react-dialog";
 import { Command as CommandPrimitive } from "cmdk";
-import { Loader2, Search } from "lucide-react";
+import { MagnifyingGlassIcon, ArrowPathIcon } from "@heroicons/react/24/outline";
 import * as React from "react";
 
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -55,9 +55,9 @@ const CommandInput = React.forwardRef<
   <div className="flex items-center border-b px-4" cmdk-input-wrapper="">
     <div className="mr-4 shrink-0">
       {loading ? (
-        <Loader2 className="h-4 w-4 opacity-50 animate-spin" />
+        <ArrowPathIcon className="h-4 w-4 opacity-50 animate-spin" />
       ) : (
-        <Search className="h-4 w-4 opacity-50" />
+        <MagnifyingGlassIcon className="h-4 w-4 opacity-50" />
       )}
     </div>
 
