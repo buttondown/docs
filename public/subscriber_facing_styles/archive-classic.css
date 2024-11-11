@@ -1208,7 +1208,7 @@ iframe.youtube {
   width: 100%;
   aspect-ratio: 16/9;
 }
-s .app-container {
+.app-container {
   width: 720px;
   max-width: calc(100% - 4em);
   margin: 0 auto;
