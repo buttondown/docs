@@ -103,8 +103,7 @@
       "custom_domain",
       "teams",
       "dedicated_ip",
-      "markdown",
-      "naked_mode"
+      "markdown"
     ]
   },
   {
@@ -139,8 +138,7 @@
       "teams",
       "dedicated_ip",
       "markdown",
-      "automations",
-      "naked_mode"
+      "automations"
     ]
   },
   {
@@ -175,8 +173,7 @@
       "teams",
       "dedicated_ip",
       "markdown",
-      "automations",
-      "naked_mode"
+      "automations"
     ]
   }
 ]

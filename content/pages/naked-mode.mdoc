@@ -1,28 +1,24 @@
 ---
 title: Naked mode
 navigationTitle: Naked mode
-relatedPages:
- - fancy-mode
- - using-markdown
 ---
-
-{% paidFeature feature="naked_mode" /%}
 
 In Buttondown, we give you access to the full HTML template of your email through Naked mode. 
 
 Select the "Naked mode" option in the editor mode dropdown menu to get started.
 
+{% noticeWarn text="Any changes you make inside Naked mode won't be saved when you switch to markdown or fancy mode." /%}
 
 ![A photo of the "Naked mode" option in the dropdown menu](/images/emails/naked-mode-option.png)
+
 
 When using Naked mode, you get exposed to the bare HTML template of your email. From there, you can customize your email however you see fit and see the unchanged output in the preview panel.
 
 ![A photo of the Naked mode writing interface.](/images/emails/naked-mode.png)
 
-{% noticeWarn text="Any changes you make inside Naked mode won't be saved when you switch to Markdown or Fancy Mode." /%}
-
-
 **Note:** Before publishing your email, you must include a way for the recipients to unsubscribe from your newsletter. We expose the `{{ unsubscribe_url }}` template tag so you can include an unsubscribe link for each recipient.
+
+{% noticeInfo text="Your email must include the {{ unsubscribe_url }} template tag when using Naked mode." /%}
 
 For example, you can include an unsubscribe link using this example:
 
@@ -33,13 +29,6 @@ For example, you can include an unsubscribe link using this example:
 </p>
 ````
 
-{% snippetSpacer /%}
-
-{% noticeInfo text="Your email must include the {{ unsubscribe_url }} template tag when using Naked mode." /%}
-
-
 ## Additional notes
 
-- While focused in the editor, the Tab key will be used to insert tab characters. To navigate away via keyboard navigation, press `Escape+Tab` or `Escape+Shift+Tab` respectively.
-- As changes aren't saved if you switch to Fancy or Markdown modes, we recommend only using Fancy mode when you're ready to send.
-
+- While focused in the editor, the Tab key will be used to insert tab characters. To navigate away via keyboard navigation, press Escape+Tab or Escape+Shift+Tab respectively.
