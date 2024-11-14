@@ -1582,6 +1582,20 @@
           },
           {
             "in": "query",
+            "name": "referral_code",
+            "schema": {
+              "title": "Referral Code",
+              "description": "If provided, only return subscribers with the given referral code(s).",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given referral code(s)."
+          },
+          {
+            "in": "query",
             "name": "date",
             "schema": {
               "title": "Date",
