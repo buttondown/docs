@@ -107,8 +107,8 @@ const Document = async ({ page }: Props) => (
             <h3>Reach out to your friends at Buttondown</h3>
             <p>
               As always, we’re happy to answer any questions you may have via{" "}
-              <a href="mailto:support@buttondown.email">
-                support@buttondown.email.
+              <a href="mailto:support@buttondown.com">
+                support@buttondown.com.
               </a>
             </p>
           </div>

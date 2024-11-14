@@ -3,22 +3,22 @@
 import type { Result } from "@/app/api/offline-search/lib";
 import Icon from "@/components/Icon";
 import {
-  CommandDialog,
-  CommandEmpty,
-  CommandInput,
-  CommandItem,
-  CommandList,
+    CommandDialog,
+    CommandEmpty,
+    CommandInput,
+    CommandItem,
+    CommandList,
 } from "@/components/ui/command";
 import { useCommandState } from "cmdk";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
-  type Dispatch,
-  type ReactNode,
-  type SetStateAction,
-  useEffect,
-  useRef,
-  useState,
+    type Dispatch,
+    type ReactNode,
+    type SetStateAction,
+    useEffect,
+    useRef,
+    useState,
 } from "react";
 
 // Set this to true to use "dumb" substring search.
@@ -197,10 +197,10 @@ const SearchEmptyState = ({ loading }: { loading: boolean }) => {
           <p className="text-gray-500">
             Email{" "}
             <a
-              href="mailto:support@buttondown.email"
+              href="mailto:support@buttondown.com"
               className="underline decoration-gray-500"
             >
-              support@buttondown.email
+              support@buttondown.com
             </a>
             {" or "}
             <a

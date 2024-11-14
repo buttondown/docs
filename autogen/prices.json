@@ -147,7 +147,7 @@
     "id": "enterprise",
     "name": "Enterprise",
     "subscriber_count": 999999,
-    "url": "mailto:support@buttondown.email",
+    "url": "mailto:support@buttondown.com",
     "price": 999999,
     "features": [
       "scheduling",

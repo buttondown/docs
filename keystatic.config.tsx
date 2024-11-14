@@ -1,15 +1,15 @@
 import PRICES from "@/autogen/prices.json";
 import { preview } from "@/components/keystatic/preview";
 import {
-  NAVIGATION_GROUPS,
-  NAVIGATION_GROUP_LABELS,
+    NAVIGATION_GROUPS,
+    NAVIGATION_GROUP_LABELS,
 } from "@/components/layout/lib";
 import {
-  collection,
-  component,
-  config,
-  fields,
-  singleton,
+    collection,
+    component,
+    config,
+    fields,
+    singleton,
 } from "@keystatic/core";
 
 const navigationGroupSchema = (label: string) =>
@@ -269,7 +269,7 @@ export default config({
                 return (
                   <div>
                     As always, we’re happy to answer any questions you may have
-                    via support@buttondown.email.
+                    via support@buttondown.com.
                   </div>
                 );
               },
