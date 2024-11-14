@@ -603,6 +603,7 @@
       "paid-subscriptions",
       "perks",
       "quickstart",
+      "stripe",
       "substack"
     ]
   },
