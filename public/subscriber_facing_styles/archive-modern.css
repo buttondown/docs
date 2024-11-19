@@ -722,7 +722,7 @@ dialog::backdrop {
 }
 .lightbox-button {
   border: none;
-  padding: none;
+  padding: 0;
   background-color: inherit;
   margin: 0 auto;
   display: block;
