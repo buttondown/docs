@@ -5112,12 +5112,15 @@
             "name": "survey",
             "schema": {
               "title": "Survey",
-              "description": "If provided, only return responses made to the given survey.",
-              "type": "string",
-              "format": "uuid"
+              "description": "If provided, only return responses made to the given survey(s).",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
             },
             "required": false,
-            "description": "If provided, only return responses made to the given survey."
+            "description": "If provided, only return responses made to the given survey(s)."
           },
           {
             "in": "query",
