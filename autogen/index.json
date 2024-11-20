@@ -508,6 +508,14 @@
     ]
   },
   {
+    "title": "How do I re-send an email that's been blocked or errored?",
+    "url": "resend-email",
+    "section": "guides",
+    "schema": null,
+    "description": "Buttondown can block email sends because of an error or an insufficient billing tier. To re-send the email, duplicate it, delete the original, and send the copy. ",
+    "references": []
+  },
+  {
     "title": "Buying a custom domain",
     "url": "getting-a-custom-domain",
     "section": "guides",

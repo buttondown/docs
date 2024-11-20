@@ -202,6 +202,10 @@
         {
           "discriminant": "page",
           "value": "how-do-i-set-sender-information"
+        },
+        {
+          "discriminant": "page",
+          "value": "resend-email"
         }
       ]
     },
