@@ -530,7 +530,8 @@
       "glossary-dns",
       "quickstart",
       "sending-from-dreamhost",
-      "sending-your-first-email-advanced"
+      "sending-your-first-email-advanced",
+      "support-policy"
     ]
   },
   {
@@ -544,7 +545,8 @@
       "glossary-whitelabeling",
       "quickstart",
       "sending-from-a-custom-domain",
-      "sending-your-first-email-advanced"
+      "sending-your-first-email-advanced",
+      "support-policy"
     ]
   },
   {
@@ -722,6 +724,7 @@
     "description": null,
     "references": [
       "replies",
+      "support-policy",
       "teams"
     ]
   },
@@ -1201,6 +1204,7 @@
       "glossary-whitelabeling",
       "modern-template-hide-top",
       "registration-and-setup",
+      "support-policy",
       "uploading-images"
     ]
   },
@@ -1212,7 +1216,8 @@
     "description": null,
     "references": [
       "glossary-whitelabeling",
-      "registration-and-setup"
+      "registration-and-setup",
+      "support-policy"
     ]
   },
   {
@@ -1549,6 +1554,14 @@
   {
     "title": "Using a screen reader",
     "url": "using-a-screen-reader",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Support policy",
+    "url": "support-policy",
     "section": "reference",
     "schema": null,
     "description": null,
@@ -2099,7 +2112,8 @@
       "glossary-api",
       "glossary-headless-mode",
       "glossary-jamstack",
-      "sending-your-first-email"
+      "sending-your-first-email",
+      "support-policy"
     ]
   },
   {

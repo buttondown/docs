@@ -123,6 +123,7 @@ const VALID_APPLICATION_ROUTES = [
   "pricing",
   "features/smtp-endpoint",
   "features/analytics",
+  "features/teams",
   "features/integrations",
   "features/integrations/soundcloud",
   "features/integrations/youtube",
@@ -248,27 +249,27 @@ const FILENAME_TO_RAW_CONTENT = fs.readdirSync(MARKDOC_DIRECTORY).reduce(
     acc[filename] = fs.readFileSync(fullyQualifiedFilename, "utf-8");
     return acc;
   },
-  {} as { [filename: string]: string },
+  {} as { [filename: string]: string }
 );
 
 const FILENAME_TO_INTERNAL_LINKS = Object.entries(
-  FILENAME_TO_RAW_CONTENT,
+  FILENAME_TO_RAW_CONTENT
 ).reduce(
   (acc, [filename, content]) => {
     acc[filename] = extractInternalLinks(content);
     return acc;
   },
-  {} as { [filename: string]: string[] },
+  {} as { [filename: string]: string[] }
 );
 
 const FILENAME_TO_APPLICATION_LINKS = Object.entries(
-  FILENAME_TO_RAW_CONTENT,
+  FILENAME_TO_RAW_CONTENT
 ).reduce(
   (acc, [filename, content]) => {
     acc[filename] = extractApplicationLinks(content);
     return acc;
   },
-  {} as { [filename: string]: string[] },
+  {} as { [filename: string]: string[] }
 );
 
 Object.entries(FILENAME_TO_APPLICATION_LINKS).forEach(([filename, routes]) => {
@@ -281,7 +282,7 @@ Object.entries(FILENAME_TO_APPLICATION_LINKS).forEach(([filename, routes]) => {
       expect(VALID_APPLICATION_ROUTES).toContain(
         route
           .replace("https://buttondown.email/", "")
-          .replace("https://buttondown.com/", ""),
+          .replace("https://buttondown.com/", "")
       );
     });
   });
@@ -297,7 +298,7 @@ test("All redirect destinations are valid", () => {
     const presumptiveFilepath = `content/pages${destination}.mdoc`;
     expect(
       fs.existsSync(presumptiveFilepath),
-      `Redirect from "${source}" to "${destination}" does not exist.`,
+      `Redirect from "${source}" to "${destination}" does not exist.`
     ).toBeTruthy();
   });
 });
@@ -311,7 +312,7 @@ Object.entries(FILENAME_TO_INTERNAL_LINKS).forEach(
         const expectedOutboundFilename = `${MARKDOC_DIRECTORY}/${mungedOutboundPath}.mdoc`;
         expect(
           fs.existsSync(expectedOutboundFilename),
-          `Internal link to "${outboundPath}" in "${filename}" does not exist.`,
+          `Internal link to "${outboundPath}" in "${filename}" does not exist.`
         ).toBeTruthy();
       });
     });
@@ -324,7 +325,7 @@ Object.entries(FILENAME_TO_INTERNAL_LINKS).forEach(
     ) {
       test(filename + " is linked to at least twice", () => {
         const references = Object.entries(FILENAME_TO_INTERNAL_LINKS).filter(
-          ([_, links]) => links.includes("/" + filename.replace(".mdoc", "")),
+          ([_, links]) => links.includes("/" + filename.replace(".mdoc", ""))
         );
         expect(references.length).toBeGreaterThanOrEqual(2);
       });
@@ -336,12 +337,12 @@ Object.entries(FILENAME_TO_INTERNAL_LINKS).forEach(
       test("Changelog contains link to " + filename, () => {
         const changelogLinks = FILENAME_TO_INTERNAL_LINKS[CHANGELOG_FILE];
         const references = Object.entries(changelogLinks).filter(([_, links]) =>
-          links.includes("/" + filename.replace(".mdoc", "")),
+          links.includes("/" + filename.replace(".mdoc", ""))
         );
         expect(references.length).toBeGreaterThanOrEqual(1);
       });
     }
-  },
+  }
 );
 
 const MAXIMUM_TITLE_LENGTH = 60;
@@ -376,7 +377,7 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
     ];
   // @ts-ignore
   const refs = Object.values(schema.properties).filter(
-    (property) => "$ref" in (property as OpenAPIProperty),
+    (property) => "$ref" in (property as OpenAPIProperty)
   );
   refs.forEach((ref) => {
     // @ts-ignore
@@ -385,7 +386,7 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
         // @ts-ignore
         urlForSchema((ref as OpenAPIProperty).$ref as string),
         // @ts-ignore
-        `Reference to ${(ref as OpenAPIProperty).$ref} in ${filename} does not have a URL in the schema. Maybe try running \`just docs-v2/generate-indexes\`?`,
+        `Reference to ${(ref as OpenAPIProperty).$ref} in ${filename} does not have a URL in the schema. Maybe try running \`just docs-v2/generate-indexes\`?`
       ).toBeTruthy();
     });
   });
@@ -394,7 +395,7 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
 // Make sure all mdoc files are in the navigation data.
 fs.readdirSync(MARKDOC_DIRECTORY).forEach((filename) => {
   const slugs = Object.values(NAVIGATION).flatMap((section) =>
-    section.flatMap((subsection) => subsection.items.map((item) => item.value)),
+    section.flatMap((subsection) => subsection.items.map((item) => item.value))
   );
 
   test(filename + " is in the nav", () => {
@@ -403,7 +404,7 @@ fs.readdirSync(MARKDOC_DIRECTORY).forEach((filename) => {
 
   test(filename + " only appears once in the nav", () => {
     expect(
-      slugs.filter((slug) => slug === filename.replace(".mdoc", "")).length,
+      slugs.filter((slug) => slug === filename.replace(".mdoc", "")).length
     ).toBe(1);
   });
 });
@@ -415,7 +416,7 @@ Object.values(NAVIGATION).forEach((section) => {
       if (item.discriminant === "page") {
         test(`${item.value} exists`, () => {
           expect(
-            fs.existsSync(`content/pages/${item.value}.mdoc`),
+            fs.existsSync(`content/pages/${item.value}.mdoc`)
           ).toBeTruthy();
         });
       }
@@ -424,7 +425,7 @@ Object.values(NAVIGATION).forEach((section) => {
 });
 test("Glossary is sorted correctly", () => {
   const glossary = NAVIGATION.reference.find(
-    (section) => section.name === "Glossary",
+    (section) => section.name === "Glossary"
   );
   const glossaryItems = glossary?.items.map((item) => item.value) || [];
   const sortedGlossaryItems = [...glossaryItems].sort();
@@ -448,7 +449,7 @@ const ALL_IMAGES = fs
     encoding: "utf-8",
   })
   .filter((filename) =>
-    IMAGE_SUFFIXES.some((suffix) => filename.endsWith(suffix)),
+    IMAGE_SUFFIXES.some((suffix) => filename.endsWith(suffix))
   );
 
 ALL_IMAGES.forEach((filename) => {
@@ -463,7 +464,7 @@ ALL_IMAGES.forEach((filename) => {
 
   test(filename + " is referenced by at least one page", () => {
     const references = Object.entries(FILENAME_TO_RAW_CONTENT).filter(
-      ([_, content]) => content.includes(filename),
+      ([_, content]) => content.includes(filename)
     );
     expect(references.length).toBeGreaterThan(0);
   });

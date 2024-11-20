@@ -754,6 +754,10 @@
         },
         {
           "discriminant": "page",
+          "value": "support-policy"
+        },
+        {
+          "discriminant": "page",
           "value": "adult-content-policy"
         },
         {
