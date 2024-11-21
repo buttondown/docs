@@ -131,3 +131,21 @@ If you have a question about importing your data, the Buttondown team is here to
 ### Substack is still taking 10% of my revenue. What should I do?
 
 If you’ve already disconnected your Substack account from Stripe, and you’re still seeing Substack take a 10% cut of your revenue, we recommend reaching out to Substack’s support team. They'll be able to programmatically remove the 10% cut from your revenue.
+
+### Do I need to do anything to make sure my URLs don't break?
+
+If you're using a [custom domain on Substack](/hosting-on-a-custom-domain), your archived URLs look something like this:
+
+```
+newsletter.sarah.com/p/hello-world
+```
+
+It's very important for [SEO](/seo) (and just for good internet hygiene) to make sure that those URLs continue to work!
+
+By default, Buttondown's archived URLs have a slightly different format:
+
+```
+newsletter.sarah.com/archive/hello-world
+```
+
+_But_, for emails migrated in from Substack, we automatically redirect your old URLs to the new Buttondown URL format, so that all of your links continue to work. (No need to do anything additional on your end!)
