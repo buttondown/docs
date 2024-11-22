@@ -12,7 +12,7 @@ Buttondown lets you connect your LinkedIn account to your newsletter. This uses 
 
 Here's how to connect your LinkedIn account to Buttondown:
 
-1. In Buttondown, navigate to **Settings** and click [Integrations](https://buttondown.com/settings/integrations). 
+1. In Buttondown, navigate to **Settings** and click [Integrations](https://buttondown.com/settings/integrations).
 1. Find the "LinkedIn" integration option and click **Connect**. LinkedIn opens.
 1. Authorize Buttondown to post to your profile.
 
@@ -20,7 +20,7 @@ After you connect your LinkedIn account, a "Connected to LinkedIn" message displ
 
 ## Share your newsletters to LinkedIn
 
-To share your newsletters to LinkedIn, you can create an automation that posts your newsletters to LinkedIn whenever you send them. To do this, create a new [Automation](https://buttondown.com/automations/new), or just click the Automation banner below: 
+To share your newsletters to LinkedIn, you can create an automation that posts your newsletters to LinkedIn whenever you send them. To do this, create a new [Automation](https://buttondown.com/automations/new), or just click the Automation banner below:
 
 {% automation
    name="Automatically post to LinkedIn"
@@ -36,8 +36,18 @@ The simplest and most common use case is to create an automation that posts your
 1. Set the **Trigger** to  [when an email is sent](/api-webhooks-event-types#email.sent).
 1. Set the **Action** to [Create a LinkedIn post](/automation-actions#create_linkedin_post).
 1. (Optional) Configure any other fields to customize the automation. If you leave these fields blank, the automation will post to your LinkedIn account as soon as you send a new newsletter email.
-1. Click **Save changes**. 
+1. Click **Save changes**.
 
 To enable the new automation, either click **Unpause** in the automation panel, or click to enable the automation's toggle in the [**Automations**](https://buttondown.com/automations) page.
 
 ![The successful automation](/images/linkedin/automation.png)
+
+## Frequently asked questions
+
+### Does Buttondown integrate with "Linkedin Newsletters"?
+
+[LinkedIn Newsletters](https://www.linkedin.com/help/linkedin/answer/a522525) is a feature that LinkedIn launched in 2024. It allows you to create newsletters that are syndicated to your followers.
+
+Buttondown does not support LinkedIn Newsletters. This is for a simple reason: LinkedIn does not expose APIs or hooks for LinkedIn Newsletters, just for standard posts.
+
+It's also worth noting (somewhat pedantically) that LinkedIn Newsletters are not actually newsletters. They're syndicated posts to a group of followers on LinkedIn, but unlike _actual_ email newsletters you cannot access your subscribers' email addresses, send them emails, or export them to another platform. It's more analogous to a Facebook group than an email newsletter.
