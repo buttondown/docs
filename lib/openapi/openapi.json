@@ -10122,7 +10122,8 @@
         "scheme": "token"
       },
       "FallbackForNoAuth": {
-        "type": "http"
+        "type": "http",
+        "scheme": "none"
       },
       "NewsletterIDKey": {
         "type": "http",
