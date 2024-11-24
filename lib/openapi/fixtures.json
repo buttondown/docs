@@ -138,8 +138,8 @@
         "last_open_date": null,
         "last_click_date": null,
         "stripe_customer_id": null,
-        "stripe_customer": null,
-        "subscriber_import_id": null
+        "subscriber_import_id": null,
+        "stripe_customer": null
       }
     },
     {
@@ -171,8 +171,8 @@
         "last_open_date": null,
         "last_click_date": null,
         "stripe_customer_id": null,
-        "stripe_customer": null,
-        "subscriber_import_id": null
+        "subscriber_import_id": null,
+        "stripe_customer": null
       }
     },
     {
@@ -209,8 +209,8 @@
         "last_open_date": null,
         "last_click_date": null,
         "stripe_customer_id": "cus_whatever",
-        "stripe_customer": null,
-        "subscriber_import_id": null
+        "subscriber_import_id": null,
+        "stripe_customer": null
       }
     }
   ],
@@ -357,12 +357,12 @@
         "answer": "Red",
         "text": "",
         "survey_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
-        "survey": null,
         "subscriber_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
-        "subscriber": null,
         "email_id": null,
-        "email": null,
         "automation_id": null,
+        "subscriber": null,
+        "survey": null,
+        "email": null,
         "automation": null
       }
     },
@@ -374,8 +374,9 @@
         "answer": "Red",
         "text": "",
         "survey_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
-        "survey": null,
         "subscriber_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "email_id": null,
+        "automation_id": null,
         "subscriber": {
           "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
           "creation_date": "2020-09-29T00:00:00+00:00",
@@ -403,12 +404,11 @@
           "last_open_date": null,
           "last_click_date": null,
           "stripe_customer_id": null,
-          "stripe_customer": null,
-          "subscriber_import_id": null
+          "subscriber_import_id": null,
+          "stripe_customer": null
         },
-        "email_id": null,
+        "survey": null,
         "email": null,
-        "automation_id": null,
         "automation": null
       }
     }
@@ -419,14 +419,14 @@
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
         "subscriber_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
-        "subscriber": null,
         "email_id": null,
-        "email": null,
         "automation_id": null,
-        "automation": null,
         "creation_date": "2020-09-29T00:00:00+00:00",
         "metadata": {},
-        "event_type": "opened"
+        "event_type": "opened",
+        "subscriber": null,
+        "email": null,
+        "automation": null
       }
     }
   ],

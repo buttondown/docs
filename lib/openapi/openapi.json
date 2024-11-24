@@ -512,6 +512,9 @@
         "security": [
           {
             "GlobalAuth": []
+          },
+          {
+            "FallbackForNoAuth": []
           }
         ]
       }
@@ -539,6 +542,9 @@
         "security": [
           {
             "GlobalAuth": []
+          },
+          {
+            "FallbackForNoAuth": []
           }
         ]
       }
@@ -2540,6 +2546,9 @@
         "security": [
           {
             "GlobalAuth": []
+          },
+          {
+            "FallbackForNoAuth": []
           }
         ]
       }
@@ -6941,14 +6950,14 @@
             "title": "Stripe Customer Id",
             "type": "string"
           },
-          "stripe_customer": {
-            "title": "Stripe Customer",
-            "type": "object"
-          },
           "subscriber_import_id": {
             "title": "Subscriber Import Id",
             "type": "string",
             "format": "uuid"
+          },
+          "stripe_customer": {
+            "title": "Stripe Customer",
+            "type": "object"
           }
         },
         "required": [
@@ -9895,29 +9904,29 @@
             "type": "string",
             "format": "uuid"
           },
-          "survey": {
-            "$ref": "#/components/schemas/Survey"
-          },
           "subscriber_id": {
             "title": "Subscriber Id",
             "type": "string",
             "format": "uuid"
-          },
-          "subscriber": {
-            "$ref": "#/components/schemas/Subscriber"
           },
           "email_id": {
             "title": "Email Id",
             "type": "string",
             "format": "uuid"
           },
-          "email": {
-            "$ref": "#/components/schemas/Email"
-          },
           "automation_id": {
             "title": "Automation Id",
             "type": "string",
             "format": "uuid"
+          },
+          "subscriber": {
+            "$ref": "#/components/schemas/Subscriber"
+          },
+          "survey": {
+            "$ref": "#/components/schemas/Survey"
+          },
+          "email": {
+            "$ref": "#/components/schemas/Email"
           },
           "automation": {
             "$ref": "#/components/schemas/Automation"
@@ -10025,24 +10034,15 @@
             "type": "string",
             "format": "uuid"
           },
-          "subscriber": {
-            "$ref": "#/components/schemas/Subscriber"
-          },
           "email_id": {
             "title": "Email Id",
             "type": "string",
             "format": "uuid"
           },
-          "email": {
-            "$ref": "#/components/schemas/Email"
-          },
           "automation_id": {
             "title": "Automation Id",
             "type": "string",
             "format": "uuid"
-          },
-          "automation": {
-            "$ref": "#/components/schemas/Automation"
           },
           "creation_date": {
             "title": "Creation Date",
@@ -10058,6 +10058,15 @@
           },
           "event_type": {
             "$ref": "#/components/schemas/EmailEventType"
+          },
+          "subscriber": {
+            "$ref": "#/components/schemas/Subscriber"
+          },
+          "email": {
+            "$ref": "#/components/schemas/Email"
+          },
+          "automation": {
+            "$ref": "#/components/schemas/Automation"
           }
         },
         "required": [
@@ -10111,6 +10120,9 @@
       "GlobalAuth": {
         "type": "http",
         "scheme": "token"
+      },
+      "FallbackForNoAuth": {
+        "type": "http"
       },
       "NewsletterIDKey": {
         "type": "http",
