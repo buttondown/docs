@@ -272,6 +272,10 @@
         },
         {
           "discriminant": "page",
+          "value": "gift-subscriptions"
+        },
+        {
+          "discriminant": "page",
           "value": "pricing-models"
         },
         {
