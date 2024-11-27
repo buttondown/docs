@@ -58,6 +58,7 @@ const VALID_APPLICATION_ROUTES = [
   "settings/billing",
   "settings/billing",
   "settings/billing/pricing",
+  "settings/billing/pause",
   "settings/danger-zone",
   "settings/danger-zone/add-newsletter",
   "settings/danger-zone/delete-account",

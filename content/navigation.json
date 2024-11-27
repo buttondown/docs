@@ -472,6 +472,10 @@
         {
           "discriminant": "page",
           "value": "change-login-method"
+        },
+        {
+          "discriminant": "page",
+          "value": "paused-billing"
         }
       ]
     },
