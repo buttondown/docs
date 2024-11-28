@@ -424,10 +424,6 @@
       "items": [
         {
           "discriminant": "page",
-          "value": "kudos"
-        },
-        {
-          "discriminant": "page",
           "value": "roadmap"
         },
         {

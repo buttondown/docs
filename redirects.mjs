@@ -185,9 +185,14 @@ const REDIRECTS = [
     destination: "https://buttondown.com/open-source",
   },
   {
+    source: "/kudos",
+    permanent: true,
+    destination: "https://buttondown.com/kudos",
+  },
+  {
     source: "/behind-the-scenes/kudos",
     permanent: false,
-    destination: "/kudos",
+    destination: "https://buttondown.com/kudos",
   },
   {
     source: "/behind-the-scenes/subscriber-referrals",

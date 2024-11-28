@@ -830,8 +830,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "framer",
-      "kudos"
+      "framer"
     ]
   },
   {
@@ -913,7 +912,6 @@
     "description": "Automatically share your newsletters to your Twitter profile to promote your newsletter.",
     "references": [
       "api-introduction",
-      "kudos",
       "sending-your-first-email-advanced",
       "using-markdown"
     ]
@@ -965,14 +963,6 @@
     "references": []
   },
   {
-    "title": "Kudos",
-    "url": "kudos",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
     "title": "Roadmap",
     "url": "roadmap",
     "section": "guides",
@@ -1003,6 +993,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "paused-billing",
       "perks",
       "quickstart",
       "sending-your-first-email-advanced"
@@ -1062,6 +1053,16 @@
     "references": []
   },
   {
+    "title": "Pausing your subscription",
+    "url": "paused-billing",
+    "section": "reference",
+    "schema": null,
+    "description": "Take advantage of Buttondown's flexible billing to pause your subscription when you need to.",
+    "references": [
+      "billing"
+    ]
+  },
+  {
     "title": "Markdown mode",
     "url": "using-markdown",
     "section": "reference",
@@ -1091,7 +1092,6 @@
     "schema": null,
     "description": null,
     "references": [
-      "kudos",
       "naked-mode"
     ]
   },
