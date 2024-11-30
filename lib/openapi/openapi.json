@@ -605,6 +605,28 @@
             "AuthenticationRequirement": []
           }
         ]
+      },
+      "get": {
+        "operationId": "list_images",
+        "summary": "List Images",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImagePage"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AuthenticationRequirement": []
+          }
+        ]
       }
     },
     "/images/{id}": {
@@ -626,6 +648,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "200": {
+            "description": "OK"
           },
           "403": {
             "description": "Forbidden",
@@ -5871,6 +5896,35 @@
           "id",
           "creation_date",
           "image"
+        ]
+      },
+      "ImagePage": {
+        "title": "Page[Image]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Image"
+            }
+          },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "results",
+          "count"
         ]
       },
       "EmailSource": {
