@@ -49,7 +49,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "color",
         "question": "What's your favorite color?",
-        "response_count": 10,
+        "response_count": 0,
         "answers": [
           "Red",
           "Green",
@@ -68,7 +68,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "feedback",
         "question": "How can we improve?",
-        "response_count": 10,
+        "response_count": 0,
         "answers": [
           "More content",
           "Better content",
@@ -736,6 +736,15 @@
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb5",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "status": "unattempted"
+      }
+    }
+  ],
+  "Account": [
+    {
+      "description": "Basic account",
+      "object": {
+        "username": "example",
+        "email_address": "example@example.com"
       }
     }
   ]

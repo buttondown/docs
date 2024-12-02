@@ -1493,6 +1493,15 @@
       ]
     },
     {
+      "name": "Accounts",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-accounts-me"
+        }
+      ]
+    },
+    {
       "name": "Changelog",
       "items": [
         {

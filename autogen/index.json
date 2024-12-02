@@ -2976,6 +2976,14 @@
     "references": []
   },
   {
+    "title": "Get the current account",
+    "url": "api-accounts-me",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Changelog",
     "url": "api-changelog",
     "section": "api",

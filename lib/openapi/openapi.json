@@ -649,9 +649,6 @@
           "204": {
             "description": "No Content"
           },
-          "200": {
-            "description": "OK"
-          },
           "403": {
             "description": "Forbidden",
             "content": {
@@ -1490,9 +1487,6 @@
         "security": [
           {
             "NewsletterIDKey": []
-          },
-          {
-            "GlobalAuth": []
           }
         ]
       },
@@ -1945,9 +1939,6 @@
         "security": [
           {
             "NewsletterIDKey": []
-          },
-          {
-            "GlobalAuth": []
           }
         ]
       }
@@ -10196,7 +10187,7 @@
       },
       "NewsletterIDKey": {
         "type": "http",
-        "scheme": "newsletter_id"
+        "scheme": "token"
       }
     }
   },
