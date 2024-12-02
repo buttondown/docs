@@ -2,6 +2,7 @@
    Before adding to this file, please consider whether the test should be in a different file, closer with the behavior under test. */
 import dotenv from "dotenv";
 import fs from "fs";
+import matter from "gray-matter";
 import { expect, test } from "vitest";
 import { OpenAPIProperty, urlForSchema } from "./components/ObjectDescription";
 import NAVIGATION from "./content/navigation.json";
@@ -468,5 +469,195 @@ ALL_IMAGES.forEach((filename) => {
       ([_, content]) => content.includes(filename)
     );
     expect(references.length).toBeGreaterThan(0);
+  });
+});
+
+// Make sure all API endpoints are referenced by at least one page.
+// Ideally, we'd use the `operationID` to reference the page, but for boring
+// tech debt reasons we don't actually use that within the codebase so we base it
+// off of the path & the method.
+const API_ENDPOINTS = Object.entries(OpenAPI.paths).flatMap(([path, method]) =>
+  Object.keys(method).map((operation) => {
+    return {
+      path, // e.g. "/exports"
+      operation, // e.g. "post"
+    };
+  })
+);
+
+const FILENAME_TO_FRONTMATTER = Object.entries(FILENAME_TO_RAW_CONTENT).reduce(
+  (acc, [filename, content]) => {
+    acc[filename] = matter(content).data;
+    return acc;
+  },
+  {} as { [filename: string]: any }
+);
+
+// We should try not to add any new un-documented API endpoints,
+// and in fact burn down this list over time.
+const UNDOCUMENTED_API_ENDPOINTS = [
+  {
+    path: "/prices",
+    operation: "get",
+  },
+  {
+    path: "/exports",
+    operation: "get",
+  },
+  {
+    path: "/ping",
+    operation: "get",
+  },
+  {
+    path: "/tags/{id}/analytics",
+    operation: "get",
+  },
+  {
+    path: "/accounts/me",
+    operation: "get",
+  },
+  {
+    path: "/images",
+    operation: "get",
+  },
+  {
+    path: "/subscribers/{id_or_email}/clients",
+    operation: "get",
+  },
+  {
+    path: "/subscribers/{id_or_email}/referrals",
+    operation: "get",
+  },
+  {
+    path: "/subscribers/{id_or_email}/automations",
+    operation: "get",
+  },
+  {
+    path: "/subscribers/{id_or_email}/stripe-subscriptions",
+    operation: "get",
+  },
+  {
+    path: "/external_feeds/{id}",
+    operation: "get",
+  },
+  {
+    path: "/external_feeds/{id}/items",
+    operation: "post",
+  },
+  {
+    path: "/external_feeds/{id}/items",
+    operation: "get",
+  },
+  {
+    path: "/automations",
+    operation: "get",
+  },
+  {
+    path: "/automations",
+    operation: "post",
+  },
+  {
+    path: "/automations/{id}/subscribers",
+    operation: "get",
+  },
+  {
+    path: "/automations/{id}",
+    operation: "get",
+  },
+  {
+    path: "/automations/{id}",
+    operation: "patch",
+  },
+  {
+    path: "/automations/{id}",
+    operation: "delete",
+  },
+  {
+    path: "/automations/{id}/invoke",
+    operation: "post",
+  },
+  {
+    path: "/automations/{id}/analytics",
+    operation: "get",
+  },
+  {
+    path: "/users",
+    operation: "post",
+  },
+  {
+    path: "/users",
+    operation: "get",
+  },
+  {
+    path: "/users/{id}",
+    operation: "delete",
+  },
+  {
+    path: "/users/{id}",
+    operation: "patch",
+  },
+  {
+    path: "/prices",
+    operation: "post",
+  },
+  {
+    path: "/coupons",
+    operation: "get",
+  },
+  {
+    path: "/surveys/{id}",
+    operation: "get",
+  },
+  {
+    path: "/api_requests/{id}",
+    operation: "get",
+  },
+  {
+    path: "/api_requests",
+    operation: "get",
+  },
+  {
+    path: "/advertising_units",
+    operation: "get",
+  },
+  {
+    path: "/advertising_units",
+    operation: "post",
+  },
+  {
+    path: "/advertising_units/{id}",
+    operation: "patch",
+  },
+  {
+    path: "/advertising_units/{id}",
+    operation: "delete",
+  },
+  {
+    path: "/webhooks/{id}",
+    operation: "get",
+  },
+  {
+    path: "/survey_responses",
+    operation: "post",
+  },
+  {
+    path: "/events/{id}",
+    operation: "get",
+  },
+];
+
+API_ENDPOINTS.filter(
+  (endpoint) =>
+    !UNDOCUMENTED_API_ENDPOINTS.map((e) => JSON.stringify(e)).includes(
+      JSON.stringify(endpoint)
+    )
+).forEach((endpoint) => {
+  test(JSON.stringify(endpoint) + " is referenced by at least one page", () => {
+    const relevantPage = Object.entries(FILENAME_TO_FRONTMATTER).find(
+      ([filename, frontmatter]) =>
+        frontmatter.endpoint === endpoint.path &&
+        frontmatter.method === endpoint.operation
+    );
+    expect(relevantPage).toBeDefined();
   });
 });

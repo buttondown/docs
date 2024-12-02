@@ -246,7 +246,8 @@
         "subscriptions": 0,
         "paid_subscriptions": 0,
         "replies": 0,
-        "comments": 0
+        "comments": 0,
+        "social_mentions": 0
       }
     }
   ],

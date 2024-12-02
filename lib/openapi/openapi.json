@@ -835,7 +835,9 @@
                     "replies",
                     "-replies",
                     "comments",
-                    "-comments"
+                    "-comments",
+                    "social_mentions",
+                    "-social_mentions"
                   ],
                   "type": "string"
                 }
@@ -4964,6 +4966,7 @@
                 "scheduled_email.converted",
                 "mention.created",
                 "advertising_slot.purchased",
+                "social_mention.created",
                 "automation.invoked",
                 "stripe.checkout.session.completed",
                 "stripe.subscription.activated",
@@ -6126,6 +6129,11 @@
           },
           "comments": {
             "title": "Comments",
+            "default": 0,
+            "type": "integer"
+          },
+          "social_mentions": {
+            "title": "Social Mentions",
             "default": 0,
             "type": "integer"
           }
@@ -8313,6 +8321,7 @@
           "scheduled_email.converted",
           "mention.created",
           "advertising_slot.purchased",
+          "social_mention.created",
           "automation.invoked",
           "stripe.checkout.session.completed",
           "stripe.subscription.activated",

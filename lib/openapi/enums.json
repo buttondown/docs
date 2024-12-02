@@ -475,6 +475,10 @@
     "automation.invoked": {
       "name": "automation.invoked",
       "description": "Whenever an automation is manually invoked (e.g. by a webhook or API call)."
+    },
+    "social_mention.created": {
+      "name": "social_mention.created",
+      "description": "Whenever your newsletter is mentioned on another website such as Reddit, Twitter, Bluesky, etc."
     }
   },
   "BulkActionStatus": {
