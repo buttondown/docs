@@ -650,7 +650,9 @@
     "section": "guides",
     "schema": null,
     "description": "Various pricing models for paid newsletters.",
-    "references": []
+    "references": [
+      "paid-subscriptions"
+    ]
   },
   {
     "title": "How to send a teaser",
