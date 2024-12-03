@@ -760,6 +760,11 @@
           "discriminant": "page",
           "value": "using-a-screen-reader"
         },
+
+        {
+          "discriminant": "page",
+          "value": "gdpr-eu-compliance"
+        },
         {
           "discriminant": "page",
           "value": "support-policy"

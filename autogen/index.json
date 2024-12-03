@@ -1581,6 +1581,16 @@
     "references": []
   },
   {
+    "title": "GDPR and EU Compliance",
+    "url": "gdpr-eu-compliance",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "privacy-and-security"
+    ]
+  },
+  {
     "title": "Support policy",
     "url": "support-policy",
     "section": "reference",
@@ -1834,6 +1844,7 @@
     "references": [
       "do-imported-subscribers-have-to-re-confirm-their-subscription",
       "fathom",
+      "gdpr-eu-compliance",
       "privacy-and-security"
     ]
   },
