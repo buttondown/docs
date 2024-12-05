@@ -2196,7 +2196,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "api-changelog"
+    ]
   },
   {
     "title": "Idempotency keys",
