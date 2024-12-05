@@ -1696,6 +1696,20 @@
             },
             "required": false,
             "description": "If provided, expand the given field. (Only supported fields: 'stripe_customer')"
+          },
+          {
+            "in": "query",
+            "name": "ip_address",
+            "schema": {
+              "title": "Ip Address",
+              "description": "If provided, only return subscribers with the given IP address(es).",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given IP address(es)."
           }
         ],
         "responses": {

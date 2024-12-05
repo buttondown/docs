@@ -1515,6 +1515,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-changelog-2024-12-05"
+        },
+        {
+          "discriminant": "page",
           "value": "api-changelog-2024-09-30"
         },
         {
