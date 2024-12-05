@@ -385,7 +385,8 @@ iframe.youtube {
   color: var(--tint-color);
   word-wrap: break-word;
 }
-.email-body-container .buttondown-custom-button {
+.email-body-container .buttondown-custom-button,
+.email-body-container .subscribe_button {
   -webkit-transition-property: all;
   transition-property: all;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -393,7 +394,8 @@ iframe.youtube {
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
 }
-.email-body-container .buttondown-custom-button .buttondown-button {
+.email-body-container .buttondown-custom-button .buttondown-button,
+.email-body-container .subscribe_button .buttondown-button {
   font-family: var(--brand-font) !important;
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
     0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -406,8 +408,15 @@ iframe.youtube {
   border-radius: 9999px !important;
   margin-top: 2.5rem !important;
   margin-bottom: 2.5rem !important;
+  -webkit-transition-property: all !important;
+  transition-property: all !important;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -webkit-transition-duration: 0.15s !important;
+  transition-duration: 0.15s !important;
 }
-.email-body-container .buttondown-custom-button:hover {
+.email-body-container .buttondown-custom-button:hover,
+.email-body-container .subscribe_button:hover {
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
@@ -1100,4 +1109,28 @@ table.buttondown-block-styled th {
 }
 table.buttondown-block-styled p {
   margin: 0;
+}
+figure {
+  margin-left: auto;
+  margin-right: auto;
+}
+.subscribe_button {
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+  -webkit-transition-property: all !important;
+  transition-property: all !important;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -webkit-transition-duration: 0.15s !important;
+  transition-duration: 0.15s !important;
+}
+.subscribe_button:hover {
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }

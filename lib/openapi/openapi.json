@@ -1487,6 +1487,9 @@
         "security": [
           {
             "NewsletterIDKey": []
+          },
+          {
+            "GlobalAuth": []
           }
         ]
       },
@@ -1939,6 +1942,9 @@
         "security": [
           {
             "NewsletterIDKey": []
+          },
+          {
+            "GlobalAuth": []
           }
         ]
       }
@@ -10187,7 +10193,7 @@
       },
       "NewsletterIDKey": {
         "type": "http",
-        "scheme": "token"
+        "scheme": "newsletter_id"
       }
     }
   },
