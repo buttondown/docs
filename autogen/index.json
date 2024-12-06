@@ -1555,6 +1555,14 @@
     "references": []
   },
   {
+    "title": "Social media monitoring",
+    "url": "social-media-monitoring",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Does Buttondown offer A/B testing?",
     "url": "does-buttondown-offer-a-b-testing",
     "section": "reference",
@@ -2111,7 +2119,8 @@
     "schema": null,
     "description": null,
     "references": [
-      "customizing-email-list-view"
+      "customizing-email-list-view",
+      "social-media-monitoring"
     ]
   },
   {

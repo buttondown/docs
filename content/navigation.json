@@ -735,6 +735,10 @@
           "value": "dedicated-ip"
         },
         {
+          "discriminant": "page",
+          "value": "social-media-monitoring"
+        },
+        {
           "discriminant": "divider",
           "value": "FAQ"
         },
