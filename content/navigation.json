@@ -739,6 +739,10 @@
           "value": "social-media-monitoring"
         },
         {
+          "discriminant": "page",
+          "value": "hidden-settings"
+        },
+        {
           "discriminant": "divider",
           "value": "FAQ"
         },
@@ -792,10 +796,6 @@
         {
           "discriminant": "page",
           "value": "self-hosting"
-        },
-        {
-          "discriminant": "page",
-          "value": "hidden-settings"
         }
       ]
     },

@@ -438,6 +438,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "hidden-settings",
       "how-do-i-set-sender-information"
     ]
   },
@@ -1563,6 +1564,14 @@
     "references": []
   },
   {
+    "title": "Hidden features and settings",
+    "url": "hidden-settings",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Does Buttondown offer A/B testing?",
     "url": "does-buttondown-offer-a-b-testing",
     "section": "reference",
@@ -1633,14 +1642,6 @@
   {
     "title": "Self-hosting",
     "url": "self-hosting",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
-    "title": "Hidden features and settings",
-    "url": "hidden-settings",
     "section": "reference",
     "schema": null,
     "description": null,

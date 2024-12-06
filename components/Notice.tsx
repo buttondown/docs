@@ -1,9 +1,8 @@
 import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
-import Icon from "./Icon";
 
 const noticeContainer = cva(
-  "p-4 border-t border-b lg:w-[calc(100vw-320px)] lg:ml-[calc(480px-50vw)] -mx-4 md:-mx-8",
+  "p-4 border rounded-lg text-sm max-w-prose",
   {
     variants: {
       variant: {
@@ -24,12 +23,9 @@ type Props = {
 const Notice = ({ children, type }: Props) => {
   return (
     <div className={noticeContainer({ variant: type })}>
-      <div className="lg:w-[640px] lg:mx-auto flex items-start">
-        <div className="pt-2">
-          <Icon.Info />
-        </div>
-        <div className="ml-2 text-md">
-          <span className="uppercase text-sm font-semibold">{type}</span>
+      <div className="lg:mx-auto flex items-start">
+        <div className="text-sm">
+          <div className="uppercase text-xs font-semibold mb-1">{type}</div>
           {children}
         </div>
       </div>

@@ -1,25 +1,41 @@
 ---
 title: Hidden features and settings
-navigationTitle: Are there any extra settings?
+navigationTitle: Hidden settings
 relatedPages:
 - 'can-i-set-custom-reply-to'
 - 'can-i-set-a-custom-unsubscribe-link'
 ---
 
+{% noticeWarn text="Features listed are only available on paid plans. Email us at [support@buttondown.com](mailto:support@buttondown.com) to learn more." /%}
+
 Does Buttondown have a secret menu? Kind of!
 
 We have a few additional features and settings that are "hidden" for a few different reasons:
+
 - Some were real features that weren't widely adopted by authors.
 - Others are experiments that are still a little rough around the edges, and not well-documented.
 
 If one of the following features would make your Buttondown experience better, please email us at [support@buttondown.com](mailto:support@buttondown.com). Be sure to include your newsletter name!
 
-Here are some of the "hidden" settings/features available:
+Here are some of the "hidden" settings/features available, with sections for more information where useful:
 
 ## Subscriber flow
-- Disabling [double opt-in](/glossary-double-optin)
-- Setting a custom [reply-to address](/can-i-set-custom-reply-to)
-- Setting a [custom redirect](/can-i-set-a-custom-unsubscribe-link) when a reader unsubscribes
+
+### `should_require_double_optin`
+
+Almost all Buttondown newsletters require [double opt-in](/glossary-double-optin) for new subscribers. This setting overrides that requirement, allowing any new subscriber to join your newsletter immediately without confirmation.
+
+### `reply_to_address`
+
+If this setting is populated, it will override the default [reply-to address](/can-i-set-custom-reply-to) for your newsletter. (Note that this supersedes [our ability to track replies](/replies), and therefore cannot be used in conjunction with that feature.)
+
+### `unsubscription_redirect_url`
+
+This setting overrides the default [unsubscription confirmation view](/can-i-set-a-custom-unsubscribe-link) with a URL of your choosing.
+
+If one-click unsubscription is enabled for your newsletter, then subscribers will immediately be redirected to the URL you've set here after being processed by Buttondown.
+
+If one-click unsubscription is not enabled, then subscribers will be redirected to the default unsubscription confirmation view after being processed by Buttondown, and then redirected to the URL you've set _after_ confirming their unsubscription.
 
 ## Writing experience
 - Setting the number of paragraphs in a teaser
@@ -36,9 +52,3 @@ Here are some of the "hidden" settings/features available:
 ## Tracking
 - Setting a custom UTM source for outgoing links
 - Setting a custom UTM campaign for outgoing links
-
-{% snippetSpacer %}
-
-{% noticeWarn text="Some features may only be available on certain paid plans. Email us at [support@buttondown.com](mailto:support@buttondown.com) to learn more." /%}
-
-{% snippetSpacer %}
