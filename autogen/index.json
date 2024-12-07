@@ -1011,7 +1011,7 @@
     "references": []
   },
   {
-    "title": "Customizing email list view",
+    "title": "Customizing your email dashboard",
     "url": "customizing-email-list-view",
     "section": "reference",
     "schema": null,
@@ -1021,7 +1021,7 @@
     ]
   },
   {
-    "title": "Customizing subscriber list views",
+    "title": "Customizing your subscriber dashboard",
     "url": "customizing-subscriber-list-view",
     "section": "reference",
     "schema": null,
@@ -1030,6 +1030,14 @@
       "customizing-subscriber-list-view",
       "importing-your-data"
     ]
+  },
+  {
+    "title": "Customizing your request dashboard",
+    "url": "customizing-request-list-view",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
   },
   {
     "title": "Why is my account disabled?",
@@ -2207,7 +2215,8 @@
     "schema": null,
     "description": null,
     "references": [
-      "api-changelog"
+      "api-changelog",
+      "customizing-request-list-view"
     ]
   },
   {

@@ -446,12 +446,20 @@
           "value": "privacy-and-security"
         },
         {
+          "discriminant": "divider",
+          "value": "Columns"
+        },
+        {
           "discriminant": "page",
           "value": "customizing-email-list-view"
         },
         {
           "discriminant": "page",
           "value": "customizing-subscriber-list-view"
+        },
+        {
+          "discriminant": "page",
+          "value": "customizing-request-list-view"
         },
         {
           "discriminant": "divider",

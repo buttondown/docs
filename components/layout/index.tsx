@@ -4,9 +4,9 @@ import Sidebar from "./Sidebar";
 import AccountButtons from "./account-buttons";
 import Footer from "./footer";
 import {
-  type KeystaticNavigationFile,
-  type KeystaticPage,
-  assembleNavData,
+    type KeystaticNavigationFile,
+    type KeystaticPage,
+    assembleNavData,
 } from "./lib";
 
 export default async function Layout({
@@ -48,7 +48,7 @@ export default async function Layout({
           <div
             className="mt-4 prose prose-lg prose-h2:text-2xl prose-h3:text-xl prose-img:border-[2px] prose-img:border-gray-100 prose-img:outline prose-img:outline-1 prose-img:outline-gray-300 prose-img:mx-auto prose-img:block prose-img:my-0 [&_td>p]:!my-0 [&_th>p]:!my-0 glossary:prose-a:after:mask-[url('/book.svg')] github:prose-a:after:mask-[url('/github.svg')] github:prose-a:notable-link glossary:prose-a:notable-link app-link:prose-a:after:mask-[url('/icon.svg')] app-link:prose-a:notable-link
             pricing:prose-a:after:mask-[url('/dollar.svg')] pricing:prose-a:notable-link [&_a:hover]:bg-[color-mix(in_srgb,currentColor_10%,transparent)]
-            [&_li>code]:inline-block [&_li>code]:px-1.5 [&_li>code]:mx-1.5 [&_li>code]:bg-gray-200 [&_li>code]:before:hidden [&_li>code]:after:hidden [&_li>code]:rounded-md [&_p>code]:inline-block [&_p>code]:px-1.5 [&_p>code]:mx-1.5 [&_p>code]:bg-gray-200 [&_p>code]:before:hidden [&_p>code]:after:hidden [&_p>code]:rounded-md
+            [&_li>code]:bg-gray-100 [&_p>code]:bg-gray-100 [&_p>code]:before:hidden [&_p>code]:after:hidden [&_p>code]:border-b [&_li>code]:border-b-2 [&_li>code]:before:hidden [&_li>code]:after:hidden [&_p>code]:px-1 [&_li>code]:px-1
             [&_td:first-child>p]:whitespace-nowrap
           "
           >
