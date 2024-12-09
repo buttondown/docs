@@ -1710,6 +1710,20 @@
             },
             "required": false,
             "description": "If provided, only return subscribers with the given IP address(es)."
+          },
+          {
+            "in": "query",
+            "name": "referrer_url",
+            "schema": {
+              "title": "Referrer Url",
+              "description": "If provided, only return subscribers with the given referrer URL(s).",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given referrer URL(s)."
           }
         ],
         "responses": {

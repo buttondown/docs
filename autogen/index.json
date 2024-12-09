@@ -3026,7 +3026,18 @@
     "description": null,
     "references": [
       "api-changelog",
+      "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2024-12-09",
+    "url": "api-changelog-2024-12-09",
+    "section": "api",
+    "schema": null,
+    "description": "We've added support for filtering subscribers by referrer URL, too!",
+    "references": [
+      "api-changelog"
     ]
   },
   {
@@ -3036,7 +3047,8 @@
     "schema": null,
     "description": "We've added support for filtering subscribers by IP address.",
     "references": [
-      "api-changelog"
+      "api-changelog",
+      "api-changelog-2024-12-09"
     ]
   },
   {

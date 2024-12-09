@@ -1,0 +1,13 @@
+---
+title: "2024-12-09"
+navigationTitle: "2024-12-09"
+description: "We've added support for filtering subscribers by referrer URL, too!"
+relatedPages: ["api-changelog-2024-12-05"]
+---
+
+When we [added support for filtering subscribers by IP address](https://docs.buttondown.com/api-changelog-2024-12-05), many of you wrote in asking for the same feature for referrer URLs. We've added support for this, too, and you can now filter subscribers by referrer URL:
+
+```shell
+curl --request GET \
+     --url https://api.buttondown.com/v1/subscribers?referrer_url=https://example.com
+```
