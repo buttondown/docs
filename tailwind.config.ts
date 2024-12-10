@@ -35,6 +35,7 @@ const config: Config = {
       addVariant("app-link", '&[href*="https://buttondown.com"]');
       addVariant("github", '&[href*="https://github.com"]');
       addVariant("pricing", '&[href*="https://buttondown.com/pricing"]');
+      addVariant("rss", '&[href*="/rss/"]');
 
       // This component allows us to add arbitrary masks to elements, like as follows:
       //   <div class="mask-image:url(/path/to/image.png)"></div>

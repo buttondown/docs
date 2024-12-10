@@ -199,7 +199,7 @@
     }
   },
   "UpdateSubscriberErrorCode": {
-    "invalid_tag": {
+    "tag_invalid": {
       "variant": "error",
       "name": "Invalid tag"
     }
@@ -334,21 +334,9 @@
       "variant": "info",
       "name": "Emails"
     },
-    "scheduled_emails": {
-      "variant": "info",
-      "name": "Scheduled emails"
-    },
-    "drafts": {
-      "variant": "info",
-      "name": "Drafts"
-    },
     "mentions": {
       "variant": "info",
       "name": "Mentions"
-    },
-    "unsubscribers": {
-      "variant": "info",
-      "name": "Unsubscribers"
     },
     "events": {
       "variant": "info",

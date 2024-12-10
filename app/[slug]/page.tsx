@@ -1,9 +1,9 @@
 import SEARCH from "@/autogen/index.json";
 import Document from "@/components/Document";
 import ObjectDescription, {
-  extractParameters,
-  extractSchemaFromContent,
-  fixtureForRef,
+    extractParameters,
+    extractSchemaFromContent,
+    fixtureForRef,
 } from "@/components/ObjectDescription";
 import Parameter from "@/components/Parameter";
 import Code from "@/components/code";
@@ -14,9 +14,9 @@ import { generateJSONLDMetadata } from "@/lib/jsonld";
 import OpenAPIEnums from "@/lib/openapi/enums.json";
 import OpenAPI from "@/lib/openapi/openapi.json";
 import type {
-  Method,
-  Object as OpenAPIObject,
-  Operation,
+    Method,
+    Object as OpenAPIObject,
+    Operation,
 } from "@/lib/openapi/types";
 import { createReader } from "@keystatic/core/reader";
 import oasToSnippet from "@readme/oas-to-snippet";
@@ -368,8 +368,21 @@ export default async function DocsPage({ params: { slug } }: Props) {
           </ul>
         </div>
       )}
-      <script
-        type="application/ld+json"
+      {slug.includes("api-changelog-") && (
+        <div>
+            <hr />
+          <h3>Stay informed</h3>
+          <p>
+            You can subscribe to this changelog via{" "}
+            <a href={`/rss/api-changelog`} target="_blank" rel="noopener">
+              RSS
+            </a> or <a href="/api-changelog">browse the full list of API changes</a>
+            .
+          </p>
+        </div>
+      )}
+        <script
+          type="application/ld+json"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: It's fine
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
