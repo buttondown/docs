@@ -144,6 +144,51 @@ h4 code {
 .instagram__caption {
   line-height: 18px;
 }
+.bluesky-embed {
+  background: #fff !important;
+  color: #1c2022 !important;
+  border: 1px solid #eaeaea;
+  padding: 0;
+  overflow: hidden;
+}
+.bluesky-embed .media,
+.bluesky-embed .media-image {
+  display: block;
+}
+.bluesky-embed .media-image {
+  width: 100%;
+}
+.bluesky-embed .header {
+  padding: 12px 16px;
+}
+.bluesky-embed .author-link {
+  color: inherit !important;
+  text-decoration: none;
+}
+.bluesky-embed .display-name,
+.bluesky-embed .handle {
+  font-size: 14px !important;
+  line-height: 20px !important;
+  margin: 0 !important;
+}
+.bluesky-embed .display-name {
+  font-weight: 700;
+}
+.bluesky-embed .handle {
+  color: #697882 !important;
+}
+.bluesky-embed .body {
+  padding: 0 16px 12px;
+}
+.bluesky-embed .text {
+  margin: 0 0 12px !important;
+}
+.bluesky-embed .date {
+  color: #697882 !important;
+  font-size: 14px !important;
+  line-height: 20px;
+  text-decoration: none !important;
+}
 img[goomoji] {
   width: 24px !important;
 }

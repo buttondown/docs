@@ -171,6 +171,7 @@ table.buttondown-block-styled p {
 }
 .bluesky-embed {
   background: #fff !important;
+  color: #1c2022 !important;
   border: 1px solid #eaeaea;
   padding: 0;
   overflow: hidden;
@@ -178,6 +179,9 @@ table.buttondown-block-styled p {
 .bluesky-embed .media,
 .bluesky-embed .media-image {
   display: block;
+}
+.bluesky-embed .media-image {
+  width: 100%;
 }
 .bluesky-embed .header {
   padding: 12px 16px;
