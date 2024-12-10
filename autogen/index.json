@@ -2675,7 +2675,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "api-changelog-2024-12-10"
+    ]
   },
   {
     "title": "Retrieving an export",
@@ -3028,6 +3030,16 @@
       "api-changelog",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2024-12-10",
+    "url": "api-changelog-2024-12-10",
+    "section": "api",
+    "schema": null,
+    "description": "Customize your API-borne exports",
+    "references": [
+      "api-changelog"
     ]
   },
   {

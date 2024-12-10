@@ -1,0 +1,30 @@
+---
+title: "2024-12-10"
+navigationTitle: "2024-12-10"
+description: "Customize your API-borne exports"
+---
+
+When [creating an export of your Buttondown data](/api-exports-create), you can now specify two new fields to transform the shape and specificity of the data you receive:
+
+- `parameters`: a dictionary of parameters to filter the data you receive.
+- `columns`: a list of columns to include in the export.
+
+Rather than just getting "every data point about every subscriber, ever":
+
+```shell
+curl --request POST \
+     --url https://api.buttondown.com/v1/exports \
+     --header "Authorization: Token <your-api-key>" \
+     --data '{"collections": ["subscribers"]}'
+```
+
+You can, say, grab _just the email address and status_ of _every subscriber in the past week_:
+
+```shell
+curl --request POST \
+     --url https://api.buttondown.com/v1/exports \
+     --header "Authorization: Token <your-api-key>" \
+     --data '{"collections": ["subscribers"], "parameters": {"date": ["2024-12-03", null]}, "columns": ["email", "subscriber_type"]}'
+```
+
+(We plan on augmenting this functionality to allow pulling _specific_ metadata fields, too, but you can't do that quite yet.)

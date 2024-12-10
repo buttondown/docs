@@ -4,6 +4,16 @@
       "variant": "error",
       "name": "No collections passed in",
       "description": "You must pass in at least one collection to export."
+    },
+    "columns_empty_invalid": {
+      "variant": "error",
+      "name": "No columns passed in",
+      "description": "You must pass in at least one column to export; otherwise, omit the parameter entirely."
+    },
+    "columns_invalid": {
+      "variant": "error",
+      "name": "Invalid columns passed in",
+      "description": "You passed in at least one column that is not valid for the collection you're exporting."
     }
   },
   "UpdateTagErrorCode": {

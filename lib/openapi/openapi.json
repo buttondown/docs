@@ -5546,7 +5546,7 @@
       },
       "Export": {
         "title": "Export",
-        "description": "Some software applications may want programmatic access to their newsletter exports.\nThis assists with a few niche use cases, such as regular backups or data ingestion\n(into a data warehouse), or post-publishing processes that hinge on email events.\n\nIn general, you probably won't _need_ to use this endpoint unless you\n _absolutely_ need to use this endpoint.",
+        "description": "Some software applications may want programmatic access to their newsletter exports.\nThis assists with a few niche use cases, such as regular backups or data ingestion\n(into a data warehouse), or post-publishing processes that hinge on email events.\n\nIn general, you probably won't _need_ to use this endpoint unless you\n_absolutely_ need to use this endpoint.\n\nTo browse the contents of a given export collection, refer to the [Data exports](https://docs.buttondown.com/data-exports-subscriber) section\nof the documentation.",
         "type": "object",
         "properties": {
           "collections": {
@@ -5558,6 +5558,14 @@
           "parameters": {
             "title": "Parameters",
             "type": "object"
+          },
+          "columns": {
+            "title": "Columns",
+            "description": "If provided, the export will only include these columns.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "id": {
             "title": "Id",
@@ -5619,7 +5627,9 @@
         "title": "CreateExportErrorCode",
         "description": "An enumeration.",
         "enum": [
-          "collection_empty_invalid"
+          "collection_empty_invalid",
+          "columns_empty_invalid",
+          "columns_invalid"
         ],
         "type": "string"
       },
@@ -5661,6 +5671,14 @@
           "parameters": {
             "title": "Parameters",
             "type": "object"
+          },
+          "columns": {
+            "title": "Columns",
+            "description": "If provided, the export will only include these columns.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "required": [
