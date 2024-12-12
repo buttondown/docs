@@ -449,6 +449,11 @@ const REDIRECTS = [
     permanent: false,
     destination: "/welcome-sequence",
   },
+  {
+    source: "/rss/api-changelog.xml",
+    destination: "/rss/api-changelog",
+    permanent: true,
+  },
 ];
 
 export default REDIRECTS;

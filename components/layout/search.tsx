@@ -3,22 +3,22 @@
 import type { Result } from "@/app/api/offline-search/lib";
 import Icon from "@/components/Icon";
 import {
-    CommandDialog,
-    CommandEmpty,
-    CommandInput,
-    CommandItem,
-    CommandList,
+  CommandDialog,
+  CommandEmpty,
+  CommandInput,
+  CommandItem,
+  CommandList,
 } from "@/components/ui/command";
 import { useCommandState } from "cmdk";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
-    type Dispatch,
-    type ReactNode,
-    type SetStateAction,
-    useEffect,
-    useRef,
-    useState,
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
+  useEffect,
+  useRef,
+  useState,
 } from "react";
 
 // Set this to true to use "dumb" substring search.
@@ -170,7 +170,7 @@ export function Search({
           })}
           {onlineResults
             .filter(
-              (result) => !offlineResults.some((r) => r.slug === result.slug),
+              (result) => !offlineResults.some((r) => r.slug === result.slug)
             )
             .map((result) => {
               return (
@@ -195,23 +195,14 @@ const SearchEmptyState = ({ loading }: { loading: boolean }) => {
         <div className="py-6 text-center text-sm space-y-1">
           <p className="text-gray-700">No results found.</p>
           <p className="text-gray-500">
-            Email{" "}
+            Contact
             <a
-              href="mailto:support@buttondown.com"
+              href="https://buttondown.com/support"
               className="underline decoration-gray-500"
             >
-              support@buttondown.com
-            </a>
-            {" or "}
-            <a
-              href="https://github.com/buttondown/roadmap/issues"
-              target="_blank"
-              className="underline decoration-gray-500"
-              rel="noreferrer"
-            >
-              file a GitHub issue
-            </a>
-            ?
+              our support team
+            </a>{" "}
+            for assistance.
           </p>
         </div>
       )}

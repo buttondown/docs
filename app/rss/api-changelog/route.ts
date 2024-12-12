@@ -1,4 +1,6 @@
 import { createReader } from "@keystatic/core/reader";
+import fs from "fs";
+import { marked } from "marked";
 import config, { localBaseURL } from "../../../keystatic.config";
 
 const reader = createReader(localBaseURL, config);
@@ -10,6 +12,8 @@ const CHANNEL_METADATA = {
   description: "Buttondown's API changelog",
   link: "https://docs.buttondown.com/api-changelog",
 };
+
+const MARKDOC_DIRECTORY = "content/pages";
 
 export async function GET() {
   const slugs = (await reader.collections.pages.list()).filter((slug) =>
@@ -24,6 +28,10 @@ export async function GET() {
       return {
         slug,
         ...response,
+        rawContent: fs.readFileSync(
+          `${MARKDOC_DIRECTORY}/${slug}.mdoc`,
+          "utf-8"
+        ),
       };
     })
   );
@@ -38,7 +46,9 @@ export async function GET() {
     description: post.description,
     link: `https://docs.buttondown.com/${post.slug}`,
     pubDate: new Date(post.title || "").toUTCString(),
+    content: marked(post.rawContent.split("---\n")[2]),
   }));
+  console.log(sortedPostData[0].content);
   const rssFeed = `<rss version="2.0">
         <channel>
             <title>${CHANNEL_METADATA.title}</title>
@@ -51,6 +61,7 @@ export async function GET() {
                 <description>${item.description}</description>
                 <link>${item.link}</link>
                 <pubDate>${item.pubDate}</pubDate>
+                <content type="html"><![CDATA[${item.content}]]></content>
             </item>`
               )
               .join("\n")}

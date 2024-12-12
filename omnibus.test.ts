@@ -52,6 +52,7 @@ const VALID_APPLICATION_ROUTES = [
   "requests/<uuid:pk>",
   "requests/api-key/",
   "requests/api-key/regenerate",
+  "rss/api-changelog",
   "search",
   "settings",
   "settings/basics",
@@ -123,6 +124,7 @@ const VALID_APPLICATION_ROUTES = [
 
   // Marketing stuff.
   "pricing",
+  "support",
   "features/smtp-endpoint",
   "features/analytics",
   "features/teams",
@@ -290,6 +292,15 @@ Object.entries(FILENAME_TO_APPLICATION_LINKS).forEach(([filename, routes]) => {
   });
 });
 
+const VALID_INTERNAL_LINKS_THAT_ARE_NOT_BACKED_BY_MDOC = ["/rss/api-changelog"];
+
+const isInternalURLValid = (url: string) => {
+  return (
+    VALID_INTERNAL_LINKS_THAT_ARE_NOT_BACKED_BY_MDOC.includes(url) ||
+    fs.existsSync(`${MARKDOC_DIRECTORY}/${url}.mdoc`)
+  );
+};
+
 test("All redirect destinations are valid", () => {
   REDIRECTS.forEach(({ source, destination }) => {
     // We only care about relative links.
@@ -297,9 +308,8 @@ test("All redirect destinations are valid", () => {
       return;
     }
 
-    const presumptiveFilepath = `content/pages${destination}.mdoc`;
     expect(
-      fs.existsSync(presumptiveFilepath),
+      isInternalURLValid(destination),
       `Redirect from "${source}" to "${destination}" does not exist.`
     ).toBeTruthy();
   });
@@ -310,10 +320,8 @@ Object.entries(FILENAME_TO_INTERNAL_LINKS).forEach(
   ([filename, internalLinks]) => {
     test("Check internal links in " + filename, () => {
       internalLinks.forEach((outboundPath) => {
-        const mungedOutboundPath = mungeInternalLinks(outboundPath);
-        const expectedOutboundFilename = `${MARKDOC_DIRECTORY}/${mungedOutboundPath}.mdoc`;
         expect(
-          fs.existsSync(expectedOutboundFilename),
+          isInternalURLValid(mungeInternalLinks(outboundPath)),
           `Internal link to "${outboundPath}" in "${filename}" does not exist.`
         ).toBeTruthy();
       });
