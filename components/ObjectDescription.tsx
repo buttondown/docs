@@ -4,11 +4,11 @@ import type OpenAPIEnums from "../lib/openapi/enums.json";
 import OpenAPIFixtures from "../lib/openapi/fixtures.json";
 import OpenAPI from "../lib/openapi/openapi.json";
 import type {
-  Method,
-  Object as OpenAPIObject,
-  Operation,
-  RequestBody,
-  Route,
+    Method,
+    Object as OpenAPIObject,
+    Operation,
+    RequestBody,
+    Route,
 } from "../lib/openapi/types";
 import Markdown from "./Markdown";
 import Parameter, { type TypeProp } from "./Parameter";
@@ -214,6 +214,7 @@ export const extractParameters = <R extends Route>(
 ): ParameterType[] => {
   const queryParameters = operation.parameters
     .filter((parameter) => parameter.in !== "path")
+    .filter((parameter) => parameter.in !== "header")
     .map((parameter) => {
       const type =
         "type" in parameter.schema && "items" in parameter.schema

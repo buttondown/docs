@@ -213,6 +213,7 @@
     "description": null,
     "references": [
       "api-changelog-2024-06-21",
+      "api-subscribers-create",
       "api-surveys-create",
       "api-surveys-delete",
       "api-surveys-list",
@@ -2479,6 +2480,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "api-changelog-2024-12-11",
       "api-formatting"
     ]
   },
@@ -2490,6 +2492,7 @@
     "description": null,
     "references": [
       "api-changelog-2024-09-30",
+      "api-subscribers-create",
       "building-your-subscriber-base"
     ]
   },
@@ -3030,6 +3033,16 @@
       "api-changelog",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2024-12-11",
+    "url": "api-changelog-2024-12-11",
+    "section": "api",
+    "schema": null,
+    "description": "Override Buttondown's default collision behavior for new subscribers",
+    "references": [
+      "api-changelog"
     ]
   },
   {

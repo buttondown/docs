@@ -1432,11 +1432,22 @@
             "in": "header",
             "name": "X-Buttondown-Collision-Behavior",
             "schema": {
-              "title": "X-Buttondown-Collision-Behavior",
+              "description": "The behavior to apply when a subscriber with the same email address already exists.\nDefaults to \"no_op\", which will return a 400 error if a subscriber with the same email address already exists. Other values include:\n\n- \"overwrite\", which will overwrite the existing subscriber's data with the new one.\n- \"add\", which will add the new subscriber data to the existing one.\n        ",
               "default": "no_op",
-              "type": "string"
+              "allOf": [
+                {
+                  "title": "CollisionBehavior",
+                  "description": "An enumeration.",
+                  "enum": [
+                    "no_op",
+                    "add",
+                    "overwrite"
+                  ]
+                }
+              ]
             },
-            "required": false
+            "required": false,
+            "description": "The behavior to apply when a subscriber with the same email address already exists.\nDefaults to \"no_op\", which will return a 400 error if a subscriber with the same email address already exists. Other values include:\n\n- \"overwrite\", which will overwrite the existing subscriber's data with the new one.\n- \"add\", which will add the new subscriber data to the existing one.\n        "
           }
         ],
         "responses": {

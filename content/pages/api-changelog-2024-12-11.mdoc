@@ -1,0 +1,19 @@
+---
+title: "2024-12-11"
+navigationTitle: "2024-12-11"
+description: "Override Buttondown's default collision behavior for new subscribers"
+---
+
+When creating a new subscriber, Buttondown will now reject the request if a subscriber with the same email address already exists, even if that subscriber has unsubscribed or is otherwise in a "valid" state. We do this to protect the data and history of existing subscribers.
+
+However, if you're looking for behavior more akin to an upsert, you can provide a `X-Buttondown-Collision-Behavior` header of `overwrite` or `add` in the request header:
+
+```shell
+curl -X POST https://api.buttondown.com/v1/subscribers \
+  -H "X-Buttondown-Collision-Behavior: overwrite" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"email_address": "john@example.com", "tags": ["newsletter-1", "newsletter-2"]}'
+```
+
+This is a slightly nuanced decision for you to make as an API caller; we've explained more about our default behavior and reasoning [in the API endpoint docs](/api-subscribers-create).

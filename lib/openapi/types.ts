@@ -35,7 +35,7 @@ export type RequestBody = {
 };
 
 export type Parameter = {
-  in: "path" | "query";
+  in: "path" | "query" | "header";
   name: string;
   schema:
     | {
