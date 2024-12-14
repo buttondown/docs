@@ -1236,6 +1236,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-images-list"
+        },
+        {
+          "discriminant": "page",
           "value": "api-images-create"
         },
         {
@@ -1524,6 +1528,10 @@
         {
           "discriminant": "page",
           "value": "api-changelog"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2024-12-14"
         },
         {
           "discriminant": "page",

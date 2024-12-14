@@ -525,10 +525,6 @@ const UNDOCUMENTED_API_ENDPOINTS = [
     operation: "get",
   },
   {
-    path: "/images",
-    operation: "get",
-  },
-  {
     path: "/subscribers/{id_or_email}/clients",
     operation: "get",
   },

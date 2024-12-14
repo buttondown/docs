@@ -50,11 +50,7 @@
         "identifier": "color",
         "question": "What's your favorite color?",
         "response_count": 10,
-        "answers": [
-          "Red",
-          "Green",
-          "Blue"
-        ],
+        "answers": ["Red", "Green", "Blue"],
         "notes": "",
         "response_cadence": "once",
         "status": "active",
@@ -69,11 +65,7 @@
         "identifier": "feedback",
         "question": "How can we improve?",
         "response_count": 10,
-        "answers": [
-          "More content",
-          "Better content",
-          "Other"
-        ],
+        "answers": ["More content", "Better content", "Other"],
         "notes": "",
         "response_cadence": "once_per_email",
         "status": "active",
@@ -454,7 +446,7 @@
       "object": {
         "creation_date": "2019-08-24T14:15:22Z",
         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "image": "string"
+        "image": "https://placekitten.com/408/287"
       }
     }
   ],
@@ -480,9 +472,7 @@
         "status": "completed",
         "type": "delete_subscribers",
         "metadata": {
-          "ids": [
-            "497f6eca-6276-4993-bfeb-53cbbbba6f08"
-          ]
+          "ids": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"]
         }
       }
     },
@@ -497,9 +487,7 @@
         "metadata": {
           "tag": "4931-4f5c-9b5b-2c9f6c9f6c9f",
           "action": "add",
-          "ids": [
-            "497f6eca-6276-4993-bfeb-53cbbbba6f08"
-          ]
+          "ids": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"]
         }
       }
     }

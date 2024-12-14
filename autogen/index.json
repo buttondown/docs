@@ -2591,6 +2591,16 @@
     "references": []
   },
   {
+    "title": "Listing images",
+    "url": "api-images-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog-2024-12-14"
+    ]
+  },
+  {
     "title": "Creating an image",
     "url": "api-images-create",
     "section": "api",
@@ -3033,6 +3043,16 @@
       "api-changelog",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2024-12-14",
+    "url": "api-changelog-2024-12-14",
+    "section": "api",
+    "schema": null,
+    "description": "A new `/images` endpoint for you to list your images",
+    "references": [
+      "api-changelog"
     ]
   },
   {
