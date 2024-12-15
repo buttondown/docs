@@ -2,7 +2,7 @@ import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
 
 const noticeContainer = cva(
-  "p-4 border rounded-lg text-sm max-w-prose",
+  "p-4 border rounded-lg text-sm max-w-prose mb-6",
   {
     variants: {
       variant: {
