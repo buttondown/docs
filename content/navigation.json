@@ -657,6 +657,10 @@
         {
           "discriminant": "page",
           "value": "gmail-suspicious-link"
+        },
+        {
+          "discriminant": "page",
+          "value": "gmail-images-hidden"
         }
       ]
     },

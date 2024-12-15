@@ -1403,6 +1403,14 @@
     "references": []
   },
   {
+    "title": "What does \"Images in this message are hidden\" mean?",
+    "url": "gmail-images-hidden",
+    "section": "reference",
+    "schema": null,
+    "description": "When Gmail hides images in your emails, Gmail is trying to protect you from potentially unsafe content.",
+    "references": []
+  },
+  {
     "title": "API request data exports",
     "url": "data-exports-api",
     "section": "reference",
