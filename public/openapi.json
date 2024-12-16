@@ -1533,13 +1533,15 @@
             "name": "ids",
             "schema": {
               "title": "Ids",
+              "description": "If provided, only return subscribers with the given IDs.",
               "type": "array",
               "items": {
                 "type": "string",
                 "format": "uuid"
               }
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return subscribers with the given IDs."
           },
           {
             "in": "query",
@@ -10248,7 +10250,8 @@
     },
     "securitySchemes": {
       "PermissionAuthenticationRequirement": {
-        "type": "http"
+        "type": "http",
+        "scheme": "none"
       },
       "GlobalAuth": {
         "type": "http",
