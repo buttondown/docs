@@ -354,13 +354,13 @@ iframe.youtube {
   color: #525252 !important;
 }
 .epilogue {
-  padding-top: 4em;
   font-family: var(--brand-font);
   color: #525252 !important;
 }
-.epilogue > div:first-child {
+.epilogue .epilogue-header {
   padding-bottom: 1em;
   text-align: center;
+  margin-top: 2rem;
 }
 .widget {
   padding: 1rem;
