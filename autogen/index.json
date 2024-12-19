@@ -1093,7 +1093,8 @@
     "schema": null,
     "description": null,
     "references": [
-      "fancy-mode"
+      "fancy-mode",
+      "preflight"
     ]
   },
   {
@@ -1383,6 +1384,14 @@
     "section": "reference",
     "schema": null,
     "description": null,
+    "references": []
+  },
+  {
+    "title": "Buttondown's pre-flight checks",
+    "url": "preflight",
+    "section": "reference",
+    "schema": null,
+    "description": "Details about all the checks Buttondown performs before sending your newsletter.",
     "references": []
   },
   {

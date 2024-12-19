@@ -1,0 +1,32 @@
+---
+title: Buttondown's pre-flight checks
+navigationTitle: Pre-flight checks
+description: >-
+  Details about all the checks Buttondown performs before sending your newsletter.
+date: 2024-12-19
+relatedPages: []
+---
+
+Buttondown runs a number of validations and checks for you before sending your newsletter. (You can find all of these in the "Summary" section of the email editor after you hit the "send" button.) The goal of these checks is to make sure your newsletter is ready to be sent, and to give you a chance to fix any issues or add any bits of polish before sending.
+
+We've cataloged them all below, along with additional context for each. (Unless otherwise noted, these checks do _not_ bar you from sending your email, though we recommend fixing any issues!)
+
+### Subject line
+
+- **Length**: Buttondown recommends subject lines stay between 10 and 78 characters.
+
+### Body
+
+- **Calls to action**: Buttondown will recommend interstitial calls to action for you such as [subscribe forms](/fancy-mode#subscription-form) to improve the user experience (and efficacy!) of your newsletter.
+- **Word count**: Buttondown checks the word count of your newsletter. We recommend keeping your email between 50 and 5000 words; anything shorter than 50 words is likely to be considered spam, and anything longer than 5000 words is likely to be truncated by email clients.
+- **Problematic phrases**: Buttondown checks your newsletter for problematic phrases such as "million dollars", "free email addresses", and other spam-like phrases that might be considered spam.
+
+### Links
+
+- **Links**: Buttondown checks all links in your newsletter for validity. (Due to firewalls and other edge cases, we can't _always_ be sure that a link is valid, but we do our best.)
+- **Data URIs**: Buttondown detects and flags any data URIs in your newsletter. These are not recommended, as many email clients consider them a sign that your email is spam.
+
+### Images
+
+- **Size**: Buttondown checks the size of all images in your newsletter. (We recommend keeping images under 1200x1200 pixels; larger images are harder to render in email clients and web clients alike, which hurt deliverability and SEO respectively.)
+- **Alt text**: Buttondown checks that all images have alt text. (This is a best practice for accessibility and SEO.)

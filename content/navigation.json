@@ -652,6 +652,10 @@
       "items": [
         {
           "discriminant": "page",
+          "value": "preflight"
+        },
+        {
+          "discriminant": "page",
           "value": "monitoring-your-domain"
         },
         {
