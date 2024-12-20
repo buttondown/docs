@@ -5221,18 +5221,24 @@
             "name": "creation_date__start",
             "schema": {
               "title": "Creation Date  Start",
+              "description": "If provided, only return responses made after the given date.",
+              "example": "2024-01-01",
               "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return responses made after the given date."
           },
           {
             "in": "query",
             "name": "creation_date__end",
             "schema": {
               "title": "Creation Date  End",
+              "description": "If provided, only return responses made before the given date.",
+              "example": "2024-01-01",
               "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return responses made before the given date."
           },
           {
             "in": "query",
