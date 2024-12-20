@@ -1665,24 +1665,28 @@
             "name": "last_open_date",
             "schema": {
               "title": "Last Open Date",
+              "description": "If provided, only return subscribers with the given last open date(s).",
               "type": "array",
               "items": {
                 "type": "string"
               }
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return subscribers with the given last open date(s)."
           },
           {
             "in": "query",
             "name": "last_click_date",
             "schema": {
               "title": "Last Click Date",
+              "description": "If provided, only return subscribers with the given last click date(s).",
               "type": "array",
               "items": {
                 "type": "string"
               }
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return subscribers with the given last click date(s)."
           },
           {
             "in": "query",
