@@ -697,6 +697,14 @@
     "references": []
   },
   {
+    "title": "Can I use Buttondown to set up a tip jar for my newsletter?",
+    "url": "tip-jar",
+    "section": "guides",
+    "schema": null,
+    "description": "Can I use Buttondown to set up a tip jar for my newsletter?",
+    "references": []
+  },
+  {
     "title": "Multiple newsletters",
     "url": "multiple-newsletters",
     "section": "guides",
@@ -905,7 +913,8 @@
       "sponsorships",
       "stripe",
       "stripe-test-mode",
-      "substack"
+      "substack",
+      "tip-jar"
     ]
   },
   {

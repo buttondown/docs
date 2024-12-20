@@ -297,6 +297,10 @@
         {
           "discriminant": "page",
           "value": "price-changes"
+        },
+        {
+          "discriminant": "page",
+          "value": "tip-jar"
         }
       ]
     },
