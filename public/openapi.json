@@ -1472,7 +1472,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage_CreateSubscriberErrorCode_"
+                  "$ref": "#/components/schemas/ErrorMessage_ValidationErrorCode_"
                 }
               }
             }
@@ -1503,10 +1503,7 @@
         },
         "security": [
           {
-            "NewsletterIDKey": []
-          },
-          {
-            "GlobalAuth": []
+            "PermissionAuthenticationRequirement": []
           }
         ]
       },
@@ -1992,10 +1989,7 @@
         },
         "security": [
           {
-            "NewsletterIDKey": []
-          },
-          {
-            "PermissionAuthenticationRequirement": []
+            "GlobalAuth": []
           }
         ]
       }
@@ -7122,9 +7116,9 @@
           "referral_code"
         ]
       },
-      "CreateSubscriberErrorCode": {
-        "title": "CreateSubscriberErrorCode",
-        "description": "Represents the type of error that occurred when creating a subscriber.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
+      "SubscriberInputValidationErrorCode": {
+        "title": "ValidationErrorCode",
+        "description": "Represents the type of error that occurred when validating subscriber input.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
         "enum": [
           "email_already_exists",
           "email_invalid",
@@ -7133,12 +7127,12 @@
         ],
         "type": "string"
       },
-      "ErrorMessage_CreateSubscriberErrorCode_": {
-        "title": "ErrorMessage[CreateSubscriberErrorCode]",
+      "ErrorMessage_ValidationErrorCode_": {
+        "title": "ErrorMessage[ValidationErrorCode]",
         "type": "object",
         "properties": {
           "code": {
-            "$ref": "#/components/schemas/CreateSubscriberErrorCode"
+            "$ref": "#/components/schemas/SubscriberInputValidationErrorCode"
           },
           "detail": {
             "title": "Detail",
@@ -10280,10 +10274,6 @@
       "FallbackForNoAuth": {
         "type": "http",
         "scheme": "none"
-      },
-      "NewsletterIDKey": {
-        "type": "http",
-        "scheme": "newsletter_id"
       }
     }
   },

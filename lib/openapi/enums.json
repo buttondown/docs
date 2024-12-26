@@ -64,23 +64,6 @@
       "description": "A newsletter already exists with that username."
     }
   },
-  "CreateSubscriberErrorCode": {
-    "email_already_exists": {
-      "variant": "error",
-      "name": "Email already exists",
-      "description": "A subscriber already exists with that email."
-    },
-    "email_invalid": {
-      "variant": "error",
-      "name": "Email invalid",
-      "description": "The email is invalid."
-    },
-    "tag_invalid": {
-      "variant": "error",
-      "name": "Tag invalid",
-      "description": "The tag is invalid."
-    }
-  },
   "ExternalFeedItemStatus": {
     "unprocessed": {
       "name": "Unprocessed",
