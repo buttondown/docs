@@ -644,7 +644,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "substack"
+    ]
   },
   {
     "title": "What pricing models can I use for my paid newsletter?",

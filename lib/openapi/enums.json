@@ -442,6 +442,18 @@
       "name": "email.status.changed",
       "description": "Whenever an email's status has changed (e.g. from 'draft' to 'sent'.) The `metadata` field will contain the previous and new statii in 'old_value' and 'new_value' respectively."
     },
+    "export.created": {
+      "name": "export.created",
+      "description": "Whenever an export is created."
+    },
+    "export.completed": {
+      "name": "export.completed",
+      "description": "Whenever an export is completed."
+    },
+    "export.failed": {
+      "name": "export.failed",
+      "description": "Whenever an export fails."
+    },
     "memberful.subscription.created": {
       "name": "memberful.subscription.created",
       "description": "Whenever a new subscription is created in Memberful."

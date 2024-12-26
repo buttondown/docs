@@ -128,9 +128,26 @@ If you have a question about importing your data, the Buttondown team is [here t
 
 ## Frequently asked questions
 
+### Can I import comped subscriptions from Substack?
+
+Yes! "Comped" subscriptions technically don't exist in Stripe, but Buttondown detects them from your export and automatically maps them over to your Buttondown account. (Our parlance is a little bit different; we refer to them as [gift subscriptions](/gift-subscriptions).)
+
+### Is there a limit to the number of plans or subscription types Buttondown can import?
+
+No! Buttondown can import as many plans and subscription types as you have in your Stripe account, including historical plans or one-off subscriptions that you've created.
+
+### Is there a limit to the number of archives or posts that Buttondown can import?
+
+No! Buttondown can import as many archives and posts as you have in your Substack account. In addition, we:
+
+- pull in your draft posts (if you have any)
+- respect any paywalled posts you have in your Substack account and mark them as "premium"
+
 ### Substack is still taking 10% of my revenue. What should I do?
 
 If you’ve already disconnected your Substack account from Stripe, and you’re still seeing Substack take a 10% cut of your revenue, we recommend reaching out to Substack’s support team. They'll be able to programmatically remove the 10% cut from your revenue.
+
+(We also have an ad-hoc script we _can_ run to remove the application fees from your Substack subscriptions, but please reach out to Substack first to see if they can help resolve this issue for you.)
 
 ### Do I need to do anything to make sure my URLs don't break?
 
