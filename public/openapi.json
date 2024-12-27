@@ -2620,13 +2620,7 @@
         },
         "security": [
           {
-            "GlobalAuth": []
-          },
-          {
-            "OAuthAuth": []
-          },
-          {
-            "FallbackForNoAuth": []
+            "BulkActionAuth": []
           }
         ]
       }
@@ -10272,6 +10266,10 @@
         "scheme": "bearer"
       },
       "FallbackForNoAuth": {
+        "type": "http",
+        "scheme": "none"
+      },
+      "BulkActionAuth": {
         "type": "http",
         "scheme": "none"
       }
