@@ -4351,7 +4351,8 @@
                   "2024-07-01",
                   "2024-08-01",
                   "2024-08-15",
-                  "2024-09-30"
+                  "2024-09-30",
+                  "2024-12-30"
                 ],
                 "type": "string"
               }
@@ -6040,6 +6041,16 @@
         ],
         "type": "string"
       },
+      "EmailCommentingMode": {
+        "title": "CommentingMode",
+        "description": "Governs who can comment on this email.\n\nThis enum replaces the `is_comments_disabled` field, which has been deprecated. (Also note that this field may be superseded by newsletter-level settings; for instance, \"enabled\" is an invalid and inert value if the newsletter itself has comments disabled.)",
+        "enum": [
+          "disabled",
+          "enabled",
+          "enabled_for_paid_subscribers"
+        ],
+        "type": "string"
+      },
       "Operator": {
         "title": "Operator",
         "description": "An enumeration.",
@@ -6222,7 +6233,7 @@
       },
       "Email": {
         "title": "Email",
-        "description": "Emails are what you're for here on Buttondown at the end of the day, right?\nCreating an email via the API is just like creating one in the interface;\nit will instantly trigger sending actual emails,\nbased on the tags and email type you provide.\n\nRelevant changes to the schema:\n\n- [2024-08-15](https://docs.buttondown.com/api-changelog-2024-08-15): unshipped the `included_tags` and `excluded_tags` fields.",
+        "description": "Emails are what you're for here on Buttondown at the end of the day, right?\nCreating an email via the API is just like creating one in the interface;\nit will instantly trigger sending actual emails,\nbased on the tags and email type you provide.\n\nRelevant changes to the schema:\n\n- [2024-08-15](https://docs.buttondown.com/api-changelog-2024-08-15): unshipped the `included_tags` and `excluded_tags` fields.\n- [2024-12-30](https://docs.buttondown.com/api-changelog-2024-12-30): unshipped the `is_comments_disabled` field, and replaced it with a more flexible `commenting_mode` field.",
         "type": "object",
         "properties": {
           "id": {
@@ -6306,9 +6317,8 @@
             "title": "Should Send Teaser",
             "type": "boolean"
           },
-          "is_comments_disabled": {
-            "title": "Is Comments Disabled",
-            "type": "boolean"
+          "commenting_mode": {
+            "$ref": "#/components/schemas/EmailCommentingMode"
           },
           "custom_teaser": {
             "title": "Custom Teaser",
@@ -6341,7 +6351,7 @@
           "email_type",
           "status",
           "should_send_teaser",
-          "is_comments_disabled",
+          "commenting_mode",
           "custom_teaser",
           "absolute_url",
           "filters"
@@ -6468,11 +6478,6 @@
             "default": false,
             "type": "boolean"
           },
-          "is_comments_disabled": {
-            "title": "Is Comments Disabled",
-            "default": false,
-            "type": "boolean"
-          },
           "custom_teaser": {
             "title": "Custom Teaser",
             "default": "",
@@ -6492,6 +6497,14 @@
             "allOf": [
               {
                 "$ref": "#/components/schemas/FilterGroup"
+              }
+            ]
+          },
+          "commenting_mode": {
+            "default": "enabled",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EmailCommentingMode"
               }
             ]
           }
@@ -6633,10 +6646,6 @@
             "title": "Should Send Teaser",
             "type": "boolean"
           },
-          "is_comments_disabled": {
-            "title": "Is Comments Disabled",
-            "type": "boolean"
-          },
           "custom_teaser": {
             "title": "Custom Teaser",
             "type": "string"
@@ -6665,6 +6674,9 @@
                 "type": "string"
               }
             ]
+          },
+          "commenting_mode": {
+            "$ref": "#/components/schemas/EmailCommentingMode"
           }
         }
       },
@@ -9405,7 +9417,8 @@
               "2024-07-01",
               "2024-08-01",
               "2024-08-15",
-              "2024-09-30"
+              "2024-09-30",
+              "2024-12-30"
             ],
             "type": "string"
           },
@@ -9473,7 +9486,8 @@
               "2024-07-01",
               "2024-08-01",
               "2024-08-15",
-              "2024-09-30"
+              "2024-09-30",
+              "2024-12-30"
             ],
             "type": "string"
           }

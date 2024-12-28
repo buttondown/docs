@@ -1108,6 +1108,10 @@
           "value": "api-emails-template"
         },
         {
+          "discriminant": "page",
+          "value": "api-emails-commenting-mode"
+        },
+        {
           "discriminant": "divider",
           "value": "Routes"
         },
@@ -1540,6 +1544,10 @@
         {
           "discriminant": "page",
           "value": "api-changelog"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2024-12-30"
         },
         {
           "discriminant": "page",

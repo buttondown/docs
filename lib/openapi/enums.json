@@ -740,6 +740,23 @@
       "description": "Forward the reply to a given recipient."
     }
   },
+  "EmailCommentingMode": {
+    "disabled": {
+      "variant": "info",
+      "name": "Disabled",
+      "description": "Commenting is disabled for this email."
+    },
+    "enabled": {
+      "variant": "info",
+      "name": "Enabled",
+      "description": "Commenting is enabled for this email."
+    },
+    "enabled_for_paid_subscribers": {
+      "variant": "info",
+      "name": "Enabled for paid subscribers",
+      "description": "Commenting is enabled for paid subscribers only."
+    }
+  },
   "NewsletterEmailTemplate": {
     "classic": {
       "variant": "info",

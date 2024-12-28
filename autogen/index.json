@@ -2360,6 +2360,14 @@
     "references": []
   },
   {
+    "title": "Commenting Mode",
+    "url": "api-emails-commenting-mode",
+    "section": "Reference",
+    "schema": "EmailCommentingMode",
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Creating an email",
     "url": "api-emails-create",
     "section": "api",
@@ -3070,6 +3078,16 @@
       "api-changelog",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2024-12-30",
+    "url": "api-changelog-2024-12-30",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
     ]
   },
   {

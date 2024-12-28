@@ -854,6 +854,9 @@ dialog::backdrop {
   font-weight: 700;
   font-size: 14px;
 }
+.comment-input button:hover {
+  background-color: #202020;
+}
 h2.description {
   font-size: 20px;
   font-family: var(--brand-font);

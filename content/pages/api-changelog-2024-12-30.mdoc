@@ -1,0 +1,12 @@
+---
+title: "2024-12-30"
+navigationTitle: "2024-12-30"
+---
+
+**Breaking change**: we've unshipped the `is_comments_disabled` field from emails, and replaced it with a more flexible `commenting_mode` field.
+
+The `commenting_mode` field is now a string that can be one of the following values:
+
+- `"enabled"`: comments are enabled
+- `"disabled"`: comments are disabled
+- `"enabled_for_paid_subscribers"`: comments are enabled, but only for paid enabled_for_paid_subscribers.
