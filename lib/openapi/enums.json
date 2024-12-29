@@ -778,5 +778,17 @@
       "name": "Naked",
       "description": "The email body itself is used as the template, with no outside scaffolding provided by Buttondown."
     }
+  },
+  "WebhookStatus": {
+    "enabled": {
+      "variant": "success",
+      "name": "Enabled",
+      "description": "The webhook is enabled and will receive events."
+    },
+    "disabled": {
+      "variant": "warning",
+      "name": "Disabled",
+      "description": "The webhook is disabled and will not receive events."
+    }
   }
 }

@@ -2875,6 +2875,14 @@
     ]
   },
   {
+    "title": "Webhook status",
+    "url": "api-webhook-status",
+    "section": "Reference",
+    "schema": "WebhookStatus",
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Listing webhooks",
     "url": "api-webhooks-list",
     "section": "api",

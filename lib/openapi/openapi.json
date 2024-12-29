@@ -9731,7 +9731,7 @@
       },
       "WebhookStatus": {
         "title": "WebhookStatus",
-        "description": "An enumeration.",
+        "description": "The status of a webhook.",
         "enum": [
           "enabled",
           "disabled"
