@@ -1744,6 +1744,24 @@
             },
             "required": false,
             "description": "If provided, only return subscribers with the given referrer URL(s)."
+          },
+          {
+            "in": "query",
+            "name": "upgrade_date__start",
+            "schema": {
+              "title": "Upgrade Date  Start",
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "upgrade_date__end",
+            "schema": {
+              "title": "Upgrade Date  End",
+              "type": "string"
+            },
+            "required": false
           }
         ],
         "responses": {
@@ -7065,6 +7083,11 @@
           },
           "churn_date": {
             "title": "Churn Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "upgrade_date": {
+            "title": "Upgrade Date",
             "type": "string",
             "format": "date-time"
           },

@@ -3089,6 +3089,16 @@
     ]
   },
   {
+    "title": "2024-12-31",
+    "url": "api-changelog-2024-12-31",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
     "title": "2024-12-30",
     "url": "api-changelog-2024-12-30",
     "section": "api",
