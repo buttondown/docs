@@ -4,7 +4,6 @@ import Code from "@/components/code";
 import type { Page } from "@/lib/types";
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import { marked } from "marked";
-import type { Lang } from "shiki";
 import CustomizableContent from "./customizable-content";
 import Heading from "./heading";
 import Iframe from "./iframe";
@@ -27,7 +26,7 @@ const Document = async ({ page }: Props) => (
           <Code
             blocks={[
               {
-                language: (language as Lang) ?? "text",
+                language: language ?? "text",
                 code: children,
               },
             ]}
@@ -68,7 +67,7 @@ const Document = async ({ page }: Props) => (
                 ) as {
                   name: string;
                   code: string;
-                  language: Lang;
+                  language: string;
                 }[]
               }
             />

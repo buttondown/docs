@@ -55,7 +55,7 @@
     "postcss": "8.4.30",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "shiki": "^0.14.4",
+    "shiki": "^1.24.4",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.4.1",
     "tailwindcss-animate": "^1.0.7",
@@ -65,6 +65,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@chromatic-com/storybook": "^1.5.0",
+    "@shikijs/transformers": "^1.24.4",
     "@storybook/addon-essentials": "8.2.0-alpha.7",
     "@storybook/addon-interactions": "8.2.0-alpha.7",
     "@storybook/addon-links": "8.2.0-alpha.7",

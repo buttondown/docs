@@ -1,14 +1,12 @@
-import type { Lang } from "shiki";
-
 export type HandwrittenBlock = {
   name: string;
   code: string;
-  language: Lang;
+  language: string;
 };
 
 export type SingletonBlock = {
   code: string;
-  language: Lang;
+  language: string;
 };
 
 export type SingletonLanguageBlockList = [SingletonBlock];
@@ -20,7 +18,7 @@ export type IntermediateBlock = (HandwrittenBlock | SingletonBlock) & {
 export type ProcessedBlock = {
   name?: string;
   html: string;
-  language: Lang;
+  language: string;
 };
 
 export const shikiWithoutWrapper = (html: string) =>

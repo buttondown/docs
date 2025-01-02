@@ -22,13 +22,13 @@ There are two ways to create a view link:
 
 Use this code snippet to generate a link to your newsletter archive. This link is unique to every subscriber who receives it.
 
-```handlebars
+```jinja
 {{premium_archive_url}}
 ```
 
 Buttondown automatically includes an extended version of this shortcode to the footer of your paid newsletter emails. The additional code ensures that your archives link only appears in your emails to paid subscribers.
 
-```handlebars {% process=false %}
+```jinja {% process=false %}
 {% if subscriber.subscriber_type == "premium" %}
     You can always view your full archives [here]({{premium_archive_url}}).
 {% endif %}

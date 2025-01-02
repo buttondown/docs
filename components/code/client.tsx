@@ -1,11 +1,10 @@
 "use client";
 
 import useButtondownCookie, {
-  USERNAME_COOKIE,
+    USERNAME_COOKIE,
 } from "@/hooks/useButtondownCookie";
 import * as Tabs from "@radix-ui/react-tabs";
 import clsx from "clsx";
-import type { Lang } from "shiki";
 import type { ProcessedBlock } from "./lib";
 
 // apiKeyReplacements are used to insert the user's live API key into code blocks.
@@ -21,7 +20,7 @@ export default function CodeInteractive({
   blocks: ProcessedBlock[];
   apiKeyReplacements: Partial<
     Record<
-      Lang,
+      string,
       {
         from: string;
         to: string;

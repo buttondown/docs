@@ -13,7 +13,7 @@ Buttondown uses a templating language to mix programming code into plain old HTM
 Variables allow you to programmatically add text to your email. You may have previously worked with variables in the form of "mail merges".
 
 Variables are wrapped in double curly braces. Here's how this looks:
-```jinja-html {% process=false %}
+```jinja {% process=false %}
 {{ variable }}
 ```
 
@@ -30,7 +30,7 @@ Filters are tools that you can use to modify the output of a variable. This uses
 
 For example, if you wanted to make sure your email subject line was always capitalized, you could add the `capfirst` filter, like so:
 
-```jinja-html {% process=false %}
+```jinja {% process=false %}
 {{ email.subject|capfirst }}
 ```
 
@@ -41,7 +41,7 @@ Tags are bits of code that are added to your HTML content that can do all sorts 
 
 Tags are wrapped in a single curly brace and a percentage sign, and look like this:
 
-```jinja-html {% process=false %}
+```jinja {% process=false %}
 {% tag %}
 ```
 
@@ -50,7 +50,7 @@ The `for` and `if else` loops should cover most use cases in Buttondown.
 ### `for`
 If you want to send a weekly digest of all your blog posts, you could iterate over the list of these items with a `for` loop:
 
-```jinja-html {% process=false %}
+```jinja {% process=false %}
 {% for email in emails %}
     <h2>{{ email.title }}</h2>
     <p><a href="{{ email.url }}">Read more</a></p>
@@ -59,7 +59,7 @@ If you want to send a weekly digest of all your blog posts, you could iterate ov
 
 You might want to also be able to access a counter for each iteration. You can do this by using the `forloop` object. Here's how you could use it to add a number to each blog post:
 
-```jinja-html {% process=false %}
+```jinja {% process=false %}
 {% for email in emails %}
     <h2>{{ forloop.counter }}. {{ email.title }}</h2>
     <p><a href="{{ email.url }}">Read more</a></p>
@@ -69,7 +69,7 @@ You might want to also be able to access a counter for each iteration. You can d
 ### `if  else`
 If you wanted to send your premium subscribers a special message you could use an if/else loop, like this:
 
-```jinja-html {% process=false %}
+```jinja {% process=false %}
 {% if subscriber.subscriber_type == 'premium' %}
     Thanks for being a paid subscriber!
 {% else %}
@@ -79,7 +79,7 @@ If you wanted to send your premium subscribers a special message you could use a
 
 You could also use `elif` (else if) tags to send different messages to your premium subscribers, free subscribers, and non-subscribers. Here's how this would look:
 
-```jinja-html {% process=false %}
+```jinja {% process=false %}
 {% if subscriber.subscriber_type == 'premium' %}
     Thanks for being a paid subscriber!
 {% elif subscriber.subscriber_type == 'regular' %}

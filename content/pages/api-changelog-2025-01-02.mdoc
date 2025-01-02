@@ -1,0 +1,45 @@
+---
+title: "2025-01-02"
+navigationTitle: "2025-01-02"
+---
+
+In what may be the most niche breaking change ever, we've changed the `tag` field in the `metadata` field of bulk actions to `tag_id`.
+
+Previously, when wanted to create a bulk action to add a tag to a list of subscribers, you could either specify a list of tag IDs:
+
+```json
+{
+    "type": "apply_tags",
+    "metadata": {
+        "tag_ids": ["123", "456", "789"],
+        "action": "add",
+    }
+}
+```
+
+Or you could specify a single tag:
+
+```json
+{
+    "type": "apply_tags",
+    "metadata": {
+        "tag": "123",
+        "action": "add",
+    }
+}
+```
+
+We've unified the two approaches to use `tag_id` instead of `tag`:
+
+```json
+{
+    "type": "apply_tags",
+    "metadata": {
+        "tag": "123", // [!code --]
+        "tag_id": "123", // [!code ++]
+        "action": "add",
+    }
+}
+```
+
+The behavior of the endpoint has not changed, and we cut a new version of the API to make this backwards-compatible for existing callers.

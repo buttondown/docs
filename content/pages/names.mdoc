@@ -77,7 +77,7 @@ Run this code, and the metadata in your subscriber “Notes” should be updated
 
 Instead of addressing emails one at a time, you can address them automatically using Buttondown’s `{{ subscriber.metadata }}` [template variable](/template-variables). By plugging your “first_name” key into this template variable, you'll direct Buttondown to retrieve each subscriber’s first name for you!
 
-```handlebars
+```jinja
 {{ subscriber.metadata.first_name }}
 ```
 

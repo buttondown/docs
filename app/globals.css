@@ -18,3 +18,28 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Necessary for the notation diff transformer */
+code .diff {
+    transition: background-color .5s;
+    margin: 0 -24px;
+    padding: 0 24px;
+    width: calc(100% + 48px);
+    display: inline-block
+}
+
+code .diff:before {
+    position: absolute;
+    left: 10px
+}
+
+code .diff.remove {
+    background-color: rgba(244, 63, 94, 0.5);
+    opacity: .7;
+}
+
+
+code .diff.add {
+    background-color: rgba(16, 185, 129, 0.5);
+    opacity: .9;
+}

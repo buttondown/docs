@@ -1,8 +1,7 @@
-import { promises as fs } from "node:fs";
 import Code from "@/components/code";
 import { MantineProvider } from "@mantine/core";
+import { promises as fs } from "node:fs";
 import React from "react";
-import type { Lang } from "shiki";
 import ExpandableCodeBlock from "./expandable-code-block";
 import SelfResizingIframe from "./self-resizing-iframe";
 
@@ -35,7 +34,7 @@ const REGISTRY: {
 export default async function LiveCodeBlock({ path }: { path: string }) {
   const code = await fs.readFile(path, "utf-8");
 
-  const language = path.split(".").pop() as Lang;
+  const language = path.split(".").pop() as string;
 
   // If the language is JSX, load the `.html` file to put into the iframe.
   const html = code;
