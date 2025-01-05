@@ -87,7 +87,7 @@
     },
     "processed": {
       "name": "Processed",
-      "description": "Processed.",
+      "description": "An email has been created for this item.",
       "variant": "success"
     },
     "errored": {
