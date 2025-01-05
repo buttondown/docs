@@ -2345,7 +2345,7 @@
     "references": []
   },
   {
-    "title": "Filtering an email",
+    "title": "Filters",
     "url": "api-emails-filters",
     "section": "api",
     "schema": "FilterGroup",
@@ -3034,6 +3034,14 @@
     "url": "api-coupons-introduction",
     "section": "api",
     "schema": "StripeCoupon",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing coupons",
+    "url": "api-coupons-list",
+    "section": "api",
+    "schema": null,
     "description": null,
     "references": []
   },

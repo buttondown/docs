@@ -33,6 +33,37 @@
         "groups": [],
         "predicate": "and"
       }
+    },
+    {
+      "description": "Filtering by a complex condition",
+      "object": {
+        "filters": [
+          {
+            "field": "subscriber.tags",
+            "operator": "contains",
+            "value": "tgs-cast-member"
+          }
+        ],
+        "groups": [
+          {
+            "filters": [
+              {
+                "field": "subscriber.tags",
+                "operator": "contains",
+                "value": "executive"
+              },
+              {
+                "field": "subscriber.tags",
+                "operator": "contains",
+                "value": "general-electric"
+              }
+            ],
+            "groups": [],
+            "predicate": "and"
+          }
+        ],
+        "predicate": "or"
+      }
     }
   ],
   "Empty": [

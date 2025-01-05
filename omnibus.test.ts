@@ -524,10 +524,6 @@ const UNDOCUMENTED_API_ENDPOINTS = [
     operation: "get",
   },
   {
-    path: "/accounts/me",
-    operation: "get",
-  },
-  {
     path: "/subscribers/{id_or_email}/clients",
     operation: "get",
   },
@@ -606,10 +602,6 @@ const UNDOCUMENTED_API_ENDPOINTS = [
   {
     path: "/prices",
     operation: "post",
-  },
-  {
-    path: "/coupons",
-    operation: "get",
   },
   {
     path: "/surveys/{id}",

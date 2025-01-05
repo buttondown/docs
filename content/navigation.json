@@ -1509,6 +1509,14 @@
         {
           "discriminant": "page",
           "value": "api-coupons-introduction"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-coupons-list"
         }
       ]
     },

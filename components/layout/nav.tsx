@@ -5,9 +5,9 @@ import * as Accordion from "@radix-ui/react-accordion";
 import * as Tabs from "@radix-ui/react-tabs";
 import Link from "next/link";
 import {
-  NAVIGATION_GROUPS,
-  NAVIGATION_GROUP_LABELS,
-  type NavData,
+    NAVIGATION_GROUPS,
+    NAVIGATION_GROUP_LABELS,
+    type NavData,
 } from "./lib";
 
 export default function Nav({ data, slug }: { data: NavData; slug: string }) {
