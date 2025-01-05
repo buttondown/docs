@@ -24,3 +24,10 @@ Some caveats:
 
 - It is not currently possible to only allow _some_ subscribe form inputs to be changed by subscribers. If you enable subscriber autonomy, all fields will be editable.
 - At the moment, the only possible inputs you can vend to your subscribers are "free text" and "select". Support for checkboxes and other input types is planned in the near future.
+
+### Directing subscribers to the subscriber autonomy page
+
+The subscriber autonomy page can be found in two places:
+
+1. It's automatically added to the footer of your emails if subscriber autonomy is enabled.
+2. You can inject it anywhere using the [`manage_subscription_url` template variable](/template-variables#manage_subscription_url).

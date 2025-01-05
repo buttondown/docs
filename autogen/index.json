@@ -107,7 +107,8 @@
       "sending-your-first-email",
       "sending-your-first-email-advanced",
       "subscriber-autonomy",
-      "tags"
+      "tags",
+      "template-variables"
     ]
   },
   {
@@ -1160,6 +1161,7 @@
     "references": [
       "names",
       "sending-your-first-email",
+      "subscriber-autonomy",
       "using-templating"
     ]
   },
@@ -1212,7 +1214,8 @@
     "schema": null,
     "description": "Buttondown lets you let your subscribers change their metadata, tags, and more.",
     "references": [
-      "tags"
+      "tags",
+      "template-variables"
     ]
   },
   {

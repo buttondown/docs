@@ -3,7 +3,7 @@ title: Template variables
 relatedPages:
 - using-templating
 ---
-Template variables are a concept that have multiple names: "mail merges" might be one you're more familiar with if you have a marketing and email background. 
+Template variables are a concept that have multiple names: "mail merges" might be one you're more familiar with if you have a marketing and email background.
 
 The concept is to add snippets in your email that are programmatically replaced when Buttondown sends out an email. This with [a little templating logic](/using-templating) allows you to customize your content per-subscriber or to repeat certain key concepts in your email without having to change them over and over again.
 
@@ -134,6 +134,16 @@ A link to prompt existing free subscribers to upgrade. (Only relevant for paid n
    after="You can upgrade to a premium subscription <a href=\"#premium_subscribe_url\">here</a>." /%}
 
 A link to prompt existing free subscribers to upgrade. (Only relevant for paid newsletters.) This is the exact same thing as upgrade_url.
+
+---
+
+#### manage_subscription_url
+
+{% preview
+   before="You can manage your subscription [here]({{ manage_subscription_url }})."
+   after="You can manage your subscription <a href=\"#manage_subscription_url\">here</a>." /%}
+
+A link that allows subscribers to change the data configured as [subscribe form inputs](/building-your-subscriber-base#adding-metadata-to-your-subscribers). This requires [subscriber autonomy](/subscriber-autonomy) to be enabled.
 
 ---
 
