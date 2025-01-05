@@ -124,51 +124,6 @@ table.buttondown-block-styled p {
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
-.instagram {
-  position: relative;
-  color: #fff !important;
-  border: 1px solid #ebedef;
-  border-radius: 8px;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-.instagram__header {
-  padding: 7px 7px 7px 14px;
-  height: 30px;
-  line-height: 30px;
-}
-.instagram__header a {
-  color: #000 !important;
-}
-.instagram__author-image {
-  display: inline-block;
-  margin-right: 10px;
-}
-.instagram__author-image img {
-  display: inline-block;
-  height: 30px;
-  width: 30px !important;
-  border-radius: 15px;
-}
-.instagram__author-name {
-  vertical-align: top;
-  font-weight: 600;
-  text-decoration: none;
-}
-.instagram__footer {
-  padding: 14px;
-}
-.instagram__caption {
-  line-height: 18px;
-}
 .bluesky-embed {
   background: #fff !important;
   color: #1c2022 !important;
@@ -271,4 +226,49 @@ img[goomoji] {
   text-decoration: none !important;
   display: block;
   margin: 12px 0 0;
+}
+.instagram {
+  position: relative;
+  color: #fff !important;
+  border: 1px solid #ebedef;
+  border-radius: 8px;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.instagram__header {
+  padding: 7px 7px 7px 14px;
+  height: 30px;
+  line-height: 30px;
+}
+.instagram__header a {
+  color: #000 !important;
+}
+.instagram__author-image {
+  display: inline-block;
+  margin-right: 10px;
+}
+.instagram__author-image img {
+  display: inline-block;
+  height: 30px;
+  width: 30px !important;
+  border-radius: 15px;
+}
+.instagram__author-name {
+  vertical-align: top;
+  font-weight: 600;
+  text-decoration: none;
+}
+.instagram__footer {
+  padding: 14px;
+}
+.instagram__caption {
+  line-height: 18px;
 }
