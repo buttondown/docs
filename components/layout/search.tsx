@@ -34,32 +34,29 @@ const SearchResult = ({
   const router = useRouter();
   const url = `/${result.slug}`;
 
-  const toggleSearchBox = (e: KeyboardEvent) => {
-    // Test if the user is cmd+click or ctrl+clicking on search results
-    if (e.metaKey || e.ctrlKey) {
-      // If yes, leave them be, and articles will open as new tabs
-      return;
-    }
-    // If no, send them to their selected article
-    router.push(url);
-  };
-
   return (
-    <CommandItem onSelect={() => toggleSearchBox}>
+    <CommandItem onSelect={() => router.push(url)}>
       <div className="ml-2 mr-4 text-gray-600">{icon}</div>
-      <div>
-        <Link href={url}>
-          {result.display.title}
-          {result.display.subtitle && (
-            <>
-              <span className="ml-1 text-gray-400">·</span>
-              <span className="ml-1 text-gray-400">
-                {result.display.subtitle}
-              </span>
-            </>
+      <Link href={url}>
+        <div>
+          <p>
+            <span className="font-medium">{result.display.title}</span>
+            {result.display.subtitle && (
+              <>
+                <span className="ml-1 text-gray-400">·</span>
+                <span className="ml-1 text-gray-400">
+                  {result.display.subtitle}
+                </span>
+              </>
+            )}
+          </p>
+          {result.display.description && (
+            <p className="text-gray-400 text-sm">
+              {result.display.description}
+            </p>
           )}
-        </Link>
-      </div>
+        </div>
+      </Link>
     </CommandItem>
   );
 };
@@ -154,7 +151,7 @@ export function Search({
                   setOfflineResults(json);
                   setOfflineLoading(false);
                 });
-            }, 350);
+            }, 300);
           }}
         />
         <CommandList>

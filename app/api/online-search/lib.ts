@@ -50,8 +50,22 @@ export async function searchWithEmbeddings(query: string): Promise<Result[]> {
       continue;
     }
 
-    seenSlugs.add(result.slug);
+    // If this result doesn't have a description, but it comes up later with a description,
+    // grab that one instead because it has more enriched information.
+    if (!result.display.description) {
+      const resultWithDescription = results.find(
+        (r) => r.slug === result.slug && r.display.description
+      );
+
+      if (resultWithDescription) {
+        uniqueResults.push(resultWithDescription);
+        seenSlugs.add(resultWithDescription.slug);
+        continue;
+      }
+    }
+
     uniqueResults.push(result);
+    seenSlugs.add(result.slug);
   }
 
   return uniqueResults;

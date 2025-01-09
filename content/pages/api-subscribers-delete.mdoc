@@ -3,3 +3,5 @@ title: Deleting a subscriber
 endpoint: /subscribers/{id_or_email}
 method: delete
 ---
+
+Note that deleting a subscriber with an active Stripe subscription will _not_ cancel any backing Stripe subscriptions tied to that subscriber. If you're interested in programmatically cancelling a subscriber's Stripe subscription, be sure to [update the subscriber's type](/api/subscribers-patch#updating-a-subscribers-type) to `unsubscribed` beforehand.
