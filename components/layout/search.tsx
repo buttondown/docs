@@ -96,6 +96,26 @@ export function Search({
     return () => document.removeEventListener("keydown", down);
   }, [open, setOpen]);
 
+  // Anecdotally, it feels like the first search request is sometimes slow.
+  // I wonder if this is because of cold starts on Vercel serverless functions,
+  // exacerbated by how large the vectors JSON file is when loaded into memory.
+  // This tries to warm up the serverless function as soon as the search modal
+  // is opened.
+
+  const hasWarmedColdStart = useRef(false);
+
+  useEffect(() => {
+    if (hasWarmedColdStart.current) {
+      return;
+    }
+
+    if (open) {
+      fetch("/api/online-search?query=_");
+      fetch("/api/offline-search?query=_");
+      hasWarmedColdStart.current = true;
+    }
+  }, [open]);
+
   return (
     // biome-ignore lint/a11y/useKeyWithClickEvents: this is a search input
     <div className="relative bg-white" onClick={() => setOpen(true)}>

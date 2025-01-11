@@ -50,7 +50,7 @@ export type Index = IndexEntry[];
       for (const folders of Object.values(navigation)) {
         for (const folder of folders) {
           const containsSlug = folder.items.some(
-            (item) => item.discriminant === "page" && item.value === slug,
+            (item) => item.discriminant === "page" && item.value === slug
           );
           if (containsSlug) {
             folderName = folder.name;
@@ -67,7 +67,7 @@ export type Index = IndexEntry[];
   for (const filename of filenames) {
     if (fs.lstatSync(`content/pages/${filename}`).isFile()) {
       const { data, content } = matter(
-        fs.readFileSync(`content/pages/${filename}`, "utf-8"),
+        fs.readFileSync(`content/pages/${filename}`, "utf-8")
       );
 
       const slug = filename.replace(/\.mdoc$/, "");
@@ -103,11 +103,17 @@ export type Index = IndexEntry[];
         // Remove markdoc tags
         .replace(/{%.+?%}/gms, "")
         .split("\n")
+        // Split cells of tables into separate "lines", don't mush them together.
+        .flatMap((line) => line.split("|"))
         .map((line) => line.trim())
-        .filter((line) => line.length > 30);
+        // Filter out table formatting.
+        .filter((line) => !line.includes("---"))
+        // This used to be 30 characters, but lots of table cells are short, so
+        // we'll put the limit at 3 characters to avoid filtering out table cells.
+        .filter((line) => line.length > 3);
 
       const blocks = paragraphs.flatMap((paragraph) =>
-        removeMarkdown(paragraph).split("\n"),
+        removeMarkdown(paragraph).split("\n")
       );
 
       blocks.forEach((textWithoutMarkdown) => {
@@ -158,6 +164,6 @@ export type Index = IndexEntry[];
   fs.writeFileSync(
     INDEX_JSON_PATH,
     JSON.stringify(searchIndex, null, 2),
-    "utf-8",
+    "utf-8"
   );
 })();

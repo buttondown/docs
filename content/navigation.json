@@ -782,6 +782,15 @@
       ]
     },
     {
+      "name": "Analytics",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "monthly-recurring-revenue"
+        }
+      ]
+    },
+    {
       "name": "Rules & regulations",
       "items": [
         {

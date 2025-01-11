@@ -1629,6 +1629,14 @@
     ]
   },
   {
+    "title": "Monthly Recurring Revenue",
+    "url": "monthly-recurring-revenue",
+    "section": "reference",
+    "schema": null,
+    "description": "An explanation on what MRR is and how it's calculated by Buttondown.",
+    "references": []
+  },
+  {
     "title": "Using a screen reader",
     "url": "using-a-screen-reader",
     "section": "reference",
