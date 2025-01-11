@@ -2531,6 +2531,7 @@
     "references": [
       "api-changelog-2024-09-30",
       "api-subscribers-create",
+      "api-subscribers-delete",
       "building-your-subscriber-base"
     ]
   },
