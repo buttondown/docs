@@ -10,7 +10,8 @@
       "archives",
       "custom_sending_domain",
       "markdown",
-      "smtp_endpoint"
+      "smtp_endpoint",
+      "api"
     ]
   },
   {
@@ -67,7 +68,8 @@
       "webhooks",
       "zapier",
       "custom_domain",
-      "markdown"
+      "markdown",
+      "automations"
     ]
   },
   {
