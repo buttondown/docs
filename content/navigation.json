@@ -786,6 +786,10 @@
       "items": [
         {
           "discriminant": "page",
+          "value": "utm"
+        },
+        {
+          "discriminant": "page",
           "value": "monthly-recurring-revenue"
         }
       ]

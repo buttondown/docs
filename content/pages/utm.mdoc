@@ -1,0 +1,16 @@
+---
+title: UTM parameters
+description: A guide to UTM parameters, and how to use them in Buttondown.
+---
+
+If you [enable UTM tracking](https://buttondown.com/settings/tracking), Buttondown will automatically add UTM parameters to any outgoing links in your emails.
+
+We add the following parameters to your links:
+| Parameter | Value |
+| --- | --- |
+| `utm_source` | The username of the newsletter |
+| `utm_campaign` | The slug of the email |
+| `utm_content` | The ID of the email |
+| `utm_medium` | `email` |
+
+Note that we do _not_ replace existing UTM parameters in your links. If you have existing UTM parameters in your links, they will be preserved; Buttondown will only append parameters that aren't already present.
