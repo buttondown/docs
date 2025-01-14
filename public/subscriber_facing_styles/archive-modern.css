@@ -1135,3 +1135,19 @@ figure {
     rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
     scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+div.image-gallery-embed {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+div.image-gallery-embed img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+div.image-gallery-embed:has(> :nth-child(3n):last-child) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
