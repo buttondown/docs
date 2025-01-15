@@ -24,7 +24,7 @@ Terminal will watch for changes, and recompile when they're detected.
 
 You can check your Node version by running `node -v` in your command line.
 
-> Docs v2 is running on Node `20.10.0`
+> Docs v2 is running on Node `20.18.1`
 
 **Check your NPM version**
 You can check your NPM version by running `npm -v` in your command line.
