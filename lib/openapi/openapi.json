@@ -6672,6 +6672,7 @@
           },
           "slug": {
             "title": "Slug",
+            "example": "hello-world",
             "type": "string"
           },
           "secondary_id": {
