@@ -6356,6 +6356,13 @@
           },
           "template": {
             "$ref": "#/components/schemas/NewsletterEmailTemplate"
+          },
+          "related_email_ids": {
+            "title": "Related Email Ids",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "required": [
@@ -6527,6 +6534,14 @@
                 "$ref": "#/components/schemas/EmailCommentingMode"
               }
             ]
+          },
+          "related_email_ids": {
+            "title": "Related Email Ids",
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "required": [
@@ -6698,6 +6713,13 @@
           },
           "commenting_mode": {
             "$ref": "#/components/schemas/EmailCommentingMode"
+          },
+          "related_email_ids": {
+            "title": "Related Email Ids",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },

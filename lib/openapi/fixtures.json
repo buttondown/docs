@@ -315,7 +315,8 @@
           "predicate": "and"
         },
         "analytics": null,
-        "template": null
+        "template": null,
+        "related_email_ids": []
       }
     },
     {
@@ -347,7 +348,8 @@
           "predicate": "and"
         },
         "analytics": null,
-        "template": null
+        "template": null,
+        "related_email_ids": []
       }
     },
     {
@@ -379,7 +381,8 @@
           "predicate": "and"
         },
         "analytics": null,
-        "template": null
+        "template": null,
+        "related_email_ids": []
       }
     }
   ],
