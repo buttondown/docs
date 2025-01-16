@@ -1,5 +1,5 @@
-import "./globals.css";
 import AccountButtons from "../components/layout/account-buttons";
+import "./globals.css";
 
 export default function NotFound() {
   return (
@@ -9,7 +9,7 @@ export default function NotFound() {
           <AccountButtons />
         </div>
         <div className="container mx-auto p-8 flex items-center flex-col space-y-8 h-screen">
-          <div className="my-16 sm:my-32 text-center text-9xl">:(</div>
+          <div className="my-16 sm:my-32 text-center text-9xl">Alas!</div>
 
           <div className="text-center space-y-4 m-auto">
             <p className="inline-block text-base text-gray-500 bg-gray-200 px-2 py-1 rounded-md w-max">
