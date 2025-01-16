@@ -597,6 +597,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "canonical-url",
       "glossary-headless-mode",
       "glossary-posse",
       "glossary-rss",
@@ -1384,6 +1385,14 @@
     "references": [
       "substack"
     ]
+  },
+  {
+    "title": "Canonical URL",
+    "url": "canonical-url",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
   },
   {
     "title": "Does Buttondown automatically index my web archives?",
@@ -2322,6 +2331,7 @@
     "references": [
       "api-changelog-2024-07-13",
       "api-changelog-2024-08-15",
+      "canonical-url",
       "drafting-emails-via-the-api",
       "glossary-rest",
       "glossary-slug",
