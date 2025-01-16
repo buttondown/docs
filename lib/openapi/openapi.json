@@ -6650,6 +6650,8 @@
           },
           "canonical_url": {
             "title": "Canonical Url",
+            "description": "The URL of the original source of the content.",
+            "example": "https://sheinhardtwig.com/2025/01/17/our-nbc-partnership",
             "type": "string"
           },
           "body": {

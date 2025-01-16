@@ -1,0 +1,30 @@
+---
+title: Canonical URL
+relatedPages:
+- glossary-rss
+- does-buttondown-automatically-index-my-web-archives
+- glossary-headless-mode
+---
+
+Let's say you're the CEO of Sheinhardt Wig Company. You have a robust and mature corporate blog at `sheinhardtwig.com`, but you want to send out all new blog posts as emails as well.
+
+A standard workflow might involve you grabbing the content of your blog post (e.g. `https://sheinhardtwig.com/2025/01/17/my-new-blog-post`) and sending it out as an email to your subscribers. Buttondown will then create an archived version of that email to be shared on the web — at, say, `https://buttondown.com/sheinhardtwig/archive/my-new-blog-post`.
+
+This has a couple problems:
+
+- Google will index the archived version of your email in addition to the original blog post, potentially penalizing your overall traffic.
+- Your blog — the original source of the content — might have additional content that you'd prefer your subscribers to see rather than Buttondown's archived version.
+
+In order to more harmoniously integrate Buttondown with your existing content, Buttondown allows you to set a **canonical URL** for every email you send. Buttondown will surface _this_ URL rather than its own archive URL in a number of places:
+
+- In the email's header, so that your subscribers can click through to the original source of the content without going through Buttondown's archives.
+- In the `<meta>` tags of the email's HTML, so that search engines index the original source of the content.
+- In the RSS and archive pages, so that subscribers can click through to the original post from Buttondown's archives.
+
+### Setting a canonical URL
+
+You can set a canonical URL in a number of ways:
+
+- If you're using [RSS-to-email](/rss-to-email), Buttondown will automatically set the canonical URL of every email to URL of the relevant RSS item.
+- If you're using the API, you can [set the Email.canonical_url](/api-emails-introduction) field.
+- If you're sending emails using the user interface, you can set the canonical URL in the "metadata" section when finalizing your email.

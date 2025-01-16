@@ -638,6 +638,10 @@
           "value": "seo"
         },
         {
+          "discriminant": "page",
+          "value": "canonical-url"
+        },
+        {
           "discriminant": "divider",
           "value": "FAQ"
         },
