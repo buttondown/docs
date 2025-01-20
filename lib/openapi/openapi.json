@@ -782,14 +782,15 @@
             "name": "ids",
             "schema": {
               "title": "Ids",
-              "default": [],
+              "description": "If provided, only return emails with the given ids.",
               "type": "array",
               "items": {
                 "type": "string",
                 "format": "uuid"
               }
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return emails with the given ids."
           },
           {
             "in": "query",
