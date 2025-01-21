@@ -794,11 +794,15 @@
       "items": [
         {
           "discriminant": "page",
-          "value": "utm"
+          "value": "gross-volume"
         },
         {
           "discriminant": "page",
           "value": "monthly-recurring-revenue"
+        },
+        {
+          "discriminant": "page",
+          "value": "utm"
         }
       ]
     },

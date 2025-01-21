@@ -1647,11 +1647,11 @@
     ]
   },
   {
-    "title": "UTM parameters",
-    "url": "utm",
+    "title": "Gross Volume",
+    "url": "gross-volume",
     "section": "reference",
     "schema": null,
-    "description": "A guide to UTM parameters, and how to use them in Buttondown.",
+    "description": "An explanation on what gross volume is and how it's calculated by Buttondown.",
     "references": []
   },
   {
@@ -1660,6 +1660,14 @@
     "section": "reference",
     "schema": null,
     "description": "An explanation on what MRR is and how it's calculated by Buttondown.",
+    "references": []
+  },
+  {
+    "title": "UTM parameters",
+    "url": "utm",
+    "section": "reference",
+    "schema": null,
+    "description": "A guide to UTM parameters, and how to use them in Buttondown.",
     "references": []
   },
   {
