@@ -68,7 +68,7 @@ export default function Footer() {
             </svg>
           </a>
           <a
-            href="https://bsky.app/profile/buttondown.email"
+            href="https://bsky.app/profile/buttondown.com"
             className="underline font-normal cursor-pointer hover:text-gray-700"
           >
             <svg

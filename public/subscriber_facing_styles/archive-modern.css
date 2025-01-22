@@ -692,7 +692,6 @@ blockquote.pullquote {
     to(transparent)
   );
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-  margin-bottom: -6rem;
 }
 .subscribe-container {
   background-color: #e4e4e4;
