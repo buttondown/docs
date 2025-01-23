@@ -985,6 +985,10 @@
         },
         {
           "discriminant": "page",
+          "value": "glossary-rate-sheet"
+        },
+        {
+          "discriminant": "page",
           "value": "glossary-rest"
         },
         {
