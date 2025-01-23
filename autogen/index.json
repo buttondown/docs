@@ -2070,6 +2070,14 @@
     ]
   },
   {
+    "title": "Rate sheet",
+    "url": "glossary-rate-sheet",
+    "section": "reference",
+    "schema": null,
+    "description": "A rate sheet is a document that outlines the advertising rates and sponsorship options available for a newsletter.",
+    "references": []
+  },
+  {
     "title": "REST",
     "url": "glossary-rest",
     "section": "reference",
