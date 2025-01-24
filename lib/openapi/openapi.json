@@ -6382,7 +6382,8 @@
           "commenting_mode",
           "custom_teaser",
           "absolute_url",
-          "filters"
+          "filters",
+          "related_email_ids"
         ]
       },
       "EmailCreationErrorCode": {

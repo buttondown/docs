@@ -496,6 +496,61 @@
 .comment-input button:hover {
   background-color: #202020;
 }
+.related-emails-widget {
+  border-top: 1px solid var(--medium-color);
+}
+.related-emails-widget .related-email-container {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
+  flex-flow: column wrap;
+  padding: 0;
+}
+@media (min-width: 600px) {
+  .related-emails-widget .related-email-container {
+    gap: 30px;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+  }
+}
+.related-emails-widget .related-email {
+  margin-bottom: 1.25rem;
+}
+.related-emails-widget .related-email > a {
+  text-decoration: none !important;
+}
+.related-emails-widget .related-email h4 {
+  margin-top: 0;
+  color: var(--dark-color) !important;
+}
+.related-emails-widget .related-email p {
+  font-size: medium !important;
+  color: var(--dark-color) !important;
+}
+.related-emails-widget .related-email:hover {
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+}
+.related-emails-widget .related-email:hover h4,
+.related-emails-widget .related-email:hover p {
+  color: var(--tint-color) !important;
+}
+.related-emails-widget .related-email-header-image {
+  height: 175px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 1rem;
+}
 :root {
   --content-width: 600px;
   --white-color: #ffffff;
@@ -842,6 +897,24 @@ blockquote.tiktok-embed {
 .epilogue > div:first-child {
   padding-bottom: 1em;
   text-align: center;
+}
+.related-emails-widget {
+  margin-top: 2.5rem;
+}
+.related-emails-widget h3 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.related-emails-widget h4 {
+  color: #525252 !important;
+}
+.related-emails-widget .related-email {
+  text-align: left;
+}
+.related-emails-widget .related-email h4 {
+  margin-bottom: 0;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 .response-freeform-label {
   margin-top: 64px;

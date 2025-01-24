@@ -80,7 +80,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "color",
         "question": "What's your favorite color?",
-        "response_count": 10,
+        "response_count": 0,
         "answers": [
           "Red",
           "Green",
@@ -99,7 +99,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "feedback",
         "question": "How can we improve?",
-        "response_count": 10,
+        "response_count": 0,
         "answers": [
           "More content",
           "Better content",
