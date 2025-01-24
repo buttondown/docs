@@ -3,11 +3,14 @@
     {
       "description": "Basic webhook",
       "object": {
-        "creation_date": "2019-08-24T14:15:22Z",
-        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "url": "https://example.com",
-        "description": "Register in remote database every time we get a new subscriber",
-        "event": "subscriber.created"
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "status": "enabled",
+        "event_types": [
+          "subscriber.created"
+        ],
+        "url": "https://example.com/webhook",
+        "description": ""
       }
     }
   ],
@@ -80,7 +83,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "color",
         "question": "What's your favorite color?",
-        "response_count": 0,
+        "response_count": 10,
         "answers": [
           "Red",
           "Green",
@@ -99,7 +102,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "feedback",
         "question": "How can we improve?",
-        "response_count": 0,
+        "response_count": 10,
         "answers": [
           "More content",
           "Better content",
@@ -127,15 +130,24 @@
   ],
   "ExternalFeed": [
     {
-      "description": "Basic automation",
+      "description": "Basic external feed",
       "object": {
-        "creation_date": "2019-08-24T14:15:22Z",
-        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "last_checked_date": null,
         "status": "active",
-        "behavior": "emails",
-        "cadence": "every",
+        "behavior": "draft",
+        "cadence": "daily",
+        "cadence_metadata": {},
+        "filters": {
+          "filters": [],
+          "groups": [],
+          "predicate": "and"
+        },
+        "url": "https://example.com/feed",
         "subject": "New post: {{ item.title }}",
-        "body": "I just published a new post: {{ item.url }}"
+        "body": "I just published a new post: {{ item.url }}",
+        "label": "Basic external feed"
       }
     }
   ],
