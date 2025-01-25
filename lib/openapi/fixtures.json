@@ -797,5 +797,44 @@
         "email_address": "example@example.com"
       }
     }
+  ],
+  "SubscriberImport": [
+    {
+      "description": "Basic subscriber import",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "source": "substack",
+        "status": "succeeded",
+        "label": "Import subscribers",
+        "metadata": {
+          "email_column": 0,
+          "metadata_columns": {}
+        },
+        "results": {
+          "new_subscribers": 100,
+          "existing_subscribers": 20,
+          "invalid_subscribers": 10,
+          "new_tags": 2
+        },
+        "parsed_text": [
+          [
+            "email",
+            "name",
+            "tags",
+            "notes",
+            "metadata"
+          ],
+          [
+            "email@example.com",
+            "John Doe",
+            "tag1",
+            "tag2",
+            "notes",
+            "metadata"
+          ]
+        ]
+      }
+    }
   ]
 }
