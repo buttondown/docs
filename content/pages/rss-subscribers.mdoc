@@ -1,0 +1,25 @@
+---
+title: RSS subscribers
+navigationTitle: RSS subscribers
+description: An explanation on what RSS subscribers are and how they're used by Buttondown.
+---
+
+Buttondown tracks RSS subscribers by analyzing the User-Agent header of requests made to RSS feeds. Many RSS readers identify themselves through distinctive User-Agent strings, allowing Buttondown to approximate how many subscribers are accessing a newsletter's RSS feed.
+
+This data helps newsletter writers understand their RSS readership, though it's worth noting that not all RSS readers provide identifiable User-Agent strings, so these numbers represent a lower bound of actual RSS subscribers.
+
+In addition, some readers actually provide a subscriber count in their User-Agent string.
+
+This data helps newsletter writers understand their RSS readership, though it's worth noting that not all RSS readers provide identifiable User-Agent strings, so these numbers represent a lower bound of actual RSS subscribers.
+
+The table below provides a list of RSS readers we track:
+
+| Reader | User-Agent example |
+| --- | --- |
+| Feedbin | Feedbin feed-id:1697787 - 102 subscribers |
+| Feedly | Feedly/1.0 (+http://www.feedly.com/fetcher.html; 462 subscribers; ) |
+| NewsBlur | NewsBlur Feed Fetcher - 27 subscribers - https://www.newsblur.com/site/7704055/rendezvous-with-cassidoo ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.1 Safari/605.1.15") |
+| Inoreader | Mozilla/5.0 (compatible; inoreader.com; 114 subscribers) |
+| The Old Reader | Mozilla/5.0 (compatible; theoldreader.com; 1 subscribers; feed-id=cead6c3a837650eeefd8fe4a) |
+| BazQux | Mozilla/5.0 (compatible; BazQux/2.4; +https://bazqux.com/fetcher; 1 subscribers) |
+| Dreamwidth | Dreamwidth Studios (webmaster@dreamwidth.org; for https://www.dreamwidth.org/users/vikingschoice_feed/; 2 readers) |

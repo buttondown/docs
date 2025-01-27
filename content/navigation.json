@@ -802,6 +802,10 @@
         },
         {
           "discriminant": "page",
+          "value": "rss-subscribers"
+        },
+        {
+          "discriminant": "page",
           "value": "utm"
         }
       ]

@@ -813,6 +813,7 @@
         },
         "results": {
           "new_subscribers": 100,
+          "updated_subscribers": null,
           "existing_subscribers": 20,
           "invalid_subscribers": 10,
           "new_tags": 2
@@ -828,8 +829,7 @@
           [
             "email@example.com",
             "John Doe",
-            "tag1",
-            "tag2",
+            "foo",
             "notes",
             "metadata"
           ]
