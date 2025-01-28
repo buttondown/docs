@@ -119,12 +119,14 @@
     {
       "description": "Basic comment",
       "object": {
-        "creation_date": "2019-08-24T14:15:22Z",
-        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "subscriber_id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "email_id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "body": "I really liked this email!",
-        "parent_id": "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "email_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "subscriber_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "parent_id": null,
+        "text": "This is a test comment",
+        "subscriber": null,
+        "email": null
       }
     }
   ],
