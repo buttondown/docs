@@ -1448,7 +1448,8 @@
                   "enum": [
                     "no_op",
                     "add",
-                    "overwrite"
+                    "overwrite",
+                    "fail"
                   ]
                 }
               ]
