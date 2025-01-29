@@ -161,6 +161,14 @@
       "items": [
         {
           "discriminant": "page",
+          "value": "uploading-images"
+        },
+        {
+          "discriminant": "page",
+          "value": "draft-send"
+        },
+        {
+          "discriminant": "page",
           "value": "scheduling-an-email"
         },
         {
@@ -190,6 +198,22 @@
         {
           "discriminant": "page",
           "value": "one-click-unsubscribe"
+        },
+        {
+          "discriminant": "page",
+          "value": "how-to-write-accessible-emails"
+        },
+        {
+          "discriminant": "page",
+          "value": "how-do-i-format-dates"
+        },
+        {
+          "discriminant": "page",
+          "value": "how-do-i-include-audio-in-my-newsletter"
+        },
+        {
+          "discriminant": "page",
+          "value": "what-s-the-maximum-size-of-a-file-that-i-can-attach"
         },
         {
           "discriminant": "page",
@@ -492,26 +516,6 @@
       "items": [
         {
           "discriminant": "page",
-          "value": "using-markdown"
-        },
-        {
-          "discriminant": "page",
-          "value": "fancy-mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "naked-mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "draft-send"
-        },
-        {
-          "discriminant": "page",
-          "value": "uploading-images"
-        },
-        {
-          "discriminant": "page",
           "value": "using-templating"
         },
         {
@@ -520,23 +524,51 @@
         },
         {
           "discriminant": "divider",
+          "value": "Fancy mode"
+        },
+        {
+          "discriminant": "page",
+          "value": "fancy-mode"
+        },
+        {
+          "discriminant": "page",
+          "value": "fancy-mode-images"
+        },
+        {
+          "discriminant": "page",
+          "value": "fancy-mode-text"
+        },
+        {
+          "discriminant": "page",
+          "value": "fancy-mode-dynamic"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Markdown mode"
+        },
+        {
+          "discriminant": "page",
+          "value": "using-markdown"
+        },
+        {
+          "discriminant": "page",
+          "value": "using-markdown-syntax"
+        },
+        {
+          "discriminant": "page",
+          "value": "using-markdown-rendering"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Naked mode"
+        },
+        {
+          "discriminant": "page",
+          "value": "naked-mode"
+        },
+        {
+          "discriminant": "divider",
           "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-to-write-accessible-emails"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-do-i-format-dates"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-do-i-include-audio-in-my-newsletter"
-        },
-        {
-          "discriminant": "page",
-          "value": "what-s-the-maximum-size-of-a-file-that-i-can-attach"
         },
         {
           "discriminant": "page",

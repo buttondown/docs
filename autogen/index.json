@@ -94,7 +94,7 @@
     "references": [
       "blogger",
       "building-your-subscriber-base",
-      "fancy-mode",
+      "fancy-mode-dynamic",
       "framer",
       "glossary-headless-mode",
       "glossary-jamstack",
@@ -415,6 +415,28 @@
     "references": []
   },
   {
+    "title": "Uploading images in the editor",
+    "url": "uploading-images",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "fancy-mode-images",
+      "sending-your-first-email"
+    ]
+  },
+  {
+    "title": "Previewing your email in an email inbox",
+    "url": "draft-send",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-emails-send-draft",
+      "draft-send"
+    ]
+  },
+  {
     "title": "Scheduling an email",
     "url": "scheduling-an-email",
     "section": "guides",
@@ -477,6 +499,38 @@
   {
     "title": "Does Buttondown support one-click unsubscribe?",
     "url": "one-click-unsubscribe",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "How can I write accessible emails?",
+    "url": "how-to-write-accessible-emails",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Formatting dates in an email",
+    "url": "how-do-i-format-dates",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "How do I include audio in my newsletter?",
+    "url": "how-do-i-include-audio-in-my-newsletter",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "What's the maximum size of a file that I can attach?",
+    "url": "what-s-the-maximum-size-of-a-file-that-i-can-attach",
     "section": "guides",
     "schema": null,
     "description": null,
@@ -930,7 +984,7 @@
     "references": [
       "api-introduction",
       "sending-your-first-email-advanced",
-      "using-markdown"
+      "using-markdown-rendering"
     ]
   },
   {
@@ -1087,63 +1141,6 @@
     ]
   },
   {
-    "title": "Markdown mode",
-    "url": "using-markdown",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "fancy-mode",
-      "quickstart",
-      "sending-your-first-email",
-      "uploading-images"
-    ]
-  },
-  {
-    "title": "Fancy mode",
-    "url": "fancy-mode",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "fancy-mode",
-      "preflight",
-      "quickstart"
-    ]
-  },
-  {
-    "title": "Naked mode",
-    "url": "naked-mode",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "naked-mode"
-    ]
-  },
-  {
-    "title": "Previewing your email in an email inbox",
-    "url": "draft-send",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "api-emails-send-draft",
-      "draft-send"
-    ]
-  },
-  {
-    "title": "Uploading images in the editor",
-    "url": "uploading-images",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "fancy-mode",
-      "sending-your-first-email"
-    ]
-  },
-  {
     "title": "Template tags",
     "url": "using-templating",
     "section": "reference",
@@ -1169,36 +1166,87 @@
     ]
   },
   {
-    "title": "How can I write accessible emails?",
-    "url": "how-to-write-accessible-emails",
+    "title": "Fancy mode",
+    "url": "fancy-mode",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "fancy-mode",
+      "fancy-mode-text",
+      "preflight",
+      "quickstart"
+    ]
+  },
+  {
+    "title": "Images in Fancy mode",
+    "url": "fancy-mode-images",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "fancy-mode"
+    ]
+  },
+  {
+    "title": "Text styling in Fancy mode",
+    "url": "fancy-mode-text",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "fancy-mode"
+    ]
+  },
+  {
+    "title": "Dynamic blocks in Fancy mode",
+    "url": "fancy-mode-dynamic",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "fancy-mode",
+      "preflight"
+    ]
+  },
+  {
+    "title": "Markdown mode",
+    "url": "using-markdown",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "fancy-mode",
+      "quickstart",
+      "sending-your-first-email",
+      "uploading-images"
+    ]
+  },
+  {
+    "title": "Markdown syntax guide",
+    "url": "using-markdown-syntax",
     "section": "reference",
     "schema": null,
     "description": null,
     "references": []
   },
   {
-    "title": "Formatting dates in an email",
-    "url": "how-do-i-format-dates",
+    "title": "Buttondown's Markdown rendering engine",
+    "url": "using-markdown-rendering",
     "section": "reference",
     "schema": null,
     "description": null,
     "references": []
   },
   {
-    "title": "How do I include audio in my newsletter?",
-    "url": "how-do-i-include-audio-in-my-newsletter",
+    "title": "Naked mode",
+    "url": "naked-mode",
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": []
-  },
-  {
-    "title": "What's the maximum size of a file that I can attach?",
-    "url": "what-s-the-maximum-size-of-a-file-that-i-can-attach",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
+    "references": [
+      "naked-mode"
+    ]
   },
   {
     "title": "What is `buttondown-editor-mode`?",
@@ -1868,7 +1916,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "fancy-mode",
+      "fancy-mode-dynamic",
       "welcome-sequence"
     ]
   },
@@ -2006,7 +2054,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "fancy-mode"
+      "fancy-mode-text"
     ]
   },
   {
