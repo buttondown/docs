@@ -14,7 +14,7 @@ relatedPages:
 Whether you’d like to set up a formal paid subscription program or a pay-what-you-want model, Buttondown offers a number of different ways to collect revenue from your subscribers, while also rewarding them with exclusive perks!
 
 ## Getting started
-To set up paid subscriptions for your newsletter, you'll work in both Stripe and Buttondown. 
+To set up paid subscriptions for your newsletter, you'll work in both Stripe and Buttondown.
 
 Here's an overview of the steps required:
 
@@ -26,7 +26,7 @@ Here's an overview of the steps required:
 
 ### Prerequisites
 
-Buttondown works hand in hand with Stripe to automate payments and taxes related to your newsletter. 
+Buttondown works hand in hand with Stripe to automate payments and taxes related to your newsletter.
 To start using paid subscriptions, you must have:
 
 1. [A Stripe account](https://stripe.com/docs/tax)
@@ -37,11 +37,11 @@ We have a step-by-step guide to help you [create and connect your Stripe account
 
 ## Add a paid subscription plan
 
-After you’ve [integrated](/stripe) your Buttondown and Stripe accounts, you can add a paid subscription plan in Buttondown. 
+After you’ve [integrated](/stripe) your Buttondown and Stripe accounts, you can add a paid subscription plan in Buttondown.
 
 In Buttondown you'll:
 
-1. Navigate to [Settings](https://buttondown.com/settings/basics) and scroll to the "Paid subscriptions" section. 
+1. Navigate to [Settings](https://buttondown.com/settings/basics) and scroll to the "Paid subscriptions" section.
 1. Click **Configure**. The "Paid subscriptions" page appears.
 1. Click **Add plan**. The "Add paid subscriptions plan" menu appears.
 1. Select the [plan model](/pricing-models): **Fixed**, **Pay what you want** or **Per email**
@@ -50,64 +50,24 @@ In Buttondown you'll:
 
 {% video file="/paid-subscriptions/monetizing_pop-up-to-add-paid-subscription-plan.mp4" /%}
 
-This video shows how to access and configure the "Add paid subscriptions plan" menu in Settings. 
+This video shows how to access and configure the "Add paid subscriptions plan" menu in Settings.
 
 ### Plan models
 Buttondown offers three different [paid subscription models](/pricing-models): "Fixed", "Pay what you want" or "Per email"
 
 "Fixed" is billed at a regular cadence: monthly, or annuals.
 
-The "Pay what you want" model allows your readers to pay any amount they feel comfortable with. This allows subscribers to support your writing without limiting their access to your content. 
+The "Pay what you want" model allows your readers to pay any amount they feel comfortable with. This allows subscribers to support your writing without limiting their access to your content.
 
 The "Per email" model is billed every time you send a paid newsletter. This allows your readers to contribute when you're writing more frequently (but not if you're on break.)
 
-## Create a payment link
+## Having subscribers subscribe to your paid newsletter
 
-Next, you'll use Stripe to create a payment link. 
+There are a few ways that you can have subscribers subscribe to your paid newsletter:
 
-For a fixed subscription you'll:
-1. Log into Stripe, and navigate to **Payments** > **Payment Links**.
-1. Click **New** to create a new payment link. The "Create a payment link" menu appears.
-1. Use the dropdown to set your checkout "Type" to "Products or Subscriptions." 
-1. Click into the "Product" text field and choose **Add new product.**
-1. Enter the name, description, price, and billing cycle for your newsletter.
-1. Verify that your settings on this screen match the paid subscription plan settings you created in Buttondown.
-1. Click **Add product.**
-
-For a "Pay what you want" model, you'll:
-1. Log into Stripe, navigate to **Payments** > **Payment Links**.
-1. Click **New** to create a new payment link. The "Create a payment link" menu appears.
-1. Use the dropdown to set your checkout "Type" to "Customers Choose What They Pay." 
-1. Click into the "Product" text field and choose **Add new product.**
-1. Enter the name, description, price, and billing cycle for your newsletter.
-1. Verify that your settings on this screen match the paid subscription plan settings you created in Buttondown.
-1. Click **Add product.**
-
-{% video file="/paid-subscriptions/monetizing_pay-as-you-wish-settings.mp4" /%}
-
-Curious to learn more about setting up and customizing your payments using a pay-what-you-want model? We recommend Stripe’s doc on "[Letting customers choose what to pay](https://stripe.com/docs/payments/checkout/pay-what-you-want)."
-
-## Share the payment link
-
-After you publish your payment link, you can share it as a URL, send it as a QR code, or configure it as a "Subscribe" button for your website, blog, or newsletter landing page.
-
-* If you prefer working with URLs, copy your payment link URL and format it as a hyperlink using either Markdown or HTML.
-
-{% video file="/paid-subscriptions/monetizing_payment-link-URL.mp4" /%}
-
-This video shows how to copy and paste a payment link URL.
-
-If you prefer a QR code, download the QR code from Stripe and insert it into your webpage as an image.
-
-{% video file="/paid-subscriptions/monetizing_payment-link-QR-code.mp4" /%}
-
-This video shows how to copy and paste a QR code.
-
-If you prefer a "Subscribe" button, copy Stripe’s code snippet and paste it into your webpage. Be aware that the code’s spacing from Stripe may not paste correctly. You may need to manually remove incorrect line breaks.
-
-{% video file="/paid-subscriptions/monetizing_payment-link-button.mp4" /%}
-
-This video shows how to copy and paste code for a "Subscribe" button.
+1. If they subscribe and confirm their email address with the link that is sent to them, they'll be brought to a webpage that allows them to upgrade their subscription.
+2. Emails to unpaid subscribers will have a link at the bottom of the email where they can upgrade.
+3. Buttondown will automatically create a Stripe Payment Link for each price. (You can find those in the Stripe dashboard.) If you send someone any of those Stripe Payment Links, they'll be able to subscribe and pay for your newsletter.
 
 ## Customize your paid subscription confirmation
 
@@ -124,7 +84,7 @@ You can send a newsletter email only to paid subscribers by configuring the reci
 
 1. Navigate to **Emails** and draft a new newsletter email.
 1. Click **Send.** The "Send this email" panel opens. Scroll to the "Audience" section.
-1. Choose the radio button that matches the group you wish to send this email to. In this case, selecting "Premium" will send the newsletter email to all subscribers who pay for your newsletter. 
+1. Choose the radio button that matches the group you wish to send this email to. In this case, selecting "Premium" will send the newsletter email to all subscribers who pay for your newsletter.
 1. Optionally, configure other email settings.
 1. Click **Finalize** and then **Yes, I'm sure.**
 
