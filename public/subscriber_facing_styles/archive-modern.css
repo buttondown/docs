@@ -278,10 +278,12 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-flow: column wrap;
-  flex-flow: column wrap;
+  -ms-flex-direction: column;
+  flex-direction: column;
   padding: 0;
 }
 @media (min-width: 600px) {
@@ -290,14 +292,21 @@
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
+    -ms-flex-direction: row;
+    flex-direction: row;
   }
 }
 .related-emails-widget .related-email {
   margin-bottom: 1.25rem;
+  -ms-flex-preferred-size: 0px;
+  flex-basis: 0px;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 .related-emails-widget .related-email > a {
   text-decoration: none !important;
