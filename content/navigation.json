@@ -634,6 +634,10 @@
         },
         {
           "discriminant": "page",
+          "value": "can-i-link-two-related-emails"
+        },
+        {
+          "discriminant": "page",
           "value": "can-i-exclude-an-email-from-archive"
         },
         {

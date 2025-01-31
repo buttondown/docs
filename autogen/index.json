@@ -1357,6 +1357,14 @@
     "references": []
   },
   {
+    "title": "Can I add a link to a related email?",
+    "url": "can-i-link-two-related-emails",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Excluding emails from the archive",
     "url": "can-i-exclude-an-email-from-archive",
     "section": "reference",
