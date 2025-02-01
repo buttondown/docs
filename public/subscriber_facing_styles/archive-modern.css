@@ -1221,3 +1221,11 @@ div.image-gallery-embed img {
 div.image-gallery-embed:has(> :nth-child(3n):last-child) {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.callout {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
+  text-align: center;
+  padding: 1rem;
+}
