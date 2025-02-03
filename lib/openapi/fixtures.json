@@ -838,5 +838,51 @@
         ]
       }
     }
+  ],
+  "APIRequest": [
+    {
+      "description": "API request",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "status_code": 200,
+        "path": "/api/v1/events",
+        "method": "GET",
+        "source": "api",
+        "version": "2025-01-02"
+      }
+    }
+  ],
+  "ExternalEvent": [
+    {
+      "description": "External event",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "event_type": "subscriber.created",
+        "metadata": {
+          "subscriber_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3"
+        },
+        "status": "processed",
+        "webhook_attempts": [
+          {
+            "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+            "url": "https://example.com",
+            "status": "successful",
+            "webhook_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3"
+          }
+        ],
+        "automation_attempts": [
+          {
+            "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+            "name": "Welcome email",
+            "status": "processed",
+            "automation": "13121cd6-0dfc-424c-bb12-988b0a32fcb3"
+          }
+        ],
+        "subscriber": null,
+        "email": null
+      }
+    }
   ]
 }
