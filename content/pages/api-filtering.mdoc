@@ -33,6 +33,32 @@ If you want to filter by multiple values on a single field, you can do so by add
 https://api.buttondown.com/v1/emails?status=draft&status=scheduled
 ```
 
+## Filtering by complex fields
+
+OpenAPI's spec cannot actually _surface_ this, but some specific endpoints in Buttondown's API allow you to filter by complex fields. For example, the [subscriber list endpoint](/api-subscribers-list) allows you to filter by `metadata`, which is a JSON field that can contain arbitrary data.
+
+To filter by `metadata`, you can use the following query parameter:
+
+```
+https://api.buttondown.com/v1/subscribers?metadata['foo']=bar
+```
+
+The above query would return all subscribers where `metadata` contains the key `foo` with the value `bar`.
+
+You can also filter by `-metadata`, which will return all subscribers where `metadata` does not contain the key `foo`:
+
+```
+https://api.buttondown.com/v1/subscribers?-metadata['foo']=bar
+```
+
+And you can also filter by `-metadata` with a null value:
+
+```
+https://api.buttondown.com/v1/subscribers?metadata['foo']=null
+```
+
+As of right now, this behavior only exists in the `/v1/subscribers` endpoint, but support for filtering by `metadata` will be added to other endpoints in the future.
+
 ---
 
 Please note that the fields on which you can filter in a given endpoint vary, and you'll want to consult the individual endpoint's documentation to see what fields are available for filtering. For instance:
