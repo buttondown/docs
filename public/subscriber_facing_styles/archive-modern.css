@@ -1229,3 +1229,8 @@ div.image-gallery-embed:has(> :nth-child(3n):last-child) {
   text-align: center;
   padding: 1rem;
 }
+.callout-content {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}
