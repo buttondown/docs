@@ -6345,16 +6345,8 @@
               "type": "string"
             }
           },
-          "should_send_teaser": {
-            "title": "Should Send Teaser",
-            "type": "boolean"
-          },
           "commenting_mode": {
             "$ref": "#/components/schemas/EmailCommentingMode"
-          },
-          "custom_teaser": {
-            "title": "Custom Teaser",
-            "type": "string"
           },
           "absolute_url": {
             "title": "Absolute Url",
@@ -6389,9 +6381,7 @@
           "body",
           "email_type",
           "status",
-          "should_send_teaser",
           "commenting_mode",
-          "custom_teaser",
           "absolute_url",
           "filters",
           "related_email_ids"
@@ -6512,16 +6502,6 @@
             "additionalProperties": {
               "type": "string"
             }
-          },
-          "should_send_teaser": {
-            "title": "Should Send Teaser",
-            "default": false,
-            "type": "boolean"
-          },
-          "custom_teaser": {
-            "title": "Custom Teaser",
-            "default": "",
-            "type": "string"
           },
           "secondary_id": {
             "title": "Secondary Id",
@@ -6690,14 +6670,6 @@
           "image": {
             "title": "Image",
             "default": "",
-            "type": "string"
-          },
-          "should_send_teaser": {
-            "title": "Should Send Teaser",
-            "type": "boolean"
-          },
-          "custom_teaser": {
-            "title": "Custom Teaser",
             "type": "string"
           },
           "slug": {

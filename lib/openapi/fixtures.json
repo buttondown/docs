@@ -319,9 +319,7 @@
         "slug": "welcome-to-the-newsletter",
         "status": "sent",
         "metadata": {},
-        "should_send_teaser": false,
         "commenting_mode": "enabled",
-        "custom_teaser": "",
         "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
         "filters": {
           "filters": [],
@@ -352,9 +350,7 @@
         "slug": "welcome-to-the-newsletter",
         "status": "draft",
         "metadata": {},
-        "should_send_teaser": false,
         "commenting_mode": "enabled",
-        "custom_teaser": "",
         "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
         "filters": {
           "filters": [],
@@ -385,9 +381,7 @@
         "slug": "welcome-to-the-newsletter",
         "status": "scheduled",
         "metadata": {},
-        "should_send_teaser": false,
         "commenting_mode": "enabled",
-        "custom_teaser": "",
         "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
         "filters": {
           "filters": [],
