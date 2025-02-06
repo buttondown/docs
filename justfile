@@ -21,7 +21,6 @@ lint-without-code-samples:
 # We break this out separately so that we can run it in CI without
 # having to install rubyfmt (and other things down the line.)
 lint: lint-without-code-samples
-  rubyfmt -i -- public/
   cd ../app && uv run ruff check ../docs-v2/public --fix
 
 build-indexes:

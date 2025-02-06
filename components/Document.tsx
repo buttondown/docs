@@ -10,6 +10,8 @@ import Iframe from "./iframe";
 import ImageWithLightbox from "./image-with-lightbox";
 import LiveCodeBlock from "./live-code-block";
 import Video from "./video";
+import { CodeSnippets, GeneratedCodeSnippets } from "@/app/[slug]/CodeSnippets";
+import { generateSnippets } from "@/app/[slug]/oas";
 
 type Props = {
   page: Page;
@@ -63,7 +65,7 @@ const Document = async ({ page }: Props) => (
                   },
                 ].filter(
                   (block) =>
-                    block.code !== undefined && block.code.trim() !== ""
+                    block.code !== undefined && block.code.trim() !== "",
                 ) as {
                   name: string;
                   code: string;
@@ -74,6 +76,29 @@ const Document = async ({ page }: Props) => (
           </div>
         );
       },
+      generatedMultilanguageSnippets: (props) => {
+        return (
+          <GeneratedCodeSnippets
+            method={props.method}
+            endpoint={props.endpoint}
+            body={
+              props.body && typeof props.body === "string"
+                ? JSON.parse(props.body)
+                : props.body
+            }
+            headers={
+              props.headers && typeof props.headers === "string"
+                ? JSON.parse(props.headers)
+                : props.headers
+            }
+            query={
+              props.query && typeof props.query === "string"
+                ? JSON.parse(props.query)
+                : props.query
+            }
+          />
+        );
+      },
       customizableContent: (props) => (
         <CustomizableContent
           loggedInHtml={marked(props.loggedIn)}
@@ -82,7 +107,7 @@ const Document = async ({ page }: Props) => (
       ),
       paidFeature: (props) => {
         const price = PRICES.find((price) =>
-          price.features.includes(props.feature)
+          price.features.includes(props.feature),
         );
         return (
           <Notice type="info">

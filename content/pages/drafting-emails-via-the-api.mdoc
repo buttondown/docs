@@ -12,11 +12,10 @@ One thing before we get going: It’s always a good idea to have our [API refere
 
 Ready to put pen to paper? All you’ll need is a catchy subject line, a fun idea for your body text, and a few lines of code.
 
-{% multilanguageSnippets
-   python="public/code/drafting-emails-via-the-api/1.py"
-   ruby="public/code/drafting-emails-via-the-api/1.rb"
-   curl="public/code/drafting-emails-via-the-api/1.sh"
-   javascript="" /%}
+{% generatedMultilanguageSnippets
+   method="POST"
+   endpoint="/emails"
+   body="{\"subject\": \"My first draft\", \"body\": \"Hello, world!\", \"status\": \"draft\"}" /%}
 
 ### Parameters
 
@@ -45,11 +44,9 @@ Before we get to the code, here are two ways to find your email ID:
 
 Now you're ready to use the following code.
 
-{% multilanguageSnippets
-   python="public/code/drafting-emails-via-the-api/2.py"
-   ruby="public/code/drafting-emails-via-the-api/2.rb"
-   curl="public/code/drafting-emails-via-the-api/2.sh"
-   javascript="" /%}
+{% generatedMultilanguageSnippets
+   method="GET"
+   endpoint="/emails/{id}" /%}
 
 
 ## Editing your draft
@@ -57,11 +54,10 @@ Now you're ready to use the following code.
 If the editing mood strikes, you can always update the body of your draft using the code below.
 
 
-{% multilanguageSnippets
-   python="public/code/drafting-emails-via-the-api/3.py"
-   ruby="public/code/drafting-emails-via-the-api/3.rb"
-   curl="public/code/drafting-emails-via-the-api/3.sh"
-   javascript="" /%}
+{% generatedMultilanguageSnippets
+   method="PATCH"
+   endpoint="/emails/{id}"
+   body="{\"body\": \"Hello, updated world!\"}" /%}
 
 
 ## Sending your draft
@@ -72,20 +68,18 @@ The main change will be to your draft’s “Status.” We’ll switch it from �
 
 (Pro tip: If you spot a typo and want to undo sending your email, you’ll still have a few minutes to do so! All you need to do is change the “Status” back to “Draft.”)
 
-{% multilanguageSnippets
-   python="public/code/drafting-emails-via-the-api/4.py"
-   ruby="public/code/drafting-emails-via-the-api/4.rb"
-   curl="public/code/drafting-emails-via-the-api/4.sh"
-   javascript="" /%}
+{% generatedMultilanguageSnippets
+   method="PATCH"
+   endpoint="/emails/{id}"
+   body="{\"status\": \"about_to_send\"}" /%}
 
 ## Scheduling your draft
 
 If you’d rather wait a bit to send your draft, you can simply change your draft “Status” to “Scheduled” instead. You’ll also need to add a “Publish date” in the following format: “YYYY-MM-DDTHH:MM:SSZ.”
 
-{% multilanguageSnippets
-   python="public/code/drafting-emails-via-the-api/5.py"
-   ruby="public/code/drafting-emails-via-the-api/5.rb"
-   curl="public/code/drafting-emails-via-the-api/5.sh"
-   javascript="" /%}
+{% generatedMultilanguageSnippets
+   method="PATCH"
+   endpoint="/emails/{id}"
+   body="{\"status\": \"scheduled\", \"publish_date\": \"2024-12-31T12:00:00Z\"}" /%}
 
 {% supportSnippet /%}

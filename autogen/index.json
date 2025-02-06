@@ -2382,9 +2382,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "drafting-emails-via-the-api"
-    ]
+    "references": []
   },
   {
     "title": "Scheduling emails via the API",
@@ -2392,9 +2390,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "scheduling-emails-via-the-api"
-    ]
+    "references": []
   },
   {
     "title": "Retrieving email analytics data via the API",
@@ -2402,9 +2398,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "retrieving-analytics-data"
-    ]
+    "references": []
   },
   {
     "title": "Introduction",

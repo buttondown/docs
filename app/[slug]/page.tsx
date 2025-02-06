@@ -1,9 +1,9 @@
 import SEARCH from "@/autogen/index.json";
 import Document from "@/components/Document";
 import ObjectDescription, {
-    extractParameters,
-    extractSchemaFromContent,
-    fixtureForRef,
+  extractParameters,
+  extractSchemaFromContent,
+  fixtureForRef,
 } from "@/components/ObjectDescription";
 import Parameter from "@/components/Parameter";
 import Code from "@/components/code";
@@ -14,17 +14,16 @@ import { generateJSONLDMetadata } from "@/lib/jsonld";
 import OpenAPIEnums from "@/lib/openapi/enums.json";
 import OpenAPI from "@/lib/openapi/openapi.json";
 import type {
-    Method,
-    Object as OpenAPIObject,
-    Operation,
+  Method,
+  Object as OpenAPIObject,
+  Operation,
 } from "@/lib/openapi/types";
 import { createReader } from "@keystatic/core/reader";
-import oasToSnippet from "@readme/oas-to-snippet";
-import type { Language } from "@readme/oas-to-snippet/languages";
 import { marked } from "marked";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { circularOas, plainOas } from "./oas";
+import { generateSnippets, getOas, plainOas } from "./oas";
+import { CodeSnippets } from "./CodeSnippets";
 
 type Props = {
   params: {
@@ -110,11 +109,6 @@ export default async function DocsPage({ params: { slug } }: Props) {
   }
 
   if (page.method && page.endpoint) {
-    const circularOp = circularOas.operation(
-      page.endpoint,
-      // biome-ignore lint/suspicious/noExplicitAny: method has to be get/post/put/delete
-      page.method.toLowerCase() as any,
-    );
     const plainOp = plainOas.operation(
       page.endpoint,
       // biome-ignore lint/suspicious/noExplicitAny: method has to be get/post/put/delete
@@ -129,59 +123,13 @@ export default async function DocsPage({ params: { slug } }: Props) {
     >;
     const responses = extractResponses(endpoint, method);
 
-    // biome-ignore lint/suspicious/noExplicitAny: we are generating a best-attempt request body
-    let body: { [key: string]: any } | undefined = undefined;
-    if (circularOp.hasRequiredRequestBody() && circularOp.hasRequestBody()) {
-      const media = circularOp.getRequestBody("application/json");
-      if (media && "schema" in media && media.schema) {
-        if ("properties" in media.schema && media.schema.properties) {
-          body = {};
-          for (const key in media.schema.properties) {
-            const spec = media.schema.properties[key];
-            if ("in" in spec && spec.in && spec.in === "query") continue;
-            if ("example" in spec && spec.example) {
-              body[key] = spec.example;
-            }
-          }
-        }
-      }
-    }
-    const header = {
-      Authorization: "Token $BUTTONDOWN_API_KEY",
-    };
-
     const hasPathParams =
       plainOp.getParameters().filter((p) => p.in === "path").length > 0;
 
-    const generateSnippet = (lang: Language) => {
-      // oas-snippet freaks out when using circular schemas because it tries to JSON.stringify, so we use "plain" versions
-      let { code } = oasToSnippet(
-        plainOas,
-        plainOp,
-        { body, header },
-        {},
-        lang,
-      );
-      if (!code) throw new Error(`Couldn't generate code snippet for ${lang}`);
-
-      // hack: wrap path params in braces
-      for (const param of plainOp.getParameters()) {
-        if (param.in !== "path") continue;
-        code = code.replace(
-          new RegExp(`(/)(${param.name})([/"'])`),
-          `$1{${param.name}}$3`,
-        );
-      }
-
-      return code;
-    };
-
-    const snippets = {
-      python: generateSnippet("python"),
-      ruby: generateSnippet("ruby"),
-      javascript: generateSnippet("javascript"),
-      curl: generateSnippet("shell"),
-    };
+    const snippets = await generateSnippets({
+      method: page.method,
+      endpoint: page.endpoint,
+    });
 
     return (
       <Layout slug={slug} title={page.title}>
@@ -202,30 +150,7 @@ export default async function DocsPage({ params: { slug } }: Props) {
             </>
           )}
         </p>
-        <Code
-          blocks={[
-            {
-              name: "Python",
-              code: snippets.python,
-              language: "python",
-            },
-            {
-              name: "Ruby",
-              code: snippets.ruby,
-              language: "ruby",
-            },
-            {
-              name: "JavaScript",
-              code: snippets.javascript,
-              language: "javascript",
-            },
-            {
-              name: "cURL",
-              code: snippets.curl,
-              language: "shell",
-            },
-          ]}
-        />
+        <CodeSnippets snippets={snippets} />
         <hr />
         <h2 className="mb-1">Sample responses</h2>
         <p>
@@ -370,19 +295,19 @@ export default async function DocsPage({ params: { slug } }: Props) {
       )}
       {slug.includes("api-changelog-") && (
         <div>
-            <hr />
+          <hr />
           <h3>Stay informed</h3>
           <p>
             You can subscribe to this changelog via{" "}
             <a href={`/rss/api-changelog`} target="_blank" rel="noopener">
               RSS
-            </a> or <a href="/api-changelog">browse the full list of API changes</a>
-            .
+            </a>{" "}
+            or <a href="/api-changelog">browse the full list of API changes</a>.
           </p>
         </div>
       )}
-        <script
-          type="application/ld+json"
+      <script
+        type="application/ld+json"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: It's fine
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(

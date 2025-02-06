@@ -1,15 +1,15 @@
 import PRICES from "@/autogen/prices.json";
 import { preview } from "@/components/keystatic/preview";
 import {
-    NAVIGATION_GROUPS,
-    NAVIGATION_GROUP_LABELS,
+  NAVIGATION_GROUPS,
+  NAVIGATION_GROUP_LABELS,
 } from "@/components/layout/lib";
 import {
-    collection,
-    component,
-    config,
-    fields,
-    singleton,
+  collection,
+  component,
+  config,
+  fields,
+  singleton,
 } from "@keystatic/core";
 
 const navigationGroupSchema = (label: string) =>
@@ -183,6 +183,30 @@ export default config({
               },
               preview() {
                 return <div>This is a renderable component.</div>;
+              },
+            }),
+            generatedMultilanguageSnippets: component({
+              label: "Generated API Multilanguage Code Snippets",
+              schema: {
+                method: fields.text({ label: "HTTP Method" }),
+                endpoint: fields.text({ label: "HTTP endpoint" }),
+                body: fields.text({
+                  label: "JSON body",
+                  validation: { isRequired: false },
+                }),
+                headers: fields.text({
+                  label: "Headers (as JSON object)",
+                  validation: { isRequired: false },
+                }),
+                query: fields.text({
+                  label: "Query parameters (as JSON object)",
+                  validation: { isRequired: false },
+                }),
+              },
+              preview(props) {
+                return (
+                  <code>{`We can't generate code snippets inside Keystatic, but imagine example code for ${props.fields.method.value.toUpperCase()} ${props.fields.endpoint.value} here.`}</code>
+                );
               },
             }),
             multilanguageSnippets: component({
