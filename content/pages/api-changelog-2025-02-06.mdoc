@@ -1,0 +1,16 @@
+---
+title: "2025-02-06"
+navigationTitle: "2025-02-06"
+---
+
+We've removed the following fields from the `Email` object:
+
+- `should_send_teaser`
+- `custom_teaser`
+
+This is a completely breaking change with no backwards compatibility or API version. If you're relying on these fields to be present (or are writing to these fields), then:
+
+- You should migrate to using the `Email.body` field and setting the paywall therein.
+- You should [email us](mailto:support@buttondown.email), because our analysis showed us that nobody was setting these fields programmatically!
+
+You can read more about the decision [in the changelog entry for 2025-02-06](https://buttondown.com/changelog/2025-02-06).
