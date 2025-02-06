@@ -42,8 +42,8 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4(@types/react-dom@18.2.7)(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@readme/oas-to-snippet':
-        specifier: ^25.2.14
-        version: 25.2.14
+        specifier: ^26.0.7
+        version: 26.0.7
       '@readme/openapi-parser':
         specifier: ^2.6.0
         version: 2.6.0(openapi-types@12.1.3)
@@ -1717,8 +1717,20 @@ packages:
     peerDependencies:
       jsep: ^0.4.0||^1.0.0
 
+  '@jsep-plugin/assignment@1.3.0':
+    resolution: {integrity: sha512-VVgV+CXrhbMI3aSusQyclHkenWSAm95WaiKrMxRFam3JSUiIaQjoMIw2sEs/OX4XifnqeQUN4DYbJjlA8EfktQ==}
+    engines: {node: '>= 10.16.0'}
+    peerDependencies:
+      jsep: ^0.4.0||^1.0.0
+
   '@jsep-plugin/regex@1.0.3':
     resolution: {integrity: sha512-XfZgry4DwEZvSFtS/6Y+R48D7qJYJK6R9/yJFyUFHCIUMEEHuJ4X95TDgJp5QkmzfLYvapMPzskV5HpIDrREug==}
+    engines: {node: '>= 10.16.0'}
+    peerDependencies:
+      jsep: ^0.4.0||^1.0.0
+
+  '@jsep-plugin/regex@1.0.4':
+    resolution: {integrity: sha512-q7qL4Mgjs1vByCaTnDFcBnV9HS7GVPJX5vyVoCgZHNSC9rjwIlmbXG5sUuorR5ndfHAIlJ8pVStxvjXHbNvtUg==}
     engines: {node: '>= 10.16.0'}
     peerDependencies:
       jsep: ^0.4.0||^1.0.0
@@ -2722,19 +2734,19 @@ packages:
   '@readme/http-status-codes@7.2.0':
     resolution: {integrity: sha512-/dBh9qw3QhJYqlGwt2I+KUP/lQ6nytdCx3aq+GpMUhibLHF3O7fwoowNcTwlbnwtyJ+TJYTIIrp3oVUlRNx3fA==}
 
-  '@readme/httpsnippet@10.0.5':
-    resolution: {integrity: sha512-ctJyZnGkGbbCPgmO3YZcMh3rRTYcJQcdww7+oCoKStYHExMn89EkvWAGoJqHOa20D8usSdcgj9AUqp+Bns00dg==}
+  '@readme/httpsnippet@11.0.0':
+    resolution: {integrity: sha512-XSyaAsJkZfmMO9R4WDlVJARZgd4wlImftSkMkKclidniXA1h6DTya9iTqJenQo9mHQLh3u6kAC3CDRaIV+LbLw==}
     engines: {node: '>=18'}
 
   '@readme/json-schema-ref-parser@1.2.0':
     resolution: {integrity: sha512-Bt3QVovFSua4QmHa65EHUmh2xS0XJ3rgTEUPH998f4OW4VVJke3BuS16f+kM0ZLOGdvIrzrPRqwihuv5BAjtrA==}
 
-  '@readme/oas-to-har@23.2.21':
-    resolution: {integrity: sha512-zqwY3WgHGUt1KgcV0UvYT69nhamvShqU/TLXA9AhdNUZKEJp0bfT5f59pGdTIHpI5uG+fTzK2p/j5JyvoK4V1A==}
+  '@readme/oas-to-har@24.0.7':
+    resolution: {integrity: sha512-4PGnAFn0zmri47L0wluyThmaho1W5Fa32sRavqa7tz5E+Om1y/zDhot5y1Y4x9bmphZHmtxviBhV4P3IpLa4+A==}
     engines: {node: '>=18'}
 
-  '@readme/oas-to-snippet@25.2.14':
-    resolution: {integrity: sha512-o7mdJIU/N07/h8QsZNjLC7jMhsIa6XakArJo6a9kqVSuyHb6hZOXcpxMtKlSyN8oGy62EyW92RFS8OAhJ9bz0g==}
+  '@readme/oas-to-snippet@26.0.7':
+    resolution: {integrity: sha512-7I2tahXjPjJq5uS0RLxCo2v0l4MKNi2T8i3jz/5gb2RBNsuq8Q6IL3J8JKXkcHUlzgf5yKWirja3j8TPJnfcDg==}
     engines: {node: '>=18'}
 
   '@readme/openapi-parser@2.6.0':
@@ -5852,6 +5864,10 @@ packages:
     resolution: {integrity: sha512-i1rBX5N7VPl0eYb6+mHNp52sEuaS2Wi8CDYx1X5sn9naevL78+265XJqy1qENEk7mRKwS06NHpUqiBwR7qeodw==}
     engines: {node: '>= 10.16.0'}
 
+  jsep@1.4.0:
+    resolution: {integrity: sha512-B7qPcEVE3NVkmSJbaYxvv4cHkVW7DQsZz13pUMrfS8z8Q/BuShN+gcTXrUlPiGqM2/t/EEaI030bpxMqY8gMlw==}
+    engines: {node: '>= 10.16.0'}
+
   jsesc@0.5.0:
     resolution: {integrity: sha512-uZz5UnB7u4T9LvwmFqXii7pZSouaRPorGs5who1Ip7VO0wxanFvBL7GkM6dTHlgX+jhBApRetaWpnDabOeTcnA==}
     hasBin: true
@@ -5901,6 +5917,11 @@ packages:
 
   jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
+
+  jsonpath-plus@10.2.0:
+    resolution: {integrity: sha512-T9V+8iNYKFL2n2rF+w02LBOT2JjDnTjioaNFrxRy0Bv1y/hNsqR/EBK7Ojy2ythRHwmz2cRIls+9JitQGZC/sw==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
 
   jsonpath-plus@9.0.0:
     resolution: {integrity: sha512-bqE77VIDStrOTV/czspZhTn+o27Xx9ZJRGVkdVShEtPoqsIx5yALv3lWVU6y+PqYvWPJNWE7ORCQheQkEe0DDA==}
@@ -6534,6 +6555,10 @@ packages:
     resolution: {integrity: sha512-joxSrIrZHyRRX07iGtNrE6KHVa+aKAxwuHkrmMpvQs9hyB98aF1Tm4/NlIx+uVMdxCdL25h2Y3TQYHmhiHwjig==}
     engines: {node: '>=18'}
 
+  oas@25.3.0:
+    resolution: {integrity: sha512-98HLqUASE1u4kS8o3O7ZqjT1LG5oNwNjG1oXTsMscYVl2RSW4gMzlrn80dpxjsxpMlVuqPPa/sUS5WFtkk+Xxg==}
+    engines: {node: '>=18'}
+
   object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
@@ -6747,6 +6772,10 @@ packages:
 
   path-to-regexp@7.1.0:
     resolution: {integrity: sha512-ZToe+MbUF4lBqk6dV8GKot4DKfzrxXsplOddH8zN3YK+qw9/McvP7+4ICjZvOne0jQhN4eJwHsX6tT0Ns19fvw==}
+    engines: {node: '>=16'}
+
+  path-to-regexp@8.2.0:
+    resolution: {integrity: sha512-TdrF7fW9Rphjq4RjrW0Kp2AW0Ahwu9sRGTkS6bvDi0SCwZlEZYmcfDbEsTz8RVk0EHIS/Vd1bv3JhG+1xZuAyQ==}
     engines: {node: '>=16'}
 
   path-type@4.0.0:
@@ -10160,9 +10189,17 @@ snapshots:
     dependencies:
       jsep: 1.3.9
 
+  '@jsep-plugin/assignment@1.3.0(jsep@1.4.0)':
+    dependencies:
+      jsep: 1.4.0
+
   '@jsep-plugin/regex@1.0.3(jsep@1.3.9)':
     dependencies:
       jsep: 1.3.9
+
+  '@jsep-plugin/regex@1.0.4(jsep@1.4.0)':
+    dependencies:
+      jsep: 1.4.0
 
   '@juggle/resize-observer@3.4.0': {}
 
@@ -11686,7 +11723,7 @@ snapshots:
 
   '@readme/http-status-codes@7.2.0': {}
 
-  '@readme/httpsnippet@10.0.5':
+  '@readme/httpsnippet@11.0.0':
     dependencies:
       qs: 6.12.1
       stringify-object: 3.3.0
@@ -11698,21 +11735,17 @@ snapshots:
       call-me-maybe: 1.0.2
       js-yaml: 4.1.0
 
-  '@readme/oas-to-har@23.2.21':
+  '@readme/oas-to-har@24.0.7':
     dependencies:
       '@readme/data-urls': 3.0.0
-      oas: 24.5.3
+      oas: 25.3.0
       qs: 6.12.1
       remove-undefined-objects: 5.0.0
-    transitivePeerDependencies:
-      - encoding
 
-  '@readme/oas-to-snippet@25.2.14':
+  '@readme/oas-to-snippet@26.0.7':
     dependencies:
-      '@readme/httpsnippet': 10.0.5
-      '@readme/oas-to-har': 23.2.21
-    transitivePeerDependencies:
-      - encoding
+      '@readme/httpsnippet': 11.0.0
+      '@readme/oas-to-har': 24.0.7
 
   '@readme/openapi-parser@2.6.0(openapi-types@12.1.3)':
     dependencies:
@@ -14658,7 +14691,7 @@ snapshots:
       eslint: 8.49.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.0(@typescript-eslint/parser@6.7.2(eslint@8.49.0)(typescript@5.2.2))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.28.1(eslint@8.49.0))(eslint@8.49.0)
-      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.2(eslint@8.49.0)(typescript@5.2.2))(eslint-import-resolver-typescript@3.6.0)(eslint@8.49.0)
+      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.2(eslint@8.49.0)(typescript@5.2.2))(eslint-import-resolver-typescript@3.6.0(@typescript-eslint/parser@6.7.2(eslint@8.49.0)(typescript@5.2.2))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.28.1(eslint@8.49.0))(eslint@8.49.0))(eslint@8.49.0)
       eslint-plugin-jsx-a11y: 6.7.1(eslint@8.49.0)
       eslint-plugin-react: 7.33.2(eslint@8.49.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.49.0)
@@ -14682,7 +14715,7 @@ snapshots:
       enhanced-resolve: 5.15.0
       eslint: 8.49.0
       eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.7.2(eslint@8.49.0)(typescript@5.2.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.0(@typescript-eslint/parser@6.7.2(eslint@8.49.0)(typescript@5.2.2))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.28.1(eslint@8.49.0))(eslint@8.49.0))(eslint@8.49.0)
-      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.2(eslint@8.49.0)(typescript@5.2.2))(eslint-import-resolver-typescript@3.6.0)(eslint@8.49.0)
+      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.2(eslint@8.49.0)(typescript@5.2.2))(eslint-import-resolver-typescript@3.6.0(@typescript-eslint/parser@6.7.2(eslint@8.49.0)(typescript@5.2.2))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.28.1(eslint@8.49.0))(eslint@8.49.0))(eslint@8.49.0)
       fast-glob: 3.3.1
       get-tsconfig: 4.7.1
       is-core-module: 2.13.0
@@ -14704,7 +14737,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.28.1(@typescript-eslint/parser@6.7.2(eslint@8.49.0)(typescript@5.2.2))(eslint-import-resolver-typescript@3.6.0)(eslint@8.49.0):
+  eslint-plugin-import@2.28.1(@typescript-eslint/parser@6.7.2(eslint@8.49.0)(typescript@5.2.2))(eslint-import-resolver-typescript@3.6.0(@typescript-eslint/parser@6.7.2(eslint@8.49.0)(typescript@5.2.2))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.28.1(eslint@8.49.0))(eslint@8.49.0))(eslint@8.49.0):
     dependencies:
       array-includes: 3.1.7
       array.prototype.findlastindex: 1.2.3
@@ -15892,6 +15925,8 @@ snapshots:
 
   jsep@1.3.9: {}
 
+  jsep@1.4.0: {}
+
   jsesc@0.5.0: {}
 
   jsesc@2.5.2: {}
@@ -15934,6 +15969,12 @@ snapshots:
       universalify: 2.0.1
     optionalDependencies:
       graceful-fs: 4.2.11
+
+  jsonpath-plus@10.2.0:
+    dependencies:
+      '@jsep-plugin/assignment': 1.3.0(jsep@1.4.0)
+      '@jsep-plugin/regex': 1.0.4(jsep@1.4.0)
+      jsep: 1.4.0
 
   jsonpath-plus@9.0.0:
     dependencies:
@@ -16856,6 +16897,18 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
+  oas@25.3.0:
+    dependencies:
+      '@readme/json-schema-ref-parser': 1.2.0
+      '@types/json-schema': 7.0.15
+      json-schema-merge-allof: 0.8.1
+      jsonpath-plus: 10.2.0
+      jsonpointer: 5.0.1
+      memoizee: 0.4.17
+      openapi-types: 12.1.3
+      path-to-regexp: 8.2.0
+      remove-undefined-objects: 5.0.0
+
   object-assign@4.1.1: {}
 
   object-hash@3.0.0: {}
@@ -17100,6 +17153,8 @@ snapshots:
   path-to-regexp@0.1.7: {}
 
   path-to-regexp@7.1.0: {}
+
+  path-to-regexp@8.2.0: {}
 
   path-type@4.0.0: {}
 

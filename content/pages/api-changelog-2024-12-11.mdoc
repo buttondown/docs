@@ -8,12 +8,10 @@ When creating a new subscriber, Buttondown will now reject the request if a subs
 
 However, if you're looking for behavior more akin to an upsert, you can provide a `X-Buttondown-Collision-Behavior` header of `overwrite` or `add` in the request header:
 
-```shell
-curl -X POST https://api.buttondown.com/v1/subscribers \
-  -H "X-Buttondown-Collision-Behavior: overwrite" \
-  -H "Authorization: Bearer $API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"email_address": "john@example.com", "tags": ["newsletter-1", "newsletter-2"]}'
-```
+{% generatedMultilanguageSnippets
+   method="POST"
+   endpoint="/subscribers"
+   body="{\"email_address\": \"john@example.com\", \"tags\": [\"newsletter-1\", \"newsletter-2\"]}"
+   headers="{\"X-Buttondown-Collision-Behavior\": \"overwrite\"}" /%}
 
 This is a slightly nuanced decision for you to make as an API caller; we've explained more about our default behavior and reasoning [in the API endpoint docs](/api-subscribers-create).
