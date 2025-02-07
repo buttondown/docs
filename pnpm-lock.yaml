@@ -42,22 +42,8 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4(@types/react-dom@18.2.7)(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@readme/oas-to-snippet':
-<<<<<<< HEAD
-        specifier: ^26.0.7
-        version: 26.0.7
-      '@readme/openapi-parser':
-        specifier: ^2.6.0
-        version: 2.6.0(openapi-types@12.1.3)
-||||||| 0f0d0f081e (chore(documentation-site): autogenerate guides code snippets (#2657))
         specifier: ^25.2.14
-        version: 25.2.14
-      '@readme/openapi-parser':
-        specifier: ^2.6.0
-        version: 2.6.0(openapi-types@12.1.3)
-=======
-        specifier: ^25.2.14
-        version: 25.2.14
->>>>>>> parent of 0f0d0f081e (chore(documentation-site): autogenerate guides code snippets (#2657))
+        version: 25.2.20
       '@sentry/nextjs':
         specifier: ^7.109.0
         version: 7.109.0(next@14.2.2(@babel/core@7.24.4)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0)(webpack@5.92.0(esbuild@0.20.2))
@@ -2749,19 +2735,19 @@ packages:
   '@readme/http-status-codes@7.2.0':
     resolution: {integrity: sha512-/dBh9qw3QhJYqlGwt2I+KUP/lQ6nytdCx3aq+GpMUhibLHF3O7fwoowNcTwlbnwtyJ+TJYTIIrp3oVUlRNx3fA==}
 
-  '@readme/httpsnippet@11.0.0':
-    resolution: {integrity: sha512-XSyaAsJkZfmMO9R4WDlVJARZgd4wlImftSkMkKclidniXA1h6DTya9iTqJenQo9mHQLh3u6kAC3CDRaIV+LbLw==}
+  '@readme/httpsnippet@10.1.1':
+    resolution: {integrity: sha512-bFZqonC5RZNRYMNScTpLLY5v1cIlMoaF9imlwzi2+Vh3xtheaCb2wtX7dNJETiYpjCeCHKEI7jADyqmVeePMcA==}
     engines: {node: '>=18'}
 
   '@readme/json-schema-ref-parser@1.2.0':
     resolution: {integrity: sha512-Bt3QVovFSua4QmHa65EHUmh2xS0XJ3rgTEUPH998f4OW4VVJke3BuS16f+kM0ZLOGdvIrzrPRqwihuv5BAjtrA==}
 
-  '@readme/oas-to-har@24.0.7':
-    resolution: {integrity: sha512-4PGnAFn0zmri47L0wluyThmaho1W5Fa32sRavqa7tz5E+Om1y/zDhot5y1Y4x9bmphZHmtxviBhV4P3IpLa4+A==}
+  '@readme/oas-to-har@23.2.27':
+    resolution: {integrity: sha512-RIfVbQ1J3rDWXY5/IxJBP0YG/IkRWt8FDhgPewd5nP44+l88/Ie+4XbVwyFCJcYLv8cVw0bn+crEq8aX3Fk49g==}
     engines: {node: '>=18'}
 
-  '@readme/oas-to-snippet@26.0.7':
-    resolution: {integrity: sha512-7I2tahXjPjJq5uS0RLxCo2v0l4MKNi2T8i3jz/5gb2RBNsuq8Q6IL3J8JKXkcHUlzgf5yKWirja3j8TPJnfcDg==}
+  '@readme/oas-to-snippet@25.2.20':
+    resolution: {integrity: sha512-Dry09HbU58YsMgxEz9qGgHrZMvjzWOyTdS/i35MmeOf5EMzLtrfS9K3SFSKw2RAG9t7qtIIm6nkJegBf+KieTQ==}
     engines: {node: '>=18'}
 
   '@readme/openapi-parser@2.6.0':
@@ -11749,7 +11735,7 @@ snapshots:
 
   '@readme/http-status-codes@7.2.0': {}
 
-  '@readme/httpsnippet@11.0.0':
+  '@readme/httpsnippet@10.1.1':
     dependencies:
       qs: 6.12.1
       stringify-object: 3.3.0
@@ -11761,17 +11747,17 @@ snapshots:
       call-me-maybe: 1.0.2
       js-yaml: 4.1.0
 
-  '@readme/oas-to-har@24.0.7':
+  '@readme/oas-to-har@23.2.27':
     dependencies:
       '@readme/data-urls': 3.0.0
       oas: 25.3.0
       qs: 6.12.1
       remove-undefined-objects: 5.0.0
 
-  '@readme/oas-to-snippet@26.0.7':
+  '@readme/oas-to-snippet@25.2.20':
     dependencies:
-      '@readme/httpsnippet': 11.0.0
-      '@readme/oas-to-har': 24.0.7
+      '@readme/httpsnippet': 10.1.1
+      '@readme/oas-to-har': 23.2.27
 
   '@readme/openapi-parser@2.6.0(openapi-types@12.1.3)':
     dependencies:
