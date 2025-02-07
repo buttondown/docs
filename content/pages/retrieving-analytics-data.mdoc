@@ -22,9 +22,11 @@ Before you can use analytics, you'll need to enable Tracking in your [Buttondown
 
 ## Retrieving email analytics
 
-{% generatedMultilanguageSnippets
-  method="GET"
-  endpoint="/emails/{id}/analytics" /%}
+{% multilanguageSnippets
+   python="public/code/retrieving-analytics-data/1.py"
+   ruby="public/code/retrieving-analytics-data/1.rb"
+   curl="public/code/retrieving-analytics-data/1.sh"
+   javascript="public/code/retrieving-analytics-data/1.js" /%}
 
 ### Parameters
 
@@ -80,10 +82,11 @@ _Note: The name in the Analytics response differs from the Event Type name._
 
 For example, if you wanted to learn more about your subscribers who received your newsletter, you could make the following request:
 
-{% generatedMultilanguageSnippets
-   method="GET"
-   endpoint="/events"
-   query="{\"email_id\": \"EMAIL_ID\", \"event_type\": \"delivered\"}" /%}
+{% multilanguageSnippets
+   python="public/code/retrieving-analytics-data/2.py"
+   ruby="public/code/retrieving-analytics-data/2.rb"
+   curl="public/code/retrieving-analytics-data/2.sh"
+   javascript="public/code/retrieving-analytics-data/2.js" /%}
 
 
 A successful (200) request will would return an array of all subscribers to whom your email was delivered:

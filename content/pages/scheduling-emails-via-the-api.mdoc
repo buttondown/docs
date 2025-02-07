@@ -15,10 +15,11 @@ The best part? We only have to add two new lines of code.
 ## Schedule your email
 As promised, it only takes two extra lines of code to specify your email’s “Status” and “Publish Date.”
 
-{% generatedMultilanguageSnippets
-   method="POST"
-   endpoint="/emails"
-   body="{\"subject\": \"My scheduled email\", \"body\": \"Hello, future!\", \"status\": \"scheduled\", \"publish_date\": \"2024-12-31T12:00:00Z\"}" /%}
+{% multilanguageSnippets
+   python="public/code/scheduling-emails-via-the-api/1.py"
+   ruby="public/code/scheduling-emails-via-the-api/1.rb"
+   curl="public/code/scheduling-emails-via-the-api/1.sh"
+   javascript="" /%}
 
 
 ### Parameters
@@ -47,18 +48,20 @@ How do you find your "Email ID" you may ask? There are two ways:
 
 Once you have your "Email ID" at the ready, you can use the following code to update your "Publish Date."
 
-{% generatedMultilanguageSnippets
-   method="PATCH"
-   endpoint="/emails/{id}"
-   body="{\"publish_date\": \"2025-01-01T12:00:00Z\"}" /%}
+{% multilanguageSnippets
+   python="public/code/scheduling-emails-via-the-api/2.py"
+   ruby="public/code/scheduling-emails-via-the-api/2.rb"
+   curl="public/code/scheduling-emails-via-the-api/2.sh"
+   javascript="" /%}
 
 ## Unschedule your email
 
 Stuff happens. If you decide that you’d rather save your scheduled email as a draft for later, you can do so by changing your email’s "[Status](/api-emails-status)."
 
-{% generatedMultilanguageSnippets
-   method="PATCH"
-   endpoint="/emails/{id}"
-   body="{\"status\": \"draft\"}" /%}
+{% multilanguageSnippets
+   python="public/code/scheduling-emails-via-the-api/3.py"
+   ruby="public/code/scheduling-emails-via-the-api/3.rb"
+   curl="public/code/scheduling-emails-via-the-api/3.sh"
+   javascript="" /%}
 
 {% supportSnippet /%}

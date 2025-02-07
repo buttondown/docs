@@ -149,6 +149,21 @@ Here's more info on this:
 
 - [Markdoc issue](https://github.com/markdoc/markdoc/issues/72)
 
+### `multilanguageSnippets` needs all flags, even if a language isn't present
+
+This snippet requires that all language flags are present, even if there isn't a code sample in that particular language.
+
+It'll look something like this:
+
+```
+{% multilanguageSnippets
+   python="sample.py"
+   ruby=""
+   curl="sample.sh"
+   javascript="" /%}
+
+```
+
 ## FAQs
 
 ### Why do we have three `tsconfig` files?

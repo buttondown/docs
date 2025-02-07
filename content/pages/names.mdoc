@@ -63,10 +63,11 @@ Prefer to go the manual route for updating your subscribers’ metadata? Go ahea
 
 Want to add metadata to an existing subscriber using our [API](/api-subscribers-introduction)? Copy the code below and plug in your subscriber ID (which you can find in the subscriber’s “Notes”), as well as your personal API key (which you can find in the “API” section of your Buttondown [settings](https://buttondown.com/requests)). Then add your input key and its corresponding value.
 
-{% generatedMultilanguageSnippets
-   method="PATCH"
-   endpoint="/subscribers/{id}"
-   body="{\"metadata\": {\"first_name\": \"John\"}}" /%}
+{% multilanguageSnippets
+   python="public/code/names/1.py"
+   ruby="public/code/names/1.rb"
+   curl="public/code/names/1.sh"
+   javascript="" /%}
 
 Run this code, and the metadata in your subscriber “Notes” should be updated and ready to go.
 
