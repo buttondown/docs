@@ -7591,6 +7591,20 @@
           "status": {
             "title": "Status",
             "type": "string"
+          },
+          "application_fee_percent": {
+            "title": "Application Fee Percent",
+            "description": "The application fee percent for the subscription.",
+            "type": "number"
+          },
+          "source": {
+            "title": "Source",
+            "description": "Buttondown attempts to detect the source of a subscription, but this is not always possible.",
+            "enum": [
+              "substack",
+              "buttondown"
+            ],
+            "type": "string"
           }
         },
         "required": [

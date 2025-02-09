@@ -878,5 +878,22 @@
         "email": null
       }
     }
+  ],
+  "StripeSubscription": [
+    {
+      "description": "Basic Substack subscription",
+      "object": {
+        "subscription_id": "sub_whatever",
+        "url": "https://dashboard.stripe.com/subscriptions/sub_whatever",
+        "creation_date": "2023-01-01T00:00:00",
+        "ending_date": "2023-01-01T00:00:00",
+        "amount": 1000,
+        "currency": "usd",
+        "cadence": "month",
+        "status": "active",
+        "application_fee_percent": 0.1,
+        "source": "substack"
+      }
+    }
   ]
 }
