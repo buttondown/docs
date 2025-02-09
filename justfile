@@ -24,6 +24,9 @@ lint: lint-without-code-samples
   rubyfmt -i -- public/
   cd ../app && uv run ruff check ../docs-v2/public --fix
 
+lint-css:
+  pnpm lint-css
+
 build-indexes:
   cd .. && python3 docs-v2/scripts/compile_index.py
   pnpm compile-vectors

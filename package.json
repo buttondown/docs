@@ -13,7 +13,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "format": "biome format --write .",
-    "check": "biome check --apply ."
+    "check": "biome check --write .",
+    "lint-css": "biome check --write public/subscriber_facing_styles/*.css"
   },
   "packageManager": "pnpm@9.15.3",
   "engines": {
