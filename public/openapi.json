@@ -5926,8 +5926,8 @@
         "title": "TagAnalytics",
         "type": "object",
         "properties": {
-          "count": {
-            "title": "Count",
+          "created_subscribers": {
+            "title": "Created Subscribers",
             "type": "integer"
           },
           "click_rate": {
@@ -5944,7 +5944,7 @@
           }
         },
         "required": [
-          "count",
+          "created_subscribers",
           "click_rate",
           "open_rate",
           "retention"

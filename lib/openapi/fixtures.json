@@ -508,7 +508,7 @@
     {
       "description": "Basic tag",
       "object": {
-        "color": "string",
+        "color": "#333",
         "creation_date": "2019-08-24T14:15:22Z",
         "description": "string",
         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
