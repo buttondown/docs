@@ -83,7 +83,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "color",
         "question": "What's your favorite color?",
-        "response_count": 0,
+        "response_count": 10,
         "answers": [
           "Red",
           "Green",
@@ -102,7 +102,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "feedback",
         "question": "How can we improve?",
-        "response_count": 0,
+        "response_count": 10,
         "answers": [
           "More content",
           "Better content",
@@ -506,13 +506,14 @@
   ],
   "Tag": [
     {
-      "description": "Basic tag",
+      "description": "Tag",
       "object": {
-        "color": "#333",
-        "creation_date": "2019-08-24T14:15:22Z",
-        "description": "string",
-        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "name": "string"
+        "name": "VIP",
+        "color": "#FFD700",
+        "description": "VIP subscribers",
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "secondary_id": 1,
+        "creation_date": "2020-09-29T00:00:00+00:00"
       }
     }
   ],
