@@ -96,5 +96,5 @@ This video shows the email after it was delivered, with the subscriber's first n
 But wait! What if you don’t have first names for every subscriber? Then it’s time to break out our “If / Else” template. This lets Buttondown choose between using a first name, if one is available, and a placeholder name if not. Check out the example below.
 
 {% preview
-before="{% if subscriber.metadata.first_name %}}\n  Howdy {{subscriber.metadata.first_name}}!\n{% else %}\n  Howdy Pikachu!\n{% endif %}"
+before="{% if subscriber.metadata.first_name %}\n  Howdy {{subscriber.metadata.first_name}}!\n{% else %}\n  Howdy Pikachu!\n{% endif %}"
 after="Howdy Pikachu!" /%}
