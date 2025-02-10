@@ -4392,6 +4392,26 @@
           },
           {
             "in": "query",
+            "name": "date__start",
+            "schema": {
+              "title": "Date  Start",
+              "type": "string",
+              "format": "date"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "date__end",
+            "schema": {
+              "title": "Date  End",
+              "type": "string",
+              "format": "date"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
             "name": "page",
             "schema": {
               "title": "Page",
