@@ -920,6 +920,17 @@
               }
             },
             "required": false
+          },
+          {
+            "in": "query",
+            "name": "subject",
+            "schema": {
+              "title": "Subject",
+              "description": "If provided, only return emails with a subject that contains the given string.",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return emails with a subject that contains the given string."
           }
         ],
         "responses": {
@@ -1171,6 +1182,16 @@
             "schema": {
               "title": "Query",
               "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "title": "Page Size",
+              "default": 100,
+              "type": "integer"
             },
             "required": false
           }

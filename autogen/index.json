@@ -2509,6 +2509,7 @@
     "references": [
       "api-changelog-2022-03-08",
       "api-changelog-2023-08-23",
+      "api-changelog-2025-02-12",
       "api-filtering",
       "retrieving-analytics-data"
     ]
@@ -3217,6 +3218,16 @@
       "api-changelog",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2025-02-12",
+    "url": "api-changelog-2025-02-12",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
     ]
   },
   {
