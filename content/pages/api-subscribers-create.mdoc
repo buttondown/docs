@@ -2,15 +2,16 @@
 title: Creating a subscriber
 endpoint: /subscribers
 method: post
+relatedPages: []
 ---
-
-{% noticeInfo text="This endpoint is for creating a new subscriber via the API. If you're looking to just do this via the UI, [this doc](/manually-adding-subscribers) is for you." /%}
+{% noticeInfo
+   text="This endpoint is for creating a new subscriber via the API. If you're looking to just do this via the UI, [this doc](/manually-adding-subscribers) is for you." /%}
 
 ### Double opt-in
-By default, newly created subscribers are subject to [double opt-in](/glossary-double-optin) — they will receive an email asking them to confirm their subscription,
-and have a state of [`unactivated`](/api-subscribers-type#unactivated) until they do so.
 
-You can't disable this behavior globally, but you _can_ disable it on a per-subscriber basis by providing a `type` of `regular` in the request body.
+By default, newly created subscribers are subject to [double opt-in](/glossary-double-optin) — they will receive an email asking them to confirm their subscription, and have a state of [`unactivated`](/api-subscribers-type#unactivated) until they do so.
+
+You can't disable this behavior globally, but you *can* disable it on a per-subscriber basis by providing a `type` of `regular` in the request body.
 
 ### Handling collisions and updates
 
@@ -21,16 +22,16 @@ Consider the following example (of a pseudocode request), where we attempt to cr
 ```shell
 POST /v1/subscribers {
   "email_address": "john@example.com",
-  "tags": ["newsletter-1", "newsletter-2"]
+  "tags": ["tag-1", "tag-2"]
 } # This will succeed, and return a 201 status code.
 
 POST /v1/subscribers {
   "email_address": "john@example.com",
-  "tags": ["newsletter-2", "newsletter-3"]
+  "tags": ["tag-2", "tag-3"]
 } # This will return a 400 status code, and the subscriber will not be created.
 ```
 
-Here, Buttondown intentionally _rejects_ the second request, because it would overwrite the existing subscriber's data.
+Here, Buttondown intentionally *rejects* the second request, because it would overwrite the existing subscriber's data.
 
 Similarly, imagine that you create a subscriber with a `type` of `regular`. Time passes — the subscriber unsubscribes — and then they decide they want to re-subscribe.
 
@@ -48,7 +49,7 @@ POST /v1/subscribers {
 } # This will _fail_, and return a 400 status code.
 ```
 
-Again, Buttondown intentionally _rejects_ the second request, because it would overwrite the existing subscriber's data and any history (such as emails they engaged with, [surveys](/surveys) they completed, etc.).
+Again, Buttondown intentionally *rejects* the second request, because it would overwrite the existing subscriber's data and any history (such as emails they engaged with, [surveys](/surveys) they completed, etc.).
 
 The right way to model both of these scenarios would be to [update](/api-subscribers-update) the existing subscriber, rather than creating a new one altogether.
 
@@ -59,13 +60,13 @@ curl -X POST https://api.buttondown.com/v1/subscribers \
   -H "X-Buttondown-Collision-Behavior: overwrite" \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"email_address": "john@example.com", "tags": ["newsletter-1", "newsletter-2"]}'
+  -d '{"email_address": "john@example.com", "tags": ["tag-1", "tag-2"]}'
 
 curl -X POST https://api.buttondown.com/v1/subscribers \
   -H "X-Buttondown-Collision-Behavior: overwrite" \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"email_address": "john@example.com", "tags": ["newsletter-2", "newsletter-3"]}'
+  -d '{"email_address": "john@example.com", "tags": ["tag-2", "tag-3"]}'
 ```
 
 ---
