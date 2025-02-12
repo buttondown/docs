@@ -179,6 +179,11 @@
       "name": "User",
       "variant": "info",
       "description": "This subscriber was added by a user with write permissions for subscribers within the Buttondown dashboard."
+    },
+    "comment": {
+      "name": "Comment",
+      "variant": "info",
+      "description": "This subscriber joined via commenting on an email."
     }
   },
   "UpdateSubscriberErrorCode": {

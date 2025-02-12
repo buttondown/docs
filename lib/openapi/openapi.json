@@ -6978,7 +6978,8 @@
           "import",
           "organic",
           "user",
-          "admin"
+          "admin",
+          "comment"
         ],
         "type": "string"
       },

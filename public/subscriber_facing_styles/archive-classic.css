@@ -931,3 +931,31 @@ blockquote.tiktok-embed {
   font-size: 1.2em;
   font-weight: 400;
 }
+.subscription-success .get-more {
+  margin: 2rem 0;
+  text-align: center;
+}
+.subscription-success .get-more h2 {
+  font-size: .875rem;
+  color: #666;
+  margin-bottom: 1rem;
+  letter-spacing: .01em;
+}
+.subscription-success .get-more .cta {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.subscription-success .cta {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  margin-bottom: .5rem;
+}
+.subscription-success .cta svg {
+  fill: currentColor;
+}
