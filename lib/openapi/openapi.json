@@ -7000,7 +7000,8 @@
           "organic",
           "user",
           "admin",
-          "comment"
+          "comment",
+          "stripe"
         ],
         "type": "string"
       },

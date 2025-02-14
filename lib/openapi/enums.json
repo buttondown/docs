@@ -184,6 +184,11 @@
       "name": "Comment",
       "variant": "info",
       "description": "This subscriber joined via commenting on an email."
+    },
+    "stripe": {
+      "name": "Stripe",
+      "variant": "info",
+      "description": "This subscriber joined via Stripe."
     }
   },
   "UpdateSubscriberErrorCode": {
