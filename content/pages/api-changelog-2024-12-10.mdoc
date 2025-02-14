@@ -11,12 +11,10 @@ When [creating an export of your Buttondown data](/api-exports-create), you can 
 
 Rather than just getting "every data point about every subscriber, ever":
 
-```shell
-curl --request POST \
-     --url https://api.buttondown.com/v1/exports \
-     --header "Authorization: Token <your-api-key>" \
-     --data '{"collections": ["subscribers"]}'
-```
+{% generatedMultilanguageSnippets
+   method="POST"
+   endpoint="/exports"
+   body="{\"collections\": [\"subscribers\"]}" /%}
 
 You can, say, grab _just the email address and status_ of _every subscriber in the past week_:
 
