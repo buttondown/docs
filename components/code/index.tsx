@@ -3,14 +3,16 @@ import { promises as fs } from "node:fs";
 import { createHighlighter } from "shiki";
 import CodeInteractive from "./client";
 import {
-    type HandwrittenBlock,
-    type IntermediateBlock,
-    PYTHON_API_KEY_CODE,
-    PYTHON_API_KEY_CODE_REPLACEMENT,
-    type ProcessedBlock,
-    type SingletonLanguageBlockList,
-    shikiWithoutWrapper,
+  type HandwrittenBlock,
+  type IntermediateBlock,
+  PYTHON_API_KEY_CODE,
+  PYTHON_API_KEY_CODE_REPLACEMENT,
+  type ProcessedBlock,
+  type SingletonLanguageBlockList,
+  shikiWithoutWrapper,
 } from "./lib";
+
+const THEME = "dark-plus";
 
 export default async function Code({
   blocks,
@@ -19,7 +21,7 @@ export default async function Code({
 }) {
   const intermediateProcessedBlocks: IntermediateBlock[] = blocks;
   const highlighter = await createHighlighter({
-    themes: ["dark-plus"],
+    themes: [THEME],
     langs: ["python", "json", "html", "ruby", "jinja", "markdown"],
   });
 
@@ -30,7 +32,7 @@ export default async function Code({
 
     const html = highlighter.codeToHtml(block.code, {
       lang: block.language,
-      theme: "dark-plus",
+      theme: THEME,
       transformers: [transformerNotationDiff()],
     });
 
@@ -54,13 +56,13 @@ export default async function Code({
             from: shikiWithoutWrapper(
               highlighter.codeToHtml(PYTHON_API_KEY_CODE, {
                 lang: "python",
-                theme: 'dark-plus'
+                theme: THEME,
               }),
             ),
             to: shikiWithoutWrapper(
               highlighter.codeToHtml(PYTHON_API_KEY_CODE_REPLACEMENT, {
                 lang: "python",
-                theme: 'dark-plus'
+                theme: THEME,
               }),
             ),
           },
