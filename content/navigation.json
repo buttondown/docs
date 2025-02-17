@@ -838,6 +838,10 @@
         },
         {
           "discriminant": "page",
+          "value": "pageviews-by-referrer"
+        },
+        {
+          "discriminant": "page",
           "value": "rss-subscribers"
         },
         {

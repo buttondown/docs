@@ -1720,6 +1720,16 @@
     "references": []
   },
   {
+    "title": "Pageviews by referrer",
+    "url": "pageviews-by-referrer",
+    "section": "reference",
+    "schema": null,
+    "description": "An explanation on what pageviews by referrer are and how they're used by Buttondown.",
+    "references": [
+      "pageviews-by-referrer"
+    ]
+  },
+  {
     "title": "RSS subscribers",
     "url": "rss-subscribers",
     "section": "reference",
@@ -1736,7 +1746,9 @@
     "section": "reference",
     "schema": null,
     "description": "A guide to UTM parameters, and how to use them in Buttondown.",
-    "references": []
+    "references": [
+      "pageviews-by-referrer"
+    ]
   },
   {
     "title": "Using a screen reader",
