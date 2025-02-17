@@ -2162,63 +2162,6 @@
         ]
       }
     },
-    "/subscribers/{id_or_email}/clients": {
-      "get": {
-        "operationId": "get_clients",
-        "summary": "Get Clients",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id_or_email",
-            "schema": {
-              "title": "Id Or Email",
-              "type": "string"
-            },
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientPage"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict"
-          }
-        },
-        "security": [
-          {
-            "PermissionAuthenticationRequirement": []
-          }
-        ]
-      }
-    },
     "/subscribers/{id_or_email}/referrals": {
       "get": {
         "operationId": "get_referrals",
@@ -7445,73 +7388,6 @@
             "type": "string"
           }
         }
-      },
-      "Client": {
-        "title": "Client",
-        "type": "object",
-        "properties": {
-          "region": {
-            "title": "Region",
-            "type": "string"
-          },
-          "country": {
-            "title": "Country",
-            "type": "string"
-          },
-          "client_os": {
-            "title": "Client Os",
-            "type": "string"
-          },
-          "client_type": {
-            "title": "Client Type",
-            "type": "string"
-          },
-          "client_name": {
-            "title": "Client Name",
-            "type": "string"
-          },
-          "occurrences": {
-            "title": "Occurrences",
-            "type": "integer"
-          }
-        },
-        "required": [
-          "region",
-          "country",
-          "client_os",
-          "client_type",
-          "client_name",
-          "occurrences"
-        ]
-      },
-      "ClientPage": {
-        "title": "Page[Client]",
-        "type": "object",
-        "properties": {
-          "results": {
-            "title": "Results",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Client"
-            }
-          },
-          "next": {
-            "title": "Next",
-            "type": "string"
-          },
-          "previous": {
-            "title": "Previous",
-            "type": "string"
-          },
-          "count": {
-            "title": "Count",
-            "type": "integer"
-          }
-        },
-        "required": [
-          "results",
-          "count"
-        ]
       },
       "AutomationAttemptStatus": {
         "title": "Status",
