@@ -7853,6 +7853,8 @@
           "send_reminders",
           "delete_emails",
           "update_email_types",
+          "update_archival_modes",
+          "update_commenting_modes",
           "delete_tags",
           "delete_surveys",
           "replay_events",

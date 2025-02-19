@@ -569,6 +569,14 @@
     "update_survey_statuses": {
       "variant": "info",
       "name": "Update status types."
+    },
+    "update_commenting_modes": {
+      "variant": "info",
+      "name": "Update commenting modes."
+    },
+    "update_archival_modes": {
+      "variant": "info",
+      "name": "Update archival modes."
     }
   },
   "SubscriberType": {
