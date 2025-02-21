@@ -1782,6 +1782,16 @@
     "section": "reference",
     "schema": null,
     "description": null,
+    "references": [
+      "acceptable-use-policy"
+    ]
+  },
+  {
+    "title": "Acceptable use policy",
+    "url": "acceptable-use-policy",
+    "section": "reference",
+    "schema": null,
+    "description": null,
     "references": []
   },
   {
@@ -1897,6 +1907,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "acceptable-use-policy",
       "auditing",
       "glossary-double-optin"
     ]
@@ -1979,6 +1990,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "acceptable-use-policy",
       "api-subscribers-create",
       "dealing-with-spam-subscribers",
       "glossary-cold-email",

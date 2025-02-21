@@ -141,6 +141,7 @@ const VALID_APPLICATION_ROUTES = [
   "blog/netlify",
   "legal/privacy",
   "legal/cookies",
+  "legal/terms",
   "changelog/2025-02-06",
 
   // Specific pages.
