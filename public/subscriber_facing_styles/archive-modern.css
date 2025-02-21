@@ -487,7 +487,7 @@ body {
   text-transform: uppercase;
 }
 .subject {
-  margin-top: .5rem;
+  margin-top: 0;
   line-height: 1.2 !important;
   font-size: 44px;
   color: #111;
@@ -944,10 +944,11 @@ dialog::backdrop {
   flex: 1;
 }
 h2.description {
-  font-size: 20px;
+  margin-bottom: 2rem;
+  margin-top: -2rem;
+  font-weight: 600;
+  font-size: 18px;
   font-family: var(--brand-font);
-  font-weight: 400;
-  margin-top: 0 !important;
 }
 .pagination {
   text-align: center;
