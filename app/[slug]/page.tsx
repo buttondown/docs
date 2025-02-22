@@ -1,9 +1,9 @@
 import SEARCH from "@/autogen/index.json";
 import Document from "@/components/Document";
 import ObjectDescription, {
-  extractParameters,
-  extractSchemaFromContent,
-  fixtureForRef,
+    extractParameters,
+    extractSchemaFromContent,
+    fixtureForRef,
 } from "@/components/ObjectDescription";
 import Parameter from "@/components/Parameter";
 import Code from "@/components/code";
@@ -12,18 +12,18 @@ import keystaticConfig, { localBaseURL } from "@/keystatic.config";
 import { TITLE } from "@/lib/constants";
 import { generateJSONLDMetadata } from "@/lib/jsonld";
 import OpenAPIEnums from "@/lib/openapi/enums.json";
-import OpenAPI from "@/lib/openapi/openapi.json";
 import type {
-  Method,
-  Object as OpenAPIObject,
-  Operation,
+    Method,
+    Object as OpenAPIObject,
+    Operation,
 } from "@/lib/openapi/types";
+import OpenAPI from "@/public/openapi.json";
 import { createReader } from "@keystatic/core/reader";
 import { marked } from "marked";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { generateSnippets, getOas, plainOas } from "./oas";
 import { CodeSnippets } from "./CodeSnippets";
+import { generateSnippets, plainOas } from "./oas";
 
 type Props = {
   params: {

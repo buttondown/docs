@@ -2,7 +2,6 @@ import SEARCH from "../autogen/index.json";
 import Code from "../components/code";
 import type OpenAPIEnums from "../lib/openapi/enums.json";
 import OpenAPIFixtures from "../lib/openapi/fixtures.json";
-import OpenAPI from "../lib/openapi/openapi.json";
 import type {
     Method,
     Object as OpenAPIObject,
@@ -10,6 +9,7 @@ import type {
     RequestBody,
     Route,
 } from "../lib/openapi/types";
+import OpenAPI from "../public/openapi.json";
 import Markdown from "./Markdown";
 import Parameter, { type TypeProp } from "./Parameter";
 

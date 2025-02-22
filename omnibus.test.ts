@@ -6,7 +6,7 @@ import matter from "gray-matter";
 import { expect, test } from "vitest";
 import { OpenAPIProperty, urlForSchema } from "./components/ObjectDescription";
 import NAVIGATION from "./content/navigation.json";
-import OpenAPI from "./lib/openapi/openapi.json";
+import OpenAPI from "./public/openapi.json";
 import REDIRECTS from "./redirects.mjs";
 
 dotenv.config();

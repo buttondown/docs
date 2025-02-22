@@ -1,4 +1,4 @@
-import OpenAPI from "@/lib/openapi/openapi.json";
+import OpenAPI from "@/public/openapi.json";
 import Oas from "oas";
 import OASNormalize from "oas-normalize";
 
@@ -22,7 +22,7 @@ export async function generateSnippets({
   const circularOp = circularOas.operation(
     endpoint,
     // biome-ignore lint/suspicious/noExplicitAny: method has to be get/post/put/delete
-    method.toLowerCase() as any,
+    method.toLowerCase() as any
   );
 
   // biome-ignore lint/suspicious/noExplicitAny: we are generating a best-attempt request body
@@ -68,7 +68,7 @@ export function generateSnippetsWithSpecifiedBody({
   const plainOp = plainOas.operation(
     endpoint,
     // biome-ignore lint/suspicious/noExplicitAny: method has to be get/post/put/delete
-    method.toLowerCase() as any,
+    method.toLowerCase() as any
   );
 
   const combinedHeaders: { [key: string]: string } = {
@@ -89,7 +89,7 @@ export function generateSnippetsWithSpecifiedBody({
       if (param.in !== "path") continue;
       patchedEndpoint = patchedEndpoint.replace(
         new RegExp(`\\{(${param.name})\\}`, "g"),
-        fn(param.name),
+        fn(param.name)
       );
     }
     return patchedEndpoint;
@@ -120,7 +120,7 @@ request = Net::HTTP::${method.charAt(0).toUpperCase() + method.slice(1).toLowerC
 ${Object.keys(combinedHeaders)
   .map((key) => `request["${key}"] = "${combinedHeaders[key]}"`)
   .join(
-    "\n",
+    "\n"
   )}${["POST", "PUT", "PATCH"].includes(method.toUpperCase()) ? `\nrequest.body = ${stringifyObject(body || {})}` : ""}
 
 response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == "https") do |http|

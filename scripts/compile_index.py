@@ -6,7 +6,7 @@ import yaml
 FILE_PATH_TEMPLATE = "docs-v2/content/pages/{}.mdoc"
 INPUT_PATH = "docs-v2/content/navigation.json"
 OUTPUT_PATH = "docs-v2/autogen/index.json"
-OPENAPI_PATH = "docs-v2/lib/openapi/openapi.json"
+OPENAPI_PATH = "docs-v2/public/openapi.json"
 
 
 @dataclass

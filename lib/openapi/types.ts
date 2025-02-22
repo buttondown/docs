@@ -1,7 +1,7 @@
+import type OpenAPI from "@/public/openapi.json";
 import type { Variant } from "../../components/Pill";
 import type OpenAPIEnums from "./enums.json";
 import type OpenAPIFixtures from "./fixtures.json";
-import type OpenAPI from "./openapi.json";
 
 type KeysOfType<T, V> = keyof {
   [P in keyof T as V extends keyof T[P] ? P : never]: unknown;
