@@ -6,7 +6,7 @@
 
 To run Docs for the first time you'll:
 
-1. Clone the `monorepo` and navigate to `docs-v2` (or, if you don't have access, clone the `docs` repo)
+1. Clone the `monorepo` and navigate to `docs` (or, if you don't have access, clone the `docs` repo)
 2. Use `just install` to install all packages and dependencies (or, if you're using the standalone `docs` repo, run `pnpm install`)
 3. Run `pnpm dev` (or, if you're trying to build the docs statically for production, run `just build`)
 

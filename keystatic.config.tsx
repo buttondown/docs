@@ -1,15 +1,15 @@
 import PRICES from "@/autogen/prices.json";
 import { preview } from "@/components/keystatic/preview";
 import {
-  NAVIGATION_GROUPS,
-  NAVIGATION_GROUP_LABELS,
+    NAVIGATION_GROUPS,
+    NAVIGATION_GROUP_LABELS,
 } from "@/components/layout/lib";
 import {
-  collection,
-  component,
-  config,
-  fields,
-  singleton,
+    collection,
+    component,
+    config,
+    fields,
+    singleton,
 } from "@keystatic/core";
 
 const navigationGroupSchema = (label: string) =>
@@ -46,7 +46,7 @@ const navigationGroupSchema = (label: string) =>
 // should be run from the root directory of the monorepo even when local — this helps ensure that the
 // behavior is similar to production.
 const IN_PRODUCTION = process.env.NODE_ENV === "production";
-const APPLICATION_DIRECTORY = IN_PRODUCTION ? "docs-v2" : ".";
+const APPLICATION_DIRECTORY = IN_PRODUCTION ? "docs" : ".";
 export const localBaseURL = IN_PRODUCTION ? "../" : "./";
 const generatePath = (path: string) => {
   return `${APPLICATION_DIRECTORY}/${path}`;

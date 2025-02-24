@@ -22,7 +22,7 @@ lint-css:
   pnpm lint-css
 
 build-indexes:
-  cd .. && python3 docs-v2/scripts/compile_index.py
+  cd .. && python3 docs/scripts/compile_index.py
   pnpm compile-vectors
 
 build: lint build-indexes

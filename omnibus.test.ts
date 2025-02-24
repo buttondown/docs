@@ -402,7 +402,10 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
         // @ts-ignore
         urlForSchema((ref as OpenAPIProperty).$ref as string),
         // @ts-ignore
-        `Reference to ${(ref as OpenAPIProperty).$ref} in ${filename} does not have a URL in the schema. Maybe try running \`just docs-v2/build-indexes\`?`
+        `Reference to ${
+          // @ts-ignore
+          (ref as OpenAPIProperty).$ref
+        } in ${filename} does not have a URL in the schema. Maybe try running \`just docs/build-indexes\`?`
       ).toBeTruthy();
     });
   });
