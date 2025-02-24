@@ -8894,12 +8894,12 @@
             ],
             "type": "string"
           },
-          "id": {
-            "title": "Id",
-            "type": "string"
-          },
           "product_id": {
             "title": "Product Id",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
             "type": "string"
           },
           "product": {
@@ -8910,8 +8910,7 @@
           "style",
           "currency",
           "cadence",
-          "id",
-          "product_id"
+          "id"
         ]
       },
       "PricePage": {
@@ -9039,6 +9038,10 @@
               "one-time",
               "email"
             ],
+            "type": "string"
+          },
+          "product_id": {
+            "title": "Product Id",
             "type": "string"
           }
         },
