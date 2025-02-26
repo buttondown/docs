@@ -913,13 +913,14 @@
             "in": "query",
             "name": "email_type",
             "schema": {
-              "default": [],
+              "description": "The type of emails to return. Defaults to all types.",
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/EmailType"
               }
             },
-            "required": false
+            "required": false,
+            "description": "The type of emails to return. Defaults to all types."
           },
           {
             "in": "query",
@@ -6311,7 +6312,12 @@
             "type": "integer"
           },
           "email_type": {
-            "$ref": "#/components/schemas/EmailType"
+            "default": "public",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EmailType"
+              }
+            ]
           },
           "slug": {
             "title": "Slug",
@@ -6363,7 +6369,6 @@
           "description",
           "source",
           "body",
-          "email_type",
           "status",
           "commenting_mode",
           "absolute_url",
@@ -6638,7 +6643,12 @@
             "type": "string"
           },
           "email_type": {
-            "$ref": "#/components/schemas/EmailType"
+            "description": "The type of email to create. Defaults to `PUBLIC`.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EmailType"
+              }
+            ]
           },
           "status": {
             "$ref": "#/components/schemas/EmailStatus"
@@ -8890,7 +8900,8 @@
               "year",
               "month",
               "one-time",
-              "email"
+              "email",
+              "week"
             ],
             "type": "string"
           },
@@ -9036,7 +9047,8 @@
               "year",
               "month",
               "one-time",
-              "email"
+              "email",
+              "week"
             ],
             "type": "string"
           },

@@ -905,8 +905,8 @@
         "amount": 1000,
         "currency": "usd",
         "cadence": "month",
-        "id": "price_123",
         "product_id": "prod_123",
+        "id": "price_123",
         "product": null
       }
     }
@@ -915,7 +915,7 @@
     {
       "description": "Basic product",
       "object": {
-        "id": "321c72eb-9c0e-4070-82a6-c4834a941664",
+        "id": "282bcf0b-3cb2-415d-87ea-73d9bbc28af1",
         "product_id": "prod_123",
         "name": "Basic",
         "creation_date": "2020-09-30",
