@@ -1,0 +1,14 @@
+---
+title: "2025-02-26"
+navigationTitle: "2025-02-26"
+---
+
+We've added a new field to the Subscriber schema to help you track undeliverable subscribers!
+
+The [`Subscriber`](/api-subscribers-introduction) schema now includes an `undeliverability_date` field, which records when a subscriber was marked as undeliverable. This is similar to the existing `churn_date` field, but specifically for tracking when email delivery to a subscriber fails permanently.
+
+Additionally, you can now:
+- Filter subscribers by `undeliverability_date__start` and `undeliverability_date__end` when [listing subscribers](/api-subscribers-list)
+- Sort subscribers by `undeliverability_date` or `undeliverability_date_desc` via the `ordering` parameter
+
+This change makes it easier to track when subscribers become undeliverable and manage your subscriber list more effectively.

@@ -1786,6 +1786,24 @@
               "type": "string"
             },
             "required": false
+          },
+          {
+            "in": "query",
+            "name": "undeliverability_date__start",
+            "schema": {
+              "title": "Undeliverability Date  Start",
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "undeliverability_date__end",
+            "schema": {
+              "title": "Undeliverability Date  End",
+              "type": "string"
+            },
+            "required": false
           }
         ],
         "responses": {
@@ -7091,6 +7109,11 @@
           },
           "churn_date": {
             "title": "Churn Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "undeliverability_date": {
+            "title": "Undeliverability Date",
             "type": "string",
             "format": "date-time"
           },

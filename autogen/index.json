@@ -2603,6 +2603,7 @@
       "api-changelog-2021-11-26",
       "api-changelog-2023-07-23",
       "api-changelog-2024-08-01",
+      "api-changelog-2025-02-26",
       "glossary-rest",
       "metadata",
       "names"
@@ -2638,6 +2639,7 @@
     "references": [
       "api-changelog-2024-05-22",
       "api-changelog-2024-12-05",
+      "api-changelog-2025-02-26",
       "api-filtering"
     ]
   },
@@ -3236,6 +3238,16 @@
       "api-changelog",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2025-02-26",
+    "url": "api-changelog-2025-02-26",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
     ]
   },
   {
