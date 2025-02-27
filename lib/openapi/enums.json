@@ -354,6 +354,10 @@
     "conversations": {
       "variant": "info",
       "name": "Conversations"
+    },
+    "images": {
+      "variant": "info",
+      "name": "Images"
     }
   },
   "ExportStatus": {

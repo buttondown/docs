@@ -919,8 +919,7 @@
     {
       "description": "Basic product",
       "object": {
-        "id": "1420fb7a-5904-4e43-adcb-1f6b64ad435a",
-        "product_id": "prod_123",
+        "id": "prod_123",
         "name": "Basic",
         "creation_date": "2020-09-30",
         "active": true
