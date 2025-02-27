@@ -120,8 +120,7 @@
     "references": [
       "duda",
       "importing-your-data",
-      "names",
-      "substack"
+      "names"
     ]
   },
   {
@@ -174,7 +173,6 @@
       "quickstart",
       "sending-your-first-email",
       "subscriber-autonomy",
-      "substack",
       "surveys",
       "tags",
       "webflow",
@@ -201,7 +199,6 @@
       "moosend",
       "names",
       "sending-your-first-email",
-      "substack",
       "surveys",
       "using-templating"
     ]
@@ -266,7 +263,8 @@
       "moosend",
       "quickstart",
       "revue",
-      "sending-your-first-email"
+      "sending-your-first-email",
+      "substack"
     ]
   },
   {
@@ -393,7 +391,8 @@
     "description": null,
     "references": [
       "importing-your-data",
-      "substack"
+      "substack",
+      "substack-application-fee"
     ]
   },
   {
@@ -409,6 +408,22 @@
   {
     "title": "Double opt-in and imports",
     "url": "do-imported-subscribers-have-to-re-confirm-their-subscription",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Substack is taking 10% of my revenue. What should I do?",
+    "url": "substack-application-fee",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Are there limitations on imports?",
+    "url": "import-limitations",
     "section": "guides",
     "schema": null,
     "description": null,
@@ -672,8 +687,7 @@
       "paid-subscriptions",
       "perks",
       "quickstart",
-      "stripe",
-      "substack"
+      "stripe"
     ]
   },
   {
@@ -1936,8 +1950,7 @@
     "description": null,
     "references": [
       "importing-your-data",
-      "sending-your-first-email",
-      "substack"
+      "sending-your-first-email"
     ]
   },
   {

@@ -1,80 +1,79 @@
 ---
 title: Substack
+relatedPages:
+- substack-application-fee
 ---
 
-Welcome to Buttondown! After you've read through our "[Getting Started](/registration-and-setup)" guide, we're here to help you with your next step: transferring your subscribers from your old email platform to Buttondown.
 
-## Importing your subscriber data
+## Introduction
 
-### Export a CSV file from Substack
+Welcome to Buttondown! After you've read through our "[Getting Started](/registration-and-setup)" guide, we're here to help you with your next step: transferring your subscribers and archives from Substack to Buttondown.
 
-To export your subscriber data, navigate to the “Subscribers” tab of your Substack dashboard. Then, scroll down to “All subscribers,” and click **Export** to generate a CSV file of all your subscribers.
+Here's an overview of the migration process:
 
-{% video file="/substack/substack_export-subscribers.mp4" /%}
+1. Export your data from Substack
+2. Import your archives to Buttondown
+3. Import your subscribers to Buttondown
+4. Importing your paid subscriptions (optional)
+5. Contact Substack to remove the 10% application fee (optional)
+6. Delete your Substack account
 
-This video shows the "Export" option in the Substack dashboard.
+{% noticeInfo text="Need help migrating to Buttondown? Just contact our [support team](mailto:concierge@buttondown.email) and we'll take care of it for you!" /%}
 
-What’s a [CSV file](/glossary-csv), you may ask? As a quick refresher, CSV files consist of “comma-separated values.” Your CSV file from Substack should look a little something like this:
+## Exporting your data from Substack
 
-![Example CSV file.](/images/spreadsheets/substack_sample-csv-file.png)
+To get this data you'll log into your Substack account and do the following:
 
-Buttondown can use the CSV from Substack to automatically import the following values for each of your subscribers:
+1. Navigate to the Dashboard → Publication Settings
+2. Select "Exports"
+3. Click "Create new export". (This will include both your subscribers and your archives.)
+4. Download this export (This will be a zip file)
 
-- Their email
-- The date they joined your newsletter
-- Any assigned [tags](/tags), which you can use to group your subscribers or send tailored content
-- Any assigned [metadata](/metadata), such as your subscriber’s [name](/names), location, or other structured-key values
-- Any free-form notes you may have jotted down for your personal reference
+{% noticeInfo text="Substack has two different pages for settings: Publication settings, and Account settings. Exports are on the Publication settings." /%}
 
-Other than your subscriber’s email, all the above values are completely optional, and don’t have to be included in your CSV file. Note that you can also add details like tags, metadata, and notes to subscribers after they’ve been imported to Buttondown.
-
-### Formatting your CSV file
-
-If you’d like to add more information (including tags, metadata, or notes) to your CSV file, here are a few tips for formatting it:
-
-- You don’t need to include a **header row** unless it’s for your own reference. If you do choose to include a header row, feel free to format it however you like.
-- Any **dates** should follow the “Day/Month/Year” format.
-- If you have multiple **tags** for a given subscriber, we recommend adding them all in the same column and separating each tag with a comma, like so: “`Sports`, `Politics`”
-- If you have multiple instances of **metadata** for a given subscriber, it’s best to add them in separate columns rather than lumping them all into the same column.
-- Last but not least, you can format your subscriber **notes** however you like. If you don’t have any notes, that’s completely fine too!
-
-### Import the CSV file to Buttondown
-
-After you’re happy with the contents of your CSV file, you can import it to Buttondown. Here's how:
-
-1. Navigate to the “Subscribers” tab of your Buttondown dashboard.
-2. Click **Import.** A pop-up window appears.
-3. Drag your CSV file over to the pop-up window,
-4. Follow the prompts that appear. These prompts ask you to pick the values you’d like to assign as tags, metadata, notes, and more.
-5. Click **Done.**
-
-{% video file="/substack/substack_import-subscribers.mp4" /%}
-
-This video shows the process of importing a CSV and assigning values.
-
-It can take anywhere from a few seconds to a few hours for Buttondown to import all of your data, depending on the number of subscribers you’re adding. In some cases, if you’re importing a large quantity of new subscribers, we may temporarily deactivate your account to make sure everything is working correctly.
-
-After your import completes, you’ll receive a notification from Buttondown, and will be able to view your subscriber data in the “Subscribers” tab of your dashboard. You’ll also see your data reflected in the “Tags” tab.
-
-## Importing your archive data
-
-Here's how to generate an export of your Substack data and upload it to Buttondown:
-
-1. Navigate to the “Settings” tab of your Substack dashboard, and scroll to the “Exports” section.
-2. Click **Create new export**. This generates a ZIP file filled with your posts, subscriber list, and other related information.
-3. Navigate to the “Emails” tab of your Buttondown dashboard.
-4. Click **Import** and select “Substack” from the pop-up menu.
-5. Drag your ZIP file to the pop-up window to begin the upload.
 
 {% video file="/substack/substack_substack-export-buttondown-import.mp4" /%}
 
 This video shows the process of exporting data from Substack and importing it to Buttondown.
 
-Your data import should only take a few moments to complete. Your past Substack posts should now appear in the “Emails” tab of your Buttondown dashboard. Buttondown will automatically parse your ZIP file to mark each email as either free or paid.
 
-## Importing your paid subscriptions
+{% noticeWarn text="Not seeing an option to export? Make sure you're looking at Publication settings (not Account settings.)" /%}
 
-Here's how to import your paid Substack subscriptions to Buttondown.
+## Importing your archives
+
+Now that you have the export from Substack, you're ready to start importing into Buttondown!
+
+1. Log into your Buttondown account
+2. Navigate to the [Emails tab](https://buttondown.com/emails)
+3. Click "Import" in the top toolbar
+4. Select this zip file
+
+Your data import should only take a few moments to complete. Your past Substack posts should now appear in the “Emails” tab of your Buttondown dashboard. 
+
+
+## Importing your subscribers
+
+Now you can [import your subscribers](/importing-your-data#importing-your-subscribers).
+
+1. In your downloads, double click the export zip to "uncompress" the folder
+1. Go back to your Buttondown dashboard
+1. Navigate to the [Subscribers tab](https://buttondown.com/subscribers)
+1. Click **Import** in the top toolbar. A pop-up window will appear.
+1. Open the now uncompressed export folder
+2. Select the CSV of subscriber (This file will be named something along the lines of: `email_list.[YOURNAME].csv`)
+1. Click **Done.**
+
+
+It can take anywhere from a few seconds to a few hours for Buttondown to import all of your data, depending on the number of subscribers you’re adding. In some cases, if you’re importing a large quantity of new subscribers, we may temporarily deactivate your account to make sure everything is working correctly.
+
+After your import completes, you’ll receive a notification from Buttondown, and will be able to view your subscriber data in the “Subscribers” tab of your dashboard. 
+
+{% noticeWarn text="If you’re importing a large quantity of new subscribers, we may temporarily deactivate your account to make sure everything is working correctly." /%}
+
+
+## Importing your paid subscriptions (optional)
+
+If you offered paid subscriptions on Substack, you can easily transfer these to Buttondown!
 
 ### Connect your Stripe account to Buttondown
 
@@ -88,39 +87,21 @@ This video shows the process of enabling Stripe payments in Buttondown.
 
 For further help with setting up your account, reviewing your tax settings, or customizing your payment methods, read our dedicated [Stripe integration guide](/stripe).
 
-### Disconnect your Substack account from Stripe
+### Contact the Substack support team to remove the 10% application fee
 
-After you've completed the procedure above, we advise you to [use your Stripe dashboard to disconnect your Substack account](https://support.stripe.com/questions/disconnect-your-stripe-account-from-a-connected-third-party-platform#:~:text=To%20disconnect%20your%20Stripe%20account,they%20create%20subscriptions%20for%20you). Don't use your Substack dashboard. If you disconnect your account from your Substack dashboard, you run the risk of canceling and refunding your existing subscriptions, which means you won’t be able to transfer them over to Buttondown. To avoid this, and to make sure each and every one of your paid subscriptions transfers over, initiate any connection changes from Stripe.
+Substack takes a 10% cut of all paid subscriptions through Stripe. 
 
-Disconnect your Substack account under “Installed apps” in the “Business settings” section of your Stripe dashboard.
+The next step will be to contact Substack’s [support team](https://substack.com/support) and ask that they "disconnect Stripe from my publication and remove the 10% application fee, without cancelling or refunding any existing subscriptions." 
 
-{% video file="/substack/substack_stripe-business-settings.mp4" /%}
-
-This video shows how to locate the "Installed apps" section of your Stripe account.
-
-Alternatively, you can submit a request to Substack to disconnect Stripe without canceling your subscriptions.
-
-### Create a fixed or “Pay what you want” subscription plan
-
-After you have connected your Stripe account to your newsletter, Buttondown will honor your existing Substack subscriptions. You’ll also have the option to [add paid subscription plans](/paid-subscriptions#add-a-paid-subscription-plan) in your Buttondown settings, which will apply to new subscribers.
-
-Here's how:
-
-1. Navigate to the “Paid Subscriptions” section, and click the toggle to **Enable paid subscriptions**.
-2. Click **Add Plan**. A pop-up appears that prompts you to choose your subscription style, price, currency, and cadence (billing cycle).
-3. Configure the pop-up as you wish and click **Save**.
-
-You also have the option to add a “Pay what you want” subscription plan. When you migrate from Substack, Buttondown maintains the existing price for each subscriber’s subscription. If a subscriber wants to change their subscription amount, we recommend that they unsubscribe and then resubscribe with a different amount.
-
-{% video file="/substack/monetizing_pop-up-to-add-pay-as-you-wish-subscription-plan.mp4" /%}
-
-This video shows how to enable a "Pay what you want" plan option.
+{% noticeWarn text="Substack's support has a few tiers. The first tier is a chatbot. But, you'll then be contacted by a real person over email." /%}
 
 ## Deleting your Substack account
 
 You’ve done it! Your subscriber, archive, and paid subscription data have been moved over to Buttondown.
 
-There’s just one last thing to check before you’re free to delete your Substack account: Your newsletter images. Buttondown automatically replaces the images that are hosted on Substack’s CDN with ones that are hosted on Buttondown’s infrastructure so that your images won’t disappear. However, this replacement process can take some time. Check to confirm that all the images from your Substack posts appear in your newsletter archives.
+There’s just one last thing to check before you’re free to delete your Substack account: Your newsletter images. 
+
+Buttondown automatically replaces the images that are hosted on Substack’s CDN with ones that are hosted on Buttondown’s infrastructure so that your images won’t disappear. However, this replacement process can take some time. Check to confirm that all the images from your Substack posts appear in your newsletter archives.
 
 After you’ve double checked that all of your images have been replaced, feel free to sign off of Substack.
 
@@ -131,23 +112,6 @@ If you have a question about importing your data, the Buttondown team is [here t
 ### Can I import comped subscriptions from Substack?
 
 Yes! "Comped" subscriptions technically don't exist in Stripe, but Buttondown detects them from your export and automatically maps them over to your Buttondown account. (Our parlance is a little bit different; we refer to them as [gift subscriptions](/gift-subscriptions).)
-
-### Is there a limit to the number of plans or subscription types Buttondown can import?
-
-No! Buttondown can import as many plans and subscription types as you have in your Stripe account, including historical plans or one-off subscriptions that you've created.
-
-### Is there a limit to the number of archives or posts that Buttondown can import?
-
-No! Buttondown can import as many archives and posts as you have in your Substack account. In addition, we:
-
-- pull in your draft posts (if you have any)
-- respect any paywalled posts you have in your Substack account and mark them as "premium"
-
-### Substack is still taking 10% of my revenue. What should I do?
-
-If you’ve already disconnected your Substack account from Stripe, and you’re still seeing Substack take a 10% cut of your revenue, we recommend reaching out to Substack’s support team. They'll be able to programmatically remove the 10% cut from your revenue.
-
-(We also have an ad-hoc script we _can_ run to remove the application fees from your Substack subscriptions, but please reach out to Substack first to see if they can help resolve this issue for you.)
 
 ### Do I need to do anything to make sure my URLs don't break?
 
@@ -166,6 +130,24 @@ newsletter.sarah.com/archive/hello-world
 ```
 
 _But_, for emails migrated in from Substack, we automatically redirect your old URLs to the new Buttondown URL format, so that all of your links continue to work. (No need to do anything additional on your end!)
+
+### Can I manually disconnect my Substack account from Stripe?
+
+Yes, you can, but we advise you to first contact their support team to ensure that the 10% fee is removed. If you do want to manually disconnect, you should [use your Stripe dashboard](https://support.stripe.com/questions/disconnect-your-stripe-account-from-a-connected-third-party-platform#:~:text=To%20disconnect%20your%20Stripe%20account,they%20create%20subscriptions%20for%20you) to do this. 
+
+*Don't use your Substack dashboard to disconnect.* If you disconnect your account from your Substack dashboard, you run the risk of canceling and refunding your existing subscriptions, which means you won’t be able to transfer them over to Buttondown. To avoid this, and to make sure each and every one of your paid subscriptions transfers over, initiate any connection changes from Stripe.
+
+Disconnect your Substack account under “Installed apps” in the “Business settings” section of your Stripe dashboard.
+
+{% video file="/substack/substack_stripe-business-settings.mp4" /%}
+
+This video shows how to locate the "Installed apps" section of your Stripe account.
+
+{% noticeWarn text="Do not disconnect Stripe via the Substack dashboard. This will cancel and refund all paid subscriptions." /%}
+
+### Will my paid posts still be available publicly? 
+
+Nop! By default, we respect any paywalled posts you have in your Substack account and mark them as "premium". 
 
 
 ### What should I do with my Substack account after migrating?

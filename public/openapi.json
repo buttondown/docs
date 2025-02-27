@@ -8869,6 +8869,11 @@
         "properties": {
           "id": {
             "title": "Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "product_id": {
+            "title": "Product Id",
             "type": "string"
           },
           "name": {
@@ -8886,6 +8891,7 @@
         },
         "required": [
           "id",
+          "product_id",
           "name",
           "creation_date",
           "active"

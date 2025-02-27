@@ -153,6 +153,14 @@
         {
           "discriminant": "page",
           "value": "do-imported-subscribers-have-to-re-confirm-their-subscription"
+        },
+        {
+          "discriminant": "page",
+          "value": "substack-application-fee"
+        },
+        {
+          "discriminant": "page",
+          "value": "import-limitations"
         }
       ]
     },
