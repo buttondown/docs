@@ -26,9 +26,9 @@ import { CodeSnippets } from "./CodeSnippets";
 import { generateSnippets, plainOas } from "./oas";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 async function pageFromSlug(slug: string) {
@@ -77,7 +77,13 @@ const extractResponses = <Endpoint extends "/comments", Method extends "get">(
   }));
 };
 
-export async function generateMetadata({ params: { slug } }: Props) {
+export async function generateMetadata(props: Props) {
+  const params = await props.params;
+
+  const {
+    slug
+  } = params;
+
   const page = await pageFromSlug(slug);
 
   return {
@@ -96,7 +102,13 @@ export async function generateMetadata({ params: { slug } }: Props) {
   };
 }
 
-export default async function DocsPage({ params: { slug } }: Props) {
+export default async function DocsPage(props: Props) {
+  const params = await props.params;
+
+  const {
+    slug
+  } = params;
+
   const page = await pageFromSlug(slug);
 
   if (page.schema) {
@@ -302,7 +314,7 @@ export default async function DocsPage({ params: { slug } }: Props) {
             <a href={`/rss/api-changelog`} target="_blank" rel="noopener">
               RSS
             </a>{" "}
-            or <a href="/api-changelog">browse the full list of API changes</a>.
+            or <Link href="/api-changelog">browse the full list of API changes</Link>.
           </p>
         </div>
       )}

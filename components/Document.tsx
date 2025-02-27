@@ -1,17 +1,17 @@
+import { GeneratedCodeSnippets } from "@/app/[slug]/CodeSnippets";
 import PRICES from "@/autogen/prices.json";
 import Notice from "@/components/Notice";
 import Code from "@/components/code";
 import type { Page } from "@/lib/types";
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import { marked } from "marked";
+import Link from "next/link";
 import CustomizableContent from "./customizable-content";
 import Heading from "./heading";
 import Iframe from "./iframe";
 import ImageWithLightbox from "./image-with-lightbox";
 import LiveCodeBlock from "./live-code-block";
 import Video from "./video";
-import { CodeSnippets, GeneratedCodeSnippets } from "@/app/[slug]/CodeSnippets";
-import { generateSnippets } from "@/app/[slug]/oas";
 
 type Props = {
   page: Page;
@@ -143,7 +143,7 @@ const Document = async ({ page }: Props) => (
             <h3>By the way</h3>
             <p>
               With Buttondown, it&#39;s easy to{" "}
-              <a href="/data-exports">export</a> your subscribers, surveys,
+              <Link href="/data-exports">export</Link> your subscribers, surveys,
               emails, and other data whenever you wish—no strings attached!
             </p>
           </div>

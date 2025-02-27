@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, type JSX } from "react";
 
 function slugify(text: string): string {
   return (text || "")

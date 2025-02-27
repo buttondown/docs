@@ -1,3 +1,4 @@
+import Link from "next/link";
 import AccountButtons from "../components/layout/account-buttons";
 import "./globals.css";
 
@@ -21,9 +22,9 @@ export default function NotFound() {
             </h1>
             <p className="text-base sm:text-lg">
               Ruh roh, this page doesn’t exist.{" "}
-              <a href="/" className="underline underline-offset-1">
+              <Link href="/" className="underline underline-offset-1">
                 Head home
-              </a>
+              </Link>
               .
             </p>
           </div>

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3013",
+    "dev": "next dev --turbopack --port 3013",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -36,8 +36,8 @@
     "@sentry/nextjs": "^7.109.0",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "20.6.3",
-    "@types/react": "18.2.22",
-    "@types/react-dom": "18.2.7",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
     "autoprefixer": "10.4.16",
@@ -46,16 +46,16 @@
     "cmdk": "^1.0.0",
     "dotenv": "^16.4.5",
     "eslint": "8.49.0",
-    "eslint-config-next": "13.5.2",
+    "eslint-config-next": "15.1.7",
     "gray-matter": "^4.0.3",
     "marked": "^9.0.3",
-    "next": "14.2.2",
+    "next": "15.1.7",
     "oas": "^24.5.3",
     "oas-normalize": "^11.1.1",
     "openai": "^4.29.2",
     "postcss": "8.4.30",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "shiki": "^1.24.4",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.4.1",
@@ -83,5 +83,11 @@
     "jsdom": "^24.0.0",
     "storybook": "8.2.0-alpha.7",
     "vitest": "^1.5.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.0.10",
+      "@types/react-dom": "19.0.4"
+    }
   }
 }
