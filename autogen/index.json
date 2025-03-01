@@ -3254,6 +3254,16 @@
     ]
   },
   {
+    "title": "API Changelog: March 1, 2025",
+    "url": "api-changelog-2025-03-01",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
     "title": "2025-02-26",
     "url": "api-changelog-2025-02-26",
     "section": "api",

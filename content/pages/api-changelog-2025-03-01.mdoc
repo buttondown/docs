@@ -1,0 +1,40 @@
+---
+title: "API Changelog: March 1, 2025"
+navigationTitle: March 1, 2025
+---
+
+## RSS Feed Metadata Support
+
+RSS feeds just got smarter! Now you can attach metadata to your feeds and have it show up in your emails. Need to mark which site a feed is coming from or add some extra context? We've got you covered.
+
+### What's new
+
+We added a `metadata` field to the RSS feed endpoints. It's just a simple key-value dictionary where both keys and values are strings.
+
+You'll find the new field in:
+- `ExternalFeed` (when you fetch a feed)
+- `ExternalFeedInput` (when you create a feed)
+- `ExternalFeedUpdateInput` (when you update a feed)
+
+### How to use it
+
+Here's a quick example:
+
+```json
+{
+  "url": "https://example.com/feed",
+  "behavior": "create_draft",
+  "cadence": "every",
+  "subject": "New post: {{ item.title }}",
+  "body": "Check out my new post: {{ item.url }}",
+  "label": "My blog feed",
+  "metadata": {
+    "source": "blog",
+    "category": "tech"
+  }
+}
+```
+
+Once you've set this up, just use the metadata values in your templates like any other variable.
+
+Don't worry - this change won't break any of your existing integrations.

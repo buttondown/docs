@@ -8105,6 +8105,17 @@
           "label": {
             "title": "Label",
             "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "description": "Metadata to be passed to emails rendered by this RSS feed.",
+            "example": {
+              "foo": "bar"
+            },
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         },
         "required": [
@@ -8168,6 +8179,17 @@
             "title": "Label",
             "default": "",
             "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "description": "Metadata to be passed to emails rendered by this RSS feed.",
+            "example": {
+              "foo": "bar"
+            },
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         },
         "required": [
@@ -8253,6 +8275,17 @@
           },
           "status": {
             "$ref": "#/components/schemas/ExternalFeedAutomationStatus"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "description": "Metadata to be passed to emails rendered by this RSS feed.",
+            "example": {
+              "foo": "bar"
+            },
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         }
       },

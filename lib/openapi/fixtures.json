@@ -6,7 +6,9 @@
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "status": "enabled",
-        "event_types": ["subscriber.created"],
+        "event_types": [
+          "subscriber.created"
+        ],
         "url": "https://example.com/webhook",
         "description": ""
       }
@@ -82,7 +84,11 @@
         "identifier": "color",
         "question": "What's your favorite color?",
         "response_count": 10,
-        "answers": ["Red", "Green", "Blue"],
+        "answers": [
+          "Red",
+          "Green",
+          "Blue"
+        ],
         "notes": "",
         "response_cadence": "once",
         "status": "active",
@@ -97,7 +103,11 @@
         "identifier": "feedback",
         "question": "How can we improve?",
         "response_count": 10,
-        "answers": ["More content", "Better content", "Other"],
+        "answers": [
+          "More content",
+          "Better content",
+          "Other"
+        ],
         "notes": "",
         "response_cadence": "once_per_email",
         "status": "active",
@@ -139,7 +149,8 @@
         "url": "https://example.com/feed",
         "subject": "New post: {{ item.title }}",
         "body": "I just published a new post: {{ item.url }}",
-        "label": "Basic external feed"
+        "label": "Basic external feed",
+        "metadata": {}
       }
     }
   ],
@@ -521,7 +532,9 @@
         "status": "completed",
         "type": "delete_subscribers",
         "metadata": {
-          "ids": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"]
+          "ids": [
+            "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+          ]
         }
       }
     },
@@ -536,7 +549,9 @@
         "metadata": {
           "tag": "4931-4f5c-9b5b-2c9f6c9f6c9f",
           "action": "add",
-          "ids": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"]
+          "ids": [
+            "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+          ]
         }
       }
     }
@@ -806,8 +821,20 @@
           "new_tags": 2
         },
         "parsed_text": [
-          ["email", "name", "tags", "notes", "metadata"],
-          ["email@example.com", "John Doe", "foo", "notes", "metadata"]
+          [
+            "email",
+            "name",
+            "tags",
+            "notes",
+            "metadata"
+          ],
+          [
+            "email@example.com",
+            "John Doe",
+            "foo",
+            "notes",
+            "metadata"
+          ]
         ]
       }
     }
@@ -893,7 +920,7 @@
     {
       "description": "Basic product",
       "object": {
-        "id": "1420fb7a-5904-4e43-adcb-1f6b64ad435a",
+        "id": "b177b913-6bc5-47ca-944d-e675c3bd537e",
         "product_id": "prod_123",
         "name": "Basic",
         "creation_date": "2020-09-30",
