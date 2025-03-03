@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "NinjaAPI",
+    "title": "Buttondown API",
     "version": "1.0.0",
-    "description": ""
+    "description": "The Buttondown API"
   },
   "paths": {
     "/exports": {
