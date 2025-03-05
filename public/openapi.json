@@ -8526,6 +8526,7 @@
           "forward_reply",
           "create_linkedin_post",
           "create_twitter_post",
+          "create_tumblr_post",
           "create_bluesky_post"
         ],
         "type": "string"

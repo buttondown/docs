@@ -751,6 +751,11 @@
       "name": "Create Twitter post",
       "description": "Create a Twitter post."
     },
+    "create_tumblr_post": {
+      "variant": "info",
+      "name": "Create Tumblr post",
+      "description": "Create a Tumblr post."
+    },
     "create_bluesky_post": {
       "variant": "info",
       "name": "Create Bluesky post",
