@@ -5,12 +5,12 @@ import {
   fields,
 } from "@keystatic/core";
 
-export const schema = {
+const schema = {
   before: fields.text({ label: "Before", multiline: true }),
   after: fields.text({ label: "After", multiline: true }),
 };
 
-export function Preview(props: PreviewProps<ObjectField<typeof schema>>) {
+function Preview(props: PreviewProps<ObjectField<typeof schema>>) {
   return <div>{props.fields.before.value}</div>;
 }
 

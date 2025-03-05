@@ -6260,7 +6260,6 @@
         "enum": [
           "classic",
           "modern",
-          "modern-german",
           "airy",
           "plaintext",
           "naked"

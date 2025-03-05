@@ -4,7 +4,6 @@ import {
   generateSnippetsWithSpecifiedBody,
   SnippetDefinition,
 } from "./oas";
-import { useEffect, useState } from "react";
 
 export function CodeSnippets({
   snippets,

@@ -1,6 +1,4 @@
 import type OpenAPI from "@/public/openapi.json";
-import type { Variant } from "../../components/Pill";
-import type OpenAPIEnums from "./enums.json";
 import type OpenAPIFixtures from "./fixtures.json";
 
 type KeysOfType<T, V> = keyof {
@@ -19,7 +17,7 @@ type KeysOfType<T, V> = keyof {
 // Those Objects may have `Enums` as properties.
 export type Route = keyof typeof OpenAPI.paths;
 export type Method<R extends Route> = keyof (typeof OpenAPI.paths)[R] & string;
-export type Content = {
+type Content = {
   schema: {
     $ref: string;
   };
@@ -34,7 +32,7 @@ export type RequestBody = {
       };
 };
 
-export type Parameter = {
+type Parameter = {
   in: "path" | "query" | "header";
   name: string;
   schema:
@@ -72,26 +70,10 @@ export type Operation<
     };
   };
 };
-export type Enum = keyof typeof OpenAPI.components.schemas &
-  keyof typeof OpenAPIEnums;
-export type EnumDescription = {
-  description: string;
-  name: string;
-  variant: Variant;
-};
+
 export type Object = KeysOfType<
   typeof OpenAPI.components.schemas,
   "properties"
 > &
   KeysOfType<typeof OpenAPI.components.schemas, "description"> &
   keyof typeof OpenAPIFixtures;
-
-export type ObjectDescription = Pick<
-  (typeof OpenAPI)["components"]["schemas"][Object],
-  "description" | "title" | "properties"
->;
-
-export type Fixture = {
-  description: string;
-  object: Record<string, unknown>;
-};

@@ -14,6 +14,7 @@ install:
 # command that we find useful. See for more context:
 # https://github.com/vercel/next.js/discussions/59347
 lint:
+  pnpm knip
   pnpm check-for-typos --no-progress
   pnpm lint
   pnpm tsc

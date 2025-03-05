@@ -11,7 +11,7 @@ export const NAVIGATION_GROUP_LABELS: Record<
 
 type NavigationGroup = (typeof NAVIGATION_GROUPS)[number];
 
-export type NavItem =
+type NavItem =
   | {
       type: "page";
       title: string;
@@ -55,7 +55,7 @@ export type KeystaticPage = {
 
 export const assembleNavData = (
   navigation: KeystaticNavigationFile,
-  pages: KeystaticPage[],
+  pages: KeystaticPage[]
 ): NavData | { errors: string[] } => {
   const data = {} as NavData;
   const errors = [];

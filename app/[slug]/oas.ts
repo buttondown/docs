@@ -4,7 +4,7 @@ import OASNormalize from "oas-normalize";
 
 export const plainOas = Oas.init(structuredClone(OpenAPI));
 
-export async function getOas() {
+async function getOas() {
   const oas = new OASNormalize(structuredClone(OpenAPI));
   // biome-ignore lint/suspicious/noExplicitAny: types for OpenAPI schemas are broken
   const circularOas = Oas.init((await oas.deref()) as any);

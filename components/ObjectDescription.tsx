@@ -3,11 +3,11 @@ import Code from "../components/code";
 import type OpenAPIEnums from "../lib/openapi/enums.json";
 import OpenAPIFixtures from "../lib/openapi/fixtures.json";
 import type {
-    Method,
-    Object as OpenAPIObject,
-    Operation,
-    RequestBody,
-    Route,
+  Method,
+  Object as OpenAPIObject,
+  Operation,
+  RequestBody,
+  Route,
 } from "../lib/openapi/types";
 import OpenAPI from "../public/openapi.json";
 import Markdown from "./Markdown";
@@ -111,7 +111,7 @@ const extractRef = <R extends Route>(
   return undefined;
 };
 
-export const extractRefFromType = (
+const extractRefFromType = (
   type: string,
 ): keyof typeof OpenAPI.components.schemas | null => {
   // If #/components/schemas/ is present, extract the name of the schema
@@ -139,7 +139,7 @@ export const extractSchemaFromContent = (
   }
 };
 
-export const extractBackingFixtureFromRef = (ref: string): BackingFixture => {
+const extractBackingFixtureFromRef = (ref: string): BackingFixture => {
   // Pages are wrapped like so: "$FOOPage".
   // We want to extract 'FOO'.
   if (ref.endsWith("Page")) {
@@ -251,7 +251,7 @@ export const extractParameters = <R extends Route>(
   return [...parametersForRef(ref), ...queryParameters];
 };
 
-export const parametersForRef = (
+const parametersForRef = (
   ref: keyof (typeof OpenAPI)["components"]["schemas"] | null,
 ): ParameterType[] => {
   const schema = ref !== null ? OpenAPI.components.schemas[ref] : null;
