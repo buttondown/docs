@@ -339,7 +339,7 @@
     "url": "mailchimp",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Mailchimp.",
     "references": [
       "importing-your-data",
       "mailchimp"
@@ -388,7 +388,7 @@
     "url": "substack",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Substack.",
     "references": [
       "importing-your-data",
       "substack",
@@ -912,7 +912,7 @@
     "url": "framer",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Framer is a great no-code form tool that integrates with Buttondown.",
     "references": [
       "framer"
     ]
@@ -1654,7 +1654,7 @@
     "url": "events-and-webhooks-introduction",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Events and webhooks allow you to monitor and react to any changes with your newsletter.",
     "references": [
       "data-exports-event",
       "discord",
@@ -1958,7 +1958,7 @@
     "url": "glossary-cta",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "CTA is a marketing term for a prompt that encourages a user to take a specific action.",
     "references": [
       "fancy-mode-dynamic",
       "welcome-sequence"
@@ -2410,7 +2410,7 @@
     "url": "api-idempotency-keys",
     "section": "api",
     "schema": null,
-    "description": null,
+    "description": "Idempotency keys help ensure that a request is processed only once.",
     "references": []
   },
   {

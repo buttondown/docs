@@ -1,4 +1,4 @@
-import { TITLE } from "@/lib/constants";
+import { DESCRIPTION, TITLE } from "@/lib/constants";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
@@ -8,6 +8,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://docs.buttondown.com"),
   title: TITLE,
+  description: DESCRIPTION,
   openGraph: {
     type: "website",
     locale: "en_US",

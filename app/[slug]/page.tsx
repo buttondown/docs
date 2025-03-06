@@ -9,7 +9,7 @@ import Parameter from "@/components/Parameter";
 import Code from "@/components/code";
 import Layout from "@/components/layout";
 import keystaticConfig, { localBaseURL } from "@/keystatic.config";
-import { TITLE } from "@/lib/constants";
+import { DESCRIPTION, TITLE } from "@/lib/constants";
 import { generateJSONLDMetadata } from "@/lib/jsonld";
 import OpenAPIEnums from "@/lib/openapi/enums.json";
 import type {
@@ -86,14 +86,17 @@ export async function generateMetadata(props: Props) {
 
   const page = await pageFromSlug(slug);
 
+  const pageDescription = page.description || DESCRIPTION;
+
   return {
     title: `${page.title} | ${TITLE}`,
+    description: pageDescription,
     alternates: {
       canonical: `https://docs.buttondown.com/${slug}`,
     },
     openGraph: {
       title: `${page.title} | ${TITLE}`,
-      description: page.description,
+      description: pageDescription,
       url: `https://docs.buttondown.com/${slug}`,
       type: "website",
       locale: "en_US",
