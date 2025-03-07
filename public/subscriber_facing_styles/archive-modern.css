@@ -437,6 +437,9 @@ body {
   justify-content: center;
   text-align: center;
 }
+.header-navigation > div:only-child nav {
+  margin-top: .5rem;
+}
 .header-navigation nav {
   display: -webkit-box;
   display: -ms-flexbox;

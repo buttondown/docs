@@ -67,7 +67,6 @@
       "multiple_newsletters",
       "webhooks",
       "zapier",
-      "custom_domain",
       "markdown",
       "automations"
     ]
@@ -100,9 +99,7 @@
       "concierge_migration",
       "webhooks",
       "smtp_endpoint",
-      "whitelabeling",
       "zapier",
-      "custom_domain",
       "teams",
       "dedicated_ip",
       "markdown",
@@ -137,7 +134,6 @@
       "webhooks",
       "whitelabeling",
       "zapier",
-      "custom_domain",
       "teams",
       "dedicated_ip",
       "markdown",
@@ -173,7 +169,6 @@
       "webhooks",
       "whitelabeling",
       "zapier",
-      "custom_domain",
       "teams",
       "dedicated_ip",
       "markdown",
