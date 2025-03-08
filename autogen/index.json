@@ -245,7 +245,7 @@
     "url": "importing-your-data",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts, and subscribers from another service. We'll even do the import for you!",
     "references": [
       "aweber",
       "benchmark",
@@ -272,7 +272,7 @@
     "url": "aweber",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts and subscribers from AWeber. We'll even do the import for you!",
     "references": [
       "aweber"
     ]
@@ -282,7 +282,7 @@
     "url": "benchmark",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts and subscribers from Benchmark. We'll even do the import for you!",
     "references": [
       "benchmark"
     ]
@@ -292,7 +292,7 @@
     "url": "campaign-monitor",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts and subscribers from Campaign Monitor. We'll even do the import for you!",
     "references": []
   },
   {
@@ -300,7 +300,7 @@
     "url": "constant-contact",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts and subscribers from Constant Contact. We'll even do the import for you!",
     "references": []
   },
   {
@@ -308,7 +308,7 @@
     "url": "convertkit",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts and subscribers from Kit. We'll even do the import for you!",
     "references": [
       "convertkit",
       "importing-your-data"
@@ -319,7 +319,7 @@
     "url": "emailoctopus",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts and subscribers from EmailOctopus. We'll even do the import for you!",
     "references": [
       "emailoctopus"
     ]
@@ -329,7 +329,7 @@
     "url": "feedblitz",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts and subscribers from FeedBlitz. We'll even do the import for you!",
     "references": [
       "feedblitz"
     ]
@@ -339,7 +339,7 @@
     "url": "mailchimp",
     "section": "guides",
     "schema": null,
-    "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Mailchimp.",
+    "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Mailchimp. We'll even do the import for you!",
     "references": [
       "importing-your-data",
       "mailchimp"
@@ -350,7 +350,7 @@
     "url": "mailcoach",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Mailcoach. We'll even do the import for you!",
     "references": []
   },
   {
@@ -358,7 +358,7 @@
     "url": "mailerlite",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts and subscribers from MailerLite. We'll even do the import for you!",
     "references": [
       "mailerlite"
     ]
@@ -368,7 +368,7 @@
     "url": "moosend",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Moosend. We'll even do the import for you!",
     "references": [
       "moosend"
     ]
@@ -378,7 +378,7 @@
     "url": "revue",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Revue. ",
     "references": [
       "revue"
     ]
@@ -388,7 +388,7 @@
     "url": "substack",
     "section": "guides",
     "schema": null,
-    "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Substack.",
+    "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Substack. We'll even do the import for you!",
     "references": [
       "importing-your-data",
       "substack",
@@ -400,7 +400,7 @@
     "url": "tinyletter",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Tinyletter.",
     "references": [
       "tinyletter"
     ]
