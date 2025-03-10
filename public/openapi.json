@@ -8641,7 +8641,8 @@
           "delay_invalid",
           "filter_invalid__tag",
           "filter_invalid",
-          "action_invalid"
+          "action_invalid",
+          "invalid_newsletter_id"
         ],
         "type": "string"
       },
