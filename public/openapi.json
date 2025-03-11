@@ -4395,6 +4395,19 @@
           },
           {
             "in": "query",
+            "name": "path",
+            "schema": {
+              "title": "Path",
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false
+          },
+          {
+            "in": "query",
             "name": "page",
             "schema": {
               "title": "Page",
