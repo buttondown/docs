@@ -570,6 +570,200 @@
   background-position: center;
   margin-bottom: 1rem;
 }
+#subscribe-form .widget,
+#subscribe-form .share-form {
+  background-color: #f3f4f6;
+}
+#subscribe-form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: .5rem;
+}
+#subscribe-form .heading:empty {
+  display: none;
+}
+#subscribe-form .field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+#subscribe-form input[type="email"],
+#subscribe-form input[type="text"],
+#subscribe-form select {
+  padding: .5rem 1.25rem;
+  color: #1f2937;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  border-radius: 9999px;
+  border-width: 1px;
+  border-color: transparent;
+}
+#subscribe-form .button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: .5rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  #subscribe-form .button-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+  #subscribe-form .button-container > *:not(:first-child) {
+    margin-left: .5rem;
+  }
+}
+#subscribe-form .unactivated-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: .5rem;
+  -moz-column-gap: .5rem;
+  column-gap: .5rem;
+  width: 100%;
+}
+#subscribe-form .unactivated-buttons > * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 calc(50% - .25rem);
+  flex: 1 0 calc(50% - .25rem);
+}
+#subscribe-form .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+#subscribe-form sniper-link::part(container) {
+  width: auto;
+}
+#subscribe-form sniper-link::part(button) {
+  background-color: #d97706;
+  border-radius: 9999px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: none;
+}
+#subscribe-form sniper-link::part(image) {
+  background-color: #fff;
+  padding: 2px;
+  border-radius: 8px;
+}
+#subscribe-form sniper-link::part(text) {
+  color: #fff;
+  font-weight: 500;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+@media (max-width: 550px) {
+  #subscribe-form .unactivated-buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    row-gap: .25rem;
+  }
+  #subscribe-form .unactivated-buttons > * {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 100%;
+    flex: 1 0 100%;
+  }
+}
+#subscribe-form [type="button"],
+#subscribe-form [type="submit"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: .5rem 1.25rem;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 9999px;
+  border-width: 1px;
+  border-color: transparent;
+  cursor: pointer;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px #0000000d;
+}
+#subscribe-form [type="button"].pending,
+#subscribe-form [type="submit"].pending {
+  opacity: 0.5;
+}
+#subscribe-form [type="button"].yellow,
+#subscribe-form [type="submit"].yellow {
+  background-color: #d97706 !important;
+}
+#subscribe-form [type="button"].yellow:hover,
+#subscribe-form [type="submit"].yellow:hover {
+  background-color: #b45309 !important;
+}
+#subscribe-form [type="button"].green,
+#subscribe-form [type="submit"].green {
+  background-color: #059669 !important;
+}
+#subscribe-form [type="button"].green:hover,
+#subscribe-form [type="submit"].green:hover {
+  background-color: #047857 !important;
+}
+#subscribe-form [type="button"].blue,
+#subscribe-form [type="submit"].blue {
+  background-color: #2563eb;
+}
+#subscribe-form [type="button"].blue:hover,
+#subscribe-form [type="submit"].blue:hover {
+  background-color: #1d4ed8;
+}
+#subscribe-form [type="button"].red,
+#subscribe-form [type="submit"].red {
+  background-color: #dc2626 !important;
+}
+#subscribe-form [type="button"].red:hover,
+#subscribe-form [type="submit"].red:hover {
+  background-color: #b91c1c !important;
+}
+#subscribe-form .disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
 :root {
   --content-width: 600px;
   --white-color: #ffffff;
