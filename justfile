@@ -4,33 +4,33 @@ default:
 # You shouldn't need this as part of your day-to-day work, but if you see
 # odd issues after building locally it's a good first thing to try.
 clear_cache:
-  rm -rf ./.next/
+    rm -rf ./.next/
 
 install:
-  pnpm install
+    pnpm install
 
 # Unfortunately, this must be two separate commands because Next
 # does not support alternate linters and there's some stuff in the 'lint'
 # command that we find useful. See for more context:
 # https://github.com/vercel/next.js/discussions/59347
 lint:
-  pnpm knip
-  pnpm check-for-typos --no-progress
-  pnpm lint
-  pnpm tsc
+    pnpm knip
+    pnpm check-for-typos --no-progress
+    pnpm lint
+    pnpm tsc
 
 lint-css:
-  pnpm lint-css
+    pnpm lint-css
 
 build-indexes:
-  cd .. && python3 docs/scripts/compile_index.py
-  pnpm compile-vectors
+    cd .. && python3 docs/scripts/compile_index.py
+    pnpm compile-vectors
 
 build: lint build-indexes
-  pnpm build
+    pnpm build
 
 dev:
-  pnpm dev
+    pnpm dev
 
 test:
-  pnpm test
+    pnpm test
