@@ -1397,3 +1397,16 @@ div.image-gallery-embed:has(> :nth-child(3n):last-child) {
   margin-left: auto;
   margin-right: auto;
 }
+.social-embeds {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: .5rem;
+}
