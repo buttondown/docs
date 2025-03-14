@@ -292,11 +292,11 @@
         },
         {
           "discriminant": "page",
-          "value": "sponsorships"
+          "value": "perks"
         },
         {
           "discriminant": "page",
-          "value": "perks"
+          "value": "sponsorships"
         },
         {
           "discriminant": "divider",

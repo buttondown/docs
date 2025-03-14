@@ -90,7 +90,7 @@
     "url": "building-your-subscriber-base",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Now that your Buttondown newsletter is ready, it's time to add more subscribers and drive engagement.",
     "references": [
       "blogger",
       "building-your-subscriber-base",
@@ -116,7 +116,7 @@
     "url": "names",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown allows you to collect subscriber names, and create a more personalized email for your readers.",
     "references": [
       "duda",
       "importing-your-data",
@@ -128,7 +128,7 @@
     "url": "private-mode",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Private Mode makes it easy to limit who can see you Buttondown newsletter.",
     "references": []
   },
   {
@@ -136,7 +136,7 @@
     "url": "manually-adding-subscribers",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "You can easily add an email to your Buttondown newsletter, without an import.",
     "references": [
       "api-subscribers-create"
     ]
@@ -146,7 +146,7 @@
     "url": "dealing-with-spam-subscribers",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Spam happens. You can protect your Buttondown newsletter by turning on double opt-in",
     "references": []
   },
   {
@@ -154,7 +154,7 @@
     "url": "tags",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to segment your readers by using tags.",
     "references": [
       "alpinejs",
       "api-tags-create",
@@ -184,7 +184,7 @@
     "url": "metadata",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Want to do a \"mail merge\" on your Buttondown newsletter? We make it easy information in Metadata!",
     "references": [
       "alpinejs",
       "building-your-subscriber-base",
@@ -208,7 +208,7 @@
     "url": "surveys",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Adding a survey to your Buttondown newsletter is a great way to engage with your readers.",
     "references": [
       "api-changelog-2024-06-21",
       "api-subscribers-create",
@@ -227,7 +227,7 @@
     "url": "subscriber-referrals",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown provides the building blocks to build out your own referral system.",
     "references": [
       "affiliate-program"
     ]
@@ -237,7 +237,7 @@
     "url": "how-can-i-segment-users",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown allows you to segment your audience using tags, metadata, or by creating a new newsletter.",
     "references": []
   },
   {
@@ -434,7 +434,7 @@
     "url": "uploading-images",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "You can use the editor to easily add images to your Buttondown newsletter.",
     "references": [
       "fancy-mode-images",
       "sending-your-first-email"
@@ -445,7 +445,7 @@
     "url": "draft-send",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown allows you to preview your email by sending yourself a draft.",
     "references": [
       "api-emails-send-draft",
       "draft-send"
@@ -456,7 +456,7 @@
     "url": "scheduling-an-email",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Want to send an email some time in the future? Buttondown allows you to schedule an exact date and time to send.",
     "references": [
       "quickstart",
       "sending-your-first-email"
@@ -467,7 +467,7 @@
     "url": "sending-via-email",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Use Buttondown's Magic Email Address to send a newsletter without logging into the Dashboard.",
     "references": []
   },
   {
@@ -475,7 +475,7 @@
     "url": "replies",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown offers more sophisticated ways to manage your reader replies.",
     "references": [
       "hidden-settings",
       "how-do-i-set-sender-information"
@@ -592,7 +592,7 @@
     "url": "getting-a-custom-domain",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Registering a custom domain helps you build a distinct and recognizable brand for your newsletter. ",
     "references": [
       "plausible",
       "quickstart",
@@ -605,7 +605,7 @@
     "url": "sending-from-a-custom-domain",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown allows all newsletters to send from a custom domain. This helps you build a recognizable brand and improves deliverability.",
     "references": [
       "glossary-dns",
       "quickstart",
@@ -619,7 +619,7 @@
     "url": "hosting-on-a-custom-domain",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Hosting your Buttondown archives on a custom domain helps establish your newsletter's brand.",
     "references": [
       "glossary-dns",
       "glossary-whitelabeling",
@@ -635,7 +635,7 @@
     "url": "sending-from-dreamhost",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "This guide will help you connect your Dreamhost domain to your Buttondown newsletter.",
     "references": [
       "sending-from-a-custom-domain"
     ]
@@ -653,8 +653,9 @@
     "url": "welcome-sequence",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "You can use Buttondown's automations feature to create a welcome sequence for your new subscribers!",
     "references": [
+      "automations-introduction",
       "can-i-send-an-email-to-new-subscribers",
       "welcome-sequence"
     ]
@@ -664,7 +665,7 @@
     "url": "rss-to-email",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "With Buttondown's RSS automation, you can automatically send a new email every time you publish a new blog post.",
     "references": [
       "canonical-url",
       "glossary-headless-mode",
@@ -679,7 +680,7 @@
     "url": "paid-subscriptions",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown offers a variety of ways to offer paid subscriptions. And, we don't charge so you\u2019ll keep all of the money that you make.",
     "references": [
       "affiliate-program",
       "draft-send",
@@ -691,29 +692,29 @@
     ]
   },
   {
-    "title": "Sponsorships",
-    "url": "sponsorships",
-    "section": "guides",
-    "schema": null,
-    "description": "Learn how to find and work with sponsors for your newsletter.",
-    "references": [
-      "sponsorships"
-    ]
-  },
-  {
     "title": "Offering perks for paid subscribers",
     "url": "perks",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to share special perks and incentives with your paid readers.",
     "references": []
+  },
+  {
+    "title": "Sponsorships",
+    "url": "sponsorships",
+    "section": "guides",
+    "schema": null,
+    "description": "Does your newsletter have sponsors? Learn how Buttondown can help you manage your sponsorships.",
+    "references": [
+      "sponsorships"
+    ]
   },
   {
     "title": "Gift subscriptions",
     "url": "gift-subscriptions",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Gift subscriptions are a great way to \"comp\" a paid subscription to your friends, family, and favorite readers.",
     "references": [
       "substack"
     ]
@@ -723,17 +724,17 @@
     "url": "pricing-models",
     "section": "guides",
     "schema": null,
-    "description": "Various pricing models for paid newsletters.",
+    "description": "Buttondown offers a variety of different pricing models for your paid newsletter.",
     "references": [
       "paid-subscriptions"
     ]
   },
   {
-    "title": "How to send a teaser",
+    "title": "How to send a teaser email",
     "url": "premium-teaser",
     "section": "guides",
     "schema": null,
-    "description": "Sending a \"teaser\" version of a paid email to unpaid subscribers.",
+    "description": "Buttondown gives you the option of sending a \"teaser\" version of a paid email to encourage free readers to upgrade.",
     "references": []
   },
   {
@@ -741,7 +742,7 @@
     "url": "stripe-test-mode",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown does not currently support Stripe's test mode.",
     "references": []
   },
   {
@@ -749,7 +750,7 @@
     "url": "can-i-pay-using-something-other-than-stripe",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown uses Stripe as our payment processor for both our own customers, and paid newsletters. ",
     "references": []
   },
   {
@@ -757,7 +758,7 @@
     "url": "how-do-i-handle-taxes",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Stripe can automatically collet can report taxes for your paid Buttondown newsletter.",
     "references": []
   },
   {
@@ -765,7 +766,7 @@
     "url": "price-changes",
     "section": "guides",
     "schema": null,
-    "description": "How to change the price of your paid newsletter.",
+    "description": "You can change the price of your paid Buttondown newsletter by updating the product in Stripe.",
     "references": []
   },
   {
@@ -773,7 +774,7 @@
     "url": "tip-jar",
     "section": "guides",
     "schema": null,
-    "description": "Can I use Buttondown to set up a tip jar for my newsletter?",
+    "description": "Buttondown's \"pay what you want\" pricing model works as a tip jar for your newsletter",
     "references": []
   },
   {
@@ -781,7 +782,7 @@
     "url": "multiple-newsletters",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "With Buttondown you can connect multiple newsletters to the same account and login",
     "references": [
       "constant-contact",
       "how-can-i-segment-users",
@@ -795,7 +796,7 @@
     "url": "data-exports",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "At Buttondown you own your data. That's why we make it easy to download all your data any time you want it.",
     "references": [
       "buttondown-editor-mode",
       "data-exports",
@@ -814,7 +815,7 @@
     "url": "help-i-deleted-everything",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "The Buttondown team can help recover deleted data within three days of deletion.",
     "references": []
   },
   {
@@ -822,7 +823,7 @@
     "url": "teams",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "With the teams feature you and your colleagues can collaborate on writing and managing your Buttondown newsletter.",
     "references": [
       "replies",
       "support-policy",
@@ -1036,7 +1037,7 @@
     "url": "deleting-your-account",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown allows you to easily export all your data, and delete your account. But we'll still be sad to see you go.",
     "references": []
   },
   {
