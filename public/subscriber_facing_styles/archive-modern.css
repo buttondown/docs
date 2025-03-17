@@ -341,10 +341,12 @@
   background-position: center;
   margin-bottom: 1rem;
 }
-#subscribe-form .widget {
+#subscribe-form .widget,
+.subscribe-form .widget {
   background-color: #f3f4f6;
 }
-#subscribe-form form {
+#subscribe-form form,
+.subscribe-form form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -354,10 +356,12 @@
   flex-direction: column;
   gap: .5rem;
 }
-#subscribe-form .heading:empty {
+#subscribe-form .heading:empty,
+.subscribe-form .heading:empty {
   display: none;
 }
-#subscribe-form .field {
+#subscribe-form .field,
+.subscribe-form .field {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -368,7 +372,10 @@
 }
 #subscribe-form input[type="email"],
 #subscribe-form input[type="text"],
-#subscribe-form select {
+#subscribe-form select,
+.subscribe-form input[type="email"],
+.subscribe-form input[type="text"],
+.subscribe-form select {
   padding: .5rem 1.25rem;
   color: #1f2937;
   font-size: 1rem;
@@ -381,7 +388,8 @@
   border-width: 1px;
   border-color: transparent;
 }
-#subscribe-form .button-container {
+#subscribe-form .button-container,
+.subscribe-form .button-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -392,17 +400,20 @@
   flex-direction: column;
 }
 @media (min-width: 768px) {
-  #subscribe-form .button-container {
+  #subscribe-form .button-container,
+  .subscribe-form .button-container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
   }
-  #subscribe-form .button-container > *:not(:first-child) {
+  #subscribe-form .button-container > *:not(:first-child),
+  .subscribe-form .button-container > *:not(:first-child) {
     margin-left: .5rem;
   }
 }
-#subscribe-form .unactivated-buttons {
+#subscribe-form .unactivated-buttons,
+.subscribe-form .unactivated-buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -411,14 +422,16 @@
   column-gap: .5rem;
   width: 100%;
 }
-#subscribe-form .unactivated-buttons > * {
+#subscribe-form .unactivated-buttons > *,
+.subscribe-form .unactivated-buttons > * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-box-flex: 1;
   -ms-flex: 1 0 calc(50% - .25rem);
   flex: 1 0 calc(50% - .25rem);
 }
-#subscribe-form .sr-only {
+#subscribe-form .sr-only,
+.subscribe-form .sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -429,10 +442,12 @@
   white-space: nowrap;
   border-width: 0;
 }
-#subscribe-form sniper-link::part(container) {
+#subscribe-form sniper-link::part(container),
+.subscribe-form sniper-link::part(container) {
   width: auto;
 }
-#subscribe-form sniper-link::part(button) {
+#subscribe-form sniper-link::part(button),
+.subscribe-form sniper-link::part(button) {
   background-color: #d97706;
   border-radius: 9999px;
   display: -webkit-box;
@@ -443,12 +458,14 @@
   justify-content: center;
   border: none;
 }
-#subscribe-form sniper-link::part(image) {
+#subscribe-form sniper-link::part(image),
+.subscribe-form sniper-link::part(image) {
   background-color: #fff;
   padding: 2px;
   border-radius: 8px;
 }
-#subscribe-form sniper-link::part(text) {
+#subscribe-form sniper-link::part(text),
+.subscribe-form sniper-link::part(text) {
   color: #fff;
   font-weight: 500;
   width: -webkit-max-content;
@@ -456,21 +473,25 @@
   width: max-content;
 }
 @media (max-width: 550px) {
-  #subscribe-form .unactivated-buttons {
+  #subscribe-form .unactivated-buttons,
+  .subscribe-form .unactivated-buttons {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
     row-gap: .25rem;
   }
-  #subscribe-form .unactivated-buttons > * {
+  #subscribe-form .unactivated-buttons > *,
+  .subscribe-form .unactivated-buttons > * {
     -webkit-box-flex: 1;
     -ms-flex: 1 0 100%;
     flex: 1 0 100%;
   }
 }
 #subscribe-form [type="button"],
-#subscribe-form [type="submit"] {
+#subscribe-form [type="submit"],
+.subscribe-form [type="button"],
+.subscribe-form [type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -495,42 +516,61 @@
   box-shadow: 0 1px 2px #0000000d;
 }
 #subscribe-form [type="button"].pending,
-#subscribe-form [type="submit"].pending {
+#subscribe-form [type="submit"].pending,
+.subscribe-form [type="button"].pending,
+.subscribe-form [type="submit"].pending {
   opacity: 0.5;
 }
 #subscribe-form [type="button"].yellow,
-#subscribe-form [type="submit"].yellow {
+#subscribe-form [type="submit"].yellow,
+.subscribe-form [type="button"].yellow,
+.subscribe-form [type="submit"].yellow {
   background-color: #d97706 !important;
 }
 #subscribe-form [type="button"].yellow:hover,
-#subscribe-form [type="submit"].yellow:hover {
+#subscribe-form [type="submit"].yellow:hover,
+.subscribe-form [type="button"].yellow:hover,
+.subscribe-form [type="submit"].yellow:hover {
   background-color: #b45309 !important;
 }
 #subscribe-form [type="button"].green,
-#subscribe-form [type="submit"].green {
+#subscribe-form [type="submit"].green,
+.subscribe-form [type="button"].green,
+.subscribe-form [type="submit"].green {
   background-color: #059669 !important;
 }
 #subscribe-form [type="button"].green:hover,
-#subscribe-form [type="submit"].green:hover {
+#subscribe-form [type="submit"].green:hover,
+.subscribe-form [type="button"].green:hover,
+.subscribe-form [type="submit"].green:hover {
   background-color: #047857 !important;
 }
 #subscribe-form [type="button"].blue,
-#subscribe-form [type="submit"].blue {
+#subscribe-form [type="submit"].blue,
+.subscribe-form [type="button"].blue,
+.subscribe-form [type="submit"].blue {
   background-color: #2563eb;
 }
 #subscribe-form [type="button"].blue:hover,
-#subscribe-form [type="submit"].blue:hover {
+#subscribe-form [type="submit"].blue:hover,
+.subscribe-form [type="button"].blue:hover,
+.subscribe-form [type="submit"].blue:hover {
   background-color: #1d4ed8;
 }
 #subscribe-form [type="button"].red,
-#subscribe-form [type="submit"].red {
+#subscribe-form [type="submit"].red,
+.subscribe-form [type="button"].red,
+.subscribe-form [type="submit"].red {
   background-color: #dc2626 !important;
 }
 #subscribe-form [type="button"].red:hover,
-#subscribe-form [type="submit"].red:hover {
+#subscribe-form [type="submit"].red:hover,
+.subscribe-form [type="button"].red:hover,
+.subscribe-form [type="submit"].red:hover {
   background-color: #b91c1c !important;
 }
-#subscribe-form .disabled {
+#subscribe-form .disabled,
+.subscribe-form .disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
