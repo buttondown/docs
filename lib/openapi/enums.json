@@ -383,6 +383,22 @@
     }
   },
   "ExternalEventType": {
+    "subscriber.delivered": {
+      "name": "subscriber.delivered",
+      "description": "Whenever a subscriber's email is successfully delivered."
+    },
+    "subscriber.bounced": {
+      "name": "subscriber.bounced",
+      "description": "Whenever a subscriber's email is bounced."
+    },
+    "subscriber.complained": {
+      "name": "subscriber.complained",
+      "description": "Whenever a subscriber has complained about one of your emails."
+    },
+    "subscriber.rejected": {
+      "name": "subscriber.rejected",
+      "description": "Whenever a subscriber's email is rejected."
+    },
     "subscriber.replied": {
       "name": "subscriber.replied",
       "description": "Whenever a subscriber has replied to one of your emails."

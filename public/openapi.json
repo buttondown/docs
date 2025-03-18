@@ -4395,6 +4395,26 @@
           },
           {
             "in": "query",
+            "name": "creation_date__lt",
+            "schema": {
+              "title": "Creation Date  Lt",
+              "type": "string",
+              "format": "date-time"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "creation_date__gt",
+            "schema": {
+              "title": "Creation Date  Gt",
+              "type": "string",
+              "format": "date-time"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
             "name": "path",
             "schema": {
               "title": "Path",
@@ -4408,10 +4428,9 @@
           },
           {
             "in": "query",
-            "name": "page",
+            "name": "limit",
             "schema": {
-              "title": "Page",
-              "default": 1,
+              "title": "Limit",
               "type": "integer"
             },
             "required": false
@@ -4423,7 +4442,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/APIRequestPage"
+                  "$ref": "#/components/schemas/APIRequestList"
                 }
               }
             }
@@ -5045,6 +5064,10 @@
                 "subscriber.referred",
                 "subscriber.referred.paid",
                 "subscriber.commented",
+                "subscriber.delivered",
+                "subscriber.complained",
+                "subscriber.bounced",
+                "subscriber.rejected",
                 "email.created",
                 "email.sent",
                 "email.updated",
@@ -8442,6 +8465,10 @@
           "subscriber.referred",
           "subscriber.referred.paid",
           "subscriber.commented",
+          "subscriber.delivered",
+          "subscriber.complained",
+          "subscriber.bounced",
+          "subscriber.rejected",
           "email.created",
           "email.sent",
           "email.updated",
@@ -9568,8 +9595,8 @@
           "version"
         ]
       },
-      "APIRequestPage": {
-        "title": "Page[APIRequest]",
+      "APIRequestList": {
+        "title": "APIRequestList",
         "type": "object",
         "properties": {
           "results": {
@@ -9578,23 +9605,10 @@
             "items": {
               "$ref": "#/components/schemas/APIRequest"
             }
-          },
-          "next": {
-            "title": "Next",
-            "type": "string"
-          },
-          "previous": {
-            "title": "Previous",
-            "type": "string"
-          },
-          "count": {
-            "title": "Count",
-            "type": "integer"
           }
         },
         "required": [
-          "results",
-          "count"
+          "results"
         ]
       },
       "AdvertisingSKUStatus": {
