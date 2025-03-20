@@ -418,6 +418,7 @@
   border: 1px var(--medium-color) solid;
   padding: 10px;
   margin-bottom: 10px;
+  overflow-wrap: break-word;
 }
 .comment blockquote {
   margin: 0 0 10px;

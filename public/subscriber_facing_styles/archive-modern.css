@@ -189,6 +189,7 @@
   border: 1px var(--medium-color) solid;
   padding: 10px;
   margin-bottom: 10px;
+  overflow-wrap: break-word;
 }
 .comment blockquote {
   margin: 0 0 10px;
@@ -762,6 +763,9 @@ li {
   font-family: "Source Serif 4", ui-serif, Georgia, Cambria, Times New Roman,
     Times, serif;
   color: #222;
+}
+.empty-line {
+  height: 32px !important;
 }
 date {
   color: #6d6d6d;
