@@ -597,6 +597,10 @@
     "update_archival_modes": {
       "variant": "info",
       "name": "Update archival modes."
+    },
+    "ungift_subscribers": {
+      "variant": "info",
+      "name": "Ungift subscribers"
     }
   },
   "SubscriberType": {
