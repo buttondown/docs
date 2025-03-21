@@ -614,8 +614,8 @@
   line-height: 1.5rem;
   font-weight: 500;
   -webkit-box-flex: 1;
-  -ms-flex: 1 1 0%;
-  flex: 1 1 0%;
+  -ms-flex: 1 0 calc(50% - .25rem);
+  flex: 1 0 calc(50% - .25rem);
   border-radius: 9999px;
   border-width: 1px;
   border-color: transparent;
