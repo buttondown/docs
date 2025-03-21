@@ -823,7 +823,7 @@
     "url": "teams",
     "section": "guides",
     "schema": null,
-    "description": "With the teams feature you and your colleagues can collaborate on writing and managing your Buttondown newsletter.",
+    "description": "With our Teams feature you and your colleagues can collaborate on writing and managing your Buttondown newsletter.",
     "references": [
       "replies",
       "support-policy",
@@ -1017,7 +1017,7 @@
     "url": "webflow",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Is your site on Webflow and your newsletter on Buttondown? It's easy to connect them!",
     "references": [
       "webflow"
     ]
@@ -1027,7 +1027,7 @@
     "url": "wordpress",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Using custom HTML blocks you can easily add your Buttondown subscriber form to your WordPress site.",
     "references": [
       "wordpress"
     ]

@@ -164,3 +164,8 @@ If Buttondown has trouble reaching your RSS feed (and you don't), the likely cul
 To fix this, add a [custom WAF rule to your Cloudflare account](https://developers.cloudflare.com/waf/custom-rules/) to allow requests from the IP address `54.221.205.107`.
 
 It's also possible that you might have a `robots.txt` file that's blocking access to your feed. Buttondown uses the `User-Agent: Buttondown RSS-Feed-Parser/1.0 (https://buttondown.com)` user agent to access your feed, so you can add a `Allow:` line to your `robots.txt` file to allow Buttondown's feed parser to access your feed.
+
+### Why is an item in my feed labeled as "irrelevant" in Buttondown?
+Items in an RSS feed my be marked as irrelevant for two reasons:
+1. They do not have a publish date associated with them 
+1. The publish date came before the RSS feed itself was connected to Buttondown
