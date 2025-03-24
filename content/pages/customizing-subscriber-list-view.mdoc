@@ -19,22 +19,28 @@ You can also sort your subscribers based on any column of your choosing. Note th
 | COLUMN              | DESCRIPTION                                                                                    |
 |---------------------|------------------------------------------------------------------------------------------------|
 | Email               | A subscriber's email address.                                                                   |
-| Tags                | A comma-separated list of tags associated with the subscriber.                                  |
+| Tags                | A comma-separated list of [tags](/tags) associated with the subscriber.                                  |
 | [Status](api-subscribers-type)              | Regular, paid, unactivated, etc.                                                                |
+| Undeliverability date | The date on which the subscriber was marked as [undeliverable](/api-subscribers-type#undeliverable). |
 | Subscription date   | The date the subscriber signed up.                                                              |
 | Unsubscription date | The date on which a subscriber unsubscribed from your newsletter.                               |
 | Upgrade date        | The date on which a premium subscriber upgraded their subscription.                             |
-| Churn date          | The date on which a premium subscriber canceled their subscription.                             |
+| Churn date          | The date on which a premium subscriber canceled their [paid subscription](/paid-subscriptions).                             |
 | UTM Campaign        | UTM Campaign.                                                                                   |
 | UTM Medium          | UTM Medium.                                                                                     |
 | UTM Source          | UTM Source.                                                                                     |
 | Referrer URL        | Referrer URL.                                                                                   |
 | IP address          | The IP address from which the subscriber originally subscribed.                                |
 | Import         | The [subscriber import](/importing-your-data) via which the subscriber was originally added.       |
-| Metadata            | Custom keys and values to sort your subscriber base. (You can learn more about metadata here!) |
+| Metadata            | [Custom keys and values](/metadata) to sort your subscriber base. |
 | Last opened date    | The date on which the subscriber last opened your newsletter.                                   |
 | Last clicked date   | The date on which the subscriber last clicked a link in your newsletter.                        |
+| Open rate (%)      | The percentage of emails opened by the subscriber.                                               |
+| Click rate (%)     | The percentage of links clicked by the subscriber.                                               |
+| Stripe | The [Stripe customer ID for the subscriber](/stripe), if one exists.           |
 
+
+(Note that you can't sort by all of these columns yet — notably click and open rate — for architectural reasons, though we hope to improve that soon!)
 
 Not seeing some of these columns listed? That’s because you might not have certain data available. For instance, if you don’t use [metadata](/metadata), the “Metadata” column won’t be listed as an option—because, well, there’d be nothing to populate it with! However, if you ever do want to start using metadata to [sort your subscriber base](/metadata), then the option will pop up.
 

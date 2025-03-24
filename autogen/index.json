@@ -164,6 +164,7 @@
       "api-tags-update",
       "building-your-subscriber-base",
       "constant-contact",
+      "customizing-subscriber-list-view",
       "draft-send",
       "duda",
       "how-can-i-segment-users",
@@ -683,6 +684,7 @@
     "description": "Buttondown offers a variety of ways to offer paid subscriptions. And, we don't charge so you\u2019ll keep all of the money that you make.",
     "references": [
       "affiliate-program",
+      "customizing-subscriber-list-view",
       "draft-send",
       "glossary-paywall",
       "paid-subscriptions",
@@ -977,6 +979,7 @@
       "aweber",
       "benchmark",
       "convertkit",
+      "customizing-subscriber-list-view",
       "how-do-i-handle-taxes",
       "mailchimp",
       "metadata",
@@ -2632,6 +2635,7 @@
     "references": [
       "api-subscribers-create",
       "automation-filters",
+      "customizing-subscriber-list-view",
       "glossary-cfl",
       "premium-teaser"
     ]
