@@ -837,5 +837,72 @@
       "name": "Disabled",
       "description": "The webhook is disabled and will not receive events."
     }
+  },
+  "SubscriberUndeliverabilityReason": {
+    "ip_blocked": {
+      "variant": "error",
+      "name": "IP blocked",
+      "description": "The subscriber's email is considered spam."
+    },
+    "domain_blocked": {
+      "variant": "error",
+      "name": "Domain blocked",
+      "description": "The subscriber's email is considered spam."
+    },
+    "email_blocked": {
+      "variant": "error",
+      "name": "Email blocked",
+      "description": "The subscriber's email is blocked."
+    },
+    "out_of_storage": {
+      "variant": "error",
+      "name": "Out of storage",
+      "description": "The subscriber's mailbox is out of storage."
+    },
+    "disabled": {
+      "variant": "error",
+      "name": "Disabled",
+      "description": "The subscriber's email account is disabled."
+    },
+    "unreachable": {
+      "variant": "error",
+      "name": "Unreachable",
+      "description": "The subscriber's email is unreachable."
+    },
+    "access_denied": {
+      "variant": "error",
+      "name": "Access denied",
+      "description": "Access to the subscriber's email was denied."
+    },
+    "does_not_exist": {
+      "variant": "error",
+      "name": "Does not exist",
+      "description": "The subscriber's email does not exist."
+    },
+    "rate_limited": {
+      "variant": "error",
+      "name": "Rate limited",
+      "description": "Delivery to the subscriber's email was rate limited."
+    },
+    "spam": {
+      "variant": "error",
+      "name": "Spam",
+      "description": "The email was marked as spam."
+    },
+    "problematic_url": {
+      "variant": "error",
+      "name": "Problematic URL",
+      "description": "The email contained a problematic URL."
+    },
+    "on_esp_denylist": {
+      "variant": "error",
+      "name": "On ESP denylist",
+      "description": "The subscriber's email is on an ESP denylist."
+    },
+    "spf_failed": {
+      "variant": "error",
+      "name": "SPF failed",
+      "description": "SPF validation failed for the email."
+    }
   }
 }

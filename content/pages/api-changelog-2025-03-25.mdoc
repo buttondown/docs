@@ -1,0 +1,24 @@
+---
+title: "2025-03-25"
+navigationTitle: "2025-03-25"
+description: "Added support for filtering subscribers by undeliverability status and reason"
+relatedPages: ["api-subscribers-undeliverability-reason"]
+---
+
+You can now filter subscribers by their undeliverability status and specific reasons for being marked undeliverable. This helps you better manage your list health and diagnostics.
+
+A new field `undeliverability_reason` has been added to the `Subscriber` model which can be used for filtering:
+
+{% generatedMultilanguageSnippets
+   method="GET"
+   endpoint="/subscribers"
+   query="{\"undeliverability_reason\": \"email_blocked\"}" /%}
+
+You can also filter by undeliverability date range:
+
+{% generatedMultilanguageSnippets
+   method="GET"
+   endpoint="/subscribers"
+   query="{\"undeliverability_date__start\": \"2025-01-01\", \"undeliverability_date__end\": \"2025-03-25\"}" /%}
+
+Check out the [undeliverability reasons documentation](/api-subscribers-undeliverability-reason) to see all possible values.

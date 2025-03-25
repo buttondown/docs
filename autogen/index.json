@@ -2649,6 +2649,16 @@
     "references": []
   },
   {
+    "title": "Subscriber undeliverability reasons",
+    "url": "api-subscribers-undeliverability-reason",
+    "section": "Reference",
+    "schema": "SubscriberUndeliverabilityReason",
+    "description": null,
+    "references": [
+      "api-changelog-2025-03-25"
+    ]
+  },
+  {
     "title": "Listing subscribers",
     "url": "api-subscribers-list",
     "section": "api",
@@ -3259,7 +3269,17 @@
     ]
   },
   {
-    "title": "API Changelog: March 1, 2025",
+    "title": "2025-03-25",
+    "url": "api-changelog-2025-03-25",
+    "section": "api",
+    "schema": null,
+    "description": "Added support for filtering subscribers by undeliverability status and reason",
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2025-03-01",
     "url": "api-changelog-2025-03-01",
     "section": "api",
     "schema": null,

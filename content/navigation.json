@@ -1254,6 +1254,10 @@
           "value": "api-subscribers-source"
         },
         {
+          "discriminant": "page",
+          "value": "api-subscribers-undeliverability-reason"
+        },
+        {
           "discriminant": "divider",
           "value": "Routes"
         },
@@ -1641,6 +1645,10 @@
         {
           "discriminant": "page",
           "value": "api-changelog"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2025-03-25"
         },
         {
           "discriminant": "page",

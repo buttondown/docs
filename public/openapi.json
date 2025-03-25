@@ -1804,6 +1804,19 @@
               "type": "string"
             },
             "required": false
+          },
+          {
+            "in": "query",
+            "name": "undeliverability_reason",
+            "schema": {
+              "description": "If provided, only return subscribers with the given undeliverability reason(s).",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/SubscriberUndeliverabilityReason"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given undeliverability reason(s)."
           }
         ],
         "responses": {
@@ -7037,6 +7050,26 @@
           "coupon_id"
         ]
       },
+      "SubscriberUndeliverabilityReason": {
+        "title": "UndeliverabilityReason",
+        "description": "The reason Buttondown has marked the subscriber as undeliverable.\nUndeliverable subscribers are not sent emails, and may be periodically removed from the system (or restored, if the reason is no longer valid.)",
+        "enum": [
+          "email_blocked",
+          "ip_blocked",
+          "out_of_storage",
+          "disabled",
+          "unreachable",
+          "access_denied",
+          "does_not_exist",
+          "rate_limited",
+          "spam",
+          "problematic_url",
+          "on_esp_denylist",
+          "domain_blocked",
+          "spf_failed"
+        ],
+        "type": "string"
+      },
       "Transition": {
         "title": "Transition",
         "type": "object",
@@ -7152,6 +7185,14 @@
             "title": "Undeliverability Date",
             "type": "string",
             "format": "date-time"
+          },
+          "undeliverability_reason": {
+            "description": "The reason the subscriber is undeliverable. (Only populated for undeliverable subscribers.)",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SubscriberUndeliverabilityReason"
+              }
+            ]
           },
           "upgrade_date": {
             "title": "Upgrade Date",
