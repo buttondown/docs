@@ -11,6 +11,8 @@ async function getOas() {
   return { circularOas };
 }
 
+const IMAGE_EXAMPLE = "https://placehold.co/600x400";
+
 export async function generateSnippets({
   endpoint,
   method,
@@ -28,14 +30,24 @@ export async function generateSnippets({
   // biome-ignore lint/suspicious/noExplicitAny: we are generating a best-attempt request body
   let body: { [key: string]: any } | undefined = undefined;
   if (circularOp.hasRequiredRequestBody() && circularOp.hasRequestBody()) {
-    const media = circularOp.getRequestBody("application/json");
+    const mediaTypes = circularOp.getRequestBodyMediaTypes();
+    const mediaType = mediaTypes.length > 0 ? mediaTypes[0] : undefined;
+    const media = circularOp.getRequestBody(mediaType);
     if (media && "schema" in media && media.schema) {
       if ("properties" in media.schema && media.schema.properties) {
         body = {};
         for (const key in media.schema.properties) {
           const spec = media.schema.properties[key];
           if ("in" in spec && spec.in && spec.in === "query") continue;
-          if ("example" in spec && spec.example) {
+          if (
+            typeof spec === "object" &&
+            spec !== null &&
+            "type" in spec &&
+            spec.type === "string" &&
+            spec.format === "binary"
+          ) {
+            body[key] = IMAGE_EXAMPLE;
+          } else if ("example" in spec && spec.example) {
             body[key] = spec.example;
           }
         }
@@ -57,7 +69,6 @@ export type SnippetDefinition = {
   headers?: { [key: string]: string };
   query?: { [key: string]: string };
 };
-
 export function generateSnippetsWithSpecifiedBody({
   endpoint,
   method,
@@ -70,6 +81,11 @@ export function generateSnippetsWithSpecifiedBody({
     // biome-ignore lint/suspicious/noExplicitAny: method has to be get/post/put/delete
     method.toLowerCase() as any
   );
+
+  const bodyMediaTypes = plainOp.getRequestBodyMediaTypes();
+  const bodyMediaType =
+    bodyMediaTypes.length > 0 ? bodyMediaTypes[0] : undefined;
+  const isFormData = bodyMediaType === "multipart/form-data";
 
   const combinedHeaders: { [key: string]: string } = {
     Authorization: "Token $BUTTONDOWN_API_KEY",
@@ -103,9 +119,28 @@ export function generateSnippetsWithSpecifiedBody({
 import requests
 
 url = "${baseUrl}${patchEndpointParams((name) => `{${name}}`)}"
-headers = ${stringifyObject(combinedHeaders)}${Object.keys(query || {}).length > 0 ? `\nparams = ${stringifyObject(query)}` : ""}${Object.keys(body || {}).length > 0 ? `\ndata = ${stringifyObject(body)}` : ""}
+headers = ${stringifyObject(combinedHeaders)}${Object.keys(query || {}).length > 0 ? `\nparams = ${stringifyObject(query)}` : ""}${
+    isFormData
+      ? `\nfiles = {${Object.entries(body || {})
+          .map(([key, value]) =>
+            value === IMAGE_EXAMPLE
+              ? `\n    "${key}": open("path/to/your/image.jpg", "rb")`
+              : `\n    "${key}": ${JSON.stringify(value)}`
+          )
+          .join(",")}
+}`
+      : Object.keys(body || {}).length > 0
+        ? `\ndata = ${stringifyObject(body)}`
+        : ""
+  }
 
-response = requests.request("${method.toUpperCase()}", url, headers=headers${Object.keys(query || {}).length > 0 ? ", params=params" : ""}${Object.keys(body || {}).length > 0 ? ", json=data" : ""})
+response = requests.request("${method.toUpperCase()}", url, headers=headers${Object.keys(query || {}).length > 0 ? ", params=params" : ""}${
+    isFormData
+      ? ", files=files"
+      : Object.keys(body || {}).length > 0
+        ? ", json=data"
+        : ""
+  })
 print(response.text)
 `.trim();
 
@@ -119,9 +154,20 @@ uri.query = URI.encode_www_form(${stringifyObject(query || {})}) unless ${string
 request = Net::HTTP::${method.charAt(0).toUpperCase() + method.slice(1).toLowerCase()}.new(uri)
 ${Object.keys(combinedHeaders)
   .map((key) => `request["${key}"] = "${combinedHeaders[key]}"`)
-  .join(
-    "\n"
-  )}${["POST", "PUT", "PATCH"].includes(method.toUpperCase()) ? `\nrequest.body = ${stringifyObject(body || {})}` : ""}
+  .join("\n")}${
+    isFormData
+      ? `\n\nform_data = {${Object.entries(body || {})
+          .map(([key, value]) =>
+            value === IMAGE_EXAMPLE
+              ? `\n  "${key}" => File.open("path/to/your/image.jpg", "rb")`
+              : `\n  "${key}" => ${JSON.stringify(value)}`
+          )
+          .join(",")}
+}\nrequest.set_form(form_data, 'multipart/form-data')`
+      : ["POST", "PUT", "PATCH"].includes(method.toUpperCase())
+        ? `\nrequest.body = ${stringifyObject(body || {})}`
+        : ""
+  }
 
 response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == "https") do |http|
   http.request(request)
@@ -144,7 +190,20 @@ Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
   headers: ${stringifyObject(combinedHeaders, 2).trim()},${
     method.toUpperCase() === "GET" || method.toUpperCase() === "HEAD"
       ? ""
-      : `
+      : isFormData
+        ? `
+  body: (() => {
+    const formData = new FormData();
+    ${Object.entries(body || {})
+      .map(([key, value]) =>
+        value === IMAGE_EXAMPLE
+          ? `// Assuming you're in a browser environment\n    // For Node.js, you'd use the 'fs' module and FormData from 'form-data'\n    formData.append("${key}", document.querySelector('input[type="file"]').files[0]);`
+          : `formData.append("${key}", ${typeof value === "string" ? `"${value}"` : value});`
+      )
+      .join("\n    ")}
+    return formData;
+  })(),`
+        : `
   body: JSON.stringify(${stringifyObject(body || {}, 2).trim()}),`
   }
 };
@@ -154,6 +213,7 @@ fetch(url.toString(), options)
   .then(data => console.log(data))
   .catch(error => console.error(error));
 `.trim();
+
   // Generate Curl snippet
   const queryString =
     Object.keys(query || {}).length > 0
@@ -162,10 +222,20 @@ fetch(url.toString(), options)
           .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
           .join("&")
       : "";
+
   const curlBody =
     method.toUpperCase() === "GET" || method.toUpperCase() === "HEAD"
       ? ""
-      : ` \\\n  -d '${stringifyObject(body || {}, 2).trim()}'`;
+      : isFormData
+        ? Object.entries(body || {})
+            .map(([key, value]) =>
+              value === IMAGE_EXAMPLE
+                ? ` \\\n  -F "${key}=@path/to/your/image.jpg"`
+                : ` \\\n  -F "${key}=${value}"`
+            )
+            .join("")
+        : ` \\\n  -d '${stringifyObject(body || {}, 2).trim()}'`;
+
   const additionalCurlHeaders = Object.entries(combinedHeaders)
     .map(([k, v]) => `-H "${k}: ${v}"`)
     .join(" ");
