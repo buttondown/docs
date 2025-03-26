@@ -1,0 +1,46 @@
+---
+title: Tumblr
+description: Automatically share your newsletters to your Tumblr blog to promote your newsletter.
+date: 2024-08-04
+relatedPages:
+  - automations-introduction
+  - linkedin
+  - twitter
+---
+{% paidFeature feature="automations" /%}
+
+## Overview
+
+Buttondown lets you connect your Tumblr account to your newsletter. This lets you automatically share your newsletters as Tumblr posts. This integration relies on Buttondown's [automations](/automations-introduction) feature.
+
+## Setting up your Tumblr integration
+
+To get started,
+
+1. Navigate to **Settings**, and then the [**Integrations**](https://buttondown.com/settings/integrations) and find the Tumblr integration option. 
+1. Click **Connect**. A new tab opens, prompting you to log in to your Tumblr account.
+1. Click **Authorize app** to authorize Buttondown to post to your Tumblr blog.
+
+After you connect your Tumblr account to Buttondown, a confirmation message appears on the Integrations page.
+
+## Sharing your newsletters to Tumblr
+
+To share your newsletters to Tumblr, you can create an automation that posts your newsletters to Tumblr whenever you send them. To do this, create a new [Automation](https://buttondown.com/automations/new), or just click the Automation banner below: 
+
+{% automation
+   name="Automatically post to Tumblr"
+   description="This automation will automatically post new emails onto Tumblr"
+   trigger="When an email is sent"
+   url="https://buttondown.com/automations/new?trigger=email.sent&action=create_tumblr_post&name=Automatically+post+new+emails"
+   action="Post on Tumblr" /%}
+
+The simplest and most common use case is to create an automation that posts your newsletters to Tumblr whenever you send them. Here's how:
+
+1. Navigate to the [**Automations**](https://buttondown.com/automations) page and click **New**. The "New automation" panel opens.
+1. (Optional) Give your automation a human-readable "Name."
+1. Set the **Trigger** to  [when an email is sent](/api-webhooks-event-types#email.sent).
+1. Set the **Action** to [Create a Tumblr post](/automation-actions#create_tumblr_post).
+1. (Optional) Configure any other fields to customize the automation. If you leave these fields blank, the automation will post to your Tumblr blog as soon as you send a new newsletter email.
+1. Click **Save changes**. 
+
+To enable the new automation, either click **Unpause** in the automation panel, or click to enable the automation's toggle in the [**Automations**](https://buttondown.com/automations) page.

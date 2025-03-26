@@ -1006,6 +1006,14 @@
     ]
   },
   {
+    "title": "Tumblr",
+    "url": "tumblr",
+    "section": "guides",
+    "schema": null,
+    "description": "Automatically share your newsletters to your Tumblr blog to promote your newsletter.",
+    "references": []
+  },
+  {
     "title": "Umami",
     "url": "umami",
     "section": "guides",
@@ -1602,6 +1610,7 @@
       "replies",
       "subscriber-autonomy",
       "teams",
+      "tumblr",
       "twitter",
       "welcome-sequence"
     ]
@@ -1642,6 +1651,7 @@
       "bsky",
       "can-i-send-an-email-to-new-subscribers",
       "linkedin",
+      "tumblr",
       "twitter"
     ]
   },
@@ -3043,6 +3053,7 @@
       "bsky",
       "linkedin",
       "plausible",
+      "tumblr",
       "twitter"
     ]
   },

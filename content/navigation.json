@@ -426,6 +426,10 @@
         },
         {
           "discriminant": "page",
+          "value": "tumblr"
+        },
+        {
+          "discriminant": "page",
           "value": "umami"
         },
         {
