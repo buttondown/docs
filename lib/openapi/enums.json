@@ -143,6 +143,11 @@
       "description": "Act every single time a new item is added to the RSS feed.",
       "variant": "success"
     },
+    "daily": {
+      "name": "Daily",
+      "description": "Act every day, compiling a digest of new items.",
+      "variant": "info"
+    },
     "weekly": {
       "name": "Weekly",
       "description": "Act every week, compiling a digest of new items.",
@@ -194,32 +199,104 @@
   "UpdateSubscriberErrorCode": {
     "tag_invalid": {
       "variant": "error",
-      "name": "Invalid tag"
+      "name": "Invalid tag",
+      "description": "The tag provided is invalid or does not exist."
+    },
+    "email_already_exists": {
+      "variant": "error",
+      "name": "Email already exists",
+      "description": "A subscriber with this email address already exists."
+    },
+    "email_invalid": {
+      "variant": "error",
+      "name": "Email invalid",
+      "description": "The email address provided is not valid."
+    },
+    "email_has_been_changed_too_many_times": {
+      "variant": "error",
+      "name": "Email changed too many times",
+      "description": "This subscriber's email has been changed too many times."
+    },
+    "subscriber_type_invalid": {
+      "variant": "error",
+      "name": "Subscriber type invalid",
+      "description": "The subscriber type provided is not valid."
     }
   },
   "ListSubscribersErrorCode": {
     "invalid_tag": {
       "variant": "error",
-      "name": "Invalid tag"
+      "name": "Invalid tag",
+      "description": "The tag provided is invalid or does not exist."
+    },
+    "date_invalid": {
+      "variant": "error",
+      "name": "Date invalid",
+      "description": "The date provided is not valid or is in an incorrect format."
     }
   },
-  "EmailListErrorCode": {},
+  "EmailListErrorCode": {
+    "creation_date_invalid": {
+      "variant": "error",
+      "name": "Creation date invalid",
+      "description": "The creation date provided is not valid or is in an incorrect format."
+    },
+    "publish_date_invalid": {
+      "variant": "error",
+      "name": "Publish date invalid",
+      "description": "The publish date provided is not valid or is in an incorrect format."
+    }
+  },
   "EmailCreationErrorCode": {
     "subject_invalid": {
       "variant": "error",
-      "name": "Invalid subject"
+      "name": "Invalid subject",
+      "description": "The subject provided is invalid or missing."
     },
     "tag_invalid": {
       "variant": "error",
-      "name": "Invalid tag"
+      "name": "Invalid tag",
+      "description": "The tag provided is invalid or does not exist."
     },
     "email_duplicate": {
       "variant": "error",
-      "name": "Duplicate email"
+      "name": "Duplicate email",
+      "description": "An email with the same identifiers already exists."
     },
     "email_invalid": {
       "variant": "error",
-      "name": "Invalid email"
+      "name": "Invalid email",
+      "description": "The email is invalid."
+    },
+    "body_invalid": {
+      "variant": "error",
+      "name": "Body invalid",
+      "description": "The email body provided is invalid or cannot be parsed."
+    },
+    "publish_date_invalid": {
+      "variant": "error",
+      "name": "Publish date invalid",
+      "description": "The publish date provided is not valid or is in an incorrect format."
+    },
+    "publish_date_missing": {
+      "variant": "error",
+      "name": "Publish date missing",
+      "description": "A publish date is required but was not provided."
+    },
+    "status_invalid": {
+      "variant": "error",
+      "name": "Status invalid",
+      "description": "The status provided is not valid."
+    },
+    "slug_invalid": {
+      "variant": "error",
+      "name": "Slug invalid",
+      "description": "The slug provided is invalid or already in use."
+    },
+    "canonical_url_invalid": {
+      "variant": "error",
+      "name": "Canonical URL invalid",
+      "description": "The canonical URL provided is not a valid URL."
     }
   },
   "EmailStatus": {
@@ -316,6 +393,21 @@
       "variant": "info",
       "name": "Free",
       "description": "Free emails are sent out only to subscribers who are not paying for your newsletter (so you can send specific emails to convince them to pay, for instance!)"
+    },
+    "churned": {
+      "variant": "info",
+      "name": "Churned",
+      "description": "Emails sent specifically to subscribers who were previously premium but have since churned."
+    },
+    "archival": {
+      "variant": "info",
+      "name": "Archival",
+      "description": "Emails that are only available in the archive and not sent to subscribers."
+    },
+    "hidden": {
+      "variant": "info",
+      "name": "Hidden",
+      "description": "Hidden emails that are not visible in archives or sent to subscribers."
     }
   },
   "ExportCollection": {
@@ -439,6 +531,54 @@
       "name": "subscriber.updated",
       "description": "When a subscriber's notes or metadata has changed."
     },
+    "subscriber.changed_email": {
+      "name": "subscriber.changed_email",
+      "description": "When a subscriber's email address has been changed."
+    },
+    "subscriber.type.changed": {
+      "name": "subscriber.type.changed",
+      "description": "When a subscriber's type has been changed."
+    },
+    "subscriber.tags.changed": {
+      "name": "subscriber.tags.changed",
+      "description": "When a subscriber's tags have been modified."
+    },
+    "subscriber.opened": {
+      "name": "subscriber.opened",
+      "description": "When a subscriber has opened one of your emails."
+    },
+    "subscriber.deleted": {
+      "name": "subscriber.deleted",
+      "description": "When a subscriber has been deleted from your newsletter."
+    },
+    "subscriber.viewed_checkout_page": {
+      "name": "subscriber.viewed_checkout_page",
+      "description": "When a subscriber has viewed your checkout page."
+    },
+    "subscriber.paused": {
+      "name": "subscriber.paused",
+      "description": "When a subscriber has paused their subscription."
+    },
+    "subscriber.resumed": {
+      "name": "subscriber.resumed",
+      "description": "When a subscriber has resumed their subscription after pausing it."
+    },
+    "subscriber.responded_to_survey": {
+      "name": "subscriber.responded_to_survey",
+      "description": "When a subscriber has responded to a survey in your newsletter."
+    },
+    "subscriber.referred": {
+      "name": "subscriber.referred",
+      "description": "When a subscriber has referred someone to your newsletter."
+    },
+    "subscriber.referred.paid": {
+      "name": "subscriber.referred.paid",
+      "description": "When a subscriber's referral has converted to a paid subscription."
+    },
+    "subscriber.commented": {
+      "name": "subscriber.commented",
+      "description": "When a subscriber has commented on one of your emails."
+    },
     "email.created": {
       "name": "email.created",
       "description": "Whenever a new email is created and begins delivery. Note that event happens immediately before the emails themselves are sent."
@@ -454,6 +594,14 @@
     "email.status.changed": {
       "name": "email.status.changed",
       "description": "Whenever an email's status has changed (e.g. from 'draft' to 'sent'.) The `metadata` field will contain the previous and new statii in 'old_value' and 'new_value' respectively."
+    },
+    "email.updated": {
+      "name": "email.updated", 
+      "description": "Whenever an email's content or metadata has been updated."
+    },
+    "scheduled_email.converted": {
+      "name": "scheduled_email.converted",
+      "description": "Whenever a scheduled email has been converted to a sent email."
     },
     "export.created": {
       "name": "export.created",
@@ -495,9 +643,21 @@
       "name": "stripe.customer.updated",
       "description": "Whenever a customer changes their email address in Stripe."
     },
+    "stripe.checkout.session.completed": {
+      "name": "stripe.checkout.session.completed",
+      "description": "Whenever a Stripe checkout session is completed successfully."
+    },
+    "mention.created": {
+      "name": "mention.created",
+      "description": "Whenever your newsletter is mentioned elsewhere."
+    },
     "automation.invoked": {
       "name": "automation.invoked",
       "description": "Whenever an automation is manually invoked (e.g. by a webhook or API call)."
+    },
+    "advertising_slot.purchased": {
+      "name": "advertising_slot.purchased",
+      "description": "Whenever an advertising slot in your newsletter is purchased."
     },
     "social_mention.created": {
       "name": "social_mention.created",
@@ -539,35 +699,58 @@
     },
     "ban_subscribers": {
       "variant": "info",
-      "name": "Ban subscribers"
+      "name": "Ban subscribers",
+      "description": "Ban subscribers from your newsletter."
     },
     "delete_emails": {
       "variant": "info",
-      "name": "Delete emails"
+      "name": "Delete emails",
+      "description": "Delete multiple emails in bulk."
     },
     "delete_comments": {
       "variant": "info",
-      "name": "Delete comments"
+      "name": "Delete comments",
+      "description": "Delete multiple comments in bulk."
     },
     "delete_subscribers": {
       "variant": "info",
-      "name": "Delete subscribers"
+      "name": "Delete subscribers",
+      "description": "Delete multiple subscribers in bulk."
+    },
+    "delete_surveys": {
+      "variant": "info",
+      "name": "Delete surveys",
+      "description": "Delete multiple surveys in bulk."
     },
     "delete_tags": {
       "variant": "info",
-      "name": "Delete tags"
+      "name": "Delete tags",
+      "description": "Delete multiple tags in bulk."
+    },
+    "gift_subscribers": {
+      "variant": "info",
+      "name": "Gift subscribers",
+      "description": "Gift premium subscriptions to multiple subscribers in bulk."
+    },
+    "mark_subscribers_as_not_spammy": {
+      "variant": "info",
+      "name": "Mark subscribers as not spammy",
+      "description": "Remove the spammy designation from multiple subscribers in bulk."
     },
     "reactivate_subscribers": {
       "variant": "info",
-      "name": "Reactivate subscribers"
+      "name": "Reactivate subscribers",
+      "description": "Reactivate multiple subscribers in bulk."
     },
     "replay_events": {
       "variant": "info",
-      "name": "Replay events"
+      "name": "Replay events",
+      "description": "Replay multiple events in bulk."
     },
     "resubscribe_subscribers": {
       "variant": "info",
-      "name": "Resubscribe subscribers"
+      "name": "Resubscribe subscribers",
+      "description": "Resubscribe multiple unsubscribed subscribers in bulk."
     },
     "send_emails": {
       "variant": "info",
@@ -576,31 +759,38 @@
     },
     "send_reminders": {
       "variant": "info",
-      "name": "Send reminders"
+      "name": "Send reminders",
+      "description": "Send reminders to multiple subscribers in bulk."
     },
     "update_email_types": {
       "variant": "info",
-      "name": "Update email types"
+      "name": "Update email types",
+      "description": "Update the email types for multiple emails in bulk."
     },
     "unsubscribe_subscribers": {
       "variant": "info",
-      "name": "Unsubscribe subscribers"
+      "name": "Unsubscribe subscribers",
+      "description": "Unsubscribe multiple subscribers in bulk."
     },
     "update_survey_statuses": {
       "variant": "info",
-      "name": "Update status types."
+      "name": "Update status types",
+      "description": "Update the status types for multiple surveys in bulk."
     },
     "update_commenting_modes": {
       "variant": "info",
-      "name": "Update commenting modes."
+      "name": "Update commenting modes",
+      "description": "Update the commenting modes for multiple emails in bulk."
     },
     "update_archival_modes": {
       "variant": "info",
-      "name": "Update archival modes."
+      "name": "Update archival modes",
+      "description": "Update the archival modes for multiple emails in bulk."
     },
     "ungift_subscribers": {
       "variant": "info",
-      "name": "Ungift subscribers"
+      "name": "Ungift subscribers",
+      "description": "Remove gifted premium subscriptions from multiple subscribers in bulk."
     }
   },
   "SubscriberType": {
