@@ -152,6 +152,34 @@
         "label": "Basic external feed",
         "metadata": {}
       }
+    },
+    {
+      "description": "Filtered external feed",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "last_checked_date": null,
+        "status": "active",
+        "behavior": "draft",
+        "cadence": "daily",
+        "cadence_metadata": {},
+        "filters": {
+          "filters": [
+            {
+              "field": "subscriber.tags",
+              "operator": "contains",
+              "value": "13121cd6-0dfc-424c-bb12-988b0a32fcb3"
+            }
+          ],
+          "groups": [],
+          "predicate": "and"
+        },
+        "url": "https://example.com/feed",
+        "subject": "New post: {{ item.title }}",
+        "body": "I just published a new post: {{ item.url }}",
+        "label": "Basic external feed",
+        "metadata": {}
+      }
     }
   ],
   "Subscriber": [
