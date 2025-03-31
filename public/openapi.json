@@ -7260,7 +7260,8 @@
           "email_already_exists",
           "email_invalid",
           "tag_invalid",
-          "metadata_invalid"
+          "metadata_invalid",
+          "ip_address_spammy"
         ],
         "type": "string"
       },
