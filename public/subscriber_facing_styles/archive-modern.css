@@ -650,6 +650,7 @@ body {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  gap: 1rem;
 }
 .header-navigation h1 {
   margin-top: 0;
