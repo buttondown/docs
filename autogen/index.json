@@ -2707,6 +2707,7 @@
     "description": null,
     "references": [
       "api-changelog-2024-12-11",
+      "api-changelog-2025-03-31",
       "api-formatting"
     ]
   },
@@ -3287,6 +3288,16 @@
       "api-changelog",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2025-03-31",
+    "url": "api-changelog-2025-03-31",
+    "section": "api",
+    "schema": null,
+    "description": "Added support for passing IP addresses to subscriber creation",
+    "references": [
+      "api-changelog"
     ]
   },
   {
