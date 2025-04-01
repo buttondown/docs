@@ -70,3 +70,11 @@ curl -X POST https://api.buttondown.com/v1/subscribers \
 ```
 
 ---
+
+### Spam validation
+
+Buttondown validates all incoming subscribers through the API, making it easy for you to spend less time worrying about spam and more time building your newsletter.
+
+We can only validate based on the information you provide, though. When looking at incoming traffic, a very useful heuristic is to look at the IP address of the request: if we see, for instance, a given IP address that has submitted a lot of requests in a short period of time, we can flag that for manual review.
+
+To help with this, you can now provide an `ip_address`. This will be used to determine the subscriber's location and validate their legitimacy (especially useful for folks submitting requests from a form that doesn't have CAPTCHA protection or similar anti-spam measures). You should proxy this directly from the request you receive, and if provided we'll use it rather than the IP address from which you make the API call.

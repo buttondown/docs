@@ -7365,6 +7365,12 @@
                 "$ref": "#/components/schemas/SubscriberType"
               }
             ]
+          },
+          "ip_address": {
+            "title": "Ip Address",
+            "description": "The IP address of the subscriber. If provided, we will use this IP address to determine the subscriber's location and validate their legitimacy.",
+            "example": "127.0.0.1",
+            "type": "string"
           }
         },
         "required": [
