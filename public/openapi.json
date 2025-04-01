@@ -225,7 +225,20 @@
       "get": {
         "operationId": "list_tags",
         "summary": "List Tags",
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "title": "Page Size",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000,
+              "type": "integer"
+            },
+            "required": false
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -8725,7 +8738,8 @@
           "filter_invalid__tag",
           "filter_invalid",
           "action_invalid",
-          "invalid_newsletter_id"
+          "invalid_newsletter_id",
+          "action_invalid__missing_body_or_subject"
         ],
         "type": "string"
       },
