@@ -3,3 +3,27 @@ title: Export statuses
 navigationTitle: Statuses
 enum: ExportStatus
 ---
+
+
+
+```mermaid
+flowchart
+    api([api.buttondown.com/v1/exports]) --> not_started[Not started]
+    not_started e1@--> in_progress[In progress]
+    not_started e7@--> export_created>export.created]
+    in_progress e2@--> ready[Ready]
+    ready e3@--> s3>buttondown.com/exports/1234567890.zip]
+    ready e5@--> export_completed>export.completed]
+    in_progress e4@--> error[Error]
+    error e6@--> export_failed>export.failed]
+    e1@{ animate: true }
+    e2@{ animate: true }
+    e3@{ animate: true }
+    e4@{ animate: true }
+    e5@{ animate: true }
+    e6@{ animate: true }
+    e7@{ animate: true }
+    click export_failed href "event-types#export.failed"
+    click export_completed href "event-types#export.completed"
+    click export_created href "event-types#export.created"
+```

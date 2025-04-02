@@ -43,3 +43,49 @@ code .diff.add {
     background-color: rgba(16, 185, 129, 0.5);
     opacity: .9;
 }
+
+.flowchart .node rect:not([ry]),
+.entityBox,
+.attributeBoxOdd {
+  fill: white !important;
+  stroke: oklch(0.707 0.022 261.325) !important;
+  @apply shadow-lg;
+}
+
+.flowchart .node rect[ry] {
+  @apply !fill-gray-200 !stroke-gray-400 !text-xs;
+}
+
+.flowchart .node rect[ry] ~ g .nodeLabel p {
+  @apply !text-xs;
+}
+
+.flowchart .node rect[ry] ~ g div {
+  @apply !max-w-none !w-full !mt-[2px] !block;
+}
+
+
+
+.nodeLabel p,
+.entityLabel {
+  font-family: "Hex Franklin" !important;
+  @apply text-sm whitespace-nowrap;
+}
+
+.edgeLabel p {
+  @apply text-xs whitespace-nowrap;
+  background-color: #f9fafb !important;
+}
+
+pre.mermaid {
+  @apply m-0 bg-gray-100 border border-gray-200 rounded-md p-4 w-full flex items-center justify-center;
+}
+
+.clickable path {
+  transition: fill 0.1s ease-in-out, text 0.1s ease-in-out, stroke 0.1s ease-in-out;
+  @apply !fill-blue-100 !text-blue-600 !stroke-blue-600;
+}
+
+.clickable:hover path {
+  @apply !fill-blue-200 !text-blue-700 !stroke-blue-700 !shadow-sm;
+}

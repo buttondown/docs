@@ -1,9 +1,9 @@
 import SEARCH from "@/autogen/index.json";
 import Document from "@/components/Document";
 import ObjectDescription, {
-    extractParameters,
-    extractSchemaFromContent,
-    fixtureForRef,
+  extractParameters,
+  extractSchemaFromContent,
+  fixtureForRef,
 } from "@/components/ObjectDescription";
 import Parameter from "@/components/Parameter";
 import Code from "@/components/code";
@@ -13,9 +13,9 @@ import { DESCRIPTION, TITLE } from "@/lib/constants";
 import { generateJSONLDMetadata } from "@/lib/jsonld";
 import OpenAPIEnums from "@/lib/openapi/enums.json";
 import type {
-    Method,
-    Object as OpenAPIObject,
-    Operation,
+  Method,
+  Object as OpenAPIObject,
+  Operation,
 } from "@/lib/openapi/types";
 import OpenAPI from "@/public/openapi.json";
 import { createReader } from "@keystatic/core/reader";
@@ -47,7 +47,7 @@ async function pageFromSlug(slug: string) {
               slug: s,
               title: subpage?.title,
             };
-          }),
+          })
         );
 
   if (!page) {
@@ -65,7 +65,7 @@ async function pageFromSlug(slug: string) {
 
 const extractResponses = <Endpoint extends "/comments", Method extends "get">(
   endpoint: Endpoint,
-  method: Method,
+  method: Method
 ) => {
   const endpointData = OpenAPI.paths[endpoint];
   const operation = endpointData[method];
@@ -80,9 +80,7 @@ const extractResponses = <Endpoint extends "/comments", Method extends "get">(
 export async function generateMetadata(props: Props) {
   const params = await props.params;
 
-  const {
-    slug
-  } = params;
+  const { slug } = params;
 
   const page = await pageFromSlug(slug);
 
@@ -108,9 +106,7 @@ export async function generateMetadata(props: Props) {
 export default async function DocsPage(props: Props) {
   const params = await props.params;
 
-  const {
-    slug
-  } = params;
+  const { slug } = params;
 
   const page = await pageFromSlug(slug);
 
@@ -127,7 +123,7 @@ export default async function DocsPage(props: Props) {
     const plainOp = plainOas.operation(
       page.endpoint,
       // biome-ignore lint/suspicious/noExplicitAny: method has to be get/post/put/delete
-      page.method.toLowerCase() as any,
+      page.method.toLowerCase() as any
     );
     const endpoint = page.endpoint as "/comments";
     const method =
@@ -235,12 +231,18 @@ export default async function DocsPage(props: Props) {
 
     if (enumDescriptions === undefined) {
       throw new Error(
-        `No enum descriptions found for ${page.enum}. Did you forget to:\n1. Add them to \`shared/enums.json\`?\n2. Run \`just propagate-shared-files\`?`,
+        `No enum descriptions found for ${page.enum}. Did you forget to:\n1. Add them to \`shared/enums.json\`?\n2. Run \`just propagate-shared-files\`?`
       );
     }
 
     return (
       <Layout slug={slug} title={page.title}>
+        <Document
+          page={{
+            ...page,
+            slug,
+          }}
+        />
         <div
           // biome-ignore lint/security/noDangerouslySetInnerHtml: It's fine
           dangerouslySetInnerHTML={{
@@ -317,7 +319,11 @@ export default async function DocsPage(props: Props) {
             <a href={`/rss/api-changelog`} target="_blank" rel="noopener">
               RSS
             </a>{" "}
-            or <Link href="/api-changelog">browse the full list of API changes</Link>.
+            or{" "}
+            <Link href="/api-changelog">
+              browse the full list of API changes
+            </Link>
+            .
           </p>
         </div>
       )}
@@ -329,7 +335,7 @@ export default async function DocsPage(props: Props) {
             generateJSONLDMetadata({
               ...page,
               slug,
-            }),
+            })
           ),
         }}
       />

@@ -3,3 +3,19 @@ title: Email status
 navigationTitle: Statuses
 enum: EmailStatus
 ---
+
+
+```mermaid
+flowchart
+  example.com/rss.xml([example.com/rss.xml]) --> managed_by_rss[Managed by RSS]
+  draft[Draft] --> scheduled[Scheduled]
+  api([api.buttondown.com/v1/emails]) --> draft
+  draft --> about_to_send[About to send]
+  about_to_send --> in_flight[In flight]
+  scheduled --> in_flight
+  in_flight --> paused[Paused]
+  paused --> in_flight
+  managed_by_rss[Managed by RSS] --> draft
+  managed_by_rss --> about_to_send
+  in_flight --> sent[Sent]
+```

@@ -11,6 +11,7 @@ import {
   type SingletonLanguageBlockList,
   shikiWithoutWrapper,
 } from "./lib";
+import Script from "next/script";
 
 const THEME = "dark-plus";
 
@@ -30,6 +31,14 @@ export default async function Code({
       block.code = await fs.readFile(block.code, "utf-8");
     }
 
+    if (block.language === "mermaid") {
+      // For mermaid diagrams, we'll just emit the code as a block and load mermaid from jsDelivr
+      block.html = `<pre class="mermaid">${block.code}</pre>`;
+
+      // Skip the regular highlighting process
+      continue;
+    }
+
     const html = highlighter.codeToHtml(block.code, {
       lang: block.language,
       theme: THEME,
@@ -44,11 +53,15 @@ export default async function Code({
       name: "name" in block ? block.name : undefined,
       html: block.html ?? "",
       language: block.language,
-    }),
+    })
   );
 
   return (
     <div className="not-prose">
+      <Script
+        type="module"
+        src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs"
+      />
       <CodeInteractive
         blocks={processedBlocks}
         apiKeyReplacements={{
@@ -57,13 +70,13 @@ export default async function Code({
               highlighter.codeToHtml(PYTHON_API_KEY_CODE, {
                 lang: "python",
                 theme: THEME,
-              }),
+              })
             ),
             to: shikiWithoutWrapper(
               highlighter.codeToHtml(PYTHON_API_KEY_CODE_REPLACEMENT, {
                 lang: "python",
                 theme: THEME,
-              }),
+              })
             ),
           },
         }}

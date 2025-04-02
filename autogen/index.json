@@ -623,6 +623,7 @@
     "description": "Hosting your Buttondown archives on a custom domain helps establish your newsletter's brand.",
     "references": [
       "glossary-dns",
+      "glossary-hosting-domain",
       "glossary-whitelabeling",
       "quickstart",
       "sending-from-a-custom-domain",

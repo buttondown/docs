@@ -51,3 +51,11 @@ For these DNSes, we recommend setting up completely separate subdomains. Try som
 - `mail.janedoe.com` for your custom sending domain, where outgoing emails come from
 
 This is the best option to preserve the deliverability of your newsletter.
+
+### Technical details
+
+```mermaid
+graph TD
+    example.com[example.com] -->|CNAME| custom-domains.buttondown.com
+    custom-domains.buttondown.com -->|CNAME| buttondown.com
+```
