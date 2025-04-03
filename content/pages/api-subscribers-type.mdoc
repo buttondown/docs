@@ -3,3 +3,68 @@ title: Subscriber types
 navigationTitle: Types
 enum: SubscriberType
 ---
+
+As you'll see, most of the logic here is really to deal with the state space of paid subscriptions, and therefore might not be _super_ relevant to you.
+
+```mermaid
+flowchart
+    unactivated[Unactivated] --> regular[Regular]
+    unactivated --> unpaid[Unpaid]
+    unpaid --> premium
+    regular --> premium[Premium]
+    trialed --> premium
+    trialed --> regular
+    trialed --> unpaid
+    unactivated --> trialed[Trialed]
+    regular --> gifted[Gifted]
+    premium --> churning[Churning]
+    premium --> paused[Paused]
+    regular --> unsubscribed[Unsubscribed]
+    regular --> spammy[Spammy]
+    regular --> undeliverable[Undeliverable]
+    regular --> complained[Complained]
+    premium --> past_due[Past due]
+    past_due --> churned
+    past_due --> premium
+    churning --> churned[Churned]
+    regular --> disabled[Disabled]
+    paused --> premium
+    churned --> premium
+
+    subgraph paid_subscriptions
+      premium
+      trialed
+      gifted
+      unpaid
+      churning
+      past_due
+      paused
+      churned
+    end
+
+    subgraph terminal['']
+      complained
+      spammy
+      undeliverable
+      disabled
+    end
+```
+
+Which is why we also present this chart _without_ paid subscriptions_.
+
+```mermaid
+flowchart
+    unactivated[Unactivated] --> regular[Regular]
+    unactivated --> unpaid[Unpaid]
+    regular --> unsubscribed[Unsubscribed]
+    regular --> spammy[Spammy]
+    regular --> undeliverable[Undeliverable]
+    regular --> complained[Complained]
+
+    subgraph terminal['']
+      complained
+      spammy
+      undeliverable
+      disabled[Disabled]
+    end
+```

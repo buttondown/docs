@@ -89,3 +89,7 @@ pre.mermaid {
 .clickable:hover path {
   @apply !fill-blue-200 !text-blue-700 !stroke-blue-700 !shadow-sm;
 }
+
+.cluster rect {
+  @apply !fill-white !stroke-gray-400;
+}

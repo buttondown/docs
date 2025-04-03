@@ -3,3 +3,26 @@ title: External feed item statuses
 navigationTitle: Item Statuses
 enum: ExternalFeedItemStatus
 ---
+
+```mermaid
+flowchart
+    subgraph example.com/rss.xml
+      1([example.com/post/1])
+      2([example.com/post/2])
+      3([example.com/post/3])
+    end
+    3 e1@--> not_started[Not started]
+    not_started e2@--> |If published before the feed was added| irrelevant[Irrelevant]
+    not_started e3@--> |If feed is inactive| skipped[Skipped]
+    not_started e4@--> queued[Queued]
+    queued e5@--> processed[Processed]
+    queued e6@--> errored[Errored]
+    processed e7@--> Email>email.created]
+    e1@{ animate: true }
+    e2@{ animate: true }
+    e3@{ animate: true }
+    e4@{ animate: true }
+    e5@{ animate: true }
+    e6@{ animate: true }
+    e7@{ animate: true }
+```

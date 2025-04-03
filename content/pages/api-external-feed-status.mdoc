@@ -3,3 +3,15 @@ title: External feed statuses
 navigationTitle: Statuses
 enum: ExternalFeedAutomationStatus
 ---
+
+
+```mermaid
+flowchart
+    rss([example.com/rss.xml]) --> inactive[Inactive]
+    inactive e1@--> active[Active]
+    active e2@--> inactive
+    active e3@--> |If Buttondown can't access the feed| failing[Failing]
+    failing e4@--> |After three attempts| inactive
+    e3@{ animate: true }
+    e4@{ animate: true }
+```
