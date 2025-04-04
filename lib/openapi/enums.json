@@ -599,10 +599,6 @@
       "name": "email.updated", 
       "description": "Whenever an email's content or metadata has been updated."
     },
-    "scheduled_email.converted": {
-      "name": "scheduled_email.converted",
-      "description": "Whenever a scheduled email has been converted to a sent email."
-    },
     "export.created": {
       "name": "export.created",
       "description": "Whenever an export is created."
