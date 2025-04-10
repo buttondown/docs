@@ -708,6 +708,15 @@
       ]
     },
     {
+      "name": "Custom domains",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "workspace-spf"
+        }
+      ]
+    },
+    {
       "name": "Deliverability",
       "items": [
         {
@@ -873,7 +882,6 @@
           "discriminant": "page",
           "value": "using-a-screen-reader"
         },
-
         {
           "discriminant": "page",
           "value": "gdpr-eu-compliance"
