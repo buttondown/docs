@@ -658,6 +658,22 @@
     "social_mention.created": {
       "name": "social_mention.created",
       "description": "Whenever your newsletter is mentioned on another website such as Reddit, Twitter, Bluesky, etc."
+    },
+    "date.day.started": {
+      "name": "date.day.started",
+      "description": "Whenever a new day starts. This event is fired at midnight UTC."
+    },
+    "date.week.started": {
+      "name": "date.week.started",
+      "description": "Whenever a new week starts. This event is fired at midnight UTC on Monday."
+    },
+    "date.month.started": {
+      "name": "date.month.started",
+      "description": "Whenever a new month starts. This event is fired at midnight UTC on the first day of each month."
+    },
+    "date.year.started": {
+      "name": "date.year.started",
+      "description": "Whenever a new year starts. This event is fired at midnight UTC on January 1st."
     }
   },
   "BulkActionStatus": {

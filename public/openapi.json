@@ -5157,7 +5157,11 @@
                 "stripe.customer.updated",
                 "memberful.subscription.created",
                 "memberful.subscription.deleted",
-                "memberful.member.updated"
+                "memberful.member.updated",
+                "date.day.started",
+                "date.week.started",
+                "date.month.started",
+                "date.year.started"
               ],
               "type": "string"
             },
@@ -8593,7 +8597,11 @@
           "stripe.customer.updated",
           "memberful.subscription.created",
           "memberful.subscription.deleted",
-          "memberful.member.updated"
+          "memberful.member.updated",
+          "date.day.started",
+          "date.week.started",
+          "date.month.started",
+          "date.year.started"
         ],
         "type": "string"
       },
