@@ -1623,21 +1623,6 @@
           },
           {
             "in": "query",
-            "name": "utm_source",
-            "schema": {
-              "title": "Utm Source",
-              "description": "If provided, only return subscribers with the given UTM source(s).",
-              "example": "paid_campaign_2024",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "required": false,
-            "description": "If provided, only return subscribers with the given UTM source(s)."
-          },
-          {
-            "in": "query",
             "name": "price",
             "schema": {
               "title": "Price",
@@ -1770,20 +1755,6 @@
           },
           {
             "in": "query",
-            "name": "referrer_url",
-            "schema": {
-              "title": "Referrer Url",
-              "description": "If provided, only return subscribers with the given referrer URL(s).",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "required": false,
-            "description": "If provided, only return subscribers with the given referrer URL(s)."
-          },
-          {
-            "in": "query",
             "name": "upgrade_date__start",
             "schema": {
               "title": "Upgrade Date  Start",
@@ -1830,6 +1801,79 @@
             },
             "required": false,
             "description": "If provided, only return subscribers with the given undeliverability reason(s)."
+          },
+          {
+            "in": "query",
+            "name": "unsubscription_reason",
+            "schema": {
+              "title": "Unsubscription Reason",
+              "description": "If provided, only return subscribers with the given unsubscription reason(s).",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given unsubscription reason(s)."
+          },
+          {
+            "in": "query",
+            "name": "referrer_url",
+            "schema": {
+              "title": "Referrer Url",
+              "description": "If provided, only return subscribers with the given referrer URL(s).",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given referrer URL(s)."
+          },
+          {
+            "in": "query",
+            "name": "utm_source",
+            "schema": {
+              "title": "Utm Source",
+              "description": "If provided, only return subscribers with the given UTM source(s).",
+              "example": "paid_campaign_2024",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given UTM source(s)."
+          },
+          {
+            "in": "query",
+            "name": "utm_campaign",
+            "schema": {
+              "title": "Utm Campaign",
+              "description": "If provided, only return subscribers with the given UTM campaign(s).",
+              "example": "paid_campaign_2024",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given UTM campaign(s)."
+          },
+          {
+            "in": "query",
+            "name": "utm_medium",
+            "schema": {
+              "title": "Utm Medium",
+              "description": "If provided, only return subscribers with the given UTM medium(s).",
+              "example": "paid_campaign_2024",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given UTM medium(s)."
           }
         ],
         "responses": {
