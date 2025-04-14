@@ -1438,7 +1438,8 @@
       "api-comments-list",
       "api-expansion",
       "data-exports-comments",
-      "glossary-ugc"
+      "glossary-ugc",
+      "workspace-spf"
     ]
   },
   {
@@ -1502,6 +1503,14 @@
     "section": "reference",
     "schema": null,
     "description": null,
+    "references": []
+  },
+  {
+    "title": "Why is my Google Workspace domain not SPF-aligned? ",
+    "url": "workspace-spf",
+    "section": "reference",
+    "schema": null,
+    "description": "Google Workspace alias domains may not have SPF alignment when also used for third-party providers, like Buttondown. In these cases, lack of SPF alignment is expected (for alias domains), and should not be a problem for deliverability. ",
     "references": []
   },
   {
@@ -2689,6 +2698,7 @@
       "api-changelog-2024-05-22",
       "api-changelog-2024-12-05",
       "api-changelog-2025-02-26",
+      "api-changelog-2025-04-14",
       "api-filtering"
     ]
   },
@@ -3289,6 +3299,16 @@
       "api-changelog",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2025-04-14",
+    "url": "api-changelog-2025-04-14",
+    "section": "api",
+    "schema": null,
+    "description": "Added UTM filtering parameters to the subscribers API",
+    "references": [
+      "api-changelog"
     ]
   },
   {

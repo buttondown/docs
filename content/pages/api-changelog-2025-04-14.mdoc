@@ -1,0 +1,20 @@
+---
+title: "2025-04-14"
+navigationTitle: "2025-04-14"
+description: "Added UTM filtering parameters to the subscribers API"
+---
+
+We've expanded the subscriber filtering capabilities by adding support for UTM parameters. You can now filter subscribers by:
+
+- `utm_campaign` - Find subscribers who arrived via specific marketing promotions
+- `utm_medium` - Filter by the channel that drove subscribers (social, email, etc.)
+- `utm_source` - Filter by the specific source of subscribers
+
+We've also added a new `unsubscription_reason` filter to help you understand why subscribers are leaving.
+
+These parameters work just like existing filters - pass them as query parameters when [listing subscribers](/api-subscribers-list):
+
+{% generatedMultilanguageSnippets
+   method="GET"
+   endpoint="/subscribers?utm_campaign=spring_promo&utm_medium=social"
+   body="" /%}
