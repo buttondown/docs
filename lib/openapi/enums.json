@@ -898,6 +898,11 @@
     }
   },
   "AutomationActionType": {
+    "create_export": {
+      "variant": "info",
+      "name": "Create export",
+      "description": "Create an export."
+    },
     "add_tags": {
       "variant": "info",
       "name": "Add tags",

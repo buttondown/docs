@@ -8679,7 +8679,8 @@
           "create_linkedin_post",
           "create_twitter_post",
           "create_tumblr_post",
-          "create_bluesky_post"
+          "create_bluesky_post",
+          "create_export"
         ],
         "type": "string"
       },
