@@ -1682,6 +1682,7 @@
     "schema": null,
     "description": "Events and webhooks allow you to monitor and react to any changes with your newsletter.",
     "references": [
+      "api-emails-status",
       "data-exports-event",
       "discord",
       "duda",
@@ -2494,6 +2495,7 @@
     "schema": "EmailStatus",
     "description": null,
     "references": [
+      "api-changelog-2025-04-17",
       "customizing-email-list-view",
       "scheduling-emails-via-the-api"
     ]
@@ -3299,6 +3301,16 @@
       "api-changelog",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2025-04-17",
+    "url": "api-changelog-2025-04-17",
+    "section": "api",
+    "schema": null,
+    "description": "Added new email statuses to really let you peek under the hood",
+    "references": [
+      "api-changelog"
     ]
   },
   {
