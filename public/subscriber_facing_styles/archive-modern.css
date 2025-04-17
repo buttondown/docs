@@ -418,9 +418,17 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: .5rem;
-  -moz-column-gap: .5rem;
-  column-gap: .5rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  margin: 0 auto;
+  gap: .625rem;
   width: 100%;
 }
 #subscribe-form .unactivated-buttons > *,
