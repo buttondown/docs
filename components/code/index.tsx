@@ -11,7 +11,6 @@ import {
   type SingletonLanguageBlockList,
   shikiWithoutWrapper,
 } from "./lib";
-import Script from "next/script";
 
 const THEME = "dark-plus";
 
@@ -32,9 +31,8 @@ export default async function Code({
     }
 
     if (block.language === "mermaid") {
-      // For mermaid diagrams, we'll just emit the code as a block and load mermaid from jsDelivr
+      // For mermaid diagrams, create a proper pre class that will be processed by client-side mermaid
       block.html = `<pre class="mermaid">${block.code}</pre>`;
-
       // Skip the regular highlighting process
       continue;
     }
@@ -58,10 +56,6 @@ export default async function Code({
 
   return (
     <div className="not-prose">
-      <Script
-        type="module"
-        src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs"
-      />
       <CodeInteractive
         blocks={processedBlocks}
         apiKeyReplacements={{

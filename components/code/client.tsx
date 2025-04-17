@@ -5,6 +5,7 @@ import useButtondownCookie, {
 } from "@/hooks/useButtondownCookie";
 import * as Tabs from "@radix-ui/react-tabs";
 import clsx from "clsx";
+import { useEffect } from "react";
 import type { ProcessedBlock } from "./lib";
 
 // apiKeyReplacements are used to insert the user's live API key into code blocks.
@@ -31,6 +32,19 @@ export default function CodeInteractive({
   const hideTabs = blocks.length === 1 && blocks[0].name === undefined;
 
   const username = useButtondownCookie(USERNAME_COOKIE);
+
+  // Initialize mermaid when the component mounts
+  useEffect(() => {
+    // Dynamically import mermaid only on the client side
+    import("mermaid").then((mermaid) => {
+      mermaid.default.initialize({
+        startOnLoad: true,
+        theme: "default",
+        securityLevel: "strict",
+      });
+      mermaid.default.run();
+    });
+  }, []);
 
   return (
     <Tabs.Root defaultValue={blocks[0].name ?? "default"}>
