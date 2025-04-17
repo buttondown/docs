@@ -33,6 +33,16 @@ If you want to filter by multiple values on a single field, you can do so by add
 https://api.buttondown.com/v1/emails?status=draft&status=scheduled
 ```
 
+## Negative filtering
+
+If you want to filter by values that are _not_ in a given list, you can do so by prefixing the query parameter with a `-`. For example, if you want to find all emails that are not "draft", you can do so by adding a `-status` query parameter:
+
+```
+https://api.buttondown.com/v1/emails?-status=draft
+```
+
+This is not supported for all endpoints; be sure to check the documentation for the endpoint you're interested in to confirm that it supports negative filtering.
+
 ## Filtering by complex fields
 
 OpenAPI's spec cannot actually _surface_ this, but some specific endpoints in Buttondown's API allow you to filter by complex fields. For example, the [subscriber list endpoint](/api-subscribers-list) allows you to filter by `metadata`, which is a JSON field that can contain arbitrary data.

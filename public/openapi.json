@@ -779,6 +779,19 @@
           },
           {
             "in": "query",
+            "name": "negative_status",
+            "schema": {
+              "description": "If provided, only return emails without the given status.",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/EmailStatus"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return emails without the given status."
+          },
+          {
+            "in": "query",
             "name": "automations",
             "schema": {
               "title": "Automations",
@@ -1561,6 +1574,19 @@
             },
             "required": false,
             "description": "If provided, only return subscribers with the given type."
+          },
+          {
+            "in": "query",
+            "name": "-type",
+            "schema": {
+              "description": "If provided, only return subscribers without the given type.",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/SubscriberType"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers without the given type."
           },
           {
             "in": "query",
@@ -4116,7 +4142,34 @@
       "get": {
         "operationId": "list_surveys",
         "summary": "List Surveys",
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "description": "If provided, only return surveys with the given status.",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/SurveyStatus"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return surveys with the given status."
+          },
+          {
+            "in": "query",
+            "name": "-status",
+            "schema": {
+              "description": "If provided, only return surveys without the given status.",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/SurveyStatus"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return surveys without the given status."
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
