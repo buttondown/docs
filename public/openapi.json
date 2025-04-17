@@ -8736,6 +8736,7 @@
           "create_twitter_post",
           "create_tumblr_post",
           "create_bluesky_post",
+          "create_arena_post",
           "create_export"
         ],
         "type": "string"
