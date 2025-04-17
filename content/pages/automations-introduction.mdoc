@@ -18,8 +18,15 @@ Each automation consists of four parts:
 - *A timing*, which determines when the automation should run.
 - *An action*, which is what the automation actually does.
 
+Combined, these constitute a single automation:
 
-![Automation visualization](/images/visualizations/welcome-sequence_automation-visualization.png)
+```mermaid
+flowchart
+  trigger["When a subscriber is created"] e1@--> |If the subscriber is from the EU| timing[Wait one day]
+  timing e3@--> |then| action[Send welcome email]
+  e1@{ animate: true }
+  e3@{ animate: true }
+```
 
 This graphic displays how the four steps of an automation interact with each other.
 

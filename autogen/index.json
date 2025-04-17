@@ -657,7 +657,6 @@
     "schema": null,
     "description": "You can use Buttondown's automations feature to create a welcome sequence for your new subscribers!",
     "references": [
-      "automations-introduction",
       "can-i-send-an-email-to-new-subscribers",
       "welcome-sequence"
     ]

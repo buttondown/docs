@@ -3,3 +3,13 @@ title: Bulk action statuses
 navigationTitle: Statuses
 enum: BulkActionStatus
 ---
+
+```mermaid
+flowchart
+  not_started e1@--> in_progress
+  in_progress e2@--> processed
+  in_progress e3@--> failed
+  e1@{ animate: true }
+  e2@{ animate: true }
+  e3@{ animate: true }
+```
