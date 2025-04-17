@@ -349,6 +349,21 @@
       "variant": "error",
       "name": "Errored",
       "description": "This email has encountered an error while sending out to subscribers, and is not visible in your web archives."
+    },
+    "throttled": {
+      "variant": "warning",
+      "name": "Throttled",
+      "description": "This email is in the process of being sent out, but is being intentionally sent slowly to ensure deliverability."
+    },
+    "resending": {
+      "variant": "warning",
+      "name": "Resending",
+      "description": "This email is in the process of automatically being resent to subscribers by Buttondown's systems in order to make sure all subscribers have received it."
+    },
+    "transactional": {
+      "variant": "info",
+      "name": "Transactional",
+      "description": "This email is a transactional email used by a core workflow in your newsletter or Automations, and is not visible in your web archives nor sent out to subscribers."
     }
   },
   "EmailSource": {

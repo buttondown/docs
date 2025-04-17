@@ -4,20 +4,54 @@ navigationTitle: Statuses
 enum: EmailStatus
 ---
 
+As a helpful primer for the diagram below, here's a quick run-through.
+
+## Edges 
+
+- Animated edges indicate state transitions that Buttondown performs automatically.
+- Static edges indicate state transitions that you, the newsletter owner, can perform (either through the API or the web interface).
+
+```mermaid
+flowchart LR
+  in_flight[In flight] animated@--> Sent
+  in_flight --> Paused
+
+animated@{animate: true}
+```
+
+## Nodes
+
+- Rounded rectangles indicate entry points for emails (such as an RSS feed or the web interface).
+- Squares indicate actual statuses.
+- Flags represent [events](/events-and-webhooks-introduction) that are created in response to state changes.
+
+```mermaid
+flowchart
+  example.com/rss.xml([example.com/rss.xml])
+  Draft
+  email_sent>email.sent]
+```
+
+---
 
 ```mermaid
 flowchart
   example.com/rss.xml([example.com/rss.xml]) e1@--> managed_by_rss[Managed by RSS]
   draft[Draft] --> scheduled[Scheduled]
-  api([api.buttondown.com/v1/emails]) --> draft
+  api([POST api.buttondown.com/v1/emails]) --> draft
+  api([POST api.buttondown.com/v1/emails]) --> scheduled
   draft --> about_to_send[About to send]
   about_to_send e2@--> in_flight[In flight]
   scheduled e3@--> in_flight
   in_flight --> paused[Paused]
   paused --> in_flight
+  in_flight e8@--> throttled[Throttled]
+  throttled e9@--> in_flight
   managed_by_rss[Managed by RSS] e4@--> draft
   managed_by_rss e5@--> about_to_send
   in_flight e6@--> sent[Sent]
+  sent e10@--> resending[Resending]
+  resending e11@--> sent
   sent e7@--> email_sent>email.sent]
   e1@{ animate: true }
   e2@{ animate: true }
@@ -26,5 +60,29 @@ flowchart
   e5@{ animate: true }
   e6@{ animate: true }
   e7@{ animate: true }
+  e8@{ animate: true }
+  e9@{ animate: true }
+  e10@{ animate: true }
+  e11@{ animate: true }
   click email_sent href "event-types#email.sent"
+```
+
+(Transactional emails are intentionally omitted from the diagram above, as they don't enter the workflow at all.)
+
+---
+
+That is, obviously, a lot to take in. If you're just trying to understand for the first time how emails move through the workflow, here's a simplified diagram with some edge cases removed:
+
+```mermaid
+flowchart
+  api([POST api.buttondown.com/v1/emails]) --> draft
+  api([POST api.buttondown.com/v1/emails]) --> scheduled
+  draft[Draft] --> scheduled[Scheduled]
+  draft --> about_to_send[About to send]
+  about_to_send e2@--> in_flight[In flight]
+  scheduled e3@--> in_flight
+  in_flight e6@--> sent[Sent]
+  e2@{ animate: true }
+  e3@{ animate: true }
+  e6@{ animate: true }
 ```

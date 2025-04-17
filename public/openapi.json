@@ -6181,7 +6181,10 @@
           "deleted",
           "errored",
           "sent",
-          "imported"
+          "imported",
+          "throttled",
+          "resending",
+          "transactional"
         ],
         "type": "string"
       },

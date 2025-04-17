@@ -1,0 +1,15 @@
+---
+title: "2025-04-17"
+navigationTitle: "2025-04-17"
+description: "Added new email statuses to really let you peek under the hood"
+---
+
+We've expanded the [`EmailStatus` enum](/api-emails-status) to include the following new statuses:
+
+- `throttled` - The email is being sent out slowly to ensure deliverability.
+- `resending` - The email is being resent to subscribers by Buttondown's systems in order to make sure all subscribers have received it.
+- `transactional` - The email is a transactional email used by a core workflow in your newsletter or Automations, and is not visible in your web archives nor sent out to subscribers.
+
+The first two statuses do not represent any changes to Buttondown's existing logic; we're not changing how we throttle or resend emails, just surfacing when we do so in a more legible way.
+
+The third status _will_ (though does not yet!) represent a shift in how we approach things — specifically in how we approach sending _automation-borne_ emails. No action will be required from you, but we're going to shift away from the current model of allowing "bespoke" emails defined within an automation towards a contract where all automations which send emails must reference an `Email`. (This doesn't represent a change in functionality — it's mostly internal plumbing — but is worth calling out.)
