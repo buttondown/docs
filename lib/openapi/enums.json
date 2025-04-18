@@ -762,7 +762,7 @@
     "mark_subscribers_as_not_spammy": {
       "variant": "info",
       "name": "Mark subscribers as not spammy",
-      "description": "Remove the spammy designation from multiple subscribers in bulk."
+      "description": "Restore the status of multiple subscribers. Their exact type will depend on their history with your newsletter, but in general Buttondown will do the 'right' thing (e.g. restoring their premium subscription if they had one.)"
     },
     "reactivate_subscribers": {
       "variant": "info",
@@ -830,6 +830,11 @@
       "variant": "success",
       "name": "Premium",
       "description": "Subscribers with active premium subscriptions."
+    },
+    "blocked": {
+      "variant": "error",
+      "name": "Blocked",
+      "description": "Subscribers that were automatically blocked from signing up for your newsletter by Buttondown's automated filtering systems. You can review the subscriber's email address and make a decision about whether to allow them to subscribe."
     },
     "trialed": {
       "variant": "info",

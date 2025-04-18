@@ -7123,7 +7123,8 @@
           "trialed",
           "disabled",
           "paused",
-          "disposable"
+          "disposable",
+          "blocked"
         ],
         "type": "string"
       },
