@@ -849,7 +849,15 @@
           "new_subscribers": 100,
           "updated_subscribers": null,
           "existing_subscribers": 20,
-          "invalid_subscribers": 10,
+          "reason_to_bad_subscribers": {
+            "That email address is invalid.": [
+              "email@examplecom"
+            ],
+            "There is no MX record associated with example.biz": [
+              "email@example.biz",
+              "helen@example.biz"
+            ]
+          },
           "new_tags": 2
         },
         "parsed_text": [
