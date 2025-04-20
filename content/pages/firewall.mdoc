@@ -1,0 +1,46 @@
+---
+title: Firewall
+date: 2025-04-20
+description: Buttondown's "Firewall" is an opt-in feature that audits all incoming subscribers to confirm that they're legitimate people.
+relatedPages:
+  - dealing-with-spam-subscribers
+---
+
+Buttondown's "Firewall" (a slightly aggressive term, but illustrative enough) is an opt-in feature that audits all incoming subscribers to confirm that they're legitimate people.
+
+## What's the threat vector here? Why does this even matter?
+
+It's not obvious _why_ a malicious actor would want to subscribe to your newsletter. What is there to gain?
+
+Large email providers like Gmail largely judge your newsletter based on the reputation of your email, sending domain, and sending IP. That reputation itself is based off of engagement: an email going to one thousand subscribers, nine hundred of whom engage with it, will have a stronger reputation than an email going to one thousand subscribers, one hundred of whom engage with it. 
+
+Now imagine that you foist an _additional_ thousand subscribers onto that newsletter. Most of them won't engage with it; many will unsubscribe or even mark it as spam. This will tank your reputation, making it more difficult to send emails to your actual subscribers.
+
+## How Buttondown's firewall works
+
+```mermaid
+flowchart
+  request([Incoming request]) -->|"POST ip_address=X,email_address=Y"| payload
+  score --> you[Your newsletter]
+  you -->|"risk_score < THRESHOLD"| newsletter[Regular subscriber]
+  you -->|"risk_score >= THRESHOLD && PERSIST_BLOCKED = true"| blocked[Blocked subscriber]
+  you -->|"risk_score >= THRESHOLD"| subscriber_blocked>subscriber.blocked]
+  newsletter --> subscriber_created>subscriber.created]
+  blocked --> subscriber_created
+
+  subgraph sync[Synchronous firewall]
+    payload[Payload] --> ip[IP address]
+    payload --> email[Email address]
+    payload --> newsletter_history[Secret sauce]
+    ip[IP address] --> score[Reputation]
+    email[Email address] --> score[Reputation]
+    newsletter_history --> score[Reputation]
+  end
+```
+
+The firewall is conceptually simple: whenever we receive an incoming request across a common vector (such as an embedded subscription form, a POST to `/v1/subscribers`, or a comment on a newsletter), we check the reputation of the IP address and email address of the incoming request as well as some additional metadata. We tally up the various facets and arrive at a `risk_score`. If the `risk_score` is below a threshold, we let the subscriber through. If it's above the threshold, we block the subscriber.
+
+As a newsletter owner, you are given two knobs to tune the firewall and how it interacts with your newsletter:
+
+- _The threshold_: This is the point at which we block a subscriber. 
+- _By default_, we do not surface blocked subscribers to your newsletter. If you prefer, you can opt to surface them in the subscriber dashboard with a special type of "Blocked". 

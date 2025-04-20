@@ -53,10 +53,10 @@
     }
   },
   "CreateNewsletterErrorCode": {
-    "username_invalid": {
+    "username_malformed": {
       "variant": "error",
-      "name": "Username invalid",
-      "description": "The username is invalid."
+      "name": "Username malformed",
+      "description": "The username is malformed."
     },
     "username_already_exists": {
       "variant": "error",

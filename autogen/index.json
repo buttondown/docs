@@ -1710,6 +1710,14 @@
     "references": []
   },
   {
+    "title": "Firewall",
+    "url": "firewall",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown's \"Firewall\" is an opt-in feature that audits all incoming subscribers to confirm that they're legitimate people.",
+    "references": []
+  },
+  {
     "title": "Social media monitoring",
     "url": "social-media-monitoring",
     "section": "reference",

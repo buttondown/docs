@@ -7917,7 +7917,7 @@
         "description": "Represents the type of error that occurred when creating a newsletter.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
         "enum": [
           "username_already_exists",
-          "username_invalid"
+          "username_malformed"
         ],
         "type": "string"
       },

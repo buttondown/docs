@@ -821,6 +821,10 @@
         },
         {
           "discriminant": "page",
+          "value": "firewall"
+        },
+        {
+          "discriminant": "page",
           "value": "social-media-monitoring"
         },
         {
