@@ -490,6 +490,10 @@
     }
   },
   "ExternalEventType": {
+    "firewall.blocked": {
+      "name": "firewall.blocked",
+      "description": "Represents an incoming request that was blocked by the [firewall](https://docs.buttondown.com/firewall)."
+    },
     "subscriber.delivered": {
       "name": "subscriber.delivered",
       "description": "Whenever a subscriber's email is successfully delivered."
@@ -504,7 +508,7 @@
     },
     "subscriber.rejected": {
       "name": "subscriber.rejected",
-      "description": "Whenever a subscriber's email is rejected."
+      "description": "Whenever a subscriber (or their email provider) has rejected an email from your newsletter. Buttondown takes rejections seriously, and will likely block the subscriber's email address from future emails and/or mark them as undeliverable."
     },
     "subscriber.replied": {
       "name": "subscriber.replied",

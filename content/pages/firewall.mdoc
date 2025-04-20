@@ -24,7 +24,7 @@ flowchart
   score --> you[Your newsletter]
   you -->|"risk_score < THRESHOLD"| newsletter[Regular subscriber]
   you -->|"risk_score >= THRESHOLD && PERSIST_BLOCKED = true"| blocked[Blocked subscriber]
-  you -->|"risk_score >= THRESHOLD"| subscriber_blocked>subscriber.blocked]
+  you -->|"risk_score >= THRESHOLD"| subscriber_blocked>firewall.blocked]
   newsletter --> subscriber_created>subscriber.created]
   blocked --> subscriber_created
 
@@ -36,6 +36,9 @@ flowchart
     email[Email address] --> score[Reputation]
     newsletter_history --> score[Reputation]
   end
+
+  click subscriber_blocked href "event-types#firewall.blocked"
+  click subscriber_created href "event-types#subscriber.created"
 ```
 
 The firewall is conceptually simple: whenever we receive an incoming request across a common vector (such as an embedded subscription form, a POST to `/v1/subscribers`, or a comment on a newsletter), we check the reputation of the IP address and email address of the incoming request as well as some additional metadata. We tally up the various facets and arrive at a `risk_score`. If the `risk_score` is below a threshold, we let the subscriber through. If it's above the threshold, we block the subscriber.
