@@ -7379,7 +7379,10 @@
           "email_invalid",
           "tag_invalid",
           "metadata_invalid",
-          "ip_address_spammy"
+          "ip_address_spammy",
+          "email_blocked",
+          "subscriber_already_exists",
+          "subscriber_blocked"
         ],
         "type": "string"
       },
