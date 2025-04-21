@@ -11,7 +11,8 @@
       "custom_sending_domain",
       "markdown",
       "smtp_endpoint",
-      "api"
+      "api",
+      "firewall"
     ]
   },
   {
@@ -37,7 +38,8 @@
       "comments",
       "css",
       "archives",
-      "markdown"
+      "markdown",
+      "firewall"
     ]
   },
   {
@@ -68,7 +70,8 @@
       "webhooks",
       "zapier",
       "markdown",
-      "automations"
+      "automations",
+      "firewall"
     ]
   },
   {
@@ -103,7 +106,8 @@
       "teams",
       "dedicated_ip",
       "markdown",
-      "naked_mode"
+      "naked_mode",
+      "firewall"
     ]
   },
   {
@@ -138,7 +142,8 @@
       "dedicated_ip",
       "markdown",
       "automations",
-      "naked_mode"
+      "naked_mode",
+      "firewall"
     ]
   },
   {
@@ -173,7 +178,8 @@
       "dedicated_ip",
       "markdown",
       "automations",
-      "naked_mode"
+      "naked_mode",
+      "firewall"
     ]
   }
 ]
