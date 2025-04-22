@@ -1900,6 +1900,28 @@
             },
             "required": false,
             "description": "If provided, only return subscribers with the given UTM medium(s)."
+          },
+          {
+            "in": "query",
+            "name": "risk_score__start",
+            "schema": {
+              "title": "Risk Score  Start",
+              "description": "If provided, only return subscribers with a risk score greater than or equal to the given value.",
+              "type": "number"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with a risk score greater than or equal to the given value."
+          },
+          {
+            "in": "query",
+            "name": "risk_score__end",
+            "schema": {
+              "title": "Risk Score  End",
+              "description": "If provided, only return subscribers with a risk score less than or equal to the given value.",
+              "type": "number"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with a risk score less than or equal to the given value."
           }
         ],
         "responses": {
@@ -7351,6 +7373,11 @@
             "title": "Subscriber Import Id",
             "type": "string",
             "format": "uuid"
+          },
+          "risk_score": {
+            "title": "Risk Score",
+            "description": "The risk score of the subscriber. Positive numbers represent a higher risk; negative numbers represent a lower risk.",
+            "type": "number"
           },
           "stripe_customer": {
             "title": "Stripe Customer",

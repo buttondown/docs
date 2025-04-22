@@ -216,6 +216,7 @@
         "last_click_date": null,
         "stripe_customer_id": null,
         "subscriber_import_id": null,
+        "risk_score": null,
         "stripe_customer": null
       }
     },
@@ -252,6 +253,7 @@
         "last_click_date": null,
         "stripe_customer_id": null,
         "subscriber_import_id": null,
+        "risk_score": null,
         "stripe_customer": null
       }
     },
@@ -293,6 +295,7 @@
         "last_click_date": null,
         "stripe_customer_id": "cus_whatever",
         "subscriber_import_id": null,
+        "risk_score": null,
         "stripe_customer": null
       }
     }
@@ -489,6 +492,7 @@
           "last_click_date": null,
           "stripe_customer_id": null,
           "subscriber_import_id": null,
+          "risk_score": null,
           "stripe_customer": null
         },
         "survey": null,
