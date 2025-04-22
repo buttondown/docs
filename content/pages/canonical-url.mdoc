@@ -6,6 +6,21 @@ relatedPages:
 - glossary-headless-mode
 ---
 
+```mermaid
+flowchart LR
+
+subgraph site[Your site]
+/blog-post-1 --> /rss.xml
+/rss.xml
+end
+
+/rss.xml --> Buttondown
+Buttondown --> email["`**New blog post**
+You'll never believe what happened next!`"]
+
+email --> /blog-post-1
+```
+
 Let's say you're the CEO of Sheinhardt Wig Company. You have a robust and mature corporate blog at `sheinhardtwig.com`, but you want to send out all new blog posts as emails as well.
 
 A standard workflow might involve you grabbing the content of your blog post (e.g. `https://sheinhardtwig.com/2025/01/17/my-new-blog-post`) and sending it out as an email to your subscribers. Buttondown will then create an archived version of that email to be shared on the web — at, say, `https://buttondown.com/sheinhardtwig/archive/my-new-blog-post`.
