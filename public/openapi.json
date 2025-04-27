@@ -7206,7 +7206,8 @@
           "problematic_url",
           "on_esp_denylist",
           "domain_blocked",
-          "spf_failed"
+          "spf_failed",
+          "other"
         ],
         "type": "string"
       },

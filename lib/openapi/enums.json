@@ -1075,20 +1075,25 @@
     }
   },
   "SubscriberUndeliverabilityReason": {
+    "other": {
+      "variant": "error",
+      "name": "Other",
+      "description": "The subscriber is deemed undeliverable for an unknown reason."
+    },
     "ip_blocked": {
       "variant": "error",
       "name": "IP blocked",
-      "description": "The subscriber's email is considered spam."
+      "description": "The subscriber's IP address is blocked."
     },
     "domain_blocked": {
       "variant": "error",
       "name": "Domain blocked",
-      "description": "The subscriber's email is considered spam."
+      "description": "The subscriber's domain is blocked."
     },
     "email_blocked": {
       "variant": "error",
       "name": "Email blocked",
-      "description": "The subscriber's email is blocked."
+      "description": "The subscriber's email address is blocked."
     },
     "out_of_storage": {
       "variant": "error",
