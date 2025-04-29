@@ -16,6 +16,10 @@ A temporary failure (also called a "soft bounce") is when delivery is temporaril
 
 In general, Buttondown will retry messages that have temporarily failed; you don't need to do anything.
 
----
+### What happens if a subscriber keeps on getting temporary failures?
 
 If Buttondown receives three consecutive temporary failures from a subscriber without any successful deliveries, we will mark them as undeliverable.
+
+### Is there anything I should do to remediate this?
+
+In general, no. Some temporary failures are due to things that are in your control, and Buttondown will proactively reach out when that's the case. The vast majority of the time, though, you can actually make matters worse by attempting to resend to those subscribers because Buttondown will automatically resend in the best way possible to maximize the likelihood that we reach those subscribers. 
