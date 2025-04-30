@@ -1564,6 +1564,10 @@
         {
           "discriminant": "page",
           "value": "api-comments-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-comments-retrieve"
         }
       ]
     },
