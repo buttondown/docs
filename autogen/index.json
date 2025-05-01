@@ -740,6 +740,16 @@
     "references": []
   },
   {
+    "title": "Allow subscribers to choose between paying monthly or yearly",
+    "url": "stripe-upsell",
+    "section": "guides",
+    "schema": null,
+    "description": "You can configure Stripe to give your subscribers the option between a monthly and yearly plan when upgrading to a premium subscription for your newsletter.",
+    "references": [
+      "stripe-upsell"
+    ]
+  },
+  {
     "title": "Can I use Stripe Test mode with Buttondown?",
     "url": "stripe-test-mode",
     "section": "guides",
@@ -989,6 +999,7 @@
       "sponsorships",
       "stripe",
       "stripe-test-mode",
+      "stripe-upsell",
       "substack",
       "tip-jar"
     ]

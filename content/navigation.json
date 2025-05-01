@@ -316,6 +316,10 @@
         },
         {
           "discriminant": "page",
+          "value": "stripe-upsell"
+        },
+        {
+          "discriminant": "page",
           "value": "stripe-test-mode"
         },
         {

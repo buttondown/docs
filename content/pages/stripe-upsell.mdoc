@@ -1,0 +1,21 @@
+---
+title: Allow subscribers to choose between paying monthly or yearly
+navigationTitle: Allow subscribers to pay monthly or yearly
+description: >-
+  You can configure Stripe to give your subscribers the option between a monthly
+  and yearly plan when upgrading to a premium subscription for your newsletter.
+relatedPages: []
+---
+Buttondown allows you to set up both monthly and yearly payment options for your newsletter.
+
+In order to give your subscribers the option to choose between monthly and yearly, you need to do a small amount of setup in Stripe:
+
+1. Log in to your [Stripe dashboard](https://dashboard.stripe.com), using the account that you connected to Buttondown.
+1. On the sidebar, navigate to "Product catalog".
+1. Select the Stripe Product that you use with Buttondown.
+1. Select the *monthly* price.
+1. Scroll down to the Upsell section and select your *yearly* price.
+
+Now, when checking out on your monthly price, subscribers will see the option to switch to yearly:
+
+![](/stripe-upsell/stripe-checkout.png)
