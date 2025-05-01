@@ -1067,7 +1067,6 @@
     "description": "Information on Buttondown's roadmap",
     "references": [
       "buttondown-editor-mode",
-      "localization",
       "privacy-and-security",
       "subscriber-referrals"
     ]
@@ -1355,7 +1354,7 @@
     "url": "localization",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "How Buttondown supports localization for your newsletter.",
     "references": []
   },
   {
