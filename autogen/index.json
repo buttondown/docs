@@ -2188,7 +2188,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "monitoring-your-domain"
+    ]
   },
   {
     "title": "POSSE",
@@ -2314,7 +2316,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "monitoring-your-domain"
+    ]
   },
   {
     "title": "Transactional email",
