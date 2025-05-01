@@ -14,7 +14,9 @@ dotenv.config();
 const MARKDOC_DIRECTORY = "content/pages";
 
 const VALID_APPLICATION_ROUTES = [
-  ...JSON.parse(fs.readFileSync("./autogen/author_facing_routes.json", "utf-8")),
+  ...JSON.parse(
+    fs.readFileSync("./autogen/author_facing_routes.json", "utf-8")
+  ),
 
   // Marketing stuff.
   "pricing",
@@ -283,7 +285,7 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
   const schemaName = schemaNameLine[1];
   const schema =
     OpenAPI.components.schemas[
-    schemaName as keyof typeof OpenAPI.components.schemas
+      schemaName as keyof typeof OpenAPI.components.schemas
     ];
   // @ts-ignore
   const refs = Object.values(schema.properties).filter(
@@ -297,8 +299,8 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
         urlForSchema((ref as OpenAPIProperty).$ref as string),
         // @ts-ignore
         `Reference to ${
-        // @ts-ignore
-        (ref as OpenAPIProperty).$ref
+          // @ts-ignore
+          (ref as OpenAPIProperty).$ref
         } in ${filename} does not have a URL in the schema. Maybe try running \`just docs/build-indexes\`?`
       ).toBeTruthy();
     });
@@ -489,6 +491,10 @@ const UNDOCUMENTED_API_ENDPOINTS = [
   },
   {
     path: "/users",
+    operation: "get",
+  },
+  {
+    path: "/users/{id}",
     operation: "get",
   },
   {
