@@ -1021,6 +1021,11 @@
       "variant": "info",
       "name": "Forward reply",
       "description": "Forward the reply to a given recipient."
+    },
+    "send_post_request": {
+      "variant": "info",
+      "name": "Send POST request",
+      "description": "Send a POST request to a specified URL."
     }
   },
   "EmailCommentingMode": {

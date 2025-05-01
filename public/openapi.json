@@ -8890,7 +8890,8 @@
           "create_tumblr_post",
           "create_bluesky_post",
           "create_arena_post",
-          "create_export"
+          "create_export",
+          "send_post_request"
         ],
         "type": "string"
       },
