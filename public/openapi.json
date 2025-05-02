@@ -7523,6 +7523,7 @@
           "metadata_invalid",
           "ip_address_spammy",
           "email_blocked",
+          "rate_limited",
           "subscriber_already_exists",
           "subscriber_blocked"
         ],

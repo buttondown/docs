@@ -9,6 +9,7 @@ body {
 p,
 ul,
 li {
+  font-size: 16px !important;
   line-height: 24px !important;
   margin: 16px 0 !important;
 }
