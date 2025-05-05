@@ -867,7 +867,11 @@
                     "comments",
                     "-comments",
                     "social_mentions",
-                    "-social_mentions"
+                    "-social_mentions",
+                    "permanent_failure_rate",
+                    "-permanent_failure_rate",
+                    "complaint_rate",
+                    "-complaint_rate"
                   ],
                   "type": "string"
                 }
