@@ -58,13 +58,13 @@ However, updating a subscriber is not necessarily feasible for all integrations.
 ```shell
 curl -X POST https://api.buttondown.com/v1/subscribers \
   -H "X-Buttondown-Collision-Behavior: overwrite" \
-  -H "Authorization: Bearer $API_KEY" \
+  -H "Authorization: Token $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"email_address": "john@example.com", "tags": ["tag-1", "tag-2"]}'
 
 curl -X POST https://api.buttondown.com/v1/subscribers \
   -H "X-Buttondown-Collision-Behavior: overwrite" \
-  -H "Authorization: Bearer $API_KEY" \
+  -H "Authorization: Token $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"email_address": "john@example.com", "tags": ["tag-2", "tag-3"]}'
 ```
