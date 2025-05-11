@@ -1,0 +1,60 @@
+---
+title: Are.na
+relatedPages: []
+---
+{% paidFeature feature="automations" /%}
+
+## Overview
+
+Buttondown lets you connect your Are.na account to your newsletter. This uses our [automations](/automations-introduction) feature to automatically share your newsletters to your Are.na channels.
+
+## Set up the Are.na integration
+
+Here's how to connect your Are.na account to Buttondown:
+
+1. In Buttondown, navigate to **Settings** and click [Integrations](https://buttondown.com/settings/integrations).
+1. Find the "Are.na" integration option and click **Connect**. Are.na opens.
+1. Authorize Buttondown to post to your channels.
+
+After you connect your Are.na account, a "Connected to Are.na" message displays on the Integrations page.
+
+## Share your newsletters to Are.na
+
+To share your newsletters to Are.na, you can create an automation that posts your newsletters to an Are.na channel whenever you send them. To do this, create a new [Automation](https://buttondown.com/automations/new), or just click the Automation banner below:
+
+{% automation
+   name="Automatically post to Are.na"
+   description="This automation will automatically post new emails onto Are.na"
+   trigger="When an email is sent"
+   url="https://buttondown.com/automations/new?trigger=email.sent&action=create_arena_post&name=Automatically+post+to+arena"
+   action="Post on Are.na" /%}
+
+The simplest and most common use case is to create an automation that posts your newsletters to an Are.na channel whenever you send them. Here's how:
+
+1. Navigate to the [**Automations**](https://buttondown.com/automations) page and click **New**. The "New automation" panel opens.
+1. (Optional) Give your automation a human-readable "Name."
+1. Set the **Trigger** to [when an email is sent](/api-webhooks-event-types#email.sent).
+1. Set the **Action** to [Create an Are.na post](/automation-actions#create_arena_post).
+1. Enter your Are.na channel slug in the "Channel slug" field.
+1. (Optional) Customize the message content. If you leave this blank, Buttondown will use the email content and URL.
+1. Click **Save changes**.
+
+To enable the new automation, either click **Unpause** in the automation panel, or click to enable the automation's toggle in the [**Automations**](https://buttondown.com/automations) page.
+
+## Frequently asked questions
+
+### How do I find my Are.na channel slug?
+
+Your channel slug is the part of the URL after your username. For example, in `https://www.are.na/buttondown/mood-vy0yu8sp4ba`, the channel slug is `mood-vy0yu8sp4ba`.
+
+### Can I dynamically customize the contents of the post?
+
+Yes, through [template variables](/template-variables)! These variables are supported:
+
+- `email`
+- sub-variables of `email` (`email.subject`, etc)
+- `email_url`
+
+### What kind of content can I share on Are.na?
+
+Are.na supports both text and links. When you share your newsletter via the automation, it will be posted as text content along with a link to your newsletter. 

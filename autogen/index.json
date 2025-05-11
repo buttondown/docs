@@ -853,6 +853,14 @@
     ]
   },
   {
+    "title": "Are.na",
+    "url": "arena",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Blogger",
     "url": "blogger",
     "section": "guides",
@@ -1194,6 +1202,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "arena",
       "linkedin",
       "names",
       "sending-your-first-email",
@@ -1623,6 +1632,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "arena",
       "bsky",
       "building-your-subscriber-base",
       "can-i-send-an-email-to-new-subscribers",
@@ -1670,6 +1680,7 @@
     "schema": "AutomationActionType",
     "description": null,
     "references": [
+      "arena",
       "bsky",
       "can-i-send-an-email-to-new-subscribers",
       "linkedin",
@@ -3096,6 +3107,7 @@
     "schema": "ExternalEventType",
     "description": null,
     "references": [
+      "arena",
       "bsky",
       "linkedin",
       "plausible",

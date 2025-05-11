@@ -370,6 +370,10 @@
         },
         {
           "discriminant": "page",
+          "value": "arena"
+        },
+        {
+          "discriminant": "page",
           "value": "blogger"
         },
         {
