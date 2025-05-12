@@ -1,0 +1,237 @@
+---
+title: Buttondown CLI
+---
+
+The Buttondown CLI (Command Line Interface) is a powerful tool that lets you manage your newsletter content from your local machine. It enables workflows like editing newsletters in your preferred text editor, backing up your content, and syncing media files.
+
+## Installation
+
+Install the CLI globally using npm:
+
+```bash
+npm install -g buttondown-cli
+```
+
+Or use it with npx without installing:
+
+```bash
+npx buttondown-cli
+```
+
+## What You Can Do
+
+The CLI provides several capabilities:
+
+- **Work offline** with your newsletter content
+- **Edit in your favorite editor** using Markdown
+- **Version control** your newsletters with Git or other tools
+- **Sync content** bidirectionally between your computer and Buttondown
+- **Manage media files** like images and attachments
+- **Automate workflows** with scripts
+
+## Getting Started
+
+### 1. Authentication
+
+Before using the CLI, you need to authenticate with your Buttondown API key:
+
+```bash
+buttondown login
+```
+
+You'll be prompted to enter your API key, which you can find in your [Buttondown settings](https://buttondown.com/requests).
+
+### 2. Pull your content
+
+To download your newsletters from Buttondown:
+
+```bash
+buttondown pull
+```
+
+This creates a `./buttondown` directory with all your content.
+
+### 3. Create or edit newsletters
+
+Create a new draft:
+
+```bash
+buttondown create --title="My Newsletter Issue #1"
+```
+
+Then edit the created Markdown file with your preferred editor.
+
+### 4. Push your changes
+
+When you're ready to save your changes back to Buttondown:
+
+```bash
+buttondown push
+```
+
+## Directory Structure
+
+The CLI creates this structure in your local folder:
+
+```
+buttondown/
+├── .buttondown.json  # Sync configuration
+├── emails/           # Your emails as Markdown files
+│   ├── newsletter-issue-1.md
+│   └── newsletter-issue-2.md
+└── media/            # Attachments and images
+    ├── image1.png
+    └── document.pdf
+```
+
+## Newsletter Format
+
+Each newsletter is stored as a Markdown file with YAML frontmatter:
+
+```markdown
+---
+id: email-id
+subject: My Newsletter Issue #1
+status: draft
+email_type: public
+slug: newsletter-issue-1
+publish_date: 2023-04-27T09:00:00Z
+created: 2023-04-25T15:32:18Z
+modified: 2023-04-26T10:45:22Z
+attachments:
+  - attachment-id-1
+  - attachment-id-2
+---
+
+# My Newsletter Issue #1
+
+Hello subscribers!
+
+This is the content of my email...
+```
+
+## Common Workflows
+
+### Working with Existing Content
+
+```bash
+# Create a directory for your newsletter
+mkdir my-newsletter
+cd my-newsletter
+
+# Pull all your content from Buttondown
+buttondown pull
+```
+
+### Editing and Publishing Workflow
+
+```bash
+# Pull latest changes
+buttondown pull
+
+# Create a new draft
+buttondown create --title="This Week's Update"
+
+# Edit the file in your editor
+# Then push changes back to Buttondown
+buttondown push
+```
+
+### Adding Images
+
+1. Add images to the `media/` directory
+2. Reference them in your Markdown:
+
+```markdown
+![My Image](../media/my-image.png)
+```
+
+3. When you `buttondown push`, the CLI uploads the images and updates the URLs
+
+### Backing Up Your Content
+
+```bash
+mkdir buttondown-backup
+cd buttondown-backup
+buttondown pull
+```
+
+Consider adding this to a scheduled task for regular backups.
+
+## Advanced Usage
+
+### Working with Multiple Newsletters
+
+You can work with different newsletters using different directories:
+
+```bash
+buttondown pull --directory=./newsletter1
+buttondown pull --directory=./newsletter2
+```
+
+### Using with Git
+
+```bash
+# Initialize a Git repository
+git init
+
+# Pull content from Buttondown
+buttondown pull
+
+# Add and commit the files
+git add .
+git commit -m "Initial import from Buttondown"
+```
+
+### Automating with Scripts
+
+Create a script like `publish.sh`:
+
+```bash
+#!/bin/bash
+# Pull latest changes
+buttondown pull
+
+# Create a new draft with today's date
+TITLE="Newsletter $(date +%Y-%m-%d)"
+buttondown create --title="$TITLE"
+
+# Open in your editor
+code ./buttondown/emails/
+```
+
+Make it executable with `chmod +x publish.sh`
+
+## Available Commands
+
+| Command | Description |
+|---------|-------------|
+| `buttondown login` | Authenticate with Buttondown |
+| `buttondown logout` | Clear stored credentials |
+| `buttondown pull` | Download content from Buttondown |
+| `buttondown push` | Upload content to Buttondown |
+| `buttondown create` | Create a new draft email locally |
+
+## Troubleshooting
+
+### API Key Issues
+
+If you encounter authentication errors:
+
+```bash
+buttondown logout
+buttondown login
+```
+
+### Sync Conflicts
+
+If you've modified the same email both locally and on Buttondown:
+
+1. Back up your local changes: `cp -r ./buttondown ./buttondown-backup`
+2. Pull fresh content: `buttondown pull --force`
+3. Manually merge the differences
+4. Push the resolved content: `buttondown push`
+
+## Getting Help
+
+For more information, refer to the [CLI documentation](https://github.com/buttondown-email/buttondown-cli) or contact [Buttondown support](mailto:support@buttondown.email). 

@@ -17,9 +17,9 @@
     "check": "biome check --write .",
     "lint-css": "biome check --write public/subscriber_facing_styles/*.css"
   },
-  "packageManager": "pnpm@9.15.3",
+  "packageManager": "pnpm@10.5.0",
   "engines": {
-    "pnpm": "9.15.3"
+    "pnpm": "10.5.0"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
@@ -85,6 +85,14 @@
     "overrides": {
       "@types/react": "19.0.10",
       "@types/react-dom": "19.0.4"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@biomejs/biome",
+      "@sentry/cli",
+      "@vercel/speed-insights",
+      "core-js-pure",
+      "esbuild",
+      "sharp"
+    ]
   }
 }

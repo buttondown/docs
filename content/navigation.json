@@ -840,6 +840,10 @@
           "value": "hidden-settings"
         },
         {
+          "discriminant": "page",
+          "value": "buttondown-cli"
+        },
+        {
           "discriminant": "divider",
           "value": "FAQ"
         },
