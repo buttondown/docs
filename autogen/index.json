@@ -147,7 +147,9 @@
     "section": "guides",
     "schema": null,
     "description": "Spam happens. You can protect your Buttondown newsletter by turning on double opt-in",
-    "references": []
+    "references": [
+      "warming-up"
+    ]
   },
   {
     "title": "Tags",
@@ -483,6 +485,14 @@
     ]
   },
   {
+    "title": "Warming up your email sending",
+    "url": "warming-up",
+    "section": "guides",
+    "schema": null,
+    "description": "How to properly warm up your sending domain when starting with Buttondown to ensure maximum deliverability",
+    "references": []
+  },
+  {
     "title": "How do I avoid the \"Promotions\" tab in Gmail?",
     "url": "how-do-i-avoid-the-promotions-tab",
     "section": "guides",
@@ -629,7 +639,8 @@
       "sending-from-a-custom-domain",
       "sending-your-first-email-advanced",
       "substack",
-      "support-policy"
+      "support-policy",
+      "warming-up"
     ]
   },
   {
@@ -1546,7 +1557,9 @@
     "section": "reference",
     "schema": null,
     "description": "Keeping your deliverability high is largely about managing your domain's reputation.",
-    "references": []
+    "references": [
+      "warming-up"
+    ]
   },
   {
     "title": "Fixing a \"suspicious link\" warning in Gmail",
@@ -2001,7 +2014,8 @@
     "references": [
       "auditing",
       "monitoring-your-domain",
-      "retrieving-analytics-data"
+      "retrieving-analytics-data",
+      "warming-up"
     ]
   },
   {
@@ -2237,7 +2251,8 @@
     "schema": null,
     "description": null,
     "references": [
-      "monitoring-your-domain"
+      "monitoring-your-domain",
+      "warming-up"
     ]
   },
   {

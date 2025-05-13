@@ -188,6 +188,10 @@
           "value": "replies"
         },
         {
+          "discriminant": "page",
+          "value": "warming-up"
+        },
+        {
           "discriminant": "divider",
           "value": "FAQ"
         },
