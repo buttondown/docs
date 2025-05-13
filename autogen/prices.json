@@ -39,7 +39,8 @@
       "css",
       "archives",
       "markdown",
-      "firewall"
+      "firewall",
+      "integrations"
     ]
   },
   {
@@ -71,7 +72,9 @@
       "zapier",
       "markdown",
       "automations",
-      "firewall"
+      "firewall",
+      "integrations",
+      "custom_transactional_emails"
     ]
   },
   {
@@ -107,7 +110,9 @@
       "dedicated_ip",
       "markdown",
       "naked_mode",
-      "firewall"
+      "firewall",
+      "integrations",
+      "custom_transactional_emails"
     ]
   },
   {
@@ -143,7 +148,9 @@
       "markdown",
       "automations",
       "naked_mode",
-      "firewall"
+      "firewall",
+      "integrations",
+      "custom_transactional_emails"
     ]
   },
   {
@@ -179,7 +186,9 @@
       "markdown",
       "automations",
       "naked_mode",
-      "firewall"
+      "firewall",
+      "integrations",
+      "custom_transactional_emails"
     ]
   }
 ]
