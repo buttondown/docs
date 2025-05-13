@@ -871,11 +871,19 @@
       "items": [
         {
           "discriminant": "page",
+          "value": "click-tracking"
+        },
+        {
+          "discriminant": "page",
           "value": "gross-volume"
         },
         {
           "discriminant": "page",
           "value": "monthly-recurring-revenue"
+        },
+        {
+          "discriminant": "page",
+          "value": "open-tracking"
         },
         {
           "discriminant": "page",

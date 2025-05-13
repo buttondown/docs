@@ -1,0 +1,48 @@
+---
+title: Click tracking
+description: A guide to click tracking, and how to use it in Buttondown.
+---
+
+```mermaid
+flowchart
+    author([Author]) -->|sends| email["<p>Hey folks! I'm Jason, and I'm writing to you from Buttondown. Have you ever used <a href='https://google.com'>Google</a>?</p>"]
+    email -->|is delivered to| s124([Subscriber #124])
+    s124 -->|opens| email
+    s124 -->|clicks| proxy["buttondown.com/c/123/124/google.com"]
+    proxy e1@-->|redirects| original_url["google.com"]
+    proxy e2@-->|records| email_event>subscriber.clicked]
+
+    click email_event href "event-types#subscriber.clicked"
+    e1@{ animate: true }
+    e2@{ animate: true }
+```
+
+Buttondown offers [opt-in click tracking](https://buttondown.com/settings/tracking). When you enable click tracking, Buttondown will rewrite all links in your email to go through a "proxy" URL that we can track.
+
+## How it works
+
+Let's say you send a basic email to your subscriber list:
+
+```html
+<p>Hey folks! I'm Jason, and I'm writing to you from Buttondown. Have you ever used <a href="https://google.com">Google</a>?</p>
+```
+
+When you enable click tracking, Buttondown will rewrite all links in your email to go through a "proxy" URL that we can track. For example, the link above will be rewritten to look like this:
+
+```html
+<p>Hey folks! I'm Jason, and I'm writing to you from Buttondown. Have you ever used <a href="https://buttondown.com/c/{email_id}/{subscriber_id}/https://google.com">Google</a>?</p>
+```
+
+When a subscriber clicks on the link, they will immediately be redirected to the original URL, but we will record that they clicked on the link.
+
+## Frequently asked questions
+
+### One of my subscribers has clicked on an email, but not opened it. How is that possible?
+
+One of the limitations with the tracking pixel-based approach that Buttondown uses is that we are largely at the mercy of clients like Gmail or Outlook in terms of how that tracking pixel is actually processed and used. 
+
+For instance, some clients or networks will automatically open every single asset and URL in a given email to scan for malware or other nefarious content. Some clients will automatically or in an ad hoc manner let readers disable all images, whether for privacy reasons or to save on bandwidth. Both of these cases have the same net result: the tracking pixel data is invalid, whether in the order of minutes or even hours. Buttondown tries to detect automated open events that do not actually correspond with a subscriber actually opening the email, but it is an imperfect science. 
+
+**Our recommendation is to treat open tracking and open rates as a relative trend to see how your engagement varies over time rather than heavily indexing on individual data points from a single subscriber.**
+
+In particular, it used to be considered common guidance to "clean" a subscriber list by removing all subscribers who haven't opened an email in a certain period of time, say 90 days. In today's email climate, it's hard to confidently perform operations like that without unintentionally purging well-meaning and engaged subscribers who have simply turned off images or are using a client with a firewall. We recommend identifying unengaged subscribers through a combination of open tracking and click tracking and then explicitly sending those subscribers an email prompting them to reply if they want to stay subscribed. 

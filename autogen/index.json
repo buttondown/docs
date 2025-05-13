@@ -1792,6 +1792,14 @@
     ]
   },
   {
+    "title": "Click tracking",
+    "url": "click-tracking",
+    "section": "reference",
+    "schema": null,
+    "description": "A guide to click tracking, and how to use it in Buttondown.",
+    "references": []
+  },
+  {
     "title": "Gross Volume",
     "url": "gross-volume",
     "section": "reference",
@@ -1805,6 +1813,14 @@
     "section": "reference",
     "schema": null,
     "description": "An explanation on what MRR is and how it's calculated by Buttondown.",
+    "references": []
+  },
+  {
+    "title": "Open tracking",
+    "url": "open-tracking",
+    "section": "reference",
+    "schema": null,
+    "description": "A guide to open tracking, and how to use it in Buttondown.",
     "references": []
   },
   {
