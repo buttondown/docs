@@ -879,6 +879,10 @@
         },
         {
           "discriminant": "page",
+          "value": "complaint-rate"
+        },
+        {
+          "discriminant": "page",
           "value": "gross-volume"
         },
         {
@@ -892,6 +896,10 @@
         {
           "discriminant": "page",
           "value": "pageviews-by-referrer"
+        },
+        {
+          "discriminant": "page",
+          "value": "permanent-failure-rate"
         },
         {
           "discriminant": "page",

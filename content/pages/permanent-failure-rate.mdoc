@@ -1,0 +1,52 @@
+---
+title: Permanent Failure Rate
+navigationTitle: Permanent failure rate
+description: An explanation of what permanent failure rate is and how it's calculated by Buttondown.
+relatedPages:
+- monitoring-your-domain
+- complaint-rate
+---
+
+Permanent failure rate tracks the percentage of your emails that couldn't be delivered to their intended recipients due to permanent issues. Unlike temporary delivery problems (like a full mailbox), permanent failures indicate that the email address is invalid, non-existent, or has permanently rejected your messages. This metric, combined with other engagement metrics, gives you a complete picture of your email performance.
+
+Monitoring your permanent failure rate is crucial for:
+- Maintaining a clean and engaged subscriber list
+- Avoiding delivery issues that can affect your entire sending reputation
+- Identifying potential problems with your subscriber acquisition methods
+
+## How it's calculated
+
+Permanent failure rate is calculated by dividing the number of permanent failures (bounces and rejections) by the total number of emails sent:
+
+```
+Permanent Failure Rate = Number of Permanent Failures / Number of Emails Sent
+```
+
+For example, if you sent 1,000 emails and 20 permanently failed to deliver, your permanent failure rate would be 2%.
+
+## What's a good permanent failure rate?
+
+Email industry standards suggest:
+
+| Rating | Permanent Failure Rate |
+| ------ | ---------------------- |
+| **Excellent** | Below 1% |
+| **Good** | 1% - 2% |
+| **Concerning** | 2% - 5% |
+| **Problematic** | Above 5% |
+
+If your permanent failure rate exceeds 2%, it's time to take action to clean your list and improve your subscription processes.
+
+## Reducing your permanent failure rate
+
+According to Buttondown's [domain monitoring standards](/monitoring-your-domain), all newsletters should maintain a permanent failure rate of 1% or lower.
+
+To lower your permanent failure rate:
+
+1. **Use double opt-in**: Require email confirmation during signup to verify addresses (this is mandatory per Buttondown's [Acceptable Use Policy](/acceptable-use-policy))
+2. **Clean your list regularly**: Remove email addresses that consistently generate permanent failures
+3. **Improve your subscription forms**: Add basic validation to prevent typos in email addresses
+4. **Monitor trends**: Watch for spikes in your permanent failure rate, which might indicate issues with new subscriber sources
+5. **Regularly engage subscribers**: Inactive subscribers are more likely to change email addresses or close accounts
+
+A healthy list with a low permanent failure rate will help ensure your newsletters reach your audience consistently and protect your sending reputation in the long run. You should also monitor your [complaint rate](/complaint-rate) alongside this metric for comprehensive deliverability insights.
