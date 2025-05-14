@@ -1558,6 +1558,8 @@
     "schema": null,
     "description": "Keeping your deliverability high is largely about managing your domain's reputation.",
     "references": [
+      "complaint-rate",
+      "permanent-failure-rate",
       "warming-up"
     ]
   },
@@ -1813,6 +1815,16 @@
     "references": []
   },
   {
+    "title": "Complaint Rate",
+    "url": "complaint-rate",
+    "section": "reference",
+    "schema": null,
+    "description": "An explanation of what complaint rate is and how it's calculated by Buttondown.",
+    "references": [
+      "permanent-failure-rate"
+    ]
+  },
+  {
     "title": "Gross Volume",
     "url": "gross-volume",
     "section": "reference",
@@ -1844,6 +1856,16 @@
     "description": "An explanation on what pageviews by referrer are and how they're used by Buttondown.",
     "references": [
       "pageviews-by-referrer"
+    ]
+  },
+  {
+    "title": "Permanent Failure Rate",
+    "url": "permanent-failure-rate",
+    "section": "reference",
+    "schema": null,
+    "description": "An explanation of what permanent failure rate is and how it's calculated by Buttondown.",
+    "references": [
+      "complaint-rate"
     ]
   },
   {
@@ -1909,7 +1931,10 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "complaint-rate",
+      "permanent-failure-rate"
+    ]
   },
   {
     "title": "Law enforcement requests",
@@ -2013,6 +2038,7 @@
     "description": null,
     "references": [
       "auditing",
+      "complaint-rate",
       "monitoring-your-domain",
       "retrieving-analytics-data",
       "warming-up"
