@@ -3413,6 +3413,16 @@
     ]
   },
   {
+    "title": "2025-05-14",
+    "url": "api-changelog-2025-05-14",
+    "section": "api",
+    "schema": null,
+    "description": "Added new newsletter customization fields to the API",
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
     "title": "2025-04-17",
     "url": "api-changelog-2025-04-17",
     "section": "api",

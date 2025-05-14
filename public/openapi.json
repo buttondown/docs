@@ -7970,6 +7970,7 @@
           },
           "description": {
             "title": "Description",
+            "description": "A brief description of your newsletter",
             "type": "string"
           },
           "creation_date": {
@@ -8022,6 +8023,28 @@
           },
           "custom_email_template": {
             "title": "Custom Email Template",
+            "type": "string"
+          },
+          "css": {
+            "title": "Css",
+            "description": "Custom CSS styling for your newsletter emails",
+            "default": "",
+            "type": "string"
+          },
+          "web_css": {
+            "title": "Web Css",
+            "description": "Custom CSS styling for your newsletter's web presence",
+            "default": "",
+            "type": "string"
+          },
+          "icon": {
+            "title": "Icon",
+            "description": "URL to your newsletter's icon image",
+            "type": "string"
+          },
+          "image": {
+            "title": "Image",
+            "description": "URL to your newsletter's header or branding image",
             "type": "string"
           }
         },
@@ -8157,6 +8180,34 @@
           "custom_email_template": {
             "title": "Custom Email Template",
             "type": "string"
+          },
+          "css": {
+            "title": "Css",
+            "description": "Custom CSS styling for your newsletter emails.",
+            "default": "",
+            "example": ".header { color: #000; }",
+            "type": "string"
+          },
+          "web_css": {
+            "title": "Web Css",
+            "description": "Custom CSS styling for your newsletter's web presence.",
+            "default": "",
+            "example": ".container { max-width: 800px; }",
+            "type": "string"
+          },
+          "icon": {
+            "title": "Icon",
+            "description": "URL to your newsletter's icon image.",
+            "default": "",
+            "example": "https://example.com/icon.png",
+            "type": "string"
+          },
+          "image": {
+            "title": "Image",
+            "description": "URL to your newsletter's header or branding image.",
+            "default": "",
+            "example": "https://example.com/header.jpg",
+            "type": "string"
           }
         },
         "required": [
@@ -8222,6 +8273,30 @@
           },
           "custom_email_template": {
             "title": "Custom Email Template",
+            "type": "string"
+          },
+          "css": {
+            "title": "Css",
+            "description": "Custom CSS styling for your newsletter emails.",
+            "example": ".header { color: #000; }",
+            "type": "string"
+          },
+          "web_css": {
+            "title": "Web Css",
+            "description": "Custom CSS styling for your newsletter's web presence.",
+            "example": ".container { max-width: 800px; }",
+            "type": "string"
+          },
+          "icon": {
+            "title": "Icon",
+            "description": "URL to your newsletter's icon image.",
+            "example": "https://example.com/icon.png",
+            "type": "string"
+          },
+          "image": {
+            "title": "Image",
+            "description": "URL to your newsletter's header or branding image.",
+            "example": "https://example.com/header.jpg",
             "type": "string"
           }
         }
