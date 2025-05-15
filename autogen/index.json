@@ -1812,7 +1812,9 @@
     "section": "reference",
     "schema": null,
     "description": "A guide to click tracking, and how to use it in Buttondown.",
-    "references": []
+    "references": [
+      "subscriber-cleanup"
+    ]
   },
   {
     "title": "Complaint Rate",
@@ -1846,7 +1848,9 @@
     "section": "reference",
     "schema": null,
     "description": "A guide to open tracking, and how to use it in Buttondown.",
-    "references": []
+    "references": [
+      "subscriber-cleanup"
+    ]
   },
   {
     "title": "Pageviews by referrer",
@@ -2769,7 +2773,8 @@
       "automation-filters",
       "customizing-subscriber-list-view",
       "glossary-cfl",
-      "premium-teaser"
+      "premium-teaser",
+      "subscriber-cleanup"
     ]
   },
   {

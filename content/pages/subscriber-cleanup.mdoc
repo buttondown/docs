@@ -7,21 +7,24 @@ date: 2024-05-21
 relatedPages:
   - api-subscribers-type
 ---
-Buttondown has the ability to clean up spammy or unactivated email addresses from your subscriber list.
+
+Buttondown can clean up subscribers who are, for one reason or another, no longer receiving emails from you (or perhaps never did). This cleans up your subscriber list, reduces your monthly bill, and improves your deliverability (and peace of mind).
 
 To turn the setting on, go to [Settings > Subscribing](https://buttondown.com/settings/subscribing).
 
 ![The "Subscriber cleanup" toggle in Settings > Subscribing.](/subscriber-cleanup/subscriber-cleanup.png)
 
-- Unsubscribed email addresses will be deleted after 7 days.
-- Unactivated (never clicked the link in the confirmation email) email address will be deleted after 30 days.
-- Malformed email addresses will be deleted after 30 days.
-- Complained (people who marked your email as spam and are therefore blocked from receiving further emails from you) email addresses will be deleted after 30 days.
-- Spammy email addresses will be deleted after 30 days.
-- Disposable email addresses will be deleted after 30 days.
+| Subscriber Type | Number of days before deletion |
+| --- | --- |
+| [Unsubscribed](/api-subscribers-type#unsubscribed) | 7 |
+| [Unactivated](/api-subscribers-type#unactivated) | 30 |
+| [Malformed](/api-subscribers-type#malformed) | 30 |
+| [Complained](/api-subscribers-type#complained) | 30 |
+| [Spammy](/api-subscribers-type#spammy) | 30 |
+| [Disposable](/api-subscribers-type#disposable) | 30 |
 
 ## Cleaning up subscribers who haven't opened emails
 
-Notably, this does *not* clean up subscribers who haven't opened your emails or clicked links in your emails recently.
+Notably, this does *not* clean up subscribers who haven't opened your emails or clicked links in your emails recently (if you have [click tracking](/click-tracking) or [open tracking](/open-tracking) enabled).
 
 We generally recommend against this, since click and open tracking is blocked by some email clients, making it look like these subscribers haven't opened your emails. Cleaning up these subscribers would remove actual readers from your subscriber list.
