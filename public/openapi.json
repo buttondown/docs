@@ -5297,7 +5297,12 @@
                 "date.week.started",
                 "date.month.started",
                 "date.year.started",
-                "firewall.blocked"
+                "firewall.blocked",
+                "patreon.membership.created",
+                "patreon.membership.deleted",
+                "patreon.member.updated",
+                "note.created",
+                "note.deleted"
               ],
               "type": "string"
             },
@@ -8890,7 +8895,12 @@
           "date.week.started",
           "date.month.started",
           "date.year.started",
-          "firewall.blocked"
+          "firewall.blocked",
+          "patreon.membership.created",
+          "patreon.membership.deleted",
+          "patreon.member.updated",
+          "note.created",
+          "note.deleted"
         ],
         "type": "string"
       },

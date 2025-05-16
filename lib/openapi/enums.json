@@ -615,7 +615,7 @@
       "description": "Whenever an email's status has changed (e.g. from 'draft' to 'sent'.) The `metadata` field will contain the previous and new statii in 'old_value' and 'new_value' respectively."
     },
     "email.updated": {
-      "name": "email.updated", 
+      "name": "email.updated",
       "description": "Whenever an email's content or metadata has been updated."
     },
     "export.created": {
@@ -629,6 +629,26 @@
     "export.failed": {
       "name": "export.failed",
       "description": "Whenever an export fails."
+    },
+    "patreon.membership.created": {
+      "name": "patreon.membership.created",
+      "description": "Whenever a new membership is created in Patreon."
+    },
+    "patreon.membership.deleted": {
+      "name": "patreon.membership.deleted",
+      "description": "Whenever a membership is deleted in Patreon."
+    },
+    "patreon.member.updated": {
+      "name": "patreon.member.updated",
+      "description": "Whenever a member changes their email address in Patreon."
+    },
+    "note.created": {
+      "name": "note.created",
+      "description": "Whenever a note is created."
+    },
+    "note.deleted": {
+      "name": "note.deleted",
+      "description": "Whenever a note is deleted."
     },
     "memberful.subscription.created": {
       "name": "memberful.subscription.created",
