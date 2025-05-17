@@ -114,7 +114,7 @@ const Document = async ({ page }: Props) => (
             <div className="">
               This feature requires a{" "}
               <a
-                href={`https://buttondown.com/pricing?count=${(price?.subscriber_count || 1) - 1}`}
+                href={`https://buttondown.com/pricing?plan=${price?.id}`}
                 target="_blank"
                 className="text-inherit font-normal whitespace-nowrap"
                 rel="noreferrer"
@@ -143,8 +143,9 @@ const Document = async ({ page }: Props) => (
             <h3>By the way</h3>
             <p>
               With Buttondown, it&#39;s easy to{" "}
-              <Link href="/data-exports">export</Link> your subscribers, surveys,
-              emails, and other data whenever you wish—no strings attached!
+              <Link href="/data-exports">export</Link> your subscribers,
+              surveys, emails, and other data whenever you wish—no strings
+              attached!
             </p>
           </div>
         );
