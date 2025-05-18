@@ -3426,6 +3426,16 @@
     ]
   },
   {
+    "title": "2025-05-17",
+    "url": "api-changelog-2025-05-17",
+    "section": "api",
+    "schema": null,
+    "description": "Exports can now be generated in JSON format",
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
     "title": "2025-05-14",
     "url": "api-changelog-2025-05-14",
     "section": "api",
