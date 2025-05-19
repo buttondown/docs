@@ -645,6 +645,10 @@
           "value": "customizing-transactional-emails"
         },
         {
+          "discriminant": "page",
+          "value": "xss"
+        },
+        {
           "discriminant": "divider",
           "value": "FAQ"
         },

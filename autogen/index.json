@@ -1399,6 +1399,14 @@
     ]
   },
   {
+    "title": "External scripts",
+    "url": "xss",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "What's a good tutorial for learning CSS?",
     "url": "what-s-a-good-tutorial-for-learning-css",
     "section": "reference",
