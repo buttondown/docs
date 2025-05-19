@@ -28,3 +28,7 @@ To turn the setting on, go to [Settings > Subscribing](https://buttondown.com/se
 Notably, this does *not* clean up subscribers who haven't opened your emails or clicked links in your emails recently (if you have [click tracking](/click-tracking) or [open tracking](/open-tracking) enabled).
 
 We generally recommend against this, since click and open tracking is blocked by some email clients, making it look like these subscribers haven't opened your emails. Cleaning up these subscribers would remove actual readers from your subscriber list.
+
+## What does "clean up" mean, really?
+
+Technically speaking, Buttondown soft deletes subscribers rather than hard deleting them. This is to prevent situations like a subscriber who has unsubscribed or complained about your newsletter getting resubscribed when you re-import a CSV containing their email address. If you'd like us to turn on hard deletion for your newsletter, here, you can reach out to us with the caveat that the onus is on you to make sure that when we delete or clean up subscribers, you update your own backing exports and data stores to reflect that information. 
