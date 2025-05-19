@@ -5900,6 +5900,15 @@
         ],
         "type": "string"
       },
+      "ExportFormat": {
+        "title": "Format",
+        "description": "An enumeration.",
+        "enum": [
+          "csv",
+          "json"
+        ],
+        "type": "string"
+      },
       "ExportStatus": {
         "title": "Status",
         "description": "Represents the status of an export.\n\nNo action is required to move from one state or another; Buttondown\ninternally handles the transitions, and exposing the status is for\nobservability purposes only.",
@@ -5925,6 +5934,15 @@
           "parameters": {
             "title": "Parameters",
             "type": "object"
+          },
+          "format": {
+            "description": "Format for the export files",
+            "default": "csv",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ExportFormat"
+              }
+            ]
           },
           "columns": {
             "title": "Columns",
@@ -6038,6 +6056,15 @@
           "parameters": {
             "title": "Parameters",
             "type": "object"
+          },
+          "format": {
+            "description": "Format for the export files",
+            "default": "csv",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ExportFormat"
+              }
+            ]
           },
           "columns": {
             "title": "Columns",
