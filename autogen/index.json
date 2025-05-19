@@ -1162,16 +1162,24 @@
     "references": []
   },
   {
-    "title": "Why is my account disabled?",
+    "title": "Auditing & KYC",
     "url": "auditing",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown's auditing & KYC process",
+    "references": []
+  },
+  {
+    "title": "How do I change my account password?",
+    "url": "change-password",
     "section": "reference",
     "schema": null,
     "description": null,
     "references": []
   },
   {
-    "title": "How do I change my account password?",
-    "url": "change-password",
+    "title": "How do I change my newsletter's username?",
+    "url": "change-username",
     "section": "reference",
     "schema": null,
     "description": null,
@@ -1566,6 +1574,7 @@
     "schema": null,
     "description": "Keeping your deliverability high is largely about managing your domain's reputation.",
     "references": [
+      "auditing",
       "complaint-rate",
       "permanent-failure-rate",
       "warming-up"

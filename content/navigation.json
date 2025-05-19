@@ -527,6 +527,10 @@
         },
         {
           "discriminant": "page",
+          "value": "change-username"
+        },
+        {
+          "discriminant": "page",
           "value": "change-login-method"
         },
         {
