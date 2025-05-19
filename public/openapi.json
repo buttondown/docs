@@ -884,36 +884,48 @@
             "name": "creation_date__start",
             "schema": {
               "title": "Creation Date  Start",
+              "description": "If provided, only return emails created after the given date.",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return emails created after the given date."
           },
           {
             "in": "query",
             "name": "creation_date__end",
             "schema": {
               "title": "Creation Date  End",
+              "description": "If provided, only return emails created before the given date.",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return emails created before the given date."
           },
           {
             "in": "query",
             "name": "publish_date__start",
             "schema": {
               "title": "Publish Date  Start",
+              "description": "If provided, only return emails published after the given date.",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return emails published after the given date."
           },
           {
             "in": "query",
             "name": "publish_date__end",
             "schema": {
               "title": "Publish Date  End",
+              "description": "If provided, only return emails published before the given date.",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return emails published before the given date."
           },
           {
             "in": "query",
@@ -1697,42 +1709,72 @@
           },
           {
             "in": "query",
-            "name": "date",
+            "name": "date__start",
             "schema": {
-              "title": "Date",
+              "title": "Date  Start",
               "description": "If provided, only return subscribers created on or after the given date.",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
             },
             "required": false,
             "description": "If provided, only return subscribers created on or after the given date."
           },
           {
             "in": "query",
-            "name": "last_open_date",
+            "name": "date__end",
             "schema": {
-              "title": "Last Open Date",
+              "title": "Date  End",
+              "description": "If provided, only return subscribers created before the given date.",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers created before the given date."
+          },
+          {
+            "in": "query",
+            "name": "last_open_date__start",
+            "schema": {
+              "title": "Last Open Date  Start",
               "description": "If provided, only return subscribers with the given last open date(s).",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
             },
             "required": false,
             "description": "If provided, only return subscribers with the given last open date(s)."
           },
           {
             "in": "query",
-            "name": "last_click_date",
+            "name": "last_open_date__end",
             "schema": {
-              "title": "Last Click Date",
+              "title": "Last Open Date  End",
+              "description": "If provided, only return subscribers with the given last open date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given last open date(s)."
+          },
+          {
+            "in": "query",
+            "name": "last_click_date__start",
+            "schema": {
+              "title": "Last Click Date  Start",
               "description": "If provided, only return subscribers with the given last click date(s).",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given last click date(s)."
+          },
+          {
+            "in": "query",
+            "name": "last_click_date__end",
+            "schema": {
+              "title": "Last Click Date  End",
+              "description": "If provided, only return subscribers with the given last click date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
             },
             "required": false,
             "description": "If provided, only return subscribers with the given last click date(s)."
@@ -1788,36 +1830,48 @@
             "name": "upgrade_date__start",
             "schema": {
               "title": "Upgrade Date  Start",
+              "description": "If provided, only return subscribers with the given upgrade date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return subscribers with the given upgrade date(s)."
           },
           {
             "in": "query",
             "name": "upgrade_date__end",
             "schema": {
               "title": "Upgrade Date  End",
+              "description": "If provided, only return subscribers with the given upgrade date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return subscribers with the given upgrade date(s)."
           },
           {
             "in": "query",
             "name": "undeliverability_date__start",
             "schema": {
               "title": "Undeliverability Date  Start",
+              "description": "If provided, only return subscribers with the given undeliverability date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return subscribers with the given undeliverability date(s)."
           },
           {
             "in": "query",
             "name": "undeliverability_date__end",
             "schema": {
               "title": "Undeliverability Date  End",
+              "description": "If provided, only return subscribers with the given undeliverability date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return subscribers with the given undeliverability date(s)."
           },
           {
             "in": "query",
@@ -4571,7 +4625,8 @@
                   "2024-08-15",
                   "2024-09-30",
                   "2024-12-30",
-                  "2025-01-02"
+                  "2025-01-02",
+                  "2025-05-19"
                 ],
                 "type": "string"
               }
@@ -5556,6 +5611,7 @@
             "schema": {
               "title": "Creation Date  Start",
               "description": "If provided, only return responses made after the given date.",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "example": "2024-01-01",
               "type": "string"
             },
@@ -5568,6 +5624,7 @@
             "schema": {
               "title": "Creation Date  End",
               "description": "If provided, only return responses made before the given date.",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "example": "2024-01-01",
               "type": "string"
             },
@@ -9952,7 +10009,8 @@
               "2024-08-15",
               "2024-09-30",
               "2024-12-30",
-              "2025-01-02"
+              "2025-01-02",
+              "2025-05-19"
             ],
             "type": "string"
           },
@@ -10022,7 +10080,8 @@
               "2024-08-15",
               "2024-09-30",
               "2024-12-30",
-              "2025-01-02"
+              "2025-01-02",
+              "2025-05-19"
             ],
             "type": "string"
           }

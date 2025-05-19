@@ -1,0 +1,38 @@
+---
+title: "2025-05-19"
+navigationTitle: "2025-05-19"
+description: "Split up date parameters into start and end"
+---
+
+## TL;DR
+
+```json
+requests.get(
+    "https://api.buttondown.email/v1/subscribers",
+    params={
+        "date": ["2025-01-01", "2025-03-31"], // [!code --]
+        "date__start": "2025-01-01", // [!code ++]
+        "date__end": "2025-03-31", // [!code ++]
+    },
+)
+```
+
+---
+
+Filters are a tricky thing to get correct. Dates are also a tricky thing to get correct. You combine the two of them, and you can be in a slightly painful world. When the API was very new, we added three date-based parameters: `date`, `last_open_date`, and `last_click_date`, for filtering Subscribers by those fields. The idea was an implicit bracketing. You could supply two dates or one, and it was all a little implicit and messy. We've since standardized on a much more explicit and ergonomic approach, which is `date__start` and `date__end`, which is how the vast majority of the date parameters in the API work... except for those initial few, which changes today. We're cutting a new version of the API to finally migrate those old fields onto the new style. We're honoring existing call sites but encourage you to migrate to this new style for your own sanity and happiness. 
+
+---
+
+The old style of doing things:
+
+{% generatedMultilanguageSnippets
+   method="GET"
+   endpoint="/subscribers?date=2025-01-01&date=2025-03-31"
+   body="" /%}
+
+The new style of doing things:
+
+{% generatedMultilanguageSnippets
+   method="GET"
+   endpoint="/subscribers?date__start=2025-01-01&date__end=2025-03-31"
+   body="" /%}
