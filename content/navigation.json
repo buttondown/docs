@@ -687,6 +687,35 @@
       ]
     },
     {
+      "name": "Transactional Emails",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "transactional-emails"
+        },
+        {
+          "discriminant": "page",
+          "value": "transactional-emails-confirmation"
+        },
+        {
+          "discriminant": "page",
+          "value": "transactional-emails-reminder"
+        },
+        {
+          "discriminant": "page",
+          "value": "transactional-emails-welcome"
+        },
+        {
+          "discriminant": "page",
+          "value": "transactional-emails-premium-welcome"
+        },
+        {
+          "discriminant": "page",
+          "value": "transactional-emails-gift"
+        }
+      ]
+    },
+    {
       "name": "Web archives",
       "items": [
         {

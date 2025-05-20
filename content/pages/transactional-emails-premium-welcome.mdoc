@@ -1,0 +1,51 @@
+---
+title: Premium Welcome Email
+navigationTitle: Premium welcome email
+description: Reference guide for Buttondown's premium welcome emails
+relatedPages:
+  - paid-subscriptions
+  - transactional-emails
+  - template-variables
+  - customizing-transactional-emails
+---
+
+{% paidFeature feature="paid_subscriptions" /%}
+
+The premium welcome email is sent to subscribers when they upgrade to a paid subscription. This email allows you to thank them for their financial support and provide any premium-specific information they might need.
+
+## When it's sent
+
+This email is sent immediately after a subscriber successfully upgrades to a paid subscription. This email is only relevant if you have [paid subscriptions](/paid-subscriptions) enabled for your newsletter.
+
+## Customizing the premium welcome email
+
+You can customize this email by navigating to [Settings > Subscribing > Premium Welcome](https://buttondown.com/settings/subscribing/premium_welcome).
+
+## Available template variables
+
+The following template variables are available for use in premium welcome emails:
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `newsletter.name` | The name of your newsletter | No |
+| `newsletter.description` | The description of your newsletter | No |
+| `newsletter_link` | A link to your newsletter's homepage | No |
+| `subscriber.email` | The email address of the subscriber | No |
+| `unsubscribe_url` | A URL that allows the subscriber to unsubscribe | No |
+| `manage_subscription_url` | A URL where subscribers can manage their subscription (if autonomy is enabled) | No |
+| `subscriber.metadata` | Access to any metadata fields you've collected from the subscriber | No |
+| `subscriber.subscriber_type` | Will be "premium" for these subscribers | No |
+
+## Default template
+
+The default premium welcome email template includes:
+
+1. A thank you message for upgrading
+2. Information about what they can expect from their premium subscription
+3. Instructions on how to manage their paid subscription
+
+## Example usage
+
+{% preview
+   before="Thank you for upgrading to {{ newsletter.name }} Premium!\n\nWe're thrilled to have you as a premium subscriber.\n\nAs a premium member, you'll now have access to:\n- Exclusive content not available to free subscribers\n- Direct access to the author for questions\n- Early access to special features\n\nYou can manage your subscription here: {{ manage_subscription_url }}\n\nThank you for your support - it means the world to us!"
+   after="<p>Thank you for upgrading to My Amazing Newsletter Premium!</p><p>We're thrilled to have you as a premium subscriber.</p><p>As a premium member, you'll now have access to:</p><ul><li>Exclusive content not available to free subscribers</li><li>Direct access to the author for questions</li><li>Early access to special features</li></ul><p>You can manage your subscription here: <a href='#'>https://buttondown.email/manage/abcdef123456</a></p><p>Thank you for your support - it means the world to us!</p>" /%} 

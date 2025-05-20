@@ -1,0 +1,45 @@
+---
+title: Confirmation Email
+navigationTitle: Confirmation email
+description: Reference guide for Buttondown's confirmation emails
+relatedPages:
+  - transactional-emails
+  - template-variables
+  - customizing-transactional-emails
+---
+
+The confirmation email is sent to new subscribers when they initially sign up to your newsletter. This email asks the subscriber to confirm their email address to ensure they actually want to receive your emails.
+
+## When it's sent
+
+This email is sent immediately when someone subscribes to your newsletter. It contains a confirmation link that the subscriber must click to verify their email address and finalize their subscription.
+
+## Customizing the confirmation email
+
+You can customize this email by navigating to [Settings > Subscribing > Confirmation](https://buttondown.com/settings/subscribing/confirmation).
+
+## Available template variables
+
+The following template variables are available for use in confirmation emails:
+
+| Variable | Description |
+|----------|-------------|
+| `confirmation_url` | The URL the subscriber must click to confirm their subscription |
+| `newsletter.name` | The name of your newsletter |
+| `newsletter.description` | The description of your newsletter |
+| `newsletter_link` | A link to your newsletter's homepage |
+| `subscriber.email` | The email address of the subscriber |
+
+## Default template
+
+The default confirmation email template includes:
+
+1. A message asking the subscriber to confirm their subscription by clicking a link
+2. Your newsletter's description (if you've provided one)
+3. A note mentioning they can ignore this email if they didn't subscribe
+
+## Example usage
+
+{% preview
+   before="Hi there!\n\nThanks for subscribing to {{ newsletter.name }}. To complete your subscription, please click the link below:\n\n{{ confirmation_url }}\n\nAbout {{ newsletter.name }}:\n{{ newsletter.description }}\n\nIf you didn't subscribe to {{ newsletter.name }}, you can safely ignore this email."
+   after="<p>Hi there!</p><p>Thanks for subscribing to My Amazing Newsletter. To complete your subscription, please click the link below:</p><p><a href='#'>https://buttondown.email/confirm/abcdef123456</a></p><p>About My Amazing Newsletter:<br>A weekly digest of interesting technology news and insights.</p><p>If you didn't subscribe to My Amazing Newsletter, you can safely ignore this email.</p>" /%} 

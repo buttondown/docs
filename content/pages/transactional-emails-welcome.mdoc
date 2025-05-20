@@ -1,0 +1,49 @@
+---
+title: Welcome Email
+navigationTitle: Welcome email
+description: Reference guide for Buttondown's welcome emails
+relatedPages:
+  - transactional-emails
+  - template-variables
+  - customizing-transactional-emails
+---
+
+The welcome email is sent to subscribers after they've confirmed their subscription. This is your first opportunity to engage with confirmed subscribers.
+
+## When it's sent
+
+This email is sent immediately after a subscriber confirms their subscription by clicking the link in the confirmation email. The welcome email can be disabled in your settings if desired.
+
+## Customizing the welcome email
+
+You can customize this email by navigating to [Settings > Subscribing > Welcome](https://buttondown.com/settings/subscribing/welcome).
+
+To enable or disable the welcome email, go to [Settings > Subscribing](https://buttondown.com/settings/subscribing) and toggle the "Welcome email" setting.
+
+## Available template variables
+
+The following template variables are available for use in welcome emails:
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `newsletter.name` | The name of your newsletter | No |
+| `newsletter.description` | The description of your newsletter | No |
+| `newsletter_link` | A link to your newsletter's homepage | No |
+| `subscriber.email` | The email address of the subscriber | No |
+| `unsubscribe_url` | A URL that allows the subscriber to unsubscribe | No |
+| `manage_subscription_url` | A URL where subscribers can manage their subscription (if autonomy is enabled) | No |
+| `subscriber.metadata` | Access to any metadata fields you've collected from the subscriber | No |
+
+## Default template
+
+The default welcome email template includes:
+
+1. A friendly welcome message
+2. Information about your newsletter
+3. Instructions on how to manage their subscription or unsubscribe if needed
+
+## Example usage
+
+{% preview
+   before="Welcome to {{ newsletter.name }}!\n\nThank you for confirming your subscription. We're excited to have you join our community.\n\nWhat to expect:\n{{ newsletter.description }}\n\n{% if subscriber.metadata.first_name %}\nWe've personalized your subscription based on your interests, {{ subscriber.metadata.first_name }}.\n{% endif %}\n\nYou can manage your subscription preferences here: {{ manage_subscription_url }}\n\nIf you ever want to unsubscribe, you can do so here: {{ unsubscribe_url }}"
+   after="<p>Welcome to My Amazing Newsletter!</p><p>Thank you for confirming your subscription. We're excited to have you join our community.</p><p>What to expect:<br>A weekly digest of interesting technology news and insights.</p><p>We've personalized your subscription based on your interests, Alex.</p><p>You can manage your subscription preferences here: <a href='#'>https://buttondown.email/manage/abcdef123456</a></p><p>If you ever want to unsubscribe, you can do so here: <a href='#'>https://buttondown.email/unsubscribe/abcdef123456</a></p>" /%} 

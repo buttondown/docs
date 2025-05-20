@@ -1,0 +1,52 @@
+---
+title: Gift Email
+navigationTitle: Gift email
+description: Reference guide for Buttondown's gift subscription emails
+relatedPages:
+  - paid-subscriptions
+  - gift-subscriptions
+  - transactional-emails
+  - template-variables
+  - customizing-transactional-emails
+---
+
+{% paidFeature feature="paid_subscriptions" /%}
+
+The gift email is sent to recipients who have been gifted a premium subscription to your newsletter. This email notifies them of the gift and provides information on how to access their premium content.
+
+## When it's sent
+
+This email is sent immediately when someone purchases a gift subscription for a recipient. This email is only relevant if you have [paid subscriptions](/paid-subscriptions) and [gift subscriptions](/gift-subscriptions) enabled for your newsletter.
+
+## Customizing the gift email
+
+You can customize this email by navigating to [Settings > Subscribing > Gift](https://buttondown.com/settings/subscribing/gift).
+
+## Available template variables
+
+The following template variables are available for use in gift emails:
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `custom_copy` | Your custom email template content | No |
+| `newsletter` | The full newsletter object | No |
+| `subscriber.newsletter.name` | The name of your newsletter | No |
+| `subscriber.gift_subscription_message` | The personal message included with the gift | No |
+| `subscriber.newsletter.from_name` | The sender name configured for your newsletter | No |
+| `unsubscribe_url` | A URL that allows the subscriber to unsubscribe | No |
+
+## Default template
+
+The default gift email template includes:
+
+1. A notification that they've received a gift subscription
+2. Information about the newsletter they've been subscribed to
+3. Any personal message from the gifter
+4. Basic information about their subscription
+5. A signature from the newsletter author
+
+## Example usage
+
+{% preview
+   before="Hello!\n\nYou received a gift subscription to **{{ subscriber.newsletter.name }}**!\n\n{% if subscriber.gift_subscription_message %}\nThe author included a message for you:\n\n> {{ subscriber.gift_subscription_message }}\n{% endif %}\n\nYou'll now receive all emails from this newsletter (including premium-only emails), free of charge.\nThis is an ongoing subscription in perpetuity, but you can always unsubscribe from the newsletter\nvia normal channels.\n\n{% if subscriber.newsletter.from_name %}\n— {{ subscriber.newsletter.from_name }}\n{% endif %}"
+   after="<p>Hello!</p><p>You received a gift subscription to My Amazing Newsletter!</p><p>The author included a message for you:</p><blockquote>Enjoy this subscription - I thought you'd really appreciate the insights in this newsletter!</blockquote><p>You'll now receive all emails from this newsletter (including premium-only emails), free of charge. This is an ongoing subscription in perpetuity, but you can always unsubscribe from the newsletter via normal channels.</p><p>— Alex Smith</p>" /%} 

@@ -1,0 +1,48 @@
+---
+title: Reminder Email
+navigationTitle: Reminder email
+description: Reference guide for Buttondown's subscription reminder emails
+relatedPages:
+  - transactional-emails
+  - template-variables
+  - customizing-transactional-emails
+---
+
+The reminder email is sent to subscribers who have not yet confirmed their subscription. This email serves as a follow-up to encourage them to complete the confirmation process.
+
+## When it's sent
+
+This email is automatically sent 24 hours after a subscriber signs up if they haven't yet confirmed their subscription. This feature must be enabled in your settings to work.
+
+## Customizing the reminder email
+
+You can customize this email by navigating to [Settings > Subscribing > Reminder](https://buttondown.com/settings/subscribing/reminder).
+
+To enable or disable reminder emails, go to [Settings > Subscribing](https://buttondown.com/settings/subscribing) and toggle the "Subscription reminders" setting.
+
+## Available template variables
+
+The following template variables are available for use in reminder emails:
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `confirmation_url` | The URL the subscriber must click to confirm their subscription | **Yes** |
+| `newsletter.name` | The name of your newsletter | No |
+| `newsletter.description` | The description of your newsletter | No |
+| `newsletter_link` | A link to your newsletter's homepage | No |
+| `subscriber.email` | The email address of the subscriber | No |
+
+## Default template
+
+The default reminder email template includes:
+
+1. A friendly reminder message 
+2. The confirmation link
+3. A note about why they're receiving the email
+4. Instructions to ignore if they're not interested
+
+## Example usage
+
+{% preview
+   before="Hi there,\n\nWe noticed you haven't confirmed your subscription to {{ newsletter.name }} yet. \n\nTo start receiving our updates, please click the link below to confirm:\n\n{{ confirmation_url }}\n\nAbout {{ newsletter.name }}:\n{{ newsletter.description }}\n\nIf you didn't sign up for this newsletter or you're no longer interested, you can safely ignore this email."
+   after="<p>Hi there,</p><p>We noticed you haven't confirmed your subscription to My Amazing Newsletter yet.</p><p>To start receiving our updates, please click the link below to confirm:</p><p><a href='#'>https://buttondown.email/confirm/abcdef123456</a></p><p>About My Amazing Newsletter:<br>A weekly digest of interesting technology news and insights.</p><p>If you didn't sign up for this newsletter or you're no longer interested, you can safely ignore this email.</p>" /%} 

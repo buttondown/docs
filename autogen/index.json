@@ -701,7 +701,9 @@
       "paid-subscriptions",
       "perks",
       "quickstart",
-      "stripe"
+      "stripe",
+      "transactional-emails-gift",
+      "transactional-emails-premium-welcome"
     ]
   },
   {
@@ -729,7 +731,8 @@
     "schema": null,
     "description": "Gift subscriptions are a great way to \"comp\" a paid subscription to your friends, family, and favorite readers.",
     "references": [
-      "substack"
+      "substack",
+      "transactional-emails-gift"
     ]
   },
   {
@@ -1226,6 +1229,7 @@
       "names",
       "sending-your-first-email",
       "subscriber-autonomy",
+      "transactional-emails",
       "using-templating"
     ]
   },
@@ -1403,7 +1407,8 @@
     "schema": null,
     "description": "Buttondown's transactional emails, such as confirmation and welcome emails, can be customized using the same email CSS settings as regular emails.",
     "references": [
-      "customizing-transactional-emails"
+      "customizing-transactional-emails",
+      "transactional-emails"
     ]
   },
   {
@@ -1471,6 +1476,67 @@
     "schema": null,
     "description": null,
     "references": []
+  },
+  {
+    "title": "Transactional Emails",
+    "url": "transactional-emails",
+    "section": "reference",
+    "schema": null,
+    "description": "Reference guide for all transactional emails in Buttondown",
+    "references": [
+      "customizing-transactional-emails",
+      "transactional-emails"
+    ]
+  },
+  {
+    "title": "Confirmation Email",
+    "url": "transactional-emails-confirmation",
+    "section": "reference",
+    "schema": null,
+    "description": "Reference guide for Buttondown's confirmation emails",
+    "references": [
+      "transactional-emails"
+    ]
+  },
+  {
+    "title": "Reminder Email",
+    "url": "transactional-emails-reminder",
+    "section": "reference",
+    "schema": null,
+    "description": "Reference guide for Buttondown's subscription reminder emails",
+    "references": [
+      "transactional-emails"
+    ]
+  },
+  {
+    "title": "Welcome Email",
+    "url": "transactional-emails-welcome",
+    "section": "reference",
+    "schema": null,
+    "description": "Reference guide for Buttondown's welcome emails",
+    "references": [
+      "transactional-emails"
+    ]
+  },
+  {
+    "title": "Premium Welcome Email",
+    "url": "transactional-emails-premium-welcome",
+    "section": "reference",
+    "schema": null,
+    "description": "Reference guide for Buttondown's premium welcome emails",
+    "references": [
+      "transactional-emails"
+    ]
+  },
+  {
+    "title": "Gift Email",
+    "url": "transactional-emails-gift",
+    "section": "reference",
+    "schema": null,
+    "description": "Reference guide for Buttondown's gift subscription emails",
+    "references": [
+      "transactional-emails"
+    ]
   },
   {
     "title": "Comments",
