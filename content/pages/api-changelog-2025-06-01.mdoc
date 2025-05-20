@@ -1,0 +1,53 @@
+---
+title: "2025-06-01"
+navigationTitle: "2025-06-01"
+description: "Removed default filter for status in /v1/emails"
+---
+
+When we first launched Buttondown's API, we actually had _three_ separate email endpoints: `/v1/drafts`, `/v1/scheduled_emails`, and `/v1/emails`, because we had three separate models for emails, drafts, and scheduled emails.
+
+```mermaid
+graph TD
+    /v1/emails --> Emails
+    /v1/drafts --> Drafts
+    /v1/scheduled_emails --> Emails
+```
+
+---
+
+This was an architectural mistake for many reasons, and we combined them into a single backing model, `Email`:
+
+
+```mermaid
+graph TD
+    /v1/emails --> |status=sent,in_flight| Emails
+    /v1/drafts --> |status=draft| Emails
+    /v1/scheduled_emails --> |status=scheduled| Emails
+```
+
+---
+
+We eventually realized the error of our ways and combined these, but to maintain backwards compatibility (before we had a versioning system!) we defaulted `/v1/emails` to have a behavior of only ever showing "real" emails that were in flight or sent.
+
+
+```mermaid
+graph TD
+    /v1/emails --> |status=sent,in_flight| Emails
+    d["/v1/emails?status=draft"] --> |status=draft| Emails
+    s["/v1/emails?status=scheduled"] --> |status=scheduled| Emails
+```
+
+---
+
+Fast forward three years, and this is still the case for non-obvious and increasingly tenuous reasons. We've cut a new version of the API that removes this little piece of duct tape, such that a call to `/v1/emails` will return _all_ emails, regardless of status. (And you can still of course filter them by passing in `status` as a query parameter.)
+
+
+```mermaid
+graph TD
+    /v1/emails --> before("Before 2024-04-15")
+    /v1/emails --> after("After 2024-04-15")
+    before --> |status=sent,in_flight| Emails
+    after --> Emails
+    d["/v1/emails?status=draft"] --> |status=draft| Emails
+    s["/v1/emails?status=scheduled"] --> |status=scheduled| Emails
+```

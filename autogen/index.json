@@ -3509,6 +3509,16 @@
     ]
   },
   {
+    "title": "2025-06-01",
+    "url": "api-changelog-2025-06-01",
+    "section": "api",
+    "schema": null,
+    "description": "Removed default filter for status in /v1/emails",
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
     "title": "2025-05-19",
     "url": "api-changelog-2025-05-19",
     "section": "api",

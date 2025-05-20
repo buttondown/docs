@@ -893,7 +893,7 @@
         "path": "/api/v1/events",
         "method": "GET",
         "source": "api",
-        "version": "2025-05-19"
+        "version": "2025-06-01"
       }
     }
   ],

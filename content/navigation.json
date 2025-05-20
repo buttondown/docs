@@ -1745,6 +1745,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-changelog-2025-06-01"
+        },
+        {
+          "discriminant": "page",
           "value": "api-changelog-2025-05-19"
         },
         {

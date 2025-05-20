@@ -763,19 +763,14 @@
             "in": "query",
             "name": "status",
             "schema": {
-              "description": "Note that for historical reasons, if `status` is not included in the query, the default is to only return emails with a status of `about_to_send`, `in_flight`, or `sent`. This is a legacy behavior and may change in the future.\n\nIf you want to include drafts, you must explicitly include `draft` in the `status` query parameter. (Same thing with imported emails.)\n",
-              "default": [
-                "about_to_send",
-                "in_flight",
-                "sent"
-              ],
+              "description": "If provided, only return emails with the given status.",
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/EmailStatus"
               }
             },
             "required": false,
-            "description": "Note that for historical reasons, if `status` is not included in the query, the default is to only return emails with a status of `about_to_send`, `in_flight`, or `sent`. This is a legacy behavior and may change in the future.\n\nIf you want to include drafts, you must explicitly include `draft` in the `status` query parameter. (Same thing with imported emails.)\n"
+            "description": "If provided, only return emails with the given status."
           },
           {
             "in": "query",
@@ -4626,7 +4621,8 @@
                   "2024-09-30",
                   "2024-12-30",
                   "2025-01-02",
-                  "2025-05-19"
+                  "2025-05-19",
+                  "2025-06-01"
                 ],
                 "type": "string"
               }
@@ -10010,7 +10006,8 @@
               "2024-09-30",
               "2024-12-30",
               "2025-01-02",
-              "2025-05-19"
+              "2025-05-19",
+              "2025-06-01"
             ],
             "type": "string"
           },
@@ -10081,7 +10078,8 @@
               "2024-09-30",
               "2024-12-30",
               "2025-01-02",
-              "2025-05-19"
+              "2025-05-19",
+              "2025-06-01"
             ],
             "type": "string"
           }
