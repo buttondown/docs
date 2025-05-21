@@ -1,0 +1,122 @@
+---
+title: Using Attachments in Buttondown
+navigationTitle: Attachments
+date: 2025-05-21
+relatedPages: ["what-s-the-maximum-size-of-a-file-that-i-can-attach", "sending-via-email"]
+---
+
+Buttondown allows you to add file attachments to your emails, making it easy to share documents, images, and other files with your subscribers. Whether you're sending a PDF report, sharing a calendar invite, or distributing a resource, attachments make your emails more versatile.
+
+## Supported Attachment Types
+
+Buttondown supports the following file types for attachments:
+
+| File Type | Supported Formats |
+|-----------|------------------|
+| Documents | PDF, DOC, DOCX, TXT, MD |
+| Images | JPG, JPEG, PNG, GIF, WEBP |
+| Archives | ZIP |
+| Audio | MP3 |
+| Video | MP4 |
+| Spreadsheets | CSV |
+| E-books | EPUB |
+| Calendar files | ICS |
+
+## Attachment Size Limit
+
+Each attachment is limited to a maximum size of 2 MB. This limit helps ensure reliable delivery across email providers.
+
+If you need to share larger files with your subscribers, consider uploading them to a file sharing service (like Dropbox, Google Drive, or AWS S3) and including a link in your email instead.
+
+## Adding Attachments
+
+### Using the Web Editor
+
+1. While composing or editing an email in [Fancy mode](/fancy-mode), click the "Attachments" button in the editor toolbar
+2. Select the file you want to attach from your computer
+3. The file will upload and appear as an attachment in your email
+
+### Using the API
+
+If you're using Buttondown's API to create or update emails, you can include attachments by:
+
+1. First uploading the attachment using the `/v1/attachments` endpoint
+2. Then referencing the attachment ID in your email creation/update request
+
+Here's an example of adding an attachment via the API:
+
+```javascript
+// First, upload the attachment
+// You need to create FormData with the file and a name
+const formData = new FormData();
+formData.append('file', yourFileObject);
+formData.append('name', 'Your File Name.pdf');
+
+const attachmentResponse = await fetch('https://api.buttondown.com/v1/attachments', {
+  method: 'POST',
+  headers: {
+    'Authorization': `Token ${YOUR_API_KEY}`
+    // Note: Don't set Content-Type header with FormData, 
+    // the browser will set it correctly with the boundary
+  },
+  body: formData
+});
+
+const attachment = await attachmentResponse.json();
+
+// Then, create or update an email with the attachment
+const emailResponse = await fetch('https://api.buttondown.com/v1/emails', {
+  method: 'POST',
+  headers: {
+    'Authorization': `Token ${YOUR_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    subject: 'Email with attachment',
+    body: 'Check out the attached file!',
+    attachments: [attachment.id] // Include attachment IDs as an array
+  })
+});
+```
+
+You can also update an existing email to add attachments:
+
+```javascript
+// Adding an attachment to an existing email
+const updateResponse = await fetch(`https://api.buttondown.com/v1/emails/${emailId}`, {
+  method: 'PUT',
+  headers: {
+    'Authorization': `Token ${YOUR_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    attachments: [attachment.id]
+  })
+});
+```
+
+## Attachment Delivery
+
+When you send an email with attachments:
+
+1. Buttondown automatically includes the attachments in the outgoing emails
+2. Recipients will see the attachments displayed according to their email client's conventions
+3. For web archive views, attachments will be available for download
+
+## Attachments as a Premium Feature
+
+Adding attachments to emails is a premium feature in Buttondown. If you have a free account, you'll need to upgrade to a paid plan to use this functionality. You can check the current pricing and upgrade options on the [Buttondown pricing page](https://buttondown.email/pricing).
+
+## Best Practices for Attachments
+
+Attachments can be tricky to get right without getting your email filtered as spam. Here are some best practices:
+
+- **Keep sizes small**: Even though the limit is 2 MB, smaller attachments (under 1 MB) will deliver more reliably
+- **Use descriptive filenames**: Help your subscribers understand what the file contains
+- **Consider accessibility**: For documents, ensure they're accessible to readers with disabilities when possible
+- **Limit the number of attachments**: Too many attachments can trigger spam filters or make emails difficult to receive
+- **Test before sending**: Send a test email to yourself to ensure attachments appear correctly
+- **Check delivery rates**: Monitor your email analytics after sending to ensure deliverability remains high
+- **Compress files when possible**: Use ZIP compression for multiple files or to reduce overall size
+
+If you need assistance with attachments, contact [Buttondown support](https://buttondown.email/support) for help.

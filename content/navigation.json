@@ -173,6 +173,10 @@
       "items": [
         {
           "discriminant": "page",
+          "value": "using-attachments"
+        },
+        {
+          "discriminant": "page",
           "value": "uploading-images"
         },
         {

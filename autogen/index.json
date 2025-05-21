@@ -441,6 +441,14 @@
     "references": []
   },
   {
+    "title": "Using Attachments in Buttondown",
+    "url": "using-attachments",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Uploading images in the editor",
     "url": "uploading-images",
     "section": "guides",
@@ -1251,7 +1259,8 @@
       "fancy-mode",
       "fancy-mode-text",
       "preflight",
-      "quickstart"
+      "quickstart",
+      "using-attachments"
     ]
   },
   {
