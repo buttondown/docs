@@ -1,0 +1,16 @@
+---
+title: Why won't my embedded form submit?
+relatedPages:
+- building-your-subscriber-base
+description:  >-
+  Trouble with your Buttondown subscription form? Check your security settings. 
+---
+
+Our embedded subscription form should work on any site! But if you're seeing that the form isn't submitting, this is likely an issue with security settings at the server level. 
+
+To mitigate the security threats (clickjacking, phishing sites), site providers will configure their servers to block requests that are coming from other domain names. The ability to bypass these policies may also be a "paid only" option depending on your host.
+
+The most common security policies are: [CORS (Cross Origin Support)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS) or [CSP (Content Security Policy)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP).
+
+
+If you're having trouble submitting your subscription form, please contact your site provider and request more information about their CORS/CSP configuration.

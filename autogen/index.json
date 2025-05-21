@@ -152,6 +152,14 @@
     ]
   },
   {
+    "title": "Why won't my embedded form submit?",
+    "url": "embed-form-cors-csp",
+    "section": "guides",
+    "schema": null,
+    "description": "Trouble with your Buttondown subscription form? Check your security settings. ",
+    "references": []
+  },
+  {
     "title": "Tags",
     "url": "tags",
     "section": "guides",

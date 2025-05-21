@@ -51,6 +51,10 @@
         {
           "discriminant": "page",
           "value": "dealing-with-spam-subscribers"
+        },
+        {
+          "discriminant": "page",
+          "value": "embed-form-cors-csp"
         }
       ]
     },
