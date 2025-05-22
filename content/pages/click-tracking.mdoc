@@ -46,3 +46,11 @@ For instance, some clients or networks will automatically open every single asse
 **Our recommendation is to treat open tracking and open rates as a relative trend to see how your engagement varies over time rather than heavily indexing on individual data points from a single subscriber.**
 
 In particular, it used to be considered common guidance to "clean" a subscriber list by removing all subscribers who haven't opened an email in a certain period of time, say 90 days. In today's email climate, it's hard to confidently perform operations like that without unintentionally purging well-meaning and engaged subscribers who have simply turned off images or are using a client with a firewall. We recommend identifying unengaged subscribers through a combination of open tracking and click tracking and then explicitly sending those subscribers an email prompting them to reply if they want to stay subscribed. 
+
+### Can I exempt certain links from tracking?
+
+Yes! If you add the query parameter `do_not_track=true` to a link, it will not be tracked. For example:
+
+```html
+<a href="https://google.com?do_not_track=true">Google</a>
+```
