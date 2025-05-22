@@ -24,7 +24,8 @@ h2 {
 h1 {
   font-size: 20px;
 }
-img {
+img,
+video {
   max-width: 100% !important;
   margin-left: 0 !important;
   margin-right: 0 !important;

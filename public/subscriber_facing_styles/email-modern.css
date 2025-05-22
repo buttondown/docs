@@ -61,7 +61,8 @@ figcaption {
   line-height: 18px !important;
   text-align: center;
 }
-img {
+img,
+video {
   max-width: 100% !important;
 }
 pre {
