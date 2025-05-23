@@ -228,6 +228,21 @@
         "parameters": [
           {
             "in": "query",
+            "name": "ids",
+            "schema": {
+              "title": "Ids",
+              "description": "If provided, only return tags matching the given IDs.",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return tags matching the given IDs."
+          },
+          {
+            "in": "query",
             "name": "page_size",
             "schema": {
               "title": "Page Size",

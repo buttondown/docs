@@ -1182,6 +1182,11 @@ blockquote.tiktok-embed {
   margin: 2rem 0;
   text-align: center;
 }
+.subscription-success .get-more svg {
+  margin-right: .5rem;
+  width: 1rem;
+  height: 1rem;
+}
 .subscription-success .get-more h2 {
   font-size: .875rem;
   color: #666;
