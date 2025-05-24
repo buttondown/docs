@@ -1014,6 +1014,14 @@
     "references": []
   },
   {
+    "title": "SimpleAnalytics",
+    "url": "simple-analytics",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Integrating with Stripe",
     "url": "stripe",
     "section": "guides",
