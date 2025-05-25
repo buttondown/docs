@@ -13,3 +13,17 @@ Buttondown has three ways of segmenting subscribers who might want to receive di
 - Using one newsletter, but having subscribers [tagged](/tags) into different groups
 - Using one newsletter, but searching [metadata](/metadata) for a particular value 
 - Creating [multiple separate newsletters](/multiple-newsletters)
+
+```mermaid
+
+flowchart TD
+    hosted_archives[Are you using Buttondown's hosted archives?]
+    hosted_archives --> |Yes| separate_archives[Should the content for each segment be separate?]
+    hosted_archives --> |No| mass_unsubscribe
+    separate_archives --> |Yes| multiple_newsletters[Create multiple newsletters]
+    separate_archives --> |No| mass_unsubscribe[Should subscribers be able to unsubscribe from all segments at once?]
+    mass_unsubscribe --> |No| multiple_newsletters
+    mass_unsubscribe --> |Yes| branding[Should each segment have a different branding?]
+    branding --> |Yes| multiple_newsletters[Create multiple newsletters]
+    branding --> |No| tags[Create one newsletter with tags]
+```
