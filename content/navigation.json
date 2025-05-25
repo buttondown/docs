@@ -100,6 +100,10 @@
         },
         {
           "discriminant": "page",
+          "value": "beehiiv"
+        },
+        {
+          "discriminant": "page",
           "value": "benchmark"
         },
         {
@@ -137,6 +141,10 @@
         {
           "discriminant": "page",
           "value": "moosend"
+        },
+        {
+          "discriminant": "page",
+          "value": "podia"
         },
         {
           "discriminant": "page",
