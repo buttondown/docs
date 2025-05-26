@@ -7629,7 +7629,8 @@
           "email_blocked",
           "rate_limited",
           "subscriber_already_exists",
-          "subscriber_blocked"
+          "subscriber_blocked",
+          "subscriber_suppressed"
         ],
         "type": "string"
       },
