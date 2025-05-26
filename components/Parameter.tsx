@@ -1,3 +1,5 @@
+import { marked } from "marked";
+
 export type TypeProp =
   | {
       type: "string";
@@ -69,7 +71,10 @@ const Parameter = (props: Props) => {
         {props.description && (
           <>
             <Caption>Description</Caption>
-            {props.description}
+            <div
+              className="-mt-4"
+              dangerouslySetInnerHTML={{ __html: marked(props.description) }}
+            />
           </>
         )}
       </div>

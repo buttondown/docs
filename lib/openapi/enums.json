@@ -903,7 +903,7 @@
     "undeliverable": {
       "variant": "error",
       "name": "Undeliverable",
-      "description": "Subscribers who have been unable to receive their email."
+      "description": "Buttondown marks subscribers as undeliverable when we receive some sort of proof that this address does not exist, such as a suppression notification from one of our email providers or a [hard bounce](https://docs.buttondown.com/glossary-permanent-failure) from the host or mailbox itself. We don't try to deliver email to subscribers marked as undeliverable, but you can, in some cases, change their email address (e.g. if they've changed their email address in your CRM, or if you had a typo in their email address) to try and fix things."
     },
     "complained": {
       "variant": "error",
@@ -1015,27 +1015,27 @@
     "create_linkedin_post": {
       "variant": "info",
       "name": "Create LinkedIn post",
-      "description": "Create a LinkedIn post. See our [LinkedIn integration docs](https://buttondown.com/linkedin) for more details."
+      "description": "Create a LinkedIn post. See our [LinkedIn integration docs](https://docs.buttondown.com/linkedin) for more details."
     },
     "create_twitter_post": {
       "variant": "info",
       "name": "Create Twitter post",
-      "description": "Create a Twitter post. See our [Twitter integration docs](https://buttondown.com/twitter) for more details."
+      "description": "Create a Twitter post. See our [Twitter integration docs](https://docs.buttondown.com/twitter) for more details."
     },
     "create_tumblr_post": {
       "variant": "info",
       "name": "Create Tumblr post",
-      "description": "Create a Tumblr post. See our [Tumblr integration docs](https://buttondown.com/tumblr) for more details."
+      "description": "Create a Tumblr post. See our [Tumblr integration docs](https://docs.buttondown.com/tumblr) for more details."
     },
     "create_arena_post": {
       "variant": "info",
       "name": "Create Arena post",
-      "description": "Posts a block to a specific Arena channel. See our [Are.na integration docs](https://buttondown.com/arena) for more details."
+      "description": "Posts a block to a specific Arena channel. See our [Are.na integration docs](https://docs.buttondown.com/arena) for more details."
     },
     "create_bluesky_post": {
       "variant": "info",
       "name": "Create Bluesky post",
-      "description": "Create a Bluesky post. See our [Bluesky integration docs](https://buttondown.com/bsky) for more details."
+      "description": "Create a Bluesky post. See our [Bluesky integration docs](https://docs.buttondown.com/bsky) for more details."
     },
     "forward_reply": {
       "variant": "info",
