@@ -88,6 +88,16 @@
     ]
   },
   {
+    "title": "Test mode",
+    "url": "test-mode",
+    "section": "guides",
+    "schema": null,
+    "description": "Send test emails to yourself to preview how they'll look to subscribers",
+    "references": [
+      "stripe-test-mode"
+    ]
+  },
+  {
     "title": "Building your subscriber base",
     "url": "building-your-subscriber-base",
     "section": "guides",
@@ -485,7 +495,8 @@
     "description": "Buttondown allows you to preview your email by sending yourself a draft.",
     "references": [
       "api-emails-send-draft",
-      "draft-send"
+      "draft-send",
+      "test-mode"
     ]
   },
   {
@@ -496,7 +507,8 @@
     "description": "Want to send an email some time in the future? Buttondown allows you to schedule an exact date and time to send.",
     "references": [
       "quickstart",
-      "sending-your-first-email"
+      "sending-your-first-email",
+      "test-mode"
     ]
   },
   {
@@ -1425,6 +1437,7 @@
       "modern-template-hide-top",
       "registration-and-setup",
       "support-policy",
+      "test-mode",
       "uploading-images"
     ]
   },

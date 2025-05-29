@@ -22,6 +22,10 @@
         {
           "discriminant": "page",
           "value": "sending-your-first-email-advanced"
+        },
+        {
+          "discriminant": "page",
+          "value": "test-mode"
         }
       ]
     },
