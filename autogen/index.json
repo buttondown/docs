@@ -2652,7 +2652,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "api-response-codes"
+    ]
   },
   {
     "title": "Formatting",
@@ -2713,6 +2715,16 @@
     "section": "api",
     "schema": null,
     "description": "General information about rate limits in the Buttondown API.",
+    "references": [
+      "api-response-codes"
+    ]
+  },
+  {
+    "title": "API response codes",
+    "url": "api-response-codes",
+    "section": "api",
+    "schema": null,
+    "description": "Fundamentals of the response codes used in the Buttondown API.",
     "references": []
   },
   {
