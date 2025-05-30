@@ -1548,6 +1548,10 @@
           "value": "api-exports-collections"
         },
         {
+          "discriminant": "page",
+          "value": "api-exports-format"
+        },
+        {
           "discriminant": "divider",
           "value": "Routes"
         },

@@ -425,6 +425,18 @@
       "description": "Hidden emails that are not visible in archives or sent to subscribers."
     }
   },
+  "ExportFormat": {
+    "csv": {
+      "variant": "info",
+      "name": "CSV",
+      "description": "Comma-separated values."
+    },
+    "json": {
+      "variant": "info",
+      "name": "JSON",
+      "description": "JavaScript Object Notation."
+    }
+  },
   "ExportCollection": {
     "subscribers": {
       "variant": "info",

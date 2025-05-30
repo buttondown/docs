@@ -6135,6 +6135,7 @@
         "type": "object",
         "properties": {
           "collections": {
+            "description": "The [collections](https://docs.buttondown.com/api-exports-collections) of objects to export.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ExportCollection"
@@ -6142,10 +6143,11 @@
           },
           "parameters": {
             "title": "Parameters",
+            "description": "Parameters to pass to the exporter. These are specific to the collection and format, and constrain the export.",
             "type": "object"
           },
           "format": {
-            "description": "Format for the export files",
+            "description": "The [format](https://docs.buttondown.com/api-exports-format) of the export files.",
             "default": "csv",
             "allOf": [
               {
@@ -6257,6 +6259,7 @@
         "type": "object",
         "properties": {
           "collections": {
+            "description": "The [collections](https://docs.buttondown.com/api-exports-collections) of objects to export.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ExportCollection"
@@ -6264,10 +6267,11 @@
           },
           "parameters": {
             "title": "Parameters",
+            "description": "Parameters to pass to the exporter. These are specific to the collection and format, and constrain the export.",
             "type": "object"
           },
           "format": {
-            "description": "Format for the export files",
+            "description": "The [format](https://docs.buttondown.com/api-exports-format) of the export files.",
             "default": "csv",
             "allOf": [
               {

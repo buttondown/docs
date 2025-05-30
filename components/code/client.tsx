@@ -1,7 +1,7 @@
 "use client";
 
 import useButtondownCookie, {
-    USERNAME_COOKIE,
+  USERNAME_COOKIE,
 } from "@/hooks/useButtondownCookie";
 import * as Tabs from "@radix-ui/react-tabs";
 import clsx from "clsx";
@@ -49,7 +49,7 @@ export default function CodeInteractive({
   return (
     <Tabs.Root defaultValue={blocks[0].name ?? "default"}>
       {!hideTabs && (
-        <Tabs.List className="rounded-t-xl overflow-hidden bg-[hsl(0,0%,5%)] divide-x divide-[hsl(0,0%,5%)]">
+        <Tabs.List className="rounded-t-xl overflow-x-scroll flex bg-[hsl(0,0%,5%)] divide-x divide-[hsl(0,0%,5%)]">
           {blocks.map((block) => (
             <Tabs.Trigger
               value={block.name ?? "default"}
@@ -61,6 +61,7 @@ export default function CodeInteractive({
                   "text-white text-sm font-medium py-2 px-4",
                   "bg-[hsl(0,0%,10%)] group-data-[state=active]:bg-[hsl(0,0%,14%)]",
                   "border-b border-[hsl(0,0%,5%)] group-data-[state=active]:border-cyan-500",
+                  "whitespace-nowrap"
                 )}
               >
                 {block.name}
@@ -75,7 +76,7 @@ export default function CodeInteractive({
 
         html = html.replace(
           "{username}",
-          username ?? "YOUR-BUTTONDOWN-USERNAME",
+          username ?? "YOUR-BUTTONDOWN-USERNAME"
         );
 
         return (
@@ -89,7 +90,7 @@ export default function CodeInteractive({
                 "[&_pre::-webkit-scrollbar]:hidden [&_pre]:[-ms-overflow-style:none] [&_pre]:[scrollbar-width:none]",
                 "[&_pre]:px-4 [&_pre]:py-3 [&_pre]:overflow-x-scroll",
                 "[&_pre]:text-[0.9rem]",
-                hideTabs ? "[&_pre]:rounded-xl" : "[&_pre]:rounded-b-xl",
+                hideTabs ? "[&_pre]:rounded-xl" : "[&_pre]:rounded-b-xl"
               )}
               // biome-ignore lint/security/noDangerouslySetInnerHtml: trusted content
               dangerouslySetInnerHTML={{

@@ -304,11 +304,94 @@
     {
       "description": "Basic export",
       "object": {
-        "creation_date": "2019-08-24T14:15:22Z",
-        "completion_date": "2019-08-24T15:15:22Z",
+        "collections": [
+          "subscribers"
+        ],
+        "parameters": null,
+        "format": "csv",
+        "columns": null,
         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "url": "s3://buttondown/path-to-export",
-        "status": "completed"
+        "creation_date": "2019-08-24T14:15:22",
+        "url": "https://s3.amazonaws.com/buttondown-exports/basic-export.csv",
+        "completion_date": "2019-08-24T15:15:22",
+        "status": "ready"
+      }
+    },
+    {
+      "description": "In-progress export",
+      "object": {
+        "collections": [
+          "emails",
+          "subscribers"
+        ],
+        "parameters": {
+          "start_date": "2019-01-01",
+          "end_date": "2019-12-31"
+        },
+        "format": "json",
+        "columns": null,
+        "id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+        "creation_date": "2019-08-24T14:15:22",
+        "url": null,
+        "completion_date": null,
+        "status": "in_progress"
+      }
+    },
+    {
+      "description": "Export with error",
+      "object": {
+        "collections": [
+          "events"
+        ],
+        "parameters": null,
+        "format": "csv",
+        "columns": null,
+        "id": "6ba7b811-9dad-11d1-80b4-00c04fd430c8",
+        "creation_date": "2019-08-24T14:15:22",
+        "url": null,
+        "completion_date": null,
+        "status": "error"
+      }
+    },
+    {
+      "description": "Export with custom columns",
+      "object": {
+        "collections": [
+          "subscribers"
+        ],
+        "parameters": null,
+        "format": "csv",
+        "columns": [
+          "email",
+          "creation_date",
+          "subscriber_type"
+        ],
+        "id": "6ba7b812-9dad-11d1-80b4-00c04fd430c8",
+        "creation_date": "2019-08-24T14:15:22",
+        "url": "https://s3.amazonaws.com/buttondown-exports/custom-columns-export.csv",
+        "completion_date": "2019-08-24T15:30:22",
+        "status": "ready"
+      }
+    },
+    {
+      "description": "Multi-collection export",
+      "object": {
+        "collections": [
+          "emails",
+          "subscribers",
+          "comments",
+          "referrals"
+        ],
+        "parameters": {
+          "include_archived": true
+        },
+        "format": "json",
+        "columns": null,
+        "id": "6ba7b813-9dad-11d1-80b4-00c04fd430c8",
+        "creation_date": "2019-08-24T14:15:22",
+        "url": "https://s3.amazonaws.com/buttondown-exports/multi-collection-export.json",
+        "completion_date": "2019-08-24T16:45:22",
+        "status": "ready"
       }
     }
   ],
