@@ -1475,6 +1475,31 @@
       ]
     },
     {
+      "name": "Attachments",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-attachments-introduction"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-attachments-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-attachments-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-attachments-delete"
+        }
+      ]
+    },
+    {
       "name": "Newsletters",
       "items": [
         {
@@ -1774,6 +1799,10 @@
         {
           "discriminant": "page",
           "value": "api-changelog-2025-06-01"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2025-05-30"
         },
         {
           "discriminant": "page",

@@ -1,0 +1,11 @@
+---
+title: Creating an attachment
+endpoint: /attachments
+method: post
+---
+
+Upload a new attachment to your Buttondown account.
+
+This endpoint expects a multipart form data request with:
+- `file` (required): The file to upload
+- `name` (optional): A custom name for the attachment. If not provided, the original filename will be used.

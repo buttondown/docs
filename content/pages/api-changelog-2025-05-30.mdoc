@@ -1,0 +1,48 @@
+---
+title: "2025-05-30"
+navigationTitle: "2025-05-30"
+description: "New Attachments API endpoint"
+---
+
+## TL;DR
+
+```json
+requests.post(
+    "https://api.buttondown.email/v1/attachments",
+    files={
+        "file": open("newsletter-guide.pdf", "rb")
+    },
+    data={
+        "name": "Newsletter Guide"
+    }
+)
+```
+
+---
+
+We've added a new `/attachments` endpoint to the API that allows you to upload, list, and manage attachments for your emails. This brings the attachment functionality that was previously only available through the web interface to the API.
+
+The attachments API supports all the same [file types as the web interface](/using-attachments), and each attachment must be less than 2MB in size. The attachments feature is available on paid plans.
+
+---
+
+## Uploading an attachment
+
+{% generatedMultilanguageSnippets
+   method="POST"
+   endpoint="/attachments"
+   body="" /%}
+
+## Listing attachments
+
+{% generatedMultilanguageSnippets
+   method="GET"
+   endpoint="/attachments"
+   body="" /%}
+
+## Deleting an attachment
+
+{% generatedMultilanguageSnippets
+   method="DELETE"
+   endpoint="/attachments/{id}"
+   body="" /%}

@@ -475,7 +475,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "api-changelog-2025-05-30"
+    ]
   },
   {
     "title": "Uploading images in the editor",
@@ -3125,6 +3127,38 @@
     "references": []
   },
   {
+    "title": "Attachments",
+    "url": "api-attachments-introduction",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing attachments",
+    "url": "api-attachments-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating an attachment",
+    "url": "api-attachments-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Deleting an attachment",
+    "url": "api-attachments-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Introduction",
     "url": "api-newsletters-introduction",
     "section": "api",
@@ -3585,6 +3619,16 @@
     "section": "api",
     "schema": null,
     "description": "Removed default filter for status in /v1/emails",
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2025-05-30",
+    "url": "api-changelog-2025-05-30",
+    "section": "api",
+    "schema": null,
+    "description": "New Attachments API endpoint",
     "references": [
       "api-changelog"
     ]

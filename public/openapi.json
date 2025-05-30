@@ -714,6 +714,147 @@
         ]
       }
     },
+    "/attachments": {
+      "post": {
+        "operationId": "create_attachment",
+        "summary": "Create Attachment",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "name",
+            "schema": {
+              "title": "Name",
+              "type": "string"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Attachment"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "title": "FileParams",
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "title": "File",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "file"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "list_attachments",
+        "summary": "List Attachments",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttachmentPage"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
+    },
+    "/attachments/{id}": {
+      "delete": {
+        "operationId": "delete_attachment",
+        "summary": "Delete Attachment",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
+    },
     "/emails": {
       "post": {
         "operationId": "create_email",
@@ -6417,6 +6558,70 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Image"
+            }
+          },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
+      "Attachment": {
+        "title": "Attachment",
+        "description": "Attachments are files that can be included with your emails. Buttondown allows\nyou to upload attachments to its secure S3 bucket and attach them to your emails.\nSupported file types include documents, images, audio files, and more.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "title": "Name",
+            "description": "The name of the attachment.",
+            "example": "newsletter-guide.pdf",
+            "type": "string"
+          },
+          "file": {
+            "title": "File",
+            "description": "The URL of the attachment file.",
+            "example": "https://buttondown.s3.amazonaws.com/attachments/newsletter-guide.pdf",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "creation_date",
+          "name",
+          "file"
+        ]
+      },
+      "AttachmentPage": {
+        "title": "Page[Attachment]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Attachment"
             }
           },
           "next": {
