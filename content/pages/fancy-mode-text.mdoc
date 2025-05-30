@@ -30,19 +30,32 @@ Emojis are fully supported in the editor.
 
 Not sure which emoji to use? Simply type a colon (":") followed by a word describing the emoji (e.g., "happy") to see some suggestions.
 
-![An emoji autocomplete list in fancy mode](/images/emojis.png)
+{% playgroundEmbed 
+  title="Emojis" 
+  height="400px"
+  initialContent="We support emojis! :tad"
+/%}
 
 ## Block quote
 
 **Shortcut**: You can add a block quote by typing `>` followed by a space.
 
-![A block quote in fancy mode](/images/block-quote.png)
+{% playgroundEmbed 
+  title="Block quote" 
+  height="400px"
+  initialContent="<blockquote>This is a block quote</blockquote>"
+/%}
 
 ## Pull quote
+
 Text inside a pull quote is italicized and centered, as opposed to a block quote.
 
-![A pull quote in fancy mode](/images/pull-quote.png)
 
+{% playgroundEmbed 
+  title="Pull quote" 
+  height="400px"
+  initialContent="<blockquote class='pullquote'>This is a pull quote</blockquote>"
+/%}
 
 ## Table
 
@@ -51,9 +64,14 @@ Text inside a pull quote is italicized and centered, as opposed to a block quote
 Tables are a great way to display data in a structured format. Buttondown formats tables with a subtle border by default, but you can also remove that border if you're using a table for a design element to align items horizontally.
 
 ## Poetry block
-Use a poetry block if you want the text to maintain its spacing when it is published.
 
-![A poetry block in fancy mode](/images/poetry-block.png)
+Use a poetry block if you want the text to maintain its spacing when it is published — useful, for example, for poetry. (Internally, we render poetry blocks as `<pre>` tags, which is why the spacing is preserved.)
+
+{% playgroundEmbed 
+  title="Poetry block" 
+  height="400px"
+  initialContent="<pre class='poetry'>This is a poetry block\nText in the section     maintains its spacing</pre>"
+/%}
 
 ## Code block
 

@@ -1976,6 +1976,7 @@
     "schema": null,
     "description": "A guide to click tracking, and how to use it in Buttondown.",
     "references": [
+      "standards",
       "subscriber-cleanup"
     ]
   },
@@ -2012,6 +2013,7 @@
     "schema": null,
     "description": "A guide to open tracking, and how to use it in Buttondown.",
     "references": [
+      "standards",
       "subscriber-cleanup"
     ]
   },

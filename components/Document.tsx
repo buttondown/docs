@@ -11,6 +11,7 @@ import Heading from "./heading";
 import Iframe from "./iframe";
 import ImageWithLightbox from "./image-with-lightbox";
 import LiveCodeBlock from "./live-code-block";
+import PlaygroundEmbed from "./playground-embed";
 import Video from "./video";
 
 type Props = {
@@ -218,6 +219,13 @@ const Document = async ({ page }: Props) => (
       iframe: (props) => <Iframe src={props.src} />,
       video: (props) => <Video src={props.file} />,
       liveCodeBlock: (props) => <LiveCodeBlock path={props.filename} />,
+      playgroundEmbed: (props) => (
+        <PlaygroundEmbed
+          initialContent={props.initialContent}
+          height={props.height}
+          title={props.title}
+        />
+      ),
       automation: (props) => (
         <a href={props.url} className="text-inherit no-underline after:!hidden">
           <div className="border border-gray-300 bg-gray-50 p-4 px-8 text-center hover:scale-105 transition-all cursor-pointer relative overflow-hidden hover:border-green-600 hover:bg-green-100">
