@@ -1262,6 +1262,10 @@
         {
           "discriminant": "page",
           "value": "api-rate-limits"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-response-codes"
         }
       ]
     },

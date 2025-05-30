@@ -1,0 +1,16 @@
+---
+title: API response codes
+navigationTitle: Response codes
+description:
+  Fundamentals of the response codes used in the Buttondown API.
+---
+
+Buttondown uses a variety of response codes to indicate the status of a request. This page documents the codes we use and the circumstances in which we use them.
+
+| Code | When we throw it                                                                  |
+| ---- | --------------------------------------------------------------------------------- |
+| 400  | The request is malformed (wrong syntax/format, etc.)                              |
+| 401  | The request does not have any [authentication](/api-authentication) associated with it                   |
+| 403  | The request does have authentication associated with it, but insufficient permissions.     |
+| 422  | The request was well-formed but had semantic errors.                              |
+| 429  | The user has sent [too many requests](/api-rate-limits) in a given amount of time                 |
