@@ -802,6 +802,10 @@
         },
         {
           "discriminant": "page",
+          "value": "standards"
+        },
+        {
+          "discriminant": "page",
           "value": "gmail-suspicious-link"
         },
         {

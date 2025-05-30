@@ -5,29 +5,31 @@ description: >-
   Keeping your deliverability high is largely about managing your domain's
   reputation.
 date: 2024-10-28
-relatedPages: []
+relatedPages:
 ---
 
-Unlike other email services which report to Buttondown when a newsletter is flagged as spam (via the [CFBL](/glossary-cfl) mechanism), Gmail does not.
+Unlike other email services which report to Buttondown when a newsletter is flagged as spam (via the [CFBL](/glossary-cfl) mechanism), Gmail does not. To help monitor your domain's reputation and troubleshoot deliverability issues, we recommend using these three tools:
 
-If you're concerned about your domain's reputation (or even if you are not), you should sign up for [Google Postmaster Tools](https://postmaster.google.com/), a free service from Google that will provide high-level visibility into your domain's reputation.
+## Google Postmaster Tools
 
-If you're less concerned about high-level, long-term reputation and more concerned about understanding why a single email being sent from your domain is being flagged, two additional useful tools:
+[Google Postmaster Tools](https://postmaster.google.com/) is a free service from Google that provides comprehensive visibility into your domain's reputation. It offers detailed metrics about spam rates, delivery errors, and domain authentication status. This tool is particularly valuable for monitoring long-term trends and overall domain health. To get started, you'll need to verify domain ownership and set up the necessary DNS records.
 
-- [Postmark's spam score checker](https://spamcheck.postmarkapp.com/)
-- [About My Email](https://aboutmy.email/)
+## Postmark's Spam Score Checker
 
+[Postmark's spam score checker](https://spamcheck.postmarkapp.com/) is an excellent tool for analyzing individual emails before sending. It provides a detailed breakdown of potential spam triggers in your email content, including:
+- Spam score rating
+- Content analysis
+- Authentication status
+- Technical recommendations
 
-## Buttondown's standards
+This tool is particularly useful when you want to test specific emails or troubleshoot why certain messages might be getting flagged.
 
-Buttondown takes deliverability very seriously, and part of that commitment involves making sure every sender meets our standards to protect our long-term reputation and inbox placement. In particular, we expect all newsletters to meet the following thresholds:
+## About My Email
 
-| Metric | Threshold |
-| ------ | --------- |
-| **[Temporary failure rate](/glossary-temporary-failure)** | 5% or lower |
-| **[Permanent failure rate](/glossary-permanent-failure)** | 1% or lower |
-| **[Complaint rate](/glossary-cfl)** | 0.1% or lower |
+[About My Email](https://aboutmy.email/) is a user-friendly tool that helps you understand how your emails appear to recipients. It provides insights into:
+- Email rendering across different clients
+- Authentication status
+- Technical configuration
+- Potential deliverability issues
 
-In the event that your newsletter consistently fails one or more of these threshold, we'll pause sending on your account and reach out to talk about next steps, which may include cleaning or expunging your list, changing the type and cadence of your content, or off-boarding.
-
-Newsletters bringing in an existing list into Buttondown and sending from us for the first time will go through a process of auditing in which we slowly send your first few emails so that we can monitor these metrics closely. 
+This tool is especially helpful for diagnosing rendering issues and ensuring your emails look professional across different email clients.
