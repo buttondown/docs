@@ -1,0 +1,13 @@
+---
+title: Rate limits in the API
+navigationTitle: Rate limits
+description: General information about rate limits in the Buttondown API.
+---
+
+Buttondown does not have blanket rate limits on the API, but we do have some specific ones:
+
+| Endpoint | Rate limit |
+|----------|-----------|
+| [`POST /v1/subscribers`](/api-subscribers-create) | 100 requests per hour |
+
+At this moment, we do not surface rate limit information via API headers; you'll want to check the response body for an explicit error message.

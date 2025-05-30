@@ -268,6 +268,7 @@
     "schema": null,
     "description": "Buttondown makes it easy to migrate your posts, and subscribers from another service. We'll even do the import for you!",
     "references": [
+      "api-subscribers-create",
       "aweber",
       "beehiiv",
       "benchmark",
@@ -2705,6 +2706,14 @@
     "references": []
   },
   {
+    "title": "Rate limits in the API",
+    "url": "api-rate-limits",
+    "section": "api",
+    "schema": null,
+    "description": "General information about rate limits in the Buttondown API.",
+    "references": []
+  },
+  {
     "title": "Drafting emails via the API",
     "url": "drafting-emails-via-the-api",
     "section": "api",
@@ -2978,7 +2987,8 @@
     "references": [
       "api-changelog-2024-12-11",
       "api-changelog-2025-03-31",
-      "api-formatting"
+      "api-formatting",
+      "api-rate-limits"
     ]
   },
   {

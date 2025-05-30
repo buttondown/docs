@@ -78,3 +78,11 @@ Buttondown validates all incoming subscribers through the API, making it easy fo
 We can only validate based on the information you provide, though. When looking at incoming traffic, a very useful heuristic is to look at the IP address of the request: if we see, for instance, a given IP address that has submitted a lot of requests in a short period of time, we can flag that for manual review.
 
 To help with this, you can now provide an `ip_address`. This will be used to determine the subscriber's location and validate their legitimacy (especially useful for folks submitting requests from a form that doesn't have CAPTCHA protection or similar anti-spam measures). You should proxy this directly from the request you receive, and if provided we'll use it rather than the IP address from which you make the API call.
+
+---
+
+### Rate limiting
+
+We rate limit this endpoint to protect against abuse and unintentional usage; the default limit is one hundred requests per hour and naturally grows over time as your newsletter accumulates reputation within Buttondown. If you've got a specific use case that requires a higher rate limit, please [contact us](mailto:support@buttondown.email) and we'll be happy to help; if you're running into rate limiting because of an initial _import_ of subscribers, we suggest [bringing those subscribers in via a CSV](/importing-your-data) instead.
+
+---
