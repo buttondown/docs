@@ -1130,10 +1130,6 @@ hr {
   max-width: calc(100vw - 8rem);
   max-height: calc(100vh - 8rem);
 }
-.lightbox span {
-  display: block;
-  margin-top: 1rem;
-}
 .lightbox form {
   display: grid;
   grid-template-rows: 0 1fr -webkit-min-content;
