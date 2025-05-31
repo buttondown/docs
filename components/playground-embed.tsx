@@ -21,7 +21,7 @@ export default function PlaygroundEmbed({
   const playgroundUrl =
     process.env.NODE_ENV === "development"
       ? "http://127.0.0.1:8000/playground"
-      : "https://buttondown.com/playground";
+      : "https://playground.buttondown.com";
   useEffect(() => {
     const iframe = iframeRef.current;
     if (!iframe) return;
