@@ -1,3 +1,6 @@
+:root {
+  --block-margin: 16px;
+}
 body {
   padding: 20px;
   margin-left: auto;
@@ -8,10 +11,21 @@ body {
 }
 p,
 ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote {
+  margin: var(--block-margin) 0 !important;
+}
+p,
+ul,
 li {
   font-size: 16px !important;
   line-height: 24px !important;
-  margin: 16px 0 !important;
 }
 li {
   margin-bottom: 0 !important;
@@ -20,7 +34,6 @@ li {
 h3 {
   font-size: 18px;
   line-height: 24px !important;
-  margin: 16px 0 !important;
   font-weight: 700;
 }
 hr {
@@ -35,7 +48,6 @@ hr {
 blockquote {
   font-size: 16px !important;
   line-height: 24px !important;
-  margin: 16px 0 !important;
   color: #666 !important;
   background-color: #f5f5f5 !important;
   border-radius: .5rem !important;

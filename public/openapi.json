@@ -7879,11 +7879,13 @@
           },
           "notes": {
             "title": "Notes",
+            "description": "Any notes you want to attach to the subscriber. These are not publicly visible.",
             "default": "",
             "type": "string"
           },
           "metadata": {
             "title": "Metadata",
+            "description": "A structured key-value blob that you can use to store arbitrary data on the object.",
             "default": {},
             "type": "object",
             "additionalProperties": {
@@ -7920,6 +7922,7 @@
           },
           "referring_subscriber_id": {
             "title": "Referring Subscriber Id",
+            "description": "The ID of the subscriber that referred this subscriber.",
             "type": "string",
             "format": "uuid"
           },
@@ -8053,6 +8056,7 @@
           },
           "notes": {
             "title": "Notes",
+            "description": "Any notes you want to attach to the subscriber. These are not publicly visible.",
             "example": "One of our first subscribers!",
             "type": "string"
           },

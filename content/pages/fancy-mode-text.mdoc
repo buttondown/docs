@@ -36,6 +36,8 @@ Not sure which emoji to use? Simply type a colon (":") followed by a word descri
   initialContent="We support emojis! :tad"
 /%}
 
+---
+
 ## Block quote
 
 **Shortcut**: You can add a block quote by typing `>` followed by a space.
@@ -45,6 +47,8 @@ Not sure which emoji to use? Simply type a colon (":") followed by a word descri
   height="400px"
   initialContent="<blockquote>This is a block quote</blockquote>"
 /%}
+
+---
 
 ## Pull quote
 
@@ -57,11 +61,19 @@ Text inside a pull quote is italicized and centered, as opposed to a block quote
   initialContent="<blockquote class='pullquote'>This is a pull quote</blockquote>"
 /%}
 
+---
+
 ## Table
 
-![A table in fancy mode](/images/table.png)
+{% playgroundEmbed 
+  title="Table" 
+  height="400px"
+  initialContent="<table><tr><td>This</td><td>is</td><td>a</td><td>table</td></tr></table>"
+/%}
 
 Tables are a great way to display data in a structured format. Buttondown formats tables with a subtle border by default, but you can also remove that border if you're using a table for a design element to align items horizontally.
+
+---
 
 ## Poetry block
 
@@ -73,13 +85,21 @@ Use a poetry block if you want the text to maintain its spacing when it is publi
   initialContent="<pre class='poetry'>This is a poetry block\nText in the section     maintains its spacing</pre>"
 /%}
 
+---
+
 ## Code block
 
 Code blocks are automatically syntax highlighted based on the programming language.
 
 **Shortcut**: type 3 backticks followed by the programming language and press enter (for example: \`\`\`python).
 
-![A code block in fancy mode](/images/code-block.png)
+{% playgroundEmbed 
+  title="Code block" 
+  height="400px"
+  initialContent="```python\nprint('Hello, world!')\n```"
+/%}
+
+---
 
 ## Footnote
 Adding a footnote will add 2 things in the editor:
@@ -90,20 +110,35 @@ Adding a footnote will add 2 things in the editor:
 
 **Shortcut**: add a footnote by typing [^text], "text" being any string sequence.
 
-![Footnotes in fancy mode](/images/footnotes.png)
+{% playgroundEmbed 
+  title="Footnotes" 
+  height="400px"
+  initialContent="This is a footnote[^1]\n\n[^1]: This is a footnote"
+/%}
+
+---
 
 ## LaTeX block
 A [LaTeX](/glossary-latex) block allows you to write & render LaTeX content inside the editor. (Note that as of now, LaTeX is only renderable as a "block", and not inline with text.)
 
 **Shortcut**: add a LaTeX block by typing your expression inside two dollar signs ($$) and pressing space/enter.
 
-![A LaTeX block in fancy mode](/images/latex-block.png)
+{% playgroundEmbed 
+  title="LaTeX block" 
+  height="400px"
+  initialContent="<div class='buttondown-block-math'>x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}</div>"
+/%}
+
+---
 
 ## Divider
+
 A divider is a horizontal line that sits between 2 pieces of content.
 
 **Shortcut**: add a divider by typing 3 dashes or underscores & pressing space/enter.
 
-![A divider in fancy mode](/images/divider.png)
-
-
+{% playgroundEmbed 
+  title="Divider" 
+  height="400px"
+  initialContent="Here's a divider\n\n---\n\nHere's some more content"
+/%}

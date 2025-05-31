@@ -9,6 +9,48 @@ interface PlaygroundEmbedProps {
   title?: string;
 }
 
+// URL compression utilities using browser-native compression
+const compressToBase64 = async (text: string): Promise<string> => {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(text);
+
+  if ("CompressionStream" in window) {
+    try {
+      const stream = new CompressionStream("gzip");
+      const writer = stream.writable.getWriter();
+      const reader = stream.readable.getReader();
+
+      writer.write(data);
+      writer.close();
+
+      const chunks: Uint8Array[] = [];
+      let done = false;
+
+      while (!done) {
+        const { value, done: readerDone } = await reader.read();
+        done = readerDone;
+        if (value) chunks.push(value);
+      }
+
+      const compressed = new Uint8Array(
+        chunks.reduce((acc, chunk) => acc + chunk.length, 0)
+      );
+      let offset = 0;
+      for (const chunk of chunks) {
+        compressed.set(chunk, offset);
+        offset += chunk.length;
+      }
+
+      return btoa(String.fromCharCode(...compressed));
+    } catch (e) {
+      console.warn("Compression failed, using uncompressed:", e);
+    }
+  }
+
+  // Fallback to base64 encoding without compression
+  return btoa(encodeURIComponent(text));
+};
+
 export default function PlaygroundEmbed({
   initialContent = "",
   height = "600px",
@@ -16,12 +58,27 @@ export default function PlaygroundEmbed({
 }: PlaygroundEmbedProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [compressed, setCompressed] = useState("");
 
   // Get the appropriate playground URL based on environment
   const playgroundUrl =
     process.env.NODE_ENV === "development"
-      ? "http://127.0.0.1:8000/playground"
+      ? "https://application-playground.bd"
       : "https://playground.buttondown.com";
+
+  useEffect(() => {
+    const compress = async () => {
+      const compressed = await compressToBase64(
+        JSON.stringify({
+          title: "Test",
+          content: initialContent,
+        })
+      );
+      setCompressed(compressed);
+    };
+    compress();
+  }, [initialContent]);
+
   useEffect(() => {
     const iframe = iframeRef.current;
     if (!iframe) return;
@@ -55,9 +112,7 @@ export default function PlaygroundEmbed({
             <span className="text-xs text-gray-500">Loading playground...</span>
           ) : (
             <a
-              href={`${playgroundUrl}?content=${encodeURIComponent(
-                initialContent
-              )}`}
+              href={`${playgroundUrl}?c=${compressed}`}
               className="text-xs text-gray-500 flex items-center gap-1"
             >
               View in editor <ArrowRightIcon className="w-4 h-4" />
@@ -72,7 +127,7 @@ export default function PlaygroundEmbed({
           )}
           <iframe
             ref={iframeRef}
-            src={playgroundUrl}
+            src={`${playgroundUrl}?hide_chrome=1&show_preview=false&c=${compressed}`}
             className="w-full h-full border-0 bg-white"
             title={title}
             sandbox="allow-scripts allow-same-origin allow-forms"
