@@ -571,6 +571,9 @@
   background-position: center;
   margin-bottom: 1rem;
 }
+:root {
+  --mobile-breakpoint: 720px;
+}
 #subscribe-form .widget,
 #subscribe-form .share-form,
 .subscribe-form .widget,
@@ -631,7 +634,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
 }
-@media (min-width: 768px) {
+@media (min-width: 720px) {
   #subscribe-form .button-container,
   .subscribe-form .button-container {
     -webkit-box-orient: horizontal;
@@ -643,32 +646,6 @@
   .subscribe-form .button-container > *:not(:first-child) {
     margin-left: .5rem;
   }
-}
-#subscribe-form .unactivated-buttons,
-.subscribe-form .unactivated-buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  margin: 0 auto;
-  gap: .625rem;
-  width: 100%;
-}
-#subscribe-form .unactivated-buttons > *,
-.subscribe-form .unactivated-buttons > * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 0 calc(50% - .25rem);
-  flex: 1 0 calc(50% - .25rem);
 }
 #subscribe-form .sr-only,
 .subscribe-form .sr-only {
@@ -712,13 +689,22 @@
   width: -moz-max-content;
   width: max-content;
 }
-@media (max-width: 550px) {
+#subscribe-form .unactivated-buttons,
+.subscribe-form .unactivated-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .625rem;
+  width: 100%;
+}
+#subscribe-form .unactivated-buttons > *,
+.subscribe-form .unactivated-buttons > * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media (max-width: 720px) {
   #subscribe-form .unactivated-buttons,
   .subscribe-form .unactivated-buttons {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
+    grid-template-columns: 1fr;
     row-gap: .25rem;
   }
   #subscribe-form .unactivated-buttons > *,
