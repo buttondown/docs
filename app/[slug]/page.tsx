@@ -194,6 +194,7 @@ export default async function DocsPage(props: Props) {
                 name={parameter.parameter}
                 description={parameter.description}
                 required={parameter.optional === false}
+                values={parameter.values}
               />
             ))}
           </>
@@ -212,6 +213,7 @@ export default async function DocsPage(props: Props) {
                 description={parameter.description}
                 required={parameter.optional === false}
                 example={parameter.example}
+                values={parameter.values}
               />
             ))}
           </>

@@ -2688,6 +2688,14 @@
     ]
   },
   {
+    "title": "Ordering in the API",
+    "url": "api-ordering",
+    "section": "api",
+    "schema": null,
+    "description": "Fundamentals of how to order objects in the Buttondown API in a RESTful manner.",
+    "references": []
+  },
+  {
     "title": "Pagination",
     "url": "api-pagination",
     "section": "api",

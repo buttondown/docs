@@ -1,0 +1,38 @@
+---
+title: Ordering in the API
+navigationTitle: Ordering
+description:
+  Fundamentals of how to order objects in the Buttondown API in a RESTful manner.
+---
+
+By default, the API will return objects in the order they were created. However, you can also order objects by other fields if the endpoint supports it by surfacing the `ordering` query parameter. That query parameter also shares the specific strings you're allowed to order by; not every field is supported.
+
+## Ordering by a single field
+
+To order by a single field, you can add the `ordering` query parameter to your request. For example, if you want to order by the `subject` field, you can do so by adding the `ordering` query parameter to your request:
+
+```
+https://api.buttondown.com/v1/emails?ordering=subject
+```
+
+## Ordering by a single field in descending order
+
+To order by a single field in descending order, you can add a `-` prefix to the field name. For example, if you want to order by the `subject` field in descending order, you can do so by adding the `ordering` query parameter to your request:
+
+```
+https://api.buttondown.com/v1/emails?ordering=-subject
+```
+
+## Ordering by multiple fields
+
+Sorry, this is not supported yet!
+
+## Ordering by metadata
+
+Metadata is a special case. You can order by metadata by passing in a `metadata` key, followed by a colon, followed by the field you want to order by. For example, if you want to order by the `foo` field in the `metadata` field, you can do so by adding the `ordering` query parameter to your request:
+
+```
+https://api.buttondown.com/v1/emails?ordering=metadata:foo
+```
+
+(This syntax is unfortunately divergent from our metadata _filtering_ syntax, but it's the best we can do for now.)

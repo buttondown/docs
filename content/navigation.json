@@ -1249,6 +1249,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-ordering"
+        },
+        {
+          "discriminant": "page",
           "value": "api-pagination"
         },
         {

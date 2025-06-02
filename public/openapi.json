@@ -6646,31 +6646,6 @@
           "count"
         ]
       },
-      "EmailSource": {
-        "title": "Source",
-        "description": "Represents the original provenance of an email. This value is not exposed\nto subscribers, but does determine some behavior of the email (e.g. whether\nor not analytics can be calculated.)",
-        "enum": [
-          "api",
-          "import",
-          "app",
-          "external_feed"
-        ],
-        "type": "string"
-      },
-      "EmailType": {
-        "title": "Type",
-        "description": "Represents the audience of an email, and to whom it is visible both in the initial\nemail and in online archives.",
-        "enum": [
-          "public",
-          "private",
-          "premium",
-          "free",
-          "churned",
-          "archival",
-          "hidden"
-        ],
-        "type": "string"
-      },
       "EmailStatus": {
         "title": "Status",
         "description": "Represents the state of an email.\n\nNo action is required to move from one state or another; Buttondown\ninternally handles the transitions, and exposing the status is for\nobservability purposes only.",
@@ -6688,6 +6663,31 @@
           "throttled",
           "resending",
           "transactional"
+        ],
+        "type": "string"
+      },
+      "EmailType": {
+        "title": "Type",
+        "description": "Represents the audience of an email, and to whom it is visible both in the initial\nemail and in online archives.",
+        "enum": [
+          "public",
+          "private",
+          "premium",
+          "free",
+          "churned",
+          "archival",
+          "hidden"
+        ],
+        "type": "string"
+      },
+      "EmailSource": {
+        "title": "Source",
+        "description": "Represents the original provenance of an email. This value is not exposed\nto subscribers, but does determine some behavior of the email (e.g. whether\nor not analytics can be calculated.)",
+        "enum": [
+          "api",
+          "import",
+          "app",
+          "external_feed"
         ],
         "type": "string"
       },
@@ -6888,61 +6888,55 @@
         "properties": {
           "id": {
             "title": "Id",
+            "description": "The unique identifier for the email.",
             "type": "string",
             "format": "uuid"
           },
           "creation_date": {
             "title": "Creation Date",
-            "description": "The date and time the object was first created.",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
           "modification_date": {
             "title": "Modification Date",
-            "description": "The date and time the object was last modified.",
+            "description": "The date and time at which the object was last modified.",
             "type": "string",
             "format": "date-time"
           },
           "publish_date": {
             "title": "Publish Date",
+            "description": "The date and time at which the email should be published in the future (for scheduled emails), or the date and time at which the email was published (for sent emails).",
             "type": "string",
             "format": "date-time"
           },
-          "attachments": {
-            "title": "Attachments",
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
           "subject": {
             "title": "Subject",
+            "description": "The subject line for the email.",
+            "type": "string"
+          },
+          "body": {
+            "title": "Body",
+            "description": "The body of the email. Can be either HTML or markdown.",
+            "type": "string"
+          },
+          "status": {
+            "description": "The current status of the email.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EmailStatus"
+              }
+            ]
+          },
+          "slug": {
+            "title": "Slug",
+            "description": "A short, human-readable identifier for the email. (Used in the URL of the email, and in the 'slug' field of the email object.)",
             "type": "string"
           },
           "canonical_url": {
             "title": "Canonical Url",
+            "description": "The URL of the original source of the content.",
             "type": "string"
-          },
-          "image": {
-            "title": "Image",
-            "type": "string"
-          },
-          "description": {
-            "title": "Description",
-            "type": "string"
-          },
-          "source": {
-            "$ref": "#/components/schemas/EmailSource"
-          },
-          "body": {
-            "title": "Body",
-            "description": "Can be either HTML or markdown.",
-            "type": "string"
-          },
-          "secondary_id": {
-            "title": "Secondary Id",
-            "type": "integer"
           },
           "email_type": {
             "default": "public",
@@ -6952,12 +6946,15 @@
               }
             ]
           },
-          "slug": {
-            "title": "Slug",
+          "image": {
+            "title": "Image",
+            "description": "A primary image to be used when previewing the email on the web or in other contexts.",
             "type": "string"
           },
-          "status": {
-            "$ref": "#/components/schemas/EmailStatus"
+          "description": {
+            "title": "Description",
+            "description": "A human-readable description of the email, used for archives and SEO.",
+            "type": "string"
           },
           "metadata": {
             "title": "Metadata",
@@ -6967,6 +6964,19 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          "source": {
+            "description": "The source of the email.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EmailSource"
+              }
+            ]
+          },
+          "secondary_id": {
+            "title": "Secondary Id",
+            "description": "An informal 'number' for the email, used in some templates ('This was issue #123').",
+            "type": "integer"
           },
           "commenting_mode": {
             "$ref": "#/components/schemas/EmailCommentingMode"
@@ -6982,10 +6992,25 @@
             "$ref": "#/components/schemas/Analytics"
           },
           "template": {
-            "$ref": "#/components/schemas/NewsletterEmailTemplate"
+            "description": "If present, this template overrides your newsletter's default template.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterEmailTemplate"
+              }
+            ]
+          },
+          "attachments": {
+            "title": "Attachments",
+            "description": "A list of attachment IDs present on the email. (See [Attachments](https://docs.buttondown.com/api-attachments-introduction) for more information.)",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
           },
           "related_email_ids": {
             "title": "Related Email Ids",
+            "description": "A list of email IDs that are related to this email. Related emails are shown at the bottom of the email and archive pages.",
             "type": "array",
             "items": {
               "type": "string"
@@ -7002,12 +7027,12 @@
           "creation_date",
           "modification_date",
           "subject",
+          "body",
+          "status",
           "canonical_url",
           "image",
           "description",
           "source",
-          "body",
-          "status",
           "commenting_mode",
           "absolute_url",
           "filters",
@@ -7244,6 +7269,7 @@
         "properties": {
           "attachments": {
             "title": "Attachments",
+            "description": "A list of attachment IDs present on the email. (See [Attachments](https://docs.buttondown.com/api-attachments-introduction) for more information.)",
             "type": "array",
             "items": {
               "type": "string",
@@ -7267,12 +7293,14 @@
           },
           "subject": {
             "title": "Subject",
+            "description": "The subject line for the email.",
             "maxLength": 1000,
             "example": "The subject line for the email",
             "type": "string"
           },
           "description": {
             "title": "Description",
+            "description": "A human-readable description of the email, used for archives and SEO.",
             "type": "string"
           },
           "canonical_url": {

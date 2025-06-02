@@ -37,7 +37,7 @@ export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
 
   if (!fixtures) {
     throw new Error(
-      `No fixtures found for ${name}. Did you forget to add them to \`shared/fixtures.json\`?`,
+      `No fixtures found for ${name}. Did you forget to add them to \`shared/fixtures.json\`?`
     );
   }
 
@@ -96,7 +96,7 @@ export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
 }
 
 const extractRef = <R extends Route>(
-  operation: Operation<R, Method<R>>,
+  operation: Operation<R, Method<R>>
 ): string | undefined => {
   const body = operation.requestBody;
   if (body === undefined) {
@@ -112,7 +112,7 @@ const extractRef = <R extends Route>(
 };
 
 const extractRefFromType = (
-  type: string,
+  type: string
 ): keyof typeof OpenAPI.components.schemas | null => {
   // If #/components/schemas/ is present, extract the name of the schema
   const match = type.match(/#\/components\/schemas\/(.*)/);
@@ -124,7 +124,7 @@ const extractRefFromType = (
 };
 
 export const extractSchemaFromContent = (
-  content: RequestBody["content"],
+  content: RequestBody["content"]
 ): keyof typeof OpenAPI.components.schemas | undefined => {
   if (content) {
     if ("application/json" in content) {
@@ -171,7 +171,7 @@ export const fixtureForRef = (ref: string) => {
   if (fixtureInformation.type === "Page") {
     if (!OpenAPIFixtures[fixtureInformation.value]) {
       throw new Error(
-        `No fixtures found for ${fixtureInformation.value}. Did you forget to add them to \`shared/fixtures.json\`?`,
+        `No fixtures found for ${fixtureInformation.value}. Did you forget to add them to \`shared/fixtures.json\`?`
       );
     }
 
@@ -192,6 +192,7 @@ type ParameterType = {
   type: TypeProp;
   description: string;
   optional: boolean;
+  values?: string[];
   example?: string | string[] | object;
 };
 
@@ -210,7 +211,7 @@ type BackingFixture =
     };
 
 export const extractParameters = <R extends Route>(
-  operation: Operation<R, Method<R>>,
+  operation: Operation<R, Method<R>>
 ): ParameterType[] => {
   const queryParameters = operation.parameters
     .filter((parameter) => parameter.in !== "path")
@@ -222,8 +223,8 @@ export const extractParameters = <R extends Route>(
             ? extractRefFromType(parameter.schema.items.$ref)
             : parameter.schema.type
           : "$ref" in parameter.schema
-            ? extractRefFromType(parameter.schema.$ref)
-            : null;
+          ? extractRefFromType(parameter.schema.$ref)
+          : null;
 
       const typeProp: TypeProp =
         "type" in parameter.schema &&
@@ -243,6 +244,8 @@ export const extractParameters = <R extends Route>(
         parameter: parameter.name,
         type: typeProp,
         description: parameter.description || "",
+        // @ts-ignore
+        values: parameter.schema.allOf?.[0]?.enum || [],
         optional: !parameter.required,
       };
     });
@@ -252,7 +255,7 @@ export const extractParameters = <R extends Route>(
 };
 
 const parametersForRef = (
-  ref: keyof (typeof OpenAPI)["components"]["schemas"] | null,
+  ref: keyof (typeof OpenAPI)["components"]["schemas"] | null
 ): ParameterType[] => {
   const schema = ref !== null ? OpenAPI.components.schemas[ref] : null;
   if (schema === null) {
@@ -311,29 +314,25 @@ const parametersForRef = (
                 value: qualifiedParameter.type,
               }
           : "allOf" in qualifiedParameter
-            ? {
-                type: "ref",
-                url: urlForSchema(qualifiedParameter.allOf[0].$ref)?.url || "",
-                name:
-                  urlForSchema(qualifiedParameter.allOf[0].$ref)?.schema || "",
-              }
-            : "anyOf" in qualifiedParameter
-              ? {
-                  type: "ref",
-                  url:
-                    urlForSchema(qualifiedParameter.anyOf[0].$ref)?.url || "",
-                  name:
-                    urlForSchema(qualifiedParameter.anyOf[0].$ref)?.schema ||
-                    "",
-                }
-              : {
-                  type: "ref",
-                  url:
-                    urlForSchema(qualifiedParameter.$ref as string)?.url || "",
-                  name:
-                    urlForSchema(qualifiedParameter.$ref as string)?.schema ||
-                    "",
-                };
+          ? {
+              type: "ref",
+              url: urlForSchema(qualifiedParameter.allOf[0].$ref)?.url || "",
+              name:
+                urlForSchema(qualifiedParameter.allOf[0].$ref)?.schema || "",
+            }
+          : "anyOf" in qualifiedParameter
+          ? {
+              type: "ref",
+              url: urlForSchema(qualifiedParameter.anyOf[0].$ref)?.url || "",
+              name:
+                urlForSchema(qualifiedParameter.anyOf[0].$ref)?.schema || "",
+            }
+          : {
+              type: "ref",
+              url: urlForSchema(qualifiedParameter.$ref as string)?.url || "",
+              name:
+                urlForSchema(qualifiedParameter.$ref as string)?.schema || "",
+            };
 
         return {
           parameter,
@@ -352,8 +351,4 @@ const parametersForRef = (
     ];
   }
   return [];
-};
-
-const Monospaced = ({ children }: { children: string }) => {
-  return <span className="font-mono">{children}</span>;
 };
