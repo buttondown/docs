@@ -6990,6 +6990,11 @@
             "items": {
               "type": "string"
             }
+          },
+          "featured": {
+            "title": "Featured",
+            "description": "Designated whether or not this email should be highlighted within the archives. (Currently unused.)",
+            "type": "boolean"
           }
         },
         "required": [
@@ -7006,7 +7011,8 @@
           "commenting_mode",
           "absolute_url",
           "filters",
-          "related_email_ids"
+          "related_email_ids",
+          "featured"
         ]
       },
       "EmailCreationErrorCode": {
@@ -7157,6 +7163,12 @@
             "items": {
               "type": "string"
             }
+          },
+          "featured": {
+            "title": "Featured",
+            "description": "Designated whether or not this email should be highlighted within the archives. (Currently unused.)",
+            "default": false,
+            "type": "boolean"
           }
         },
         "required": [
@@ -7334,6 +7346,11 @@
             "items": {
               "type": "string"
             }
+          },
+          "featured": {
+            "title": "Featured",
+            "description": "Designated whether or not this email should be highlighted within the archives. (Currently unused.)",
+            "type": "boolean"
           }
         }
       },

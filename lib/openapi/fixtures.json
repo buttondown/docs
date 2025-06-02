@@ -449,7 +449,8 @@
         },
         "analytics": null,
         "template": null,
-        "related_email_ids": []
+        "related_email_ids": [],
+        "featured": false
       }
     },
     {
@@ -480,7 +481,8 @@
         },
         "analytics": null,
         "template": null,
-        "related_email_ids": []
+        "related_email_ids": [],
+        "featured": false
       }
     },
     {
@@ -511,7 +513,8 @@
         },
         "analytics": null,
         "template": null,
-        "related_email_ids": []
+        "related_email_ids": [],
+        "featured": false
       }
     }
   ],
