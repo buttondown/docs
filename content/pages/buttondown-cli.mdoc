@@ -2,6 +2,17 @@
 title: Buttondown CLI
 ---
 
+```mermaid
+flowchart
+  laptop[Local machine]
+  buttondown_cli[Buttondown CLI]
+  buttondown_api[Buttondown API]
+  laptop -->|"buttondown pull"| buttondown_cli
+  buttondown_cli -->|"GET /emails"| buttondown_api
+  buttondown_api -->|"200 OK"| buttondown_cli
+  buttondown_cli -->|"./buttondown/emails/hello.md"| laptop
+```
+
 The Buttondown CLI (Command Line Interface) is a powerful tool that lets you manage your newsletter content from your local machine. It enables workflows like editing newsletters in your preferred text editor, backing up your content, and syncing media files.
 
 ## Installation
@@ -79,10 +90,14 @@ When you run `buttondown push`, it syncs your content to Buttondown maintaining 
 
 The `status` field in your email's frontmatter determines what happens:
 
-- `status: draft` - Email remains a draft when pushed
-- `status: scheduled` - Email **will be sent** at the specified `publish_date`
-- `status: about_to_send` - Email is queued and **will be sent** very soon (typically within a few minutes)
-- `status: sent` - Email has already been sent -- editing these will change their body in the archives.
+| Status | Description |
+|--------|-------------|
+| `draft` | Email remains a draft when pushed |
+| `scheduled` | Email **will be sent** at the specified `publish_date` |
+| `about_to_send` | Email is queued and **will be sent** very soon (typically within a few minutes) |
+| `sent` | Email has already been sent -- editing these will change their body in the archives |
+
+More information on statuses is available in the [API reference](/api-emails-status).
 
 ## Directory Structure
 
