@@ -69,6 +69,21 @@ When you're ready to save your changes back to Buttondown:
 buttondown push
 ```
 
+**Important:** `buttondown push` **doesn't** publish emails with the `status: draft` field, which is the default status for new emails. See the [Publishing Behavior](#publishing-behavior) section below for details on how to actually send your emails.
+
+## Publishing Behavior
+
+When you run `buttondown push`, it syncs your content to Buttondown maintaining the status in the frontmatter. Here's how publishing works:
+
+### Status Field Controls Publishing
+
+The `status` field in your email's frontmatter determines what happens:
+
+- `status: draft` - Email remains a draft when pushed
+- `status: scheduled` - Email **will be sent** at the specified `publish_date`
+- `status: about_to_send` - Email is queued and **will be sent** very soon (typically within a few minutes)
+- `status: sent` - Email has already been sent -- editing these will change their body in the archives.
+
 ## Directory Structure
 
 The CLI creates this structure in your local folder:
@@ -133,7 +148,11 @@ buttondown pull
 buttondown create --title="This Week's Update"
 
 # Edit the file in your editor
-# Then push changes back to Buttondown
+# Push to save as draft
+buttondown push
+
+# When ready to send, edit frontmatter to set status: scheduled
+# Then push again to schedule the email
 buttondown push
 ```
 
