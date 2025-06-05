@@ -2100,6 +2100,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "billing",
       "complaint-rate",
       "permanent-failure-rate",
       "standards"
