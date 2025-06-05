@@ -8682,6 +8682,7 @@
           "update_commenting_modes",
           "delete_tags",
           "delete_surveys",
+          "delete_survey_responses",
           "replay_events",
           "delete_comments",
           "update_survey_statuses"

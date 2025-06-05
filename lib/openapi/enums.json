@@ -785,6 +785,11 @@
       "name": "Delete surveys",
       "description": "Delete multiple surveys in bulk."
     },
+    "delete_survey_responses": {
+      "variant": "info",
+      "name": "Delete survey responses",
+      "description": "Delete multiple survey responses in bulk."
+    },
     "delete_tags": {
       "variant": "info",
       "name": "Delete tags",
