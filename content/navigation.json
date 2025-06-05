@@ -201,6 +201,10 @@
         },
         {
           "discriminant": "page",
+          "value": "premium-content"
+        },
+        {
+          "discriminant": "page",
           "value": "sending-via-email"
         },
         {

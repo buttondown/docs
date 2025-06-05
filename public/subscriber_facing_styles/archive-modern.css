@@ -873,6 +873,9 @@ iframe.youtube {
   font-weight: 500;
   background-color: #e4e4e4;
 }
+.email-list a:last-child .email {
+  border-bottom: none;
+}
 .email-list .email {
   margin-bottom: 1.5em;
   border-bottom: 1px solid var(--medium-color);
@@ -905,6 +908,25 @@ iframe.youtube {
 }
 .email-list .email > div > div:last-child {
   color: var(--dark-color-2);
+}
+.email-list .email.featured {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 243 199 / var(--tw-bg-opacity));
+  padding: 1rem;
+  border-radius: .5rem;
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px
+    var(--tw-shadow-color);
+  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(253 230 138 / var(--tw-border-opacity));
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  text-align: center;
 }
 figcaption {
   text-align: center;
@@ -1414,4 +1436,7 @@ div.image-gallery-embed:has(> :nth-child(3n):last-child) {
 .subscribe-form {
   margin-top: calc(var(--block-margin) * 2);
   margin-bottom: calc(var(--block-margin) * 2);
+}
+.featured-icon {
+  fill: #f59e0b;
 }

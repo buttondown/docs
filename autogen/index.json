@@ -515,6 +515,14 @@
     ]
   },
   {
+    "title": "Premium content",
+    "url": "premium-content",
+    "section": "guides",
+    "schema": null,
+    "description": "Buttondown makes it easy to share special perks and incentives with your paid readers.",
+    "references": []
+  },
+  {
     "title": "Sending via email",
     "url": "sending-via-email",
     "section": "guides",
@@ -1306,6 +1314,7 @@
       "fancy-mode",
       "fancy-mode-text",
       "preflight",
+      "premium-content",
       "quickstart",
       "using-attachments"
     ]
@@ -1338,7 +1347,8 @@
     "description": null,
     "references": [
       "fancy-mode",
-      "preflight"
+      "preflight",
+      "premium-content"
     ]
   },
   {
@@ -2819,6 +2829,7 @@
     "references": [
       "can-i-exclude-an-email-from-archive",
       "customizing-email-list-view",
+      "premium-content",
       "premium-teaser"
     ]
   },
