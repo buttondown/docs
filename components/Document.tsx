@@ -7,6 +7,7 @@ import { DocumentRenderer } from "@keystatic/core/renderer";
 import { marked } from "marked";
 import Link from "next/link";
 import CustomizableContent from "./customizable-content";
+import { FileExplorer, BUTTONDOWN_CLI_STRUCTURE } from "./file-explorer";
 import Heading from "./heading";
 import Iframe from "./iframe";
 import ImageWithLightbox from "./image-with-lightbox";
@@ -252,6 +253,26 @@ const Document = async ({ page }: Props) => (
           </div>
         </a>
       ),
+      fileExplorer: (props) => {
+        let data = BUTTONDOWN_CLI_STRUCTURE;
+        
+        if (props.structure === "custom" && props.customData) {
+          try {
+            data = JSON.parse(props.customData);
+          } catch (error) {
+            console.error("Failed to parse custom file structure:", error);
+            // Fallback to default structure
+          }
+        }
+        
+        return (
+          <FileExplorer 
+            data={data} 
+            className="not-prose my-6" 
+            title={props.title || "Directory Structure"}
+          />
+        );
+      },
     }}
   />
 );
