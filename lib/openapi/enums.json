@@ -233,6 +233,11 @@
       "variant": "error",
       "name": "Date invalid",
       "description": "The date provided is not valid or is in an incorrect format."
+    },
+    "invalid_ordering": {
+      "variant": "error",
+      "name": "Invalid ordering",
+      "description": "The ordering provided is not valid."
     }
   },
   "EmailListErrorCode": {
@@ -418,11 +423,6 @@
       "variant": "info",
       "name": "Archival",
       "description": "Emails that are only available in the archive and not sent to subscribers."
-    },
-    "hidden": {
-      "variant": "info",
-      "name": "Hidden",
-      "description": "Hidden emails that are not visible in archives or sent to subscribers."
     }
   },
   "ExportFormat": {

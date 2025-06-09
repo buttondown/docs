@@ -6675,8 +6675,7 @@
           "premium",
           "free",
           "churned",
-          "archival",
-          "hidden"
+          "archival"
         ],
         "type": "string"
       },
@@ -8024,7 +8023,8 @@
         "description": "Represents the type of error that occurred when listing subscribers.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
         "enum": [
           "invalid_tag",
-          "date_invalid"
+          "date_invalid",
+          "invalid_ordering"
         ],
         "type": "string"
       },
