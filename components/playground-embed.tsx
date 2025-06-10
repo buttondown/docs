@@ -121,7 +121,7 @@ export default function PlaygroundEmbed({
         </div>
         <div className="relative" style={{ height }}>
           {isLoading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+            <div className="absolute inset-0 flex items-center justify-center bg-white">
               <div className="text-gray-400">Loading editor...</div>
             </div>
           )}

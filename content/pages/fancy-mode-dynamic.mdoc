@@ -6,7 +6,12 @@ navigationTitle: Dynamic blocks
 ## Webwall
 A webwall enables you to add content that will only be displayed on the web. Any content below the webwall will not be included in the email sent to email clients.
 
-![A webwall in fancy mode](/images/webwall.png)
+{% playgroundEmbed 
+  title="Webwall" 
+  height="400px"
+  initialContent="Everything below this webwall will not be included in the email sent to email clients.\n\n<div role='webwall'></div>\n\nEverything above the webwall will be included."
+/%}
+
 
 ---
 
@@ -14,20 +19,32 @@ A webwall enables you to add content that will only be displayed on the web. Any
 
 A paywall enables you to add content that will only be displayed to premium subscribers.
 
-![A paywall in fancy mode](/images/paywall.png)
+{% playgroundEmbed 
+  title="Paywall" 
+  height="400px"
+  initialContent="Everything below this paywall will not be included in the email sent to free subscribers.\n\n<div role='paywall'></div>\n\nEverything above the paywall will be included."
+/%}
+
+---
 
 ## Subscription form
 Add a subscription form to allow your readers to easily subscribe to your newsletter from within the email.
 
-{% noticeInfo text="Subscription forms are only displayed on the web." /%}
+{% playgroundEmbed 
+  title="Subscription form" 
+  height="400px"
+  initialContent="Here's a subscription form.\n\n{{ subscribe_form }}\n\nCool, right?"
+/%}
 
-![A subscription form in fancy mode](/images/subscription-form.png)
+---
 
 ## Subscription button
 
 A subscription button is a [CTA button](/glossary-cta) that links to your [newsletter's URL](/building-your-subscriber-base#sharing-your-buttondown-url), allowing people to subscribe to your newsletter there.
 
 ![A subscription button in fancy mode](/images/subscription-button.png)
+
+---
 
 ## Free/premium blocks
 
@@ -37,6 +54,8 @@ Free/premium blocks are a way to display content to your subscribers based on th
 - "Premium-only" blocks are only displayed to premium subscribers.
 
 ![A free/premium block in fancy mode](/images/premium-block.png)
+
+---
 
 ## Internal linking
 Search and link to another email by typing two opening square brackets ("[["), this will open up a list of your emails.
