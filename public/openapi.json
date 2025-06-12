@@ -6749,7 +6749,7 @@
       },
       "FilterGroup": {
         "title": "FilterGroup",
-        "description": "Buttondown's filtering schema can be used for multiple things:\n\n- Filtering [the audience of an email](/api-emails-create) to a specific subset\n- Creating [finely-tuned automations](/api-automations-create)",
+        "description": "Buttondown's filtering schema can be used for multiple things:\n\n- Filtering [the audience of an email](/api-emails-create) to a specific subset\n- Creating [finely-tuned automations](/api-automation-introduction)",
         "type": "object",
         "properties": {
           "filters": {
