@@ -13,27 +13,37 @@ To automatically cross-post your newsletter emails to Bluesky, you have to compl
 
 ## Setting up your Bluesky integration
 
-First, you must connect your Bluesky and Buttondown accounts. Here's how:
+First, you must connect your Bluesky and Buttondown accounts. This requires two steps: 
+1. Generating an app-specific password in Bluesky
+1. Connecting your Bluesky account to Buttondown
 
-### Generating an app-specific password in Bluesky
+### #1. Generating an app-specific password in Bluesky
 
-Bluesky requires you to generate an [app-specific password](https://bsky.app/settings/app-passwords) that Buttondown can use to connect to your Bluesky account. Here's how:
+Bluesky requires you to generate an [app-specific password](https://bsky.app/settings/app-passwords) for each app/integration that you connect to your account. This is different than your _account password_.
 
-1. In Buttondown, navigate to **Settings** and click [Integrations](https://buttondown.com/settings/integrations). 
-1. Find the "Bluesky" integration option and click **Configure**. The Bluesky configuration panel opens.
-1. Click **Generate password**. Bluesky opens in a new tab.
-1. Click **Add app password** and follow the prompts to create a new app password.
-1. **Important**: When you are prompted to copy the app password, do it and save it somewhere secure. You will not be able to view the password after you dismiss this screen.
+To generate this app-specific password:
+1. Log into your Bluesky account
+1. Navigate to Settings → [App Passwords](https://bsky.app/settings/app-passwords)
+1. Click **Add app password** and follow the prompts to create a new password.
+1. Copy the newly generated app password and save it somewhere secure.
 
-### Authenticating with Bluesky from Buttondown
 
-Now you can use the app-specific password you created to connect your Buttondown and Bluesky accounts. Here's how:
+{% noticeWarn text="You will not be able to view the app-specific password after you dismiss the screen in Bluesky. When you are prompted to copy the app password, copy it and save it somewhere secure." /%}
 
-1. In Buttondown, navigate to **Settings** and click [Integrations](https://buttondown.com/settings/integrations). 
+
+### #2. Connecting your Bluesky account to Buttondown
+
+Now you can use the app-specific password you created to connect to your Buttondown newsletter. Here's how:
+
+1. Log into your Buttondown account
+1. Navigate to **Settings** → [Integrations](https://buttondown.com/settings/integrations). 
 1. Find the "Bluesky" integration option and click **Configure**. The Bluesky configuration panel opens.
 1. Enter your **Bluesky username** in the appropriate field.
-1. Paste your **App-specific password** in the appropriate field.
+1. Paste your generated **App-specific password** in the appropriate field.
 1. Click **Save changes**. 
+
+{% noticeWarn text="The [app-specific password](https://bsky.app/settings/app-passwords) is NOT your Bluesky account password." /%}
+
 
 ## Sharing your newsletters to Bluesky
 
