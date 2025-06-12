@@ -889,7 +889,6 @@
     "references": [
       "buttondown-editor-mode",
       "data-exports",
-      "data-exports-api",
       "data-exports-comments",
       "data-exports-email",
       "data-exports-event",
@@ -1213,9 +1212,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "customizing-email-list-view"
-    ]
+    "references": []
   },
   {
     "title": "Customizing your subscriber dashboard",
@@ -1224,7 +1221,6 @@
     "schema": null,
     "description": null,
     "references": [
-      "customizing-subscriber-list-view",
       "importing-your-data"
     ]
   },
@@ -1407,9 +1403,7 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown can clean up spammy or unactivated email addresses from your subscriber list.",
-    "references": [
-      "subscriber-cleanup"
-    ]
+    "references": []
   },
   {
     "title": "Subscriber autonomy",
