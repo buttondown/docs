@@ -693,6 +693,7 @@
       "glossary-dns",
       "glossary-hosting-domain",
       "glossary-whitelabeling",
+      "late-payments",
       "podia",
       "quickstart",
       "sending-from-a-custom-domain",
@@ -1190,7 +1191,7 @@
     "url": "billing",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Pricing information for Buttondown's paid plans.",
     "references": [
       "paused-billing",
       "perks",
@@ -1463,6 +1464,7 @@
     "description": null,
     "references": [
       "glossary-whitelabeling",
+      "late-payments",
       "registration-and-setup",
       "support-policy"
     ]
@@ -2119,6 +2121,14 @@
   {
     "title": "Law enforcement requests",
     "url": "law-enforcement-requests",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Payment policy",
+    "url": "late-payments",
     "section": "reference",
     "schema": null,
     "description": null,

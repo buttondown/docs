@@ -4,9 +4,9 @@ import Sidebar from "./Sidebar";
 import AccountButtons from "./account-buttons";
 import Footer from "./footer";
 import {
-    type KeystaticNavigationFile,
-    type KeystaticPage,
-    assembleNavData,
+  type KeystaticNavigationFile,
+  type KeystaticPage,
+  assembleNavData,
 } from "./lib";
 
 export default async function Layout({
@@ -28,7 +28,7 @@ export default async function Layout({
 
   const nav = assembleNavData(
     navigation as KeystaticNavigationFile,
-    pages as KeystaticPage[],
+    pages as KeystaticPage[]
   );
 
   if ("errors" in nav) {
