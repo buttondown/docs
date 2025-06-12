@@ -40,7 +40,7 @@ export default async function Layout({
       <Sidebar slug={slug} nav={nav} />
 
       <div className="p-4 pb-8 md:p-8 md:pt-12 md:pb-24 flex-1 overflow-hidden">
-        <div className="max-w-screen-sm mx-auto">
+        <div className="max-w-[650px] mx-auto">
           <h1 className="text-3xl font-extrabold text-gray-800 mb-8">
             {title}
           </h1>
