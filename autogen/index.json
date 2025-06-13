@@ -1069,9 +1069,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "shopify"
-    ]
+    "references": []
   },
   {
     "title": "SimpleAnalytics",
