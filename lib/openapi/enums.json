@@ -1019,6 +1019,21 @@
       "name": "Unsubscribe from Shopify",
       "description": "Unsubscribe a subscriber from your Shopify store."
     },
+    "shopify_resubscribe": {
+      "variant": "info",
+      "name": "Resubscribe to Shopify",
+      "description": "Resubscribe a subscriber to your Shopify store marketing emails."
+    },
+    "shopify_set_tags": {
+      "variant": "info",
+      "name": "Set Shopify tags",
+      "description": "Set tags for a subscriber in your Shopify store."
+    },
+    "shopify_create_customer": {
+      "variant": "info", 
+      "name": "Create Shopify customer",
+      "description": "Create a new customer in your Shopify store from a newsletter subscriber."
+    },
     "unsubscribe_subscriber": {
       "variant": "info",
       "name": "Unsubscribe from Buttondown",

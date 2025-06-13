@@ -454,6 +454,10 @@
         },
         {
           "discriminant": "page",
+          "value": "shopify"
+        },
+        {
+          "discriminant": "page",
           "value": "simple-analytics"
         },
         {

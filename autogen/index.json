@@ -1064,6 +1064,16 @@
     "references": []
   },
   {
+    "title": "Shopify",
+    "url": "shopify",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": [
+      "shopify"
+    ]
+  },
+  {
     "title": "SimpleAnalytics",
     "url": "simple-analytics",
     "section": "guides",
