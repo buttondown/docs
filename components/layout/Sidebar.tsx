@@ -19,7 +19,7 @@ const Sidebar = ({ slug, nav }: { slug: string; nav: NavData }) => {
 
   return (
     <>
-      <div className="sticky top-0 inset-x-0 md:hidden p-4 bg-gray-100 flex items-center gap-x-2 z-30">
+      <div className="sticky top-0 inset-x-0 lg:hidden p-4 bg-gray-100 flex items-center gap-x-2 z-30">
         <button
           className="p-1"
           onClick={() => setOpenOnMobile(true)}
@@ -37,20 +37,20 @@ const Sidebar = ({ slug, nav }: { slug: string; nav: NavData }) => {
         </button>
       </div>
 
-      <div className="md:w-[320px] order-last md:order-first">
+      <div className="lg:w-[320px] order-last lg:order-first">
         <div
           className={clsx(
             "fixed top-0 left-0",
-            "h-screen w-full md:w-[320px] grid grid-rows-[max-content,max-content,1fr]",
+            "h-screen w-full lg:w-[320px] grid grid-rows-[max-content,max-content,1fr]",
             "px-5 py-4 border-r border-gray-200 bg-gray-50 display transition-all",
             openOnMobile && "z-40",
-            !openOnMobile && "max-md:-ml-[100vw]",
+            !openOnMobile && "max-lg:-ml-[100vw]"
           )}
         >
           <div className="flex items-center">
             <p className="text font-bold text-gray-800 flex-1">{TITLE}</p>
             <button
-              className="p-1 md:hidden"
+              className="p-1 lg:hidden"
               onClick={() => setOpenOnMobile(false)}
               type="button"
             >

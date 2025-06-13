@@ -36,10 +36,10 @@ export default async function Layout({
   }
 
   return (
-    <div className="grid grid-rows-[max-content,1fr,max-content] md:flex min-h-screen">
+    <div className="grid grid-rows-[max-content,1fr,max-content] lg:flex min-h-screen">
       <Sidebar slug={slug} nav={nav} />
 
-      <div className="p-4 pb-8 md:p-8 md:pt-12 md:pb-24 flex-1 overflow-hidden">
+      <div className="p-4 pb-8 lg:p-8 lg:pt-12 lg:pb-24 flex-1 overflow-hidden">
         <div className="max-w-[650px] mx-auto">
           <h1 className="text-3xl font-extrabold text-gray-800 mb-8">
             {title}
@@ -57,7 +57,7 @@ export default async function Layout({
         </div>
       </div>
 
-      <div className="md:hidden bg-gray-100 p-4">
+      <div className="lg:hidden p-4">
         <Footer />
       </div>
 
