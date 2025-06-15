@@ -642,6 +642,18 @@
       "name": "export.failed",
       "description": "Whenever an export fails."
     },
+    "external_feed_item.created": {
+      "name": "external_feed_item.created",
+      "description": "Whenever a new item is created in an [RSS feed](https://docs.buttondown.com/rss-to-email)."
+    },
+    "shopify.customer.created": {
+      "name": "shopify.customer.created",
+      "description": "Whenever a new customer is created in Shopify."
+    },
+    "shopify.customer.updated": {
+      "name": "shopify.customer.updated",
+      "description": "Whenever a customer changes their email address in Shopify."
+    },
     "patreon.membership.created": {
       "name": "patreon.membership.created",
       "description": "Whenever a new membership is created in Patreon."

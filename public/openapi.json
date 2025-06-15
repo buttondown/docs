@@ -5519,7 +5519,10 @@
                 "patreon.membership.deleted",
                 "patreon.member.updated",
                 "note.created",
-                "note.deleted"
+                "note.deleted",
+                "external_feed_item.created",
+                "shopify.customer.created",
+                "shopify.customer.updated"
               ],
               "type": "string"
             },
@@ -9265,7 +9268,10 @@
           "patreon.membership.deleted",
           "patreon.member.updated",
           "note.created",
-          "note.deleted"
+          "note.deleted",
+          "external_feed_item.created",
+          "shopify.customer.created",
+          "shopify.customer.updated"
         ],
         "type": "string"
       },
