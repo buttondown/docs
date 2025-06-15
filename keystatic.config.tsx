@@ -1,16 +1,24 @@
 import PRICES from "@/autogen/prices.json";
 import { preview } from "@/components/keystatic/preview";
+import { automation } from "@/components/keystatic/automation";
+import { video } from "@/components/keystatic/video";
+import { iframe } from "@/components/keystatic/iframe";
+import { generatedMultilanguageSnippets } from "@/components/keystatic/generatedMultilanguageSnippets";
+import { customizableContent } from "@/components/keystatic/customizableContent";
+import { exportButtondownData } from "@/components/keystatic/exportButtondownData";
+import { paidFeature } from "@/components/keystatic/paidFeature";
+import { supportSnippet } from "@/components/keystatic/supportSnippet";
+import { liveCodeBlock } from "@/components/keystatic/liveCodeBlock";
+import { playgroundEmbed } from "@/components/keystatic/playgroundEmbed";
+import { noticeInfo } from "@/components/keystatic/noticeInfo";
+import { noticeWarn } from "@/components/keystatic/noticeWarn";
+import { snippetSpacer } from "@/components/keystatic/snippetSpacer";
+import { fileExplorer } from "@/components/keystatic/fileExplorer";
 import {
-    NAVIGATION_GROUPS,
-    NAVIGATION_GROUP_LABELS,
+  NAVIGATION_GROUPS,
+  NAVIGATION_GROUP_LABELS,
 } from "@/components/layout/lib";
-import {
-    collection,
-    component,
-    config,
-    fields,
-    singleton,
-} from "@keystatic/core";
+import { collection, config, fields, singleton } from "@keystatic/core";
 
 const navigationGroupSchema = (label: string) =>
   fields.array(
@@ -29,14 +37,14 @@ const navigationGroupSchema = (label: string) =>
             itemLabel: (props) => `Divider: ${props?.value}`,
           },
         },
-        { label: "Navigation" },
+        { label: "Navigation" }
       ),
     }),
     {
       label,
       itemLabel: (props) =>
         `${props.fields.name.value} (${props.fields.items.elements.length})`,
-    },
+    }
   );
 
 // NON-OBVIOUS LOGIC ALERT!
@@ -74,7 +82,7 @@ export default config({
           acc[group] = navigationGroupSchema(NAVIGATION_GROUP_LABELS[group]);
           return acc;
         },
-        {} as Record<string, any>,
+        {} as Record<string, any>
       ),
     }),
   },
@@ -120,323 +128,26 @@ export default config({
           },
           tables: true,
           componentBlocks: {
-            automation: component({
-              label: "Automation",
-              schema: {
-                url: fields.url({ label: "URL" }),
-                name: fields.text({ label: "Name" }),
-                description: fields.text({ label: "Description" }),
-                trigger: fields.text({ label: "Trigger" }),
-                action: fields.text({ label: "Action" }),
-              },
-              preview(props) {
-                return (
-                  <div>
-                    <h2>{props.fields.name.value}</h2>
-                    <p>{props.fields.description.value}</p>
-                    <p>
-                      Trigger: {props.fields.trigger.value} - Action:{" "}
-                      {props.fields.action.value}
-                    </p>
-                  </div>
-                );
-              },
-            }),
-            video: component({
-              label: "Video",
-              schema: {
-                file: fields.file({
-                  label: "File",
-                  directory: generatePath("public"),
-                  publicPath: "/",
-                }),
-              },
-              preview(props) {
-                const file = props.fields.file.value;
-                if (!file) return null;
-                return <p>{file.filename}</p>;
-              },
-            }),
-            iframe: component({
-              label: "iframe",
-              schema: {
-                src: fields.url({ label: "URL" }),
-              },
-              preview(props) {
-                const src = props.fields.src.value;
-                if (!src) {
-                  return null;
-                }
-                return (
-                  <iframe
-                    src={src}
-                    style={{ height: 200, width: (200 * 16) / 9 }}
-                  ></iframe>
-                );
-              },
-            }),
+            automation,
+            video,
+            iframe,
             preview,
-            renderable: component({
-              label: "Renderable",
-              schema: {
-                html: fields.text({ label: "HTML", multiline: true }),
-              },
-              preview() {
-                return <div>This is a renderable component.</div>;
-              },
-            }),
-            generatedMultilanguageSnippets: component({
-              label: "Generated API Multilanguage Code Snippets",
-              schema: {
-                method: fields.text({ label: "HTTP Method" }),
-                endpoint: fields.text({ label: "HTTP endpoint" }),
-                body: fields.text({
-                  label: "JSON body",
-                  validation: { isRequired: false },
-                }),
-                headers: fields.text({
-                  label: "Headers (as JSON object)",
-                  validation: { isRequired: false },
-                }),
-                query: fields.text({
-                  label: "Query parameters (as JSON object)",
-                  validation: { isRequired: false },
-                }),
-              },
-              preview(props) {
-                return (
-                  <code>{`We can't generate code snippets inside Keystatic, but imagine example code for ${props.fields.method.value.toUpperCase()} ${props.fields.endpoint.value} here.`}</code>
-                );
-              },
-            }),
-            multilanguageSnippets: component({
-              label: "Multiple Snippets",
-              schema: {
-                python: fields.pathReference({
-                  label: "Python",
-                  pattern: generatePath("public/**/*.py"),
-                  validation: {
-                    isRequired: false,
-                  },
-                }),
-                ruby: fields.pathReference({
-                  label: "Ruby",
-                  pattern: generatePath("public/**/*.rb"),
-                  validation: {
-                    isRequired: false,
-                  },
-                }),
-                curl: fields.pathReference({
-                  label: "Curl",
-                  pattern: generatePath("public/**/*.sh"),
-                  validation: {
-                    isRequired: false,
-                  },
-                }),
-                javascript: fields.pathReference({
-                  label: "Javascript",
-                  pattern: generatePath("public/**/*.js"),
-                  validation: {
-                    isRequired: false,
-                  },
-                }),
-              },
-              preview(props) {
-                return <div>{props.fields.python.value}</div>;
-              },
-            }),
-            customizableContent: component({
-              label: "Customizable Content",
-              schema: {
-                loggedIn: fields.text({
-                  label: "If user logged in",
-                  multiline: true,
-                }),
-                anonymous: fields.text({
-                  label: "If anonymous",
-                  multiline: true,
-                }),
-              },
-              preview() {
-                return <div>This is a renderable component.</div>;
-              },
-            }),
-            exportButtondownData: component({
-              label: "Export data snippet",
-              schema: {},
-              preview() {
-                return (
-                  <div>With Buttondown, it’s easy to export all your data.</div>
-                );
-              },
-            }),
-            paidFeature: component({
-              label: "Paid feature",
-              schema: {
-                feature: fields.select({
-                  label: "Feature",
-                  description: "The feature that this snippet is about.",
-                  options: PRICES[4].features.map((feature) => {
-                    return { value: feature, label: feature };
-                  }),
-                  defaultValue: "scheduling",
-                }),
-              },
-              preview() {
-                return <div>This is a paid feature.</div>;
-              },
-            }),
-            supportSnippet: component({
-              label: "Need Support",
-              schema: {},
-              preview() {
-                return (
-                  <div>
-                    As always, we’re happy to answer any questions you may have
-                    via support@buttondown.com.
-                  </div>
-                );
-              },
-            }),
-            liveCodeBlock: component({
-              label: "Live Code Block",
-              schema: {
-                filename: fields.pathReference({
-                  label: "Filename",
-                  pattern: generatePath("public/**/*.html"),
-                  validation: {
-                    isRequired: false,
-                  },
-                }),
-              },
-              preview(props) {
-                return (
-                  <div>
-                    <pre>{props.fields.filename.value}</pre>
-                  </div>
-                );
-              },
-            }),
-            playgroundEmbed: component({
-              label: "Playground Embed",
-              schema: {
-                initialContent: fields.text({
-                  label: "Initial Content",
-                  description: "Optional initial markdown content to load in the editor",
-                  multiline: true,
-                  validation: {
-                    isRequired: false,
-                  },
-                }),
-                height: fields.text({
-                  label: "Height",
-                  description: "Height of the embedded playground (e.g., '600px', '80vh')",
-                  defaultValue: "600px",
-                }),
-                title: fields.text({
-                  label: "Title",
-                  description: "Title to display above the playground",
-                  defaultValue: "Buttondown Playground",
-                }),
-              },
-              preview(props) {
-                return (
-                  <div className="border p-4 rounded">
-                    <div className="text-sm text-gray-600 mb-2">
-                      Playground Embed: {props.fields.title.value}
-                    </div>
-                    <div className="text-xs text-gray-500">
-                      Height: {props.fields.height.value}
-                    </div>
-                  </div>
-                );
-              },
-            }),
-            noticeInfo: component({
-              label: "Notice Info",
-              schema: {
-                text: fields.text({ label: "Notice Text", multiline: true }),
-              },
-              preview(props) {
-                const text = props.fields.text.value;
-                if (!text) {
-                  return null;
-                }
-                return <div>{text}</div>;
-              },
-            }),
-            noticeWarn: component({
-              label: "Notice Warning",
-              schema: {
-                text: fields.text({ label: "Notice Warning", multiline: true }),
-              },
-              preview(props) {
-                const text = props.fields.text.value;
-                if (!text) {
-                  return null;
-                }
-                return <div>{text}</div>;
-              },
-            }),
-            snippetSpacer: component({
-              label: "Spacer between two snippets",
-              schema: {},
-              preview() {
-                return <div>This is a spacer</div>;
-              },
-            }),
-            fileExplorer: component({
-              label: "File Explorer",
-              schema: {
-                title: fields.text({
-                  label: "Title",
-                  defaultValue: "Directory Structure",
-                }),
-                structure: fields.select({
-                  label: "Structure Type",
-                  options: [
-                    { label: "Buttondown CLI Structure", value: "buttondown-cli" },
-                    { label: "Custom Structure", value: "custom" },
-                  ],
-                  defaultValue: "buttondown-cli",
-                }),
-                customData: fields.text({
-                  label: "Custom Structure (JSON)",
-                  description: "JSON array of file/folder structure when using custom structure",
-                  multiline: true,
-                  validation: { isRequired: false },
-                }),
-              },
-              preview(props) {
-                return (
-                  <div className="border border-gray-200 p-4 rounded-lg bg-white shadow-sm">
-                    <div className="flex items-center mb-3">
-                      <div className="w-5 h-5 bg-blue-100 rounded flex items-center justify-center mr-2">
-                        📁
-                      </div>
-                      <div className="text-sm font-medium text-gray-900">
-                        {props.fields.title.value || "Directory Structure"}
-                      </div>
-                    </div>
-                    <div className="text-xs text-gray-500 space-y-1">
-                      <div>
-                        Type: {props.fields.structure.value === "buttondown-cli" 
-                          ? "Buttondown CLI Structure" 
-                          : "Custom Structure"}
-                      </div>
-                      {props.fields.structure.value === "custom" && props.fields.customData.value && (
-                        <div className="text-gray-400">Custom JSON provided</div>
-                      )}
-                    </div>
-                  </div>
-                );
-              },
-            }),
+            generatedMultilanguageSnippets,
+            customizableContent,
+            exportButtondownData,
+            paidFeature,
+            supportSnippet,
+            liveCodeBlock,
+            playgroundEmbed,
+            noticeInfo,
+            noticeWarn,
+            snippetSpacer,
+            fileExplorer,
           },
         }),
         relatedPages: fields.array(
           fields.relationship({ label: "Page", collection: "pages" }),
-          { label: "Related Pages", itemLabel: (props) => props.value ?? "" },
+          { label: "Related Pages", itemLabel: (props) => props.value ?? "" }
         ),
       },
     }),
