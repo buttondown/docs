@@ -34,13 +34,13 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tabs": "^1.0.4",
     "@sentry/nextjs": "^9.3.0",
+    "@tailwindcss/postcss": "^4.1.10",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "20.6.3",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
-    "autoprefixer": "10.4.16",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^1.0.0",
@@ -58,7 +58,7 @@
     "react-dom": "18.2.0",
     "shiki": "^1.24.4",
     "tailwind-merge": "^1.14.0",
-    "tailwindcss": "3.4.1",
+    "tailwindcss": "4.1.10",
     "typescript": "5.2.2"
   },
   "devDependencies": {
@@ -89,8 +89,10 @@
     "onlyBuiltDependencies": [
       "@biomejs/biome",
       "@sentry/cli",
+      "@tailwindcss/oxide",
       "@vercel/speed-insights",
       "core-js-pure",
+      "es5-ext",
       "esbuild",
       "sharp"
     ]

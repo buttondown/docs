@@ -32,9 +32,9 @@ const schema = {
 
 function Preview(props: PreviewProps<ObjectField<typeof schema>>) {
   return (
-    <div className="border border-gray-200 p-4 rounded-lg bg-white shadow-sm">
+    <div className="border border-gray-200 p-4 rounded-lg bg-white shadow-xs">
       <div className="flex items-center mb-3">
-        <div className="w-5 h-5 bg-blue-100 rounded flex items-center justify-center mr-2">
+        <div className="w-5 h-5 bg-blue-100 rounded-sm flex items-center justify-center mr-2">
           📁
         </div>
         <div className="text-sm font-medium text-gray-900">

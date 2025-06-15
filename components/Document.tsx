@@ -204,7 +204,7 @@ const Document = async ({ page }: Props) => (
       preview: (props) => {
         return (
           <div className="border border-gray-200 text-center p-8 mt-4 bg-gray-100">
-            <div className="shadow-sm border border-gray-300 divide-y divide-gray-300">
+            <div className="shadow-xs border border-gray-300 divide-y divide-gray-300">
               <div className="bg-white p-4 text-sm text-left border-b-0 overflow-x-scroll">
                 <div className="font-mono whitespace-pre">{props.before}</div>
               </div>
@@ -228,10 +228,10 @@ const Document = async ({ page }: Props) => (
         />
       ),
       automation: (props) => (
-        <a href={props.url} className="text-inherit no-underline after:!hidden">
+        <a href={props.url} className="text-inherit no-underline after:hidden!">
           <div className="border border-gray-300 bg-gray-50 p-4 px-8 text-center hover:scale-105 transition-all cursor-pointer relative overflow-hidden hover:border-green-600 hover:bg-green-100">
             <div className="absolute right-0 top-0 h-12 w-12">
-              <div className="absolute transform rotate-45 bg-gradient-to-tr from-green-500 to-green-600 text-center text-white font-semibold py-1 right-[-50px] top-[25px] w-[170px] text-xs uppercase">
+              <div className="absolute transform rotate-45 bg-linear-to-tr from-green-500 to-green-600 text-center text-white font-semibold py-1 right-[-50px] top-[25px] w-[170px] text-xs uppercase">
                 Click to use
               </div>
             </div>

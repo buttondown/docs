@@ -34,7 +34,7 @@ export default function Nav({ data, slug }: { data: NavData; slug: string }) {
   return (
     <Tabs.Root
       defaultValue={currentNavigationGroup}
-      className="h-full overflow-hidden grid grid-rows-[max-content,1fr]"
+      className="h-full overflow-hidden grid grid-rows-[max-content_1fr]"
     >
       <Tabs.List className="flex gap-x-4 sm:gap-x-3 border-b border-gray-200">
         {NAVIGATION_GROUPS.map((group) => (

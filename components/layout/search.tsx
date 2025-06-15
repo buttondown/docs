@@ -120,7 +120,7 @@ export function Search({
     // biome-ignore lint/a11y/useKeyWithClickEvents: this is a search input
     <div className="relative bg-white" onClick={() => setOpen(true)}>
       <button
-        className="w-full select-none border shadow-sm flex items-center gap-x-2 px-2 py-1.5 rounded-md hover:bg-gray-100 hover:border-gray-300 transition-colors"
+        className="w-full select-none border shadow-xs flex items-center gap-x-2 px-2 py-1.5 rounded-md hover:bg-gray-100 hover:border-gray-300 transition-colors"
         type="button"
       >
         <div className="text-gray-500">

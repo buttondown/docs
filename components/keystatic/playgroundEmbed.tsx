@@ -30,7 +30,7 @@ const schema = {
 
 function Preview(props: PreviewProps<ObjectField<typeof schema>>) {
   return (
-    <div className="border p-4 rounded">
+    <div className="border p-4 rounded-sm">
       <div className="text-sm text-gray-600 mb-2">
         Playground Embed: {props.fields.title.value}
       </div>

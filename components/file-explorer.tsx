@@ -122,16 +122,16 @@ export const FileExplorer = ({
   return (
     <Card
       className={cn(
-        "shadow-sm border-gray-200 dark:border-gray-800",
+        "shadow-xs border-gray-200 dark:border-gray-800",
         className
       )}
     >
-      <CardHeader className="!p-4 pb-0">
+      <CardHeader className="p-4! pb-0">
         <CardTitle className="text-sm font-semibold text-gray-900 dark:text-gray-100 flex items-center">
           {title}
         </CardTitle>
       </CardHeader>
-      <CardContent className="pt-0 pb-1 !px-0">
+      <CardContent className="pt-0 pb-1 px-0!">
         <div className="">
           {data.map((node, index) => (
             <FileTreeItem key={`${node.name}-${index}`} node={node} level={0} />

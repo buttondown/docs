@@ -41,7 +41,7 @@ const Sidebar = ({ slug, nav }: { slug: string; nav: NavData }) => {
         <div
           className={clsx(
             "fixed top-0 left-0",
-            "h-screen w-full lg:w-[320px] grid grid-rows-[max-content,max-content,1fr]",
+            "h-screen w-full lg:w-[320px] grid grid-rows-[max-content_max-content_1fr]",
             "px-5 py-4 border-r border-gray-200 bg-gray-50 display transition-all",
             openOnMobile && "z-40",
             !openOnMobile && "max-lg:-ml-[100vw]"
