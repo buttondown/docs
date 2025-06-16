@@ -6103,6 +6103,61 @@
       }
     },
     "/notes": {
+      "post": {
+        "operationId": "create_note_endpoint",
+        "summary": "Create Note Endpoint",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Note"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NoteInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      },
       "get": {
         "operationId": "list_notes",
         "summary": "List Notes",
@@ -6112,18 +6167,24 @@
             "name": "model_type",
             "schema": {
               "title": "Model Type",
+              "description": "Filter notes by the type of object they are attached to.",
+              "example": "email",
               "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "Filter notes by the type of object they are attached to."
           },
           {
             "in": "query",
             "name": "model_id",
             "schema": {
               "title": "Model Id",
+              "description": "Filter notes by the ID of the object they are attached to.",
+              "example": "123",
               "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "Filter notes by the ID of the object they are attached to."
           },
           {
             "in": "query",
@@ -11255,6 +11316,37 @@
           "model_id",
           "metadata",
           "user_id"
+        ]
+      },
+      "NoteInput": {
+        "title": "NoteInput",
+        "type": "object",
+        "properties": {
+          "body": {
+            "title": "Body",
+            "description": "The text content of the note.",
+            "type": "string"
+          },
+          "model_type": {
+            "title": "Model Type",
+            "description": "The type of object this note is attached to (e.g., 'email', 'subscriber').",
+            "type": "string"
+          },
+          "model_id": {
+            "title": "Model Id",
+            "description": "The ID of the object this note is attached to.",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "description": "Arbitrary metadata as key-value pairs.",
+            "type": "object"
+          }
+        },
+        "required": [
+          "body",
+          "model_type",
+          "model_id"
         ]
       },
       "NotePage": {

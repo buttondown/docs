@@ -1842,6 +1842,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-notes-create"
+        },
+        {
+          "discriminant": "page", 
           "value": "api-notes-list"
         }
       ]
