@@ -610,6 +610,22 @@
       "name": "subscriber.commented",
       "description": "When a subscriber has commented on one of your emails."
     },
+    "survey.created": {
+      "name": "survey.created",
+      "description": "Whenever a new survey is created."
+    },
+    "survey.updated": {
+      "name": "survey.updated",
+      "description": "Whenever a survey's content or metadata has been updated."
+    },
+    "survey.deleted": {
+      "name": "survey.deleted",
+      "description": "Whenever a survey has been deleted."
+    },
+    "survey.cleared_responses": {
+      "name": "survey.cleared_responses",
+      "description": "Whenever a survey's responses have been cleared."
+    },
     "email.created": {
       "name": "email.created",
       "description": "Whenever a new email is created and begins delivery. Note that event happens immediately before the emails themselves are sent."
@@ -1042,7 +1058,7 @@
       "description": "Set tags for a subscriber in your Shopify store."
     },
     "shopify_create_customer": {
-      "variant": "info", 
+      "variant": "info",
       "name": "Create Shopify customer",
       "description": "Create a new customer in your Shopify store from a newsletter subscriber."
     },
