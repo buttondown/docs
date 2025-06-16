@@ -1086,5 +1086,161 @@
         "file": "https://buttondown.s3.amazonaws.com/attachments/report.docx"
       }
     }
+  ],
+  "Note": [
+    {
+      "description": "Basic note",
+      "object": {
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "creation_date": "2000-01-01T00:00:00+00:00",
+        "body": "This person rocks :)",
+        "model_type": "subscriber",
+        "model_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "metadata": {},
+        "user_id": "82d8e07d-9bbb-4b0d-b059-41b58cf0ef23",
+        "user": null
+      }
+    },
+    {
+      "description": "Note with structured data",
+      "object": {
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "creation_date": "2000-01-01T00:00:00+00:00",
+        "body": "New purchase",
+        "model_type": "subscriber",
+        "model_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "metadata": {
+          "order_id": "1234567890",
+          "order_date": "2021-01-01",
+          "order_total": 2900
+        },
+        "user_id": "82d8e07d-9bbb-4b0d-b059-41b58cf0ef23",
+        "user": null
+      }
+    }
+  ],
+  "Permissions": [
+    {
+      "description": "Full access permissions",
+      "object": {
+        "subscriber": "write",
+        "email": "write",
+        "sending": "write",
+        "styling": "write",
+        "administrivia": "write",
+        "automations": "write",
+        "surveys": "write"
+      }
+    },
+    {
+      "description": "Read-only permissions",
+      "object": {
+        "subscriber": "read",
+        "email": "read",
+        "sending": "read",
+        "styling": "read",
+        "administrivia": "read",
+        "automations": "read",
+        "surveys": "read"
+      }
+    },
+    {
+      "description": "Limited permissions for content editor",
+      "object": {
+        "subscriber": "read",
+        "email": "write",
+        "sending": "none",
+        "styling": "read",
+        "administrivia": "none",
+        "automations": "read",
+        "surveys": "write"
+      }
+    },
+    {
+      "description": "No permissions",
+      "object": {
+        "subscriber": "none",
+        "email": "none",
+        "sending": "none",
+        "styling": "none",
+        "administrivia": "none",
+        "automations": "none",
+        "surveys": "none"
+      }
+    }
+  ],
+  "User": [
+    {
+      "description": "Newsletter owner",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "email_address": "owner@buttondown.email",
+        "permissions": {
+          "subscriber": "write",
+          "email": "write",
+          "sending": "write",
+          "styling": "write",
+          "administrivia": "write",
+          "automations": "write",
+          "surveys": "write"
+        },
+        "status": "owner",
+        "last_logged_in": "2020-09-29T12:00:00+00:00"
+      }
+    },
+    {
+      "description": "Pending user invitation",
+      "object": {
+        "id": "23121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "email_address": "editor@buttondown.email",
+        "permissions": {
+          "subscriber": "read",
+          "email": "write",
+          "sending": "none",
+          "styling": "read",
+          "administrivia": "none",
+          "automations": "read",
+          "surveys": "write"
+        },
+        "status": "pending",
+        "last_logged_in": null
+      }
+    },
+    {
+      "description": "Accepted user with limited permissions",
+      "object": {
+        "id": "33121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "email_address": "analyst@buttondown.email",
+        "permissions": {
+          "subscriber": "read",
+          "email": "read",
+          "sending": "read",
+          "styling": "read",
+          "administrivia": "read",
+          "automations": "read",
+          "surveys": "read"
+        },
+        "status": "accepted",
+        "last_logged_in": "2020-09-28T14:30:00+00:00"
+      }
+    },
+    {
+      "description": "Declined user invitation",
+      "object": {
+        "id": "43121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "email_address": "declined@buttondown.email",
+        "permissions": {
+          "subscriber": "none",
+          "email": "none",
+          "sending": "none",
+          "styling": "none",
+          "administrivia": "none",
+          "automations": "none",
+          "surveys": "none"
+        },
+        "status": "declined",
+        "last_logged_in": null
+      }
+    }
   ]
 }

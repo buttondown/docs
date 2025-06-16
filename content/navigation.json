@@ -1814,6 +1814,35 @@
         {
           "discriminant": "page",
           "value": "api-accounts-me"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-user-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-invitation-status"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-permissions"
+        }
+      ]
+    },
+    {
+      "name": "Notes",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-notes-introduction"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-notes-list"
         }
       ]
     },

@@ -1143,6 +1143,33 @@
       "description": "The webhook is disabled and will not receive events."
     }
   },
+  "InvitationStatus": {
+    "pending": {
+      "variant": "info",
+      "name": "Pending",
+      "description": "The invitation has been sent but not yet responded to by the recipient."
+    },
+    "accepted": {
+      "variant": "success",
+      "name": "Accepted",
+      "description": "The invitation has been accepted by the recipient."
+    },
+    "declined": {
+      "variant": "warning",
+      "name": "Declined",
+      "description": "The invitation has been declined by the recipient."
+    },
+    "revoked": {
+      "variant": "error",
+      "name": "Revoked",
+      "description": "The invitation has been revoked by the sender before being accepted."
+    },
+    "owner": {
+      "variant": "success",
+      "name": "Owner",
+      "description": "Special status indicating the user is the owner of the newsletter."
+    }
+  },
   "SubscriberUndeliverabilityReason": {
     "other": {
       "variant": "error",

@@ -1,0 +1,24 @@
+---
+title: Invitation status
+navigationTitle: Status
+enum: InvitationStatus
+---
+
+```mermaid
+flowchart
+  pending e1@--> accepted
+  pending e2@--> declined
+  pending e3@--> revoked
+  owner
+  e1@{ animate: true }
+  e2@{ animate: true }
+  e3@{ animate: true }
+```
+
+| Value | Description |
+|-------|-------------|
+| `pending` | The invitation has been sent but not yet responded to by the recipient |
+| `accepted` | The invitation has been accepted by the recipient |
+| `declined` | The invitation has been declined by the recipient |
+| `revoked` | The invitation has been revoked by the sender before being accepted |
+| `owner` | Special status indicating the user is the owner of the newsletter |

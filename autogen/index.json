@@ -3332,6 +3332,22 @@
     ]
   },
   {
+    "title": "Invitation status",
+    "url": "api-invitation-status",
+    "section": "Reference",
+    "schema": "InvitationStatus",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Permissions",
+    "url": "api-permissions",
+    "section": "api",
+    "schema": "Permissions",
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Creating a bulk action",
     "url": "api-bulk-actions-create",
     "section": "api",
@@ -3659,6 +3675,30 @@
   {
     "title": "Get the current account",
     "url": "api-accounts-me",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Introduction",
+    "url": "api-user-introduction",
+    "section": "api",
+    "schema": "User",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Introduction",
+    "url": "api-notes-introduction",
+    "section": "api",
+    "schema": "Note",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing notes",
+    "url": "api-notes-list",
     "section": "api",
     "schema": null,
     "description": null,

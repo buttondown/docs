@@ -1,0 +1,43 @@
+---
+title: Permissions
+navigationTitle: Permissions
+schema: Permissions
+---
+
+The `Permissions` schema defines the access levels for different areas of functionality within a newsletter. Each permission type can have one of three access levels:
+
+## Access Levels
+
+| Value | Description |
+|-------|-------------|
+| `none` | No access to this functionality |
+| `read` | Read-only access to this functionality |
+| `write` | Full read and write access to this functionality |
+
+## Permission Types
+
+| Permission | Description |
+|------------|-------------|
+| `subscriber` | Manage subscriber data, import/export subscribers, view subscriber analytics |
+| `email` | Create, edit, and manage newsletter emails and campaigns |
+| `sending` | Send emails, schedule campaigns, and manage sending settings |
+| `styling` | Customize newsletter design, templates, and branding |
+| `administrivia` | Access billing, account settings, and administrative functions |
+| `automations` | Create and manage automated email sequences and workflows |
+| `surveys` | Create, manage, and analyze surveys and feedback forms |
+
+## Example
+
+```json
+{
+  "subscriber": "write",
+  "email": "write", 
+  "sending": "read",
+  "styling": "none",
+  "administrivia": "none",
+  "automations": "write",
+  "surveys": "read"
+}
+```
+
+This example grants full access to subscriber management, email creation, and automations, read-only access to sending and surveys, and no access to styling or administrative functions.

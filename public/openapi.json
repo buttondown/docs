@@ -6101,6 +6101,79 @@
           }
         ]
       }
+    },
+    "/notes": {
+      "get": {
+        "operationId": "list_notes",
+        "summary": "List Notes",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "model_type",
+            "schema": {
+              "title": "Model Type",
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "model_id",
+            "schema": {
+              "title": "Model Id",
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "title": "Expand",
+              "description": "If provided, expand the given field.",
+              "type": "array",
+              "items": {
+                "enum": [
+                  "user"
+                ],
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, expand the given field."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotePage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -11113,6 +11186,86 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/EmailEvent"
+            }
+          },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
+      "Note": {
+        "title": "Note",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "description": "A unique UUID associated with the object.",
+            "type": "string",
+            "format": "uuid"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was created.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "body": {
+            "title": "Body",
+            "type": "string"
+          },
+          "model_type": {
+            "title": "Model Type",
+            "type": "string"
+          },
+          "model_id": {
+            "title": "Model Id",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "type": "object"
+          },
+          "user_id": {
+            "title": "User Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        },
+        "required": [
+          "id",
+          "creation_date",
+          "body",
+          "model_type",
+          "model_id",
+          "metadata",
+          "user_id"
+        ]
+      },
+      "NotePage": {
+        "title": "Page[Note]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Note"
             }
           },
           "next": {
