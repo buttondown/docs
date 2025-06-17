@@ -8,8 +8,7 @@ import {
 const schema = {
   initialContent: fields.text({
     label: "Initial Content",
-    description:
-      "Optional initial markdown content to load in the editor",
+    description: "Optional initial markdown content to load in the editor",
     multiline: true,
     validation: {
       isRequired: false,
@@ -17,14 +16,22 @@ const schema = {
   }),
   height: fields.text({
     label: "Height",
-    description:
-      "Height of the embedded playground (e.g., '600px', '80vh')",
+    description: "Height of the embedded playground (e.g., '600px', '80vh')",
     defaultValue: "600px",
   }),
   title: fields.text({
     label: "Title",
     description: "Title to display above the playground",
     defaultValue: "Buttondown Playground",
+  }),
+  editorMode: fields.select({
+    label: "Editor Mode",
+    description: "Mode of the editor",
+    options: [
+      { label: "Plaintext", value: "plaintext" },
+      { label: "Fancy", value: "fancy" },
+    ],
+    defaultValue: "fancy",
   }),
 };
 

@@ -1,19 +1,18 @@
-import PRICES from "@/autogen/prices.json";
-import { preview } from "@/components/keystatic/preview";
 import { automation } from "@/components/keystatic/automation";
-import { video } from "@/components/keystatic/video";
-import { iframe } from "@/components/keystatic/iframe";
-import { generatedMultilanguageSnippets } from "@/components/keystatic/generatedMultilanguageSnippets";
 import { customizableContent } from "@/components/keystatic/customizableContent";
 import { exportButtondownData } from "@/components/keystatic/exportButtondownData";
-import { paidFeature } from "@/components/keystatic/paidFeature";
-import { supportSnippet } from "@/components/keystatic/supportSnippet";
+import { fileExplorer } from "@/components/keystatic/fileExplorer";
+import { generatedMultilanguageSnippets } from "@/components/keystatic/generatedMultilanguageSnippets";
+import { iframe } from "@/components/keystatic/iframe";
 import { liveCodeBlock } from "@/components/keystatic/liveCodeBlock";
-import { playgroundEmbed } from "@/components/keystatic/playgroundEmbed";
 import { noticeInfo } from "@/components/keystatic/noticeInfo";
 import { noticeWarn } from "@/components/keystatic/noticeWarn";
+import { paidFeature } from "@/components/keystatic/paidFeature";
+import { playgroundEmbed } from "@/components/keystatic/playgroundEmbed";
+import { preview } from "@/components/keystatic/preview";
 import { snippetSpacer } from "@/components/keystatic/snippetSpacer";
-import { fileExplorer } from "@/components/keystatic/fileExplorer";
+import { supportSnippet } from "@/components/keystatic/supportSnippet";
+import { video } from "@/components/keystatic/video";
 import {
   NAVIGATION_GROUPS,
   NAVIGATION_GROUP_LABELS,
@@ -77,13 +76,10 @@ export default config({
       label: "Navigation",
       path: generatePath("content/navigation"),
       format: { data: "json" },
-      schema: NAVIGATION_GROUPS.reduce(
-        (acc, group) => {
-          acc[group] = navigationGroupSchema(NAVIGATION_GROUP_LABELS[group]);
-          return acc;
-        },
-        {} as Record<string, any>
-      ),
+      schema: NAVIGATION_GROUPS.reduce((acc, group) => {
+        acc[group] = navigationGroupSchema(NAVIGATION_GROUP_LABELS[group]);
+        return acc;
+      }, {} as Record<string, any>),
     }),
   },
   collections: {

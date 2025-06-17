@@ -37,7 +37,7 @@ export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
 
   if (!fixtures) {
     throw new Error(
-      `No fixtures found for ${name}. Did you forget to add them to \`shared/fixtures.json\`?`
+      `No fixtures found for ${name}. Did you forget to add them to \`app/assets/autogen/fixtures.json\`?`
     );
   }
 
@@ -171,7 +171,7 @@ export const fixtureForRef = (ref: string) => {
   if (fixtureInformation.type === "Page") {
     if (!OpenAPIFixtures[fixtureInformation.value]) {
       throw new Error(
-        `No fixtures found for ${fixtureInformation.value}. Did you forget to add them to \`shared/fixtures.json\`?`
+        `No fixtures found for ${fixtureInformation.value}. Did you forget to add them to \`app/assets/autogen/fixtures.json\`?`
       );
     }
 

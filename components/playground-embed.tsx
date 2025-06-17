@@ -7,6 +7,7 @@ interface PlaygroundEmbedProps {
   initialContent?: string;
   height?: string;
   title?: string;
+  editorMode?: "plaintext" | "fancy";
 }
 
 // URL compression utilities using browser-native compression
@@ -55,6 +56,7 @@ export default function PlaygroundEmbed({
   initialContent = "",
   height = "600px",
   title = "Buttondown Playground",
+  editorMode = "fancy",
 }: PlaygroundEmbedProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -74,7 +76,7 @@ export default function PlaygroundEmbed({
           content: initialContent,
         })
       );
-      setCompressed(compressed);
+      setCompressed(encodeURIComponent(compressed));
     };
     compress();
   }, [initialContent]);
@@ -112,7 +114,7 @@ export default function PlaygroundEmbed({
             <span className="text-xs text-gray-500">Loading playground...</span>
           ) : (
             <a
-              href={`${playgroundUrl}?c=${compressed}`}
+              href={`${playgroundUrl}?c=${compressed}&editor_mode=${editorMode}`}
               className="text-xs text-gray-500 flex items-center gap-1"
             >
               View in editor <ArrowRightIcon className="w-4 h-4" />
@@ -127,7 +129,9 @@ export default function PlaygroundEmbed({
           )}
           <iframe
             ref={iframeRef}
-            src={`${playgroundUrl}?hide_chrome=1&show_preview=false&c=${compressed}`}
+            src={`${playgroundUrl}?hide_chrome=1&show_preview=${
+              editorMode === "plaintext" ? "true" : "false"
+            }&c=${compressed}&editor_mode=${editorMode}`}
             className="w-full h-full border-0 bg-white"
             title={title}
             sandbox="allow-scripts allow-same-origin allow-forms"

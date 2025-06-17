@@ -17,21 +17,23 @@ If you write in Markdown, you'll simply "drag and drop" your image into the edit
 
 Once the image is uploaded, you can update the [alt text](/glossary-alt-text) by changing the contents of the text in the square brackets. This will look something like:
 
-{% preview
-  before="![Black and white cat inside a cardboard box](https://placehold.co/600x400)"
-  after="<img src=\"https://placehold.co/600x400\" alt=\"Black and white cat inside a cardboard box\" />"
+{% playgroundEmbed 
+  title="Image" 
+  height="400px"
+  initialContent="![Black and white cat inside a cardboard box](https://placehold.co/600x400)"
+  editorMode="plaintext"
 /%}
 
 If you'd like to turn the image into a link you can with Markdown! To do this, you'll wrap all the image code inside a [Markdown link](/using-markdown-syntax#link), like so:
 
-{% preview
-    before="[![Black and white cat inside a cardboard box](https://placehold.co/600x400)](https://google.com/)"
-    after="<a href=\"https://google.com/\"><img src=\"https://placehold.co/600x400\" alt=\"Black and white cat inside a cardboard box\" /></a>"
+{% playgroundEmbed 
+  title="Image link" 
+  height="400px"
+  initialContent="[![Black and white cat inside a cardboard box](https://placehold.co/300x400)](https://google.com/)"
+  editorMode="plaintext"
 /%}
 
 {% snippetSpacer /%}
-
-{% noticeInfo text="Drag and drop upload works in all writing modes!" /%}
 
 ## Fancy mode
 If you're a fan of Fancy Mode, you can upload an image by starting a new line, then begin typing `/image`. This will autocomplete, and open the upload modal. Here's what this looks like:
