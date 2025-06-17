@@ -6,36 +6,39 @@ relatedPages:
 - 'can-i-set-custom-reply-to'
 ---
 
-Sender information can be set in [Settings → Basics](https://buttondown.com/settings/basics). Here's what this looks like:
+Sender information is a slightly jargon-y term for the information that appears in the "From" field of your emails. 
 
-![Screenshot of author information in Buttondown settings](/images/author-settings.jpg)
+The sender information consists of three main parts:
 
-By default the:
-- "Username" will be the "From address".
-- "Author name" will be the "From" name displayed in the email client.  
-- "Email address" will be the default "reply-to" address.
+| Component | Description | Example |
+|-----------|-------------|---------|
+| **From address** | The email address that appears in the "From" field | `jenna@buttondown.email` |
+| **From name** | The display name that appears before the email address | "Jenna Smith" |
+| **Reply-to address** | The email address where replies are sent (defaults to your email address) | `jenna@buttondown.email` |
 
-For example, using the settings in the screenshot above, a newsletter header would look like this:
+These settings work together to create the complete sender identity that your subscribers see when they receive your emails.
 
-```
-from:	Paul L'Astname <jenna@buttondown.email>
-reply-to:	paul@buttondown.email
-mailing list:	jenna@buttondown.email
-```
-If [Tracked replies](/replies#tracked-replies) are enabled, the reply-to address will instead be in the following format: `replies+BIG-LONG-ID-NUMBER@buttondown.email`
+## Customizing from name and email address
 
-```
-from:	Paul L'Astname <jenna@buttondown.email>
-reply-to:	replies+1234-5678-9101-1121@buttondown.email
-mailing list:	jenna@buttondown.email
-```
+Buttondown offers smart defaults for sender information based on how you've set up your newsletter, and you can tweak these settings in [Settings → Basics](https://buttondown.com/settings/basics):
 
-{% snippetSpacer /%}
+{% iframe src="https://demo.buttondown.com/settings/basics?emphasis=email_address&emphasis=name" /%}
 
+## Customizing reply-to address
 
-{% noticeInfo text="Tracked replies are enabled will override the default email field."/%}
+Reply-to addresses are the email addresses where replies are sent. By default, this is your email address, but you can change it to a different address in two circumstances:
 
-## Choosing an Author name
-While there's no real "best" practice for setting a Author name, we recommend setting it to something you readers recognize and expect. That could be your name, or the name of your business or organization.
+1. [You've enabled tracked replies](/replies#tracked-replies)
+2. You've [set a custom reply-to address](/can-i-set-custom-reply-to)
 
-To frame this differently: Your Author name is an opportunity to drive engagement with your newsletter. The best way to do this is by preventing reader confusion. 
+Note that Buttondown uses the following priority for determining the reply-to address:
+
+1. The dynamically-generated reply-to address when you've enabled tracked replies
+2. The custom reply-to address you've set
+3. Your email address (if you've not set a custom reply-to address or enabled tracked replies)
+
+## What _should_ my "from name" be?
+
+While there's no real "best" practice for setting a From name, we recommend setting it to something you readers recognize and expect. That could be your name, or the name of your business or organization.
+
+To frame this differently: Your From name is an opportunity to drive engagement with your newsletter. The best way to do this is by preventing reader confusion.

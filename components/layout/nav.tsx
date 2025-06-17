@@ -4,6 +4,7 @@ import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import * as Accordion from "@radix-ui/react-accordion";
 import * as Tabs from "@radix-ui/react-tabs";
 import Link from "next/link";
+import { useEffect } from "react";
 import {
     NAVIGATION_GROUPS,
     NAVIGATION_GROUP_LABELS,
@@ -30,6 +31,18 @@ export default function Nav({ data, slug }: { data: NavData; slug: string }) {
       `Can’t find current navigation group and/or folder name for "${slug}". (Has it been added to the navigation hierarchy in 'navigation.json'?) `,
     );
   }
+
+  // Auto-scroll to active link when component mounts or slug changes
+  useEffect(() => {
+    const activeLink = document.querySelector(`a[href="/${slug}"]`);
+    if (activeLink) {
+      activeLink.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'nearest'
+      });
+    }
+  }, [slug]);
 
   return (
     <Tabs.Root

@@ -7,6 +7,7 @@ import {
 
 const schema = {
   src: fields.url({ label: "URL" }),
+  height: fields.number({ label: "Height", defaultValue: 300 }),
 };
 
 function Preview(props: PreviewProps<ObjectField<typeof schema>>) {
@@ -14,10 +15,11 @@ function Preview(props: PreviewProps<ObjectField<typeof schema>>) {
   if (!src) {
     return null;
   }
+  const height = props.fields.height.value;
   return (
     <iframe
       src={src}
-      style={{ height: 200, width: (200 * 16) / 9 }}
+      style={{ height: height ?? 300, width: ((height ?? 300) * 16) / 9 }}
     ></iframe>
   );
 }

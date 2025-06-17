@@ -67,7 +67,7 @@ const Document = async ({ page }: Props) => (
                   },
                 ].filter(
                   (block) =>
-                    block.code !== undefined && block.code.trim() !== "",
+                    block.code !== undefined && block.code.trim() !== ""
                 ) as {
                   name: string;
                   code: string;
@@ -109,7 +109,7 @@ const Document = async ({ page }: Props) => (
       ),
       paidFeature: (props) => {
         const price = PRICES.find((price) =>
-          price.features.includes(props.feature),
+          price.features.includes(props.feature)
         );
         return (
           <Notice type="info">
@@ -217,7 +217,7 @@ const Document = async ({ page }: Props) => (
           </div>
         );
       },
-      iframe: (props) => <Iframe src={props.src} />,
+      iframe: (props) => <Iframe src={props.src} height={props.height} />,
       video: (props) => <Video src={props.file} />,
       liveCodeBlock: (props) => <LiveCodeBlock path={props.filename} />,
       playgroundEmbed: (props) => (
@@ -255,7 +255,7 @@ const Document = async ({ page }: Props) => (
       ),
       fileExplorer: (props) => {
         let data = BUTTONDOWN_CLI_STRUCTURE;
-        
+
         if (props.structure === "custom" && props.customData) {
           try {
             data = JSON.parse(props.customData);
@@ -264,11 +264,11 @@ const Document = async ({ page }: Props) => (
             // Fallback to default structure
           }
         }
-        
+
         return (
-          <FileExplorer 
-            data={data} 
-            className="not-prose my-6" 
+          <FileExplorer
+            data={data}
+            className="not-prose my-6"
             title={props.title || "Directory Structure"}
           />
         );
