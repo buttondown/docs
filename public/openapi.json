@@ -159,6 +159,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve a specific export by its ID",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -337,6 +338,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve a specific tag by its ID",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -393,6 +395,7 @@
             }
           }
         },
+        "description": "Update a tag's properties",
         "requestBody": {
           "content": {
             "application/json": {
@@ -452,6 +455,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Delete a tag",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -510,6 +514,7 @@
             }
           }
         },
+        "description": "Retrieve analytics for a specific tag",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -707,6 +712,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Delete an uploaded image",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -848,6 +854,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Delete an attachment",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -1233,6 +1240,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Update an email's properties",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1299,6 +1307,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve a specific email by its ID",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -1425,6 +1434,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve the edit history for a specific email",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -1509,6 +1519,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve a specific historical version of an email's body",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -1567,6 +1578,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve analytics for a specific email",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -1628,6 +1640,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Send a draft email to specific recipients",
         "requestBody": {
           "content": {
             "application/json": {
@@ -2852,6 +2865,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Update a newsletter's settings",
         "requestBody": {
           "content": {
             "application/json": {
@@ -2911,6 +2925,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Delete a newsletter",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -3026,6 +3041,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve the status of a bulk action",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -3186,6 +3202,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Update an external feed's properties",
         "requestBody": {
           "content": {
             "application/json": {
@@ -3245,6 +3262,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Delete an external feed",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -3301,6 +3319,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve a specific external feed by its ID",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -3359,6 +3378,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Poll for new items in an external feed",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -3432,6 +3452,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve items from an external feed",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -3629,6 +3650,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve subscribers associated with an automation",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -3687,6 +3709,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve a specific automation by its ID",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -3753,6 +3776,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Update an automation's properties",
         "requestBody": {
           "content": {
             "application/json": {
@@ -3812,6 +3836,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Delete an automation",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -3863,6 +3888,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Manually trigger an automation",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -3921,6 +3947,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve analytics data for an automation",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -4081,6 +4108,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve a specific user by its ID",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -4130,6 +4158,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Delete a user",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -4196,6 +4225,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Update a user's properties",
         "requestBody": {
           "content": {
             "application/json": {
@@ -4550,6 +4580,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve a specific survey by its ID",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -4606,6 +4637,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Update a survey's properties",
         "requestBody": {
           "content": {
             "application/json": {
@@ -4665,6 +4697,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Delete a survey",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -4723,6 +4756,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve a specific API request by its ID",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -5053,6 +5087,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Update an advertising unit's properties",
         "requestBody": {
           "content": {
             "application/json": {
@@ -5112,6 +5147,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Delete an advertising unit",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -5262,6 +5298,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve a specific webhook by its ID",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -5318,6 +5355,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Update a webhook's properties",
         "requestBody": {
           "content": {
             "application/json": {
@@ -5377,6 +5415,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Delete a webhook",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -5435,6 +5474,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve webhook attempts for a specific webhook",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -5562,6 +5602,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Send a test event to a webhook",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -5620,6 +5661,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Retrieve a specific comment by its ID",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -6099,6 +6141,7 @@
             }
           }
         },
+        "description": "Retrieve a specific event by its ID",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
