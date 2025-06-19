@@ -967,6 +967,51 @@
           ]
         ]
       }
+    },
+    {
+      "description": "Standard subscriber import",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "source": "standard",
+        "status": "succeeded",
+        "label": "Import subscribers",
+        "metadata": {
+          "email_column": 0,
+          "metadata_columns": {
+            "first_name": 1
+          }
+        },
+        "results": {
+          "new_subscribers": 100,
+          "updated_subscribers": null,
+          "existing_subscribers": 20,
+          "reason_to_bad_subscribers": {
+            "That email address is invalid.": [
+              "email@examplecom"
+            ],
+            "There is no MX record associated with example.biz": [
+              "email@example.biz",
+              "helen@example.biz"
+            ]
+          },
+          "new_tags": 2
+        },
+        "parsed_text": [
+          [
+            "email",
+            "first_name"
+          ],
+          [
+            "email@example.com",
+            "John"
+          ],
+          [
+            "email2@example.com",
+            "Jane"
+          ]
+        ]
+      }
     }
   ],
   "APIRequest": [
