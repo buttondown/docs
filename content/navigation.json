@@ -332,6 +332,10 @@
         },
         {
           "discriminant": "page",
+          "value": "slash-buy"
+        },
+        {
+          "discriminant": "page",
           "value": "gift-subscriptions"
         },
         {
@@ -1921,7 +1925,7 @@
           "value": "api-notes-create"
         },
         {
-          "discriminant": "page", 
+          "discriminant": "page",
           "value": "api-notes-list"
         }
       ]
