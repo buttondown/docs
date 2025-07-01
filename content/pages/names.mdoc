@@ -14,11 +14,11 @@ Read on to learn about how you, too, can collect and use metadata to personalize
 
 By default, Buttondown’s subscription forms only collect subscribers’ email addresses. Without any adjustments, your subscription form will look something like this.
 
-![Default Buttondown subscription form](/names/names_default-subscription-form.jpg)
+{% iframe src="https://demo.buttondown.com/basic-newsletter" /%}
 
 But with a few customizations, you can use Buttondown's subscription forms to ask subscribers for their names, the names of the companies they work for, their interests, or any other facts that might be useful for your newsletter!
 
-![Customized Buttondown subscription form](/names/names_customized-subscription-form.jpg)
+{% iframe src="https://demo.buttondown.com/basic-newsletter--metadata" height=400 /%}
 
 ### Customize your subscription form
 
@@ -79,24 +79,14 @@ Run this code, and the metadata in your subscriber “Notes” should be updated
 
 Instead of addressing emails one at a time, you can address them automatically using Buttondown’s `{{ subscriber.metadata }}` [template variable](/template-variables). By plugging your “first_name” key into this template variable, you'll direct Buttondown to retrieve each subscriber’s first name for you!
 
-```jinja
-{{ subscriber.metadata.first_name }}
-```
-
-Paste this template into your email writing interface, then sit back and let Buttondown do the rest.
-
-{% video file="/names/names_template-variable-to-add-first-name.mp4" /%}
-
-This video shows the email writing client with a first name metadata variable in the salutation line.
-
-After your email goes out, your personalized email greeting will look something like this.
-
-{% video file="/names/names_sample-email.mp4" /%}
-
-This video shows the email after it was delivered, with the subscriber's first name replacing the metadata variable in the salutation line.
+{% playgroundEmbed
+title="Using metadata in your email"
+initialContent="Hello {{subscriber.metadata.first_name}}!"
+editorMode="plaintext" /%}
 
 But wait! What if you don’t have first names for every subscriber? Then it’s time to break out our “If / Else” template. This lets Buttondown choose between using a first name, if one is available, and a placeholder name if not. Check out the example below.
 
-{% preview
-before="{% if subscriber.metadata.first_name %}\n  Howdy {{subscriber.metadata.first_name}}!\n{% else %}\n  Howdy Pikachu!\n{% endif %}"
-after="Howdy Pikachu!" /%}
+{% playgroundEmbed
+title="Fallback for missing metadata"
+initialContent="Hello {% if subscriber.metadata.name %}{{subscriber.metadata.name}}{% else %}Pikachu{% endif %}!"
+editorMode="plaintext" /%}

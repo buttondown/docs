@@ -6,7 +6,8 @@ export const plainOas = Oas.init(structuredClone(OpenAPI));
 
 async function getOas() {
   const oas = new OASNormalize(structuredClone(OpenAPI));
-  // biome-ignore lint/suspicious/noExplicitAny: types for OpenAPI schemas are broken
+  // biome-ignore lint/suspicious/noExplicitAny: OpenAPI schema types are incompatible with Oas library
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const circularOas = Oas.init((await oas.deref()) as any);
   return { circularOas };
 }
@@ -24,10 +25,12 @@ export async function generateSnippets({
   const circularOp = circularOas.operation(
     endpoint,
     // biome-ignore lint/suspicious/noExplicitAny: method has to be get/post/put/delete
-    method.toLowerCase() as any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  method.toLowerCase() as any
   );
 
   // biome-ignore lint/suspicious/noExplicitAny: we are generating a best-attempt request body
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let body: { [key: string]: any } | undefined = undefined;
   if (circularOp.hasRequiredRequestBody() && circularOp.hasRequestBody()) {
     const mediaTypes = circularOp.getRequestBodyMediaTypes();
@@ -65,6 +68,7 @@ export async function generateSnippets({
 export type SnippetDefinition = {
   endpoint: string;
   method: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body?: { [key: string]: any };
   headers?: { [key: string]: string };
   query?: { [key: string]: string };
@@ -79,7 +83,8 @@ export function generateSnippetsWithSpecifiedBody({
   const plainOp = plainOas.operation(
     endpoint,
     // biome-ignore lint/suspicious/noExplicitAny: method has to be get/post/put/delete
-    method.toLowerCase() as any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  method.toLowerCase() as any
   );
 
   const bodyMediaTypes = plainOp.getRequestBodyMediaTypes();
@@ -93,6 +98,7 @@ export function generateSnippetsWithSpecifiedBody({
   };
 
   // Helper to stringify objects nicely
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const stringifyObject = (obj: any, extraIndent = 0) =>
     JSON.stringify(obj, null, 2)
       .split("\n")

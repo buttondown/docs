@@ -7,7 +7,15 @@ enum: ExportStatus
 
 
 ```mermaid
-flowchart
+---
+config:
+  layout: elk
+  elk:
+    mergeEdges: true
+    nodePlacementStrategy: LINEAR_SEGMENTS
+---
+
+flowchart-elk
     api([api.buttondown.com/v1/exports]) --> not_started[Not started]
     not_started e1@--> in_progress[In progress]
     not_started e7@--> export_created>export.created]

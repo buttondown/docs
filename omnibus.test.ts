@@ -15,6 +15,7 @@ const MARKDOC_DIRECTORY = "content/pages";
 
 const VALID_APPLICATION_ROUTES = [
   ...JSON.parse(
+    // If this file is out of date, run `just autogen`!
     fs.readFileSync("./autogen/author_facing_routes.json", "utf-8")
   ),
 
@@ -149,34 +150,27 @@ const extractApplicationLinks = (content: string): string[] => {
   return links;
 };
 
-const FILENAME_TO_RAW_CONTENT = fs.readdirSync(MARKDOC_DIRECTORY).reduce(
-  (acc, filename) => {
+const FILENAME_TO_RAW_CONTENT = fs
+  .readdirSync(MARKDOC_DIRECTORY)
+  .reduce((acc, filename) => {
     const fullyQualifiedFilename = `${MARKDOC_DIRECTORY}/${filename}`;
     acc[filename] = fs.readFileSync(fullyQualifiedFilename, "utf-8");
     return acc;
-  },
-  {} as { [filename: string]: string }
-);
+  }, {} as { [filename: string]: string });
 
 const FILENAME_TO_INTERNAL_LINKS = Object.entries(
   FILENAME_TO_RAW_CONTENT
-).reduce(
-  (acc, [filename, content]) => {
-    acc[filename] = extractInternalLinks(content);
-    return acc;
-  },
-  {} as { [filename: string]: string[] }
-);
+).reduce((acc, [filename, content]) => {
+  acc[filename] = extractInternalLinks(content);
+  return acc;
+}, {} as { [filename: string]: string[] });
 
 const FILENAME_TO_APPLICATION_LINKS = Object.entries(
   FILENAME_TO_RAW_CONTENT
-).reduce(
-  (acc, [filename, content]) => {
-    acc[filename] = extractApplicationLinks(content);
-    return acc;
-  },
-  {} as { [filename: string]: string[] }
-);
+).reduce((acc, [filename, content]) => {
+  acc[filename] = extractApplicationLinks(content);
+  return acc;
+}, {} as { [filename: string]: string[] });
 
 Object.entries(FILENAME_TO_APPLICATION_LINKS).forEach(([filename, routes]) => {
   if (routes.length === 0) {
@@ -528,6 +522,10 @@ const UNDOCUMENTED_API_ENDPOINTS = [
   {
     path: "/advertising_units",
     operation: "post",
+  },
+  {
+    path: "/advertising_units/slots/{id}",
+    operation: "patch",
   },
   {
     path: "/advertising_units/{id}",

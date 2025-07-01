@@ -16,12 +16,14 @@ You can also change the wording of the transactional emails by editing [the emai
 
 Buttondown's default transactional email template includes a header at the top of the email:
 
-![Spotlighting the header of a transactional email, which shows a heading for the email and the name of the newsletter. ](/customizing-transactional-emails/image.png)
+{% iframe src="/stories/confirm-subscription--basic.html" variant="email" /%}
 
-For a more custom look, you can add this CSS to your newsletter's [email CSS settings](https://buttondown.com/settings/design) to hide the header:
+For a more custom look, you can add this CSS to your newsletter's [CSS settings](https://buttondown.com/settings/design/email) to hide the header:
 
 ```css
 .transactional-email-header {
     display: none;
 }
 ```
+
+{% iframe src="/stories/confirm-subscription--no-header.html" variant="email" /%}

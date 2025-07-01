@@ -50,11 +50,12 @@ const SearchResult = ({
               </>
             )}
           </p>
-          {result.display.description && (
-            <p className="text-gray-400 text-sm">
-              {result.display.description}
-            </p>
-          )}
+          {result.display.description &&
+            result.display.description !== result.display.subtitle && (
+              <p className="text-gray-400 text-sm">
+                {result.display.description}
+              </p>
+            )}
         </div>
       </Link>
     </CommandItem>

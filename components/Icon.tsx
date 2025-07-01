@@ -23,7 +23,7 @@ const Book = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-6 h-6"
+    className="!size-4"
   >
     <title>Book icon</title>
     <path
@@ -41,7 +41,7 @@ const Code = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-6 h-6"
+    className="!size-4"
   >
     <title>Code icon</title>
     <path
@@ -75,7 +75,7 @@ const Document = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-6 h-6"
+    className="!size-4"
   >
     <title>Document icon</title>
     <path

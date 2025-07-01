@@ -3,8 +3,10 @@
 import useButtondownCookie, {
   USERNAME_COOKIE,
 } from "@/hooks/useButtondownCookie";
+import elk from "@mermaid-js/layout-elk";
 import * as Tabs from "@radix-ui/react-tabs";
 import clsx from "clsx";
+import mermaid from "mermaid";
 import { useEffect } from "react";
 import type { ProcessedBlock } from "./lib";
 
@@ -19,15 +21,12 @@ export default function CodeInteractive({
   apiKeyReplacements,
 }: {
   blocks: ProcessedBlock[];
-  apiKeyReplacements: Partial<
-    Record<
-      string,
-      {
-        from: string;
-        to: string;
-      }
-    >
-  >;
+  apiKeyReplacements?: {
+    [language: string]: {
+      from: string;
+      to: string;
+    };
+  };
 }) {
   const hideTabs = blocks.length === 1 && blocks[0].name === undefined;
 
@@ -35,15 +34,18 @@ export default function CodeInteractive({
 
   // Initialize mermaid when the component mounts
   useEffect(() => {
-    // Dynamically import mermaid only on the client side
-    import("mermaid").then((mermaid) => {
-      mermaid.default.initialize({
+    setTimeout(() => {
+      mermaid.registerLayoutLoaders(elk);
+      mermaid.initialize({
         startOnLoad: true,
         theme: "default",
         securityLevel: "strict",
+        flowchart: {
+          curve: "basis",
+        },
       });
-      mermaid.default.run();
-    });
+      mermaid.run();
+    }, 1000);
   }, []);
 
   return (
@@ -78,6 +80,14 @@ export default function CodeInteractive({
           "{username}",
           username ?? "YOUR-BUTTONDOWN-USERNAME"
         );
+
+        // Apply API key replacements if user is logged in and replacements are provided
+        if (username && apiKeyReplacements && block.name) {
+          const replacement = apiKeyReplacements[block.name.toLowerCase()];
+          if (replacement) {
+            html = html.replace(replacement.from, replacement.to);
+          }
+        }
 
         return (
           <Tabs.Content

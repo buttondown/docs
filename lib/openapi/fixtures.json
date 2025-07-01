@@ -83,7 +83,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "color",
         "question": "What's your favorite color?",
-        "response_count": 11,
+        "response_count": 0,
         "answers": [
           "Red",
           "Green",
@@ -102,7 +102,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "feedback",
         "question": "How can we improve?",
-        "response_count": 11,
+        "response_count": 0,
         "answers": [
           "More content",
           "Better content",
@@ -150,7 +150,8 @@
         "subject": "New post: {{ item.title }}",
         "body": "I just published a new post: {{ item.url }}",
         "label": "Basic external feed",
-        "metadata": {}
+        "metadata": {},
+        "skip_old_items": true
       }
     },
     {
@@ -178,7 +179,8 @@
         "subject": "New post: {{ item.title }}",
         "body": "I just published a new post: {{ item.url }}",
         "label": "Basic external feed",
-        "metadata": {}
+        "metadata": {},
+        "skip_old_items": true
       }
     }
   ],
@@ -1073,7 +1075,8 @@
         "cadence": "month",
         "status": "active",
         "application_fee_percent": 0.1,
-        "source": "substack"
+        "source": "substack",
+        "product": null
       }
     }
   ],

@@ -680,7 +680,6 @@
 .email.featured {
   background-color: var(--featured-color);
   padding: 1rem !important;
-  border-radius: .5rem;
   border: var(--featured-border-color) 1px solid !important;
   z-index: 10;
   margin-bottom: 1rem;
@@ -692,6 +691,11 @@
 }
 .email.featured h2 {
   margin-top: 0;
+}
+@media (min-width: 640px) {
+  .email.featured {
+    border-radius: .5rem;
+  }
 }
 .pin-icon {
   fill: #eab308 !important;

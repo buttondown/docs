@@ -10,7 +10,7 @@ const GUTTER = 40;
 
 const resizeIframe = (iframe: HTMLIFrameElement) => {
   iframe.style.height = `${
-    (iframe.contentWindow?.document.body.scrollHeight || 0) + GUTTER
+    (iframe.contentWindow?.document.body?.scrollHeight || 0) + GUTTER
   }px`;
 };
 

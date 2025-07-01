@@ -1,4 +1,4 @@
-import { ReactNode, type JSX } from "react";
+import { type JSX } from "react";
 
 function slugify(text: string): string {
   return (text || "")
@@ -20,7 +20,7 @@ export default function Heading({
 }) {
   const Component = `h${level}` as keyof JSX.IntrinsicElements;
 
-  // @ts-expect-error
+  // @ts-expect-error - children array access for slug generation
   const slug = slugify(children[0].props.node.text);
 
   return (

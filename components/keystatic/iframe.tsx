@@ -8,6 +8,15 @@ import {
 const schema = {
   src: fields.url({ label: "URL" }),
   height: fields.number({ label: "Height", defaultValue: 300 }),
+  variant: fields.select({
+    label: "Variant",
+    defaultValue: "page",
+    options: [
+      { label: "Page", value: "page" },
+      { label: "Email", value: "email" },
+      { label: "Subscriber", value: "subscriber" },
+    ],
+  }),
 };
 
 function Preview(props: PreviewProps<ObjectField<typeof schema>>) {
@@ -19,7 +28,10 @@ function Preview(props: PreviewProps<ObjectField<typeof schema>>) {
   return (
     <iframe
       src={src}
-      style={{ height: height ?? 300, width: ((height ?? 300) * 16) / 9 }}
+      style={{
+        height: height ?? 300,
+        width: ((height ?? 300) * 16) / 9,
+      }}
     ></iframe>
   );
 }

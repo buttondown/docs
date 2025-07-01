@@ -121,7 +121,7 @@ export default function PlaygroundEmbed({
             </a>
           )}
         </div>
-        <div className="relative" style={{ height }}>
+        <div className="relative" style={{ height: height || "600px" }}>
           {isLoading && (
             <div className="absolute inset-0 flex items-center justify-center bg-white">
               <div className="text-gray-400">Loading editor...</div>
@@ -132,7 +132,7 @@ export default function PlaygroundEmbed({
             src={`${playgroundUrl}?hide_chrome=1&show_preview=${
               editorMode === "plaintext" ? "true" : "false"
             }&c=${compressed}&editor_mode=${editorMode}`}
-            className="w-full h-full border-0 bg-white"
+            className="w-full h-full border-0 bg-white pointer-events-none"
             title={title}
             sandbox="allow-scripts allow-same-origin allow-forms"
           />

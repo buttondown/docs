@@ -42,10 +42,11 @@ The difference between these two behaviors is that the first will send the email
 ## Managing your RSS automation
 
 Things happen; you might have to backfill a number of blog posts and you want to exclude them from your automation or you might want to pause your newsletter
-for a few weeks while you're tweaking the feed. Buttondown supports two ways to manage your RSS automation:
+for a few weeks while you're tweaking the feed. Buttondown supports several ways to manage your RSS automation:
 
 1. You can _pause_ the automation, which will prevent any new emails from being sent or drafts from being created. Any items that are detected in your RSS feed will be ignored, and will _not_ be automatically queued up for sending or drafting when you unpause the automation.
 2. You can _skip_ individual items in your RSS feed. This will prevent the automation from sending or drafting an email for that item, but will not prevent it from sending or drafting emails for any other items in the feed. This concept only applies if you've set up your automation on a weekly or monthly cadence.
+3. You can enable the _skip old items_ setting, which will automatically skip any items with a publish date older than one day from when they're discovered. This is particularly useful when first setting up an RSS feed that already has existing content—it ensures you only send truly new posts going forward, without accidentally sending outdated content to your subscribers.
 
 (Of course, you can always just delete the automation and create a new one!)
 

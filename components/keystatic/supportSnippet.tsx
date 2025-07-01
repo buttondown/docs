@@ -1,8 +1,5 @@
 import {
-  type ObjectField,
-  type PreviewProps,
   component,
-  fields,
 } from "@keystatic/core";
 
 const schema = {};

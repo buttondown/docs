@@ -18,9 +18,11 @@ There are *three* main ways you can grow your subscriber base without writing a 
 
 Every newsletter has a unique URL. When someone loads that URL, a page with the option to subscribe to your newsletter appears.
 
-{% customizableContent
-   loggedIn="Your newsletter's URL is `https://buttondown.com/{{username}}`. You can use this link anywhere on the internet, like in emails or blog posts, to give folks a place to go when they want to subscribe or read your past emails.\n\nFun fact: if you use tags, you can automatically tag subscribers by adding a `GET` parameter of `tag` to this URL! For instance, to add the tag `sandwich` to all subscribers, you'd use the URL:\n\nhttps://buttondown.com/{{username}}?tag=sandwich"
-   anonymous="Your newsletter's URL is `https://buttondown.com/{{username}}`, where \"{{ username }}\" is replaced with the username of your Buttondown account. You can use this link anywhere on the internet, like in emails or blog posts, to give folks a place to go when they want to subscribe or read your past emails.\n\nFun fact: if you use tags, you can automatically tag subscribers by adding a `GET` parameter of `tag` to this URL! For instance, to add the tag `sandwich` to all subscribers, you'd use the URL:\n\nhttps://buttondown.com/{{username}}?tag=sandwich" /%}
+Your newsletter's URL is `https://buttondown.com/username`, where "username" is replaced with the username of your Buttondown account. You can use this link anywhere on the internet, like in emails or blog posts, to give folks a place to go when they want to subscribe or read your past emails.
+
+Fun fact: if you use tags, you can automatically tag subscribers by adding a `GET` parameter of `tag` to this URL! For instance, to add the tag `sandwich` to all subscribers, you'd use the URL:
+
+https://buttondown.com/username?tag=sandwich
 
 ## Embedding an HTML form
 
@@ -119,7 +121,7 @@ Here are some resources for creating your own tagging automation:
 
 Buttondown's subscription form doesn't ask for any metadata by default. All it needs is a subscriber's email address and, if you're running a paid newsletter, their payment information.
 
-If you want to collect more information, though, you can add *custom subscribe form inputs*. You can find these at the bottom of your [design settings page](https://buttondown.com/settings/design). Inputs have three attributes:
+If you want to collect more information, though, you can add *custom subscribe form inputs*. You can find these at the bottom of your [design settings page](https://buttondown.com/settings/design/web). Inputs have three attributes:
 
 1. A **key**, which corresponds with the key that will be set in the metadata for your subscriber.
 1. A **label**, which is the text that will be displayed to the user.

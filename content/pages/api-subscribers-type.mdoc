@@ -7,7 +7,15 @@ enum: SubscriberType
 As you'll see, most of the logic here is really to deal with the state space of paid subscriptions, and therefore might not be _super_ relevant to you.
 
 ```mermaid
-flowchart
+---
+config:
+  layout: elk
+  elk:
+    mergeEdges: true
+    nodePlacementStrategy: LINEAR_SEGMENTS
+---
+
+flowchart-elk
     unactivated[Unactivated] --> regular[Regular]
     unactivated --> unpaid[Unpaid]
     unpaid --> premium
@@ -55,7 +63,15 @@ flowchart
 Which is why we also present this chart _without_ paid subscriptions_.
 
 ```mermaid
-flowchart
+---
+config:
+  layout: elk
+  elk:
+    mergeEdges: true
+    nodePlacementStrategy: LINEAR_SEGMENTS
+---
+
+flowchart-elk
     unactivated[Unactivated] --> regular[Regular]
     unactivated --> unpaid[Unpaid]
     regular --> unsubscribed[Unsubscribed]

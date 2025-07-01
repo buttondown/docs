@@ -1,0 +1,136 @@
+
+
+<head>
+    <style lang="css">
+        
+            * {
+                font-family: -apple-system, BlinkMacSystemFont, San Francisco,
+                    Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial,
+                    sans-serif;
+            }
+
+            p, li {
+                font-size: 15px;
+                line-height: 1.5;
+            }
+
+            blockquote {
+                font-size: 16px !important;
+                line-height: 24px !important;
+                margin: 16px 0 !important;
+                color: rgb(102, 102, 102) !important;
+                background-color: rgb(245, 245, 245) !important;
+                border-radius: 0.5rem !important;
+                padding: 20px;
+                padding-top: 1px !important;
+                padding-bottom: 1px !important;
+            }
+
+            hr {
+                width: 300px;
+                border: none;
+                border-top: 1px solid #eaeaea;
+                border-color: rgb(245, 245, 245);
+                border-width: 2px;
+                margin-top: 40px;
+                margin-bottom: 40px;
+            }
+
+            .transactional-email-header {
+                border-collapse: collapse;
+                margin: 0 auto;
+                max-width: 600px;
+                margin-top: 20px;
+                margin-bottom: 30px;
+            }
+
+            .prelude {
+                margin-bottom: 32px;
+            }
+
+            .buttondown-icon {
+                width: 24px;
+                height: 24px;
+            }
+
+            .email-title {
+                margin-bottom: 0;
+                margin-top: 0;
+                font-weight: bold;
+            }
+
+            .email-subtitle {
+                color: #a0aec0;
+                font-size: 13px;
+                display: block;
+                margin-bottom: 32px;
+            }
+
+            .email-content {
+                margin: 0 auto;
+                max-width: 600px;
+                padding: 0 20px;
+            }
+
+            .transactional-email-footer {
+                margin: 0 auto;
+                max-width: 600px;
+                padding: 20px;
+                color: #a0aec0;
+                font-size: 13px;
+                display: block;
+                margin-bottom: 32px;
+                margin-top: 32px;
+                border-top: 1px solid #eaeaea;
+            }
+
+            
+                a {
+                    color: #0069FF !important;
+                }
+                
+            
+        
+    </style>
+</head>
+
+<body>
+    <table
+        cellpadding="0"
+        cellspacing="0"
+        border="0"
+        width="100%"
+        class="transactional-email-header"
+    >
+        <tbody>
+            <tr>
+                <td>
+                    <p class="prelude"></p>
+                    <img
+                        src="https://buttondown.com/static/images/icons/icon@48.png"
+                        alt="Buttondown"
+                        class="buttondown-icon"
+                    />
+                    <p class="email-title">Confirm your subscription</p>
+                    
+                    <small class="email-subtitle">
+                        My Awesome Newsletter
+                    </small>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="email-content">
+<p><a href="http://127.0.0.1:8000/1fcc2895-69eb-49fb-a261-ff09030e6f5d/confirm-subscription/{{ subscriber.confirmation_id }}">Click here to confirm</a> your subscription to <a href="http://127.0.0.1:8000">My Awesome Newsletter</a>!</p>
+<p>If you didn't subscribe to this list or you're not sure why you received this email, you can delete it. You will not be subscribed if you don't click on the link above.</p>
+
+
+
+
+
+</div>
+
+    
+</body>

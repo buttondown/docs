@@ -5,8 +5,6 @@ import Code from "@/components/code";
 import type { Page } from "@/lib/types";
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import { marked } from "marked";
-import Link from "next/link";
-import CustomizableContent from "./customizable-content";
 import { BUTTONDOWN_CLI_STRUCTURE, FileExplorer } from "./file-explorer";
 import Heading from "./heading";
 import Iframe from "./iframe";
@@ -101,30 +99,23 @@ const Document = async ({ page }: Props) => (
           />
         );
       },
-      customizableContent: (props) => (
-        <CustomizableContent
-          loggedInHtml={marked(props.loggedIn)}
-          anonymousHtml={marked(props.anonymous)}
-        />
-      ),
+
       paidFeature: (props) => {
         const price = PRICES.find((price) =>
           price.features.includes(props.feature)
         );
         return (
-          <Notice type="info">
-            <div className="">
-              This feature requires a{" "}
-              <a
-                href={`https://buttondown.com/pricing?plan=${price?.id}`}
-                target="_blank"
-                className="text-inherit font-normal whitespace-nowrap"
-                rel="noreferrer"
-              >
-                {price?.name}&nbsp;plan.
-              </a>
-            </div>
-          </Notice>
+          <div className="text-sm text-green-700 -mt-6 bg-green-100 p-2 px-3 rounded-md flex items-center gap-1 w-fit">
+            Available on the
+            <a
+              href={`https://buttondown.com/pricing?plan=${price?.id}`}
+              target="_blank"
+              className="text-inherit font-normal whitespace-nowrap"
+              rel="noreferrer"
+            >
+              {price?.name}&nbsp;plan.
+            </a>
+          </div>
         );
       },
       supportSnippet: () => {
@@ -139,19 +130,7 @@ const Document = async ({ page }: Props) => (
           </div>
         );
       },
-      exportButtondownData: () => {
-        return (
-          <div>
-            <h3>By the way</h3>
-            <p>
-              With Buttondown, it&#39;s easy to{" "}
-              <Link href="/data-exports">export</Link> your subscribers,
-              surveys, emails, and other data whenever you wish—no strings
-              attached!
-            </p>
-          </div>
-        );
-      },
+
       noticeInfo: (props) => {
         return (
           <Notice type="info">
@@ -217,7 +196,9 @@ const Document = async ({ page }: Props) => (
           </div>
         );
       },
-      iframe: (props) => <Iframe src={props.src} height={props.height} />,
+      iframe: (props) => (
+        <Iframe src={props.src} height={props.height} variant={props.variant} />
+      ),
       video: (props) => <Video src={props.file} />,
       liveCodeBlock: (props) => <LiveCodeBlock path={props.filename} />,
       playgroundEmbed: (props) => (

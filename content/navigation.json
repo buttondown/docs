@@ -390,6 +390,22 @@
         {
           "discriminant": "page",
           "value": "teams"
+        },
+        {
+          "discriminant": "page",
+          "value": "deleting-your-account"
+        },
+        {
+          "discriminant": "page",
+          "value": "dormancy"
+        },
+        {
+          "discriminant": "divider",
+          "value": "FAQs"
+        },
+        {
+          "discriminant": "page",
+          "value": "can-i-point-my-old-buttondown-newsletter-to-a-new-url"
         }
       ]
     },
@@ -491,23 +507,6 @@
       ]
     },
     {
-      "name": "Offboarding",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "deleting-your-account"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQs"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-point-my-old-buttondown-newsletter-to-a-new-url"
-        }
-      ]
-    },
-    {
       "name": "About Buttondown",
       "items": [
         {
@@ -587,8 +586,52 @@
           "value": "template-variables"
         },
         {
+          "discriminant": "divider",
+          "value": "Variables"
+        },
+        {
           "discriminant": "page",
-          "value": "template-variables-subscriber-id"
+          "value": "template-variables-email-publish-date"
+        },
+        {
+          "discriminant": "page",
+          "value": "template-variables-email-secondary-id"
+        },
+        {
+          "discriminant": "page",
+          "value": "template-variables-email-subject"
+        },
+        {
+          "discriminant": "page",
+          "value": "template-variables-email-url"
+        },
+        {
+          "discriminant": "page",
+          "value": "template-variables-manage-subscription-url"
+        },
+        {
+          "discriminant": "page",
+          "value": "template-variables-medium"
+        },
+        {
+          "discriminant": "page",
+          "value": "template-variables-premium-subscribe-url"
+        },
+        {
+          "discriminant": "page",
+          "value": "template-variables-random-number"
+        },
+        {
+          "discriminant": "page",
+          "value": "template-variables-subscribe-form"
+        },
+        {
+          "discriminant": "page",
+          "value": "template-variables-subscribe-url"
+        },
+        {
+          "discriminant": "page",
+          "value": "template-variables-subscriber-can-be-upsold"
         },
         {
           "discriminant": "page",
@@ -596,15 +639,15 @@
         },
         {
           "discriminant": "page",
-          "value": "template-variables-subscriber-metadata"
-        },
-        {
-          "discriminant": "page",
           "value": "template-variables-subscriber-email"
         },
         {
           "discriminant": "page",
-          "value": "template-variables-subscriber-can-be-upsold"
+          "value": "template-variables-subscriber-id"
+        },
+        {
+          "discriminant": "page",
+          "value": "template-variables-subscriber-metadata"
         },
         {
           "discriminant": "page",
@@ -616,51 +659,11 @@
         },
         {
           "discriminant": "page",
-          "value": "template-variables-email-subject"
-        },
-        {
-          "discriminant": "page",
           "value": "template-variables-unsubscribe-url"
         },
         {
           "discriminant": "page",
-          "value": "template-variables-subscribe-url"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-email-url"
-        },
-        {
-          "discriminant": "page",
           "value": "template-variables-upgrade-url"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-premium-subscribe-url"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-manage-subscription-url"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-email-secondary-id"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-email-publish-date"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscribe-form"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-medium"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-random-number"
         },
         {
           "discriminant": "divider",
@@ -945,10 +948,6 @@
         {
           "discriminant": "page",
           "value": "automation-filters"
-        },
-        {
-          "discriminant": "page",
-          "value": "automation-timing"
         },
         {
           "discriminant": "page",
@@ -1936,6 +1935,10 @@
         {
           "discriminant": "page",
           "value": "api-changelog"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2025-06-26"
         },
         {
           "discriminant": "page",

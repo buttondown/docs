@@ -576,7 +576,6 @@
 .email.featured {
   background-color: var(--featured-color);
   padding: 1rem !important;
-  border-radius: .5rem;
   border: var(--featured-border-color) 1px solid !important;
   z-index: 10;
   margin-bottom: 1rem;
@@ -588,6 +587,11 @@
 }
 .email.featured h2 {
   margin-top: 0;
+}
+@media (min-width: 640px) {
+  .email.featured {
+    border-radius: .5rem;
+  }
 }
 .pin-icon {
   fill: #eab308 !important;
@@ -650,6 +654,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
@@ -662,14 +670,24 @@ body {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 0%;
   flex: 1 1 0%;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  gap: 1rem;
+}
+@media (min-height: 600px) {
+  .header-navigation > div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 }
 .header-navigation h1 {
   margin-top: 0;
@@ -727,6 +745,12 @@ body {
   display: block;
   font-size: 16px;
   text-transform: uppercase;
+}
+.header-brand-name {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 .subject {
   margin-top: 0;
@@ -854,12 +878,17 @@ iframe.youtube {
 .email-list {
   font-family: var(--brand-font);
   width: 100%;
-  max-width: var(--content-width);
+  max-width: calc(100% - 2rem);
   margin: 0 auto;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  padding: 3em 0;
+  padding: 3rem 1rem;
+}
+@media (min-width: 640px) {
+  .email-list {
+    max-width: var(--content-width);
+  }
 }
 .email-list:has(.empty-state) {
   display: -webkit-box;
@@ -1020,10 +1049,14 @@ blockquote.pullquote {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 8rem 2rem;
 }
 .subscribe-container a {
   color: var(--tint-color);
+}
+@media (min-height: 600px) {
+  .subscribe-container {
+    padding: 8rem 2rem;
+  }
 }
 @media (max-width: 600px) {
   .subscribe-container {
@@ -1048,6 +1081,13 @@ blockquote.pullquote {
     padding: 1rem;
   }
 }
+@media (max-height: 600px) {
+  .subscribe {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+}
 .subscribe .widget {
   margin: calc(-2rem - 1px);
   margin-top: 2rem;
@@ -1070,6 +1110,12 @@ blockquote.pullquote {
   margin-top: 0;
   font-weight: 700;
   text-align: center;
+  overflow-wrap: anywhere;
+}
+@media (max-height: 600px) {
+  .subscribe .name {
+    display: none;
+  }
 }
 .subscribe .newsletter-icon {
   width: 100px;

@@ -244,7 +244,7 @@ export const extractParameters = <R extends Route>(
         parameter: parameter.name,
         type: typeProp,
         description: parameter.description || "",
-        // @ts-ignore
+        // @ts-expect-error - parameter.schema may not have allOf property
         values: parameter.schema.allOf?.[0]?.enum || [],
         optional: !parameter.required,
       };
@@ -265,6 +265,7 @@ const parametersForRef = (
     return [
       ...Object.keys(schema.properties).map((parameter) => {
         // biome-ignore lint/suspicious/noExplicitAny: this file is screwed.
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const qualifiedParameter = (schema.properties as any)[parameter] as
           | {
               type: "array";

@@ -5155,6 +5155,75 @@
         ]
       }
     },
+    "/advertising_units/slots/{id}": {
+      "patch": {
+        "operationId": "update_advertising_slot",
+        "summary": "Update Advertising Slot",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdvertisingSlot"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "Update an advertising slot's sponsor content",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdvertisingSlotUpdateInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
+    },
     "/webhooks": {
       "post": {
         "operationId": "create_webhook",
@@ -7914,6 +7983,7 @@
           "email_address": {
             "title": "Email Address",
             "description": "The email address of the subscriber.",
+            "maxLength": 254,
             "example": "telemachus@buttondown.email",
             "type": "string"
           },
@@ -8112,6 +8182,7 @@
         "properties": {
           "email_address": {
             "title": "Email Address",
+            "maxLength": 254,
             "example": "telemachus@buttondown.email",
             "type": "string"
           },
@@ -8290,6 +8361,7 @@
         "properties": {
           "email_address": {
             "title": "Email Address",
+            "maxLength": 254,
             "example": "telemachus@buttondown.email",
             "type": "string"
           },
@@ -8462,6 +8534,11 @@
               "buttondown"
             ],
             "type": "string"
+          },
+          "product": {
+            "title": "Product",
+            "description": "The name of the product which the subscriber is subscribed to. (You can override this by setting the `buttondown_template_facing_id` metadata on the product in Stripe.)",
+            "type": "string"
           }
         },
         "required": [
@@ -8475,7 +8552,7 @@
         ]
       },
       "StripeSubscriptionPage": {
-        "title": "Page[StripeSubscription]",
+        "title": "Page[UnexpandableStripeSubscription]",
         "type": "object",
         "properties": {
           "results": {
@@ -9102,6 +9179,11 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          "skip_old_items": {
+            "title": "Skip Old Items",
+            "description": "Skip items with publish date older than one day from when they're discovered",
+            "type": "boolean"
           }
         },
         "required": [
@@ -9115,7 +9197,8 @@
           "url",
           "subject",
           "body",
-          "label"
+          "label",
+          "skip_old_items"
         ]
       },
       "ExternalFeedInput": {
@@ -9176,6 +9259,12 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          "skip_old_items": {
+            "title": "Skip Old Items",
+            "description": "Skip items with publish date older than one day from when they're discovered",
+            "default": false,
+            "type": "boolean"
           }
         },
         "required": [
@@ -9272,6 +9361,11 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          "skip_old_items": {
+            "title": "Skip Old Items",
+            "description": "Skip items with publish date older than one day from when they're discovered",
+            "type": "boolean"
           }
         }
       },
@@ -10631,12 +10725,17 @@
           "invoice_url": {
             "title": "Invoice Url",
             "type": "string"
+          },
+          "content": {
+            "title": "Content",
+            "type": "string"
           }
         },
         "required": [
           "id",
           "date",
-          "status"
+          "status",
+          "content"
         ]
       },
       "AdvertisingUnit": {
@@ -10787,6 +10886,16 @@
         "required": [
           "dates"
         ]
+      },
+      "AdvertisingSlotUpdateInput": {
+        "title": "AdvertisingSlotUpdateInput",
+        "type": "object",
+        "properties": {
+          "content": {
+            "title": "Content",
+            "type": "string"
+          }
+        }
       },
       "WebhookStatus": {
         "title": "WebhookStatus",

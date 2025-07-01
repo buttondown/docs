@@ -73,6 +73,7 @@ const extractResponses = <Endpoint extends "/comments", Method extends "get">(
     status: key,
     description: value.description,
     // biome-ignore lint/suspicious/noExplicitAny: trust me bro
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     fixture: extractSchemaFromContent((value as any).content),
   }));
 };
@@ -123,6 +124,7 @@ export default async function DocsPage(props: Props) {
     const plainOp = plainOas.operation(
       page.endpoint,
       // biome-ignore lint/suspicious/noExplicitAny: method has to be get/post/put/delete
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       page.method.toLowerCase() as any
     );
     const endpoint = page.endpoint as "/comments";

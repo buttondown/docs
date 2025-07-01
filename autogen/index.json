@@ -120,7 +120,7 @@
       "sending-your-first-email-advanced",
       "subscriber-autonomy",
       "tags",
-      "template-variables"
+      "template-variables-manage-subscription-url"
     ]
   },
   {
@@ -158,7 +158,7 @@
     "url": "dealing-with-spam-subscribers",
     "section": "guides",
     "schema": null,
-    "description": "Spam happens. You can protect your Buttondown newsletter by turning on double opt-in",
+    "description": "Spam happens. If you're seeing lots of spammy subscribers, please reach out and we'll help you out.",
     "references": [
       "warming-up"
     ]
@@ -634,7 +634,8 @@
     "schema": null,
     "description": null,
     "references": [
-      "hidden-settings"
+      "hidden-settings",
+      "how-do-i-set-sender-information"
     ]
   },
   {
@@ -788,6 +789,14 @@
     ]
   },
   {
+    "title": "/buy",
+    "url": "slash-buy",
+    "section": "guides",
+    "schema": null,
+    "description": "`/buy` is a durable URL that instantly spins up a new checkout link for your preferred paid subscribers who go through this URL.",
+    "references": []
+  },
+  {
     "title": "Gift subscriptions",
     "url": "gift-subscriptions",
     "section": "guides",
@@ -916,6 +925,30 @@
       "support-policy",
       "teams"
     ]
+  },
+  {
+    "title": "Deleting your account",
+    "url": "deleting-your-account",
+    "section": "guides",
+    "schema": null,
+    "description": "Buttondown allows you to easily export all your data, and delete your account. But we'll still be sad to see you go.",
+    "references": []
+  },
+  {
+    "title": "Dormancy",
+    "url": "dormancy",
+    "section": "guides",
+    "schema": null,
+    "description": "Dormancy is a status that allows you to mark newsletters as inactive without deleting them or affecting your billing.",
+    "references": []
+  },
+  {
+    "title": "Can I point my old Buttondown newsletter to a new URL?",
+    "url": "can-i-point-my-old-buttondown-newsletter-to-a-new-url",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
   },
   {
     "title": "Building a newsletter subscription form with Alpine.js",
@@ -1155,22 +1188,6 @@
     ]
   },
   {
-    "title": "Deleting your account",
-    "url": "deleting-your-account",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown allows you to easily export all your data, and delete your account. But we'll still be sad to see you go.",
-    "references": []
-  },
-  {
-    "title": "Can I point my old Buttondown newsletter to a new URL?",
-    "url": "can-i-point-my-old-buttondown-newsletter-to-a-new-url",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
     "title": "Roadmap",
     "url": "roadmap",
     "section": "guides",
@@ -1278,7 +1295,8 @@
     "schema": null,
     "description": "Take advantage of Buttondown's flexible billing to pause your subscription when you need to.",
     "references": [
-      "billing"
+      "billing",
+      "dormancy"
     ]
   },
   {
@@ -1304,8 +1322,199 @@
       "names",
       "sending-your-first-email",
       "subscriber-autonomy",
+      "template-variables",
       "transactional-emails",
       "using-templating"
+    ]
+  },
+  {
+    "title": "email.publish_date",
+    "url": "template-variables-email-publish-date",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "email.secondary_id",
+    "url": "template-variables-email-secondary-id",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "email.subject",
+    "url": "template-variables-email-subject",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "email_url",
+    "url": "template-variables-email-url",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "manage_subscription_url",
+    "url": "template-variables-manage-subscription-url",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "medium",
+    "url": "template-variables-medium",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "premium_subscribe_url",
+    "url": "template-variables-premium-subscribe-url",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "random_number",
+    "url": "template-variables-random-number",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "subscribe_form",
+    "url": "template-variables-subscribe-form",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "subscribe_url",
+    "url": "template-variables-subscribe-url",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "subscriber.can_be_upsold",
+    "url": "template-variables-subscriber-can-be-upsold",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "subscriber.can_view_premium_content",
+    "url": "template-variables-subscriber-can-view-premium-content",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "subscriber.email",
+    "url": "template-variables-subscriber-email",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "subscriber.id",
+    "url": "template-variables-subscriber-id",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "subscriber.metadata",
+    "url": "template-variables-subscriber-metadata",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "subscriber.subscriber_type",
+    "url": "template-variables-subscriber-subscriber-type",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "subscriber.tags",
+    "url": "template-variables-subscriber-tags",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "unsubscribe_url",
+    "url": "template-variables-unsubscribe-url",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
+    ]
+  },
+  {
+    "title": "upgrade_url",
+    "url": "template-variables-upgrade-url",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "template-variables"
     ]
   },
   {
@@ -1320,6 +1529,7 @@
       "preflight",
       "premium-content",
       "quickstart",
+      "sending-your-first-email",
       "using-attachments"
     ]
   },
@@ -1393,7 +1603,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "naked-mode"
+      "sending-your-first-email"
     ]
   },
   {
@@ -1420,7 +1630,7 @@
     "description": "Buttondown lets you let your subscribers change their metadata, tags, and more.",
     "references": [
       "tags",
-      "template-variables"
+      "template-variables-manage-subscription-url"
     ]
   },
   {
@@ -1485,7 +1695,6 @@
     "schema": null,
     "description": "Buttondown's transactional emails, such as confirmation and welcome emails, can be customized using the same email CSS settings as regular emails.",
     "references": [
-      "customizing-transactional-emails",
       "transactional-emails"
     ]
   },
@@ -1850,14 +2059,6 @@
     "references": []
   },
   {
-    "title": "Automation timing",
-    "url": "automation-timing",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
     "title": "Types of automation actions",
     "url": "automation-actions",
     "section": "Reference",
@@ -1921,7 +2122,9 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown's \"Firewall\" is an opt-in feature that audits all incoming subscribers to confirm that they're legitimate people.",
-    "references": []
+    "references": [
+      "subscriber-cleanup"
+    ]
   },
   {
     "title": "Social media monitoring",
@@ -1972,14 +2175,12 @@
     "references": []
   },
   {
-    "title": "What's included in \"weekly\" or \"monthly\" RSS emails?",
+    "title": "Sending RSS-to-email emails on scheduled cadences",
     "url": "rss-cadence",
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "rss-cadence"
-    ]
+    "references": []
   },
   {
     "title": "Click tracking",
@@ -2217,8 +2418,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "building-your-subscriber-base",
-      "dealing-with-spam-subscribers"
+      "building-your-subscriber-base"
     ]
   },
   {
@@ -2327,7 +2527,6 @@
     "references": [
       "acceptable-use-policy",
       "api-subscribers-create",
-      "dealing-with-spam-subscribers",
       "glossary-cold-email",
       "hidden-settings"
     ]
@@ -3332,22 +3531,6 @@
     ]
   },
   {
-    "title": "Invitation status",
-    "url": "api-invitation-status",
-    "section": "Reference",
-    "schema": "InvitationStatus",
-    "description": null,
-    "references": []
-  },
-  {
-    "title": "Permissions",
-    "url": "api-permissions",
-    "section": "api",
-    "schema": "Permissions",
-    "description": null,
-    "references": []
-  },
-  {
     "title": "Creating a bulk action",
     "url": "api-bulk-actions-create",
     "section": "api",
@@ -3689,10 +3872,36 @@
     "references": []
   },
   {
+    "title": "Invitation status",
+    "url": "api-invitation-status",
+    "section": "Reference",
+    "schema": "InvitationStatus",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Permissions",
+    "url": "api-permissions",
+    "section": "api",
+    "schema": "Permissions",
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Introduction",
     "url": "api-notes-introduction",
     "section": "api",
     "schema": "Note",
+    "description": null,
+    "references": [
+      "api-notes-create"
+    ]
+  },
+  {
+    "title": "Create a note",
+    "url": "api-notes-create",
+    "section": "api",
+    "schema": null,
     "description": null,
     "references": []
   },
@@ -3702,7 +3911,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "api-notes-create"
+    ]
   },
   {
     "title": "Changelog",
@@ -3714,6 +3925,16 @@
       "api-changelog",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2025-06-26",
+    "url": "api-changelog-2025-06-26",
+    "section": "api",
+    "schema": null,
+    "description": "Added `product` to `StripeSubscription`",
+    "references": [
+      "api-changelog"
     ]
   },
   {

@@ -1,6 +1,4 @@
 import { automation } from "@/components/keystatic/automation";
-import { customizableContent } from "@/components/keystatic/customizableContent";
-import { exportButtondownData } from "@/components/keystatic/exportButtondownData";
 import { fileExplorer } from "@/components/keystatic/fileExplorer";
 import { generatedMultilanguageSnippets } from "@/components/keystatic/generatedMultilanguageSnippets";
 import { iframe } from "@/components/keystatic/iframe";
@@ -129,8 +127,6 @@ export default config({
             iframe,
             preview,
             generatedMultilanguageSnippets,
-            customizableContent,
-            exportButtondownData,
             paidFeature,
             supportSnippet,
             liveCodeBlock,
