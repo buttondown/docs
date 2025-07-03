@@ -19,6 +19,8 @@ const VALID_APPLICATION_ROUTES = [
     fs.readFileSync("./autogen/author_facing_routes.json", "utf-8")
   ),
 
+  "settings/integrations/umami",
+
   // Marketing stuff.
   "pricing",
   "support",
@@ -40,6 +42,8 @@ const VALID_APPLICATION_ROUTES = [
   "legal/cookies",
   "legal/terms",
   "changelog/2025-02-06",
+  "register",
+  "login",
 
   // Specific pages.
   "el-classico/archive/who-was-telemachus-anyway/",
