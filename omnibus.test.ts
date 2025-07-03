@@ -20,6 +20,7 @@ const VALID_APPLICATION_ROUTES = [
   ),
 
   "settings/integrations/umami",
+  "accounts/password/reset/",
 
   // Marketing stuff.
   "pricing",
@@ -185,7 +186,7 @@ Object.entries(FILENAME_TO_APPLICATION_LINKS).forEach(([filename, routes]) => {
     routes.forEach((route) => {
       expect(VALID_APPLICATION_ROUTES).toContain(
         route
-          .replace("https://buttondown.email/", "")
+          .replace("https://buttondown.com/", "")
           .replace("https://buttondown.com/", "")
       );
     });
