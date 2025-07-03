@@ -119,6 +119,8 @@ slug: newsletter-issue-1
 publish_date: 2023-04-27T09:00:00Z
 created: 2023-04-25T15:32:18Z
 modified: 2023-04-26T10:45:22Z
+description: A brief description of this newsletter issue for SEO and archives
+image: https://example.com/newsletter-header.png
 attachments:
   - attachment-id-1
   - attachment-id-2
@@ -130,6 +132,25 @@ Hello subscribers!
 
 This is the content of my email...
 ```
+
+### Frontmatter Fields
+
+Here are the key fields you can define yourself:
+
+| Field        | Required? | Description                                                            | Example                        |
+|--------------|-----------|------------------------------------------------------------------------|--------------------------------|
+| subject      | Yes       | Email subject line                                                     | My Newsletter Issue #1         |
+| body         | Yes       | The Markdown content after the frontmatter                             |                                |
+| status       | No        | Email status (`draft`, `scheduled`, `sent`, etc) (defaults to `draft`) | draft                          |
+| email_type   | No        | Email visibility (`public`, `premium`, etc) (defaults to `public`)     | public                         |
+| slug         | No        | URL-friendly identifier                                                | newsletter-issue-1             |
+| publish_date | No        | When to send/publish the email                                         | 2023-04-27T09:00:00Z           |
+| description  | No        | Brief description for SEO/preheader                                    | Weekly updates from our team   |
+| image        | No        | Image URL for social sharing                                           | https://example.com/header.png |
+| attachments  | No        | List of attachment IDs                                                 | ["attachment-id-1"]            |
+
+
+
 
 ## Common Workflows
 
