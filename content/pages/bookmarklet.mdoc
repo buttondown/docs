@@ -1,0 +1,65 @@
+---
+title: Buttondown Bookmarklet
+navigationTitle: Bookmarklet
+description: Save links from anywhere on the web directly to your Buttondown drafts
+---
+
+The Buttondown Bookmarklet is a browser tool that lets you quickly save interesting links to a draft email in your Buttondown account. It's perfect for curating content for link roundups, newsletters, or keeping track of articles you want to share with your subscribers.
+
+## Features
+
+- **One-click saving**: Save any webpage to your Buttondown drafts with a single click
+- **Add notes**: Include your thoughts or context about each link
+- **Automatic draft creation**: Creates a "Bookmarked items" draft if one doesn't exist
+- **Works everywhere**: Compatible with any website and modern browser
+- **Secure OAuth authentication**: No API keys needed - uses secure OAuth flow
+
+## Using the bookmarklet
+
+When you find an interesting link:
+
+1. **Click the bookmarklet** in your bookmarks bar
+2. **Review the link details** in the popup modal
+3. **Add notes** (optional) about why this link is interesting
+4. **Click "Save Link"** to add it to your draft
+
+The link will be added to a draft email called "Bookmarked items" in your Buttondown account.
+
+## How links are formatted
+
+Links are saved in Markdown format:
+
+{% playgroundEmbed initialContent="- [Article Title](https://example.com/article) - Your optional notes here\n- [Another Article](https://example.com/another-article) - Another note" /%}
+
+Each new link is appended to the existing draft, creating a running list of your bookmarked items.
+
+### Finding your draft
+
+Look for an email draft titled "Bookmarked items" in your Buttondown dashboard. This draft is created automatically the first time you use the bookmarklet.
+
+## Troubleshooting
+
+### Authentication issues
+
+- Make sure popups are allowed for buttondown.com
+- Try signing out and back in to Buttondown
+- Clear your browser's local storage for buttondown.com and re-authenticate
+
+### My bookmarklet isn't showing up!
+
+- Ensure your bookmarks bar is visible
+- Try dragging the button directly to the bookmarks bar
+- Some browsers require right-clicking and selecting "Bookmark this link"
+
+### Links aren't saving!
+
+- Check that you have an active internet connection
+- Verify your API key has write permissions
+- Look for any error messages in the popup
+
+## Support
+
+Need help with the bookmarklet?
+- [Open an issue on GitHub](https://github.com/buttondown/bookmarklet/issues)
+- [Contact Buttondown support](mailto:support@buttondown.com)
+- Check the [GitHub repository](https://github.com/buttondown/bookmarklet) for updates

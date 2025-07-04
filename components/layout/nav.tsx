@@ -6,9 +6,9 @@ import * as Tabs from "@radix-ui/react-tabs";
 import Link from "next/link";
 import { useEffect } from "react";
 import {
-    NAVIGATION_GROUPS,
-    NAVIGATION_GROUP_LABELS,
-    type NavData,
+  NAVIGATION_GROUPS,
+  NAVIGATION_GROUP_LABELS,
+  type NavData,
 } from "./lib";
 
 export default function Nav({ data, slug }: { data: NavData; slug: string }) {
@@ -18,7 +18,10 @@ export default function Nav({ data, slug }: { data: NavData; slug: string }) {
   for (const [navigationGroup, folders] of Object.entries(data)) {
     for (const folder of folders) {
       for (const page of folder.items) {
-        if (page.type === "page" && page.slug === slug) {
+        if (
+          (page.type === "page" || page.type === "hidden_page") &&
+          page.slug === slug
+        ) {
           currentNavigationGroup = navigationGroup as keyof NavData;
           currentFolderName = folder.name;
         }
@@ -28,7 +31,7 @@ export default function Nav({ data, slug }: { data: NavData; slug: string }) {
 
   if (!currentNavigationGroup || !currentFolderName) {
     throw new Error(
-      `Can’t find current navigation group and/or folder name for "${slug}". (Has it been added to the navigation hierarchy in 'navigation.json'?) `,
+      `Can’t find current navigation group and/or folder name for "${slug}". (Has it been added to the navigation hierarchy in 'navigation.json'?) `
     );
   }
 
@@ -37,9 +40,9 @@ export default function Nav({ data, slug }: { data: NavData; slug: string }) {
     const activeLink = document.querySelector(`a[href="/${slug}"]`);
     if (activeLink) {
       activeLink.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'nearest'
+        behavior: "smooth",
+        block: "nearest",
+        inline: "nearest",
       });
     }
   }, [slug]);
@@ -83,6 +86,10 @@ export default function Nav({ data, slug }: { data: NavData; slug: string }) {
                   </Accordion.Header>
                   <Accordion.Content className="pb-3 pt-1 space-y-1">
                     {folder.items.map((item) => {
+                      if (item.type === "hidden_page") {
+                        return null;
+                      }
+
                       if (item.type === "divider") {
                         return (
                           <div key={item.title} className="pt-1.5">

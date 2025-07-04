@@ -33,6 +33,11 @@ const navigationGroupSchema = (label: string) =>
             schema: fields.text({ label: "Divider" }),
             itemLabel: (props) => `Divider: ${props?.value}`,
           },
+          hidden_page: {
+            label: "Hidden Page",
+            schema: fields.relationship({ label: "Page", collection: "pages" }),
+            itemLabel: (props) => props?.value ?? "",
+          },
         },
         { label: "Navigation" }
       ),

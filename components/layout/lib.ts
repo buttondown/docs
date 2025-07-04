@@ -13,7 +13,7 @@ type NavigationGroup = (typeof NAVIGATION_GROUPS)[number];
 
 type NavItem =
   | {
-      type: "page";
+      type: "page" | "hidden_page";
       title: string;
       slug: string;
       navigationTitle: string;
@@ -33,7 +33,7 @@ export type KeystaticNavigationFile = Record<
   {
     name: string;
     items: {
-      discriminant: "page" | "divider";
+      discriminant: "page" | "divider" | "hidden_page";
       value: string;
     }[];
   }[]
@@ -72,7 +72,10 @@ export const assembleNavData = (
       };
       for (let i = 0; i < folder.items.length; i++) {
         const item = folder.items[i];
-        if (item.discriminant === "page") {
+        if (
+          item.discriminant === "page" ||
+          item.discriminant === "hidden_page"
+        ) {
           const slug = item.value;
           const page = pages.find((p) => p.slug === slug);
 
@@ -82,7 +85,7 @@ export const assembleNavData = (
           }
 
           newFolder.items.push({
-            type: "page",
+            type: item.discriminant,
             title: page.entry.title,
             navigationTitle: page.entry.navigationTitle,
             slug,
