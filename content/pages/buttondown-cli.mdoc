@@ -133,24 +133,125 @@ Hello subscribers!
 This is the content of my email...
 ```
 
-### Frontmatter Fields
+## Email Fields Reference
 
-Here are the key fields you can define yourself:
+### Required Fields
 
-| Field        | Required? | Description                                                            | Example                        |
-|--------------|-----------|------------------------------------------------------------------------|--------------------------------|
-| subject      | Yes       | Email subject line                                                     | My Newsletter Issue #1         |
-| body         | Yes       | The Markdown content after the frontmatter                             |                                |
-| status       | No        | Email status (`draft`, `scheduled`, `sent`, etc) (defaults to `draft`) | draft                          |
-| email_type   | No        | Email visibility (`public`, `premium`, etc) (defaults to `public`)     | public                         |
-| slug         | No        | URL-friendly identifier                                                | newsletter-issue-1             |
-| publish_date | No        | When to send/publish the email                                         | 2023-04-27T09:00:00Z           |
-| description  | No        | Brief description for SEO/preheader                                    | Weekly updates from our team   |
-| image        | No        | Image URL for social sharing                                           | https://placecats.com/1200/630 |
-| attachments  | No        | List of attachment IDs                                                 | ["attachment-id-1"]            |
+When creating emails via the CLI, only **one field is truly required**:
 
+| Field | Type | Description | Required When |
+|-------|------|-------------|---------------|
+| `subject` | `string` | The email subject line | **Always required** for API creation |
+| `title` | `string` | Used by CLI `create` command (becomes `subject`) | Required for `buttondown create` command |
 
+### Optional Fields
 
+All other fields are optional and have sensible defaults:
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `body` | `string` | `""` | Email content (HTML or Markdown) |
+| `status` | `string` | `"about_to_send"` | Email status |
+| `email_type` | `string` | `"public"` | Email visibility type |
+| `slug` | `string` | `null` | URL-friendly identifier |
+| `description` | `string` | `""` | Human-readable description |
+| `image` | `string` | `""` | Primary image URL |
+| `publish_date` | `datetime` | `null` | Scheduled publish date |
+| `attachments` | `array<UUID>` | `[]` | List of attachment IDs |
+| `metadata` | `object` | `{}` | Custom metadata fields |
+| `canonical_url` | `string` | `""` | Original content URL |
+| `secondary_id` | `integer` | `null` | Informal issue number |
+| `filters` | `object` | `FilterGroup()` | Subscriber filtering rules |
+| `commenting_mode` | `string` | `"enabled"` | Comment settings |
+| `related_email_ids` | `array<string>` | `[]` | Related email IDs |
+| `featured` | `boolean` | `false` | Archive highlighting |
+
+### Email Type Values
+
+| Value | Description |
+|-------|-------------|
+| `public` | Visible to all subscribers and in archives |
+| `private` | Only visible to subscribers |
+| `premium` | Only visible to paid subscribers |
+| `free` | Only visible to free subscribers |
+| `churned` | Only visible to churned subscribers |
+| `archival` | For imported/archived content |
+
+### Email Status Values
+
+| Value | Description |
+|-------|-------------|
+| `draft` | Email is being composed |
+| `about_to_send` | Email is ready to send |
+| `scheduled` | Email is scheduled for future |
+| `in_flight` | Email is currently sending |
+| `sent` | Email has been sent |
+| `paused` | Sending was paused |
+| `imported` | Email was imported from external source |
+
+### Validation Rules
+
+#### Subject Line
+- **Maximum length**: 1000 characters
+- **XSS validation**: Subject is validated against XSS attacks
+- **Required**: Cannot be empty when creating via API
+
+#### Body Content
+- **Format**: Accepts HTML or Markdown
+- **Null characters**: Not allowed in body content
+- **XSS validation**: Body is validated against XSS attacks
+- **Default**: Empty string if not provided
+
+#### Slug
+- **Format**: Must be URL-safe (validated with Django's `validate_slug`)
+- **Maximum length**: 100 characters
+- **Uniqueness**: Must be unique within the newsletter
+- **Auto-generation**: Generated from subject if not provided
+
+### Common Email Examples
+
+#### Creating a Newsletter Issue
+```markdown
+---
+subject: "Newsletter #42: The Ultimate Question"
+email_type: public
+status: draft
+slug: newsletter-42-ultimate-question
+description: "Our 42nd newsletter covering the ultimate question of life, the universe, and everything"
+---
+
+# Newsletter #42: The Ultimate Question
+
+Welcome to our 42nd newsletter...
+```
+
+#### Scheduling an Email
+```markdown
+---
+subject: "Weekly Digest - January 17, 2024"
+email_type: public
+status: scheduled
+publish_date: 2024-01-17T15:00:00.000Z
+---
+
+# Weekly Digest
+
+This week's highlights...
+```
+
+#### Premium Content
+```markdown
+---
+subject: "Premium Analysis: Market Trends"
+email_type: premium
+status: about_to_send
+description: "Deep dive analysis available only to premium subscribers"
+---
+
+# Premium Analysis: Market Trends
+
+Dear premium subscribers...
+```
 
 ## Common Workflows
 
@@ -277,6 +378,15 @@ If you've modified the same email both locally and on Buttondown:
 2. Pull fresh content: `buttondown pull --force`
 3. Manually merge the differences
 4. Push the resolved content: `buttondown push`
+
+### Common Error Messages
+
+The CLI provides specific error messages for common issues:
+
+- **Missing title**: `Error: --title is required for the create command`
+- **Invalid format**: `Skipping [file]: Invalid format (missing frontmatter)`
+- **Upload failures**: `Failed to upload image [filename]: [error message]`
+- **API errors**: `Failed to create email: [error details]`
 
 ## Getting Help
 
