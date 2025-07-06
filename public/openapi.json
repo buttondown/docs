@@ -2125,6 +2125,36 @@
           },
           {
             "in": "query",
+            "name": "domain",
+            "schema": {
+              "title": "Domain",
+              "description": "If provided, only return subscribers whose email domain matches the given domain(s).",
+              "example": "gmail.com",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers whose email domain matches the given domain(s)."
+          },
+          {
+            "in": "query",
+            "name": "-domain",
+            "schema": {
+              "title": "-Domain",
+              "description": "If provided, only return subscribers whose email domain does not match the given domain(s).",
+              "example": "gmail.com",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers whose email domain does not match the given domain(s)."
+          },
+          {
+            "in": "query",
             "name": "risk_score__start",
             "schema": {
               "title": "Risk Score  Start",
