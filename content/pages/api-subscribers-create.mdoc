@@ -86,3 +86,9 @@ To help with this, you can now provide an `ip_address`. This will be used to det
 We rate limit this endpoint to protect against abuse and unintentional usage; the default limit is one hundred requests per hour and naturally grows over time as your newsletter accumulates reputation within Buttondown. If you've got a specific use case that requires a higher rate limit, please [contact us](mailto:support@buttondown.email) and we'll be happy to help; if you're running into rate limiting because of an initial _import_ of subscribers, we suggest [bringing those subscribers in via a CSV](/importing-your-data) instead.
 
 ---
+
+### Tagging a new subscriber
+
+You can simultaneously create a new subscriber [and add a tag or tags to them](/api-tags-introduction) by supplying the `tags` field in the request body. If you supply a tag that does not already exist, Buttondown will create and persist the tag for you.
+
+---

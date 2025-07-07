@@ -3305,6 +3305,7 @@
     "schema": "Tag",
     "description": null,
     "references": [
+      "api-subscribers-create",
       "tags"
     ]
   },
