@@ -511,7 +511,7 @@
       "items": [
         {
           "discriminant": "page",
-          "value": "roadmap"
+          "value": "billing"
         },
         {
           "discriminant": "page",
@@ -522,11 +522,11 @@
   ],
   "reference": [
     {
-      "name": "Account",
+      "name": "Dashboard",
       "items": [
         {
           "discriminant": "page",
-          "value": "billing"
+          "value": "using-a-screen-reader"
         },
         {
           "discriminant": "page",
@@ -575,7 +575,7 @@
       ]
     },
     {
-      "name": "Writing",
+      "name": "Editor",
       "items": [
         {
           "discriminant": "page",
@@ -720,7 +720,7 @@
       ]
     },
     {
-      "name": "Subscribers",
+      "name": "Subscriber management",
       "items": [
         {
           "discriminant": "page",
@@ -745,7 +745,7 @@
       ]
     },
     {
-      "name": "Customizing look + feel",
+      "name": "Customization",
       "items": [
         {
           "discriminant": "page",
@@ -831,7 +831,7 @@
       ]
     },
     {
-      "name": "Web archives",
+      "name": "Archives",
       "items": [
         {
           "discriminant": "page",
@@ -872,20 +872,15 @@
       ]
     },
     {
-      "name": "Custom domains",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "workspace-spf"
-        }
-      ]
-    },
-    {
       "name": "Deliverability",
       "items": [
         {
           "discriminant": "page",
           "value": "preflight"
+        },
+        {
+          "discriminant": "page",
+          "value": "workspace-spf"
         },
         {
           "discriminant": "page",
@@ -906,7 +901,7 @@
       ]
     },
     {
-      "name": "Data exports",
+      "name": "Exports",
       "items": [
         {
           "discriminant": "page",
@@ -1072,12 +1067,8 @@
       ]
     },
     {
-      "name": "Rules & regulations",
+      "name": "Legal stuff",
       "items": [
-        {
-          "discriminant": "page",
-          "value": "using-a-screen-reader"
-        },
         {
           "discriminant": "page",
           "value": "gdpr-eu-compliance"
