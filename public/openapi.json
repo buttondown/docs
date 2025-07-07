@@ -6398,7 +6398,12 @@
           "requests",
           "mentions",
           "conversations",
-          "images"
+          "images",
+          "stripe_subscriptions",
+          "stripe_products",
+          "stripe_customers",
+          "stripe_prices",
+          "stripe_charges"
         ],
         "type": "string"
       },
@@ -9116,11 +9121,12 @@
       },
       "ExternalFeedAutomationStatus": {
         "title": "Status",
-        "description": "Represents the status of the automation, and whether or not it is active. Inactive automations will not be processed.",
+        "description": "Represents the status of the automation, and whether or not it is active. Inactive automations will not be processed. Deleted automations will not be processed.",
         "enum": [
           "active",
           "failing",
-          "inactive"
+          "inactive",
+          "deleted"
         ],
         "type": "string"
       },

@@ -135,6 +135,11 @@
       "name": "Failing",
       "description": "Buttondown cannot retrieve items from this feed. It will continue to attempt to do so until it gives up, at which point the automation will be set to `inactive`.",
       "variant": "error"
+    },
+    "deleted": {
+      "name": "Deleted",
+      "description": "The automation has been deleted.",
+      "variant": "error"
     }
   },
   "ExternalFeedAutomationCadence": {
@@ -477,6 +482,26 @@
     "images": {
       "variant": "info",
       "name": "Images"
+    },
+    "stripe_charges": {
+      "variant": "info",
+      "name": "Stripe Charges"
+    },
+    "stripe_customers": {
+      "variant": "info",
+      "name": "Stripe Customers"
+    },
+    "stripe_subscriptions": {
+      "variant": "info",
+      "name": "Stripe Subscriptions"
+    },
+    "stripe_products": {
+      "variant": "info",
+      "name": "Stripe Products"
+    },
+    "stripe_prices": {
+      "variant": "info",
+      "name": "Stripe Prices"
     }
   },
   "ExportStatus": {
