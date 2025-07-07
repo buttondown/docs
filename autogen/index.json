@@ -1188,15 +1188,16 @@
     ]
   },
   {
-    "title": "Roadmap",
-    "url": "roadmap",
+    "title": "Pricing",
+    "url": "billing",
     "section": "guides",
     "schema": null,
-    "description": "Information on Buttondown's roadmap",
+    "description": "Pricing information for Buttondown's paid plans.",
     "references": [
-      "buttondown-editor-mode",
-      "privacy-and-security",
-      "subscriber-referrals"
+      "paused-billing",
+      "perks",
+      "quickstart",
+      "sending-your-first-email-advanced"
     ]
   },
   {
@@ -1210,17 +1211,12 @@
     ]
   },
   {
-    "title": "Pricing",
-    "url": "billing",
+    "title": "Using a screen reader",
+    "url": "using-a-screen-reader",
     "section": "reference",
     "schema": null,
-    "description": "Pricing information for Buttondown's paid plans.",
-    "references": [
-      "paused-billing",
-      "perks",
-      "quickstart",
-      "sending-your-first-email-advanced"
-    ]
+    "description": null,
+    "references": []
   },
   {
     "title": "Privacy and security",
@@ -1905,19 +1901,19 @@
     "references": []
   },
   {
-    "title": "Why is my Google Workspace domain not SPF-aligned? ",
-    "url": "workspace-spf",
-    "section": "reference",
-    "schema": null,
-    "description": "Google Workspace alias domains may not have SPF alignment when also used for third-party providers, like Buttondown. In these cases, lack of SPF alignment is expected (for alias domains), and should not be a problem for deliverability. ",
-    "references": []
-  },
-  {
     "title": "Buttondown's pre-flight checks",
     "url": "preflight",
     "section": "reference",
     "schema": null,
     "description": "Details about all the checks Buttondown performs before sending your newsletter.",
+    "references": []
+  },
+  {
+    "title": "Why is my Google Workspace domain not SPF-aligned? ",
+    "url": "workspace-spf",
+    "section": "reference",
+    "schema": null,
+    "description": "Google Workspace alias domains may not have SPF alignment when also used for third-party providers, like Buttondown. In these cases, lack of SPF alignment is expected (for alias domains), and should not be a problem for deliverability. ",
     "references": []
   },
   {
@@ -2270,14 +2266,6 @@
     "references": [
       "pageviews-by-referrer"
     ]
-  },
-  {
-    "title": "Using a screen reader",
-    "url": "using-a-screen-reader",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
   },
   {
     "title": "GDPR and EU Compliance",
