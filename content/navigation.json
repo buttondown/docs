@@ -731,6 +731,10 @@
           "value": "subscriber-autonomy"
         },
         {
+          "discriminant": "page",
+          "value": "domains"
+        },
+        {
           "discriminant": "divider",
           "value": "FAQ"
         },

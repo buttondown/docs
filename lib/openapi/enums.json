@@ -1008,7 +1008,7 @@
     "churned": {
       "variant": "warning",
       "name": "Churned",
-      "description": "Subscribers which were previously premium subscribers, but have since churned but are not unsubscribed."
+      "description": "Subscribers which were previously premium subscribers, but have since churned but are not unsubscribed. These subscribers receive public emails as well as teasers."
     }
   },
   "AutomationActionType": {
