@@ -154,3 +154,12 @@ Here's more info on this:
 ### Why do we have three `tsconfig` files?
 
 The core tsconfig.json file contains an `incremental: true` flag which does not work in the context of tests or stand-alone files.
+
+## How do the IFrames work?
+
+You'll notice on pages like https://docs.buttondown.com/subscriber-autonomy and https://docs.buttondown.com/subscriber-cleanup we show _iframes_ of the actual app, rather than screenshots or videos. This [has many nice benefits](https://jmduke.com/posts/post/iframe-docs/).
+
+Architecturally, it's less magical than it looks. We point directly to `demo.buttondown.com` (which, being a demo site, is always logged in and has no sensitive data, thus solving lots of security and authentication concerns) and have built within the app itself a lightweight DSL for changing the app's state:
+
+| DSL | Description | Example |
+| emphasis | Highlights any DOM nodes with `data-emphasis-identifier` set to the value of the emphasis. | demo.buttondown.com/settings/basics?emphasis=name |
