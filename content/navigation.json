@@ -1111,6 +1111,10 @@
         },
         {
           "discriminant": "page",
+          "value": "buttondown-data"
+        },
+        {
+          "discriminant": "page",
           "value": "does-buttondown-offer-stipends"
         },
         {

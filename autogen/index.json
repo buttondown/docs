@@ -759,6 +759,7 @@
     "references": [
       "affiliate-program",
       "beehiiv",
+      "buttondown-data",
       "customizing-subscriber-list-view",
       "glossary-paywall",
       "paid-subscriptions",
@@ -1194,6 +1195,7 @@
     "schema": null,
     "description": "Pricing information for Buttondown's paid plans.",
     "references": [
+      "buttondown-data",
       "paused-billing",
       "perks",
       "quickstart",
@@ -1627,6 +1629,18 @@
     "references": [
       "tags",
       "template-variables-manage-subscription-url"
+    ]
+  },
+  {
+    "title": "Prohibited domains",
+    "url": "domains",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "domains",
+      "hosting-on-a-custom-domain",
+      "sending-from-dreamhost"
     ]
   },
   {
@@ -2335,6 +2349,14 @@
   {
     "title": "Subprocessors",
     "url": "subprocessors",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "What data does Buttondown store?",
+    "url": "buttondown-data",
     "section": "reference",
     "schema": null,
     "description": null,
