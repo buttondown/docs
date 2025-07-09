@@ -127,3 +127,147 @@ end
 puts response.body",
 }
 `;
+
+exports[`generateSnippetsWithSpecifiedBody generates consistent code snippets for a simple GET request with query params 1`] = `
+{
+  "curl": 
+"curl \\
+  "https://api.buttondown.com/v1/subscribers?referrer_url=https%3A%2F%2Fexample.com" \\
+  -H "Authorization: Token $BUTTONDOWN_API_KEY""
+,
+  "javascript": 
+"const url = new URL(\`https://api.buttondown.com/v1/subscribers\`);
+const params = {
+  "referrer_url": "https://example.com"
+};
+Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+const options = {
+  method: "GET",
+  headers: {
+    "Authorization": "Token $BUTTONDOWN_API_KEY"
+  },
+};
+
+fetch(url.toString(), options)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));"
+,
+  "python": 
+"import requests
+
+url = "https://api.buttondown.com/v1/subscribers"
+headers = {
+  "Authorization": "Token $BUTTONDOWN_API_KEY"
+}
+params = {
+  "referrer_url": "https://example.com"
+}
+
+response = requests.request("GET", url, headers=headers, params=params)
+print(response.text)"
+,
+  "ruby": 
+"require 'net/http'
+require 'json'
+
+uri = URI("https://api.buttondown.com/v1/subscribers")
+uri.query = URI.encode_www_form({
+  "referrer_url": "https://example.com"
+}) unless {
+  "referrer_url": "https://example.com"
+}.empty?
+
+request = Net::HTTP::Get.new(uri)
+request["Authorization"] = "Token $BUTTONDOWN_API_KEY"
+
+response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == "https") do |http|
+  http.request(request)
+end
+
+puts response.body"
+,
+}
+`;
+
+exports[`generateSnippetsWithSpecifiedBody generates consistent code snippets for a POST request with body and headers 1`] = `
+{
+  "curl": 
+"curl -X POST \\
+  "https://api.buttondown.com/v1/subscribers" \\
+  -H "Authorization: Token $BUTTONDOWN_API_KEY" -H "X-Buttondown-Collision-Behavior: overwrite" \\
+  -d '{
+    "email_address": "john@example.com",
+    "tags": [
+      "newsletter-1",
+      "newsletter-2"
+    ]
+  }'"
+,
+  "javascript": 
+"const url = new URL(\`https://api.buttondown.com/v1/subscribers\`);
+const options = {
+  method: "POST",
+  headers: {
+    "Authorization": "Token $BUTTONDOWN_API_KEY",
+    "X-Buttondown-Collision-Behavior": "overwrite"
+  },
+  body: JSON.stringify({
+    "email_address": "john@example.com",
+    "tags": [
+      "newsletter-1",
+      "newsletter-2"
+    ]
+  }),
+};
+
+fetch(url.toString(), options)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));"
+,
+  "python": 
+"import requests
+
+url = "https://api.buttondown.com/v1/subscribers"
+headers = {
+  "Authorization": "Token $BUTTONDOWN_API_KEY",
+  "X-Buttondown-Collision-Behavior": "overwrite"
+}
+data = {
+  "email_address": "john@example.com",
+  "tags": [
+    "newsletter-1",
+    "newsletter-2"
+  ]
+}
+
+response = requests.request("POST", url, headers=headers, json=data)
+print(response.text)"
+,
+  "ruby": 
+"require 'net/http'
+require 'json'
+
+uri = URI("https://api.buttondown.com/v1/subscribers")
+uri.query = URI.encode_www_form({}) unless {}.empty?
+
+request = Net::HTTP::Post.new(uri)
+request["Authorization"] = "Token $BUTTONDOWN_API_KEY"
+request["X-Buttondown-Collision-Behavior"] = "overwrite"
+request.body = {
+  "email_address": "john@example.com",
+  "tags": [
+    "newsletter-1",
+    "newsletter-2"
+  ]
+}
+
+response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == "https") do |http|
+  http.request(request)
+end
+
+puts response.body"
+,
+}
+`;
