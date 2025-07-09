@@ -106,6 +106,13 @@ code .diff.add {
 
 pre.mermaid {
   @apply m-0 bg-gray-100 border border-gray-200 rounded-md p-4 w-full flex items-center justify-center;
+
+  /* We intentionally hide the content because it's jarring to see the text. */
+  visibility: hidden;
+}
+
+pre.mermaid[data-processed] {
+  visibility: visible;
 }
 
 .clickable path,
