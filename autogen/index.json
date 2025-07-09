@@ -1221,7 +1221,7 @@
     "references": []
   },
   {
-    "title": "Privacy and security",
+    "title": "Protecting your account",
     "url": "privacy-and-security",
     "section": "reference",
     "schema": null,
@@ -2287,9 +2287,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "privacy-and-security"
-    ]
+    "references": []
   },
   {
     "title": "Support policy",
@@ -2586,8 +2584,7 @@
     "references": [
       "do-imported-subscribers-have-to-re-confirm-their-subscription",
       "fathom",
-      "gdpr-eu-compliance",
-      "privacy-and-security"
+      "gdpr-eu-compliance"
     ]
   },
   {
