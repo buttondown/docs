@@ -452,7 +452,8 @@
         "template": null,
         "attachments": [],
         "related_email_ids": [],
-        "featured": false
+        "featured": false,
+        "should_trigger_pay_per_email_billing": false
       }
     },
     {
@@ -484,7 +485,8 @@
         "template": null,
         "attachments": [],
         "related_email_ids": [],
-        "featured": false
+        "featured": false,
+        "should_trigger_pay_per_email_billing": false
       }
     },
     {
@@ -516,7 +518,8 @@
         "template": null,
         "attachments": [],
         "related_email_ids": [],
-        "featured": false
+        "featured": false,
+        "should_trigger_pay_per_email_billing": false
       }
     }
   ],

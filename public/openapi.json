@@ -7317,6 +7317,11 @@
             "title": "Featured",
             "description": "Designated whether or not this email should be highlighted within the archives. (Currently unused.)",
             "type": "boolean"
+          },
+          "should_trigger_pay_per_email_billing": {
+            "title": "Should Trigger Pay Per Email Billing",
+            "description": "Whether this email should trigger pay-per-email billing for paid subscribers. Use this to differentiate between free updates and premium newsletters.",
+            "type": "boolean"
           }
         },
         "required": [
@@ -7334,7 +7339,8 @@
           "absolute_url",
           "filters",
           "related_email_ids",
-          "featured"
+          "featured",
+          "should_trigger_pay_per_email_billing"
         ]
       },
       "EmailCreationErrorCode": {
@@ -7489,6 +7495,12 @@
           "featured": {
             "title": "Featured",
             "description": "Designated whether or not this email should be highlighted within the archives. (Currently unused.)",
+            "default": false,
+            "type": "boolean"
+          },
+          "should_trigger_pay_per_email_billing": {
+            "title": "Should Trigger Pay Per Email Billing",
+            "description": "Whether this email should trigger pay-per-email billing for paid subscribers. Use this to differentiate between free updates and premium newsletters.",
             "default": false,
             "type": "boolean"
           }
@@ -7675,6 +7687,11 @@
           "featured": {
             "title": "Featured",
             "description": "Designated whether or not this email should be highlighted within the archives. (Currently unused.)",
+            "type": "boolean"
+          },
+          "should_trigger_pay_per_email_billing": {
+            "title": "Should Trigger Pay Per Email Billing",
+            "description": "Whether this email should trigger pay-per-email billing for paid subscribers. Use this to differentiate between free updates and premium newsletters.",
             "type": "boolean"
           }
         }
