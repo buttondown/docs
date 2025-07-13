@@ -898,6 +898,11 @@
       "name": "Update status types",
       "description": "Update the status types for multiple surveys in bulk."
     },
+    "modify_stripe_subscriptions": {
+      "variant": "info",
+      "name": "Modify Stripe subscriptions",
+      "description": "Modify the Stripe subscriptions for multiple subscribers in bulk."
+    },
     "update_commenting_modes": {
       "variant": "info",
       "name": "Update commenting modes",
@@ -1221,6 +1226,11 @@
       "variant": "error",
       "name": "IP blocked",
       "description": "The subscriber's IP address is blocked."
+    },
+    "ip_undeliverable": {
+      "variant": "error",
+      "name": "IP undeliverable",
+      "description": "The subscriber's IP address is undeliverable."
     },
     "domain_blocked": {
       "variant": "error",

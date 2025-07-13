@@ -14,16 +14,18 @@ import {
 
 const THEME = "dark-plus";
 
+const HIGHLIGHTER = createHighlighter({
+  themes: [THEME],
+  langs: ["python", "json", "html", "ruby", "jinja", "markdown"],
+});
+
 export default async function Code({
   blocks,
 }: {
   blocks: HandwrittenBlock[] | SingletonLanguageBlockList;
 }) {
   const intermediateProcessedBlocks: IntermediateBlock[] = blocks;
-  const highlighter = await createHighlighter({
-    themes: [THEME],
-    langs: ["python", "json", "html", "ruby", "jinja", "markdown"],
-  });
+  const highlighter = await HIGHLIGHTER;
 
   for (const block of intermediateProcessedBlocks) {
     if (block.code.startsWith("public")) {

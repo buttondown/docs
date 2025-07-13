@@ -7965,6 +7965,7 @@
         "enum": [
           "email_blocked",
           "ip_blocked",
+          "ip_undeliverable",
           "out_of_storage",
           "disabled",
           "unreachable",
@@ -8991,7 +8992,8 @@
           "delete_survey_responses",
           "replay_events",
           "delete_comments",
-          "update_survey_statuses"
+          "update_survey_statuses",
+          "modify_stripe_subscriptions"
         ],
         "type": "string"
       },
