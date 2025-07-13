@@ -7,7 +7,8 @@ export default {
   ignoreDependencies: [
     "@tailwindcss/typography",
     "tailwindcss",
-    "eslint",
-    "eslint-config-next",
+    // Necessary for an undeclared peer dependency.
+    // https://github.com/ajv-validator/ajv-draft-04/issues/10
+    "ajv",
   ],
 };
