@@ -2174,6 +2174,20 @@
             },
             "required": false,
             "description": "If provided, only return subscribers with a risk score less than or equal to the given value."
+          },
+          {
+            "in": "query",
+            "name": "source",
+            "schema": {
+              "description": "If provided, only return subscribers with the given source(s).",
+              "example": "api",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/SubscriberSource"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given source(s)."
           }
         ],
         "responses": {
