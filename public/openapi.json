@@ -1832,7 +1832,7 @@
             "name": "price",
             "schema": {
               "title": "Price",
-              "description": "If provided, only return subscribers with the given price ID(s).",
+              "description": "If provided, only return subscribers who have at one point subscribed to the given price ID(s).",
               "example": "price_whatever",
               "type": "array",
               "items": {
@@ -1840,7 +1840,22 @@
               }
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given price ID(s)."
+            "description": "If provided, only return subscribers who have at one point subscribed to the given price ID(s)."
+          },
+          {
+            "in": "query",
+            "name": "current_price",
+            "schema": {
+              "title": "Current Price",
+              "description": "If provided, only return subscribers who are currently subscribed to the given price ID(s).",
+              "example": "price_whatever",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers who are currently subscribed to the given price ID(s)."
           },
           {
             "in": "query",
@@ -11398,6 +11413,9 @@
           "activation_clicked",
           "activation_delivered",
           "activation_opened",
+          "activation_reminder_clicked",
+          "activation_reminder_delivered",
+          "activation_reminder_opened",
           "bounced",
           "complained",
           "clicked",
