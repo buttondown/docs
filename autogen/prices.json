@@ -40,7 +40,8 @@
       "archives",
       "markdown",
       "firewall",
-      "integrations"
+      "integrations",
+      "subscriber_cleanup"
     ]
   },
   {
@@ -74,7 +75,8 @@
       "automations",
       "firewall",
       "integrations",
-      "custom_transactional_emails"
+      "custom_transactional_emails",
+      "subscriber_cleanup"
     ]
   },
   {
@@ -112,7 +114,8 @@
       "naked_mode",
       "firewall",
       "integrations",
-      "custom_transactional_emails"
+      "custom_transactional_emails",
+      "subscriber_cleanup"
     ]
   },
   {
@@ -150,7 +153,8 @@
       "naked_mode",
       "firewall",
       "integrations",
-      "custom_transactional_emails"
+      "custom_transactional_emails",
+      "subscriber_cleanup"
     ]
   },
   {
@@ -188,7 +192,8 @@
       "naked_mode",
       "firewall",
       "integrations",
-      "custom_transactional_emails"
+      "custom_transactional_emails",
+      "subscriber_cleanup"
     ]
   }
 ]
