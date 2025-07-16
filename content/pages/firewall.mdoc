@@ -19,7 +19,15 @@ Now imagine that you foist an _additional_ thousand subscribers onto that newsle
 ## How Buttondown's firewall works
 
 ```mermaid
-flowchart
+---
+config:
+  layout: elk
+  elk:
+    mergeEdges: true
+    nodePlacementStrategy: LINEAR_SEGMENTS
+---
+
+flowchart-elk
   request([Incoming request]) -->|"POST ip_address=X,email_address=Y"| payload
   score --> you[Your newsletter]
   you -->|"risk_score < THRESHOLD"| newsletter[Regular subscriber]
