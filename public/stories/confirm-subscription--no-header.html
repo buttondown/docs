@@ -9,6 +9,11 @@
                     sans-serif;
             }
 
+            body {
+                background-color: #ffffff;
+                color: #000000;
+            }
+
             p, li {
                 font-size: 15px;
                 line-height: 1.5;
@@ -82,6 +87,110 @@
                 margin-bottom: 32px;
                 margin-top: 32px;
                 border-top: 1px solid #eaeaea;
+            }
+
+            /* Dark mode support */
+            @media (prefers-color-scheme: dark) {
+                body {
+                    background-color: #1a1a1a !important;
+                    color: #e0e0e0 !important;
+                }
+
+                .email-title {
+                    color: #ffffff !important;
+                }
+
+                .email-subtitle {
+                    color: #718096 !important;
+                }
+
+                .transactional-email-footer {
+                    color: #718096 !important;
+                    border-top-color: #2d2d2d !important;
+                }
+
+                blockquote {
+                    color: #b0b0b0 !important;
+                    background-color: #2d2d2d !important;
+                }
+
+                hr {
+                    border-color: #2d2d2d !important;
+                }
+
+                p, li, td {
+                    color: #e0e0e0 !important;
+                }
+
+                a {
+                    opacity: 0.9;
+                }
+
+                .data-table {
+                    background-color: #2d2d2d !important;
+                }
+
+                .data-row {
+                    border-bottom-color: #3d3d3d !important;
+                }
+
+                .data-value {
+                    color: #9ca3af !important;
+                }
+
+                .cta-button {
+                    background-color: #6366F1 !important;
+                    box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(255, 255, 255, 0.06) !important;
+                }
+
+                .cta-button:hover {
+                    background-color: #7C7FF3 !important;
+                }
+            }
+
+            /* Dark mode class for email clients that support it */
+            [data-ogsc] body,
+            [data-ogsc] .email-title,
+            [data-ogsc] p,
+            [data-ogsc] li,
+            [data-ogsc] td {
+                background-color: #1a1a1a !important;
+                color: #e0e0e0 !important;
+            }
+
+            [data-ogsc] .email-subtitle,
+            [data-ogsc] .transactional-email-footer {
+                color: #718096 !important;
+            }
+
+            [data-ogsc] .transactional-email-footer {
+                border-top-color: #2d2d2d !important;
+            }
+
+            [data-ogsc] blockquote {
+                color: #b0b0b0 !important;
+                background-color: #2d2d2d !important;
+            }
+
+            [data-ogsc] hr {
+                border-color: #2d2d2d !important;
+            }
+
+            [data-ogsc] .data-table {
+                background-color: #2d2d2d !important;
+            }
+
+            [data-ogsc] .data-row {
+                border-bottom-color: #3d3d3d !important;
+            }
+
+            [data-ogsc] .data-value {
+                color: #9ca3af !important;
+            }
+
+            [data-ogsc] .cta-button {
+                background-color: #6366F1 !important;
+                box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(255, 255, 255, 0.06) !important;
             }
 
             
