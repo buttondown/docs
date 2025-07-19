@@ -716,6 +716,10 @@
         {
           "discriminant": "page",
           "value": "buttondown-editor-mode"
+        },
+        {
+          "discriminant": "page",
+          "value": "keyboard-shortcuts"
         }
       ]
     },
