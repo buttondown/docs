@@ -10140,6 +10140,10 @@
             "title": "Amount",
             "type": "integer"
           },
+          "suggested_amount": {
+            "title": "Suggested Amount",
+            "type": "integer"
+          },
           "currency": {
             "title": "Currency",
             "type": "string"
@@ -10285,6 +10289,10 @@
           },
           "amount": {
             "title": "Amount",
+            "type": "integer"
+          },
+          "suggested_amount": {
+            "title": "Suggested Amount",
             "type": "integer"
           },
           "currency": {
