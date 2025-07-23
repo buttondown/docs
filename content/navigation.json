@@ -38,7 +38,7 @@
         },
         {
           "discriminant": "page",
-          "value": "names"
+          "value": "subscriber-data"
         },
         {
           "discriminant": "page",

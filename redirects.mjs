@@ -437,7 +437,7 @@ const REDIRECTS = [
   {
     source: "/tutorials/names",
     permanent: false,
-    destination: "/names",
+    destination: "/subscriber-data",
   },
   {
     source: "/tutorials/scheduling-emails-via-the-api",
