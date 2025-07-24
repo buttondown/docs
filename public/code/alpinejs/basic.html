@@ -9,10 +9,15 @@
     ></script>
   </head>
   <body>
-    <form x-data="contactForm()" @submit.prevent="submit">
+    <form 
+      action="https://buttondown.com/api/emails/embed-subscribe/{username}" 
+      method="post"
+      x-data="contactForm()" 
+      @submit="handleSubmit"
+    >
       <label>
         <span>Email address</span>
-        <input type="email" name="email" x-model="data.email" />
+        <input type="email" name="email" x-model="email" required />
       </label>
       <button type="submit" x-text="buttonText" :disabled="loading">
         Subscribe
@@ -20,40 +25,14 @@
     </form>
 
     <script>
-      // replace this with your own unique endpoint URL
-      const BUTTONDOWN_ENDPOINT =
-        "https://buttondown.com/api/emails/embed-subscribe/{username}";
-
       function contactForm() {
         return {
-          data: {
-            email: "",
-            message: "",
-          },
-          buttonText: "Submit",
+          email: "",
+          buttonText: "Subscribe",
           loading: false,
-          submit() {
+          handleSubmit() {
             this.buttonText = "Submitting...";
             this.loading = true;
-            fetch(BUTTONDOWN_ENDPOINT, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-              },
-              body: JSON.stringify(this.data),
-            })
-              .then((response) => {
-                alert(response);
-              })
-              .catch((error) => {
-                alert(error);
-              })
-              .finally(() => {
-                this.data.message = "";
-                this.buttonText = "Submit";
-                this.loading = false;
-              });
           },
         };
       }
