@@ -345,6 +345,9 @@
 :root {
   --mobile-breakpoint: 720px;
 }
+.dark .widget {
+  background-color: #1f2937 !important;
+}
 #subscribe-form .widget,
 .subscribe-form .widget {
   background-color: #f3f4f6;
@@ -402,6 +405,10 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+#subscribe-form .button-container:empty,
+.subscribe-form .button-container:empty {
+  display: none;
 }
 @media (min-width: 720px) {
   #subscribe-form .button-container,
@@ -568,6 +575,11 @@
 .subscribe-form .disabled {
   cursor: not-allowed;
   opacity: 0.5;
+}
+.widget input.required {
+  outline-color: #dc2626 !important;
+  outline-width: 4px !important;
+  outline-style: solid !important;
 }
 :root {
   --featured-color: #fef9c3;
