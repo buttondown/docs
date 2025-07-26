@@ -599,6 +599,10 @@
         },
         {
           "discriminant": "page",
+          "value": "template-variables-email-is-premium"
+        },
+        {
+          "discriminant": "page",
           "value": "template-variables-email-subject"
         },
         {

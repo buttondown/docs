@@ -1,0 +1,14 @@
+---
+title: email.is_premium
+relatedPages:
+- template-variables
+- using-templating
+---
+
+{% playgroundEmbed
+   title="email.is_premium"
+   initialContent="{% if email.is_premium %}Thank you for being a premium subscriber!{% else %}Consider upgrading to premium!{% endif %}"
+   editorMode="plaintext"
+   /%}
+
+A boolean indicating whether the email is being sent to a premium subscriber.
