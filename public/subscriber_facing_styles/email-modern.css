@@ -67,6 +67,7 @@ blockquote p:last-child {
 }
 figure {
   margin: 0 auto;
+  text-align: center;
 }
 figcaption {
   font-size: 14px !important;

@@ -622,6 +622,10 @@
   -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 2px #0000000d;
 }
+#subscribe-form sniper-link[hidden] ~ [type="button"],
+.subscribe-form sniper-link[hidden] ~ [type="button"] {
+  grid-column: 1 / -1;
+}
 #subscribe-form [type="button"].pending,
 #subscribe-form [type="submit"].pending,
 .subscribe-form [type="button"].pending,
