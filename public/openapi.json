@@ -1006,12 +1006,12 @@
                     "-click_rate",
                     "open_rate",
                     "-open_rate",
-                    "page_views__lifetime",
-                    "-page_views__lifetime",
-                    "page_views__30",
-                    "-page_views__30",
-                    "page_views__7",
-                    "-page_views__7",
+                    "page_views_lifetime",
+                    "-page_views_lifetime",
+                    "page_views_30",
+                    "-page_views_30",
+                    "page_views_7",
+                    "-page_views_7",
                     "webmentions",
                     "-webmentions",
                     "subscriptions",
@@ -7153,18 +7153,18 @@
             "default": 0,
             "type": "integer"
           },
-          "page_views__lifetime": {
-            "title": "Page Views  Lifetime",
+          "page_views_lifetime": {
+            "title": "Page Views Lifetime",
             "default": 0,
             "type": "integer"
           },
-          "page_views__30": {
-            "title": "Page Views  30",
+          "page_views_30": {
+            "title": "Page Views 30",
             "default": 0,
             "type": "integer"
           },
-          "page_views__7": {
-            "title": "Page Views  7",
+          "page_views_7": {
+            "title": "Page Views 7",
             "default": 0,
             "type": "integer"
           },
