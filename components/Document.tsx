@@ -160,26 +160,6 @@ const Document = async ({ page }: Props) => (
       snippetSpacer: () => {
         return <br />;
       },
-      renderable: (props) => {
-        return (
-          <div className="not-prose">
-            <Code
-              blocks={[
-                {
-                  name: "Before",
-                  code: props.html,
-                  language: "html",
-                },
-                {
-                  name: "After",
-                  code: props.html,
-                  language: "html",
-                },
-              ]}
-            />
-          </div>
-        );
-      },
       preview: (props) => {
         return (
           <div className="border border-gray-200 text-center p-8 mt-4 bg-gray-100">
