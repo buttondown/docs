@@ -1957,6 +1957,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-changelog-2025-07-28"
+        },
+        {
+          "discriminant": "page",
           "value": "api-changelog-2025-07-13"
         },
         {

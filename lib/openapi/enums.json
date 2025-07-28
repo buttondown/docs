@@ -970,11 +970,6 @@
       "name": "Unsubscribed",
       "description": "Subscribers that have or have been unsubscribed from your newsletter."
     },
-    "spammy": {
-      "variant": "error",
-      "name": "Spammy",
-      "description": "Subscribers that have been deemed spammy by Buttondown's automated systems."
-    },
     "undeliverable": {
       "variant": "error",
       "name": "Undeliverable",
@@ -985,20 +980,10 @@
       "name": "Complained",
       "description": "Subscribers that have registered a complaint with their email provider. Buttondown will not try to send them any future emails; no action is required on your part."
     },
-    "malformed": {
-      "variant": "error",
-      "name": "Malformed",
-      "description": "Subscribers whose email appears to be invalid."
-    },
     "removed": {
       "variant": "error",
       "name": "Removed",
       "description": "Subscribers who have been explicitly removed by the newsletter (notably, this does not mean unsubscribers: use /v1/unsubscribers for that!)"
-    },
-    "disabled": {
-      "variant": "error",
-      "name": "Disabled",
-      "description": "Subscribers who have been disabled by the newsletter."
     },
     "disposable": {
       "variant": "warning",
@@ -1291,6 +1276,11 @@
       "variant": "error",
       "name": "SPF failed",
       "description": "SPF validation failed for the email."
+    },
+    "malformed": {
+      "variant": "error",
+      "name": "Malformed",
+      "description": "The subscriber's email is malformed."
     }
   }
 }

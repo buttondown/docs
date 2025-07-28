@@ -7954,13 +7954,10 @@
           "churned",
           "unactivated",
           "unsubscribed",
-          "malformed",
           "complained",
           "undeliverable",
-          "spammy",
           "removed",
           "trialed",
-          "disabled",
           "paused",
           "disposable",
           "blocked"
@@ -8024,6 +8021,7 @@
           "on_esp_denylist",
           "domain_blocked",
           "spf_failed",
+          "malformed",
           "other"
         ],
         "type": "string"

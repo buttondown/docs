@@ -1,0 +1,15 @@
+---
+title: "2025-07-28"
+navigationTitle: "2025-07-28"
+description: "Removed deprecated subscriber types"
+---
+
+We've simplified the [`SubscriberType` enum](/api-subscribers-type) by removing the following deprecated types:
+
+- `spammy` - Now consolidated into `undeliverable` with a specific `undeliverability_reason`
+- `malformed` - Now consolidated into `undeliverable` with `undeliverability_reason` of `malformed`
+- `disabled` - This type has been removed entirely
+
+This change streamlines subscriber management by using the existing `undeliverability_reason` field to provide more granular information about why a subscriber cannot receive emails, rather than having separate top-level types.
+
+If you were filtering subscribers by `subscriber_type=spammy`, you should now filter by `subscriber_type=undeliverable` instead. The specific reason for undeliverability can be determined by checking the `undeliverability_reason` field.
