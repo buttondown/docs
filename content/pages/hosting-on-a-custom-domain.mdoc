@@ -27,7 +27,7 @@ If you want to establish your newsletter as an independent entity, not simply a 
 
 The [hosting domain](/glossary-hosting-domain) should be a custom subdomain, such as `newsletter.janedoe.com`, and that the sending domain should be `domain.com`. The [sending domain](/glossary-sending-domain) should match the custom email you have set.
 
-After you change the hosting domain, the text box prompts you to change the `CNAME` record of the domain you'd like to use as your custom domain and provides you with a CNAME that ends with `herokudns.com` that you'll need to change with your [DNS](/glossary-dns) provider. Your DNS provider should have documentation on how to do this.
+After you change the hosting domain, the text box prompts you to change the `CNAME` record of the domain you'd like to use as your custom domain and provides you with a CNAME: `custom-domains.buttondown.com`.
 
 ## The difference between hosting domains and sending domains
 
@@ -59,3 +59,7 @@ graph TD
     example.com[example.com] -->|CNAME| custom-domains.buttondown.com
     custom-domains.buttondown.com -->|CNAME| buttondown.com
 ```
+
+## I've got an old CNAME record ending in `herokudns.com`
+
+If you've got an old CNAME record ending in `herokudns.com`, please change it to `custom-domains.buttondown.com`. We plan on deprecating your existing CNAME records in the next few months, though will reach out to you before we do so.
