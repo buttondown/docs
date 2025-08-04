@@ -435,6 +435,11 @@ const REDIRECTS = [
     destination: "/drafting-emails-via-the-api",
   },
   {
+    source: "/names",
+    permanent: false,
+    destination: "/subscriber-data",
+  },
+  {
     source: "/tutorials/names",
     permanent: false,
     destination: "/subscriber-data",
