@@ -1361,9 +1361,12 @@
             "name": "page",
             "schema": {
               "title": "Page",
+              "description": "The page number of the paginated response.",
+              "example": 1,
               "type": "integer"
             },
-            "required": false
+            "required": false,
+            "description": "The page number of the paginated response."
           },
           {
             "in": "query",
@@ -6509,11 +6512,17 @@
           },
           "completion_date": {
             "title": "Completion Date",
+            "description": "The date and time the export completed.",
             "type": "string",
             "format": "date-time"
           },
           "status": {
-            "$ref": "#/components/schemas/ExportStatus"
+            "description": "The status of the export.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ExportStatus"
+              }
+            ]
           }
         },
         "required": [
@@ -10678,16 +10687,16 @@
             ],
             "type": "string"
           },
+          "ip_address": {
+            "title": "Ip Address",
+            "type": "string"
+          },
           "request_data": {
             "title": "Request Data",
             "type": "string"
           },
           "response_data": {
             "title": "Response Data",
-            "type": "string"
-          },
-          "ip_address": {
-            "title": "Ip Address",
             "type": "string"
           }
         },
@@ -10699,9 +10708,9 @@
           "method",
           "source",
           "version",
+          "ip_address",
           "request_data",
-          "response_data",
-          "ip_address"
+          "response_data"
         ]
       },
       "APIRequest": {
@@ -10749,6 +10758,10 @@
               "2025-06-01"
             ],
             "type": "string"
+          },
+          "ip_address": {
+            "title": "Ip Address",
+            "type": "string"
           }
         },
         "required": [
@@ -10758,7 +10771,8 @@
           "path",
           "method",
           "source",
-          "version"
+          "version",
+          "ip_address"
         ]
       },
       "APIRequestList": {
@@ -11542,14 +11556,17 @@
           },
           "body": {
             "title": "Body",
+            "description": "The text content of the note.",
             "type": "string"
           },
           "model_type": {
             "title": "Model Type",
+            "description": "The type of object this note is attached to (e.g., 'email', 'subscriber').",
             "type": "string"
           },
           "model_id": {
             "title": "Model Id",
+            "description": "The ID of the object this note is attached to.",
             "type": "string"
           },
           "metadata": {
@@ -11596,7 +11613,7 @@
           },
           "metadata": {
             "title": "Metadata",
-            "description": "Arbitrary metadata as key-value pairs.",
+            "description": "A structured key-value blob that you can use to store arbitrary data on the object. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
             "type": "object"
           }
         },
