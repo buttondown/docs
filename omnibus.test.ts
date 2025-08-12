@@ -225,9 +225,24 @@ Object.entries(FILENAME_TO_INTERNAL_LINKS).forEach(
           isInternalURLValid(mungeInternalLinks(outboundPath)),
           `Internal link to "${outboundPath}" in "${filename}" does not exist.`
         ).toBeTruthy();
-      });
-    });
+  });
+});
 
+// Test that all CSS files in subscriber_facing_styles are not empty
+const SUBSCRIBER_FACING_STYLES_DIRECTORY = "public/subscriber_facing_styles";
+const CSS_FILES = fs
+  .readdirSync(SUBSCRIBER_FACING_STYLES_DIRECTORY)
+  .filter((filename) => filename.endsWith(".css"));
+
+CSS_FILES.forEach((filename) => {
+  test(`${filename} in subscriber_facing_styles is not empty`, () => {
+    const content = fs.readFileSync(
+      `${SUBSCRIBER_FACING_STYLES_DIRECTORY}/${filename}`,
+      "utf-8"
+    );
+    expect(content.trim().length).toBeGreaterThan(0);
+  });
+});
     // Make sure that all glossary terms (which begin with `/glossary-`) are linked to at least twice.
     const isGlossaryTerm = filename.startsWith("glossary-");
     if (
