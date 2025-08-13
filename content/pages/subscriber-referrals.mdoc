@@ -20,8 +20,10 @@ What this means is, at a high level:
 3. If someone signs up to your newsletter based on one of these sign-up links, a "referral" is created. This referral is exposed in all the usual places: exports, the API, and the analytics pages.
 
 ## Generating referral links
+First things first: before you generate a referral link you need to make sure this feature is enabled on your newsletter. To do this, go to [Settings → Basics](https://buttondown.com/settings/basics), and toggle on "Referrals".
 
-I'll skip to the most important part: "how do I give people the link they care about"?
+
+Now the important part: "How do I give people the link they care about"?
 
 This markdown snippet sums it up:
 
@@ -47,6 +49,9 @@ you'll get a free tote bag!
 In a bit more depth: every subscriber has a `referral_code` that is retrievable using Buttondown's template language. When this is passed to the above URL,
 your main subscribe page is displayed but with a notice that mentions that the given subscriber is referring them. If someone signs up to your newsletter from that link,
 it'll be marked that they were referred!
+
+{% noticeWarn text="Not seeing a referral code populate? Make sure this is enabled in [Settings → Basics](https://buttondown.com/settings/basics)" /%}
+
 
 ## Tracking referrals
 
