@@ -28,14 +28,12 @@ flowchart-elk
     premium --> churning[Churning]
     premium --> paused[Paused]
     regular --> unsubscribed[Unsubscribed]
-    regular --> spammy[Spammy]
     regular --> undeliverable[Undeliverable]
     regular --> complained[Complained]
     premium --> past_due[Past due]
     past_due --> churned
     past_due --> premium
-    churning --> churned[Churned]
-    regular --> disabled[Disabled]
+    churning --> churned[Churned] 
     paused --> premium
     churned --> premium
 
@@ -48,13 +46,6 @@ flowchart-elk
       past_due
       paused
       churned
-    end
-
-    subgraph terminal['']
-      complained
-      spammy
-      undeliverable
-      disabled
     end
 ```
 
@@ -73,16 +64,9 @@ config:
 
 flowchart-elk
     unactivated[Unactivated] --> regular[Regular]
-    unactivated --> unpaid[Unpaid]
     regular --> unsubscribed[Unsubscribed]
-    regular --> spammy[Spammy]
     regular --> undeliverable[Undeliverable]
     regular --> complained[Complained]
-
-    subgraph terminal['']
-      complained
-      spammy
-      undeliverable
-      disabled[Disabled]
-    end
 ```
+
+---
