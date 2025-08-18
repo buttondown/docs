@@ -72,7 +72,7 @@ const BrowserBar = ({ path }: { path: string }) => {
           `/${UUID_SENTINEL}`,
           ""
         )}`}
-        className="after:hidden! no-underline px-2 rounded-md hover:bg-gray-200 -mr-2 ml-2 block flex-0"
+        className="-mr-2 ml-2 block flex-0 rounded-md px-2 no-underline transition hover:bg-gray-200"
       >
         ↗
       </a>
@@ -163,10 +163,12 @@ const GmailBar = () => {
 
 export default function Iframe({
   src,
+  description,
   height,
   variant = "page",
 }: {
   src: string;
+  description?: string;
   height?: number;
   variant?: Variant;
 }) {
@@ -178,12 +180,19 @@ export default function Iframe({
         <div className={containerVariants({ variant })}>
           {variant !== "email" && <BrowserBar path={src} />}
           {variant === "email" && <GmailBar />}
-          <iframe
-            src={mungedSrc}
-            className="w-full aspect-video transition-all duration-300 rounded-b-none group-hover:rounded-b-lg pointer-events-none"
-            style={{ height: `${height ?? DEFAULT_HEIGHT}px` }}
-            title={src}
-          />
+
+          <div
+            role="img"
+            aria-label="Live demo preview"
+            aria-description={description}
+          >
+            <iframe
+              src={mungedSrc}
+              inert
+              className="aspect-video w-full rounded-b-none transition-all duration-300"
+              style={{ height: `${height ?? DEFAULT_HEIGHT}px` }}
+            />
+          </div>
         </div>
       </div>
       {(variant === "page" || variant === "subscriber") && (
