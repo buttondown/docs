@@ -985,11 +985,6 @@
       "name": "Removed",
       "description": "Subscribers who have been explicitly removed by the newsletter (notably, this does not mean unsubscribers: use /v1/unsubscribers for that!)"
     },
-    "disposable": {
-      "variant": "warning",
-      "name": "Disposable",
-      "description": "Subscribers who have been deemed disposable by Buttondown's automated systems."
-    },
     "past_due": {
       "variant": "error",
       "name": "Past due",
