@@ -1384,6 +1384,10 @@
         {
           "discriminant": "page",
           "value": "api-response-codes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-error-codes"
         }
       ]
     },

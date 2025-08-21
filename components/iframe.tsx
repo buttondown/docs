@@ -181,11 +181,7 @@ export default function Iframe({
           {variant !== "email" && <BrowserBar path={src} />}
           {variant === "email" && <GmailBar />}
 
-          <div
-            role="img"
-            aria-label="Live demo preview"
-            aria-description={description}
-          >
+          <div role="presentation" aria-label={description}>
             <iframe
               src={mungedSrc}
               inert

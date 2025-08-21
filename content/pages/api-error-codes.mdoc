@@ -1,0 +1,41 @@
+---
+title: API error codes
+navigationTitle: Error codes
+description: Complete reference for error codes returned by the Buttondown API, including causes and solutions.
+---
+
+When an API request fails, Buttondown returns a structured error response containing an error code and a human-readable message. This page provides a comprehensive reference for all error codes you might encounter. (Be sure to also check out the [status code](/api-response-codes) of the response!)
+
+## Error response format
+
+All API errors follow this consistent format:
+
+```json
+{
+  "code": "email_invalid",
+  "detail": "The email address provided is not valid.",
+  "metadata": {
+    "field": "email_address"
+  }
+}
+```
+## Finding endpoint-specific error codes
+
+Error codes specific to each API endpoint are now documented directly on the individual endpoint pages. When viewing an endpoint's documentation, you'll find a dedicated "Error codes" section that lists all possible error codes for that endpoint, along with their descriptions and how to fix them.
+
+For example:
+- [Creating subscribers](/api-subscribers-create#error-codes)
+- [Creating emails](/api-emails-create#error-codes)
+- [Listing subscribers](/api-subscribers-list#error-codes)
+
+This approach makes it easier to find the relevant error codes when working with a specific endpoint.
+
+## Handling errors
+
+### Best practices
+
+1. **Always check the HTTP status code first** - This gives you the general category of error
+2. **Parse the error code** - Use the specific error code for programmatic handling
+3. **Check metadata fields** - Additional context may be provided in the metadata object
+4. **Implement retry logic** - For 429 and 5xx errors, implement exponential backoff
+5. **Validate locally** - Reduce API errors by validating data before sending requests

@@ -11,7 +11,10 @@ import Layout from "@/components/layout";
 import keystaticConfig, { localBaseURL } from "@/keystatic.config";
 import { DESCRIPTION, TITLE } from "@/lib/constants";
 import { generateJSONLDMetadata } from "@/lib/jsonld";
-import OpenAPIEnums from "@/lib/openapi/enums.json";
+import {
+  default as ErrorCodeEnums,
+  default as OpenAPIEnums,
+} from "@/lib/openapi/enums.json";
 import type {
   Method,
   Object as OpenAPIObject,
@@ -76,6 +79,100 @@ const extractResponses = <Endpoint extends "/comments", Method extends "get">(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     fixture: extractSchemaFromContent((value as any).content),
   }));
+};
+
+const extractErrorCodes = <Endpoint extends "/comments", Method extends "get">(
+  endpoint: Endpoint,
+  method: Method
+) => {
+  const endpointData = OpenAPI.paths[endpoint];
+  const operation = endpointData[method];
+  const errorResponses: Array<{
+    status: string;
+    description: string;
+    errorCodes?: Array<{
+      code: string;
+      name: string;
+      description: string;
+    }>;
+  }> = [];
+
+  Object.entries(operation.responses).forEach(([status, response]) => {
+    // Only process error responses (4xx and 5xx)
+    if (parseInt(status) >= 400) {
+      // biome-ignore lint/suspicious/noExplicitAny: OpenAPI response type
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const responseAny = response as any;
+      const errorResponse: {
+        status: string;
+        description: string;
+        errorCodes?: Array<{
+          code: string;
+          name: string;
+          description: string;
+        }>;
+      } = {
+        status,
+        description: responseAny.description,
+      };
+
+      // Check if this response has error codes
+      if (responseAny.content?.["application/json"]?.schema?.$ref) {
+        const ref = responseAny.content["application/json"].schema.$ref;
+        // Extract the schema name from the ref
+        const schemaName = ref.split("/").pop();
+
+        // Check if this is an error message with error codes
+        if (
+          schemaName &&
+          schemaName.includes("ErrorMessage_") &&
+          schemaName.includes("ErrorCode")
+        ) {
+          // Get the error code enum name from the schema
+          // biome-ignore lint/suspicious/noExplicitAny: OpenAPI schema type
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const errorMessageSchema = (OpenAPI.components.schemas as any)[
+            schemaName
+          ];
+          if (errorMessageSchema?.properties?.code?.$ref) {
+            const errorCodeEnumRef = errorMessageSchema.properties.code.$ref;
+            const errorCodeEnumName = errorCodeEnumRef.split("/").pop();
+
+            // Get the actual error codes from the enum
+            // biome-ignore lint/suspicious/noExplicitAny: OpenAPI schema type
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const errorCodeEnum = (OpenAPI.components.schemas as any)[
+              errorCodeEnumName
+            ];
+            if (errorCodeEnum?.enum) {
+              errorResponse.errorCodes = errorCodeEnum.enum.map(
+                (code: string) => {
+                  // Get description from the enums.json file
+                  // biome-ignore lint/suspicious/noExplicitAny: Enum data type
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  const enumData = (ErrorCodeEnums as any)[errorCodeEnumName];
+                  const codeData = enumData?.[code];
+                  return {
+                    code,
+                    name:
+                      codeData?.name ||
+                      code
+                        .replace(/_/g, " ")
+                        .replace(/\b\w/g, (l) => l.toUpperCase()),
+                    description: codeData?.description || "",
+                  };
+                }
+              );
+            }
+          }
+        }
+      }
+
+      errorResponses.push(errorResponse);
+    }
+  });
+
+  return errorResponses;
 };
 
 export async function generateMetadata(props: Props) {
@@ -220,6 +317,57 @@ export default async function DocsPage(props: Props) {
             ))}
           </>
         )}
+
+        {(() => {
+          const errorResponses = extractErrorCodes(endpoint, method);
+          const responsesWithCodes = errorResponses.filter(
+            (r) => r.errorCodes && r.errorCodes.length > 0
+          );
+
+          if (responsesWithCodes.length > 0) {
+            return (
+              <>
+                <hr />
+                <h2 className="mb-1">Error codes</h2>
+                <p>
+                  This endpoint may return the following error codes. See the{" "}
+                  <Link href="/api-error-codes">error codes reference</Link> for
+                  more details about error handling.
+                </p>
+                {responsesWithCodes.map((response) => (
+                  <div key={response.status} className="mt-4">
+                    <table className="mt-2 w-full">
+                      <thead>
+                        <tr className="border-b">
+                          <th className="text-left py-2">Error Code</th>
+                          <th className="text-left py-2">Description</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {response.errorCodes
+                          ?.sort((a, b) => a.code.localeCompare(b.code))
+                          .map((errorCode) => (
+                            <tr key={errorCode.code} className="border-b">
+                              <td className="py-2">
+                                <code className="text-sm bg-gray-100 px-1 py-0.5 rounded">
+                                  {errorCode.code}
+                                </code>
+                              </td>
+                              <td className="py-2 text-sm">
+                                {errorCode.description ||
+                                  "No description available"}
+                              </td>
+                            </tr>
+                          ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ))}
+              </>
+            );
+          }
+          return null;
+        })()}
       </Layout>
     );
   }
