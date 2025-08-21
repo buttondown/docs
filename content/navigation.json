@@ -526,6 +526,10 @@
       "items": [
         {
           "discriminant": "page",
+          "value": "home"
+        },
+        {
+          "discriminant": "page",
           "value": "using-a-screen-reader"
         },
         {
