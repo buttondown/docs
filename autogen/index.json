@@ -51,7 +51,7 @@
     ]
   },
   {
-    "title": "Sending your first email",
+    "title": "Publishing your first email",
     "url": "sending-your-first-email",
     "section": "guides",
     "schema": null,
@@ -124,15 +124,15 @@
     ]
   },
   {
-    "title": "Collecting and using subscribers\u2019 names",
-    "url": "names",
+    "title": "Collecting and using subscribers' data",
+    "url": "subscriber-data",
     "section": "guides",
     "schema": null,
     "description": "Buttondown allows you to collect subscriber names, and create a more personalized email for your readers.",
     "references": [
       "duda",
       "importing-your-data",
-      "names"
+      "subscriber-data"
     ]
   },
   {
@@ -218,8 +218,8 @@
       "linktree",
       "metadata",
       "moosend",
-      "names",
       "sending-your-first-email",
+      "subscriber-data",
       "surveys",
       "using-templating"
     ]
@@ -470,7 +470,7 @@
     "references": []
   },
   {
-    "title": "Using Attachments in Buttondown",
+    "title": "Using attachments in Buttondown",
     "url": "using-attachments",
     "section": "guides",
     "schema": null,
@@ -486,8 +486,7 @@
     "schema": null,
     "description": "You can use the editor to easily add images to your Buttondown newsletter.",
     "references": [
-      "fancy-mode-images",
-      "sending-your-first-email"
+      "fancy-mode-images"
     ]
   },
   {
@@ -677,6 +676,7 @@
     "description": "Buttondown allows all newsletters to send from a custom domain. This helps you build a recognizable brand and improves deliverability.",
     "references": [
       "glossary-dns",
+      "glossary-sending-domain",
       "quickstart",
       "sending-from-dreamhost",
       "sending-your-first-email-advanced",
@@ -1213,6 +1213,17 @@
     ]
   },
   {
+    "title": "Home",
+    "url": "home",
+    "section": "reference",
+    "schema": null,
+    "description": "A detailed guide to the modules on Buttondown's new home page",
+    "references": [
+      "home",
+      "using-markdown-rendering"
+    ]
+  },
+  {
     "title": "Using a screen reader",
     "url": "using-a-screen-reader",
     "section": "reference",
@@ -1317,9 +1328,9 @@
     "references": [
       "arena",
       "linkedin",
-      "names",
       "sending-your-first-email",
       "subscriber-autonomy",
+      "subscriber-data",
       "template-variables",
       "transactional-emails",
       "using-templating"
@@ -1344,6 +1355,14 @@
     "references": [
       "template-variables"
     ]
+  },
+  {
+    "title": "email.is_premium",
+    "url": "template-variables-email-is-premium",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
   },
   {
     "title": "email.subject",
@@ -1610,6 +1629,14 @@
     "section": "reference",
     "schema": null,
     "description": null,
+    "references": []
+  },
+  {
+    "title": "Keyboard shortcuts",
+    "url": "keyboard-shortcuts",
+    "section": "reference",
+    "schema": null,
+    "description": "Keyboard shortcuts that work in the editor",
     "references": []
   },
   {
@@ -2099,12 +2126,21 @@
     "description": "Events and webhooks allow you to monitor and react to any changes with your newsletter.",
     "references": [
       "api-emails-status",
+      "creating-webhooks-dashboard",
       "data-exports-event",
       "discord",
       "duda",
       "glossary-webhook",
       "linktree"
     ]
+  },
+  {
+    "title": "Creating webhooks in the dashboard",
+    "url": "creating-webhooks-dashboard",
+    "section": "reference",
+    "schema": null,
+    "description": "Learn how to create and configure webhooks through the Buttondown dashboard to automate your newsletter workflows.",
+    "references": []
   },
   {
     "title": "Event types",
@@ -2442,7 +2478,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "building-your-subscriber-base"
+      "api-changelog-2025-03-31"
     ]
   },
   {
@@ -2538,7 +2574,6 @@
     "description": null,
     "references": [
       "glossary-reverse-dns",
-      "hosting-on-a-custom-domain",
       "sending-from-a-custom-domain"
     ]
   },
@@ -2988,6 +3023,16 @@
     "section": "api",
     "schema": null,
     "description": "Fundamentals of the response codes used in the Buttondown API.",
+    "references": [
+      "api-error-codes"
+    ]
+  },
+  {
+    "title": "API error codes",
+    "url": "api-error-codes",
+    "section": "api",
+    "schema": null,
+    "description": "Complete reference for error codes returned by the Buttondown API, including causes and solutions.",
     "references": []
   },
   {
@@ -3107,6 +3152,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "api-error-codes",
       "drafting-emails-via-the-api",
       "scheduling-emails-via-the-api"
     ]
@@ -3199,7 +3245,7 @@
       "api-changelog-2025-02-26",
       "glossary-rest",
       "metadata",
-      "names"
+      "subscriber-data"
     ]
   },
   {
@@ -3209,6 +3255,7 @@
     "schema": "SubscriberType",
     "description": null,
     "references": [
+      "api-changelog-2025-07-28",
       "api-subscribers-create",
       "automation-filters",
       "customizing-subscriber-list-view",
@@ -3223,7 +3270,9 @@
     "section": "Reference",
     "schema": "SubscriberSource",
     "description": null,
-    "references": []
+    "references": [
+      "api-changelog-2025-07-13"
+    ]
   },
   {
     "title": "Subscriber undeliverability reasons",
@@ -3246,6 +3295,7 @@
       "api-changelog-2024-12-05",
       "api-changelog-2025-02-26",
       "api-changelog-2025-04-14",
+      "api-error-codes",
       "api-filtering"
     ]
   },
@@ -3266,6 +3316,7 @@
     "references": [
       "api-changelog-2024-12-11",
       "api-changelog-2025-03-31",
+      "api-error-codes",
       "api-formatting",
       "api-rate-limits"
     ]
@@ -3651,7 +3702,8 @@
     "schema": "Webhook",
     "description": null,
     "references": [
-      "api-changelog-2023-08-21"
+      "api-changelog-2023-08-21",
+      "creating-webhooks-dashboard"
     ]
   },
   {
@@ -3663,6 +3715,7 @@
     "references": [
       "arena",
       "bsky",
+      "creating-webhooks-dashboard",
       "linkedin",
       "plausible",
       "tumblr",
@@ -3949,6 +4002,26 @@
       "api-changelog",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2025-07-28",
+    "url": "api-changelog-2025-07-28",
+    "section": "api",
+    "schema": null,
+    "description": "Removed deprecated subscriber types",
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2025-07-13",
+    "url": "api-changelog-2025-07-13",
+    "section": "api",
+    "schema": null,
+    "description": "Added source filtering to /v1/subscribers",
+    "references": [
+      "api-changelog"
     ]
   },
   {

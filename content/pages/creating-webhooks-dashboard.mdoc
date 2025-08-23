@@ -1,0 +1,81 @@
+---
+title: Creating webhooks in the dashboard
+navigationTitle: Creating webhooks
+description: >-
+  Learn how to create and configure webhooks through the Buttondown dashboard to automate your newsletter workflows.
+---
+
+Webhooks allow you to automatically send data from Buttondown to other applications when specific events occur in your newsletter. This guide walks you through creating webhooks using the Buttondown dashboard.
+
+## Creating a webhook
+
+### Step 1: Navigate to integrations
+
+{% iframe src="https://demo.buttondown.com/settings/basics?emphasis=webhooks" /%}
+
+1. Log into your Buttondown account
+2. Go to **Settings**
+3. Click the **Create webhook** button:
+
+### Step 2: Configure webhook settings
+
+{% iframe src="https://demo.buttondown.com/webhooks/new" height=700 /%}
+
+You'll need to provide the following information:
+
+#### Webhook URL
+
+Enter the URL where Buttondown should send event data. This URL is typically provided by:
+- Third-party services (Discord, Slack, etc.)
+- Automation platforms (Zapier, Make, n8n)
+- Your own application endpoint
+
+#### Events to trigger
+
+Select which events should trigger your webhook. [Common event types](/api-webhooks-event-types) include:
+
+| Event Type                | Description                                      |
+|---------------------------|--------------------------------------------------|
+| **subscriber.created**    | When someone subscribes to your newsletter       |
+| **subscriber.confirmed**  | When a subscriber confirms their email           |
+| **subscriber.unsubscribed** | When someone unsubscribes                      |
+| **email.sent**            | When you send a newsletter                       |
+| **email.delivered**       | When an email is successfully delivered          |
+| **comment.created**       | When someone comments on your newsletter         |
+
+You can select multiple events for a single webhook.
+
+### Step 3: Test your webhook
+
+Once you've configured your webhook, it's recommended to test it:
+
+1. Click the **Test webhook** button
+2. Buttondown will send a test payload to your URL
+3. Verify that your receiving service gets the test data
+
+## Webhook payload format
+
+Buttondown sends webhook data in JSON format. Here's an example payload:
+
+```json
+{
+  "event_type": "subscriber.created",
+  "data": {
+    "subscriber": {
+      "id": "ac79483b-cd28-49c1-982e-8a88e846d7e7",
+      "email": "example@email.com",
+      "created_at": "2024-01-15T10:30:00Z",
+      "metadata": {},
+      "tags": ["newsletter"]
+    }
+  },
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "timestamp": "2024-01-15T10:30:00Z"
+}
+```
+
+## Keep learning
+
+- [Events and webhooks introduction](/events-and-webhooks-introduction)
+- [Webhook event types](/api-webhooks-event-types)
+- [API webhook endpoints](/api-webhooks-introduction)

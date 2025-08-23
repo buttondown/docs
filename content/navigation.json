@@ -983,6 +983,10 @@
         },
         {
           "discriminant": "page",
+          "value": "creating-webhooks-dashboard"
+        },
+        {
+          "discriminant": "page",
           "value": "event-types"
         }
       ]
