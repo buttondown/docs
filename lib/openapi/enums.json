@@ -1250,7 +1250,7 @@
     "rate_limited": {
       "variant": "error",
       "name": "Rate limited",
-      "description": "Delivery to the subscriber's email was rate limited."
+      "description": "The email provider, i.e. Gmail, acknowledges the message, but is temporarily refusing to send the message due to overall volume coming from the sender. Sender can mean a number of different things. For instance, it can mean that your specific newsletter is sending a high amount of volume. It can mean your domain is sending a high amount of volume. Or, in rare cases, it can mean that Buttondown itself as an overall system is sending too much volume. You do not need to change or retry any errors you see due to rate limiting. Buttondown will automatically handle that. However, if you see this error come up often, consider more regularly sending your email at a specific cadence, i.e. weekly."
     },
     "spam": {
       "variant": "error",

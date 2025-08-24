@@ -45,10 +45,9 @@ async function pageFromSlug(slug: string) {
             if (!s) {
               return null;
             }
-            const subpage = await reader.collections.pages.read(s);
             return {
               slug: s,
-              title: subpage?.title,
+              title: (await reader.collections.pages.read(s))?.title,
             };
           })
         );
@@ -65,6 +64,16 @@ async function pageFromSlug(slug: string) {
     }>,
   };
 }
+
+type ErrorResponse = {
+  status: string;
+  description: string;
+  errorCodes?: Array<{
+    code: string;
+    name: string;
+    description: string;
+  }>;
+};
 
 const extractResponses = <Endpoint extends "/comments", Method extends "get">(
   endpoint: Endpoint,
@@ -87,31 +96,17 @@ const extractErrorCodes = <Endpoint extends "/comments", Method extends "get">(
 ) => {
   const endpointData = OpenAPI.paths[endpoint];
   const operation = endpointData[method];
-  const errorResponses: Array<{
-    status: string;
-    description: string;
-    errorCodes?: Array<{
-      code: string;
-      name: string;
-      description: string;
-    }>;
-  }> = [];
+  const errorResponses: Array<ErrorResponse> = [];
 
-  Object.entries(operation.responses).forEach(([status, response]) => {
-    // Only process error responses (4xx and 5xx)
-    if (parseInt(status) >= 400) {
+  Object.entries(operation.responses)
+    .filter(([status]) => {
+      return parseInt(status) >= 400;
+    })
+    .forEach(([status, response]) => {
       // biome-ignore lint/suspicious/noExplicitAny: OpenAPI response type
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const responseAny = response as any;
-      const errorResponse: {
-        status: string;
-        description: string;
-        errorCodes?: Array<{
-          code: string;
-          name: string;
-          description: string;
-        }>;
-      } = {
+      const errorResponse: ErrorResponse = {
         status,
         description: responseAny.description,
       };
@@ -169,16 +164,13 @@ const extractErrorCodes = <Endpoint extends "/comments", Method extends "get">(
       }
 
       errorResponses.push(errorResponse);
-    }
-  });
+    });
 
   return errorResponses;
 };
 
 export async function generateMetadata(props: Props) {
-  const params = await props.params;
-
-  const { slug } = params;
+  const { slug } = await props.params;
 
   const page = await pageFromSlug(slug);
 

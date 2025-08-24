@@ -820,8 +820,15 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "string"
+                }
+              ]
             },
             "required": true
           }
@@ -6926,8 +6933,15 @@
         "properties": {
           "id": {
             "title": "Id",
-            "type": "string",
-            "format": "uuid"
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "string"
+              }
+            ]
           },
           "creation_date": {
             "title": "Creation Date",
@@ -7340,8 +7354,15 @@
             "description": "A list of attachment IDs present on the email. (See [Attachments](https://docs.buttondown.com/api-attachments-introduction) for more information.)",
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "uuid"
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "string"
+                }
+              ]
             }
           },
           "related_email_ids": {
@@ -7433,8 +7454,15 @@
             "default": [],
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "uuid"
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "string"
+                }
+              ]
             }
           },
           "publish_date": {
@@ -7620,8 +7648,15 @@
             "description": "A list of attachment IDs present on the email. (See [Attachments](https://docs.buttondown.com/api-attachments-introduction) for more information.)",
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "uuid"
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "string"
+                }
+              ]
             }
           },
           "publish_date": {
@@ -7968,7 +8003,6 @@
           "removed",
           "trialed",
           "paused",
-          "disposable",
           "blocked"
         ],
         "type": "string"
