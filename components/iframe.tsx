@@ -10,7 +10,7 @@ const EXTERNAL_DOMAIN =
 const DEFAULT_HEIGHT = 300;
 
 const iframeVariants = cva(
-  "relative p-8 -mx-8 bg-gray-100 pb-0 rounded-lg border border-gray-200",
+  "relative p-8 -mx-8 bg-gray-100 pb-0 rounded-lg border border-gray-200 dark:border-white/10 dark:bg-zinc-700",
   {
     variants: {
       variant: {
@@ -26,12 +26,12 @@ const iframeVariants = cva(
 );
 
 const containerVariants = cva(
-  "rounded-t-lg m-0 border border-gray-300 h-full flex flex-col border-b-0",
+  "rounded-t-lg m-0 border border-gray-300 h-full flex flex-col border-b-0 dark:border-white/10",
   {
     variants: {
       variant: {
         page: "rounded-b-none shadow-no-bottom-md",
-        email: "rounded-b-none bg-white",
+        email: "rounded-b-none bg-white dark:bg-zinc-700",
         subscriber: "rounded-b-none shadow-no-bottom-md",
       },
     },
@@ -53,14 +53,14 @@ const BrowserBar = ({ path }: { path: string }) => {
   const mungedPath = new URL(path).pathname.replace(UUID_REGEX, UUID_SENTINEL);
 
   return (
-    <div className="rounded-t-lg bg-gray-200 px-4 py-1 flex items-center border-b border-gray-300 relative max-w-full">
+    <div className="rounded-t-lg bg-gray-200 dark:bg-zinc-800 px-4 py-1 flex items-center border-b border-gray-300 dark:border-white/10 relative max-w-full">
       <div className="flex gap-2">
         <div className="w-3 h-3 rounded-full bg-red-500" />
         <div className="w-3 h-3 rounded-full bg-yellow-500" />
         <div className="w-3 h-3 rounded-full bg-green-500" />
       </div>
       <div className="flex-1 flex items-center justify-center ml-4 max-w-full">
-        <div className="bg-white px-4 py-1 w-full rounded-full text-xs my-0.5 border text-center border-gray-300 text-gray-600 flex justify-center items-center gap-2  truncate overflow-x-clip break-words">
+        <div className="bg-white dark:bg-zinc-700 px-4 py-1 w-full rounded-full text-xs my-0.5 border text-center border-gray-300 dark:border-white/10 text-gray-600 dark:text-white flex justify-center items-center gap-2  truncate overflow-x-clip break-words">
           <div className="truncate break-words">
             {EXTERNAL_DOMAIN}
             {mungedPath}
@@ -72,7 +72,7 @@ const BrowserBar = ({ path }: { path: string }) => {
           `/${UUID_SENTINEL}`,
           ""
         )}`}
-        className="-mr-2 ml-2 block flex-0 rounded-md px-2 no-underline transition hover:bg-gray-200"
+        className="-mr-2 ml-2 block flex-0 rounded-md px-2 no-underline transition hover:bg-gray-200 dark:hover:bg-zinc-500 dark:text-white"
       >
         ↗
       </a>
@@ -82,7 +82,7 @@ const BrowserBar = ({ path }: { path: string }) => {
 
 const GmailBar = () => {
   return (
-    <div className="w-full flex flex-wrap gap-0.5 justify-between items-center flex-none pointer-events-none user-select-none px-4  border-b border-gray-300">
+    <div className="w-full flex flex-wrap gap-0.5 justify-between items-center flex-none pointer-events-none user-select-none px-4 border-b border-gray-300 dark:border-white/10 dark:bg-zinc-800 rounded-t-lg">
       <div className="flex flex-wrap gap-0.5 justify-start items-center">
         <svg
           width="80px"

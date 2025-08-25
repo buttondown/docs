@@ -1,0 +1,106 @@
+---
+title: Creating template emails via the API
+relatedPages: []
+---
+{% paidFeature feature="api" /%}
+
+Want to send routine emails to your audience? Buttondown’s API paired with a Markdown-formatted template document and text replacement scripts let you send variable-filled, realtime emails via Buttondown.
+
+One thing before we get going: It’s always a good idea to have our [API reference doc](https://docs.buttondown.com/drafting-emails-via-the-api) on hand in case you need it!
+
+## Creating an email template document
+
+First things first: Write up an email template in plain text with [Markdown](https://buttondown.com/features/markdown) formatting. Everything else is up to you.
+
+We recommend adding your email subject on the first line, with your email body after a linebreak. We also recommend adding variables preceded with a dollar sign, like `$this`, to easily find and replace them later.
+
+Here’s a very simple example template email:
+
+```markdown
+# Hello, world.
+
+Hi,
+
+Have a happy $day!
+
+Until next time,
+$company
+
+```
+
+Or, here’s a much more useful email template: A community email to share the top three Slack threads of the week, from our [variable-driven email newsletters](http://buttondown.com/blog/api-powered-email-newsletter) guide:
+
+```markdown
+# This week in The Community
+
+Happy Friday!
+
+Didn't have time to jump into our Slack group this week? Here are the top discussions you missed out on:
+
+
+## @$THREAD_1_USERNAME: [$THREAD_1_TEXT]($THREAD_1_LINK)
+$THREAD_1_DATE_TIME
+
+- $THREAD_1_TOP_REPLY_1
+- $THREAD_1_TOP_REPLY_2
+- $THREAD_1_TOP_REPLY_3
+
+---
+
+## @$THREAD_2_USERNAME: [$THREAD_2_TEXT]($THREAD_2_LINK)
+$THREAD_2_DATE_TIME
+
+- $THREAD_2_TOP_REPLY_1
+- $THREAD_2_TOP_REPLY_2
+- $THREAD_2_TOP_REPLY_3
+
+---
+
+## @$THREAD_3_USERNAME: [$THREAD_3_TEXT]($THREAD_3_LINK)
+$THREAD_3_DATE_TIME
+
+- $THREAD_3_TOP_REPLY_1
+- $THREAD_3_TOP_REPLY_2
+- $THREAD_3_TOP_REPLY_3
+
+---
+
+Don't forget to join in the [our community Slack discussions]($WORKSPACE_URL).
+
+Until next week,
+The Community Team
+```
+
+## Drafting a Buttondown email from a template
+
+Then, in Terminal, fetch your template file, replace the variables with your up-to-date text, and send it to Buttondown as a draft.
+
+Here’s the code to send that first template email—with code to extract your subject, remove the leading H1 hash, and replace any variables with the correct text:
+
+```bash 
+EMAIL="file_name.txt"
+API_TOKEN="BUTTONDOWN_API_KEY"
+
+export day="Thursday"
+export company="Acme Corp"
+
+content=$(cat "$EMAIL")
+content=$(echo "$content" | envsubst)
+
+subject=$(echo "$content" | grep -m 1 '^# ' | sed 's/^# //')
+body=$(echo "$content" | sed -n '/^# /,$p' | tail -n +2)
+
+curl -X POST \
+  "https://api.buttondown.com/v1/emails" \
+  -H "Authorization: Token $API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "$(jq -n --arg subject "$subject" --arg body "$body" '{subject: $subject, body: $body, status: "draft"}')"
+```
+
+For a more advanced example, check [this Gist](https://gist.github.com/maguay/9d83d1ef714cb6f828c29b3e255a5e15) for the full code to fetch a Slack channel’s most popular threads, merge them with the Slack template above, then turn them into a Buttondown draft.
+
+## Editing, scheduling, and sending your draft
+
+Ready to edit your template email, preview it, and send it to your followers? Check our [Drafting emails via the API](https://docs.buttondown.com/drafting-emails-via-the-api) recipe for everything you need—then check the [Scheduling emails via the API](https://docs.buttondown.com/scheduling-emails-via-the-api) to queue your email up automatically if you’re confident sending it directly from a template.
+
+{% supportSnippet /%}

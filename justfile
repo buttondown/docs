@@ -33,4 +33,4 @@ dev:
     bun dev
 
 test:
-    bun test
+    bun test --help

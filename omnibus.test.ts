@@ -52,6 +52,9 @@ const VALID_APPLICATION_ROUTES = [
   "cryptography-dispatches",
   "occasional-puzzles?tag=utm_source:buttondown_website",
   "<yourusername>/referral/{{ subscriber.referral_code }}",
+
+  // Weird edge cases.
+  "features/markdown",
 ];
 
 // Glossary pages that are linked less than 2x in the docs.
@@ -185,15 +188,19 @@ Object.entries(FILENAME_TO_APPLICATION_LINKS).forEach(([filename, routes]) => {
   test(filename + " only has valid application routes", () => {
     routes.forEach((route) => {
       expect(VALID_APPLICATION_ROUTES).toContain(
-        route
-          .replace("https://buttondown.com/", "")
-          .replace("https://buttondown.com/", "")
+        route.replace("https://buttondown.com/", "")
       );
     });
   });
 });
 
-const VALID_INTERNAL_LINKS_THAT_ARE_NOT_BACKED_BY_MDOC = ["/rss/api-changelog"];
+const VALID_INTERNAL_LINKS_THAT_ARE_NOT_BACKED_BY_MDOC = [
+  "/rss/api-changelog",
+  "$THREAD_1_LINK",
+  "$THREAD_2_LINK",
+  "$THREAD_3_LINK",
+  "$WORKSPACE_URL",
+];
 
 const isInternalURLValid = (url: string) => {
   return (
@@ -219,30 +226,36 @@ test("All redirect destinations are valid", () => {
 // Make sure all mdoc files with internal links are valid.
 Object.entries(FILENAME_TO_INTERNAL_LINKS).forEach(
   ([filename, internalLinks]) => {
+    test("Doc page has valid filename", () => {
+      expect(filename.endsWith(".mdoc")).toBeTruthy();
+      expect(filename.toLowerCase()).toBe(filename);
+    });
+
     test("Check internal links in " + filename, () => {
       internalLinks.forEach((outboundPath) => {
         expect(
           isInternalURLValid(mungeInternalLinks(outboundPath)),
           `Internal link to "${outboundPath}" in "${filename}" does not exist.`
         ).toBeTruthy();
-  });
-});
+      });
+    });
 
-// Test that all CSS files in subscriber_facing_styles are not empty
-const SUBSCRIBER_FACING_STYLES_DIRECTORY = "public/subscriber_facing_styles";
-const CSS_FILES = fs
-  .readdirSync(SUBSCRIBER_FACING_STYLES_DIRECTORY)
-  .filter((filename) => filename.endsWith(".css"));
+    // Test that all CSS files in subscriber_facing_styles are not empty
+    const SUBSCRIBER_FACING_STYLES_DIRECTORY =
+      "public/subscriber_facing_styles";
+    const CSS_FILES = fs
+      .readdirSync(SUBSCRIBER_FACING_STYLES_DIRECTORY)
+      .filter((filename) => filename.endsWith(".css"));
 
-CSS_FILES.forEach((filename) => {
-  test(`${filename} in subscriber_facing_styles is not empty`, () => {
-    const content = fs.readFileSync(
-      `${SUBSCRIBER_FACING_STYLES_DIRECTORY}/${filename}`,
-      "utf-8"
-    );
-    expect(content.trim().length).toBeGreaterThan(0);
-  });
-});
+    CSS_FILES.forEach((filename) => {
+      test(`${filename} in subscriber_facing_styles is not empty`, () => {
+        const content = fs.readFileSync(
+          `${SUBSCRIBER_FACING_STYLES_DIRECTORY}/${filename}`,
+          "utf-8"
+        );
+        expect(content.trim().length).toBeGreaterThan(0);
+      });
+    });
     // Make sure that all glossary terms (which begin with `/glossary-`) are linked to at least twice.
     const isGlossaryTerm = filename.startsWith("glossary-");
     if (

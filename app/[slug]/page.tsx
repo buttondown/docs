@@ -179,13 +179,14 @@ export async function generateMetadata(props: Props) {
   return {
     title: `${page.title} | ${TITLE}`,
     description: pageDescription,
+    metadataBase: new URL("https://docs.buttondown.com"),
     alternates: {
-      canonical: `https://docs.buttondown.com/${slug}`,
+      canonical: `/${slug}`,
     },
     openGraph: {
       title: `${page.title} | ${TITLE}`,
       description: pageDescription,
-      url: `https://docs.buttondown.com/${slug}`,
+      url: `/${slug}`,
       type: "website",
       locale: "en_US",
       siteName: TITLE,

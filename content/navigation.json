@@ -1412,6 +1412,10 @@
         },
         {
           "discriminant": "page",
+          "value": "creating-template-emails-via-api"
+        },
+        {
+          "discriminant": "page",
           "value": "scheduling-emails-via-the-api"
         },
         {
