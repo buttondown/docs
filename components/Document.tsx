@@ -177,7 +177,12 @@ const Document = async ({ page }: Props) => (
         );
       },
       iframe: (props) => (
-        <Iframe src={props.src} height={props.height} variant={props.variant} />
+        <Iframe
+          src={props.src}
+          height={props.height}
+          variant={props.variant}
+          width={props.width}
+        />
       ),
       video: (props) => <Video src={props.file} />,
       liveCodeBlock: (props) => <LiveCodeBlock path={props.filename} />,

@@ -18,6 +18,10 @@ const iframeVariants = cva(
         subscriber: "mt-0",
         email: "",
       },
+      width: {
+        normal: "",
+        wide: "lg:!-mx-48",
+      },
     },
     defaultVariants: {
       variant: "page",
@@ -166,17 +170,19 @@ export default function Iframe({
   description,
   height,
   variant = "page",
+  width = "normal",
 }: {
   src: string;
   description?: string;
   height?: number;
+  width?: "normal" | "wide";
   variant?: Variant;
 }) {
   const mungedSrc = src.replace("demo.buttondown.com", EXTERNAL_DOMAIN);
 
   return (
     <div>
-      <div className={iframeVariants({ variant })}>
+      <div className={iframeVariants({ variant, width })}>
         <div className={containerVariants({ variant })}>
           {variant !== "email" && <BrowserBar path={src} />}
           {variant === "email" && <GmailBar />}
