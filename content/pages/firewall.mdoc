@@ -55,3 +55,17 @@ As a newsletter owner, you are given two knobs to tune the firewall and how it i
 
 - _The threshold_: This is the point at which we block a subscriber. 
 - _By default_, we do not surface blocked subscribers to your newsletter. If you prefer, you can opt to surface them in the subscriber dashboard with a special type of "Blocked". 
+
+
+## Risk scores
+
+Buttondown's firewall ultimately buckets the spectrum of all risk scores into four buckets:
+
+| Range | Label      | Description                                                            |
+|------------------|------------|------------------------------------------------------------------------|
+| < -0.5            | Very safe  | Subscriber is highly likely to be legitimate.                          |
+| -0.5 — 0.5          | Safe       | Subscriber appears normal, with no suspicious signals.                 |
+| 0.5 — 1          | Risky      | Some suspicious signals detected; may be a bot or spam.                |
+| ≥ 1              | Very&nbsp;risky | Strong indicators of spam or malicious activity.                       |
+
+Setting a firewall mode of "aggressive" will proactively block _risky_ and _very risky_ subscribers; a firewall mode of "enabled" only blocks _very risky_ subscribers.
