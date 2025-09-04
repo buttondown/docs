@@ -83,7 +83,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "color",
         "question": "What's your favorite color?",
-        "response_count": 0,
+        "response_count": 11,
         "answers": [
           "Red",
           "Green",
@@ -102,7 +102,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "feedback",
         "question": "How can we improve?",
-        "response_count": 0,
+        "response_count": 11,
         "answers": [
           "More content",
           "Better content",
@@ -125,6 +125,8 @@
         "subscriber_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
         "parent_id": null,
         "text": "This is a test comment",
+        "comment_type": "subscriber",
+        "annotation_data": {},
         "subscriber": null,
         "email": null
       }
@@ -433,6 +435,7 @@
         "subject": "Welcome to the newsletter",
         "body": "I hope you really enjoy it!",
         "status": "sent",
+        "suppression_reason": null,
         "slug": "welcome-to-the-newsletter",
         "canonical_url": "",
         "email_type": "public",
@@ -466,6 +469,7 @@
         "subject": "Welcome to the newsletter",
         "body": "I hope you really enjoy it!",
         "status": "draft",
+        "suppression_reason": null,
         "slug": "welcome-to-the-newsletter",
         "canonical_url": "",
         "email_type": "public",
@@ -499,6 +503,7 @@
         "subject": "Welcome to the newsletter",
         "body": "I hope you really enjoy it!",
         "status": "scheduled",
+        "suppression_reason": null,
         "slug": "welcome-to-the-newsletter",
         "canonical_url": "",
         "email_type": "public",
