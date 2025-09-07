@@ -1144,6 +1144,63 @@
       ]
     },
     {
+      "name": "A/B testing",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "ab-test-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "ab-test-0001"
+        },
+        {
+          "discriminant": "page",
+          "value": "ab-test-0002"
+        },
+        {
+          "discriminant": "page",
+          "value": "ab-test-0003"
+        },
+        {
+          "discriminant": "page",
+          "value": "ab-test-0004"
+        },
+        {
+          "discriminant": "page",
+          "value": "ab-test-0005"
+        },
+        {
+          "discriminant": "page",
+          "value": "ab-test-0006"
+        },
+        {
+          "discriminant": "page",
+          "value": "ab-test-0007"
+        },
+        {
+          "discriminant": "page",
+          "value": "ab-test-0008"
+        },
+        {
+          "discriminant": "page",
+          "value": "ab-test-0009"
+        },
+        {
+          "discriminant": "page",
+          "value": "ab-test-0010"
+        },
+        {
+          "discriminant": "page",
+          "value": "ab-test-0011"
+        },
+        {
+          "discriminant": "page",
+          "value": "ab-test-0012"
+        }
+      ]
+    },
+    {
       "name": "Glossary",
       "items": [
         {

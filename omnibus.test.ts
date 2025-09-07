@@ -48,7 +48,6 @@ const VALID_APPLICATION_ROUTES = [
 
   // Specific pages.
   "el-classico/archive/who-was-telemachus-anyway/",
-  "the-modern/archive/the-modern-template/",
   "cryptography-dispatches",
   "occasional-puzzles?tag=utm_source:buttondown_website",
   "<yourusername>/referral/{{ subscriber.referral_code }}",
