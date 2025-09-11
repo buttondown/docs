@@ -1,0 +1,47 @@
+---
+title: Managing multiple newsletters via the API
+navigationTitle: Managing multiple newsletters
+relatedPages:
+- multiple-newsletters
+- glossary-headless-mode
+---
+
+```mermaid
+flowchart TD
+    subgraph A["pressword.com (SaaS)"]
+    B[user_1]
+    C[user_2]
+    D[user_3]
+    end
+    subgraph "Buttondown"
+    Platform[buttondown.com/pressword]
+    B --> B1[buttondown.com/user_1]
+    C --> C1[buttondown.com/user_2]
+    D --> D1[buttondown.com/user_3]
+    end
+
+    A --> Platform
+```
+
+Buttondown allows you to programmatically manage a platform of newsletters. This is useful if you have a product with multiple users or organizations that need to have their own newsletters: you can offload the delivery, subscriber management, spam filtering, and more to Buttondown.
+
+There are two main ways to do this:
+
+1. **Using OAuth and interacting with newsletters as a connected service.** In this paradigm, you delegate the task of creating, owning, and paying for the newsletter to a user; the user signs up to Buttondown, connects their account to your platform, and you can then interact with their newsletter as if it were your own.
+2. **Generating newsletters and owning them as a platform.** In this paradigm, you create the newsletter and own it — the newsletter is fully under your control.
+
+There's no "right answer" for which approach is better; it depends on your use case. Here's a table to help you decide:
+
+| | Service | Platform |
+|----------|------|------|
+| Registration | A user manually registers with their email address. | Platform programmatically registers a user. |
+| Billing | User pays for their newsletter. | Platform pays for the newsletter. |
+| Dashboard | Both the user and the platform can access the dashboard. | Only the platform can access the dashboard. |
+
+## OAuth
+
+While we're happy to work with you, OAuth support is not currently self-serve. [Please email us](mailto:support@buttondown.email) to get started.
+
+## Spam and KYC
+
+Under both approaches, we treat all newsletters as subject to our [acceptable use policy](/acceptable-use-policy). All new newsletters are evaluated independently; any disablements or violations are also evaluated independently, and one bad actor does not affect the entire platform.
