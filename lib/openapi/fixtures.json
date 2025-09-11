@@ -1112,7 +1112,8 @@
         "product_id": "prod_123",
         "name": "Basic",
         "creation_date": "2020-09-30",
-        "active": true
+        "active": true,
+        "default_price": null
       }
     }
   ],
