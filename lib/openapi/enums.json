@@ -374,6 +374,11 @@
       "variant": "info",
       "name": "Transactional",
       "description": "This email is a transactional email used by a core workflow in your newsletter or Automations, and is not visible in your web archives nor sent out to subscribers."
+    },
+    "suppressed": {
+      "variant": "warning",
+      "name": "Suppressed",
+      "description": "This email has been suppressed and is not visible to subscribers."
     }
   },
   "EmailSource": {
