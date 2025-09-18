@@ -2040,6 +2040,30 @@
           },
           {
             "in": "query",
+            "name": "churn_date__start",
+            "schema": {
+              "title": "Churn Date  Start",
+              "description": "If provided, only return subscribers with the given churn date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given churn date(s)."
+          },
+          {
+            "in": "query",
+            "name": "churn_date__end",
+            "schema": {
+              "title": "Churn Date  End",
+              "description": "If provided, only return subscribers with the given churn date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given churn date(s)."
+          },
+          {
+            "in": "query",
             "name": "undeliverability_date__start",
             "schema": {
               "title": "Undeliverability Date  Start",

@@ -1,0 +1,36 @@
+---
+title: "2025-09-18"
+navigationTitle: "2025-09-18"
+description: "Added `churn_date` field and filters to Subscribers API"
+---
+
+We've added support for tracking and filtering by churn dates in the Subscribers API:
+
+## New field
+
+The `Subscriber` schema now includes a `churn_date` field that tracks when a paid subscriber churned from their subscription.
+
+```json
+{
+  "email": "subscriber@example.com",
+  "churn_date": "2025-09-15T14:30:00Z",
+  ...
+}
+```
+
+## New filters
+
+You can now filter subscribers by their churn date using two new query parameters:
+
+- `churn_date__start` - Return only subscribers who churned on or after this date (format: `YYYY-MM-DD`)
+- `churn_date__end` - Return only subscribers who churned on or before this date (format: `YYYY-MM-DD`)
+
+### Example
+
+```bash
+curl -X GET \
+  "https://api.buttondown.com/v1/subscribers?churn_date__start=2025-09-01&churn_date__end=2025-09-18" \
+  -H "Authorization: Token your-api-key"
+```
+
+This is particularly useful for analyzing churn patterns and building retention reports for your paid newsletter.
