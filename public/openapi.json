@@ -7287,7 +7287,7 @@
       },
       "Email": {
         "title": "Email",
-        "description": "Emails are why you're here on Buttondown, right?\nCreating an email via the API is just like creating one in the interface;\nit will instantly trigger sending actual emails,\nbased on the tags and email type you provide.\n\nRelevant changes to the schema:\n\n- [2024-08-15](https://docs.buttondown.com/api-changelog-2024-08-15): unshipped the `included_tags` and `excluded_tags` fields.\n- [2024-12-30](https://docs.buttondown.com/api-changelog-2024-12-30): unshipped the `is_comments_disabled` field, and replaced it with a more flexible `commenting_mode` field.",
+        "description": "Emails are why you're here on Buttondown, right?\nCreating an email via the API is just like creating one in the interface;\nit will instantly trigger sending actual emails,\nbased on the tags and email type you provide.\n\nRelevant changes to the schema:\n\n- [2024-08-15](https://docs.buttondown.com/api-changelog-2024-08-15): unshipped the `included_tags` and `excluded_tags` fields.\n- [2024-12-30](https://docs.buttondown.com/api-changelog-2024-12-30): unshipped the `is_comments_disabled` field, and replaced it with a more flexible `commenting_mode` field.\n- [2025-09-23](https://docs.buttondown.com/api-changelog-2025-09-23): increased the maximum length of the `subject` field from 1000 to 2000 characters.",
         "type": "object",
         "properties": {
           "id": {
@@ -7317,6 +7317,7 @@
           "subject": {
             "title": "Subject",
             "description": "The subject line for the email.",
+            "maxLength": 2000,
             "type": "string"
           },
           "body": {
@@ -7534,6 +7535,7 @@
           },
           "subject": {
             "title": "Subject",
+            "maxLength": 2000,
             "example": "The subject line for the email",
             "type": "string"
           },
@@ -7739,7 +7741,7 @@
           "subject": {
             "title": "Subject",
             "description": "The subject line for the email.",
-            "maxLength": 1000,
+            "maxLength": 2000,
             "example": "The subject line for the email",
             "type": "string"
           },
