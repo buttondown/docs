@@ -450,7 +450,7 @@
     "url": "do-imported-subscribers-have-to-re-confirm-their-subscription",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "There are some circumstances where we may ask your subscribers to re-confirm their subscription.",
     "references": []
   },
   {
@@ -549,6 +549,14 @@
     "references": []
   },
   {
+    "title": "Rate limiting",
+    "url": "rate-limiting",
+    "section": "guides",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "How do I avoid the \"Promotions\" tab in Gmail?",
     "url": "how-do-i-avoid-the-promotions-tab",
     "section": "guides",
@@ -631,7 +639,7 @@
     "url": "can-i-set-custom-reply-to",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Contact our support team and we can set up a custom reply-to address.",
     "references": [
       "hidden-settings",
       "how-do-i-set-sender-information"
@@ -899,10 +907,6 @@
     "references": [
       "buttondown-editor-mode",
       "data-exports",
-      "data-exports-comments",
-      "data-exports-email",
-      "data-exports-event",
-      "data-exports-survey",
       "deleting-your-account",
       "subscriber-referrals"
     ]
@@ -948,7 +952,7 @@
     "url": "can-i-point-my-old-buttondown-newsletter-to-a-new-url",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Our support team can set a redirect from your Buttondown newsletter to a new URL.",
     "references": []
   },
   {
@@ -966,7 +970,7 @@
     "url": "arena",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Buttondown makes it easy to connect your Are.na and automatically share your newsletters.",
     "references": []
   },
   {
@@ -974,7 +978,7 @@
     "url": "blogger",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Blogger's \"gadgets\" make it easy to connect your blog and your Buttondown newsletter.",
     "references": []
   },
   {
@@ -982,7 +986,7 @@
     "url": "bsky",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Our Bluesky integration makes it easy to automatically post your latest Buttondown email.",
     "references": [
       "bsky"
     ]
@@ -992,7 +996,7 @@
     "url": "carrd",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "You can connect your Carrd site and Buttondown newsletter to collect subscribers.",
     "references": [
       "carrd"
     ]
@@ -1012,7 +1016,7 @@
     "url": "discord",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "You can send notifications about new Buttondown newsletter emails, new subscribers, or other events to your Discord server.",
     "references": [
       "discord"
     ]
@@ -1022,7 +1026,7 @@
     "url": "duda",
     "section": "guides",
     "schema": null,
-    "description": null,
+    "description": "Duda and Buttondown integrate seamlessly so you can easily collect new newsletter subscribers.",
     "references": [
       "duda"
     ]
@@ -1208,9 +1212,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "affiliate-program"
-    ]
+    "references": []
   },
   {
     "title": "Home",
@@ -1244,7 +1246,7 @@
     "url": "customizing-email-list-view",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "You can use filters to customize your email list view.",
     "references": []
   },
   {
@@ -1252,7 +1254,7 @@
     "url": "customizing-subscriber-list-view",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "You can use filters to customize your Subscribers dashboard to your liking.",
     "references": [
       "importing-your-data"
     ]
@@ -1262,7 +1264,7 @@
     "url": "customizing-request-list-view",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "You can use filters to customize your API request dashboard to your liking!",
     "references": []
   },
   {
@@ -1270,7 +1272,7 @@
     "url": "auditing",
     "section": "reference",
     "schema": null,
-    "description": "Buttondown's auditing & KYC process",
+    "description": "All Buttondown newsletters are subject to periodic auditing to ensure compliance.",
     "references": []
   },
   {
@@ -1286,7 +1288,7 @@
     "url": "change-username",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "You can change your Buttondown username in Settings.",
     "references": []
   },
   {
@@ -1294,7 +1296,7 @@
     "url": "change-login-method",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Contact our support team and we can help you change your login method.",
     "references": []
   },
   {
@@ -1628,7 +1630,7 @@
     "url": "buttondown-editor-mode",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "This code comment doesn't affect the appearance or functionality of your email. ",
     "references": []
   },
   {
@@ -1663,7 +1665,7 @@
     "url": "domains",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "We've compiled a list of emails domains that are disposable, invalid, or otherwise undeliverable.",
     "references": [
       "domains",
       "hosting-on-a-custom-domain",
@@ -1675,7 +1677,7 @@
     "url": "can-i-set-a-custom-unsubscribe-link",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Contact our support team and we can set up a custom unsubscribe link for your newsletter.",
     "references": [
       "hidden-settings"
     ]
@@ -1685,7 +1687,7 @@
     "url": "can-i-send-an-email-to-new-subscribers",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "You can send an email to all new readers by creating an automation.",
     "references": []
   },
   {
@@ -1693,7 +1695,7 @@
     "url": "customizing-email-design",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Using CSS you can customize some aspects of your Buttondown email.",
     "references": [
       "customizing-transactional-emails",
       "glossary-whitelabeling",
@@ -1709,7 +1711,7 @@
     "url": "customizing-web-design",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "You can use CSS to fully customize your Buttondown web archives.",
     "references": [
       "glossary-whitelabeling",
       "late-payments",
@@ -1756,7 +1758,7 @@
     "url": "can-i-use-a-custom-font",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "While you can use fonts for your Buttondown web archives, this is a bit trickier on email.",
     "references": []
   },
   {
@@ -1764,7 +1766,7 @@
     "url": "can-i-link-two-related-emails",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Our Related emails feature allows you to add a link to another similar email.",
     "references": []
   },
   {
@@ -1772,7 +1774,7 @@
     "url": "can-i-exclude-an-email-from-archive",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "You can hide an email from your Buttondown archive by setting it to \"Private\".",
     "references": []
   },
   {
@@ -1790,7 +1792,7 @@
     "url": "can-i-center-my-email",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Using CSS you can center your Buttondown email.",
     "references": []
   },
   {
@@ -1798,7 +1800,7 @@
     "url": "can-i-customize-my-gmail-icon",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Customizing the Gmail icon is outside of Buttondown's control.",
     "references": []
   },
   {
@@ -1867,7 +1869,7 @@
     "url": "comments",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Buttondown's comments feature allows you to stay connected with your readers.",
     "references": [
       "api-changelog-2024-04-03",
       "api-comments-list",
@@ -1914,7 +1916,7 @@
     "url": "canonical-url",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Buttondown allows you to set a canonical URL for your web archives.",
     "references": []
   },
   {
@@ -1922,7 +1924,7 @@
     "url": "does-buttondown-automatically-index-my-web-archives",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Buttondown automatically indexes your web archives!",
     "references": []
   },
   {
@@ -1999,7 +2001,7 @@
     "url": "data-exports-api",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Buttondown allows you to export all your API request data as a csv file.",
     "references": [
       "data-exports"
     ]
@@ -2009,7 +2011,7 @@
     "url": "data-exports-comments",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Buttondown allows you to easily export all your comment data as a csv file.",
     "references": [
       "data-exports"
     ]
@@ -2019,7 +2021,7 @@
     "url": "data-exports-email",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Buttondown allows you to easily export all your email data as a csv file.",
     "references": [
       "buttondown-editor-mode",
       "data-exports"
@@ -2030,7 +2032,7 @@
     "url": "data-exports-event",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Buttondown allows you to easily export all your event data as a csv file.",
     "references": [
       "data-exports"
     ]
@@ -2040,7 +2042,7 @@
     "url": "data-exports-subscriber",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Buttondown allows you to easily export all your subscriber data as a csv file.",
     "references": [
       "data-exports"
     ]
@@ -2050,7 +2052,7 @@
     "url": "data-exports-survey",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Buttondown allows you to easily export all your survey data as a csv file.",
     "references": [
       "data-exports"
     ]
@@ -2060,7 +2062,7 @@
     "url": "automations-introduction",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Automations are shortcuts that facilitate your perfect Buttondown workflow.",
     "references": [
       "arena",
       "bsky",
@@ -2082,7 +2084,7 @@
     "url": "automation-triggers",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Triggers are the events that cause a Buttondown Automation to fire.",
     "references": [
       "automation-filters"
     ]
@@ -2092,7 +2094,7 @@
     "url": "automation-filters",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Filters allow you to set the criteria for when an automation fires.",
     "references": []
   },
   {
@@ -2159,7 +2161,7 @@
     "url": "dedicated-ip",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Buttondown is happy to offer dedicated IP addresses to customers who need them.",
     "references": []
   },
   {
@@ -2193,7 +2195,7 @@
     "url": "buttondown-cli",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "The Buttondown CLI allows you to write your newsletter from the comfort of your favorite code editor.",
     "references": []
   },
   {
@@ -2201,7 +2203,7 @@
     "url": "does-buttondown-offer-a-b-testing",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Buttondown does not formally offer A/B testing, but we have some options to achieve something similar.",
     "references": []
   },
   {
@@ -2353,6 +2355,7 @@
       "billing",
       "complaint-rate",
       "permanent-failure-rate",
+      "platform",
       "standards"
     ]
   },
@@ -2377,7 +2380,7 @@
     "url": "data-processing-agreement",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Buttondown's data processing agreement (\"DPA\")",
     "references": []
   },
   {
@@ -2393,7 +2396,7 @@
     "url": "buttondown-data",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Buttondown will never share your data, and we only store what's necessary to send your newsletter.",
     "references": []
   },
   {
@@ -2401,7 +2404,7 @@
     "url": "does-buttondown-offer-stipends",
     "section": "reference",
     "schema": null,
-    "description": null,
+    "description": "Buttondown does not offer author stipends, and we likely never will.",
     "references": []
   },
   {
@@ -2410,6 +2413,110 @@
     "section": "reference",
     "schema": null,
     "description": null,
+    "references": []
+  },
+  {
+    "title": "Buttondown's A/B testing log",
+    "url": "ab-test-introduction",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "A/A",
+    "url": "ab-test-0001",
+    "section": "reference",
+    "schema": null,
+    "description": "Simple AA test on index page to test end-to-end flag logic",
+    "references": []
+  },
+  {
+    "title": "Home page CTA",
+    "url": "ab-test-0002",
+    "section": "reference",
+    "schema": null,
+    "description": "Testing different call-to-action variants in the hero section",
+    "references": []
+  },
+  {
+    "title": "Home page H1",
+    "url": "ab-test-0003",
+    "section": "reference",
+    "schema": null,
+    "description": "Testing different headline variants on the index page",
+    "references": []
+  },
+  {
+    "title": "/pricing FAQ",
+    "url": "ab-test-0004",
+    "section": "reference",
+    "schema": null,
+    "description": "Testing a new, bolder FAQ section on the pricing page",
+    "references": []
+  },
+  {
+    "title": "/register testimonial",
+    "url": "ab-test-0005",
+    "section": "reference",
+    "schema": null,
+    "description": "Testing the impact of adding testimonials to the registration page",
+    "references": []
+  },
+  {
+    "title": "Headline test",
+    "url": "ab-test-0006",
+    "section": "reference",
+    "schema": null,
+    "description": "Test new headline on index page",
+    "references": []
+  },
+  {
+    "title": "Register promise",
+    "url": "ab-test-0007",
+    "section": "reference",
+    "schema": null,
+    "description": "Added promise to register form",
+    "references": []
+  },
+  {
+    "title": "Pricing remove FAQ",
+    "url": "ab-test-0008",
+    "section": "reference",
+    "schema": null,
+    "description": "Remove FAQ section from pricing page",
+    "references": []
+  },
+  {
+    "title": "Testimonial avatars",
+    "url": "ab-test-0009",
+    "section": "reference",
+    "schema": null,
+    "description": "Show avatars/faces for all testimonials",
+    "references": []
+  },
+  {
+    "title": "Pricing testimonial",
+    "url": "ab-test-0010",
+    "section": "reference",
+    "schema": null,
+    "description": "Testimonial in masthead",
+    "references": []
+  },
+  {
+    "title": "Register risk",
+    "url": "ab-test-0011",
+    "section": "reference",
+    "schema": null,
+    "description": "Risk reduction copy",
+    "references": []
+  },
+  {
+    "title": "Home CTA",
+    "url": "ab-test-0012",
+    "section": "reference",
+    "schema": null,
+    "description": "Risk reduction copy",
     "references": []
   },
   {
@@ -3041,7 +3148,27 @@
     "section": "api",
     "schema": null,
     "description": null,
+    "references": [
+      "creating-template-emails-via-api"
+    ]
+  },
+  {
+    "title": "Creating template emails via the API",
+    "url": "creating-template-emails-via-api",
+    "section": "api",
+    "schema": null,
+    "description": "You can use Buttondown's API to create a library of template emails.",
     "references": []
+  },
+  {
+    "title": "Managing multiple newsletters via the API",
+    "url": "platform",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "xss"
+    ]
   },
   {
     "title": "Scheduling emails via the API",
@@ -3049,7 +3176,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "creating-template-emails-via-api"
+    ]
   },
   {
     "title": "Retrieving email analytics data via the API",
@@ -3071,8 +3200,7 @@
       "canonical-url",
       "drafting-emails-via-the-api",
       "glossary-rest",
-      "glossary-slug",
-      "scheduling-emails-via-the-api"
+      "glossary-slug"
     ]
   },
   {
@@ -3108,7 +3236,8 @@
       "can-i-exclude-an-email-from-archive",
       "customizing-email-list-view",
       "premium-content",
-      "premium-teaser"
+      "premium-teaser",
+      "rate-limiting"
     ]
   },
   {
@@ -4002,6 +4131,26 @@
       "api-changelog",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2025-09-23",
+    "url": "api-changelog-2025-09-23",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
+    "title": "2025-09-18",
+    "url": "api-changelog-2025-09-18",
+    "section": "api",
+    "schema": null,
+    "description": "Added `churn_date` field and filters to Subscribers API",
+    "references": [
+      "api-changelog"
     ]
   },
   {
