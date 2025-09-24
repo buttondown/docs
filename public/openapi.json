@@ -7279,7 +7279,6 @@
         "enum": [
           "classic",
           "modern",
-          "airy",
           "plaintext",
           "naked"
         ],
@@ -8305,6 +8304,11 @@
             "title": "Risk Score",
             "description": "The risk score of the subscriber. Positive numbers represent a higher risk; negative numbers represent a lower risk.",
             "type": "number"
+          },
+          "gift_subscription_message": {
+            "title": "Gift Subscription Message",
+            "description": "A custom message that was sent to the subscriber when the gift subscription was created.",
+            "type": "string"
           },
           "stripe_customer": {
             "title": "Stripe Customer",

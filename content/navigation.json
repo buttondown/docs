@@ -2038,6 +2038,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-changelog-2025-09-23"
+        },
+        {
+          "discriminant": "page",
           "value": "api-changelog-2025-09-18"
         },
         {

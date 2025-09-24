@@ -221,6 +221,7 @@
         "stripe_customer_id": null,
         "subscriber_import_id": null,
         "risk_score": null,
+        "gift_subscription_message": "",
         "stripe_customer": null
       }
     },
@@ -258,6 +259,7 @@
         "stripe_customer_id": null,
         "subscriber_import_id": null,
         "risk_score": null,
+        "gift_subscription_message": "",
         "stripe_customer": null
       }
     },
@@ -300,6 +302,7 @@
         "stripe_customer_id": "cus_whatever",
         "subscriber_import_id": null,
         "risk_score": null,
+        "gift_subscription_message": "",
         "stripe_customer": null
       }
     }
@@ -589,6 +592,7 @@
           "stripe_customer_id": null,
           "subscriber_import_id": null,
           "risk_score": null,
+          "gift_subscription_message": "",
           "stripe_customer": null
         },
         "survey": null,
