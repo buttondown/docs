@@ -5,10 +5,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "introduction",
-      "quickstart"
-    ]
+    "references": ["introduction", "quickstart"]
   },
   {
     "title": "Quickstart",
@@ -16,9 +13,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "introduction"
-    ]
+    "references": ["introduction"]
   },
   {
     "title": "Registration and setup",
@@ -93,9 +88,7 @@
     "section": "guides",
     "schema": null,
     "description": "Send test emails to yourself to preview how they'll look to subscribers",
-    "references": [
-      "stripe-test-mode"
-    ]
+    "references": ["stripe-test-mode"]
   },
   {
     "title": "Building your subscriber base",
@@ -129,11 +122,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown allows you to collect subscriber names, and create a more personalized email for your readers.",
-    "references": [
-      "duda",
-      "importing-your-data",
-      "subscriber-data"
-    ]
+    "references": ["duda", "importing-your-data", "subscriber-data"]
   },
   {
     "title": "Keeping your newsletter private",
@@ -149,9 +138,7 @@
     "section": "guides",
     "schema": null,
     "description": "You can easily add an email to your Buttondown newsletter, without an import.",
-    "references": [
-      "api-subscribers-create"
-    ]
+    "references": ["api-subscribers-create"]
   },
   {
     "title": "Dealing with spammy subscribers",
@@ -159,9 +146,7 @@
     "section": "guides",
     "schema": null,
     "description": "Spam happens. If you're seeing lots of spammy subscribers, please reach out and we'll help you out.",
-    "references": [
-      "warming-up"
-    ]
+    "references": ["warming-up"]
   },
   {
     "title": "Why won't my embedded form submit?",
@@ -249,9 +234,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown provides the building blocks to build out your own referral system.",
-    "references": [
-      "affiliate-program"
-    ]
+    "references": ["affiliate-program"]
   },
   {
     "title": "How can I segment users?",
@@ -297,9 +280,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown makes it easy to migrate your posts and subscribers from AWeber. We'll even do the import for you!",
-    "references": [
-      "aweber"
-    ]
+    "references": ["aweber"]
   },
   {
     "title": "Beehiiv",
@@ -315,9 +296,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown makes it easy to migrate your posts and subscribers from Benchmark. We'll even do the import for you!",
-    "references": [
-      "benchmark"
-    ]
+    "references": ["benchmark"]
   },
   {
     "title": "Campaign Monitor",
@@ -341,10 +320,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown makes it easy to migrate your posts and subscribers from Kit. We'll even do the import for you!",
-    "references": [
-      "convertkit",
-      "importing-your-data"
-    ]
+    "references": ["convertkit", "importing-your-data"]
   },
   {
     "title": "EmailOctopus",
@@ -352,9 +328,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown makes it easy to migrate your posts and subscribers from EmailOctopus. We'll even do the import for you!",
-    "references": [
-      "emailoctopus"
-    ]
+    "references": ["emailoctopus"]
   },
   {
     "title": "FeedBlitz",
@@ -362,9 +336,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown makes it easy to migrate your posts and subscribers from FeedBlitz. We'll even do the import for you!",
-    "references": [
-      "feedblitz"
-    ]
+    "references": ["feedblitz"]
   },
   {
     "title": "Mailchimp",
@@ -372,10 +344,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Mailchimp. We'll even do the import for you!",
-    "references": [
-      "importing-your-data",
-      "mailchimp"
-    ]
+    "references": ["importing-your-data", "mailchimp"]
   },
   {
     "title": "Mailcoach",
@@ -391,9 +360,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown makes it easy to migrate your posts and subscribers from MailerLite. We'll even do the import for you!",
-    "references": [
-      "mailerlite"
-    ]
+    "references": ["mailerlite"]
   },
   {
     "title": "Moosend",
@@ -401,9 +368,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Moosend. We'll even do the import for you!",
-    "references": [
-      "moosend"
-    ]
+    "references": ["moosend"]
   },
   {
     "title": "Podia",
@@ -419,9 +384,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Revue. ",
-    "references": [
-      "revue"
-    ]
+    "references": ["revue"]
   },
   {
     "title": "Substack",
@@ -441,9 +404,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Tinyletter.",
-    "references": [
-      "tinyletter"
-    ]
+    "references": ["tinyletter"]
   },
   {
     "title": "Double opt-in and imports",
@@ -475,9 +436,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog-2025-05-30"
-    ]
+    "references": ["api-changelog-2025-05-30"]
   },
   {
     "title": "Uploading images in the editor",
@@ -485,9 +444,7 @@
     "section": "guides",
     "schema": null,
     "description": "You can use the editor to easily add images to your Buttondown newsletter.",
-    "references": [
-      "fancy-mode-images"
-    ]
+    "references": ["fancy-mode-images"]
   },
   {
     "title": "Previewing your email in an email inbox",
@@ -495,11 +452,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown allows you to preview your email by sending yourself a draft.",
-    "references": [
-      "api-emails-send-draft",
-      "draft-send",
-      "test-mode"
-    ]
+    "references": ["api-emails-send-draft", "draft-send", "test-mode"]
   },
   {
     "title": "Scheduling an email",
@@ -507,11 +460,7 @@
     "section": "guides",
     "schema": null,
     "description": "Want to send an email some time in the future? Buttondown allows you to schedule an exact date and time to send.",
-    "references": [
-      "quickstart",
-      "sending-your-first-email",
-      "test-mode"
-    ]
+    "references": ["quickstart", "sending-your-first-email", "test-mode"]
   },
   {
     "title": "Premium content",
@@ -535,10 +484,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown offers more sophisticated ways to manage your reader replies.",
-    "references": [
-      "hidden-settings",
-      "how-do-i-set-sender-information"
-    ]
+    "references": ["hidden-settings", "how-do-i-set-sender-information"]
   },
   {
     "title": "Warming up your email sending",
@@ -562,9 +508,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "sending-your-first-email"
-    ]
+    "references": ["sending-your-first-email"]
   },
   {
     "title": "Why is my email all... purple?",
@@ -572,9 +516,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "sending-your-first-email"
-    ]
+    "references": ["sending-your-first-email"]
   },
   {
     "title": "Why does my email look different on some clients?",
@@ -582,9 +524,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "sending-your-first-email"
-    ]
+    "references": ["sending-your-first-email"]
   },
   {
     "title": "Does Buttondown support one-click unsubscribe?",
@@ -640,10 +580,7 @@
     "section": "guides",
     "schema": null,
     "description": "Contact our support team and we can set up a custom reply-to address.",
-    "references": [
-      "hidden-settings",
-      "how-do-i-set-sender-information"
-    ]
+    "references": ["hidden-settings", "how-do-i-set-sender-information"]
   },
   {
     "title": "How do I set sender information?",
@@ -651,9 +588,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "can-i-set-custom-reply-to"
-    ]
+    "references": ["can-i-set-custom-reply-to"]
   },
   {
     "title": "How do I re-send an email that's been blocked or errored?",
@@ -718,9 +653,7 @@
     "section": "guides",
     "schema": null,
     "description": "This guide will help you connect your Dreamhost domain to your Buttondown newsletter.",
-    "references": [
-      "sending-from-a-custom-domain"
-    ]
+    "references": ["sending-from-a-custom-domain"]
   },
   {
     "title": "Creating your first automation",
@@ -793,9 +726,7 @@
     "section": "guides",
     "schema": null,
     "description": "Does your newsletter have sponsors? Learn how Buttondown can help you manage your sponsorships.",
-    "references": [
-      "sponsorships"
-    ]
+    "references": ["sponsorships"]
   },
   {
     "title": "/buy",
@@ -811,10 +742,7 @@
     "section": "guides",
     "schema": null,
     "description": "Gift subscriptions are a great way to \"comp\" a paid subscription to your friends, family, and favorite readers.",
-    "references": [
-      "substack",
-      "transactional-emails-gift"
-    ]
+    "references": ["substack", "transactional-emails-gift"]
   },
   {
     "title": "What pricing models can I use for my paid newsletter?",
@@ -822,9 +750,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown offers a variety of different pricing models for your paid newsletter.",
-    "references": [
-      "paid-subscriptions"
-    ]
+    "references": ["paid-subscriptions"]
   },
   {
     "title": "How to send a teaser email",
@@ -840,9 +766,7 @@
     "section": "guides",
     "schema": null,
     "description": "You can configure Stripe to give your subscribers the option between a monthly and yearly plan when upgrading to a premium subscription for your newsletter.",
-    "references": [
-      "stripe-upsell"
-    ]
+    "references": ["stripe-upsell"]
   },
   {
     "title": "Can I use Stripe Test mode with Buttondown?",
@@ -925,11 +849,7 @@
     "section": "guides",
     "schema": null,
     "description": "With our Teams feature you and your colleagues can collaborate on writing and managing your Buttondown newsletter.",
-    "references": [
-      "replies",
-      "support-policy",
-      "teams"
-    ]
+    "references": ["replies", "support-policy", "teams"]
   },
   {
     "title": "Deleting your account",
@@ -961,9 +881,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "alpinejs"
-    ]
+    "references": ["alpinejs"]
   },
   {
     "title": "Are.na",
@@ -987,9 +905,7 @@
     "section": "guides",
     "schema": null,
     "description": "Our Bluesky integration makes it easy to automatically post your latest Buttondown email.",
-    "references": [
-      "bsky"
-    ]
+    "references": ["bsky"]
   },
   {
     "title": "Carrd",
@@ -997,9 +913,7 @@
     "section": "guides",
     "schema": null,
     "description": "You can connect your Carrd site and Buttondown newsletter to collect subscribers.",
-    "references": [
-      "carrd"
-    ]
+    "references": ["carrd"]
   },
   {
     "title": "Integrating daisyUI",
@@ -1007,9 +921,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "daisyui"
-    ]
+    "references": ["daisyui"]
   },
   {
     "title": "Discord",
@@ -1017,9 +929,7 @@
     "section": "guides",
     "schema": null,
     "description": "You can send notifications about new Buttondown newsletter emails, new subscribers, or other events to your Discord server.",
-    "references": [
-      "discord"
-    ]
+    "references": ["discord"]
   },
   {
     "title": "Duda",
@@ -1027,9 +937,7 @@
     "section": "guides",
     "schema": null,
     "description": "Duda and Buttondown integrate seamlessly so you can easily collect new newsletter subscribers.",
-    "references": [
-      "duda"
-    ]
+    "references": ["duda"]
   },
   {
     "title": "Fathom",
@@ -1037,9 +945,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "fathom"
-    ]
+    "references": ["fathom"]
   },
   {
     "title": "Framer",
@@ -1047,9 +953,7 @@
     "section": "guides",
     "schema": null,
     "description": "Framer is a great no-code form tool that integrates with Buttondown.",
-    "references": [
-      "framer"
-    ]
+    "references": ["framer"]
   },
   {
     "title": "LinkedIn",
@@ -1057,9 +961,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "linkedin"
-    ]
+    "references": ["linkedin"]
   },
   {
     "title": "Linktree",
@@ -1067,9 +969,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "linktree"
-    ]
+    "references": ["linktree"]
   },
   {
     "title": "Integrating Mantine with Buttondown",
@@ -1077,9 +977,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "mantine"
-    ]
+    "references": ["mantine"]
   },
   {
     "title": "Plausible",
@@ -1087,10 +985,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "plausible",
-      "xss"
-    ]
+    "references": ["plausible", "xss"]
   },
   {
     "title": "Integrating shadcn/ui",
@@ -1168,9 +1063,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "umami"
-    ]
+    "references": ["umami"]
   },
   {
     "title": "Webflow",
@@ -1178,9 +1071,7 @@
     "section": "guides",
     "schema": null,
     "description": "Is your site on Webflow and your newsletter on Buttondown? It's easy to connect them!",
-    "references": [
-      "webflow"
-    ]
+    "references": ["webflow"]
   },
   {
     "title": "Wordpress",
@@ -1188,9 +1079,7 @@
     "section": "guides",
     "schema": null,
     "description": "Using custom HTML blocks you can easily add your Buttondown subscriber form to your WordPress site.",
-    "references": [
-      "wordpress"
-    ]
+    "references": ["wordpress"]
   },
   {
     "title": "Pricing",
@@ -1220,10 +1109,7 @@
     "section": "reference",
     "schema": null,
     "description": "A detailed guide to the modules on Buttondown's new home page",
-    "references": [
-      "home",
-      "using-markdown-rendering"
-    ]
+    "references": ["home", "using-markdown-rendering"]
   },
   {
     "title": "Using a screen reader",
@@ -1255,9 +1141,7 @@
     "section": "reference",
     "schema": null,
     "description": "You can use filters to customize your Subscribers dashboard to your liking.",
-    "references": [
-      "importing-your-data"
-    ]
+    "references": ["importing-your-data"]
   },
   {
     "title": "Customizing your request dashboard",
@@ -1305,10 +1189,7 @@
     "section": "reference",
     "schema": null,
     "description": "Take advantage of Buttondown's flexible billing to pause your subscription when you need to.",
-    "references": [
-      "billing",
-      "dormancy"
-    ]
+    "references": ["billing", "dormancy"]
   },
   {
     "title": "Template tags",
@@ -1316,10 +1197,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "rss-to-email",
-      "template-variables"
-    ]
+    "references": ["rss-to-email", "template-variables"]
   },
   {
     "title": "Template variables",
@@ -1344,9 +1222,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "email.secondary_id",
@@ -1354,9 +1230,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "email.is_premium",
@@ -1372,9 +1246,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "email_url",
@@ -1382,9 +1254,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "manage_subscription_url",
@@ -1392,9 +1262,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "medium",
@@ -1402,9 +1270,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "premium_subscribe_url",
@@ -1412,9 +1278,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "random_number",
@@ -1422,9 +1286,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "subscribe_form",
@@ -1432,9 +1294,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "subscribe_url",
@@ -1442,9 +1302,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "subscriber.can_be_upsold",
@@ -1452,9 +1310,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "subscriber.can_view_premium_content",
@@ -1462,9 +1318,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "subscriber.email",
@@ -1472,9 +1326,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "subscriber.id",
@@ -1482,9 +1334,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "subscriber.metadata",
@@ -1492,9 +1342,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "subscriber.subscriber_type",
@@ -1502,9 +1350,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "subscriber.tags",
@@ -1512,9 +1358,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "unsubscribe_url",
@@ -1522,9 +1366,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "upgrade_url",
@@ -1532,9 +1374,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "template-variables"
-    ]
+    "references": ["template-variables"]
   },
   {
     "title": "Fancy mode",
@@ -1558,9 +1398,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "fancy-mode"
-    ]
+    "references": ["fancy-mode"]
   },
   {
     "title": "Text styling in Fancy mode",
@@ -1568,9 +1406,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "fancy-mode"
-    ]
+    "references": ["fancy-mode"]
   },
   {
     "title": "Dynamic blocks in Fancy mode",
@@ -1578,11 +1414,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "fancy-mode",
-      "preflight",
-      "premium-content"
-    ]
+    "references": ["fancy-mode", "preflight", "premium-content"]
   },
   {
     "title": "Markdown mode",
@@ -1603,9 +1435,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "uploading-images"
-    ]
+    "references": ["uploading-images"]
   },
   {
     "title": "Buttondown's Markdown rendering engine",
@@ -1621,9 +1451,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "sending-your-first-email"
-    ]
+    "references": ["sending-your-first-email"]
   },
   {
     "title": "What is `buttondown-editor-mode`?",
@@ -1655,10 +1483,7 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown lets you let your subscribers change their metadata, tags, and more.",
-    "references": [
-      "tags",
-      "template-variables-manage-subscription-url"
-    ]
+    "references": ["tags", "template-variables-manage-subscription-url"]
   },
   {
     "title": "Prohibited domains",
@@ -1678,9 +1503,7 @@
     "section": "reference",
     "schema": null,
     "description": "Contact our support team and we can set up a custom unsubscribe link for your newsletter.",
-    "references": [
-      "hidden-settings"
-    ]
+    "references": ["hidden-settings"]
   },
   {
     "title": "Can I send a specific email to my new subscribers?",
@@ -1733,9 +1556,7 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown's transactional emails, such as confirmation and welcome emails, can be customized using the same email CSS settings as regular emails.",
-    "references": [
-      "transactional-emails"
-    ]
+    "references": ["transactional-emails"]
   },
   {
     "title": "External scripts",
@@ -1783,9 +1604,7 @@
     "section": "reference",
     "schema": null,
     "description": "The top of the Modern template has the newsletter's icon and name, and the email's subject and publication date, which some authors opt to hide using CSS.",
-    "references": [
-      "modern-template-hide-top"
-    ]
+    "references": ["modern-template-hide-top"]
   },
   {
     "title": "Can I center my email?",
@@ -1809,10 +1628,7 @@
     "section": "reference",
     "schema": null,
     "description": "Reference guide for all transactional emails in Buttondown",
-    "references": [
-      "customizing-transactional-emails",
-      "transactional-emails"
-    ]
+    "references": ["customizing-transactional-emails", "transactional-emails"]
   },
   {
     "title": "Confirmation Email",
@@ -1820,9 +1636,7 @@
     "section": "reference",
     "schema": null,
     "description": "Reference guide for Buttondown's confirmation emails",
-    "references": [
-      "transactional-emails"
-    ]
+    "references": ["transactional-emails"]
   },
   {
     "title": "Reminder Email",
@@ -1830,9 +1644,7 @@
     "section": "reference",
     "schema": null,
     "description": "Reference guide for Buttondown's subscription reminder emails",
-    "references": [
-      "transactional-emails"
-    ]
+    "references": ["transactional-emails"]
   },
   {
     "title": "Welcome Email",
@@ -1840,9 +1652,7 @@
     "section": "reference",
     "schema": null,
     "description": "Reference guide for Buttondown's welcome emails",
-    "references": [
-      "transactional-emails"
-    ]
+    "references": ["transactional-emails"]
   },
   {
     "title": "Premium Welcome Email",
@@ -1850,9 +1660,7 @@
     "section": "reference",
     "schema": null,
     "description": "Reference guide for Buttondown's premium welcome emails",
-    "references": [
-      "transactional-emails"
-    ]
+    "references": ["transactional-emails"]
   },
   {
     "title": "Gift Email",
@@ -1860,9 +1668,7 @@
     "section": "reference",
     "schema": null,
     "description": "Reference guide for Buttondown's gift subscription emails",
-    "references": [
-      "transactional-emails"
-    ]
+    "references": ["transactional-emails"]
   },
   {
     "title": "Comments",
@@ -1886,9 +1692,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "glossary-rss"
-    ]
+    "references": ["glossary-rss"]
   },
   {
     "title": "Social sharing images",
@@ -1896,10 +1700,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "share-images",
-      "why-arent-i-seeing-my-new-share-image"
-    ]
+    "references": ["share-images", "why-arent-i-seeing-my-new-share-image"]
   },
   {
     "title": "SEO",
@@ -1907,9 +1708,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "substack"
-    ]
+    "references": ["substack"]
   },
   {
     "title": "Canonical URL",
@@ -2002,9 +1801,7 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown allows you to export all your API request data as a csv file.",
-    "references": [
-      "data-exports"
-    ]
+    "references": ["data-exports"]
   },
   {
     "title": "Comment data exports",
@@ -2012,9 +1809,7 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown allows you to easily export all your comment data as a csv file.",
-    "references": [
-      "data-exports"
-    ]
+    "references": ["data-exports"]
   },
   {
     "title": "Email data exports",
@@ -2022,10 +1817,7 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown allows you to easily export all your email data as a csv file.",
-    "references": [
-      "buttondown-editor-mode",
-      "data-exports"
-    ]
+    "references": ["buttondown-editor-mode", "data-exports"]
   },
   {
     "title": "Email event data exports",
@@ -2033,9 +1825,7 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown allows you to easily export all your event data as a csv file.",
-    "references": [
-      "data-exports"
-    ]
+    "references": ["data-exports"]
   },
   {
     "title": "Subscriber data exports",
@@ -2043,9 +1833,7 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown allows you to easily export all your subscriber data as a csv file.",
-    "references": [
-      "data-exports"
-    ]
+    "references": ["data-exports"]
   },
   {
     "title": "Survey data exports",
@@ -2053,9 +1841,7 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown allows you to easily export all your survey data as a csv file.",
-    "references": [
-      "data-exports"
-    ]
+    "references": ["data-exports"]
   },
   {
     "title": "Automations",
@@ -2085,9 +1871,7 @@
     "section": "reference",
     "schema": null,
     "description": "Triggers are the events that cause a Buttondown Automation to fire.",
-    "references": [
-      "automation-filters"
-    ]
+    "references": ["automation-filters"]
   },
   {
     "title": "Types of automation filters",
@@ -2170,9 +1954,7 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown's \"Firewall\" is an opt-in feature that audits all incoming subscribers to confirm that they're legitimate people.",
-    "references": [
-      "subscriber-cleanup"
-    ]
+    "references": ["subscriber-cleanup"]
   },
   {
     "title": "Social media monitoring",
@@ -2236,10 +2018,7 @@
     "section": "reference",
     "schema": null,
     "description": "A guide to click tracking, and how to use it in Buttondown.",
-    "references": [
-      "standards",
-      "subscriber-cleanup"
-    ]
+    "references": ["standards", "subscriber-cleanup"]
   },
   {
     "title": "Complaint Rate",
@@ -2247,9 +2026,7 @@
     "section": "reference",
     "schema": null,
     "description": "An explanation of what complaint rate is and how it's calculated by Buttondown.",
-    "references": [
-      "permanent-failure-rate"
-    ]
+    "references": ["permanent-failure-rate"]
   },
   {
     "title": "Gross Volume",
@@ -2273,10 +2050,7 @@
     "section": "reference",
     "schema": null,
     "description": "A guide to open tracking, and how to use it in Buttondown.",
-    "references": [
-      "standards",
-      "subscriber-cleanup"
-    ]
+    "references": ["standards", "subscriber-cleanup"]
   },
   {
     "title": "Pageviews by referrer",
@@ -2284,9 +2058,7 @@
     "section": "reference",
     "schema": null,
     "description": "An explanation on what pageviews by referrer are and how they're used by Buttondown.",
-    "references": [
-      "pageviews-by-referrer"
-    ]
+    "references": ["pageviews-by-referrer"]
   },
   {
     "title": "Permanent Failure Rate",
@@ -2294,9 +2066,7 @@
     "section": "reference",
     "schema": null,
     "description": "An explanation of what permanent failure rate is and how it's calculated by Buttondown.",
-    "references": [
-      "complaint-rate"
-    ]
+    "references": ["complaint-rate"]
   },
   {
     "title": "RSS subscribers",
@@ -2304,10 +2074,7 @@
     "section": "reference",
     "schema": null,
     "description": "An explanation on what RSS subscribers are and how they're used by Buttondown.",
-    "references": [
-      "email-to-rss",
-      "glossary-rss"
-    ]
+    "references": ["email-to-rss", "glossary-rss"]
   },
   {
     "title": "UTM parameters",
@@ -2315,9 +2082,7 @@
     "section": "reference",
     "schema": null,
     "description": "A guide to UTM parameters, and how to use them in Buttondown.",
-    "references": [
-      "pageviews-by-referrer"
-    ]
+    "references": ["pageviews-by-referrer"]
   },
   {
     "title": "GDPR and EU Compliance",
@@ -2341,9 +2106,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "acceptable-use-policy"
-    ]
+    "references": ["acceptable-use-policy"]
   },
   {
     "title": "Acceptable use policy",
@@ -2525,9 +2288,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "uploading-images"
-    ]
+    "references": ["uploading-images"]
   },
   {
     "title": "AMP",
@@ -2535,9 +2296,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "support-amp-for-email"
-    ]
+    "references": ["support-amp-for-email"]
   },
   {
     "title": "API",
@@ -2545,10 +2304,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "api-introduction",
-      "glossary-jamstack"
-    ]
+    "references": ["api-introduction", "glossary-jamstack"]
   },
   {
     "title": "BIMI",
@@ -2556,9 +2312,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "can-i-customize-my-gmail-icon"
-    ]
+    "references": ["can-i-customize-my-gmail-icon"]
   },
   {
     "title": "CAC",
@@ -2574,9 +2328,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "glossary-cold-email"
-    ]
+    "references": ["glossary-cold-email"]
   },
   {
     "title": "Captcha",
@@ -2584,9 +2336,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog-2025-03-31"
-    ]
+    "references": ["api-changelog-2025-03-31"]
   },
   {
     "title": "CFBL",
@@ -2609,11 +2359,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "acceptable-use-policy",
-      "auditing",
-      "glossary-double-optin"
-    ]
+    "references": ["acceptable-use-policy", "auditing", "glossary-double-optin"]
   },
   {
     "title": "CORS",
@@ -2637,10 +2383,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "importing-your-data",
-      "sending-your-first-email"
-    ]
+    "references": ["importing-your-data", "sending-your-first-email"]
   },
   {
     "title": "CTA",
@@ -2648,10 +2391,7 @@
     "section": "reference",
     "schema": null,
     "description": "CTA is a marketing term for a prompt that encourages a user to take a specific action.",
-    "references": [
-      "fancy-mode-dynamic",
-      "welcome-sequence"
-    ]
+    "references": ["fancy-mode-dynamic", "welcome-sequence"]
   },
   {
     "title": "DKIM",
@@ -2659,9 +2399,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "glossary-dmarc"
-    ]
+    "references": ["glossary-dmarc"]
   },
   {
     "title": "DMARC",
@@ -2669,9 +2407,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "glossary-bimi"
-    ]
+    "references": ["glossary-bimi"]
   },
   {
     "title": "DNS",
@@ -2679,10 +2415,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "glossary-reverse-dns",
-      "sending-from-a-custom-domain"
-    ]
+    "references": ["glossary-reverse-dns", "sending-from-a-custom-domain"]
   },
   {
     "title": "Double opt-in",
@@ -2703,9 +2436,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "automation-triggers"
-    ]
+    "references": ["automation-triggers"]
   },
   {
     "title": "ESP",
@@ -2713,9 +2444,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "introduction"
-    ]
+    "references": ["introduction"]
   },
   {
     "title": "GDPR",
@@ -2752,10 +2481,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "glossary-sending-domain",
-      "hosting-on-a-custom-domain"
-    ]
+    "references": ["glossary-sending-domain", "hosting-on-a-custom-domain"]
   },
   {
     "title": "JAMStack",
@@ -2763,10 +2489,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "building-your-subscriber-base",
-      "rss-to-email"
-    ]
+    "references": ["building-your-subscriber-base", "rss-to-email"]
   },
   {
     "title": "JSON-LD",
@@ -2774,10 +2497,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "comments",
-      "seo"
-    ]
+    "references": ["comments", "seo"]
   },
   {
     "title": "LaTeX",
@@ -2785,9 +2505,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "fancy-mode-text"
-    ]
+    "references": ["fancy-mode-text"]
   },
   {
     "title": "oEmbed",
@@ -2795,10 +2513,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "building-your-subscriber-base",
-      "seo"
-    ]
+    "references": ["building-your-subscriber-base", "seo"]
   },
   {
     "title": "Omnichannel",
@@ -2822,10 +2537,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "perks",
-      "seo"
-    ]
+    "references": ["perks", "seo"]
   },
   {
     "title": "Permanent failure",
@@ -2833,10 +2545,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "standards",
-      "warming-up"
-    ]
+    "references": ["standards", "warming-up"]
   },
   {
     "title": "POSSE",
@@ -2860,9 +2569,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "sending-your-first-email-advanced"
-    ]
+    "references": ["sending-your-first-email-advanced"]
   },
   {
     "title": "Rate sheet",
@@ -2878,10 +2585,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "api-filtering",
-      "api-introduction"
-    ]
+    "references": ["api-filtering", "api-introduction"]
   },
   {
     "title": "Reverse DNS",
@@ -2908,10 +2612,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "glossary-hosting-domain",
-      "hosting-on-a-custom-domain"
-    ]
+    "references": ["glossary-hosting-domain", "hosting-on-a-custom-domain"]
   },
   {
     "title": "Slug",
@@ -2919,11 +2620,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "glossary-slug",
-      "sending-your-first-email-advanced",
-      "seo"
-    ]
+    "references": ["glossary-slug", "sending-your-first-email-advanced", "seo"]
   },
   {
     "title": "SMTP",
@@ -2931,11 +2628,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "glossary-cfl",
-      "glossary-esp",
-      "sending-via-email"
-    ]
+    "references": ["glossary-cfl", "glossary-esp", "sending-via-email"]
   },
   {
     "title": "SpamAssassin",
@@ -2951,10 +2644,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "glossary-dmarc",
-      "sending-from-a-custom-domain"
-    ]
+    "references": ["glossary-dmarc", "sending-from-a-custom-domain"]
   },
   {
     "title": "Temporary failure",
@@ -2962,9 +2652,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "standards"
-    ]
+    "references": ["standards"]
   },
   {
     "title": "Transactional email",
@@ -2984,10 +2672,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "comments",
-      "seo"
-    ]
+    "references": ["comments", "seo"]
   },
   {
     "title": "Webhooks",
@@ -2995,9 +2680,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "events-and-webhooks-introduction"
-    ]
+    "references": ["events-and-webhooks-introduction"]
   },
   {
     "title": "Webmentions",
@@ -3005,10 +2688,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "customizing-email-list-view",
-      "social-media-monitoring"
-    ]
+    "references": ["customizing-email-list-view", "social-media-monitoring"]
   },
   {
     "title": "Whitelabeling",
@@ -3024,11 +2704,7 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": [
-      "fancy-mode",
-      "quickstart",
-      "using-markdown"
-    ]
+    "references": ["fancy-mode", "quickstart", "using-markdown"]
   },
   {
     "title": "API introduction",
@@ -3050,9 +2726,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-response-codes"
-    ]
+    "references": ["api-response-codes"]
   },
   {
     "title": "Formatting",
@@ -3068,9 +2742,7 @@
     "section": "api",
     "schema": null,
     "description": "Fundamentals of how to filter objects in the Buttondown API in a RESTful manner.",
-    "references": [
-      "api-pagination"
-    ]
+    "references": ["api-pagination"]
   },
   {
     "title": "Ordering in the API",
@@ -3102,10 +2774,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog",
-      "customizing-request-list-view"
-    ]
+    "references": ["api-changelog", "customizing-request-list-view"]
   },
   {
     "title": "Idempotency keys",
@@ -3121,9 +2790,7 @@
     "section": "api",
     "schema": null,
     "description": "General information about rate limits in the Buttondown API.",
-    "references": [
-      "api-response-codes"
-    ]
+    "references": ["api-response-codes"]
   },
   {
     "title": "API response codes",
@@ -3131,9 +2798,7 @@
     "section": "api",
     "schema": null,
     "description": "Fundamentals of the response codes used in the Buttondown API.",
-    "references": [
-      "api-error-codes"
-    ]
+    "references": ["api-error-codes"]
   },
   {
     "title": "API error codes",
@@ -3149,9 +2814,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "creating-template-emails-via-api"
-    ]
+    "references": ["creating-template-emails-via-api"]
   },
   {
     "title": "Creating template emails via the API",
@@ -3167,9 +2830,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "xss"
-    ]
+    "references": ["xss"]
   },
   {
     "title": "Scheduling emails via the API",
@@ -3177,9 +2838,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "creating-template-emails-via-api"
-    ]
+    "references": ["creating-template-emails-via-api"]
   },
   {
     "title": "Retrieving email analytics data via the API",
@@ -3223,9 +2882,7 @@
     "section": "Reference",
     "schema": "EmailSource",
     "description": null,
-    "references": [
-      "customizing-email-list-view"
-    ]
+    "references": ["customizing-email-list-view"]
   },
   {
     "title": "Email audience type",
@@ -3255,9 +2912,7 @@
     "section": "api",
     "schema": "FilterGroup",
     "description": null,
-    "references": [
-      "api-changelog-2024-08-15"
-    ]
+    "references": ["api-changelog-2024-08-15"]
   },
   {
     "title": "Email Template",
@@ -3331,10 +2986,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog-2024-06-27",
-      "api-subscribers-send-email"
-    ]
+    "references": ["api-changelog-2024-06-27", "api-subscribers-send-email"]
   },
   {
     "title": "Listing email events",
@@ -3342,9 +2994,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog-2024-06-21"
-    ]
+    "references": ["api-changelog-2024-06-21"]
   },
   {
     "title": "Retrieving email history",
@@ -3400,9 +3050,7 @@
     "section": "Reference",
     "schema": "SubscriberSource",
     "description": null,
-    "references": [
-      "api-changelog-2025-07-13"
-    ]
+    "references": ["api-changelog-2025-07-13"]
   },
   {
     "title": "Subscriber undeliverability reasons",
@@ -3410,9 +3058,7 @@
     "section": "Reference",
     "schema": "SubscriberUndeliverabilityReason",
     "description": null,
-    "references": [
-      "api-changelog-2025-03-25"
-    ]
+    "references": ["api-changelog-2025-03-25"]
   },
   {
     "title": "Listing subscribers",
@@ -3486,9 +3132,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog-2024-06-27"
-    ]
+    "references": ["api-changelog-2024-06-27"]
   },
   {
     "title": "Listing a subscriber's survey responses",
@@ -3504,10 +3148,7 @@
     "section": "api",
     "schema": "Tag",
     "description": null,
-    "references": [
-      "api-subscribers-create",
-      "tags"
-    ]
+    "references": ["api-subscribers-create", "tags"]
   },
   {
     "title": "Listing tags",
@@ -3515,9 +3156,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "building-your-subscriber-base"
-    ]
+    "references": ["building-your-subscriber-base"]
   },
   {
     "title": "Retrieving a tag",
@@ -3565,9 +3204,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog-2024-12-14"
-    ]
+    "references": ["api-changelog-2024-12-14"]
   },
   {
     "title": "Creating an image",
@@ -3663,9 +3300,7 @@
     "section": "api",
     "schema": "Export",
     "description": null,
-    "references": [
-      "api-changelog-2021-08-27"
-    ]
+    "references": ["api-changelog-2021-08-27"]
   },
   {
     "title": "Export statuses",
@@ -3697,9 +3332,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog-2024-12-10"
-    ]
+    "references": ["api-changelog-2024-12-10"]
   },
   {
     "title": "Retrieving an export",
@@ -3731,9 +3364,7 @@
     "section": "Reference",
     "schema": "BulkActionType",
     "description": null,
-    "references": [
-      "building-your-subscriber-base"
-    ]
+    "references": ["building-your-subscriber-base"]
   },
   {
     "title": "Creating a bulk action",
@@ -3757,9 +3388,7 @@
     "section": "api",
     "schema": "ExternalFeed",
     "description": null,
-    "references": [
-      "api-changelog-2024-08-15"
-    ]
+    "references": ["api-changelog-2024-08-15"]
   },
   {
     "title": "External feed statuses",
@@ -3831,10 +3460,7 @@
     "section": "api",
     "schema": "Webhook",
     "description": null,
-    "references": [
-      "api-changelog-2023-08-21",
-      "creating-webhooks-dashboard"
-    ]
+    "references": ["api-changelog-2023-08-21", "creating-webhooks-dashboard"]
   },
   {
     "title": "Webhook external events",
@@ -3914,9 +3540,7 @@
     "section": "api",
     "schema": "Comment",
     "description": null,
-    "references": [
-      "api-changelog-2024-04-03"
-    ]
+    "references": ["api-changelog-2024-04-03"]
   },
   {
     "title": "Listing comments",
@@ -3924,9 +3548,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-expansion"
-    ]
+    "references": ["api-expansion"]
   },
   {
     "title": "Retrieving comment",
@@ -3974,9 +3596,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog-2024-06-21"
-    ]
+    "references": ["api-changelog-2024-06-21"]
   },
   {
     "title": "Creating a survey",
@@ -4008,9 +3628,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog-2024-06-21"
-    ]
+    "references": ["api-changelog-2024-06-21"]
   },
   {
     "title": "Introduction",
@@ -4034,9 +3652,7 @@
     "section": "api",
     "schema": "Automation",
     "description": null,
-    "references": [
-      "building-your-subscriber-base"
-    ]
+    "references": ["building-your-subscriber-base"]
   },
   {
     "title": "Automation statuses",
@@ -4100,9 +3716,7 @@
     "section": "api",
     "schema": "Note",
     "description": null,
-    "references": [
-      "api-notes-create"
-    ]
+    "references": ["api-notes-create"]
   },
   {
     "title": "Create a note",
@@ -4118,9 +3732,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-notes-create"
-    ]
+    "references": ["api-notes-create"]
   },
   {
     "title": "Changelog",
@@ -4140,9 +3752,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-09-18",
@@ -4150,9 +3760,7 @@
     "section": "api",
     "schema": null,
     "description": "Added `churn_date` field and filters to Subscribers API",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-07-28",
@@ -4160,9 +3768,7 @@
     "section": "api",
     "schema": null,
     "description": "Removed deprecated subscriber types",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-07-13",
@@ -4170,9 +3776,7 @@
     "section": "api",
     "schema": null,
     "description": "Added source filtering to /v1/subscribers",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-06-26",
@@ -4180,9 +3784,7 @@
     "section": "api",
     "schema": null,
     "description": "Added `product` to `StripeSubscription`",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-06-01",
@@ -4190,9 +3792,7 @@
     "section": "api",
     "schema": null,
     "description": "Removed default filter for status in /v1/emails",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-05-30",
@@ -4200,9 +3800,7 @@
     "section": "api",
     "schema": null,
     "description": "New Attachments API endpoint",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-05-19",
@@ -4210,9 +3808,7 @@
     "section": "api",
     "schema": null,
     "description": "Split up date parameters into start and end",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-05-17",
@@ -4220,9 +3816,7 @@
     "section": "api",
     "schema": null,
     "description": "Exports can now be generated in JSON format",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-05-14",
@@ -4230,9 +3824,7 @@
     "section": "api",
     "schema": null,
     "description": "Added new newsletter customization fields to the API",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-04-17",
@@ -4240,9 +3832,7 @@
     "section": "api",
     "schema": null,
     "description": "Added new email statuses to really let you peek under the hood",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-04-14",
@@ -4250,9 +3840,7 @@
     "section": "api",
     "schema": null,
     "description": "Added UTM filtering parameters to the subscribers API",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-03-31",
@@ -4260,9 +3848,7 @@
     "section": "api",
     "schema": null,
     "description": "Added support for passing IP addresses to subscriber creation",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-03-25",
@@ -4270,9 +3856,7 @@
     "section": "api",
     "schema": null,
     "description": "Added support for filtering subscribers by undeliverability status and reason",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-03-01",
@@ -4280,9 +3864,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-02-26",
@@ -4290,9 +3872,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-02-12",
@@ -4300,9 +3880,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-02-06",
@@ -4310,9 +3888,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2025-01-02",
@@ -4320,9 +3896,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2024-12-31",
@@ -4330,9 +3904,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2024-12-30",
@@ -4340,9 +3912,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2024-12-14",
@@ -4350,9 +3920,7 @@
     "section": "api",
     "schema": null,
     "description": "A new `/images` endpoint for you to list your images",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2024-12-11",
@@ -4360,9 +3928,7 @@
     "section": "api",
     "schema": null,
     "description": "Override Buttondown's default collision behavior for new subscribers",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2024-12-10",
@@ -4370,9 +3936,7 @@
     "section": "api",
     "schema": null,
     "description": "Customize your API-borne exports",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2024-12-09",
@@ -4380,9 +3944,7 @@
     "section": "api",
     "schema": null,
     "description": "We've added support for filtering subscribers by referrer URL, too!",
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2024-12-05",
@@ -4390,10 +3952,7 @@
     "section": "api",
     "schema": null,
     "description": "We've added support for filtering subscribers by IP address.",
-    "references": [
-      "api-changelog",
-      "api-changelog-2024-12-09"
-    ]
+    "references": ["api-changelog", "api-changelog-2024-12-09"]
   },
   {
     "title": "2024-09-30",
@@ -4401,9 +3960,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2024-08-15",
@@ -4411,9 +3968,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2024-08-01",
@@ -4421,9 +3976,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2024-07-13",
@@ -4431,9 +3984,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2024-06-27",
@@ -4441,9 +3992,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2024-06-21",
@@ -4451,9 +4000,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2024-05-22",
@@ -4461,9 +4008,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2024-04-03",
@@ -4471,9 +4016,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2023-08-23",
@@ -4481,9 +4024,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2023-08-21",
@@ -4491,9 +4032,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2023-07-23",
@@ -4501,9 +4040,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2022-11-24",
@@ -4511,9 +4048,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2022-11-19",
@@ -4521,9 +4056,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2022-03-08",
@@ -4531,9 +4064,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2021-11-26",
@@ -4541,9 +4072,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2021-08-27",
@@ -4551,9 +4080,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2021-01-02",
@@ -4561,9 +4088,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2020-12-23",
@@ -4571,9 +4096,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   },
   {
     "title": "2020-12-09",
@@ -4581,8 +4104,6 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-changelog"
-    ]
+    "references": ["api-changelog"]
   }
 ]

@@ -1282,5 +1282,47 @@
       "name": "Malformed",
       "description": "The subscriber's email is malformed."
     }
+  },
+  "Operator": {
+    "equals": {
+      "variant": "info",
+      "name": "Equals",
+      "description": "The value is equal to the field."
+    },
+    "not_equals": {
+      "variant": "info",
+      "name": "Not equals",
+      "description": "The value is not equal to the field."
+    },
+    "contains": {
+      "variant": "info",
+      "name": "Contains",
+      "description": "The value contains the field."
+    },
+    "not_contains": {
+      "variant": "info",
+      "name": "Not contains",
+      "description": "The value does not contain the field."
+    },
+    "is_empty": {
+      "variant": "info",
+      "name": "Is empty",
+      "description": "The value is empty."
+    },
+    "is_not_empty": {
+      "variant": "info",
+      "name": "Is not empty",
+      "description": "The value is not empty."
+    },
+    "greater_than": {
+      "variant": "info",
+      "name": "Greater than",
+      "description": "The value is greater than the field."
+    },
+    "less_than": {
+      "variant": "info",
+      "name": "Less than",
+      "description": "The value is less than the field."
+    }
   }
 }

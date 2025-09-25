@@ -1,14 +1,13 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin '@tailwindcss/typography';
 
 @theme {
-  --font-sans:
-    Hex Franklin, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: Hex Franklin, ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --shadow-no-bottom-md: 0 -4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
   --color-buttondown: #0069ff;
-
-  --shadow-no-bottom-md: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 /*
@@ -48,27 +47,26 @@
 
 /* Necessary for the notation diff transformer */
 code .diff {
-    transition: background-color .5s;
-    margin: 0 -24px;
-    padding: 0 24px;
-    width: calc(100% + 48px);
-    display: inline-block
+  transition: background-color 0.5s;
+  margin: 0 -24px;
+  padding: 0 24px;
+  width: calc(100% + 48px);
+  display: inline-block;
 }
 
 code .diff:before {
-    position: absolute;
-    left: 10px
+  position: absolute;
+  left: 10px;
 }
 
 code .diff.remove {
-    background-color: rgba(244, 63, 94, 0.5);
-    opacity: .7;
+  background-color: rgba(244, 63, 94, 0.5);
+  opacity: 0.7;
 }
 
-
 code .diff.add {
-    background-color: rgba(16, 185, 129, 0.5);
-    opacity: .9;
+  background-color: rgba(16, 185, 129, 0.5);
+  opacity: 0.9;
 }
 
 .flowchart .node rect:not([ry]),
@@ -90,8 +88,6 @@ code .diff.add {
 .flowchart .node rect[ry] ~ g div {
   @apply max-w-none! w-full! mt-[2px]! block!;
 }
-
-
 
 .nodeLabel p,
 .entityLabel {
@@ -117,7 +113,8 @@ pre.mermaid[data-processed] {
 
 .clickable path,
 .clickable.node rect[ry] {
-  transition: fill 0.1s ease-in-out, text 0.1s ease-in-out, stroke 0.1s ease-in-out;
+  transition: fill 0.1s ease-in-out, text 0.1s ease-in-out,
+    stroke 0.1s ease-in-out;
   @apply fill-blue-100! text-blue-600! stroke-blue-600!;
 }
 
@@ -128,4 +125,9 @@ pre.mermaid[data-processed] {
 
 .cluster rect {
   @apply fill-white! stroke-gray-400!;
+}
+
+.prose-lg
+  :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  background-color: #1e1e1e;
 }

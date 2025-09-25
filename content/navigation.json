@@ -1510,15 +1510,27 @@
         },
         {
           "discriminant": "page",
-          "value": "api-emails-filters"
-        },
-        {
-          "discriminant": "page",
           "value": "api-emails-template"
         },
         {
           "discriminant": "page",
           "value": "api-emails-commenting-mode"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Audience filters"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-filters"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-filter"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-operator"
         },
         {
           "discriminant": "divider",

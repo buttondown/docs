@@ -7122,6 +7122,7 @@
       },
       "Filter": {
         "title": "Filter",
+        "description": "A filter is a single condition that can be evaluated against a [Subscriber](/api-subscribers-retrieve). It has a field, an operator, and a value:\n\n```json\n{\n    \"field\": \"subscriber.tags\",\n    \"operator\": \"contains\",\n    \"value\": \"executive\"\n}\n```\n\nThe field is the path to the field on the subscriber to evaluate. The operator is the operator to use when evaluating the filter. The value is the value to compare the field to.",
         "type": "object",
         "properties": {
           "field": {
@@ -7144,11 +7145,12 @@
       },
       "FilterGroup": {
         "title": "FilterGroup",
-        "description": "Buttondown's filtering schema can be used for multiple things:\n\n- Filtering [the audience of an email](/api-emails-create) to a specific subset\n- Creating [finely-tuned automations](/api-automation-introduction)",
+        "description": "Buttondown's filtering schema can be used for multiple things:\n\n- Filtering [the audience of an email](/api-emails-create) to a specific subset\n- Creating [finely-tuned automations](/api-automation-introduction)\n\nFilters are fractal; they can be nested in groups, and groups can be nested in other groups. This is accomplished through a tree-like structure. Every \"FilterGroup\" has a \"predicate\" field, which is either \"and\" or \"or\", which determines how the filters and groups within the group are combined, a \"groups\" field, which is a list of \"FilterGroup\" objects (that's that recursive bit!), and a \"filters\" field, which are the leaf-level filters themselves.\n\nLet's say you want a simple filter: all subscribers who have a tag called \"executive\". You can do that like this:\n\n```json\n{\n    \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"executive\"}],\n    \"groups\": [],\n    \"predicate\": \"and\"\n}\n```\n\nNow, let's say you want to filter for subscribers who have a tag called \"executive\" and a tag called \"general-electric\". You can do that like this:\n\n```json\n{\n    \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"executive\"}, {\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"general-electric\"}],\n    \"groups\": [],\n    \"predicate\": \"and\"\n}\n```\n\nIf you wanted to change that `and` to an `or`, you can do that like this:\n\n```json\n{\n    \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"executive\"}, {\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"general-electric\"}],\n    \"groups\": [],\n    \"predicate\": \"or\"\n}\n```\n\nNow, let's say you want to filter for subscribers who have a tag called \"executive\" _or_ a tag called \"general-electric\" and a tag called \"admin\". This is where the whole nested thing comes in handy. You can do that like this:\n\n```json\n{\n    \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"executive\"}],\n    \"groups\": [\n        {\n            \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"admin\"}, {\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"general-electric\"}],\n            \"groups\": [],\n            \"predicate\": \"and\"\n        }\n    ],\n    \"predicate\": \"or\"\n}\n```\n\nYou can read more about the specific filter construction in the [Filter documentation](/api-emails-filter).",
         "type": "object",
         "properties": {
           "filters": {
             "title": "Filters",
+            "description": "The leaf-level filters to apply to the audience.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Filter"
@@ -7156,6 +7158,7 @@
           },
           "groups": {
             "title": "Groups",
+            "description": "The nested groups to apply to the audience.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FilterGroup"
