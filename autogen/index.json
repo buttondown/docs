@@ -2726,7 +2726,8 @@
     "references": [
       "do-imported-subscribers-have-to-re-confirm-their-subscription",
       "fathom",
-      "gdpr-eu-compliance"
+      "gdpr-eu-compliance",
+      "glossary-double-optin"
     ]
   },
   {
