@@ -2038,6 +2038,10 @@
         {
           "discriminant": "page",
           "value": "api-notes-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-notes-delete"
         }
       ]
     },

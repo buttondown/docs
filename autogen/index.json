@@ -4141,6 +4141,14 @@
     ]
   },
   {
+    "title": "Deleting a note",
+    "url": "api-notes-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Changelog",
     "url": "api-changelog",
     "section": "api",

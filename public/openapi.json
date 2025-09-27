@@ -235,8 +235,7 @@
               "description": "If provided, only return tags matching the given IDs.",
               "type": "array",
               "items": {
-                "type": "string",
-                "format": "uuid"
+                "type": "string"
               }
             },
             "required": false,
@@ -297,8 +296,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -354,8 +352,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -421,8 +418,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -473,8 +469,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -1800,6 +1795,7 @@
               "title": "Email Address",
               "description": "If provided, only return subscribers whose email address contains the given string.",
               "default": "",
+              "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
               "example": "telemachus@buttondown.email",
               "type": "string"
             },
@@ -6458,6 +6454,57 @@
             "description": "Conflict"
           }
         },
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
+    },
+    "/notes/{id}": {
+      "delete": {
+        "operationId": "delete_note_endpoint",
+        "summary": "Delete Note Endpoint",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "Delete a note",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -11691,6 +11738,16 @@
           "model_type": {
             "title": "Model Type",
             "description": "The type of object this note is attached to (e.g., 'email', 'subscriber').",
+            "example": "email",
+            "enum": [
+              "email",
+              "subscriber",
+              "external_feed",
+              "automation",
+              "survey",
+              "stripe_customer",
+              "tag"
+            ],
             "type": "string"
           },
           "model_id": {
@@ -11733,6 +11790,16 @@
           "model_type": {
             "title": "Model Type",
             "description": "The type of object this note is attached to (e.g., 'email', 'subscriber').",
+            "example": "email",
+            "enum": [
+              "email",
+              "subscriber",
+              "external_feed",
+              "automation",
+              "survey",
+              "stripe_customer",
+              "tag"
+            ],
             "type": "string"
           },
           "model_id": {
