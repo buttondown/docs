@@ -6394,6 +6394,15 @@
               "title": "Model Type",
               "description": "Filter notes by the type of object they are attached to.",
               "example": "email",
+              "enum": [
+                "email",
+                "subscriber",
+                "external_feed",
+                "automation",
+                "survey",
+                "stripe_customer",
+                "tag"
+              ],
               "type": "string"
             },
             "required": false,
