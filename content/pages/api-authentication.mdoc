@@ -1,6 +1,9 @@
 ---
 title: Authentication
 ---
+
+## Simple authentication
+
 Clients should authenticate by passing the token key in the `Authorization` HTTP header, prepended with the string `Token `(note the trailing space!).
 
 For example, if your token was `401f7ac837da42b97f613d789819ff93537bee6a`, your headers may look like this.
@@ -12,3 +15,46 @@ headers = {
 ```
 
 You can find your API key at the top of your [API requests page](https://buttondown.com/requests).
+
+## Platform authentication
+
+If you're using the API to manage multiple newsletters, you can pass the `Buttondown-Context` header to specify the newsletter you want to access.
+
+Consider the following example, in which a single platform account manages multiple newsletters. Each newsletter has its own API key in addition to the platform account's API key:
+
+```mermaid
+flowchart TD
+    A[sheinhardt] -->|owns| B[sheinhardt_pt]
+    A[sheinhardt] -->|owns| C[sheinhardt_fr]
+    A[sheinhardt] -->|owns| D[sheinhardt_de]
+    A[sheinhardt] -->|owns| E[sheinhardt_en]
+
+    subgraph A[sheinhardt]
+       api_key_111
+    end
+
+    subgraph B[sheinhardt_pt]
+       api_key_111_b
+    end
+
+    subgraph C[sheinhardt_fr]
+       api_key_111_c
+    end
+
+    subgraph D[sheinhardt_de]
+       api_key_111_d
+    end
+
+    subgraph E[sheinhardt_en]
+       api_key_111_e
+    end
+```
+
+The platform could programmatically access each newsletter's API key and pass it through, but this is clumsy and onerous. Instead, you can pass the `Buttondown-Context` header to specify the newsletter you want to access:
+
+```python
+headers = {
+    'Authorization': 'Token api_key_111',
+    'Buttondown-Context': 'sheinhardt_pt'
+}
+```

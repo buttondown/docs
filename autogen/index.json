@@ -1149,7 +1149,6 @@
     "schema": null,
     "description": "Automatically share your newsletters to your Twitter profile to promote your newsletter.",
     "references": [
-      "api-introduction",
       "sending-your-first-email-advanced",
       "using-markdown-rendering"
     ]
@@ -1655,10 +1654,7 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown lets you let your subscribers change their metadata, tags, and more.",
-    "references": [
-      "tags",
-      "template-variables-manage-subscription-url"
-    ]
+    "references": []
   },
   {
     "title": "Prohibited domains",
