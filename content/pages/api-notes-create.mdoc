@@ -5,15 +5,12 @@ endpoint: /notes
 method: post
 ---
 
-## Common use cases
+Notes consistent of two things:
 
-- **Performance tracking**: Add notes to emails with performance metrics or observations
-- **Subscriber management**: Document important information about specific subscribers  
-- **Content planning**: Leave notes on emails for future reference or follow-up
-- **Team collaboration**: Share context and insights with other team members
-- **Data annotation**: Add structured metadata for reporting or analysis
+1. A body, which is the text content of the note.
+2. [Metadata](/metadata), which is a structured key-value blob that you can use to store arbitrary data on the object.
 
-## Related endpoints
+By creating a note programmatically, you can unlock a lot of interesting use cases and functionality. Here are some examples:
 
-- [List notes](/api-notes-list) - Retrieve existing notes
-- [Notes introduction](/api-notes-introduction) - Learn more about the notes system
+1. Add a note to a given subscriber whenever they upgrade or churn from a paid plan.
+2. Add notes to emails when you mutate them with new data for provenance tracking.

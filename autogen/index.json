@@ -209,6 +209,7 @@
     "description": "Want to do a \"mail merge\" on your Buttondown newsletter? We make it easy information in Metadata!",
     "references": [
       "alpinejs",
+      "api-notes-create",
       "building-your-subscriber-base",
       "constant-contact",
       "customizing-subscriber-list-view",
@@ -4114,9 +4115,7 @@
     "section": "api",
     "schema": "Note",
     "description": null,
-    "references": [
-      "api-notes-create"
-    ]
+    "references": []
   },
   {
     "title": "Create a note",
@@ -4132,9 +4131,7 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": [
-      "api-notes-create"
-    ]
+    "references": []
   },
   {
     "title": "Deleting a note",
