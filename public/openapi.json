@@ -8834,6 +8834,16 @@
           "count"
         ]
       },
+      "NewsletterAuditingMode": {
+        "title": "AuditingMode",
+        "description": "An enumeration.",
+        "enum": [
+          "disabled",
+          "enabled",
+          "aggressive"
+        ],
+        "type": "string"
+      },
       "Newsletter": {
         "title": "Newsletter",
         "description": "You will likely not need to interact with your newsletter settings\nprogrammatically, but if you do, this is the endpoint for you. You can\ncreate, update, and list newsletters via the API; this is ideal for\nintegrating with Buttondown as a headless email or newsletter provider\n(e.g. for a SaaS product.)",
@@ -8930,6 +8940,19 @@
             "title": "Image",
             "description": "URL to your newsletter's header or branding image",
             "type": "string"
+          },
+          "auditing_mode": {
+            "description": "The auditing mode for your newsletter. See [the Firewall](https://docs.buttondown.com/firewall) for more information.",
+            "enum": [
+              "disabled",
+              "enabled",
+              "aggressive"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterAuditingMode"
+              }
+            ]
           }
         },
         "required": [
@@ -9092,6 +9115,9 @@
             "default": "",
             "example": "https://example.com/header.jpg",
             "type": "string"
+          },
+          "auditing_mode": {
+            "$ref": "#/components/schemas/NewsletterAuditingMode"
           }
         },
         "required": [
@@ -9147,6 +9173,9 @@
             "description": "The domain of the newsletter from which emails are sent.",
             "example": "mail.sheinhardt.com",
             "type": "string"
+          },
+          "auditing_mode": {
+            "$ref": "#/components/schemas/NewsletterAuditingMode"
           },
           "enabled_features": {
             "title": "Enabled Features",
