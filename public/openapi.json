@@ -9261,6 +9261,7 @@
         "type": "object",
         "properties": {
           "type": {
+            "description": "The type of bulk action to perform.",
             "example": "delete_emails",
             "allOf": [
               {
@@ -9329,6 +9330,7 @@
         "type": "object",
         "properties": {
           "type": {
+            "description": "The type of bulk action to perform.",
             "example": "delete_emails",
             "allOf": [
               {
