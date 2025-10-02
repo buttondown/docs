@@ -2111,6 +2111,30 @@
           },
           {
             "in": "query",
+            "name": "unsubscription_date__start",
+            "schema": {
+              "title": "Unsubscription Date  Start",
+              "description": "If provided, only return subscribers with the given unsubscription date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given unsubscription date(s)."
+          },
+          {
+            "in": "query",
+            "name": "unsubscription_date__end",
+            "schema": {
+              "title": "Unsubscription Date  End",
+              "description": "If provided, only return subscribers with the given unsubscription date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given unsubscription date(s)."
+          },
+          {
+            "in": "query",
             "name": "referrer_url",
             "schema": {
               "title": "Referrer Url",
@@ -4911,7 +4935,8 @@
                   "2024-12-30",
                   "2025-01-02",
                   "2025-05-19",
-                  "2025-06-01"
+                  "2025-06-01",
+                  "2026-01-01"
                 ],
                 "type": "string"
               }
@@ -10882,7 +10907,8 @@
               "2024-12-30",
               "2025-01-02",
               "2025-05-19",
-              "2025-06-01"
+              "2025-06-01",
+              "2026-01-01"
             ],
             "type": "string"
           },
@@ -10954,7 +10980,8 @@
               "2024-12-30",
               "2025-01-02",
               "2025-05-19",
-              "2025-06-01"
+              "2025-06-01",
+              "2026-01-01"
             ],
             "type": "string"
           },
