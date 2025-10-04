@@ -16,26 +16,14 @@ description:  >-
 Whether you’d like to set up a formal paid subscription program or a pay-what-you-want model, Buttondown offers a number of different ways to collect revenue from your subscribers, while also rewarding them with exclusive perks!
 
 ## Getting started
+
 To set up paid subscriptions for your newsletter, you'll work in both Stripe and Buttondown.
-
-Here's an overview of the steps required:
-
-1. [Add a paid subscription plan](#add-a-paid-subscription-plan)
-1. [Create a payment link](#create-a-payment-link) (in Stripe)
-1. [Share the payment link](#share-the-payment-link) (in Stripe)
-1. [Customize your paid subscription confirmation](#customize-your-paid-subscription-confirmation)
-1. [Send your first paid email](#send-your-first-paid-email)
-
-### Prerequisites
 
 Buttondown works hand in hand with Stripe to automate payments and taxes related to your newsletter.
 To start using paid subscriptions, you must have:
 
-1. [A Stripe account](https://stripe.com/docs/tax)
+1. [A Stripe account](/stripe)
 2. [A paid Buttondown account](https://buttondown.com/pricing)
-
-We have a step-by-step guide to help you [create and connect your Stripe account](/stripe).
-
 
 ## Add a paid subscription plan
 
@@ -69,7 +57,7 @@ There are a few ways that you can have subscribers subscribe to your paid newsle
 
 1. If they subscribe and confirm their email address with the link that is sent to them, they'll be brought to a webpage that allows them to upgrade their subscription.
 2. Emails to unpaid subscribers will have a link at the bottom of the email where they can upgrade.
-3. Buttondown will automatically create a Stripe Payment Link for each price. (You can find those in the Stripe dashboard.) If you send someone any of those Stripe Payment Links, they'll be able to subscribe and pay for your newsletter.
+3. Buttondown exposes a URL — https://buttondown.com/your-newsletter/buy — where they can upgrade their subscription.
 
 ## Customize your paid subscription confirmation
 
@@ -78,7 +66,6 @@ When a subscriber becomes a paid subscriber, it's nice to offer them a warm welc
 1. In Buttondown, navigate to the "Subscribing" menu and scroll to "Premium welcome email."
 1. Enter "Subject" and "Body" text for the welcome email.
 1. Click **Save changes**.
-
 
 ## Send your first paid email
 
