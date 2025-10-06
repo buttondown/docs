@@ -1655,7 +1655,9 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown lets you let your subscribers change their metadata, tags, and more.",
-    "references": []
+    "references": [
+      "template-variables-manage-subscription-url"
+    ]
   },
   {
     "title": "Prohibited domains",
