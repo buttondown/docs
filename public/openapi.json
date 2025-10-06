@@ -1794,10 +1794,20 @@
             "schema": {
               "title": "Email Address",
               "description": "If provided, only return subscribers whose email address contains the given string.",
-              "default": "",
-              "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
               "example": "telemachus@buttondown.email",
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+                  }
+                }
+              ]
             },
             "required": false,
             "description": "If provided, only return subscribers whose email address contains the given string."
