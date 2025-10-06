@@ -11,62 +11,60 @@ The concept is to add snippets in your email that are programmatically replaced 
 
 {% table %}
 - Variable
-- Description
----
-- **[subscriber.id](/template-variables-subscriber-id)**
-- The unique ID for a given subscriber.
----
-- **[subscriber.can\_view\_premium\_content](/template-variables-subscriber-can-view-premium-content)**
-- Whether or not a subscriber is able to view premium content.
----
-- **[subscriber.metadata](/template-variables-subscriber-metadata)**
-- Access to the metadata for a given subscriber.
----
-- **[subscriber.email](/template-variables-subscriber-email)**
-- Access to the email address for a given subscriber.
----
-- **[subscriber.can\_be\_upsold](/template-variables-subscriber-can-be-upsold)**
-- Whether or not a subscriber is able to be upsold to a paid subscription.
----
-- **[subscriber.subscriber\_type](/template-variables-subscriber-subscriber-type)**
-- Access to the subscriber type (premium, regular, etc) for a given subscriber.
----
-- **[subscriber.tags](/template-variables-subscriber-tags)**
-- Access to the tag names of a given subscriber.
----
-- **[email.subject](/template-variables-email-subject)**
-- The subject of the email you're sending out.
----
-- **[unsubscribe\_url](/template-variables-unsubscribe-url)**
-- A personalized URL for the given subscriber to unsubscribe with.
----
-- **[subscribe\_url](/template-variables-subscribe-url)**
-- A generic URL for your subscription page.
----
-- **[email\_url](/template-variables-email-url)**
-- The permalink of the email being sent out.
----
-- **[upgrade\_url](/template-variables-upgrade-url)**
-- A link to prompt existing free subscribers to upgrade. (Only relevant for paid newsletters.)
----
-- **[premium\_subscribe\_url](/template-variables-premium-subscribe-url)**
-- A link to prompt existing free subscribers to upgrade. (Only relevant for paid newsletters.) This is the exact same thing as upgrade_url.
----
-- **[manage\_subscription\_url](/template-variables-manage-subscription-url)**
-- A link that allows subscribers to change the data configured as subscribe form inputs. This requires the Portal to be enabled.
----
-- **[email.secondary\_id](/template-variables-email-secondary-id)**
-- The issue number of the email being sent out.
 ---
 - **[email.publish\_date](/template-variables-email-publish-date)**
-- The raw date time of the email being sent out.
+- Date/time the email is sent.
 ---
-- **[subscribe\_form](/template-variables-subscribe-form)**
-- An embedded subscribe form for your newsletter, just like the one that appears at the bottom of your archives. Note that this only appears on the web/archive version of your email; it will not appear in the actual emails sent to subscribers.
+- **[email.secondary\_id](/template-variables-email-secondary-id)**
+- Email issue number.
+---
+- **[email.subject](/template-variables-email-subject)**
+- Email subject line.
+---
+- **[email\_url](/template-variables-email-url)**
+- Permalink to the email.
+---
+- **[manage\_subscription\_url](/template-variables-manage-subscription-url)**
+- Link to Portal.
 ---
 - **[medium](/template-variables-medium)**
-- Either 'email' (for emails) or 'web' (for web views).
+- 'email' or 'web'.
+---
+- **[premium\_subscribe\_url](/template-variables-premium-subscribe-url)**
+- Upgrade link for free subscribers.
 ---
 - **[random\_number](/template-variables-random-number)**
-- A random number between two values for things like A/B testing.
-{% /table %}
+- Random number for A/B testing.
+---
+- **[subscribe\_form](/template-variables-subscribe-form)**
+- Embedded subscribe form.
+---
+- **[subscribe\_url](/template-variables-subscribe-url)**
+- URL to your subscription page.
+---
+- **[subscriber.can\_be\_upsold](/template-variables-subscriber-can-be-upsold)**
+- If subscriber can be upsold to paid.
+---
+- **[subscriber.can\_view\_premium\_content](/template-variables-subscriber-can-view-premium-content)**
+- If subscriber can view premium content.
+---
+- **[subscriber.email](/template-variables-subscriber-email)**
+- Subscriber's email address.
+---
+- **[subscriber.id](/template-variables-subscriber-id)**
+- Subscriber's unique ID.
+---
+- **[subscriber.metadata](/template-variables-subscriber-metadata)**
+- Subscriber metadata.
+---
+- **[subscriber.subscriber\_type](/template-variables-subscriber-subscriber-type)**
+- Subscriber type (premium, regular, etc).
+---
+- **[subscriber.tags](/template-variables-subscriber-tags)**
+- Subscriber's tag names.
+---
+- **[unsubscribe\_url](/template-variables-unsubscribe-url)**
+- Personalized unsubscribe link.
+---
+- **[upgrade\_url](/template-variables-upgrade-url)**
+- Upgrade link for free subscribers.
