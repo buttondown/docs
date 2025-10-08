@@ -8428,15 +8428,16 @@
         "description": "Represents the type of error that occurred when validating subscriber input.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
         "enum": [
           "email_already_exists",
-          "email_invalid",
-          "tag_invalid",
-          "metadata_invalid",
-          "ip_address_spammy",
           "email_blocked",
+          "email_empty",
+          "email_invalid",
+          "ip_address_spammy",
+          "metadata_invalid",
           "rate_limited",
           "subscriber_already_exists",
           "subscriber_blocked",
-          "subscriber_suppressed"
+          "subscriber_suppressed",
+          "tag_invalid"
         ],
         "type": "string"
       },
