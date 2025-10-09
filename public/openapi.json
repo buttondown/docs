@@ -8171,13 +8171,15 @@
         "title": "Source",
         "description": "Represents the original provenance of a subscriber. This value is not exposed\nto subscribers; it's only used for internal tracking purposes and governs some\nof the behavior of the subscriber (i.e. whether or not to require double\nopt-in.)",
         "enum": [
+          "admin",
           "api",
+          "carrd",
+          "comment",
           "import",
           "organic",
+          "stripe",
           "user",
-          "admin",
-          "comment",
-          "stripe"
+          "zapier"
         ],
         "type": "string"
       },

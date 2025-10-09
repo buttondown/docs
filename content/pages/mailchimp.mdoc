@@ -7,10 +7,17 @@ description:  >-
 ---
 Welcome to Buttondown! After you've read through our "[Getting Started](/registration-and-setup)" guide, we're here to help you with your next step: transferring your subscribers from your old email platform to Buttondown.
 
-### Exporting your subscribers (contacts)
+First, a quick note on terminology:
 
-{% noticeInfo
-   text="Mailchimp uses the word 'contacts' to refer to what Buttondown calls 'subscribers.'" /%}
+| Mailchimp    | Buttondown   | Description                                                                 |
+|------------------|------------------|-----------------------------------------------------------------------------|
+| Contacts         | Subscribers      | People who receive your emails.                                             |
+| Campaigns        | Archives         | Sent email newsletters or campaigns.                                        |
+| Audience         | Newsletter             | A group of contacts/subscribers.                                            |
+| Merge Tags       | Metadata    | Personalized fields (like first name) in emails.                            |
+
+
+### Exporting your subscribers (contacts)
 
 Export your Mailchimp contacts by following the process in [Mailchimp's documentation](https://mailchimp.com/help/view-export-contacts/).
 
@@ -21,9 +28,6 @@ Navigate to the “[Subscribers](https://buttondown.com/subscribers)" tab of you
 To learn more, read [Importing your subscribers](/importing-your-data#importing-your-subscribers).
 
 ### Exporting your archives (campaigns)
-
-{% noticeInfo
-   text="Mailchimp uses the word 'campaigns' to refer to what Buttondown calls 'archives.'" /%}
 
 Export your Mailchimp campaigns [here](https://mailchimp.com/help/export-back-up-data/).
 
@@ -51,12 +55,12 @@ You bring your subscribers' history to Buttondown when you connect your Stripe a
 
 ### I see a bunch of different subscriber lists in my export! Which one should I choose?
 
-If you see three CSVs with names like:
+| CSV File Name                   | Description                                 |
+|---------------------------------|---------------------------------------------|
+| subscribed_members_export.csv   | All of your *active* subscribers            |
+| unsubscribed_members_export.csv | Just unsubscribers                          |
+| cleaned_members_export.csv      | Subscribers who have been cleaned (invalid, bounced, etc.) |
 
-- `cleaned_members_export.csv`
-- `unsubscribed_members_export.csv`
-- `subscribed_members_export.csv`
-
-You should choose `subscribed_members_export.csv`. This is the list of all of your *active* subscribers.
+Choose `subscribed_members_export.csv`. This is the list of all of your *active* subscribers.
 
 While "cleaned" and "unsubscribed" members are still in your Mailchimp account, they are not active subscribers. They are either unsubscribed or have been cleaned from your list, and so you don't want to bring them over to Buttondown.
