@@ -10613,6 +10613,16 @@
         ],
         "type": "string"
       },
+      "SurveyInputType": {
+        "title": "InputType",
+        "description": "An enumeration.",
+        "enum": [
+          "radio",
+          "checkbox",
+          "text"
+        ],
+        "type": "string"
+      },
       "Survey": {
         "title": "Survey",
         "type": "object",
@@ -10661,6 +10671,9 @@
           "is_freeform_response_enabled": {
             "title": "Is Freeform Response Enabled",
             "type": "boolean"
+          },
+          "input_type": {
+            "$ref": "#/components/schemas/SurveyInputType"
           }
         },
         "required": [
@@ -10673,7 +10686,8 @@
           "notes",
           "response_cadence",
           "status",
-          "is_freeform_response_enabled"
+          "is_freeform_response_enabled",
+          "input_type"
         ]
       },
       "CreateSurveyErrorCode": {
@@ -10746,6 +10760,15 @@
             "default": false,
             "example": false,
             "type": "boolean"
+          },
+          "input_type": {
+            "default": "radio",
+            "example": "radio",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SurveyInputType"
+              }
+            ]
           },
           "response_cadence": {
             "default": "once",
@@ -10860,6 +10883,9 @@
             "title": "Is Freeform Response Enabled",
             "default": false,
             "type": "boolean"
+          },
+          "input_type": {
+            "$ref": "#/components/schemas/SurveyInputType"
           }
         }
       },

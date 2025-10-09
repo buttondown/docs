@@ -98,7 +98,8 @@
         "notes": "",
         "response_cadence": "once",
         "status": "active",
-        "is_freeform_response_enabled": false
+        "is_freeform_response_enabled": false,
+        "input_type": "radio"
       }
     },
     {
@@ -117,7 +118,8 @@
         "notes": "",
         "response_cadence": "once_per_email",
         "status": "active",
-        "is_freeform_response_enabled": false
+        "is_freeform_response_enabled": false,
+        "input_type": "radio"
       }
     }
   ],
