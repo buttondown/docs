@@ -3,24 +3,84 @@ title: Sending from a custom domain
 relatedPages:
   - sending-from-dreamhost
   - glossary-reverse-dns
-description:  >-
+description: >-
   Buttondown allows all newsletters to send from a custom domain. This helps you build a recognizable brand and improves deliverability.
 ---
+
 Unlike hosting your newsletter on a [custom domain](/hosting-on-a-custom-domain), which is largely a cosmetic feature, there are significant benefits to sending your emails from a custom domain.
 
 By default, Buttondown sends your emails from its own domain and webserver. This is a good thing because it lets you focus on writing, editing, and growing your subscriber base, instead of dealing with arcane [DNS issues](/glossary-dns).
 
 However, as your newsletter matures, it might be a good idea to think about sending directly from your domain instead. This has a number of benefits:
 
-- Your emails look more professional. Open and click rates are non-trivially improved for newsletters that are coming from, say, `newsletter.this-week-in-poetry.com` instead of `mail.buttondown.com`.
+- Your emails look more professional. Open and click rates are non-trivially improved for newsletters that are coming from, say, `newsletter.this-week-in-poetry.com` instead of `buttondown.email`.
 - You can start accruing "domain reputation" for your own domain. This improves the overall engagement rate for your emails. More importantly, that domain reputation travels with you. Even if you leave Buttondown for another service, your domain reputation will stay the same, as that service also allows you to send from a custom domain.
 
-If you use [DreamHost](/sending-from-dreamhost) as your domain registrar, we have a step-by-step guide that will get you up and running quickly.
+## The difference between hosting domains and sending domains
 
-## Dealing with 'softfails' due to SPF
+**Hosting on a custom domain** means using a domain other than `buttondown.com` to host your newsletter and archives on the web.
+
+**Sending from a custom domain** means sending outgoing emails from your domain, improving reputation and delivery metrics.
+
+A custom **hosting domain** requires you to sign up for either [Standard or Professional plans](https://buttondown.com/pricing). Sending from a custom domain is available to everyone, because sending emails that actually get delivered is pretty important, and it's scummy to hide that behind a paywall.
+
+## "Managed" sending domain setup
+
+Buttondown offers a “managed” experience for connecting a sending domain. (Your sending domain is the domain that you send emails from — for example, `anything@yourdomain.com`).
+
+The “managed” experience requires giving Buttondown control over a subdomain of your domain, which you will only use for Buttondown. We recommend that users use `mail.example.com` or `newsletter.example.com`, but you can use any subdomain you’d like.
+
+The advantage of "managed" is that Buttondown can continuously update your DNS configuration to verify your domain with a growing number of email-sending partners. As a result, we can shift your newsletter's email traffic across those partners to balance deliverability and reliability, and in case of outages.
+
+If you don't use the "managed" DNS setup (also known as the "manual" setup), everything will work just fine, but we won't be able to switch your newsletter between different email-sending partners for optimal performance.
 
 {% noticeInfo
-   text="You might not need to set an SPF record at all! If Buttondown doesn't list it as one of the records to add, you don't need it. " /%}
+   text="There is no need to change your sending domain configuration if you're already set up. Your current configuration will be supported indefinitely. However, we suggest using the “managed” process for new sending domains." /%}
+
+### How do I use the "managed" sending domain setup?
+
+1. Add your custom domain in Settings as a sending domain.
+2. Add the two `NS` type records that are shown to you in Settings.
+
+### What if I want to send from my root domain (`example.com`) rather than a subdomain (`newsletter.example.com`)?
+
+Since the "managed" setup takes over a subdomain, it requires a subdomain that you can dedicate to Buttondown — whether that's `newsletter.example.com`, `buttondown.example.com`, `bd.example.com`, or otherwise.
+
+If you want to send from your root domain (`example.com`), you're very welcome to. You will not see the "managed" DNS option in settings; instead, you'll only see the "manual" records.
+
+### What if I want to use a subdomain without the "managed" setup?
+
+You're welcome to do so! Just add your sending domain in Settings and, when presented with the list of DNS records to add, switch to the "managed" version of the records.
+
+## Frequently asked questions
+
+### Can I use the same domain for hosting and sending?
+
+Unfortunately, some DNS providers do not let you set up the exact same domain or subdomain for both sending emails and as your newsletter archive.
+
+For these DNSes, we recommend setting up completely separate subdomains. Try something like this:
+
+- `newsletter.janedoe.com` for your custom newsletter domain, where readers view archives and subscribe to your newsletter
+- `mail.janedoe.com` for your custom sending domain, where outgoing emails come from
+
+This is the best option to preserve the deliverability of your newsletter.
+
+### Can I use multiple sending domains for multiple newsletters?
+
+Yes! If you're taking advantage of [Buttondown's multi-newsletter feature](/multiple-newsletters), you can set up multiple sending domains for each newsletter for no additional cost.
+
+### What about the same sending domain on multiple newsletters?
+
+Also yes, with a caveat: Buttondown tries to be clever and detect when you're sending from the same domain on multiple newsletters. If you're doing this, we'll automatically set up the DNS records for you. If you're having trouble, [contact us](https://buttondown.com/support) so we'll take a look.
+
+### Am I required to use a custom domain?
+
+If you're coming to Buttondown from another service and are importing more than 10,000 subscribers, we require you to send from a custom domain. Otherwise, you can skip setting up a sending domain (though we recommend it anyway!) and use the default sending domains we provide.
+
+### Why am I getting 'softfails' due to SPF?
+
+{% noticeInfo
+   text="You might not need to set an SPF record at all! If Buttondown doesn't list it as one of the records to add, you don't need it." /%}
 
 SPF softfails can cause your newsletter emails to be marked as spam. A softfail SPF means the email client is suspicious of the email sender's IP address. You can help prevent this by making sure your [SPF entry](/glossary-spf) is configured correctly.
 
@@ -51,36 +111,3 @@ v=spf1 include:_spf.google.com include:mailgun.org ~all
 ```
 
 If you don't combine the two records, some mailboxes may read the first SPF entry (the GSuite one) and ignore the second (the one sent by Buttondown), which can cause a softfail and lower your newsletter email's deliverability.
-
-## The difference between hosting domains and sending domains
-
-**Hosting on a custom domain** means using a domain other than `buttondown.com` to host your newsletter and archives. For example: `newsletter.example.com`
-
-**Sending from a custom domain** means setting up your DNS records so that Buttondown sends outgoing emails from your domain, improving reputation and delivery metrics.
-
-Hosting requires you to sign up for either [Standard or Professional plans](https://buttondown.com/pricing). Sending from a custom domain is available to everyone. This is because, well, sending emails that actually get delivered is pretty important, and it's scummy to hide that behind a paywall.
-
-## Frequently asked questions
-
-### Can I use the same domain for hosting and sending?
-
-Unfortunately, some DNS providers do not let you set up the exact same domain or subdomain for both sending emails and as your newsletter archive.
-
-For these DNSes, we recommend setting up completely separate subdomains. Try something like this:
-
-- `newsletter.janedoe.com` for your custom newsletter domain, where readers view archives and subscribe to your newsletter
-- `mail.janedoe.com` for your custom sending domain, where outgoing emails come from
-
-This is the best option to preserve the deliverability of your newsletter.
-
-### Can I use multiple sending domains for multiple newsletters?
-
-Yes! If you're taking advantage of [Buttondown's multi-newsletter feature](/multiple-newsletters), you can set up multiple sending domains for each newsletter for no additional cost.
-
-### What about the same sending domain on multiple newsletters?
-
-Also yes, with a caveat: Buttondown tries to be clever and detect when you're sending from the same domain on multiple newsletters. If you're doing this, we'll automatically set up the DNS records for you. If you're having trouble, [contact us](https://buttondown.com/support) so we'll take a look.
-
-### Am I required to use a custom domain?
-
-If you're coming to Buttondown from another service and are importing more than 10,000 subscribers, we require you to send from a custom domain. Otherwise, you can skip setting up a sending domain (though we recommend it anyway!) and use the default sending domains we provide.

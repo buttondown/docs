@@ -719,9 +719,7 @@
     "section": "guides",
     "schema": null,
     "description": "This guide will help you connect your Dreamhost domain to your Buttondown newsletter.",
-    "references": [
-      "sending-from-a-custom-domain"
-    ]
+    "references": []
   },
   {
     "title": "Creating your first automation",
