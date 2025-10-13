@@ -6832,6 +6832,7 @@
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           }
@@ -7018,6 +7019,7 @@
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -7082,6 +7084,7 @@
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -7132,145 +7135,6 @@
         "required": [
           "results",
           "count"
-        ]
-      },
-      "EmailStatus": {
-        "title": "Status",
-        "description": "Represents the state of an email.\n\nNo action is required to move from one state or another; Buttondown\ninternally handles the transitions, and exposing the status is for\nobservability purposes only.",
-        "enum": [
-          "draft",
-          "managed_by_rss",
-          "about_to_send",
-          "scheduled",
-          "in_flight",
-          "paused",
-          "deleted",
-          "errored",
-          "sent",
-          "imported",
-          "throttled",
-          "resending",
-          "transactional",
-          "suppressed"
-        ],
-        "type": "string"
-      },
-      "EmailSuppressionReason": {
-        "title": "SuppressionReason",
-        "description": "Represents the reason an email was suppressed.",
-        "enum": [
-          "law_enforcement",
-          "internal_auditing"
-        ],
-        "type": "string"
-      },
-      "EmailType": {
-        "title": "Type",
-        "description": "Represents the audience of an email, and to whom it is visible both in the initial\nemail and in online archives.",
-        "enum": [
-          "public",
-          "private",
-          "premium",
-          "free",
-          "churned",
-          "archival"
-        ],
-        "type": "string"
-      },
-      "EmailSource": {
-        "title": "Source",
-        "description": "Represents the original provenance of an email. This value is not exposed\nto subscribers, but does determine some behavior of the email (e.g. whether\nor not analytics can be calculated.)",
-        "enum": [
-          "api",
-          "import",
-          "app",
-          "external_feed"
-        ],
-        "type": "string"
-      },
-      "EmailCommentingMode": {
-        "title": "CommentingMode",
-        "description": "Governs who can comment on this email.\n\nThis enum replaces the `is_comments_disabled` field, which has been deprecated. (Also note that this field may be superseded by newsletter-level settings; for instance, \"enabled\" is an invalid and inert value if the newsletter itself has comments disabled.)",
-        "enum": [
-          "disabled",
-          "enabled",
-          "enabled_for_paid_subscribers"
-        ],
-        "type": "string"
-      },
-      "Operator": {
-        "title": "Operator",
-        "description": "An enumeration.",
-        "enum": [
-          "equals",
-          "not_equals",
-          "contains",
-          "not_contains",
-          "is_empty",
-          "is_not_empty",
-          "greater_than",
-          "less_than"
-        ],
-        "type": "string"
-      },
-      "Filter": {
-        "title": "Filter",
-        "description": "A filter is a single condition that can be evaluated against a [Subscriber](/api-subscribers-retrieve). It has a field, an operator, and a value:\n\n```json\n{\n    \"field\": \"subscriber.tags\",\n    \"operator\": \"contains\",\n    \"value\": \"executive\"\n}\n```\n\nThe field is the path to the field on the subscriber to evaluate. The operator is the operator to use when evaluating the filter. The value is the value to compare the field to.",
-        "type": "object",
-        "properties": {
-          "field": {
-            "title": "Field",
-            "type": "string"
-          },
-          "operator": {
-            "$ref": "#/components/schemas/Operator"
-          },
-          "value": {
-            "title": "Value",
-            "type": "string"
-          }
-        },
-        "required": [
-          "field",
-          "operator",
-          "value"
-        ]
-      },
-      "FilterGroup": {
-        "title": "FilterGroup",
-        "description": "Buttondown's filtering schema can be used for multiple things:\n\n- Filtering [the audience of an email](/api-emails-create) to a specific subset\n- Creating [finely-tuned automations](/api-automation-introduction)\n\nFilters are fractal; they can be nested in groups, and groups can be nested in other groups. This is accomplished through a tree-like structure. Every \"FilterGroup\" has a \"predicate\" field, which is either \"and\" or \"or\", which determines how the filters and groups within the group are combined, a \"groups\" field, which is a list of \"FilterGroup\" objects (that's that recursive bit!), and a \"filters\" field, which are the leaf-level filters themselves.\n\nLet's say you want a simple filter: all subscribers who have a tag called \"executive\". You can do that like this:\n\n```json\n{\n    \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"executive\"}],\n    \"groups\": [],\n    \"predicate\": \"and\"\n}\n```\n\nNow, let's say you want to filter for subscribers who have a tag called \"executive\" and a tag called \"general-electric\". You can do that like this:\n\n```json\n{\n    \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"executive\"}, {\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"general-electric\"}],\n    \"groups\": [],\n    \"predicate\": \"and\"\n}\n```\n\nIf you wanted to change that `and` to an `or`, you can do that like this:\n\n```json\n{\n    \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"executive\"}, {\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"general-electric\"}],\n    \"groups\": [],\n    \"predicate\": \"or\"\n}\n```\n\nNow, let's say you want to filter for subscribers who have a tag called \"executive\" _or_ a tag called \"general-electric\" and a tag called \"admin\". This is where the whole nested thing comes in handy. You can do that like this:\n\n```json\n{\n    \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"executive\"}],\n    \"groups\": [\n        {\n            \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"admin\"}, {\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"general-electric\"}],\n            \"groups\": [],\n            \"predicate\": \"and\"\n        }\n    ],\n    \"predicate\": \"or\"\n}\n```\n\nYou can read more about the specific filter construction in the [Filter documentation](/api-emails-filter).",
-        "type": "object",
-        "properties": {
-          "filters": {
-            "title": "Filters",
-            "description": "The leaf-level filters to apply to the audience.",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Filter"
-            }
-          },
-          "groups": {
-            "title": "Groups",
-            "description": "The nested groups to apply to the audience.",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FilterGroup"
-            }
-          },
-          "predicate": {
-            "title": "Predicate",
-            "description": "The logical operator to use when combining filters (either 'and' or 'or').",
-            "enum": [
-              "and",
-              "or"
-            ],
-            "type": "string"
-          }
-        },
-        "required": [
-          "filters",
-          "groups",
-          "predicate"
         ]
       },
       "Analytics": {
@@ -7369,6 +7233,145 @@
           }
         }
       },
+      "EmailCommentingMode": {
+        "title": "CommentingMode",
+        "description": "Governs who can comment on this email.\n\nThis enum replaces the `is_comments_disabled` field, which has been deprecated. (Also note that this field may be superseded by newsletter-level settings; for instance, \"enabled\" is an invalid and inert value if the newsletter itself has comments disabled.)",
+        "enum": [
+          "disabled",
+          "enabled",
+          "enabled_for_paid_subscribers"
+        ],
+        "type": "string"
+      },
+      "EmailType": {
+        "title": "Type",
+        "description": "Represents the audience of an email, and to whom it is visible both in the initial\nemail and in online archives.",
+        "enum": [
+          "public",
+          "private",
+          "premium",
+          "free",
+          "churned",
+          "archival"
+        ],
+        "type": "string"
+      },
+      "Operator": {
+        "title": "Operator",
+        "description": "An enumeration.",
+        "enum": [
+          "equals",
+          "not_equals",
+          "contains",
+          "not_contains",
+          "is_empty",
+          "is_not_empty",
+          "greater_than",
+          "less_than"
+        ],
+        "type": "string"
+      },
+      "Filter": {
+        "title": "Filter",
+        "description": "A filter is a single condition that can be evaluated against a [Subscriber](/api-subscribers-retrieve). It has a field, an operator, and a value:\n\n```json\n{\n    \"field\": \"subscriber.tags\",\n    \"operator\": \"contains\",\n    \"value\": \"executive\"\n}\n```\n\nThe field is the path to the field on the subscriber to evaluate. The operator is the operator to use when evaluating the filter. The value is the value to compare the field to.",
+        "type": "object",
+        "properties": {
+          "field": {
+            "title": "Field",
+            "type": "string"
+          },
+          "operator": {
+            "$ref": "#/components/schemas/Operator"
+          },
+          "value": {
+            "title": "Value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "field",
+          "operator",
+          "value"
+        ]
+      },
+      "FilterGroup": {
+        "title": "FilterGroup",
+        "description": "Buttondown's filtering schema can be used for multiple things:\n\n- Filtering [the audience of an email](/api-emails-create) to a specific subset\n- Creating [finely-tuned automations](/api-automation-introduction)\n\nFilters are fractal; they can be nested in groups, and groups can be nested in other groups. This is accomplished through a tree-like structure. Every \"FilterGroup\" has a \"predicate\" field, which is either \"and\" or \"or\", which determines how the filters and groups within the group are combined, a \"groups\" field, which is a list of \"FilterGroup\" objects (that's that recursive bit!), and a \"filters\" field, which are the leaf-level filters themselves.\n\nLet's say you want a simple filter: all subscribers who have a tag called \"executive\". You can do that like this:\n\n```json\n{\n    \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"executive\"}],\n    \"groups\": [],\n    \"predicate\": \"and\"\n}\n```\n\nNow, let's say you want to filter for subscribers who have a tag called \"executive\" and a tag called \"general-electric\". You can do that like this:\n\n```json\n{\n    \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"executive\"}, {\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"general-electric\"}],\n    \"groups\": [],\n    \"predicate\": \"and\"\n}\n```\n\nIf you wanted to change that `and` to an `or`, you can do that like this:\n\n```json\n{\n    \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"executive\"}, {\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"general-electric\"}],\n    \"groups\": [],\n    \"predicate\": \"or\"\n}\n```\n\nNow, let's say you want to filter for subscribers who have a tag called \"executive\" _or_ a tag called \"general-electric\" and a tag called \"admin\". This is where the whole nested thing comes in handy. You can do that like this:\n\n```json\n{\n    \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"executive\"}],\n    \"groups\": [\n        {\n            \"filters\": [{\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"admin\"}, {\"field\": \"subscriber.tags\", \"operator\": \"contains\", \"value\": \"general-electric\"}],\n            \"groups\": [],\n            \"predicate\": \"and\"\n        }\n    ],\n    \"predicate\": \"or\"\n}\n```\n\nYou can read more about the specific filter construction in the [Filter documentation](/api-emails-filter).",
+        "type": "object",
+        "properties": {
+          "filters": {
+            "title": "Filters",
+            "description": "The leaf-level filters to apply to the audience.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Filter"
+            }
+          },
+          "groups": {
+            "title": "Groups",
+            "description": "The nested groups to apply to the audience.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FilterGroup"
+            }
+          },
+          "predicate": {
+            "title": "Predicate",
+            "description": "The logical operator to use when combining filters (either 'and' or 'or').",
+            "enum": [
+              "and",
+              "or"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "filters",
+          "groups",
+          "predicate"
+        ]
+      },
+      "EmailSource": {
+        "title": "Source",
+        "description": "Represents the original provenance of an email. This value is not exposed\nto subscribers, but does determine some behavior of the email (e.g. whether\nor not analytics can be calculated.)",
+        "enum": [
+          "api",
+          "import",
+          "app",
+          "external_feed"
+        ],
+        "type": "string"
+      },
+      "EmailStatus": {
+        "title": "Status",
+        "description": "Represents the state of an email.\n\nNo action is required to move from one state or another; Buttondown\ninternally handles the transitions, and exposing the status is for\nobservability purposes only.",
+        "enum": [
+          "draft",
+          "managed_by_rss",
+          "about_to_send",
+          "scheduled",
+          "in_flight",
+          "paused",
+          "deleted",
+          "errored",
+          "sent",
+          "imported",
+          "throttled",
+          "resending",
+          "transactional",
+          "suppressed"
+        ],
+        "type": "string"
+      },
+      "EmailSuppressionReason": {
+        "title": "SuppressionReason",
+        "description": "Represents the reason an email was suppressed.",
+        "enum": [
+          "law_enforcement",
+          "internal_auditing"
+        ],
+        "type": "string"
+      },
       "NewsletterEmailTemplate": {
         "title": "EmailTemplate",
         "description": "Represents the template of an email.\n\nEach template has a different layout/style; you can view screenshots and examples [in the docs](https://docs.buttondown.com/customizing-email-design#buttondowns-default-templates).",
@@ -7385,127 +7388,12 @@
         "description": "Emails are why you're here on Buttondown, right?\nCreating an email via the API is just like creating one in the interface;\nit will instantly trigger sending actual emails,\nbased on the tags and email type you provide.\n\nRelevant changes to the schema:\n\n- [2024-08-15](https://docs.buttondown.com/api-changelog-2024-08-15): unshipped the `included_tags` and `excluded_tags` fields.\n- [2024-12-30](https://docs.buttondown.com/api-changelog-2024-12-30): unshipped the `is_comments_disabled` field, and replaced it with a more flexible `commenting_mode` field.\n- [2025-09-23](https://docs.buttondown.com/api-changelog-2025-09-23): increased the maximum length of the `subject` field from 1000 to 2000 characters.",
         "type": "object",
         "properties": {
-          "id": {
-            "title": "Id",
-            "description": "The unique identifier for the email.",
-            "type": "string",
-            "format": "uuid"
-          },
-          "creation_date": {
-            "title": "Creation Date",
-            "description": "The date and time at which the object was first created.",
-            "type": "string",
-            "format": "date-time"
-          },
-          "modification_date": {
-            "title": "Modification Date",
-            "description": "The date and time at which the object was last modified.",
-            "type": "string",
-            "format": "date-time"
-          },
-          "publish_date": {
-            "title": "Publish Date",
-            "description": "The date and time at which the email should be published in the future (for scheduled emails), or the date and time at which the email was published (for sent emails).",
-            "type": "string",
-            "format": "date-time"
-          },
-          "subject": {
-            "title": "Subject",
-            "description": "The subject line for the email.",
-            "maxLength": 2000,
-            "type": "string"
-          },
-          "body": {
-            "title": "Body",
-            "description": "The body of the email. Can be either HTML or markdown.",
-            "type": "string"
-          },
-          "status": {
-            "description": "The current status of the email.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/EmailStatus"
-              }
-            ]
-          },
-          "suppression_reason": {
-            "description": "Reason for suppression, if email is suppressed.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/EmailSuppressionReason"
-              }
-            ]
-          },
-          "slug": {
-            "title": "Slug",
-            "description": "A short, human-readable identifier for the email. (Used in the URL of the email, and in the 'slug' field of the email object.)",
-            "type": "string"
-          },
-          "canonical_url": {
-            "title": "Canonical Url",
-            "description": "The URL of the original source of the content.",
-            "type": "string"
-          },
-          "email_type": {
-            "default": "public",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/EmailType"
-              }
-            ]
-          },
-          "image": {
-            "title": "Image",
-            "description": "A primary image to be used when previewing the email on the web or in other contexts.",
-            "type": "string"
-          },
-          "description": {
-            "title": "Description",
-            "description": "A human-readable description of the email, used for archives and SEO.",
-            "type": "string"
-          },
-          "metadata": {
-            "title": "Metadata",
-            "description": "A structured key-value blob that you can use to store arbitrary data on the object. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
-            "default": {},
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "source": {
-            "description": "The source of the email.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/EmailSource"
-              }
-            ]
-          },
-          "secondary_id": {
-            "title": "Secondary Id",
-            "description": "An informal 'number' for the email, used in some templates ('This was issue #123').",
-            "type": "integer"
-          },
-          "commenting_mode": {
-            "$ref": "#/components/schemas/EmailCommentingMode"
-          },
           "absolute_url": {
             "title": "Absolute Url",
             "type": "string"
           },
-          "filters": {
-            "$ref": "#/components/schemas/FilterGroup"
-          },
           "analytics": {
             "$ref": "#/components/schemas/Analytics"
-          },
-          "template": {
-            "description": "If present, this template overrides your newsletter's default template.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/NewsletterEmailTemplate"
-              }
-            ]
           },
           "attachments": {
             "title": "Attachments",
@@ -7523,6 +7411,79 @@
               ]
             }
           },
+          "body": {
+            "title": "Body",
+            "description": "The body of the email. Can be either HTML or markdown.",
+            "type": "string"
+          },
+          "canonical_url": {
+            "title": "Canonical Url",
+            "description": "The URL of the original source of the content.",
+            "type": "string"
+          },
+          "commenting_mode": {
+            "$ref": "#/components/schemas/EmailCommentingMode"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": {
+            "title": "Description",
+            "description": "A human-readable description of the email, used for archives and SEO.",
+            "type": "string"
+          },
+          "email_type": {
+            "default": "public",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EmailType"
+              }
+            ]
+          },
+          "featured": {
+            "title": "Featured",
+            "description": "Designated whether or not this email should be highlighted within the archives. (Currently unused.)",
+            "type": "boolean"
+          },
+          "filters": {
+            "$ref": "#/components/schemas/FilterGroup"
+          },
+          "id": {
+            "title": "Id",
+            "description": "The unique identifier for the email.",
+            "example": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+            "type": "string",
+            "format": "uuid"
+          },
+          "image": {
+            "title": "Image",
+            "description": "A primary image to be used when previewing the email on the web or in other contexts.",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "description": "A structured key-value blob that you can use to store arbitrary data on the object. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
+            "default": {},
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "modification_date": {
+            "title": "Modification Date",
+            "description": "The date and time at which the object was last modified.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "publish_date": {
+            "title": "Publish Date",
+            "description": "The date and time at which the email should be published in the future (for scheduled emails), or the date and time at which the email was published (for sent emails).",
+            "type": "string",
+            "format": "date-time"
+          },
           "related_email_ids": {
             "title": "Related Email Ids",
             "description": "A list of email IDs that are related to this email. Related emails are shown at the bottom of the email and archive pages.",
@@ -7531,34 +7492,80 @@
               "type": "string"
             }
           },
-          "featured": {
-            "title": "Featured",
-            "description": "Designated whether or not this email should be highlighted within the archives. (Currently unused.)",
-            "type": "boolean"
+          "secondary_id": {
+            "title": "Secondary Id",
+            "description": "An informal 'number' for the email, used in some templates ('This was issue #123').",
+            "type": "integer"
           },
           "should_trigger_pay_per_email_billing": {
             "title": "Should Trigger Pay Per Email Billing",
             "description": "Whether this email should trigger pay-per-email billing for paid subscribers. Use this to differentiate between free updates and premium newsletters.",
             "type": "boolean"
+          },
+          "slug": {
+            "title": "Slug",
+            "description": "A short, human-readable identifier for the email. (Used in the URL of the email, and in the 'slug' field of the email object.)",
+            "example": "welcome-to-the-newsletter",
+            "type": "string"
+          },
+          "source": {
+            "description": "The source of the email.",
+            "example": "app",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EmailSource"
+              }
+            ]
+          },
+          "status": {
+            "description": "The current status of the email.",
+            "example": "draft",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EmailStatus"
+              }
+            ]
+          },
+          "subject": {
+            "title": "Subject",
+            "description": "The subject line for the email.",
+            "maxLength": 2000,
+            "type": "string"
+          },
+          "suppression_reason": {
+            "description": "Reason for suppression, if email is suppressed.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EmailSuppressionReason"
+              }
+            ]
+          },
+          "template": {
+            "description": "If present, this template overrides your newsletter's default template.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterEmailTemplate"
+              }
+            ]
           }
         },
         "required": [
-          "id",
-          "creation_date",
-          "modification_date",
-          "subject",
-          "body",
-          "status",
-          "canonical_url",
-          "image",
-          "description",
-          "source",
-          "commenting_mode",
           "absolute_url",
-          "filters",
-          "related_email_ids",
+          "body",
+          "canonical_url",
+          "commenting_mode",
+          "creation_date",
+          "description",
           "featured",
-          "should_trigger_pay_per_email_billing"
+          "filters",
+          "id",
+          "image",
+          "modification_date",
+          "related_email_ids",
+          "should_trigger_pay_per_email_billing",
+          "source",
+          "status",
+          "subject"
         ]
       },
       "EmailCreationErrorCode": {
@@ -7874,6 +7881,7 @@
           "metadata": {
             "title": "Metadata",
             "description": "A structured key-value blob that you can use to store arbitrary data on the object. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
+            "default": {},
             "type": "object",
             "additionalProperties": {
               "type": "string"
@@ -8066,6 +8074,7 @@
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -8147,28 +8156,6 @@
           }
         }
       },
-      "SubscriberType": {
-        "title": "Type",
-        "description": "Represents the state of a subscriber and what emails they\nshould or should not be receiving. This type is meant to be fully expressive\nso as to consolidate the logic of determining what emails a subscriber should\nreceive into a single place.\n\nNote that the only types that can be set programmatically are REGULAR, UNSUBSCRIBED,\nGIFTED and UNPAID. All other types are meant to be user-visible and cannot\nbe set programmatically.",
-        "enum": [
-          "regular",
-          "premium",
-          "churning",
-          "past_due",
-          "gifted",
-          "unpaid",
-          "churned",
-          "unactivated",
-          "unsubscribed",
-          "complained",
-          "undeliverable",
-          "removed",
-          "trialed",
-          "paused",
-          "blocked"
-        ],
-        "type": "string"
-      },
       "SubscriberSource": {
         "title": "Source",
         "description": "Represents the original provenance of a subscriber. This value is not exposed\nto subscribers; it's only used for internal tracking purposes and governs some\nof the behavior of the subscriber (i.e. whether or not to require double\nopt-in.)",
@@ -8210,6 +8197,46 @@
           "coupon_id"
         ]
       },
+      "SubscriberType": {
+        "title": "Type",
+        "description": "Represents the state of a subscriber and what emails they\nshould or should not be receiving. This type is meant to be fully expressive\nso as to consolidate the logic of determining what emails a subscriber should\nreceive into a single place.\n\nNote that the only types that can be set programmatically are REGULAR, UNSUBSCRIBED,\nGIFTED and UNPAID. All other types are meant to be user-visible and cannot\nbe set programmatically.",
+        "enum": [
+          "regular",
+          "premium",
+          "churning",
+          "past_due",
+          "gifted",
+          "unpaid",
+          "churned",
+          "unactivated",
+          "unsubscribed",
+          "complained",
+          "undeliverable",
+          "removed",
+          "trialed",
+          "paused",
+          "blocked"
+        ],
+        "type": "string"
+      },
+      "Transition": {
+        "title": "Transition",
+        "type": "object",
+        "properties": {
+          "date": {
+            "title": "Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "$ref": "#/components/schemas/SubscriberType"
+          }
+        },
+        "required": [
+          "date",
+          "type"
+        ]
+      },
       "SubscriberUndeliverabilityReason": {
         "title": "UndeliverabilityReason",
         "description": "The reason Buttondown has marked the subscriber as undeliverable.\nUndeliverable subscribers are not sent emails, and may be periodically removed from the system (or restored, if the reason is no longer valid.)",
@@ -8233,24 +8260,6 @@
         ],
         "type": "string"
       },
-      "Transition": {
-        "title": "Transition",
-        "type": "object",
-        "properties": {
-          "date": {
-            "title": "Date",
-            "type": "string",
-            "format": "date-time"
-          },
-          "type": {
-            "$ref": "#/components/schemas/SubscriberType"
-          }
-        },
-        "required": [
-          "date",
-          "type"
-        ]
-      },
       "Subscriber": {
         "title": "Subscriber",
         "description": "Subscribers are the main way you collect email addresses and\nrecipients on Buttondown. They're what you see on your\n[subscribers page](https://buttondown.com/subscribers).\n\nRelevant changes to the schema:\n\n- [2024-08-01](https://docs.buttondown.com/api-changelog-2024-08-01): renamed `subscriber_type` and `email` to `type` and `email_address` respectively.\n- [2024-07-13](https://docs.buttondown.com/api-changelog-2024-08-01): removed `external_url` in favor of `absolute_url`.",
@@ -8268,18 +8277,41 @@
             "type": "string",
             "format": "date-time"
           },
+          "avatar_url": {
+            "title": "Avatar Url",
+            "type": "string"
+          },
+          "churn_date": {
+            "title": "Churn Date",
+            "type": "string",
+            "format": "date-time"
+          },
           "email_address": {
             "title": "Email Address",
             "description": "The email address of the subscriber.",
             "maxLength": 254,
+            "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
             "example": "telemachus@buttondown.email",
             "type": "string"
           },
-          "notes": {
-            "title": "Notes",
-            "description": "Any notes you want to attach to the subscriber. These are not publicly visible.",
-            "default": "",
+          "gift_subscription_message": {
+            "title": "Gift Subscription Message",
+            "description": "A custom message that was sent to the subscriber when the gift subscription was created.",
             "type": "string"
+          },
+          "ip_address": {
+            "title": "Ip Address",
+            "type": "string"
+          },
+          "last_click_date": {
+            "title": "Last Click Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "last_open_date": {
+            "title": "Last Open Date",
+            "type": "string",
+            "format": "date-time"
           },
           "metadata": {
             "title": "Metadata",
@@ -8290,6 +8322,45 @@
               "type": "string"
             }
           },
+          "notes": {
+            "title": "Notes",
+            "description": "Any notes you want to attach to the subscriber. These are not publicly visible.",
+            "default": "",
+            "type": "string"
+          },
+          "referral_code": {
+            "title": "Referral Code",
+            "type": "string"
+          },
+          "referrer_url": {
+            "title": "Referrer Url",
+            "default": "",
+            "type": "string"
+          },
+          "risk_score": {
+            "title": "Risk Score",
+            "description": "The risk score of the subscriber. Positive numbers represent a higher risk; negative numbers represent a lower risk.",
+            "type": "number"
+          },
+          "secondary_id": {
+            "title": "Secondary Id",
+            "type": "integer"
+          },
+          "source": {
+            "$ref": "#/components/schemas/SubscriberSource"
+          },
+          "stripe_coupon": {
+            "$ref": "#/components/schemas/StripeCoupon"
+          },
+          "stripe_customer_id": {
+            "title": "Stripe Customer Id",
+            "type": "string"
+          },
+          "subscriber_import_id": {
+            "title": "Subscriber Import Id",
+            "type": "string",
+            "format": "uuid"
+          },
           "tags": {
             "title": "Tags",
             "type": "array",
@@ -8297,53 +8368,16 @@
               "type": "string"
             }
           },
-          "referrer_url": {
-            "title": "Referrer Url",
-            "default": "",
-            "type": "string"
-          },
-          "secondary_id": {
-            "title": "Secondary Id",
-            "type": "integer"
+          "transitions": {
+            "title": "Transitions",
+            "default": [],
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Transition"
+            }
           },
           "type": {
             "$ref": "#/components/schemas/SubscriberType"
-          },
-          "source": {
-            "$ref": "#/components/schemas/SubscriberSource"
-          },
-          "utm_campaign": {
-            "title": "Utm Campaign",
-            "type": "string"
-          },
-          "utm_medium": {
-            "title": "Utm Medium",
-            "type": "string"
-          },
-          "utm_source": {
-            "title": "Utm Source",
-            "type": "string"
-          },
-          "referral_code": {
-            "title": "Referral Code",
-            "type": "string"
-          },
-          "avatar_url": {
-            "title": "Avatar Url",
-            "type": "string"
-          },
-          "stripe_coupon": {
-            "$ref": "#/components/schemas/StripeCoupon"
-          },
-          "unsubscription_date": {
-            "title": "Unsubscription Date",
-            "type": "string",
-            "format": "date-time"
-          },
-          "churn_date": {
-            "title": "Churn Date",
-            "type": "string",
-            "format": "date-time"
           },
           "undeliverability_date": {
             "title": "Undeliverability Date",
@@ -8358,8 +8392,8 @@
               }
             ]
           },
-          "upgrade_date": {
-            "title": "Upgrade Date",
+          "unsubscription_date": {
+            "title": "Unsubscription Date",
             "type": "string",
             "format": "date-time"
           },
@@ -8367,45 +8401,21 @@
             "title": "Unsubscription Reason",
             "type": "string"
           },
-          "transitions": {
-            "title": "Transitions",
-            "default": [],
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Transition"
-            }
-          },
-          "ip_address": {
-            "title": "Ip Address",
-            "type": "string"
-          },
-          "last_open_date": {
-            "title": "Last Open Date",
+          "upgrade_date": {
+            "title": "Upgrade Date",
             "type": "string",
             "format": "date-time"
           },
-          "last_click_date": {
-            "title": "Last Click Date",
-            "type": "string",
-            "format": "date-time"
-          },
-          "stripe_customer_id": {
-            "title": "Stripe Customer Id",
+          "utm_campaign": {
+            "title": "Utm Campaign",
             "type": "string"
           },
-          "subscriber_import_id": {
-            "title": "Subscriber Import Id",
-            "type": "string",
-            "format": "uuid"
+          "utm_medium": {
+            "title": "Utm Medium",
+            "type": "string"
           },
-          "risk_score": {
-            "title": "Risk Score",
-            "description": "The risk score of the subscriber. Positive numbers represent a higher risk; negative numbers represent a lower risk.",
-            "type": "number"
-          },
-          "gift_subscription_message": {
-            "title": "Gift Subscription Message",
-            "description": "A custom message that was sent to the subscriber when the gift subscription was created.",
+          "utm_source": {
+            "title": "Utm Source",
             "type": "string"
           },
           "stripe_customer": {
@@ -8417,14 +8427,14 @@
           "id",
           "creation_date",
           "email_address",
-          "tags",
+          "referral_code",
           "secondary_id",
-          "type",
           "source",
+          "tags",
+          "type",
           "utm_campaign",
           "utm_medium",
-          "utm_source",
-          "referral_code"
+          "utm_source"
         ]
       },
       "SubscriberInputValidationErrorCode": {
@@ -8476,7 +8486,9 @@
         "properties": {
           "email_address": {
             "title": "Email Address",
+            "description": "The email address of the subscriber.",
             "maxLength": 254,
+            "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
             "example": "telemachus@buttondown.email",
             "type": "string"
           },
@@ -8656,7 +8668,9 @@
         "properties": {
           "email_address": {
             "title": "Email Address",
+            "description": "The email address of the subscriber.",
             "maxLength": 254,
+            "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
             "example": "telemachus@buttondown.email",
             "type": "string"
           },
@@ -8668,6 +8682,8 @@
           },
           "metadata": {
             "title": "Metadata",
+            "description": "A structured key-value blob that you can use to store arbitrary data on the object. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
+            "default": {},
             "type": "object",
             "additionalProperties": {
               "type": "string"
@@ -8792,6 +8808,7 @@
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -8910,6 +8927,7 @@
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -9488,6 +9506,7 @@
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -9758,6 +9777,7 @@
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -10030,6 +10050,7 @@
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -11166,6 +11187,7 @@
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -11812,6 +11834,7 @@
           },
           "creation_date": {
             "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -11967,6 +11990,7 @@
           "metadata": {
             "title": "Metadata",
             "description": "A structured key-value blob that you can use to store arbitrary data on the object. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
+            "default": {},
             "type": "object"
           }
         },
