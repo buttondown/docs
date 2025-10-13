@@ -6,7 +6,6 @@
     "schema": null,
     "description": null,
     "references": [
-      "introduction",
       "quickstart"
     ]
   },
@@ -2193,7 +2192,9 @@
     "section": "reference",
     "schema": null,
     "description": "The Buttondown CLI allows you to write your newsletter from the comfort of your favorite code editor.",
-    "references": []
+    "references": [
+      "introduction"
+    ]
   },
   {
     "title": "Does Buttondown offer A/B testing?",
@@ -3037,6 +3038,7 @@
       "glossary-api",
       "glossary-headless-mode",
       "glossary-jamstack",
+      "introduction",
       "sending-your-first-email",
       "support-policy"
     ]
