@@ -12,6 +12,17 @@ A webwall enables you to add content that will only be displayed on the web. Any
   initialContent="Everything below this webwall will not be included in the email sent to email clients.\n\n<div role='webwall'></div>\n\nEverything above the webwall will be included."
 /%}
 
+---
+
+## Emailwall
+
+An emailwall enables you to add content that will only be displayed in the email sent to subscribers. Any content below the emailwall will not be included in the web version of your email.
+
+{% playgroundEmbed 
+  title="Emailwall" 
+  height="400px"
+  initialContent="Everything below this emailwall will not be included in the web version.\n\n<div role='emailwall'></div>\n\nEverything above the emailwall will be included."
+/%}
 
 ---
 

@@ -2012,9 +2012,11 @@
             "schema": {
               "title": "Ip Address",
               "description": "If provided, only return subscribers with the given IP address(es).",
+              "pattern": "^[^\\s]+$",
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^[^\\s]+$"
               }
             },
             "required": false,
@@ -8538,6 +8540,7 @@
           "ip_address": {
             "title": "Ip Address",
             "description": "The IP address of the subscriber. If provided, we will use this IP address to determine the subscriber's location and validate their legitimacy.",
+            "pattern": "^[^\\s]+$",
             "example": "127.0.0.1",
             "type": "string"
           }
@@ -8991,6 +8994,23 @@
                 "$ref": "#/components/schemas/NewsletterAuditingMode"
               }
             ]
+          },
+          "custom_churn_email_subject": {
+            "title": "Custom Churn Email Subject",
+            "description": "Custom subject line for churn emails",
+            "default": "",
+            "type": "string"
+          },
+          "custom_churn_email_body": {
+            "title": "Custom Churn Email Body",
+            "description": "Custom body content for churn emails",
+            "default": "",
+            "type": "string"
+          },
+          "custom_churn_email_template": {
+            "title": "Custom Churn Email Template",
+            "description": "Custom template for churn emails",
+            "type": "string"
           }
         },
         "required": [
@@ -9248,6 +9268,23 @@
             "title": "Image",
             "description": "URL to your newsletter's header or branding image.",
             "example": "https://example.com/header.jpg",
+            "type": "string"
+          },
+          "custom_churn_email_subject": {
+            "title": "Custom Churn Email Subject",
+            "description": "Custom subject line for churn emails.",
+            "example": "You've canceled your premium subscription to {{ newsletter.name }}",
+            "type": "string"
+          },
+          "custom_churn_email_body": {
+            "title": "Custom Churn Email Body",
+            "description": "Custom body content for churn emails.",
+            "example": "Hi {{ subscriber.email }},\n\nWe're sorry to see you go!",
+            "type": "string"
+          },
+          "custom_churn_email_template": {
+            "title": "Custom Churn Email Template",
+            "description": "Custom template for churn emails.",
             "type": "string"
           }
         }
@@ -10962,6 +10999,13 @@
           "response_data": {
             "title": "Response Data",
             "type": "string"
+          },
+          "headers": {
+            "title": "Headers",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         },
         "required": [
@@ -10974,7 +11018,8 @@
           "version",
           "ip_address",
           "request_data",
-          "response_data"
+          "response_data",
+          "headers"
         ]
       },
       "APIRequest": {
@@ -11718,9 +11763,15 @@
           "activation_clicked",
           "activation_delivered",
           "activation_opened",
+          "activation_bounced",
+          "activation_rejected",
+          "activation_complained",
           "activation_reminder_clicked",
           "activation_reminder_delivered",
           "activation_reminder_opened",
+          "activation_reminder_bounced",
+          "activation_reminder_complained",
+          "activation_reminder_rejected",
           "attempted",
           "bounced",
           "complained",
