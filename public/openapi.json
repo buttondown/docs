@@ -10018,7 +10018,8 @@
           "create_bluesky_post",
           "create_arena_post",
           "create_export",
-          "send_post_request"
+          "send_post_request",
+          "send_confirmation_reminder"
         ],
         "type": "string"
       },
@@ -11941,6 +11942,16 @@
             "title": "Metadata",
             "type": "object"
           },
+          "source": {
+            "title": "Source",
+            "description": "The source of the note. If the note was created by a Buttondown admin, this will be 'admin'; otherwise, it will be 'user'.",
+            "example": "admin",
+            "enum": [
+              "admin",
+              "user"
+            ],
+            "type": "string"
+          },
           "user_id": {
             "title": "User Id",
             "type": "string",
@@ -11957,6 +11968,7 @@
           "model_type",
           "model_id",
           "metadata",
+          "source",
           "user_id"
         ]
       },
