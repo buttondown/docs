@@ -5,6 +5,7 @@ description: >-
   Buttondown allows you to collect subscriber names, and create a more
   personalized email for your readers.
 relatedPages:
+  - subscriber-autonomy
   - metadata
 ---
 When you can write a newsletter email using a subscriber's first name, it can give a friendly, personal feeling to your words. If you’ve ever received an email that starts with “Dear [Your Name Here]” as opposed to “Dear Reader,” it’s likely that there was a mail merge or substitution string involved—and those mail merges and substitution strings rely on [metadata](/metadata) to work properly.
@@ -29,36 +30,7 @@ But with a few customizations, you can use Buttondown's subscription forms to as
 
 ### Customize your subscription form
 
-Buttondown’s “Subscribe Form Inputs” feature is a convenient way to collect metadata from subscribers who fill out your subscription form. Here's how to modify it.
-
-You’ll be prompted to provide the following values for your new form input:
-
-- An input key. You'll need this key to access your metadata later on, so you’ll want it to be both memorable and syntax-friendly. For example, if you're collecting subscribers' first names, you can use “first_name.” (It’s best to use underscores instead of hyphens you name keys, because hyphens can cause syntax errors later.)
-- A label. This is what your subscribers will see on your form, so this value should be written in plain language. To continue the example of collecting a subscriber's first name, you could use "First" or "First name" as a label.
-- A “Required” checkbox. If you designate an input as required, the subscriber will not be able to continue until they complete that part of the form.
-
-
-1. Navigate to the “Subscribe Form Inputs” section of your Buttondown [settings](https://buttondown.com/settings/subscribing).
-1. Set the key and label values and choose whether or not the input will be required.
-1. When you're done configuring the values, click **Save**.
-
-When you add all these things to your form, it looks something like this:
-
-{% video file="/subscriber-data/names_subscribe-form-input-settings.mp4" /%}
-
-This video shows the process of creating a form input and saving it.
-
-After you create a form input, navigate to your newsletter landing page to see the changes you’ve made.
-
-{% video file="/subscriber-data/names_sample-subscription-form.mp4" /%}
-
-This video shows a subscription form being completed, including new metadata fields.
-
-When a subscriber fills out this new form, you’ll be able to see their response in the “Metadata” section of the subscriber's “Notes.” Here's how:
-
-1. Navigate to ["Subscribers"](https://buttondown.com/subscribers) and find the subscriber whose metadata you wish to view.
-1. Click the three-dot **overflow** menu and choose **Notes**. The subscriber's "Notes" page appears.
-1. Scroll to see any metadata associated with that subscriber in the "Metadata" section.
+You can also use Buttondown's [subscriber autonomy](/subscriber-autonomy) feature to collect metadata from your subscribers when they first subscribe.
 
 ### Add metadata manually
 

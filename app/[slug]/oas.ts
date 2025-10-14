@@ -26,7 +26,7 @@ export async function generateSnippets({
     endpoint,
     // biome-ignore lint/suspicious/noExplicitAny: method has to be get/post/put/delete
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  method.toLowerCase() as any
+    method.toLowerCase() as any
   );
 
   // biome-ignore lint/suspicious/noExplicitAny: we are generating a best-attempt request body
@@ -84,7 +84,7 @@ export function generateSnippetsWithSpecifiedBody({
     endpoint,
     // biome-ignore lint/suspicious/noExplicitAny: method has to be get/post/put/delete
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  method.toLowerCase() as any
+    method.toLowerCase() as any
   );
 
   const bodyMediaTypes = plainOp.getRequestBodyMediaTypes();
@@ -125,7 +125,11 @@ export function generateSnippetsWithSpecifiedBody({
 import requests
 
 url = "${baseUrl}${patchEndpointParams((name) => `{${name}}`)}"
-headers = ${stringifyObject(combinedHeaders)}${Object.keys(query || {}).length > 0 ? `\nparams = ${stringifyObject(query)}` : ""}${
+headers = ${stringifyObject(combinedHeaders)}${
+    Object.keys(query || {}).length > 0
+      ? `\nparams = ${stringifyObject(query)}`
+      : ""
+  }${
     isFormData
       ? `\nfiles = {${Object.entries(body || {})
           .map(([key, value]) =>
@@ -136,16 +140,18 @@ headers = ${stringifyObject(combinedHeaders)}${Object.keys(query || {}).length >
           .join(",")}
 }`
       : Object.keys(body || {}).length > 0
-        ? `\ndata = ${stringifyObject(body)}`
-        : ""
+      ? `\ndata = ${stringifyObject(body)}`
+      : ""
   }
 
-response = requests.request("${method.toUpperCase()}", url, headers=headers${Object.keys(query || {}).length > 0 ? ", params=params" : ""}${
+response = requests.request("${method.toUpperCase()}", url, headers=headers${
+    Object.keys(query || {}).length > 0 ? ", params=params" : ""
+  }${
     isFormData
       ? ", files=files"
       : Object.keys(body || {}).length > 0
-        ? ", json=data"
-        : ""
+      ? ", json=data"
+      : ""
   })
 print(response.text)
 `.trim();
@@ -155,9 +161,13 @@ require 'net/http'
 require 'json'
 
 uri = URI("${baseUrl}${patchEndpointParams((name) => `#{${name}}`)}")
-uri.query = URI.encode_www_form(${stringifyObject(query || {})}) unless ${stringifyObject(query || {})}.empty?
+uri.query = URI.encode_www_form(${stringifyObject(
+    query || {}
+  )}) unless ${stringifyObject(query || {})}.empty?
 
-request = Net::HTTP::${method.charAt(0).toUpperCase() + method.slice(1).toLowerCase()}.new(uri)
+request = Net::HTTP::${
+    method.charAt(0).toUpperCase() + method.slice(1).toLowerCase()
+  }.new(uri)
 ${Object.keys(combinedHeaders)
   .map((key) => `request["${key}"] = "${combinedHeaders[key]}"`)
   .join("\n")}${
@@ -171,8 +181,8 @@ ${Object.keys(combinedHeaders)
           .join(",")}
 }\nrequest.set_form(form_data, 'multipart/form-data')`
       : ["POST", "PUT", "PATCH"].includes(method.toUpperCase())
-        ? `\nrequest.body = ${stringifyObject(body || {})}`
-        : ""
+      ? `\nrequest.body = ${stringifyObject(body || {})}`
+      : ""
   }
 
 response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == "https") do |http|
@@ -184,7 +194,9 @@ puts response.body
 
   // Generate JavaScript snippet
   const jsSnippet = `
-const url = new URL(\`${baseUrl}${patchEndpointParams((name) => `\${${name}}`)}\`);
+const url = new URL(\`${baseUrl}${patchEndpointParams(
+    (name) => `\${${name}}`
+  )}\`);
 ${
   Object.keys(query || {}).length > 0
     ? `const params = ${stringifyObject(query || {})};
@@ -197,19 +209,21 @@ Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
     method.toUpperCase() === "GET" || method.toUpperCase() === "HEAD"
       ? ""
       : isFormData
-        ? `
+      ? `
   body: (() => {
     const formData = new FormData();
     ${Object.entries(body || {})
       .map(([key, value]) =>
         value === IMAGE_EXAMPLE
           ? `// Assuming you're in a browser environment\n    // For Node.js, you'd use the 'fs' module and FormData from 'form-data'\n    formData.append("${key}", document.querySelector('input[type="file"]').files[0]);`
-          : `formData.append("${key}", ${typeof value === "string" ? `"${value}"` : value});`
+          : `formData.append("${key}", ${
+              typeof value === "string" ? `"${value}"` : value
+            });`
       )
       .join("\n    ")}
     return formData;
   })(),`
-        : `
+      : `
   body: JSON.stringify(${stringifyObject(body || {}, 2).trim()}),`
   }
 };
@@ -233,14 +247,14 @@ fetch(url.toString(), options)
     method.toUpperCase() === "GET" || method.toUpperCase() === "HEAD"
       ? ""
       : isFormData
-        ? Object.entries(body || {})
-            .map(([key, value]) =>
-              value === IMAGE_EXAMPLE
-                ? ` \\\n  -F "${key}=@path/to/your/image.jpg"`
-                : ` \\\n  -F "${key}=${value}"`
-            )
-            .join("")
-        : ` \\\n  -d '${stringifyObject(body || {}, 2).trim()}'`;
+      ? Object.entries(body || {})
+          .map(([key, value]) =>
+            value === IMAGE_EXAMPLE
+              ? ` \\\n  -F "${key}=@path/to/your/image.jpg"`
+              : ` \\\n  -F "${key}=${value}"`
+          )
+          .join("")
+      : ` \\\n  -d '${stringifyObject(body || {}, 2).trim()}'`;
 
   const additionalCurlHeaders = Object.entries(combinedHeaders)
     .map(([k, v]) => `-H "${k}: ${v}"`)

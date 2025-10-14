@@ -130,8 +130,7 @@
     "description": "Buttondown allows you to collect subscriber names, and create a more personalized email for your readers.",
     "references": [
       "duda",
-      "importing-your-data",
-      "subscriber-data"
+      "importing-your-data"
     ]
   },
   {
@@ -1653,6 +1652,7 @@
     "schema": null,
     "description": "Buttondown lets you let your subscribers change their metadata, tags, and more.",
     "references": [
+      "subscriber-data",
       "template-variables-manage-subscription-url"
     ]
   },
@@ -3197,6 +3197,7 @@
     "references": [
       "api-changelog-2024-07-13",
       "api-changelog-2024-08-15",
+      "api-notes-create",
       "canonical-url",
       "drafting-emails-via-the-api",
       "glossary-rest",
@@ -3390,6 +3391,7 @@
       "api-changelog-2023-07-23",
       "api-changelog-2024-08-01",
       "api-changelog-2025-02-26",
+      "api-notes-create",
       "glossary-rest",
       "metadata",
       "subscriber-data"
@@ -3959,7 +3961,9 @@
     "section": "api",
     "schema": "Survey",
     "description": null,
-    "references": []
+    "references": [
+      "api-notes-create"
+    ]
   },
   {
     "title": "Survey status",
@@ -4120,7 +4124,7 @@
     "references": []
   },
   {
-    "title": "Create a note",
+    "title": "Creating a note",
     "url": "api-notes-create",
     "section": "api",
     "schema": null,

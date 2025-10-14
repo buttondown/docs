@@ -1,14 +1,26 @@
 ---
-title: Create a note
-navigationTitle: Create note
+title: Creating a note
+navigationTitle: Creating a note
 endpoint: /notes
 method: post
 ---
 
-Notes consistent of two things:
+Notes consist of two things:
 
 1. A body, which is the text content of the note.
 2. [Metadata](/metadata), which is a structured key-value blob that you can use to store arbitrary data on the object.
+3. A reference to the object the note is attached to, which consists of a `model_type` and a `model_id`.  Model types are as follows:
+
+
+| `model_type`         | Description                          | Related model                               |
+|----------------------|--------------------------------------|---------------------------------------------|
+| `automation`         | An automation workflow               | [Automation](/api-automations-introduction)  |
+| `email`              | Email message                        | [Email](/api-emails-introduction)            |
+| `external_feed`      | External feed (e.g., RSS source)     | [ExternalFeed](/api-external-feeds-introduction) |
+| `stripe_customer`    | Stripe customer record               | [StripeCustomer](/api-stripe-customers-introduction) |
+| `subscriber`         | A subscriber to your newsletter      | [Subscriber](/api-subscribers-introduction)  |
+| `survey`             | A survey                             | [Survey](/api-surveys-introduction)          |
+| `tag`                | Subscriber tag                       | [SubscriberTag](/api-subscribers-tags-introduction) |
 
 By creating a note programmatically, you can unlock a lot of interesting use cases and functionality. Here are some examples:
 

@@ -11913,6 +11913,7 @@
           "body": {
             "title": "Body",
             "description": "The text content of the note.",
+            "example": "This subscriber upgraded to a paid plan.",
             "type": "string"
           },
           "model_type": {
@@ -11933,6 +11934,7 @@
           "model_id": {
             "title": "Model Id",
             "description": "The ID of the object this note is attached to.",
+            "example": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
             "type": "string"
           },
           "metadata": {
@@ -11965,6 +11967,7 @@
           "body": {
             "title": "Body",
             "description": "The text content of the note.",
+            "example": "This subscriber upgraded to a paid plan.",
             "type": "string"
           },
           "model_type": {
@@ -11985,6 +11988,7 @@
           "model_id": {
             "title": "Model Id",
             "description": "The ID of the object this note is attached to.",
+            "example": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
             "type": "string"
           },
           "metadata": {
