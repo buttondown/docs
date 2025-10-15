@@ -90,6 +90,11 @@
       "name": "Send POST request",
       "variant": "info"
     },
+    "send_confirmation_reminder": {
+      "description": "Send a confirmation reminder to a subscriber.",
+      "name": "Send confirmation reminder",
+      "variant": "info"
+    },
     "shopify_create_customer": {
       "description": "Create a new customer in your Shopify store from a newsletter subscriber.",
       "name": "Create Shopify customer",
@@ -156,6 +161,11 @@
     }
   },
   "BulkActionType": {
+    "add_notes": {
+      "description": "Add notes to multiple subscribers in bulk.",
+      "name": "Add notes",
+      "variant": "info"
+    },
     "apply_metadata": {
       "description": "This action requires two additional parameters within `metadata`: `action` (which can be either `add`, `set`, or `remove`), and `metadata` (the value of the metadata which you'd like to either add or remove to the list of subscribers).",
       "name": "Apply metadata (to subscribers)",
