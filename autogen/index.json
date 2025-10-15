@@ -1646,13 +1646,12 @@
     "references": []
   },
   {
-    "title": "Subscriber autonomy",
+    "title": "Portal",
     "url": "subscriber-autonomy",
     "section": "reference",
     "schema": null,
     "description": "Buttondown lets you let your subscribers change their metadata, tags, and more.",
     "references": [
-      "subscriber-data",
       "template-variables-manage-subscription-url"
     ]
   },

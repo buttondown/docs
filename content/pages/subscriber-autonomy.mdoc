@@ -1,5 +1,5 @@
 ---
-title: Subscriber autonomy
+title: Portal
 description: >-
   Buttondown lets you let your subscribers change their metadata, tags, and more.
 date: 2024-06-11
@@ -7,15 +7,23 @@ relatedPages:
 - subscriber-data
 ---
 
-Buttondown has the ability to let you give your subscribers the ability to change their metadata, tags, and more. This is called "subscriber autonomy."
+Buttondown offers an opt-out feature available at all billing plans called the Portal, which lets your subscribers change their email address, view their invoices, settings, and unsubscribe or resubscribe to their newsletter. It also gives them an easy way to quickly access this information without having to reach out to you directly. 
 
-When subscriber autonomy is enabled, subscribers can change their email address, name, and tags. They can also unsubscribe (or resubscribe) from your list:
+## Accessing the Portal
 
-{% iframe src="https://demo.buttondown.com/sheinhardt/management/subscribers/c32d577e-de99-42ee-b955-3a393b6b09e8" /%}
+Subscribers can access the Portal in a few places:
 
-To turn the setting on, go to [Settings > Basics](https://buttondown.com/settings/basics) and click on the "Portal" feature:
+1. It's automatically added to the footer of your emails if Portal is enabled.
+2. You can inject it anywhere using the [`manage_subscription_url` template variable](/template-variables#manage_subscription_url).
+3. Buttondown's [main login page](https://buttondown.com/login).
 
-{% iframe src="https://demo.buttondown.com/settings/basics?emphasis=portal" /%}
+## Turning off the portal
+
+To turn the setting off, go to [Settings > Features > Portal](https://buttondown.com/settings/portal):
+
+{% iframe src="https://demo.buttondown.com/settings/portal?newsletter=sheinhardt" height=500 /%}
+
+## What data is available in the Portal?
 
 The forms displayed in the subscriber management page are the same as the forms you use to subscribe people to your list: [subscribe form inputs](/building-your-subscriber-base#adding-metadata-to-your-subscribers). By default,
 these inputs only change a subscriber's metadata — but, combined with [tags](/tags) and [automations](/automations-introduction), you can use them to give subscribers the ability to change their tags, too.
@@ -24,7 +32,7 @@ For simple cases, all you'll need to do is make sure to check the "Automatically
 
 Some caveats:
 
-- It is not currently possible to only allow _some_ subscribe form inputs to be changed by subscribers. If you enable subscriber autonomy, all fields will be editable.
+- It is not currently possible to only allow _some_ subscribe form inputs to be changed by subscribers. If you enable Portal, all fields will be editable.
 - At the moment, the only possible inputs you can vend to your subscribers are "free text", "select", and "checkbox". Support for other input types is planned in the near future.
 
 ### How checkboxes work
@@ -36,10 +44,6 @@ Checkbox type form inputs create a metadata field that holds two potential strin
 | Subscriber checks a box in the Portal or initial subscription | `True` (capitalized) |
 | Subscriber unchecks a box in the Portal                    | `False` (capitalized)|
 
-### Directing subscribers to the portal
+### Didn't this used to be called "subscriber autonomy"?
 
-The Portal can be found in three places:
-
-1. It's automatically added to the footer of your emails if subscriber autonomy is enabled.
-2. You can inject it anywhere using the [`manage_subscription_url` template variable](/template-variables#manage_subscription_url).
-3. Buttondown's [main login page](https://buttondown.com/login).
+Yes, it sure did.
