@@ -1182,6 +1182,11 @@
       "name": "Unpaid",
       "variant": "info"
     },
+    "upcoming": {
+      "description": "Subscribers who have a premium subscription starting in the future.",
+      "name": "Upcoming",
+      "variant": "info"
+    },
     "unsubscribed": {
       "description": "Subscribers that have or have been unsubscribed from your newsletter.",
       "name": "Unsubscribed",
