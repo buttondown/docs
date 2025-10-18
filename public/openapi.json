@@ -1748,45 +1748,96 @@
         "parameters": [
           {
             "in": "query",
-            "name": "type",
+            "name": "churn_date__end",
             "schema": {
-              "description": "If provided, only return subscribers with the given type.",
-              "example": "regular",
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/SubscriberType"
-              }
+              "title": "Churn Date  End",
+              "description": "If provided, only return subscribers with the given churn date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given type."
+            "description": "If provided, only return subscribers with the given churn date(s)."
           },
           {
             "in": "query",
-            "name": "-type",
+            "name": "churn_date__start",
             "schema": {
-              "description": "If provided, only return subscribers without the given type.",
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/SubscriberType"
-              }
+              "title": "Churn Date  Start",
+              "description": "If provided, only return subscribers with the given churn date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers without the given type."
+            "description": "If provided, only return subscribers with the given churn date(s)."
           },
           {
             "in": "query",
-            "name": "ids",
+            "name": "coupon",
             "schema": {
-              "title": "Ids",
-              "description": "If provided, only return subscribers with the given IDs.",
+              "title": "Coupon",
+              "description": "If provided, only return subscribers with the given coupon ID(s).",
+              "example": "coupon_whatever",
               "type": "array",
               "items": {
-                "type": "string",
-                "format": "uuid"
+                "type": "string"
               }
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given IDs."
+            "description": "If provided, only return subscribers with the given coupon ID(s)."
+          },
+          {
+            "in": "query",
+            "name": "current_price",
+            "schema": {
+              "title": "Current Price",
+              "description": "If provided, only return subscribers who are currently subscribed to the given price ID(s).",
+              "example": "price_whatever",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers who are currently subscribed to the given price ID(s)."
+          },
+          {
+            "in": "query",
+            "name": "date__end",
+            "schema": {
+              "title": "Date  End",
+              "description": "If provided, only return subscribers created before the given date.",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers created before the given date."
+          },
+          {
+            "in": "query",
+            "name": "date__start",
+            "schema": {
+              "title": "Date  Start",
+              "description": "If provided, only return subscribers created on or after the given date.",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers created on or after the given date."
+          },
+          {
+            "in": "query",
+            "name": "domain",
+            "schema": {
+              "title": "Domain",
+              "description": "If provided, only return subscribers whose email domain matches the given domain(s).",
+              "example": "gmail.com",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers whose email domain matches the given domain(s)."
           },
           {
             "in": "query",
@@ -1814,15 +1865,114 @@
           },
           {
             "in": "query",
-            "name": "tag",
+            "name": "expand",
             "schema": {
-              "title": "Tag",
+              "title": "Expand",
+              "description": "If provided, expand the given field. (Only supported fields: 'stripe_customer')",
+              "type": "array",
+              "items": {
+                "enum": [
+                  "stripe_customer"
+                ],
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, expand the given field. (Only supported fields: 'stripe_customer')"
+          },
+          {
+            "in": "query",
+            "name": "ids",
+            "schema": {
+              "title": "Ids",
+              "description": "If provided, only return subscribers with the given IDs.",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given IDs."
+          },
+          {
+            "in": "query",
+            "name": "ip_address",
+            "schema": {
+              "title": "Ip Address",
+              "description": "If provided, only return subscribers with the given IP address(es).",
+              "pattern": "^[^\\s]+$",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[^\\s]+$"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given IP address(es)."
+          },
+          {
+            "in": "query",
+            "name": "last_click_date__end",
+            "schema": {
+              "title": "Last Click Date  End",
+              "description": "If provided, only return subscribers with the given last click date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given last click date(s)."
+          },
+          {
+            "in": "query",
+            "name": "last_click_date__start",
+            "schema": {
+              "title": "Last Click Date  Start",
+              "description": "If provided, only return subscribers with the given last click date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given last click date(s)."
+          },
+          {
+            "in": "query",
+            "name": "last_open_date__end",
+            "schema": {
+              "title": "Last Open Date  End",
+              "description": "If provided, only return subscribers with the given last open date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given last open date(s)."
+          },
+          {
+            "in": "query",
+            "name": "last_open_date__start",
+            "schema": {
+              "title": "Last Open Date  Start",
+              "description": "If provided, only return subscribers with the given last open date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given last open date(s)."
+          },
+          {
+            "in": "query",
+            "name": "-domain",
+            "schema": {
+              "title": "-Domain",
+              "description": "If provided, only return subscribers whose email domain does not match the given domain(s).",
+              "example": "gmail.com",
               "type": "array",
               "items": {
                 "type": "string"
               }
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return subscribers whose email domain does not match the given domain(s)."
           },
           {
             "in": "query",
@@ -1832,6 +1982,19 @@
               "type": "string"
             },
             "required": false
+          },
+          {
+            "in": "query",
+            "name": "-type",
+            "schema": {
+              "description": "If provided, only return subscribers without the given type.",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/SubscriberType"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers without the given type."
           },
           {
             "in": "query",
@@ -1860,36 +2023,6 @@
           },
           {
             "in": "query",
-            "name": "current_price",
-            "schema": {
-              "title": "Current Price",
-              "description": "If provided, only return subscribers who are currently subscribed to the given price ID(s).",
-              "example": "price_whatever",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "required": false,
-            "description": "If provided, only return subscribers who are currently subscribed to the given price ID(s)."
-          },
-          {
-            "in": "query",
-            "name": "coupon",
-            "schema": {
-              "title": "Coupon",
-              "description": "If provided, only return subscribers with the given coupon ID(s).",
-              "example": "coupon_whatever",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "required": false,
-            "description": "If provided, only return subscribers with the given coupon ID(s)."
-          },
-          {
-            "in": "query",
             "name": "referral_code",
             "schema": {
               "title": "Referral Code",
@@ -1904,75 +2037,53 @@
           },
           {
             "in": "query",
-            "name": "date__start",
+            "name": "referrer_url",
             "schema": {
-              "title": "Date  Start",
-              "description": "If provided, only return subscribers created on or after the given date.",
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "type": "string"
+              "title": "Referrer Url",
+              "description": "If provided, only return subscribers whose referrer URL(s) contain the given string.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "required": false,
-            "description": "If provided, only return subscribers created on or after the given date."
+            "description": "If provided, only return subscribers whose referrer URL(s) contain the given string."
           },
           {
             "in": "query",
-            "name": "date__end",
+            "name": "risk_score__end",
             "schema": {
-              "title": "Date  End",
-              "description": "If provided, only return subscribers created before the given date.",
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "type": "string"
+              "title": "Risk Score  End",
+              "description": "If provided, only return subscribers with a risk score less than or equal to the given value.",
+              "type": "number"
             },
             "required": false,
-            "description": "If provided, only return subscribers created before the given date."
+            "description": "If provided, only return subscribers with a risk score less than or equal to the given value."
           },
           {
             "in": "query",
-            "name": "last_open_date__start",
+            "name": "risk_score__start",
             "schema": {
-              "title": "Last Open Date  Start",
-              "description": "If provided, only return subscribers with the given last open date(s).",
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "type": "string"
+              "title": "Risk Score  Start",
+              "description": "If provided, only return subscribers with a risk score greater than or equal to the given value.",
+              "type": "number"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given last open date(s)."
+            "description": "If provided, only return subscribers with a risk score greater than or equal to the given value."
           },
           {
             "in": "query",
-            "name": "last_open_date__end",
+            "name": "source",
             "schema": {
-              "title": "Last Open Date  End",
-              "description": "If provided, only return subscribers with the given last open date(s).",
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "type": "string"
+              "description": "If provided, only return subscribers with the given source(s).",
+              "example": "api",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/SubscriberSource"
+              }
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given last open date(s)."
-          },
-          {
-            "in": "query",
-            "name": "last_click_date__start",
-            "schema": {
-              "title": "Last Click Date  Start",
-              "description": "If provided, only return subscribers with the given last click date(s).",
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "type": "string"
-            },
-            "required": false,
-            "description": "If provided, only return subscribers with the given last click date(s)."
-          },
-          {
-            "in": "query",
-            "name": "last_click_date__end",
-            "schema": {
-              "title": "Last Click Date  End",
-              "description": "If provided, only return subscribers with the given last click date(s).",
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "type": "string"
-            },
-            "required": false,
-            "description": "If provided, only return subscribers with the given last click date(s)."
+            "description": "If provided, only return subscribers with the given source(s)."
           },
           {
             "in": "query",
@@ -1991,90 +2102,35 @@
           },
           {
             "in": "query",
-            "name": "expand",
+            "name": "tag",
             "schema": {
-              "title": "Expand",
-              "description": "If provided, expand the given field. (Only supported fields: 'stripe_customer')",
+              "title": "Tag",
               "type": "array",
               "items": {
-                "enum": [
-                  "stripe_customer"
-                ],
                 "type": "string"
               }
             },
-            "required": false,
-            "description": "If provided, expand the given field. (Only supported fields: 'stripe_customer')"
+            "required": false
           },
           {
             "in": "query",
-            "name": "ip_address",
+            "name": "type",
             "schema": {
-              "title": "Ip Address",
-              "description": "If provided, only return subscribers with the given IP address(es).",
-              "pattern": "^[^\\s]+$",
+              "description": "If provided, only return subscribers with the given type.",
+              "example": "regular",
               "type": "array",
               "items": {
-                "type": "string",
-                "pattern": "^[^\\s]+$"
+                "$ref": "#/components/schemas/SubscriberType"
               }
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given IP address(es)."
+            "description": "If provided, only return subscribers with the given type."
           },
           {
             "in": "query",
-            "name": "upgrade_date__start",
+            "name": "undeliverability_date__end",
             "schema": {
-              "title": "Upgrade Date  Start",
-              "description": "If provided, only return subscribers with the given upgrade date(s).",
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "type": "string"
-            },
-            "required": false,
-            "description": "If provided, only return subscribers with the given upgrade date(s)."
-          },
-          {
-            "in": "query",
-            "name": "upgrade_date__end",
-            "schema": {
-              "title": "Upgrade Date  End",
-              "description": "If provided, only return subscribers with the given upgrade date(s).",
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "type": "string"
-            },
-            "required": false,
-            "description": "If provided, only return subscribers with the given upgrade date(s)."
-          },
-          {
-            "in": "query",
-            "name": "churn_date__start",
-            "schema": {
-              "title": "Churn Date  Start",
-              "description": "If provided, only return subscribers with the given churn date(s).",
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "type": "string"
-            },
-            "required": false,
-            "description": "If provided, only return subscribers with the given churn date(s)."
-          },
-          {
-            "in": "query",
-            "name": "churn_date__end",
-            "schema": {
-              "title": "Churn Date  End",
-              "description": "If provided, only return subscribers with the given churn date(s).",
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "type": "string"
-            },
-            "required": false,
-            "description": "If provided, only return subscribers with the given churn date(s)."
-          },
-          {
-            "in": "query",
-            "name": "undeliverability_date__start",
-            "schema": {
-              "title": "Undeliverability Date  Start",
+              "title": "Undeliverability Date  End",
               "description": "If provided, only return subscribers with the given undeliverability date(s).",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
@@ -2084,9 +2140,9 @@
           },
           {
             "in": "query",
-            "name": "undeliverability_date__end",
+            "name": "undeliverability_date__start",
             "schema": {
-              "title": "Undeliverability Date  End",
+              "title": "Undeliverability Date  Start",
               "description": "If provided, only return subscribers with the given undeliverability date(s).",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
@@ -2109,17 +2165,15 @@
           },
           {
             "in": "query",
-            "name": "unsubscription_reason",
+            "name": "unsubscription_date__end",
             "schema": {
-              "title": "Unsubscription Reason",
-              "description": "If provided, only return subscribers with the given unsubscription reason(s).",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "title": "Unsubscription Date  End",
+              "description": "If provided, only return subscribers with the given unsubscription date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given unsubscription reason(s)."
+            "description": "If provided, only return subscribers with the given unsubscription date(s)."
           },
           {
             "in": "query",
@@ -2135,44 +2189,41 @@
           },
           {
             "in": "query",
-            "name": "unsubscription_date__end",
+            "name": "unsubscription_reason",
             "schema": {
-              "title": "Unsubscription Date  End",
-              "description": "If provided, only return subscribers with the given unsubscription date(s).",
+              "title": "Unsubscription Reason",
+              "description": "If provided, only return subscribers with the given unsubscription reason(s).",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with the given unsubscription reason(s)."
+          },
+          {
+            "in": "query",
+            "name": "upgrade_date__end",
+            "schema": {
+              "title": "Upgrade Date  End",
+              "description": "If provided, only return subscribers with the given upgrade date(s).",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given unsubscription date(s)."
+            "description": "If provided, only return subscribers with the given upgrade date(s)."
           },
           {
             "in": "query",
-            "name": "referrer_url",
+            "name": "upgrade_date__start",
             "schema": {
-              "title": "Referrer Url",
-              "description": "If provided, only return subscribers whose referrer URL(s) contain the given string.",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "title": "Upgrade Date  Start",
+              "description": "If provided, only return subscribers with the given upgrade date(s).",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers whose referrer URL(s) contain the given string."
-          },
-          {
-            "in": "query",
-            "name": "utm_source",
-            "schema": {
-              "title": "Utm Source",
-              "description": "If provided, only return subscribers with the given UTM source(s).",
-              "example": "paid_campaign_2024",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "required": false,
-            "description": "If provided, only return subscribers with the given UTM source(s)."
+            "description": "If provided, only return subscribers with the given upgrade date(s)."
           },
           {
             "in": "query",
@@ -2206,69 +2257,18 @@
           },
           {
             "in": "query",
-            "name": "domain",
+            "name": "utm_source",
             "schema": {
-              "title": "Domain",
-              "description": "If provided, only return subscribers whose email domain matches the given domain(s).",
-              "example": "gmail.com",
+              "title": "Utm Source",
+              "description": "If provided, only return subscribers with the given UTM source(s).",
+              "example": "paid_campaign_2024",
               "type": "array",
               "items": {
                 "type": "string"
               }
             },
             "required": false,
-            "description": "If provided, only return subscribers whose email domain matches the given domain(s)."
-          },
-          {
-            "in": "query",
-            "name": "-domain",
-            "schema": {
-              "title": "-Domain",
-              "description": "If provided, only return subscribers whose email domain does not match the given domain(s).",
-              "example": "gmail.com",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "required": false,
-            "description": "If provided, only return subscribers whose email domain does not match the given domain(s)."
-          },
-          {
-            "in": "query",
-            "name": "risk_score__start",
-            "schema": {
-              "title": "Risk Score  Start",
-              "description": "If provided, only return subscribers with a risk score greater than or equal to the given value.",
-              "type": "number"
-            },
-            "required": false,
-            "description": "If provided, only return subscribers with a risk score greater than or equal to the given value."
-          },
-          {
-            "in": "query",
-            "name": "risk_score__end",
-            "schema": {
-              "title": "Risk Score  End",
-              "description": "If provided, only return subscribers with a risk score less than or equal to the given value.",
-              "type": "number"
-            },
-            "required": false,
-            "description": "If provided, only return subscribers with a risk score less than or equal to the given value."
-          },
-          {
-            "in": "query",
-            "name": "source",
-            "schema": {
-              "description": "If provided, only return subscribers with the given source(s).",
-              "example": "api",
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/SubscriberSource"
-              }
-            },
-            "required": false,
-            "description": "If provided, only return subscribers with the given source(s)."
+            "description": "If provided, only return subscribers with the given UTM source(s)."
           }
         ],
         "responses": {
