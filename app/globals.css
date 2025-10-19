@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
 
 @theme {
   --font-sans: Hex Franklin, ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
   --shadow-no-bottom-md: 0 -4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
@@ -28,6 +30,16 @@
   }
 }
 
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 100 700;
+  src: local("IBM Plex Mono"), url("https://fonts.gstatic.com/s/ibmplexmono/v13/-F62fjptAgt5VM-kVkqdyU8n3kWlK5E2.woff2") format("woff2");
+  font-display: swap;
+}
+
+
 @font-face {
   font-family: "Hex Franklin";
   src: url("https://d33wubrfki0l68.cloudfront.net/409516e806160febfc4d1d7902107ae378404d3f/fd4dc/fonts/hex-franklin/hex-franklin-0.2.woff2")
@@ -43,6 +55,14 @@
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Apply IBM Plex Mono to all code blocks */
+pre[class*="language-"],
+code[class*="language-"],
+pre,
+code {
+  font-family: var(--font-mono) !important;
 }
 
 /* Necessary for the notation diff transformer */

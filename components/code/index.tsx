@@ -43,6 +43,7 @@ export default async function Code({
       lang: block.language,
       theme: THEME,
       transformers: [transformerNotationDiff()],
+      cssVariablePrefix: "--shiki-",
     });
 
     block.html = html;
