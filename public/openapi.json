@@ -2524,6 +2524,9 @@
         },
         "security": [
           {
+            "SubscriberFacingAuthentication": []
+          },
+          {
             "PermissionAuthenticationRequirement": []
           }
         ]
@@ -12075,6 +12078,9 @@
       "FallbackForNoAuth": {
         "type": "http",
         "scheme": "none"
+      },
+      "SubscriberFacingAuthentication": {
+        "type": "http"
       },
       "BulkActionAuth": {
         "type": "http",
