@@ -9318,6 +9318,7 @@
           "add_notes",
           "apply_tags",
           "apply_metadata",
+          "rename_metadata",
           "ban_subscribers",
           "delete_subscribers",
           "gift_subscribers",

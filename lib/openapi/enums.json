@@ -231,6 +231,11 @@
       "name": "Reactivate subscribers",
       "variant": "info"
     },
+    "rename_metadata": {
+      "description": "Rename multiple metadata fields in bulk.",
+      "name": "Rename metadata",
+      "variant": "info"
+    },
     "replay_events": {
       "description": "Replay multiple events in bulk.",
       "name": "Replay events",
