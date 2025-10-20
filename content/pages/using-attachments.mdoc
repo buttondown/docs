@@ -2,45 +2,63 @@
 title: Using attachments in Buttondown
 navigationTitle: Attachments
 date: 2025-05-21
-relatedPages: ["what-s-the-maximum-size-of-a-file-that-i-can-attach", "sending-via-email"]
+relatedPages:
+  - what-s-the-maximum-size-of-a-file-that-i-can-attach
+  - sending-via-email
 ---
-
 Buttondown allows you to add file attachments to your emails, making it easy to share documents, images, and other files with your subscribers. Whether you're sending a PDF report, sharing a calendar invite, or distributing a resource, attachments make your emails more versatile.
 
-## Supported Attachment Types
+## Supported attachment types
 
 Buttondown supports the following file types for attachments:
 
-| File Type | Supported Formats |
-|-----------|------------------|
-| Documents | PDF, DOC, DOCX, TXT, MD |
-| Images | JPG, JPEG, PNG, GIF, WEBP |
-| Archives | ZIP |
-| Audio | MP3 |
-| Video | MP4 |
-| Spreadsheets | CSV |
-| E-books | EPUB |
-| Calendar files | ICS |
+{% table %}
+- File Type
+- Supported Formats
+---
+- Documents
+- PDF, DOC, DOCX, TXT, MD
+---
+- Images
+- JPG, JPEG, PNG, GIF, WEBP
+---
+- Archives
+- ZIP
+---
+- Audio
+- MP3
+---
+- Video
+- MP4
+---
+- Spreadsheets
+- CSV
+---
+- E-books
+- EPUB
+---
+- Calendar files
+- ICS
+{% /table %}
 
 ## Limitations
 
 - Each attachment is limited to a maximum size of 2 MB. This limit helps ensure reliable delivery across email providers. If you need to share larger files with your subscribers, consider uploading them to a file sharing service (like Dropbox, Google Drive, or AWS S3) and including a link in your email instead.
 - You can only attach up to 3 files in a single email. If you need to attach more, [please contact us](https://buttondown.com/support).
 
-## Adding Attachments
+## Adding attachments
 
-### Using the Web Editor
+### Using the web wditor
 
-1. While composing or editing an email in [Fancy mode](/fancy-mode), click the "Attachments" button in the editor toolbar
-2. Select the file you want to attach from your computer
-3. The file will upload and appear as an attachment in your email
+- While composing or editing an email in [Fancy mode](/fancy-mode), type "/attachments" then select the file
+- In [Markdown mode](https://docs.buttondown.com/using-markdown), drag and drop the file from your computer to the Editor
 
 ### Using the API
 
 If you're using Buttondown's API to create or update emails, you can include attachments by:
 
 1. First uploading the attachment using the `/v1/attachments` endpoint
-2. Then referencing the attachment ID in your email creation/update request
+1. Then referencing the attachment ID in your email creation/update request
 
 Here's an example of adding an attachment via the API:
 
@@ -94,19 +112,19 @@ const updateResponse = await fetch(`https://api.buttondown.com/v1/emails/${email
 });
 ```
 
-## Attachment Delivery
+## Attachment delivery
 
 When you send an email with attachments:
 
 1. Buttondown automatically includes the attachments in the outgoing emails
-2. Recipients will see the attachments displayed according to their email client's conventions
-3. For web archive views, attachments will be available for download
+1. Recipients will see the attachments displayed according to their email client's conventions
+1. For web archive views, attachments will be available for download
 
-## Attachments as a Premium Feature
+## Attachments as a Premium feature
 
 Adding attachments to emails is a premium feature in Buttondown. If you have a free account, you'll need to upgrade to a paid plan to use this functionality. You can check the current pricing and upgrade options on the [Buttondown pricing page](https://buttondown.com/pricing).
 
-## Best Practices for Attachments
+## Best practices for attachments
 
 Attachments can be tricky to get right without getting your email filtered as spam. Here are some best practices:
 
