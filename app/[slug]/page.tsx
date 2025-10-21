@@ -205,6 +205,7 @@ export default async function DocsPage(props: Props) {
     const schema = page.schema as OpenAPIObject;
     return (
       <Layout slug={slug} title={page.title}>
+        <Document page={{ ...page, slug }} />
         <ObjectDescription name={schema} />
       </Layout>
     );
