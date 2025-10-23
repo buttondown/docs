@@ -8346,6 +8346,16 @@
             "default": "",
             "type": "string"
           },
+          "purchased_by": {
+            "title": "Purchased By",
+            "description": "The email address of the individual who purchased this subscription on behalf of the subscriber.",
+            "type": "string"
+          },
+          "purchased_message": {
+            "title": "Purchased Message",
+            "description": "A custom message that was sent to the subscriber when the subscription was purchased on behalf of the subscriber.",
+            "type": "string"
+          },
           "referral_code": {
             "title": "Referral Code",
             "type": "string"

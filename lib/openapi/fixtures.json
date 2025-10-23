@@ -211,6 +211,8 @@
           "name": "Telemachus"
         },
         "notes": "",
+        "purchased_by": null,
+        "purchased_message": null,
         "referral_code": "",
         "referrer_url": "",
         "risk_score": null,
@@ -249,6 +251,8 @@
           "name": "Telemachus"
         },
         "notes": "",
+        "purchased_by": null,
+        "purchased_message": null,
         "referral_code": "",
         "referrer_url": "",
         "risk_score": null,
@@ -287,6 +291,8 @@
           "name": "Telemachus"
         },
         "notes": "",
+        "purchased_by": null,
+        "purchased_message": null,
         "referral_code": "",
         "referrer_url": "",
         "risk_score": null,
@@ -582,6 +588,8 @@
             "name": "Telemachus"
           },
           "notes": "",
+          "purchased_by": null,
+          "purchased_message": null,
           "referral_code": "",
           "referrer_url": "",
           "risk_score": null,
