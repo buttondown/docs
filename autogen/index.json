@@ -3266,6 +3266,14 @@
     "references": []
   },
   {
+    "title": "Suppression reason",
+    "url": "api-emails-suppression-reason",
+    "section": "Reference",
+    "schema": "EmailSuppressionReason",
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Filters",
     "url": "api-emails-filters",
     "section": "api",
