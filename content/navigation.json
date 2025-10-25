@@ -1517,6 +1517,10 @@
           "value": "api-emails-commenting-mode"
         },
         {
+          "discriminant": "page",
+          "value": "api-emails-suppression-reason"
+        },
+        {
           "discriminant": "divider",
           "value": "Audience filters"
         },

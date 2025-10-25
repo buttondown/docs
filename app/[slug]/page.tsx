@@ -377,7 +377,7 @@ export default async function DocsPage(props: Props) {
 
     if (enumDescriptions === undefined) {
       throw new Error(
-        `No enum descriptions found for ${page.enum}. Did you forget to:\n1. Add them to \`shared/enums.json\`?\n2. Run \`just propagate-shared-files\`?`
+        `No enum descriptions found for ${page.enum}. Did you forget to:\n1. Add them to \`shared/enums.json\`?\n2. Run \`mise //app:generate-files\`?`
       );
     }
 

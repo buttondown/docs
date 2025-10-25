@@ -1354,5 +1354,17 @@
       "name": "Enabled",
       "variant": "success"
     }
+  },
+  "EmailSuppressionReason": {
+    "law_enforcement": {
+      "description": "Used for communications with law enforcement agencies regarding legal inquiries or data requests.",
+      "name": "Law Enforcement",
+      "variant": "info"
+    },
+    "internal_auditing": {
+      "description": "Used for internal auditing and compliance-related communications.",
+      "name": "Internal Auditing",
+      "variant": "info"
+    }
   }
 }

@@ -3,7 +3,11 @@
   "info": {
     "title": "Buttondown API",
     "version": "1.0.0",
-    "description": "The Buttondown API"
+    "description": "The Buttondown API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
   },
   "paths": {
     "/exports": {
@@ -1790,7 +1794,9 @@
             "schema": {
               "title": "Coupon",
               "description": "If provided, only return subscribers with the given coupon ID(s).",
-              "example": "coupon_whatever",
+              "example": [
+                "coupon_whatever"
+              ],
               "type": "array",
               "items": {
                 "type": "string"
@@ -1805,7 +1811,9 @@
             "schema": {
               "title": "Current Price",
               "description": "If provided, only return subscribers who are currently subscribed to the given price ID(s).",
-              "example": "price_whatever",
+              "example": [
+                "price_whatever"
+              ],
               "type": "array",
               "items": {
                 "type": "string"
@@ -1844,7 +1852,9 @@
             "schema": {
               "title": "Domain",
               "description": "If provided, only return subscribers whose email domain matches the given domain(s).",
-              "example": "gmail.com",
+              "example": [
+                "gmail.com"
+              ],
               "type": "array",
               "items": {
                 "type": "string"
@@ -7469,7 +7479,7 @@
           },
           "featured": {
             "title": "Featured",
-            "description": "Designated whether or not this email should be highlighted within the archives. (Currently unused.)",
+            "description": "Designated whether or not this email should be highlighted within the archives.",
             "type": "boolean"
           },
           "filters": {
@@ -7751,7 +7761,7 @@
           },
           "featured": {
             "title": "Featured",
-            "description": "Designated whether or not this email should be highlighted within the archives. (Currently unused.)",
+            "description": "Designated whether or not this email should be highlighted within the archives.",
             "default": false,
             "type": "boolean"
           },
@@ -7954,7 +7964,7 @@
           },
           "featured": {
             "title": "Featured",
-            "description": "Designated whether or not this email should be highlighted within the archives. (Currently unused.)",
+            "description": "Designated whether or not this email should be highlighted within the archives.",
             "type": "boolean"
           },
           "should_trigger_pay_per_email_billing": {
@@ -12112,7 +12122,8 @@
         "scheme": "none"
       },
       "SubscriberFacingAuthentication": {
-        "type": "http"
+        "type": "http",
+        "scheme": "none"
       },
       "BulkActionAuth": {
         "type": "http",
