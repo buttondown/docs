@@ -11446,6 +11446,13 @@
             "default": "",
             "example": "Trigger when an email is created to notify in Slack.",
             "type": "string"
+          },
+          "signing_key": {
+            "title": "Signing Key",
+            "description": "Optional HMAC signing key for webhook verification. When set, webhook requests will include an X-Buttondown-Signature header with sha256=<signature>.",
+            "default": "",
+            "example": "",
+            "type": "string"
           }
         },
         "required": [
@@ -11494,6 +11501,13 @@
             "description": "An optional description of the webhook, for reference.",
             "default": "",
             "example": "Trigger when an email is created to notify in Slack.",
+            "type": "string"
+          },
+          "signing_key": {
+            "title": "Signing Key",
+            "description": "Optional HMAC signing key for webhook verification. When set, webhook requests will include an X-Buttondown-Signature header with sha256=<signature>.",
+            "default": "",
+            "example": "",
             "type": "string"
           }
         },

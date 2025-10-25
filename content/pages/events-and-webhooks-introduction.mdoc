@@ -18,6 +18,101 @@ The payload of most events are fairly simple, and look something like this:
 }
 ```
 
+## Webhook security with HMAC signing
+
+For additional security, you can enable HMAC signing on your webhooks to verify that requests are genuinely coming from Buttondown. When you set a signing key on a webhook, Buttondown will include an `X-Buttondown-Signature` header with each request.
+
+### Setting up HMAC signing
+
+To enable HMAC signing for a webhook:
+
+1. Go to your webhook settings
+2. Add a signing key in the "Signing key" field
+3. Save the webhook
+
+The signing key can be any string you choose—make it long and random for best security.
+
+### Verifying the signature
+
+When Buttondown sends a webhook with a signing key enabled, it includes an `X-Buttondown-Signature` header in the format:
+
+```
+X-Buttondown-Signature: sha256=<signature>
+```
+
+To verify the signature on your end:
+
+```python
+import hmac
+import hashlib
+
+def verify_signature(payload: bytes, signature_header: str, signing_key: str) -> bool:
+    """Verify the HMAC signature from Buttondown webhook."""
+    # Extract the signature from the header
+    signature = signature_header.replace("sha256=", "")
+    
+    # Create your own signature
+    mac = hmac.new(
+        signing_key.encode("utf-8"),
+        msg=payload,
+        digestmod=hashlib.sha256,
+    )
+    expected_signature = mac.hexdigest()
+    
+    # Compare using constant-time comparison to prevent timing attacks
+    return hmac.compare_digest(signature, expected_signature)
+```
+
+### Example verification in different languages
+
+**Node.js:**
+
+```javascript
+const crypto = require('crypto');
+
+function verifySignature(payload, signatureHeader, signingKey) {
+  const signature = signatureHeader.replace('sha256=', '');
+  const expectedSignature = crypto
+    .createHmac('sha256', signingKey)
+    .update(payload)
+    .digest('hex');
+  
+  return crypto.timingSafeEqual(
+    Buffer.from(signature),
+    Buffer.from(expectedSignature)
+  );
+}
+```
+
+**Ruby:**
+
+```ruby
+require 'openssl'
+
+def verify_signature(payload, signature_header, signing_key)
+  signature = signature_header.gsub('sha256=', '')
+  expected_signature = OpenSSL::HMAC.hexdigest('sha256', signing_key, payload)
+  
+  ActiveSupport::SecurityUtils.secure_compare(signature, expected_signature)
+end
+```
+
+The signature is computed using HMAC-SHA256 over the raw request body (before JSON parsing), so make sure to verify the signature using the original bytes you received.
+
+### Using signing keys in automation actions
+
+You can also use signing keys when sending post requests via automation actions. Simply add a `signing_key` field to your action's metadata:
+
+```json
+{
+  "type": "send_post_request",
+  "metadata": {
+    "url": "https://your-api.com/webhook",
+    "signing_key": "your-secret-key-here"
+  }
+}
+```
+
 ## Keep learning
 
 - [Types of events](/event-types)

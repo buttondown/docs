@@ -10,7 +10,8 @@
           "subscriber.created"
         ],
         "url": "https://example.com/webhook",
-        "description": ""
+        "description": "",
+        "signing_key": ""
       }
     }
   ],
