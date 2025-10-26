@@ -3,6 +3,9 @@ import REDIRECTS from "./redirects.mjs";
 
 export default withSentryConfig(
   {
+    experimental: {
+      instrumentationHook: true,
+    },
     redirects: async () => {
       return REDIRECTS;
     },
@@ -42,5 +45,5 @@ export default withSentryConfig(
     // https://docs.sentry.io/product/crons/
     // https://vercel.com/docs/cron-jobs
     automaticVercelMonitors: true,
-  },
+  }
 );

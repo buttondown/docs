@@ -5,6 +5,29 @@ relatedPages:
   - glossary-reverse-dns
 description: >-
   Buttondown allows all newsletters to send from a custom domain. This helps you build a recognizable brand and improves deliverability.
+faqItems: >
+  [
+    {
+      "question": "Can I use the same domain for hosting and sending?",
+      "answer": "Unfortunately, some DNS providers do not let you set up the exact same domain or subdomain for both sending emails and as your newsletter archive. For these DNSes, we recommend setting up completely separate subdomains. Try something like this:\n\n- `newsletter.janedoe.com` for your custom newsletter domain, where readers view archives and subscribe to your newsletter\n- `mail.janedoe.com` for your custom sending domain, where outgoing emails come from\n\nThis is the best option to preserve the deliverability of your newsletter."
+    },
+    {
+      "question": "Can I use multiple sending domains for multiple newsletters?",
+      "answer": "Yes! If you're taking advantage of [Buttondown's multi-newsletter feature](/multiple-newsletters), you can set up multiple sending domains for each newsletter for no additional cost."
+    },
+    {
+      "question": "What about the same sending domain on multiple newsletters?",
+      "answer": "Also yes, with a caveat: Buttondown tries to be clever and detect when you're sending from the same domain on multiple newsletters. If you're doing this, we'll automatically set up the DNS records for you. If you're having trouble, [contact us](https://buttondown.com/support) so we'll take a look."
+    },
+    {
+      "question": "Am I required to use a custom domain?",
+      "answer": "If you're coming to Buttondown from another service and are importing more than 10,000 subscribers, we require you to send from a custom domain. Otherwise, you can skip setting up a sending domain (though we recommend it anyway!) and use the default sending domains we provide."
+    },
+    {
+      "question": "Why am I getting 'softfails' due to SPF?",
+      "answer": "SPF softfails can cause your newsletter emails to be marked as spam. A softfail SPF means the email client is suspicious of the email sender's IP address. You can help prevent this by making sure your [SPF entry](/glossary-spf) is configured correctly.\n\nDepending on your newsletter configuration, you might have been asked to set up an SPF entry for your custom domain. A SPF entry is a DNS record that begins with the string:\n\n```\nv=spf1\n```\n\nHowever, you can only use this record once in a single domain. If you're using the same custom email domain for Buttondown and for an inbox provider, such as GSuite, you need to take an extra step to combine the two records.\n\nInstead of having two separate records, like:\n\n```\nv=spf1 include:_spf.google.com\n```\n\nand\n\n```\nv=spf1 include:mailgun.org\n```\n\nEdit the existing record to reference both domains, as shown below:\n\n```\nv=spf1 include:_spf.google.com include:mailgun.org ~all\n```\n\nIf you don't combine the two records, some mailboxes may read the first SPF entry (the GSuite one) and ignore the second (the one sent by Buttondown), which can cause a softfail and lower your newsletter email's deliverability."
+    }
+  ]
 ---
 
 Unlike hosting your newsletter on a [custom domain](/hosting-on-a-custom-domain), which is largely a cosmetic feature, there are significant benefits to sending your emails from a custom domain.
@@ -54,60 +77,4 @@ You're welcome to do so! Just add your sending domain in Settings and, when pres
 
 ## Frequently asked questions
 
-### Can I use the same domain for hosting and sending?
-
-Unfortunately, some DNS providers do not let you set up the exact same domain or subdomain for both sending emails and as your newsletter archive.
-
-For these DNSes, we recommend setting up completely separate subdomains. Try something like this:
-
-- `newsletter.janedoe.com` for your custom newsletter domain, where readers view archives and subscribe to your newsletter
-- `mail.janedoe.com` for your custom sending domain, where outgoing emails come from
-
-This is the best option to preserve the deliverability of your newsletter.
-
-### Can I use multiple sending domains for multiple newsletters?
-
-Yes! If you're taking advantage of [Buttondown's multi-newsletter feature](/multiple-newsletters), you can set up multiple sending domains for each newsletter for no additional cost.
-
-### What about the same sending domain on multiple newsletters?
-
-Also yes, with a caveat: Buttondown tries to be clever and detect when you're sending from the same domain on multiple newsletters. If you're doing this, we'll automatically set up the DNS records for you. If you're having trouble, [contact us](https://buttondown.com/support) so we'll take a look.
-
-### Am I required to use a custom domain?
-
-If you're coming to Buttondown from another service and are importing more than 10,000 subscribers, we require you to send from a custom domain. Otherwise, you can skip setting up a sending domain (though we recommend it anyway!) and use the default sending domains we provide.
-
-### Why am I getting 'softfails' due to SPF?
-
-{% noticeInfo
-   text="You might not need to set an SPF record at all! If Buttondown doesn't list it as one of the records to add, you don't need it." /%}
-
-SPF softfails can cause your newsletter emails to be marked as spam. A softfail SPF means the email client is suspicious of the email sender's IP address. You can help prevent this by making sure your [SPF entry](/glossary-spf) is configured correctly.
-
-Depending on your newsletter configuration, you might have been asked to set up an SPF entry for your custom domain. A SPF entry is a DNS record that begins with the string:
-
-```
-v=spf1
-```
-
-However, you can only use this record once in a single domain. If you're using the same custom email domain for Buttondown and for an inbox provider, such as GSuite, you need to take an extra step to combine the two records.
-
-Instead of having two separate records, like:
-
-```
-v=spf1 include:_spf.google.com
-```
-
-and
-
-```
-v=spf1 include:mailgun.org
-```
-
-Edit the existing record to reference both domains, as shown below:
-
-```
-v=spf1 include:_spf.google.com include:mailgun.org ~all
-```
-
-If you don't combine the two records, some mailboxes may read the first SPF entry (the GSuite one) and ignore the second (the one sent by Buttondown), which can cause a softfail and lower your newsletter email's deliverability.
+{% faq /%}

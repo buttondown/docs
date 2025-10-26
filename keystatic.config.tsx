@@ -1,4 +1,5 @@
 import { automation } from "@/components/keystatic/automation";
+import { faq } from "@/components/keystatic/faq";
 import { fileExplorer } from "@/components/keystatic/fileExplorer";
 import { generatedMultilanguageSnippets } from "@/components/keystatic/generatedMultilanguageSnippets";
 import { iframe } from "@/components/keystatic/iframe";
@@ -101,6 +102,12 @@ export default config({
           label: "Description",
           multiline: true,
         }),
+        faqItems: fields.text({
+          label: "FAQ Items (JSON)",
+          description:
+            'JSON array of FAQ items. Example: [{"question":"Q?","answer":"A"}]',
+          multiline: true,
+        }),
         schema: fields.text({
           label: "Schema",
         }),
@@ -128,6 +135,7 @@ export default config({
           tables: true,
           componentBlocks: {
             automation,
+            faq,
             video,
             iframe,
             preview,

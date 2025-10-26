@@ -618,14 +618,6 @@
     "references": []
   },
   {
-    "title": "What's the maximum size of a file that I can attach?",
-    "url": "what-s-the-maximum-size-of-a-file-that-i-can-attach",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
     "title": "Does Buttondown support AMP?",
     "url": "support-amp-for-email",
     "section": "guides",
@@ -687,6 +679,7 @@
       "quickstart",
       "sending-from-dreamhost",
       "sending-your-first-email-advanced",
+      "standards",
       "support-policy"
     ]
   },
