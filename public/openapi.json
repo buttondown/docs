@@ -122,8 +122,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -6666,13 +6665,12 @@
           },
           "id": {
             "title": "Id",
-            "description": "A unique UUID associated with the object.",
-            "type": "string",
-            "format": "uuid"
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
           },
           "creation_date": {
             "title": "Creation Date",
-            "description": "The date and time at which the object was created.",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -6850,26 +6848,26 @@
           },
           "id": {
             "title": "Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "secondary_id": {
-            "title": "Secondary Id",
-            "type": "integer"
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
           },
           "creation_date": {
             "title": "Creation Date",
             "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
+          },
+          "secondary_id": {
+            "title": "Secondary Id",
+            "type": "integer"
           }
         },
         "required": [
           "name",
           "color",
           "id",
-          "secondary_id",
-          "creation_date"
+          "creation_date",
+          "secondary_id"
         ]
       },
       "TagInput": {

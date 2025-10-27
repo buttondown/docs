@@ -332,7 +332,7 @@
         "parameters": null,
         "format": "csv",
         "columns": null,
-        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "id": "exp_29fxqcmrkp969vzttksexvmvr8",
         "creation_date": "2019-08-24T14:15:22",
         "url": "https://s3.amazonaws.com/buttondown-exports/basic-export.csv",
         "completion_date": "2019-08-24T15:15:22",
@@ -352,7 +352,7 @@
         },
         "format": "json",
         "columns": null,
-        "id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+        "id": "exp_3bmyw117dd278r1d00r17x8c68",
         "creation_date": "2019-08-24T14:15:22",
         "url": null,
         "completion_date": null,
@@ -368,7 +368,7 @@
         "parameters": null,
         "format": "csv",
         "columns": null,
-        "id": "6ba7b811-9dad-11d1-80b4-00c04fd430c8",
+        "id": "exp_3bmyw137dd278r1d00r17x8c68",
         "creation_date": "2019-08-24T14:15:22",
         "url": null,
         "completion_date": null,
@@ -388,7 +388,7 @@
           "creation_date",
           "subscriber_type"
         ],
-        "id": "6ba7b812-9dad-11d1-80b4-00c04fd430c8",
+        "id": "exp_3bmyw157dd278r1d00r17x8c68",
         "creation_date": "2019-08-24T14:15:22",
         "url": "https://s3.amazonaws.com/buttondown-exports/custom-columns-export.csv",
         "completion_date": "2019-08-24T15:30:22",
@@ -409,7 +409,7 @@
         },
         "format": "json",
         "columns": null,
-        "id": "6ba7b813-9dad-11d1-80b4-00c04fd430c8",
+        "id": "exp_3bmyw177dd278r1d00r17x8c68",
         "creation_date": "2019-08-24T14:15:22",
         "url": "https://s3.amazonaws.com/buttondown-exports/multi-collection-export.json",
         "completion_date": "2019-08-24T16:45:22",
@@ -669,9 +669,9 @@
         "name": "VIP",
         "color": "#FFD700",
         "description": "VIP subscribers",
-        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
-        "secondary_id": 1,
-        "creation_date": "2020-09-29T00:00:00+00:00"
+        "id": "sub_tag_0k28edc3fw896bp4mrhc535z5k",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "secondary_id": 1
       }
     }
   ],
