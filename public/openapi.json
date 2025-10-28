@@ -676,8 +676,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -4646,6 +4645,33 @@
             },
             "required": false,
             "description": "If provided, only return surveys without the given status."
+          },
+          {
+            "in": "query",
+            "name": "ordering",
+            "schema": {
+              "default": "-creation_date",
+              "allOf": [
+                {
+                  "title": "Ordering",
+                  "description": "An enumeration.",
+                  "enum": [
+                    "creation_date",
+                    "-creation_date",
+                    "question",
+                    "-question",
+                    "identifier",
+                    "-identifier",
+                    "status",
+                    "-status",
+                    "response_count",
+                    "-response_count"
+                  ],
+                  "type": "string"
+                }
+              ]
+            },
+            "required": false
           }
         ],
         "responses": {
@@ -6464,7 +6490,11 @@
                 "automation",
                 "survey",
                 "stripe_customer",
-                "tag"
+                "tag",
+                "comment",
+                "conversation",
+                "webmention",
+                "socialmention"
               ],
               "type": "string"
             },
@@ -7039,8 +7069,8 @@
         "properties": {
           "id": {
             "title": "Id",
-            "type": "string",
-            "format": "uuid"
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
           },
           "creation_date": {
             "title": "Creation Date",
@@ -9372,6 +9402,8 @@
           "update_email_types",
           "update_archival_modes",
           "update_commenting_modes",
+          "mark_inbox_items_read",
+          "delete_inbox_items",
           "delete_tags",
           "delete_surveys",
           "delete_survey_responses",
@@ -11992,7 +12024,11 @@
               "automation",
               "survey",
               "stripe_customer",
-              "tag"
+              "tag",
+              "comment",
+              "conversation",
+              "webmention",
+              "socialmention"
             ],
             "type": "string"
           },
@@ -12057,7 +12093,11 @@
               "automation",
               "survey",
               "stripe_customer",
-              "tag"
+              "tag",
+              "comment",
+              "conversation",
+              "webmention",
+              "socialmention"
             ],
             "type": "string"
           },

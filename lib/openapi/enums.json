@@ -191,6 +191,11 @@
       "name": "Delete emails",
       "variant": "info"
     },
+    "delete_inbox_items": {
+      "description": "Delete multiple inbox items in bulk.",
+      "name": "Delete inbox items",
+      "variant": "info"
+    },
     "delete_subscribers": {
       "description": "Delete multiple subscribers in bulk.",
       "name": "Delete subscribers",
@@ -214,6 +219,11 @@
     "gift_subscribers": {
       "description": "Gift premium subscriptions to multiple subscribers in bulk.",
       "name": "Gift subscribers",
+      "variant": "info"
+    },
+    "mark_inbox_items_read": {
+      "description": "Mark multiple inbox items as read.",
+      "name": "Mark inbox items as read",
       "variant": "info"
     },
     "mark_subscribers_as_not_spammy": {
