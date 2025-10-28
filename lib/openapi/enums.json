@@ -181,6 +181,11 @@
       "name": "Ban subscribers",
       "variant": "info"
     },
+    "change_tags_colors": {
+      "description": "Change the color of multiple tags in bulk.",
+      "name": "Change tags colors",
+      "variant": "info"
+    },
     "delete_comments": {
       "description": "Delete multiple comments in bulk.",
       "name": "Delete comments",
