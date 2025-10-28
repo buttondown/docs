@@ -10,3 +10,7 @@ Buttondown's Markdown preview is meant to closely resemble an email inbox from a
 Our friends over at Litmus have a really useful, detailed answer about why this happens. [Read their documentation](https://help.litmus.com/article/158-why-do-some-email-clients-show-my-email-differently-than-others):
 
 > Web-based email clients (such as [Outlook.com](http://outlook.com/) or Gmail) will certainly perform most the tasks listed above, but they also have a larger, more difficult job. They have to prepare the HTML to be converted into HTML that's safe to show within their own email client's HTML. This is a surprisingly difficult thing to do and most web-based email clients' pre-processors will err on the side of being overly restrictive and removing anything with even the slightest potential to affect the layout of their email client. We'll cover the various mistakes made by these pre-processors a little later, but you should expect this to be the second biggest cause of headaches when designing HTML emails - the first biggest cause is still to be discussed.
+
+Some additional notes:
+
+- Fastmail does not really support CSS variables. You'll want to add fallback values for your CSS variables.
