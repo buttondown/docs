@@ -1381,5 +1381,22 @@
       "name": "Internal Auditing",
       "variant": "info"
     }
+  },
+  "NewsletterAuditingMode": {
+    "disabled": {
+      "description": "No IP auditing.",
+      "name": "Disabled",
+      "variant": "info"
+    },
+    "enabled": {
+      "description": "IP auditing.",
+      "name": "Enabled",
+      "variant": "info"
+    },
+    "aggressive": {
+      "description": "IP auditing before a subscriber is even created. This mode is admin-only.",
+      "name": "Aggressive",
+      "variant": "warning"
+    }
   }
 }

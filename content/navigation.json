@@ -1726,6 +1726,10 @@
           "value": "api-newsletters-introduction"
         },
         {
+          "discriminant": "page",
+          "value": "api-newsletters-auditing-mode"
+        },
+        {
           "discriminant": "divider",
           "value": "Routes"
         },

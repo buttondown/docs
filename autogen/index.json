@@ -3654,6 +3654,14 @@
     "references": []
   },
   {
+    "title": "Newsletter auditing mode",
+    "url": "api-newsletters-auditing-mode",
+    "section": "Reference",
+    "schema": "NewsletterAuditingMode",
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Listing newsletters",
     "url": "api-newsletters-list",
     "section": "api",
