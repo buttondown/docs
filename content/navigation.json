@@ -1554,6 +1554,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-emails-delete"
+        },
+        {
+          "discriminant": "page",
           "value": "api-emails-analytics"
         },
         {

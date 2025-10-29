@@ -3337,6 +3337,14 @@
     "references": []
   },
   {
+    "title": "Deleting an email",
+    "url": "api-emails-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Retrieving email analytics",
     "url": "api-emails-analytics",
     "section": "api",

@@ -1142,7 +1142,7 @@
     {
       "description": "PDF",
       "object": {
-        "id": "12345678-1234-5678-9012-123456789012",
+        "id": "att_1234567890",
         "creation_date": "2000-01-01T00:00:00",
         "name": "newsletter-guide.pdf",
         "file": "https://buttondown.s3.amazonaws.com/attachments/newsletter-guide.pdf",
@@ -1152,7 +1152,7 @@
     {
       "description": "Image",
       "object": {
-        "id": "87654321-4321-8765-2109-876543210987",
+        "id": "att_876543210987",
         "creation_date": "2000-01-02T00:00:00",
         "name": "screenshot.png",
         "file": "https://buttondown.s3.amazonaws.com/attachments/screenshot.png",
@@ -1162,7 +1162,7 @@
     {
       "description": "Document",
       "object": {
-        "id": "11111111-2222-3333-4444-555555555555",
+        "id": "att_111111112222",
         "creation_date": "2000-01-03T00:00:00",
         "name": "report.docx",
         "file": "https://buttondown.s3.amazonaws.com/attachments/report.docx",

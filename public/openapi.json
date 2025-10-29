@@ -817,15 +817,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "anyOf": [
-                {
-                  "type": "string",
-                  "format": "uuid"
-                },
-                {
-                  "type": "string"
-                }
-              ]
+              "type": "string"
             },
             "required": true
           }
@@ -1326,6 +1318,56 @@
           }
         },
         "description": "Retrieve a specific email by its ID",
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "delete_email",
+        "summary": "Delete Email",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "Delete an email",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -7127,15 +7169,8 @@
         "properties": {
           "id": {
             "title": "Id",
-            "anyOf": [
-              {
-                "type": "string",
-                "format": "uuid"
-              },
-              {
-                "type": "string"
-              }
-            ]
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
           },
           "creation_date": {
             "title": "Creation Date",
@@ -7462,15 +7497,7 @@
             "description": "A list of attachment IDs present on the email. (See [Attachments](https://docs.buttondown.com/api-attachments-introduction) for more information.)",
             "type": "array",
             "items": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "format": "uuid"
-                },
-                {
-                  "type": "string"
-                }
-              ]
+              "type": "string"
             }
           },
           "body": {
@@ -7681,15 +7708,7 @@
             "default": [],
             "type": "array",
             "items": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "format": "uuid"
-                },
-                {
-                  "type": "string"
-                }
-              ]
+              "type": "string"
             }
           },
           "publish_date": {
@@ -7876,15 +7895,7 @@
             "description": "A list of attachment IDs present on the email. (See [Attachments](https://docs.buttondown.com/api-attachments-introduction) for more information.)",
             "type": "array",
             "items": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "format": "uuid"
-                },
-                {
-                  "type": "string"
-                }
-              ]
+              "type": "string"
             }
           },
           "publish_date": {
@@ -9102,6 +9113,12 @@
             "title": "Custom Churn Email Template",
             "description": "Custom template for churn emails",
             "type": "string"
+          },
+          "test_mode": {
+            "title": "Test Mode",
+            "description": "Whether test mode is enabled for this newsletter",
+            "default": false,
+            "type": "boolean"
           }
         },
         "required": [
@@ -9267,6 +9284,11 @@
           },
           "auditing_mode": {
             "$ref": "#/components/schemas/NewsletterAuditingMode"
+          },
+          "test_mode": {
+            "title": "Test Mode",
+            "description": "Whether test mode is enabled for this newsletter.",
+            "type": "boolean"
           }
         },
         "required": [
@@ -9377,6 +9399,11 @@
             "title": "Custom Churn Email Template",
             "description": "Custom template for churn emails.",
             "type": "string"
+          },
+          "test_mode": {
+            "title": "Test Mode",
+            "description": "Whether test mode is enabled for this newsletter.",
+            "type": "boolean"
           }
         }
       },
