@@ -9214,37 +9214,55 @@
           },
           "tint_color": {
             "title": "Tint Color",
+            "description": "The accent color for your newsletter.",
             "default": "#0069FF",
+            "example": "#0069FF",
             "type": "string"
           },
           "from_name": {
             "title": "From Name",
+            "description": "The name displayed in the 'From' field of your emails.",
             "default": "",
+            "example": "Sheinhardt Wig Company",
             "type": "string"
           },
           "header": {
             "title": "Header",
+            "description": "HTML content displayed at the top of your newsletter emails.",
             "default": "",
+            "example": "<p>Welcome to our newsletter!</p>",
             "type": "string"
           },
           "footer": {
             "title": "Footer",
+            "description": "HTML content displayed at the bottom of your newsletter emails.",
             "default": "",
+            "example": "<p>Thanks for reading!</p>",
             "type": "string"
           },
           "domain": {
             "title": "Domain",
+            "description": "The domain of the newsletter on which archives are hosted.",
             "default": "",
+            "example": "sheinhardt.com",
             "type": "string"
           },
           "email_domain": {
             "title": "Email Domain",
+            "description": "The domain of the newsletter from which emails are sent.",
             "default": "",
+            "example": "mail.sheinhardt.com",
             "type": "string"
           },
           "enabled_features": {
             "title": "Enabled Features",
+            "description": "List of enabled features for your newsletter.",
             "default": [],
+            "example": [
+              "archives",
+              "portal",
+              "surveys"
+            ],
             "type": "array",
             "items": {
               "type": "string"
@@ -9252,6 +9270,8 @@
           },
           "custom_email_template": {
             "title": "Custom Email Template",
+            "description": "Custom email template identifier.",
+            "example": "custom-template",
             "type": "string"
           },
           "css": {
@@ -9318,18 +9338,26 @@
           },
           "tint_color": {
             "title": "Tint Color",
+            "description": "The accent color for your newsletter.",
+            "example": "#0069FF",
             "type": "string"
           },
           "from_name": {
             "title": "From Name",
+            "description": "The name displayed in the 'From' field of your emails.",
+            "example": "Sheinhardt Wig Company",
             "type": "string"
           },
           "header": {
             "title": "Header",
+            "description": "HTML content displayed at the top of your newsletter emails.",
+            "example": "<p>Welcome to our newsletter!</p>",
             "type": "string"
           },
           "footer": {
             "title": "Footer",
+            "description": "HTML content displayed at the bottom of your newsletter emails.",
+            "example": "<p>Thanks for reading!</p>",
             "type": "string"
           },
           "domain": {
@@ -9346,10 +9374,22 @@
             "type": "string"
           },
           "auditing_mode": {
-            "$ref": "#/components/schemas/NewsletterAuditingMode"
+            "description": "The auditing mode for your newsletter. See [the Firewall](https://docs.buttondown.com/firewall) for more information.",
+            "example": "enabled",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterAuditingMode"
+              }
+            ]
           },
           "enabled_features": {
             "title": "Enabled Features",
+            "description": "List of enabled features for your newsletter.",
+            "example": [
+              "archives",
+              "portal",
+              "surveys"
+            ],
             "type": "array",
             "items": {
               "type": "string"
@@ -9357,6 +9397,8 @@
           },
           "custom_email_template": {
             "title": "Custom Email Template",
+            "description": "Custom email template identifier.",
+            "example": "custom-template",
             "type": "string"
           },
           "css": {
@@ -9398,6 +9440,7 @@
           "custom_churn_email_template": {
             "title": "Custom Churn Email Template",
             "description": "Custom template for churn emails.",
+            "example": "churn-template",
             "type": "string"
           },
           "test_mode": {
