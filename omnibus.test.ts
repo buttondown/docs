@@ -299,6 +299,10 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
     const title = content.match(/title: (.*)/)?.[1];
     expect(title?.length).toBeLessThanOrEqual(MAXIMUM_TITLE_LENGTH);
   });
+
+  test(filename + " does not contain 'Missing image' text", () => {
+    expect(content).not.toContain("Missing image");
+  });
 });
 
 // Make sure all schemas with $ref in properties have URLs.
