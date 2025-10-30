@@ -8791,6 +8791,10 @@
           "unsubscription_reason": {
             "title": "Unsubscription Reason",
             "type": "string"
+          },
+          "email_which_prompted_unsubscription_id": {
+            "title": "Email Which Prompted Unsubscription Id",
+            "type": "string"
           }
         }
       },
