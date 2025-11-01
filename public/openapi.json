@@ -9049,6 +9049,12 @@
             "default": "",
             "type": "string"
           },
+          "email_address": {
+            "title": "Email Address",
+            "description": "The email address used by your newsletter for sending messages.",
+            "default": "",
+            "type": "string"
+          },
           "email_domain": {
             "title": "Email Domain",
             "default": "",
@@ -9123,6 +9129,12 @@
             "description": "Whether test mode is enabled for this newsletter",
             "default": false,
             "type": "boolean"
+          },
+          "sort": {
+            "title": "Sort",
+            "description": "The sorting method to apply to newsletter subscribers or messages. Example values: 'creation_date', '-creation_date', 'email_address', etc.",
+            "default": "creation_date",
+            "type": "string"
           }
         },
         "required": [
@@ -9201,14 +9213,20 @@
         "title": "NewsletterInput",
         "type": "object",
         "properties": {
-          "username": {
-            "title": "Username",
-            "example": "sheinhardt",
+          "auditing_mode": {
+            "$ref": "#/components/schemas/NewsletterAuditingMode"
+          },
+          "css": {
+            "title": "Css",
+            "description": "Custom CSS styling for your newsletter emails.",
+            "default": "",
+            "example": ".header { color: #000; }",
             "type": "string"
           },
-          "name": {
-            "title": "Name",
-            "example": "Sheinhardt Wig Company",
+          "custom_email_template": {
+            "title": "Custom Email Template",
+            "description": "Custom email template identifier.",
+            "example": "custom-template",
             "type": "string"
           },
           "description": {
@@ -9216,39 +9234,16 @@
             "example": "Stay up to date with the latest trends in wigs and hairpieces",
             "type": "string"
           },
-          "tint_color": {
-            "title": "Tint Color",
-            "description": "The accent color for your newsletter.",
-            "default": "#0069FF",
-            "example": "#0069FF",
-            "type": "string"
-          },
-          "from_name": {
-            "title": "From Name",
-            "description": "The name displayed in the 'From' field of your emails.",
-            "default": "",
-            "example": "Sheinhardt Wig Company",
-            "type": "string"
-          },
-          "header": {
-            "title": "Header",
-            "description": "HTML content displayed at the top of your newsletter emails.",
-            "default": "",
-            "example": "<p>Welcome to our newsletter!</p>",
-            "type": "string"
-          },
-          "footer": {
-            "title": "Footer",
-            "description": "HTML content displayed at the bottom of your newsletter emails.",
-            "default": "",
-            "example": "<p>Thanks for reading!</p>",
-            "type": "string"
-          },
           "domain": {
             "title": "Domain",
             "description": "The domain of the newsletter on which archives are hosted.",
             "default": "",
             "example": "sheinhardt.com",
+            "type": "string"
+          },
+          "email_address": {
+            "title": "Email Address",
+            "example": "newsletter@sheinhardt.com",
             "type": "string"
           },
           "email_domain": {
@@ -9272,24 +9267,25 @@
               "type": "string"
             }
           },
-          "custom_email_template": {
-            "title": "Custom Email Template",
-            "description": "Custom email template identifier.",
-            "example": "custom-template",
+          "footer": {
+            "title": "Footer",
+            "description": "HTML content displayed at the bottom of your newsletter emails.",
+            "default": "",
+            "example": "<p>Thanks for reading!</p>",
             "type": "string"
           },
-          "css": {
-            "title": "Css",
-            "description": "Custom CSS styling for your newsletter emails.",
+          "from_name": {
+            "title": "From Name",
+            "description": "The name displayed in the 'From' field of your emails.",
             "default": "",
-            "example": ".header { color: #000; }",
+            "example": "Sheinhardt Wig Company",
             "type": "string"
           },
-          "web_css": {
-            "title": "Web Css",
-            "description": "Custom CSS styling for your newsletter's web presence.",
+          "header": {
+            "title": "Header",
+            "description": "HTML content displayed at the top of your newsletter emails.",
             "default": "",
-            "example": ".container { max-width: 800px; }",
+            "example": "<p>Welcome to our newsletter!</p>",
             "type": "string"
           },
           "icon": {
@@ -9306,62 +9302,88 @@
             "example": "https://example.com/header.jpg",
             "type": "string"
           },
-          "auditing_mode": {
-            "$ref": "#/components/schemas/NewsletterAuditingMode"
+          "name": {
+            "title": "Name",
+            "example": "Sheinhardt Wig Company",
+            "type": "string"
           },
           "test_mode": {
             "title": "Test Mode",
             "description": "Whether test mode is enabled for this newsletter.",
             "type": "boolean"
+          },
+          "tint_color": {
+            "title": "Tint Color",
+            "description": "The accent color for your newsletter.",
+            "default": "#0069FF",
+            "example": "#0069FF",
+            "type": "string"
+          },
+          "username": {
+            "title": "Username",
+            "example": "sheinhardt",
+            "type": "string"
+          },
+          "web_css": {
+            "title": "Web Css",
+            "description": "Custom CSS styling for your newsletter's web presence.",
+            "default": "",
+            "example": ".container { max-width: 800px; }",
+            "type": "string"
           }
         },
         "required": [
-          "username",
+          "description",
           "name",
-          "description"
+          "username"
         ]
       },
       "NewsletterUpdateInput": {
         "title": "NewsletterUpdateInput",
         "type": "object",
         "properties": {
-          "username": {
-            "title": "Username",
-            "example": "sheinhardt",
+          "auditing_mode": {
+            "description": "The auditing mode for your newsletter. See [the Firewall](https://docs.buttondown.com/firewall) for more information.",
+            "example": "enabled",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterAuditingMode"
+              }
+            ]
+          },
+          "css": {
+            "title": "Css",
+            "description": "Custom CSS styling for your newsletter emails.",
+            "example": ".header { color: #000; }",
             "type": "string"
           },
-          "name": {
-            "title": "Name",
-            "example": "Sheinhardt Wig Company",
+          "custom_churn_email_body": {
+            "title": "Custom Churn Email Body",
+            "description": "Custom body content for churn emails.",
+            "example": "Hi {{ subscriber.email }},\n\nWe're sorry to see you go!",
+            "type": "string"
+          },
+          "custom_churn_email_subject": {
+            "title": "Custom Churn Email Subject",
+            "description": "Custom subject line for churn emails.",
+            "example": "You've canceled your premium subscription to {{ newsletter.name }}",
+            "type": "string"
+          },
+          "custom_churn_email_template": {
+            "title": "Custom Churn Email Template",
+            "description": "Custom template for churn emails.",
+            "example": "churn-template",
+            "type": "string"
+          },
+          "custom_email_template": {
+            "title": "Custom Email Template",
+            "description": "Custom email template identifier.",
+            "example": "custom-template",
             "type": "string"
           },
           "description": {
             "title": "Description",
             "example": "Stay up to date with the latest trends in wigs and hairpieces",
-            "type": "string"
-          },
-          "tint_color": {
-            "title": "Tint Color",
-            "description": "The accent color for your newsletter.",
-            "example": "#0069FF",
-            "type": "string"
-          },
-          "from_name": {
-            "title": "From Name",
-            "description": "The name displayed in the 'From' field of your emails.",
-            "example": "Sheinhardt Wig Company",
-            "type": "string"
-          },
-          "header": {
-            "title": "Header",
-            "description": "HTML content displayed at the top of your newsletter emails.",
-            "example": "<p>Welcome to our newsletter!</p>",
-            "type": "string"
-          },
-          "footer": {
-            "title": "Footer",
-            "description": "HTML content displayed at the bottom of your newsletter emails.",
-            "example": "<p>Thanks for reading!</p>",
             "type": "string"
           },
           "domain": {
@@ -9371,20 +9393,17 @@
             "example": "sheinhardt.com",
             "type": "string"
           },
+          "email_address": {
+            "title": "Email Address",
+            "description": "The email address of the newsletter.",
+            "example": "newsletter@sheinhardt.com",
+            "type": "string"
+          },
           "email_domain": {
             "title": "Email Domain",
             "description": "The domain of the newsletter from which emails are sent.",
             "example": "mail.sheinhardt.com",
             "type": "string"
-          },
-          "auditing_mode": {
-            "description": "The auditing mode for your newsletter. See [the Firewall](https://docs.buttondown.com/firewall) for more information.",
-            "example": "enabled",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/NewsletterAuditingMode"
-              }
-            ]
           },
           "enabled_features": {
             "title": "Enabled Features",
@@ -9399,22 +9418,22 @@
               "type": "string"
             }
           },
-          "custom_email_template": {
-            "title": "Custom Email Template",
-            "description": "Custom email template identifier.",
-            "example": "custom-template",
+          "footer": {
+            "title": "Footer",
+            "description": "HTML content displayed at the bottom of your newsletter emails.",
+            "example": "<p>Thanks for reading!</p>",
             "type": "string"
           },
-          "css": {
-            "title": "Css",
-            "description": "Custom CSS styling for your newsletter emails.",
-            "example": ".header { color: #000; }",
+          "from_name": {
+            "title": "From Name",
+            "description": "The name displayed in the 'From' field of your emails.",
+            "example": "Sheinhardt Wig Company",
             "type": "string"
           },
-          "web_css": {
-            "title": "Web Css",
-            "description": "Custom CSS styling for your newsletter's web presence.",
-            "example": ".container { max-width: 800px; }",
+          "header": {
+            "title": "Header",
+            "description": "HTML content displayed at the top of your newsletter emails.",
+            "example": "<p>Welcome to our newsletter!</p>",
             "type": "string"
           },
           "icon": {
@@ -9429,28 +9448,32 @@
             "example": "https://example.com/header.jpg",
             "type": "string"
           },
-          "custom_churn_email_subject": {
-            "title": "Custom Churn Email Subject",
-            "description": "Custom subject line for churn emails.",
-            "example": "You've canceled your premium subscription to {{ newsletter.name }}",
-            "type": "string"
-          },
-          "custom_churn_email_body": {
-            "title": "Custom Churn Email Body",
-            "description": "Custom body content for churn emails.",
-            "example": "Hi {{ subscriber.email }},\n\nWe're sorry to see you go!",
-            "type": "string"
-          },
-          "custom_churn_email_template": {
-            "title": "Custom Churn Email Template",
-            "description": "Custom template for churn emails.",
-            "example": "churn-template",
+          "name": {
+            "title": "Name",
+            "example": "Sheinhardt Wig Company",
             "type": "string"
           },
           "test_mode": {
             "title": "Test Mode",
             "description": "Whether test mode is enabled for this newsletter.",
             "type": "boolean"
+          },
+          "tint_color": {
+            "title": "Tint Color",
+            "description": "The accent color for your newsletter.",
+            "example": "#0069FF",
+            "type": "string"
+          },
+          "username": {
+            "title": "Username",
+            "example": "sheinhardt",
+            "type": "string"
+          },
+          "web_css": {
+            "title": "Web Css",
+            "description": "Custom CSS styling for your newsletter's web presence.",
+            "example": ".container { max-width: 800px; }",
+            "type": "string"
           }
         }
       },
