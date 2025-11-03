@@ -3,10 +3,9 @@ title: RSS-to-email audience
 navigationTitle: Audience
 relatedPages: []
 ---
+The simplest possible application of RSS to email is a full-on broadcast, in which you have a single feed that is sent to all of your subscribers at a given cadence. However, Buttondown also offers the same sophisticated filtering and audience building for RSS-to-email that we offer when writing and sending ad hoc emails. This means, amongst other things, that you can have multiple RSS feeds connected to a single account, sending to different sections of your audience. You do this by choosing the audience configuration once you've connected your RSS feed. Behind the scenes, when Buttondown creates an email based on the items in your feed, it copies that exact audience into the resulting email.
 
-The simplest possible application of RSS to email is a full-on broadcast, in which you have a single feed that is sent to all of your subscribers at a given cadence. However, Buttondown also offers the same sophisticated filtering and audience building for RSS-to-email that we offer when writing and sending ad hoc emails. This means, amongst other things, that you can have multiple RSS feeds connected to a single account, sending to different sections of your audience. You do this by choosing the audience configuration once you've connected your RSS feed. Behind the scenes, when Buttondown creates an email based on the items in your feed, it copies that exact audience into the resulting email. 
-
-## Examples
+## Example
 
 For example, you might have two RSS feeds, one for English-speaking subscribers and one for Spanish-speaking subscribers. You could then choose to send the English-speaking subscribers one email and the Spanish-speaking subscribers another, using tags to determine which subscribers get which email:
 
@@ -27,19 +26,16 @@ end
 
 ---
 
-Or perhaps a feed for premium-only content that paid subscribers can access, in addition to the free content:
+## RSS feed for Premium subscribers
 
-```mermaid
+Buttondown generates a unique RSS feed for each Premium subscriber. To find it, go to the Subscribers page, open the dropdown menu next to a subscriber, and select RSS. This will display their unique URL.
 
-flowchart TD
+{% iframe src="https://demo.buttondown.com/subscribers/994d52ef-93e8-44cc-b726-5ddffbfa305a?emphasis=header-dropdown&newsletter=jenna" /%}
 
-sheinhardt.com/rss-premium.xml --> Premium
-sheinhardt.com/rss.xml --> Free
-sheinhardt.com/rss.xml --> Premium
+Here's a sample of what this unique URL would look like:
 
 
-subgraph buttondown.com/sheinhardt
-    Free[Free subscribers]
-    Premium[Premium subscribers]
-end
 ```
+https://buttondown.com/<YOURUSERNAME>/subscribers/<UNIQUE-ID>/rss
+```
+
