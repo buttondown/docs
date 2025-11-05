@@ -1335,6 +1335,11 @@
       "name": "Email invalid",
       "variant": "error"
     },
+    "firewall_blocked": {
+      "description": "The email address was blocked by the firewall.",
+      "name": "Firewall blocked",
+      "variant": "error"
+    },
     "subscriber_type_invalid": {
       "description": "The subscriber type provided is not valid.",
       "name": "Subscriber type invalid",
