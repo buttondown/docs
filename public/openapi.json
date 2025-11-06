@@ -4259,8 +4259,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -4316,8 +4315,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -4366,8 +4364,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -8110,13 +8107,12 @@
           },
           "id": {
             "title": "Id",
-            "description": "A unique UUID associated with the object.",
-            "type": "string",
-            "format": "uuid"
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
           },
           "creation_date": {
             "title": "Creation Date",
-            "description": "The date and time at which the object was created.",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
