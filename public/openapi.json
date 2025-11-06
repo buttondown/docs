@@ -6073,6 +6073,9 @@
         },
         "security": [
           {
+            "SubscriberFacingAuthentication": []
+          },
+          {
             "PermissionAuthenticationRequirement": []
           }
         ]
@@ -6195,6 +6198,9 @@
           }
         },
         "security": [
+          {
+            "SubscriberFacingAuthentication": []
+          },
           {
             "PermissionAuthenticationRequirement": []
           }
