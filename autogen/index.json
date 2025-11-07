@@ -3534,14 +3534,6 @@
     "references": []
   },
   {
-    "title": "Subscriber clients",
-    "url": "api-subscribers-clients",
-    "section": "api",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
     "title": "Subscriber referrals",
     "url": "api-subscribers-referrals",
     "section": "api",
@@ -4262,14 +4254,6 @@
     "references": []
   },
   {
-    "title": "Automation subscribers",
-    "url": "api-automations-subscribers",
-    "section": "api",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
     "title": "Invoking an automation",
     "url": "api-automations-invoke",
     "section": "api",
@@ -4424,46 +4408,6 @@
   {
     "title": "Retrieving an API request",
     "url": "api-api-requests-retrieve",
-    "section": "api",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
-    "title": "Listing advertising units",
-    "url": "api-advertising-units-list",
-    "section": "api",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
-    "title": "Creating an advertising unit",
-    "url": "api-advertising-units-create",
-    "section": "api",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
-    "title": "Updating an advertising unit",
-    "url": "api-advertising-units-update",
-    "section": "api",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
-    "title": "Deleting an advertising unit",
-    "url": "api-advertising-units-delete",
-    "section": "api",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
-    "title": "Updating an advertising unit slot",
-    "url": "api-advertising-units-slots-update",
     "section": "api",
     "schema": null,
     "description": null,
