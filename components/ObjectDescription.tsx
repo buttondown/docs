@@ -166,8 +166,22 @@ const extractBackingFixtureFromRef = (ref: string): BackingFixture => {
   };
 };
 
+const REF_TO_ITEM_TYPE = {
+  APIRequestList: "APIRequest",
+} as const;
+
 export const fixtureForRef = (ref: string) => {
   const fixtureInformation = extractBackingFixtureFromRef(ref);
+  if (REF_TO_ITEM_TYPE[ref as keyof typeof REF_TO_ITEM_TYPE]) {
+    return {
+      results: [
+        OpenAPIFixtures[
+          REF_TO_ITEM_TYPE[ref as keyof typeof REF_TO_ITEM_TYPE]
+        ][0].object,
+      ],
+      count: 1,
+    };
+  }
   if (fixtureInformation.type === "Page") {
     if (!OpenAPIFixtures[fixtureInformation.value]) {
       throw new Error(
@@ -183,6 +197,11 @@ export const fixtureForRef = (ref: string) => {
   }
   if (fixtureInformation.type === "ErrorMessage") {
     return OpenAPIFixtures.ErrorMessage[0].object;
+  }
+  if (!OpenAPIFixtures[fixtureInformation.value]) {
+    throw new Error(
+      `No fixtures found for ${fixtureInformation.value}. Did you forget to add them to \`app/assets/autogen/fixtures.json\`?`
+    );
   }
   return OpenAPIFixtures[fixtureInformation.value][0].object;
 };

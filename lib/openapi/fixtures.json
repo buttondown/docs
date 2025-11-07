@@ -1047,16 +1047,55 @@
   ],
   "APIRequest": [
     {
-      "description": "API request",
+      "description": "Basic API request",
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "status_code": 200,
-        "path": "/api/v1/events",
+        "path": "/v1/emails",
         "method": "GET",
         "source": "api",
-        "version": "2025-06-01",
-        "ip_address": ""
+        "version": "2024-08-01",
+        "ip_address": "127.0.0.1"
+      }
+    },
+    {
+      "description": "API request with error",
+      "object": {
+        "id": "23121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "status_code": 500,
+        "path": "/v1/subscribers",
+        "method": "POST",
+        "source": "api",
+        "version": "2024-08-01",
+        "ip_address": "192.168.1.1"
+      }
+    },
+    {
+      "description": "API request from app",
+      "object": {
+        "id": "33121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "status_code": 201,
+        "path": "/v1/emails",
+        "method": "POST",
+        "source": "app",
+        "version": "2024-08-01",
+        "ip_address": "10.0.0.1"
+      }
+    },
+    {
+      "description": "API request with idempotency",
+      "object": {
+        "id": "43121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "status_code": 200,
+        "path": "/v1/subscribers",
+        "method": "POST",
+        "source": "api",
+        "version": "2024-08-01",
+        "ip_address": "127.0.0.1"
       }
     }
   ],
@@ -1335,6 +1374,167 @@
         "field": "subscriber.tags",
         "operator": "contains",
         "value": "12345678-9012-3456-7890-123456789012"
+      }
+    }
+  ],
+  "AutomationForSubscriber": [
+    {
+      "description": "Processed automation",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "name": "Welcome email",
+        "status": "processed",
+        "automation_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "execution_date": "2020-09-29T00:00:00+00:00",
+        "actions": [
+          {
+            "type": "send_email",
+            "metadata": {
+              "email_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Pending automation",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb4",
+        "name": "Welcome email",
+        "status": "pending",
+        "automation_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "execution_date": "2020-09-30T00:00:00+00:00",
+        "actions": [
+          {
+            "type": "send_email",
+            "metadata": {
+              "email_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Failed automation",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb5",
+        "name": "Welcome email",
+        "status": "failed",
+        "automation_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "execution_date": "2020-09-28T00:00:00+00:00",
+        "actions": [
+          {
+            "type": "send_email",
+            "metadata": {
+              "email_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "APIRequestDetail": [
+    {
+      "description": "Basic API request",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "status_code": 200,
+        "path": "/v1/emails",
+        "method": "GET",
+        "source": "api",
+        "version": "2024-08-01",
+        "ip_address": "127.0.0.1",
+        "request_data": "{\"subject\": \"Test email\"}",
+        "response_data": "{\"id\": \"123e4567-e89b-12d3-a456-426614174001\"}",
+        "headers": {
+          "X-Api-Version": "2024-08-01",
+          "User-Agent": "buttondown-python/1.0"
+        }
+      }
+    },
+    {
+      "description": "API request with error",
+      "object": {
+        "id": "23121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "status_code": 500,
+        "path": "/v1/subscribers",
+        "method": "POST",
+        "source": "api",
+        "version": "2024-08-01",
+        "ip_address": "192.168.1.1",
+        "request_data": "{\"email\": \"test@example.com\"}",
+        "response_data": "null",
+        "headers": {
+          "X-Api-Version": "2024-08-01"
+        }
+      }
+    },
+    {
+      "description": "API request from app",
+      "object": {
+        "id": "33121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "status_code": 201,
+        "path": "/v1/emails",
+        "method": "POST",
+        "source": "app",
+        "version": "2024-08-01",
+        "ip_address": "10.0.0.1",
+        "request_data": "{\"subject\": \"New email\", \"body\": \"Hello world\"}",
+        "response_data": "{\"id\": \"123e4567-e89b-12d3-a456-426614174002\"}",
+        "headers": {
+          "X-Api-Version": "2024-08-01"
+        }
+      }
+    },
+    {
+      "description": "API request with idempotency",
+      "object": {
+        "id": "43121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "status_code": 200,
+        "path": "/v1/subscribers",
+        "method": "POST",
+        "source": "api",
+        "version": "2024-08-01",
+        "ip_address": "127.0.0.1",
+        "request_data": "{\"email\": \"subscriber@example.com\"}",
+        "response_data": "{\"id\": \"123e4567-e89b-12d3-a456-426614174003\"}",
+        "headers": {
+          "X-Api-Version": "2024-08-01",
+          "X-Idempotency-Key": "test-key-123"
+        }
+      }
+    }
+  ],
+  "TagAnalytics": [
+    {
+      "description": "Basic tag analytics",
+      "object": {
+        "created_subscribers": 150,
+        "click_rate": 0.25,
+        "open_rate": 0.5,
+        "retention": 0.85
+      }
+    }
+  ],
+  "ExternalFeedItem": [
+    {
+      "description": "Basic external feed item",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "status": "processed",
+        "url": "https://example.com/blog/post-1",
+        "publish_date": "2020-09-29T00:00:00+00:00",
+        "title": "Example Blog Post",
+        "description": "This is an example blog post description.",
+        "content": "<p>This is the full content of the blog post.</p>",
+        "author": "John Doe",
+        "email_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "email": null
       }
     }
   ]

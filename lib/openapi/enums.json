@@ -126,6 +126,23 @@
       "variant": "info"
     }
   },
+  "AccessLevel": {
+    "none": {
+      "description": "No access to this functionality.",
+      "name": "None",
+      "variant": "info"
+    },
+    "read": {
+      "description": "Read-only access to this functionality.",
+      "name": "Read",
+      "variant": "info"
+    },
+    "write": {
+      "description": "Full read and write access to this functionality.",
+      "name": "Write",
+      "variant": "success"
+    }
+  },
   "AutomationStatus": {
     "active": {
       "description": "Active.",
@@ -329,6 +346,18 @@
       "description": "The username is malformed.",
       "name": "Username malformed",
       "variant": "error"
+    }
+  },
+  "CommentType": {
+    "reviewer": {
+      "description": "A comment from a newsletter author or reviewer.",
+      "name": "Reviewer",
+      "variant": "info"
+    },
+    "subscriber": {
+      "description": "A comment from a subscriber.",
+      "name": "Subscriber",
+      "variant": "info"
     }
   },
   "EmailCommentingMode": {
@@ -1304,6 +1333,23 @@
     "once_per_email": {
       "description": "A subscriber can respond to this survey once per email.",
       "name": "Once per email",
+      "variant": "info"
+    }
+  },
+  "SurveyInputType": {
+    "radio": {
+      "description": "Radio button input type. Subscribers can select one option from multiple choices.",
+      "name": "Radio",
+      "variant": "info"
+    },
+    "checkbox": {
+      "description": "Checkbox input type. Subscribers can select multiple options from the available choices.",
+      "name": "Checkbox",
+      "variant": "info"
+    },
+    "text": {
+      "description": "Text input type. Subscribers can provide freeform text responses.",
+      "name": "Text",
       "variant": "info"
     }
   },

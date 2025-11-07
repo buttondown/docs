@@ -112,12 +112,12 @@
       "importing-your-data",
       "manually-adding-subscribers",
       "metadata",
+      "portal",
       "private-mode",
       "quickstart",
       "scheduling-an-email",
       "sending-your-first-email",
       "sending-your-first-email-advanced",
-      "subscriber-autonomy",
       "tags",
       "template-variables-manage-subscription-url"
     ]
@@ -177,6 +177,7 @@
     "description": "Buttondown makes it easy to segment your readers by using tags.",
     "references": [
       "alpinejs",
+      "api-tags-analytics",
       "api-tags-create",
       "api-tags-delete",
       "api-tags-list",
@@ -190,9 +191,9 @@
       "importing-your-data",
       "linktree",
       "multiple-newsletters",
+      "portal",
       "quickstart",
       "sending-your-first-email",
-      "subscriber-autonomy",
       "surveys",
       "tags",
       "webflow",
@@ -235,6 +236,7 @@
       "api-surveys-create",
       "api-surveys-delete",
       "api-surveys-list",
+      "api-surveys-retrieve",
       "api-surveys-update",
       "data-exports-survey",
       "surveys",
@@ -1114,6 +1116,8 @@
     "description": null,
     "references": [
       "adult-content-policy",
+      "api-notes-create",
+      "api-subscribers-stripe-subscriptions",
       "aweber",
       "benchmark",
       "convertkit",
@@ -1319,8 +1323,8 @@
     "references": [
       "arena",
       "linkedin",
+      "portal",
       "sending-your-first-email",
-      "subscriber-autonomy",
       "subscriber-data",
       "template-variables",
       "transactional-emails",
@@ -1641,11 +1645,13 @@
   },
   {
     "title": "Portal",
-    "url": "subscriber-autonomy",
+    "url": "portal",
     "section": "reference",
     "schema": null,
     "description": "Buttondown lets you let your subscribers change their metadata, tags, and more.",
     "references": [
+      "portal",
+      "tags",
       "template-variables-manage-subscription-url"
     ]
   },
@@ -2053,6 +2059,7 @@
     "schema": null,
     "description": "Automations are shortcuts that facilitate your perfect Buttondown workflow.",
     "references": [
+      "api-notes-create",
       "arena",
       "bsky",
       "building-your-subscriber-base",
@@ -2060,8 +2067,8 @@
       "creating-your-first-automation",
       "duda",
       "linkedin",
+      "portal",
       "replies",
-      "subscriber-autonomy",
       "teams",
       "tumblr",
       "twitter",
@@ -3527,12 +3534,45 @@
     "references": []
   },
   {
+    "title": "Subscriber clients",
+    "url": "api-subscribers-clients",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Subscriber referrals",
+    "url": "api-subscribers-referrals",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Subscriber automations",
+    "url": "api-subscribers-automations",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Subscriber Stripe subscriptions",
+    "url": "api-subscribers-stripe-subscriptions",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Introduction",
     "url": "api-tags-introduction",
     "section": "api",
     "schema": "Tag",
     "description": null,
     "references": [
+      "api-notes-create",
       "api-subscribers-create",
       "tags"
     ]
@@ -3574,6 +3614,14 @@
   {
     "title": "Deleting a tag",
     "url": "api-tags-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Tag analytics",
+    "url": "api-tags-analytics",
     "section": "api",
     "schema": null,
     "description": null,
@@ -3746,6 +3794,14 @@
     "references": []
   },
   {
+    "title": "Listing exports",
+    "url": "api-exports-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Introduction",
     "url": "api-bulk-actions-introduction",
     "section": "api",
@@ -3794,7 +3850,8 @@
     "schema": "ExternalFeed",
     "description": null,
     "references": [
-      "api-changelog-2024-08-15"
+      "api-changelog-2024-08-15",
+      "api-notes-create"
     ]
   },
   {
@@ -3856,6 +3913,30 @@
   {
     "title": "Deleting an external feed",
     "url": "api-external-feed-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Retrieving an external feed",
+    "url": "api-external-feed-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing external feed items",
+    "url": "api-external-feed-items-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating an external feed item",
+    "url": "api-external-feed-items-create",
     "section": "api",
     "schema": null,
     "description": null,
@@ -3945,6 +4026,14 @@
     "references": []
   },
   {
+    "title": "Retrieving a webhook",
+    "url": "api-webhooks-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Introduction",
     "url": "api-comments-introduction",
     "section": "api",
@@ -3953,6 +4042,14 @@
     "references": [
       "api-changelog-2024-04-03"
     ]
+  },
+  {
+    "title": "Comment type",
+    "url": "api-comments-type",
+    "section": "Reference",
+    "schema": "CommentType",
+    "description": null,
+    "references": []
   },
   {
     "title": "Listing comments",
@@ -3995,6 +4092,14 @@
     "url": "api-surveys-cadence",
     "section": "Reference",
     "schema": "SurveyResponseCadence",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Survey input type",
+    "url": "api-surveys-input-type",
+    "section": "Reference",
+    "schema": "SurveyInputType",
     "description": null,
     "references": []
   },
@@ -4051,6 +4156,22 @@
     ]
   },
   {
+    "title": "Retrieving a survey",
+    "url": "api-surveys-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating a survey response",
+    "url": "api-survey-responses-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Introduction",
     "url": "api-coupons-introduction",
     "section": "api",
@@ -4101,6 +4222,70 @@
     "references": []
   },
   {
+    "title": "Listing automations",
+    "url": "api-automations-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating an automation",
+    "url": "api-automations-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Retrieving an automation",
+    "url": "api-automations-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Updating an automation",
+    "url": "api-automations-update",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Deleting an automation",
+    "url": "api-automations-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Automation subscribers",
+    "url": "api-automations-subscribers",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Invoking an automation",
+    "url": "api-automations-invoke",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Automation analytics",
+    "url": "api-automations-analytics",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Get the current account",
     "url": "api-accounts-me",
     "section": "api",
@@ -4133,6 +4318,54 @@
     "references": []
   },
   {
+    "title": "Access level",
+    "url": "api-permissions-access-level",
+    "section": "Reference",
+    "schema": "AccessLevel",
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Retrieving a user",
+    "url": "api-users-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating a user",
+    "url": "api-users-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing users",
+    "url": "api-users-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Updating a user",
+    "url": "api-users-update",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Deleting a user",
+    "url": "api-users-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Introduction",
     "url": "api-notes-introduction",
     "section": "api",
@@ -4159,6 +4392,94 @@
   {
     "title": "Deleting a note",
     "url": "api-notes-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing prices",
+    "url": "api-prices-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating a price",
+    "url": "api-prices-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing API requests",
+    "url": "api-api-requests-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Retrieving an API request",
+    "url": "api-api-requests-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing advertising units",
+    "url": "api-advertising-units-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating an advertising unit",
+    "url": "api-advertising-units-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Updating an advertising unit",
+    "url": "api-advertising-units-update",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Deleting an advertising unit",
+    "url": "api-advertising-units-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Updating an advertising unit slot",
+    "url": "api-advertising-units-slots-update",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Retrieving an event",
+    "url": "api-events-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Ping",
+    "url": "api-ping",
     "section": "api",
     "schema": null,
     "description": null,

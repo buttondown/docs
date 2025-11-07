@@ -3,9 +3,6 @@ import REDIRECTS from "./redirects.mjs";
 
 export default withSentryConfig(
   {
-    experimental: {
-      instrumentationHook: true,
-    },
     redirects: async () => {
       return REDIRECTS;
     },

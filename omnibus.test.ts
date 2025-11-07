@@ -440,118 +440,6 @@ const FILENAME_TO_FRONTMATTER = Object.entries(FILENAME_TO_RAW_CONTENT).reduce(
 // and in fact burn down this list over time.
 const UNDOCUMENTED_API_ENDPOINTS = [
   {
-    path: "/prices",
-    operation: "get",
-  },
-  {
-    path: "/exports",
-    operation: "get",
-  },
-  {
-    path: "/ping",
-    operation: "get",
-  },
-  {
-    path: "/tags/{id}/analytics",
-    operation: "get",
-  },
-  {
-    path: "/subscribers/{id_or_email}/clients",
-    operation: "get",
-  },
-  {
-    path: "/subscribers/{id_or_email}/referrals",
-    operation: "get",
-  },
-  {
-    path: "/subscribers/{id_or_email}/automations",
-    operation: "get",
-  },
-  {
-    path: "/subscribers/{id_or_email}/stripe-subscriptions",
-    operation: "get",
-  },
-  {
-    path: "/external_feeds/{id}",
-    operation: "get",
-  },
-  {
-    path: "/external_feeds/{id}/items",
-    operation: "post",
-  },
-  {
-    path: "/external_feeds/{id}/items",
-    operation: "get",
-  },
-  {
-    path: "/automations",
-    operation: "get",
-  },
-  {
-    path: "/automations",
-    operation: "post",
-  },
-  {
-    path: "/automations/{id}/subscribers",
-    operation: "get",
-  },
-  {
-    path: "/automations/{id}",
-    operation: "get",
-  },
-  {
-    path: "/automations/{id}",
-    operation: "patch",
-  },
-  {
-    path: "/automations/{id}",
-    operation: "delete",
-  },
-  {
-    path: "/automations/{id}/invoke",
-    operation: "post",
-  },
-  {
-    path: "/automations/{id}/analytics",
-    operation: "get",
-  },
-  {
-    path: "/users",
-    operation: "post",
-  },
-  {
-    path: "/users",
-    operation: "get",
-  },
-  {
-    path: "/users/{id}",
-    operation: "get",
-  },
-  {
-    path: "/users/{id}",
-    operation: "delete",
-  },
-  {
-    path: "/users/{id}",
-    operation: "patch",
-  },
-  {
-    path: "/prices",
-    operation: "post",
-  },
-  {
-    path: "/surveys/{id}",
-    operation: "get",
-  },
-  {
-    path: "/api_requests/{id}",
-    operation: "get",
-  },
-  {
-    path: "/api_requests",
-    operation: "get",
-  },
-  {
     path: "/advertising_units",
     operation: "get",
   },
@@ -570,18 +458,6 @@ const UNDOCUMENTED_API_ENDPOINTS = [
   {
     path: "/advertising_units/{id}",
     operation: "delete",
-  },
-  {
-    path: "/webhooks/{id}",
-    operation: "get",
-  },
-  {
-    path: "/survey_responses",
-    operation: "post",
-  },
-  {
-    path: "/events/{id}",
-    operation: "get",
   },
 ];
 

@@ -740,7 +740,7 @@
         },
         {
           "discriminant": "page",
-          "value": "subscriber-autonomy"
+          "value": "portal"
         },
         {
           "discriminant": "page",
@@ -1632,6 +1632,18 @@
         {
           "discriminant": "page",
           "value": "api-subscribers-retrieve-responses"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-referrals"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-automations"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-stripe-subscriptions"
         }
       ]
     },
@@ -1665,6 +1677,10 @@
         {
           "discriminant": "page",
           "value": "api-tags-delete"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-tags-analytics"
         }
       ]
     },
@@ -1781,6 +1797,10 @@
         {
           "discriminant": "page",
           "value": "api-exports-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-exports-list"
         }
       ]
     },
@@ -1855,6 +1875,18 @@
         {
           "discriminant": "page",
           "value": "api-external-feed-delete"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-items-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-items-create"
         }
       ]
     },
@@ -1900,6 +1932,10 @@
         {
           "discriminant": "page",
           "value": "api-webhooks-attempts-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-webhooks-retrieve"
         }
       ]
     },
@@ -1909,6 +1945,10 @@
         {
           "discriminant": "page",
           "value": "api-comments-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-comments-type"
         },
         {
           "discriminant": "divider",
@@ -1941,6 +1981,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-surveys-input-type"
+        },
+        {
+          "discriminant": "page",
           "value": "api-survey-responses"
         },
         {
@@ -1966,6 +2010,14 @@
         {
           "discriminant": "page",
           "value": "api-surveys-list-responses"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-surveys-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-survey-responses-create"
         }
       ]
     },
@@ -2004,6 +2056,38 @@
         {
           "discriminant": "page",
           "value": "api-automation-delay"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automations-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automations-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automations-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automations-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automations-delete"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automations-invoke"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automations-analytics"
         }
       ]
     },
@@ -2025,6 +2109,30 @@
         {
           "discriminant": "page",
           "value": "api-permissions"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-permissions-access-level"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-users-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-users-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-users-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-users-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-users-delete"
         }
       ]
     },
@@ -2050,6 +2158,66 @@
         {
           "discriminant": "page",
           "value": "api-notes-delete"
+        }
+      ]
+    },
+    {
+      "name": "Prices",
+      "items": [
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-prices-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-prices-create"
+        }
+      ]
+    },
+    {
+      "name": "API Requests",
+      "items": [
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-api-requests-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-api-requests-retrieve"
+        }
+      ]
+    },
+    {
+      "name": "Events",
+      "items": [
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-events-retrieve"
+        }
+      ]
+    },
+    {
+      "name": "Ping",
+      "items": [
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-ping"
         }
       ]
     },
