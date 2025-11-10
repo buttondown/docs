@@ -1153,12 +1153,13 @@
     {
       "description": "Basic price",
       "object": {
-        "style": "fixed",
         "amount": 1000,
-        "suggested_amount": null,
-        "currency": "usd",
         "cadence": "month",
+        "currency": "usd",
+        "description": null,
         "product_id": "prod_123",
+        "style": "fixed",
+        "suggested_amount": null,
         "id": "price_123",
         "product": null
       }

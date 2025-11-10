@@ -10461,26 +10461,9 @@
         "title": "Price",
         "type": "object",
         "properties": {
-          "style": {
-            "title": "Style",
-            "enum": [
-              "pay-what-you-want",
-              "fixed",
-              "usage-based"
-            ],
-            "type": "string"
-          },
           "amount": {
             "title": "Amount",
             "type": "integer"
-          },
-          "suggested_amount": {
-            "title": "Suggested Amount",
-            "type": "integer"
-          },
-          "currency": {
-            "title": "Currency",
-            "type": "string"
           },
           "cadence": {
             "title": "Cadence",
@@ -10493,9 +10476,30 @@
             ],
             "type": "string"
           },
+          "currency": {
+            "title": "Currency",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
           "product_id": {
             "title": "Product Id",
             "type": "string"
+          },
+          "style": {
+            "title": "Style",
+            "enum": [
+              "pay-what-you-want",
+              "fixed",
+              "usage-based"
+            ],
+            "type": "string"
+          },
+          "suggested_amount": {
+            "title": "Suggested Amount",
+            "type": "integer"
           },
           "id": {
             "title": "Id",
@@ -10506,9 +10510,9 @@
           }
         },
         "required": [
-          "style",
-          "currency",
           "cadence",
+          "currency",
+          "style",
           "id"
         ]
       },
@@ -10612,26 +10616,9 @@
         "title": "PriceInput",
         "type": "object",
         "properties": {
-          "style": {
-            "title": "Style",
-            "enum": [
-              "pay-what-you-want",
-              "fixed",
-              "usage-based"
-            ],
-            "type": "string"
-          },
           "amount": {
             "title": "Amount",
             "type": "integer"
-          },
-          "suggested_amount": {
-            "title": "Suggested Amount",
-            "type": "integer"
-          },
-          "currency": {
-            "title": "Currency",
-            "type": "string"
           },
           "cadence": {
             "title": "Cadence",
@@ -10644,15 +10631,36 @@
             ],
             "type": "string"
           },
+          "currency": {
+            "title": "Currency",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
           "product_id": {
             "title": "Product Id",
             "type": "string"
+          },
+          "style": {
+            "title": "Style",
+            "enum": [
+              "pay-what-you-want",
+              "fixed",
+              "usage-based"
+            ],
+            "type": "string"
+          },
+          "suggested_amount": {
+            "title": "Suggested Amount",
+            "type": "integer"
           }
         },
         "required": [
-          "style",
+          "cadence",
           "currency",
-          "cadence"
+          "style"
         ]
       },
       "StripeCouponPage": {
