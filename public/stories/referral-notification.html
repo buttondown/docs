@@ -2,6 +2,22 @@
 <head>
     <style lang="css">
         
+            :root {
+                --color-background: #ffffff;
+                --color-card: #fafafa;
+                --color-foreground: #000000;
+                --color-foreground-muted: #b0b0b0;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --color-background: #1a1a1a;
+                    --color-card: #2d2d2d;
+                    --color-foreground: #ffffff;
+                    --color-foreground-muted: #b0b0b0;
+                }
+            }
+
             * {
                 font-family: -apple-system, BlinkMacSystemFont, San Francisco,
                     Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial,
@@ -9,8 +25,8 @@
             }
 
             body {
-                background-color: #ffffff;
-                color: #000000;
+                background-color: var(--color-background, #ffffff);
+                color: var(--color-foreground, #000000);
             }
 
             p, li {
@@ -91,8 +107,8 @@
             /* Dark mode support */
             @media (prefers-color-scheme: dark) {
                 body {
-                    background-color: #1a1a1a !important;
-                    color: #e0e0e0 !important;
+                    background-color: var(--color-background) !important;
+                    color: var(--color-foreground) !important;
                 }
 
                 .email-title {
@@ -105,16 +121,11 @@
 
                 .transactional-email-footer {
                     color: #718096 !important;
-                    border-top-color: #2d2d2d !important;
-                }
-
-                blockquote {
-                    color: #b0b0b0 !important;
-                    background-color: #2d2d2d !important;
+                    border-top-color: var(--color-card) !important;
                 }
 
                 hr {
-                    border-color: #2d2d2d !important;
+                    border-color: var(--color-card) !important;
                 }
 
                 p, li, td {
@@ -126,7 +137,7 @@
                 }
 
                 .data-table {
-                    background-color: #2d2d2d !important;
+                    background-color: var(--color-card) !important;
                 }
 
                 .data-row {
@@ -144,6 +155,14 @@
 
                 .cta-button:hover {
                     background-color: #7C7FF3 !important;
+                }
+
+                .email-quote {
+                    background-color: var(--color-card) !important;
+                }
+
+                .email-quote td {
+                    color: var(--color-foreground-muted) !important;
                 }
             }
 
@@ -190,6 +209,14 @@
             [data-ogsc] .cta-button {
                 background-color: #6366F1 !important;
                 box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(255, 255, 255, 0.06) !important;
+            }
+
+            [data-ogsc] .email-quote {
+                background-color: #2d2d2d !important;
+            }
+
+            [data-ogsc] .email-quote td {
+                color: #b0b0b0 !important;
             }
 
             
