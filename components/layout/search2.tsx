@@ -5,7 +5,7 @@ import { Highlight } from "@orama/highlight";
 import { search } from "@orama/orama";
 import * as Dialog from "@radix-ui/react-dialog";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const highlighter = new Highlight({
   CSSClass: "bg-amber-100 text-amber-900",
@@ -23,6 +23,18 @@ export default function Search({
   const [query, setQuery] = useState("");
   const index = useMemo(() => buildSearchIndex(contentArray), [contentArray]);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setOpen(true);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [setOpen]);
+
   const results = useMemo(() => {
     if (!index) return [];
     if (!query) return [];
@@ -36,14 +48,17 @@ export default function Search({
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <button
-        className="w-full select-none bg-white border shadow-xs flex items-center gap-x-2 px-2 py-1.5 rounded-md hover:bg-gray-100 hover:border-gray-300 transition-colors"
+        className="w-full select-none bg-white border shadow-xs flex items-center justify-between px-2 py-1.5 rounded-md hover:bg-gray-100 hover:border-gray-300 transition-colors"
         onClick={() => setOpen(true)}
         type="button"
       >
-        <div className="text-gray-500">
-          <Icon.Search />
+        <div className="flex items-center gap-x-2">
+          <div className="text-gray-500">
+            <Icon.Search />
+          </div>
+          <p className="text-sm text-gray-400">Search</p>
         </div>
-        <p className="text-sm text-gray-400">Search</p>
+        <kbd className="text-xs text-gray-400 border border-gray-300 px-1.5 py-0.5 rounded">⌘K</kbd>
       </button>
 
       <Dialog.Portal>
