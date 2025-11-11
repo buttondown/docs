@@ -1747,6 +1747,18 @@
             },
             "required": false,
             "description": "The behavior to apply when a subscriber with the same email address already exists.\nDefaults to \"no_op\", which will return a 400 error if a subscriber with the same email address already exists. Other values include:\n\n- \"overwrite\", which will overwrite the existing subscriber's data with the new one.\n- \"add\", which will add the new subscriber data to the existing one.\n        "
+          },
+          {
+            "in": "header",
+            "name": "X-Buttondown-Bypass-Firewall",
+            "schema": {
+              "title": "X-Buttondown-Bypass-Firewall",
+              "description": "Bypass the firewall for this subscriber creation. Subject to aggressive rate limiting (5 per hour per newsletter).",
+              "default": false,
+              "type": "boolean"
+            },
+            "required": false,
+            "description": "Bypass the firewall for this subscriber creation. Subject to aggressive rate limiting (5 per hour per newsletter)."
           }
         ],
         "responses": {
@@ -1782,6 +1794,16 @@
           },
           "409": {
             "description": "Conflict"
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
           }
         },
         "requestBody": {
@@ -4835,8 +4857,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -11006,13 +11027,12 @@
         "properties": {
           "id": {
             "title": "Id",
-            "description": "A unique UUID associated with the object.",
-            "type": "string",
-            "format": "uuid"
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
           },
           "creation_date": {
             "title": "Creation Date",
-            "description": "The date and time at which the object was created.",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -11087,13 +11107,12 @@
         "properties": {
           "id": {
             "title": "Id",
-            "description": "A unique UUID associated with the object.",
-            "type": "string",
-            "format": "uuid"
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
           },
           "creation_date": {
             "title": "Creation Date",
-            "description": "The date and time at which the object was created.",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -11956,13 +11975,12 @@
         "properties": {
           "id": {
             "title": "Id",
-            "description": "A unique UUID associated with the object.",
-            "type": "string",
-            "format": "uuid"
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
           },
           "creation_date": {
             "title": "Creation Date",
-            "description": "The date and time at which the object was created.",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -12013,8 +12031,7 @@
           },
           "user_id": {
             "title": "User Id",
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           },
           "user": {
             "$ref": "#/components/schemas/User"
@@ -12027,8 +12044,7 @@
           "model_type",
           "model_id",
           "metadata",
-          "source",
-          "user_id"
+          "source"
         ]
       },
       "NoteInput": {

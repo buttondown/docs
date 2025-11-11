@@ -1049,7 +1049,7 @@
     {
       "description": "Basic API request",
       "object": {
-        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "api_req_0k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "status_code": 200,
         "path": "/v1/emails",
@@ -1062,7 +1062,7 @@
     {
       "description": "API request with error",
       "object": {
-        "id": "23121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "api_req_1328edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "status_code": 500,
         "path": "/v1/subscribers",
@@ -1075,7 +1075,7 @@
     {
       "description": "API request from app",
       "object": {
-        "id": "33121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "api_req_1k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "status_code": 201,
         "path": "/v1/emails",
@@ -1088,7 +1088,7 @@
     {
       "description": "API request with idempotency",
       "object": {
-        "id": "43121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "api_req_2328edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "status_code": 200,
         "path": "/v1/subscribers",
@@ -1214,32 +1214,32 @@
     {
       "description": "Basic note",
       "object": {
-        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "id": "note_29fxqcmrkp969vzttksexvmvr8",
         "creation_date": "2000-01-01T00:00:00+00:00",
         "body": "This person rocks :)",
         "model_type": "subscriber",
-        "model_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "model_id": "sub_0k28edc3fw896bp4mrhc535z5k",
         "metadata": {},
         "source": "user",
-        "user_id": "cd4db23f-052d-425a-8e5b-73e51c1c9b85",
+        "user_id": "acc_6d9ps3y19d89d8wpvkwme1s6w5",
         "user": null
       }
     },
     {
       "description": "Note with structured data",
       "object": {
-        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "id": "note_29fxqcmrkp969vzttksexvmvr8",
         "creation_date": "2000-01-01T00:00:00+00:00",
         "body": "New purchase",
         "model_type": "subscriber",
-        "model_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "model_id": "sub_0k28edc3fw896bp4mrhc535z5k",
         "metadata": {
           "order_id": "1234567890",
           "order_date": "2021-01-01",
           "order_total": 2900
         },
         "source": "user",
-        "user_id": "cd4db23f-052d-425a-8e5b-73e51c1c9b85",
+        "user_id": "acc_6d9ps3y19d89d8wpvkwme1s6w5",
         "user": null
       }
     }
@@ -1438,7 +1438,7 @@
     {
       "description": "Basic API request",
       "object": {
-        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "api_req_0k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "status_code": 200,
         "path": "/v1/emails",
@@ -1457,7 +1457,7 @@
     {
       "description": "API request with error",
       "object": {
-        "id": "23121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "api_req_1328edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "status_code": 500,
         "path": "/v1/subscribers",
@@ -1475,7 +1475,7 @@
     {
       "description": "API request from app",
       "object": {
-        "id": "33121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "api_req_1k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "status_code": 201,
         "path": "/v1/emails",
@@ -1493,7 +1493,7 @@
     {
       "description": "API request with idempotency",
       "object": {
-        "id": "43121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "api_req_2328edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "status_code": 200,
         "path": "/v1/subscribers",
