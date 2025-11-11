@@ -48,7 +48,6 @@ export async function GET() {
     pubDate: new Date(post.title || "").toUTCString(),
     content: marked(post.rawContent.split("---\n")[2]),
   }));
-  console.log(sortedPostData[0].content);
   const rssFeed = `<rss version="2.0">
         <channel>
             <title>${CHANNEL_METADATA.title}</title>
