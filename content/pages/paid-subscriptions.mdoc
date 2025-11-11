@@ -27,20 +27,26 @@ To start using paid subscriptions, you must have:
 
 ## Add a paid subscription plan
 
-After you’ve [integrated](/stripe) your Buttondown and Stripe accounts, you can add a paid subscription plan in Buttondown.
+After you've [integrated](/stripe) your Buttondown and Stripe accounts, you can configure your paid subscription plan in Buttondown.
 
 In Buttondown you'll:
 
 1. Navigate to [Settings](https://buttondown.com/settings/basics) and scroll to the "Paid subscriptions" section.
 1. Click **Configure**. The "Paid subscriptions" page appears.
-1. Click **Add plan**. The "Add paid subscriptions plan" menu appears.
-1. Select the [pricing model](/pricing-models) you wish to use: **Fixed**, **Pay what you want** or **Per email**
-1. Specify the plan's details, including: the price of the plan, the currency you're charging, and the cadence of the plan, which is how often you charge paid subscribers.
-1. Click **Create.**
+1. Configure your subscription settings using the form:
+   - **Content access**: Choose who can subscribe to your newsletter (no paid subscriptions, free & paid subscriptions, or paid only)
+   - **Product**: Select which Stripe product to use (if you have multiple)
+   - **Currency**: Choose the currency for your subscription plan
+   - **Payment model**: Select Fixed, Pay what you want, or Per email
+   - **Cadence**: Choose Monthly or Yearly billing
+   - **Price**: Set the subscription price (for fixed pricing models)
+   - **Yearly upsell price**: Optionally set a discounted yearly price (when monthly is selected)
+   - **Embedded checkout**: Choose whether to show the payment element immediately on the subscribe page
+1. Click **Save** to apply your changes.
 
-{% iframe src="https://demo.buttondown.com/settings/paid-subscriptions/new?newsletter=jenna" width="wide" height=900 /%}
+{% iframe src="https://demo.buttondown.com/settings/paid-subscriptions?newsletter=jenna" width="wide" height=900 /%}
 
-This video shows how to access and configure the "Add paid subscriptions plan" menu in Settings.
+This video shows how to access and configure paid subscriptions in Settings.
 
 ## Having subscribers subscribe to your paid newsletter
 
@@ -82,6 +88,6 @@ While these practices are defaults in Buttondown, you can always alter your paym
 
 ### Disable free subscriptions
 
-In the "Paid subscriptions" page, you can also choose to prohibit free subscriptions. You can change this at any time. To disable free subscriptions, click the toggle by **Disable free subscriptions**.
+In the "Paid subscriptions" page, you can choose to prohibit free subscriptions. You can change this at any time. To disable free subscriptions, select **Paid only** from the "Content access" dropdown in the subscription configuration form.
 
 {% noticeWarn text="Are you creating multiple newsletters with paid subscriptions? Each newsletter will need it's own Stripe account." /%}
