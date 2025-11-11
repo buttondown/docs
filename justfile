@@ -24,7 +24,6 @@ lint-css:
 
 build-indexes:
     cd .. && uv run docs/scripts/compile_index.py
-    bun compile-vectors
 
 build: lint build-indexes
     bun build
