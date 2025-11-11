@@ -1,4 +1,5 @@
 import keystaticConfig, { localBaseURL } from "@/keystatic.config";
+import { buildContentArray } from "@/lib/search/server";
 import { createReader } from "@keystatic/core/reader";
 import Sidebar from "./Sidebar";
 import AccountButtons from "./account-buttons";
@@ -35,9 +36,11 @@ export default async function Layout({
     throw new Error(nav.errors.join("\n"));
   }
 
+  const contentArray = buildContentArray();
+
   return (
     <div className="grid grid-rows-[max-content_1fr_max-content] lg:flex min-h-screen">
-      <Sidebar slug={slug} nav={nav} />
+      <Sidebar slug={slug} nav={nav} contentArray={contentArray} />
 
       <div className="p-4 pb-8 lg:p-8 lg:pt-12 lg:pb-24 flex-1 overflow-hidden">
         <div className="max-w-[650px] mx-auto">

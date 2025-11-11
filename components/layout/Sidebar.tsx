@@ -1,6 +1,7 @@
 "use client";
 
 import { TITLE } from "@/lib/constants";
+import type { ContentArray } from "@/lib/search/server";
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
@@ -11,9 +12,17 @@ import { useState } from "react";
 import Footer from "./footer";
 import type { NavData } from "./lib";
 import Nav from "./nav";
-import { Search } from "./search";
+import Search2 from "./search2";
 
-const Sidebar = ({ slug, nav }: { slug: string; nav: NavData }) => {
+const Sidebar = ({
+  slug,
+  nav,
+  contentArray,
+}: {
+  slug: string;
+  nav: NavData;
+  contentArray: ContentArray;
+}) => {
   const [openOnMobile, setOpenOnMobile] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
@@ -59,7 +68,11 @@ const Sidebar = ({ slug, nav }: { slug: string; nav: NavData }) => {
           </div>
 
           <div className="mt-4">
-            <Search open={searchOpen} setOpen={setSearchOpen} />
+            <Search2
+              open={searchOpen}
+              setOpen={setSearchOpen}
+              contentArray={contentArray}
+            />
           </div>
 
           <div className="mt-4 overflow-hidden transition-opacity">

@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { expect, test } from "vitest";
-import { removeMarkdown } from "./lib";
+import { removeMarkdown } from "./remove-markdown";
 
 dotenv.config();
 
@@ -25,4 +25,16 @@ test("Remove markdown", async () => {
   ).toEqual(
     "YYYY\n\n2014\n\n4 or 2 digit year\n\n\n\nYYYY\n\n2014\n\n4 or 2 digit year"
   );
+
+  expect(
+    removeMarkdown(
+      `{% noticeInfo text="Kit is a brand refresh for ConvertKit." /%}`
+    )
+  ).toBe("Kit is a brand refresh for ConvertKit.");
+
+  expect(
+    removeMarkdown(
+      `Here is some text {% noticeWarn text="Warning message" /%} and more text`
+    )
+  ).toBe("Here is some text Warning message and more text");
 });
