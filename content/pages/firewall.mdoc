@@ -69,3 +69,18 @@ Buttondown's firewall ultimately buckets the spectrum of all risk scores into fo
 | ≥ 1              | Very&nbsp;risky | Strong indicators of spam or malicious activity.                       |
 
 Setting a firewall mode of "aggressive" will proactively block _risky_ and _very risky_ subscribers; a firewall mode of "enabled" only blocks _very risky_ subscribers.
+
+## Testing the firewall
+
+You can test how your firewall configuration responds to different risk scores using sandbox test addresses. These special email addresses allow you to simulate specific risk scores to verify your firewall threshold settings.
+
+### How sandbox addresses work
+
+Sandbox addresses use the domain `sandbox.buttondown.com` with a special format in the local part: `+firewall-{number}`. The number you specify will be added directly to the firewall risk score for that email address. Sandbox addresses are only available for testing purposes and will not receive actual emails.
+
+**Format:** `{anything}+firewall-{score}@sandbox.buttondown.com`
+
+**Examples:**
+- `test+firewall-2@sandbox.buttondown.com` - Adds 2.0 to the risk score (will be blocked if your threshold is 2.0 or lower)
+- `user+firewall-0.5@sandbox.buttondown.com` - Adds 0.5 to the risk score (will be blocked if your threshold is 0.5 or lower)
+- `anything+firewall-10@sandbox.buttondown.com` - Adds 10.0 to the risk score (will be blocked regardless of threshold)
