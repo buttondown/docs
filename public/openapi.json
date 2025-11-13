@@ -5821,29 +5821,28 @@
         ]
       }
     },
-    "/comments/{id}": {
-      "get": {
-        "operationId": "retrieve_comment",
-        "summary": "Retrieve Comment",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "title": "Id",
-              "type": "string",
-              "format": "uuid"
-            },
-            "required": true
-          }
-        ],
+    "/comments": {
+      "post": {
+        "operationId": "create_comment",
+        "summary": "Create Comment",
+        "parameters": [],
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Comment"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
                 }
               }
             }
@@ -5872,15 +5871,23 @@
             "description": "Conflict"
           }
         },
-        "description": "Retrieve a specific comment by its ID",
+        "description": "Create a new comment or reply to an existing comment. Authors can respond to comments at the given author.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentInput"
+              }
+            }
+          },
+          "required": true
+        },
         "security": [
           {
             "PermissionAuthenticationRequirement": []
           }
         ]
-      }
-    },
-    "/comments": {
+      },
       "get": {
         "operationId": "list_comments",
         "summary": "List Comments",
@@ -5928,6 +5935,18 @@
             },
             "required": false,
             "description": "If provided, only return comments for the given subscriber."
+          },
+          {
+            "in": "query",
+            "name": "parent_id",
+            "schema": {
+              "title": "Parent Id",
+              "description": "If provided, only return comments that are replies to the given parent comment.",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": false,
+            "description": "If provided, only return comments that are replies to the given parent comment."
           },
           {
             "in": "query",
@@ -6000,6 +6019,65 @@
           {
             "SubscriberFacingAuthentication": []
           },
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
+    },
+    "/comments/{id}": {
+      "get": {
+        "operationId": "retrieve_comment",
+        "summary": "Retrieve Comment",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comment"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "Retrieve a specific comment by its ID",
+        "security": [
           {
             "PermissionAuthenticationRequirement": []
           }
@@ -11690,6 +11768,32 @@
           "email_id",
           "text",
           "comment_type"
+        ]
+      },
+      "CommentInput": {
+        "title": "CommentInput",
+        "type": "object",
+        "properties": {
+          "text": {
+            "title": "Text",
+            "description": "The text content of the comment",
+            "type": "string"
+          },
+          "parent_id": {
+            "title": "Parent Id",
+            "description": "The ID of the parent comment, if this comment is a reply to another comment.",
+            "type": "string",
+            "format": "uuid"
+          },
+          "email_id": {
+            "title": "Email Id",
+            "description": "The ID of the email this comment is for. Required if parent_id is not provided.",
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "text"
         ]
       },
       "CommentPage": {
