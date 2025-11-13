@@ -12,7 +12,7 @@ import { useState } from "react";
 import Footer from "./footer";
 import type { NavData } from "./lib";
 import Nav from "./nav";
-import Search2 from "./search2";
+import Search from "./search";
 
 const Sidebar = ({
   slug,
@@ -68,7 +68,7 @@ const Sidebar = ({
           </div>
 
           <div className="mt-4">
-            <Search2
+            <Search
               open={searchOpen}
               setOpen={setSearchOpen}
               contentArray={contentArray}
