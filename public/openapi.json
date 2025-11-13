@@ -6013,9 +6013,9 @@
         "parameters": [
           {
             "in": "query",
-            "name": "email",
+            "name": "email_id",
             "schema": {
-              "title": "Email",
+              "title": "Email Id",
               "description": "If provided, only return responses made to the given email.",
               "type": "string",
               "format": "uuid"
@@ -6025,9 +6025,9 @@
           },
           {
             "in": "query",
-            "name": "subscriber",
+            "name": "subscriber_id",
             "schema": {
-              "title": "Subscriber",
+              "title": "Subscriber Id",
               "description": "If provided, only return responses made by the given subscriber.",
               "type": "string",
               "format": "uuid"
