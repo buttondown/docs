@@ -58,11 +58,13 @@ export default function Search({
           </div>
           <p className="text-sm text-gray-400">Search</p>
         </div>
-        <kbd className="text-xs text-gray-400 border border-gray-300 px-1.5 py-0.5 rounded">⌘K</kbd>
+        <kbd className="text-xs text-gray-400 border border-gray-300 px-1.5 py-0.5 rounded">
+          ⌘K
+        </kbd>
       </button>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/50 z-50 grid place-items-center">
+        <Dialog.Overlay className="fixed inset-0 bg-black/50 z-50 grid sm:place-items-center p-2">
           <Dialog.Content className="max-w-xl w-full rounded-md p-4 pt-0 border bg-gray-50 h-96 overflow-scroll">
             <Dialog.Title className="sr-only">Search</Dialog.Title>
 
