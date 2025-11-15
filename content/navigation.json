@@ -1960,6 +1960,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-comment-create"
+        },
+        {
+          "discriminant": "page",
           "value": "api-comments-retrieve"
         }
       ]

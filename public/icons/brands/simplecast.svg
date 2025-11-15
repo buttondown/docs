@@ -1,0 +1,13 @@
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="48"
+        height="48"
+        viewBox="0 0 48 48"
+      >
+        <title>Simplecast logo</title>
+        <g fill="currentColor" fill-rule="evenodd">
+          <path d="M0 48h48V0H0v48zm3.2-3.2h41.6V3.2H3.2v41.6z" />
+          <path d="M9.6 9.6v28.8h28.8zM36.137 29.965L18.035 11.863 20.298 9.6 38.4 27.702zM36.137 20.914l-9.05-9.05 2.262-2.265 9.05 9.052z" />
+        </g>
+      </svg>

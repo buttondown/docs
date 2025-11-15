@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#MISE description="Test frontend files"
+#MISE sources=["**/*.test.{ts,tsx}"]
+cd "${MISE_TASK_DIR:-docs}/../"
+
+bun test

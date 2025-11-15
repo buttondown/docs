@@ -1,0 +1,62 @@
+<svg
+        width="428"
+        height="534"
+        viewBox="0 0 428 534"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>Giphy</title>
+        <g id="Group">
+          <path
+            id="Path"
+            fill="currentColor"
+            fill-rule="evenodd"
+            stroke="none"
+            d="M 61.468571 61.028564 L 366.61142 61.028564 L 366.61142 472.971436 L 61.468571 472.971436 Z"
+          />
+          <g id="g1">
+            <path
+              id="path1"
+              fill="currentColor"
+              stroke="none"
+              d="M 0.44 45.771423 L 61.468571 45.771423 L 61.468571 488.228577 L 0.44 488.228577 Z"
+            />
+            <path
+              id="path2"
+              fill="currentColor"
+              stroke="none"
+              d="M 366.61142 167.828583 L 427.640015 167.828583 L 427.640015 488.228577 L 366.61142 488.228577 Z"
+            />
+            <path
+              id="path3"
+              fill="currentColor"
+              stroke="none"
+              d="M 0.44 472.971436 L 427.640015 472.971436 L 427.640015 534 L 0.44 534 Z"
+            />
+            <path
+              id="path4"
+              fill="currentColor"
+              stroke="none"
+              d="M 0.44 0 L 244.554291 0 L 244.554291 61.028564 L 0.44 61.028564 Z"
+            />
+            <path
+              id="path5"
+              fill="currentColor"
+              stroke="none"
+              d="M 366.61142 122.057129 L 366.61142 61.028564 L 305.582855 61.028564 L 305.582855 0 L 244.554291 0 L 244.554291 183.085724 L 427.640015 183.085724 L 427.640015 122.057129"
+            />
+            <path
+              id="path6"
+              fill="currentColor"
+              stroke="none"
+              d="M 366.61142 244.114288 L 366.61142 183.085724 L 427.640015 183.085724"
+            />
+          </g>
+          <path
+            id="path7"
+            fill="currentColor"
+            fill-rule="evenodd"
+            stroke="none"
+            d="M 244.554291 0 L 244.554291 61.028564 L 183.525711 61.028564"
+          />
+        </g>
+      </svg>

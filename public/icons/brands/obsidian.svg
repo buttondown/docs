@@ -1,0 +1,49 @@
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 62.999999 100"
+        width="57"
+        height="90"
+        version="1.1"
+        id="svg19"
+      >
+        <title>Obsidian logo</title>
+        <defs id="defs7">
+          <linearGradient
+            id="a"
+            x1="82.849998"
+            y1="30.41"
+            x2="51.259998"
+            y2="105.9"
+            gradientTransform="matrix(1,0,0,-1,-22.41,110.97)"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0" stop-color="currentColor" id="stop2" />
+            <stop offset="1" stop-color="currentColor" id="stop4" />
+          </linearGradient>
+        </defs>
+        <polygon
+          points="0,45.45 19.57,90.47 47.35,100 52.44,89.8 63,26.39 44.61,0 12.91,17.52 "
+          fill="currentColor"
+          id="polygon9"
+        />
+        <polygon
+          points="16.43,35.7 47.35,100 52.44,89.8 63,26.39 43.44,14.41 "
+          fill="url(#a)"
+          id="polygon11"
+        />
+        <polygon
+          points="44.61,0 43.44,14.41 63,26.39 "
+          fill="currentColor"
+          id="polygon13"
+        />
+        <polygon
+          points="12.91,17.52 16.43,35.7 43.44,14.41 44.61,0 "
+          fill="currentColor"
+          id="polygon15"
+        />
+        <polygon
+          points="47.35,100 16.43,35.7 19.57,90.47 "
+          fill="currentColor"
+          id="polygon17"
+        />
+      </svg>
