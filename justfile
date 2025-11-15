@@ -32,4 +32,4 @@ dev:
     bun dev
 
 test:
-    bun test --help
+    bun test

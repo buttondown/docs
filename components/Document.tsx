@@ -169,9 +169,6 @@ const Document = async ({ page }: Props) => {
             </Notice>
           );
         },
-        snippetSpacer: () => {
-          return <br />;
-        },
         preview: (props) => {
           return (
             <div className="border border-gray-200 text-center p-8 mt-4 bg-gray-100">

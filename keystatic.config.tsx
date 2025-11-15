@@ -9,7 +9,6 @@ import { noticeWarn } from "@/components/keystatic/noticeWarn";
 import { paidFeature } from "@/components/keystatic/paidFeature";
 import { playgroundEmbed } from "@/components/keystatic/playgroundEmbed";
 import { preview } from "@/components/keystatic/preview";
-import { snippetSpacer } from "@/components/keystatic/snippetSpacer";
 import { supportSnippet } from "@/components/keystatic/supportSnippet";
 import { video } from "@/components/keystatic/video";
 import {
@@ -146,7 +145,6 @@ export default config({
             playgroundEmbed,
             noticeInfo,
             noticeWarn,
-            snippetSpacer,
             fileExplorer,
           },
         }),
