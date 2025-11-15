@@ -1,0 +1,24 @@
+---
+title: "2025-11-15"
+navigationTitle: "2025-11-15"
+---
+
+Added an optional `X-Buttondown-Test-Mode` header to the `send-draft` endpoint. When set to `true`, this header enables test mode behavior for that specific draft send, similar to the global test mode setting. The draft will be rendered as if it's going to the specified subscribers, but then redirected to the newsletter author instead. This allows authors to preview how emails will appear to subscribers with different states (e.g., gifted subscribers, subscribers with specific metadata or tags).
+
+Example:
+
+```bash
+curl -X POST "https://api.buttondown.com/v1/emails/{id}/send-draft" \
+  -H "Authorization: Token YOUR_API_KEY" \
+  -H "X-Buttondown-Test-Mode: true" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "subscribers": ["subscriber-id-1", "subscriber-id-2"]
+  }'
+```
+
+When test mode is enabled via this header:
+- Emails are redirected to the newsletter author's email address
+- Subject lines are prefixed with `[TEST MODE]`
+- Email body includes a test mode header showing the intended recipient
+- All other email features (tracking, templating, etc.) work normally
