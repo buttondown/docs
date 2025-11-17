@@ -85,34 +85,68 @@ export default function Search({
               {"hits" in results &&
                 results.hits.map((hit) => {
                   return (
-                    <Link
+                    <SearchResultRow
                       key={hit.id}
+                      title={hit.document.title}
+                      body={hit.document.body}
                       href={`/${hit.document.slug}`}
-                      className="block py-2"
-                    >
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: highlighter.highlight(
-                            hit.document.title,
-                            query
-                          ).HTML,
-                        }}
-                      />
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: highlighter
-                            .highlight(hit.document.body, query)
-                            .trim(100),
-                        }}
-                        className="text-sm text-gray-500"
-                      />
-                    </Link>
+                      query={query}
+                    />
                   );
                 })}
+
+              {"hits" in results &&
+                results.hits.length === 0 &&
+                query.trim().length !== 0 && <NoResultsFound />}
             </div>
           </Dialog.Content>
         </Dialog.Overlay>
       </Dialog.Portal>
     </Dialog.Root>
+  );
+}
+
+function SearchResultRow({
+  title,
+  body,
+  href,
+  query,
+}: {
+  title: string;
+  body?: string;
+  href: string;
+  query: string;
+}) {
+  const LinkComponent = href.startsWith("/") ? Link : "a";
+
+  return (
+    <LinkComponent href={href} className="block py-2">
+      <p
+        dangerouslySetInnerHTML={{
+          __html: highlighter.highlight(title, query).HTML,
+        }}
+      />
+      {body && (
+        <p
+          dangerouslySetInnerHTML={{
+            __html: highlighter.highlight(body, query).trim(100),
+          }}
+          className="text-sm text-gray-500"
+        />
+      )}
+    </LinkComponent>
+  );
+}
+
+function NoResultsFound() {
+  return (
+    <>
+      <div className="py-2 text-sm text-gray-400">No results found</div>
+      <SearchResultRow
+        title="Email support@buttondown.com"
+        href="mailto:support@buttondown.com"
+        query=""
+      />
+    </>
   );
 }
