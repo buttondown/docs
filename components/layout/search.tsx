@@ -6,7 +6,7 @@ import { search } from "@orama/orama";
 import * as Dialog from "@radix-ui/react-dialog";
 import clsx from "clsx";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const highlighter = new Highlight({
   CSSClass: "bg-amber-100",
@@ -25,11 +25,24 @@ export default function Search({
 }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<"general" | "api">(defaultCategory);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectionSource, setSelectionSource] = useState<"keyboard" | "mouse">(
+    "keyboard"
+  );
   const index = useMemo(() => buildSearchIndex(contentArray), [contentArray]);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const modalContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setCategory(defaultCategory);
   }, [defaultCategory]);
+
+  useEffect(() => {
+    if (open) {
+      setSelectedIndex(0);
+      setSelectionSource("keyboard");
+    }
+  }, [open]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -54,6 +67,69 @@ export default function Search({
     });
   }, [query, index, category]);
 
+  const resultsCount = "hits" in results ? results.hits.length : 0;
+
+  // Slightly convoluted way of moving the currently selected index when hover state changes.
+  // We do it this way, because using onMouseEnter requires the cursor to enter a box, which
+  // isn't always the case: [Cursor on top of A] -> [Key down to B] -> [Shake cursor inside A].
+  // This implementation watches any mouse movement at all, which is more robust.
+  useEffect(() => {
+    if (!open || !modalContentRef.current) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const elementUnderCursor = document.elementFromPoint(
+        e.clientX,
+        e.clientY
+      );
+      if (!elementUnderCursor) return;
+
+      // Traverse up the DOM tree to find the hovered result row
+      let currentElement: Element | null = elementUnderCursor;
+      while (currentElement && currentElement !== modalContentRef.current) {
+        const dataIndex = currentElement.getAttribute("data-result-index");
+        if (dataIndex !== null) {
+          const index = parseInt(dataIndex);
+          if (!isNaN(index) && index >= 0 && index < resultsCount) {
+            setSelectionSource("mouse");
+            setSelectedIndex(index);
+            return;
+          }
+        }
+        currentElement = currentElement.parentElement;
+      }
+    };
+
+    const modalElement = modalContentRef.current;
+    modalElement.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      modalElement.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [open, resultsCount]);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setSelectionSource("keyboard");
+      setSelectedIndex((prev) => Math.min(prev + 1, resultsCount - 1));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setSelectionSource("keyboard");
+      setSelectedIndex((prev) => Math.max(prev - 1, 0));
+    } else if (e.key === "Enter" && resultsCount > 0) {
+      e.preventDefault();
+      const selectedHit = "hits" in results && results.hits[selectedIndex];
+      if (selectedHit) {
+        (
+          document.querySelector(`[data-result-index="${selectedIndex}"]`) as
+            | HTMLAnchorElement
+            | undefined
+        )?.click();
+        setOpen(false);
+      }
+    }
+  };
+
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <button
@@ -74,16 +150,25 @@ export default function Search({
 
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-50 grid sm:place-items-center p-2">
-          <Dialog.Content className="max-w-xl w-full rounded-md border bg-gray-50 h-96 overflow-scroll">
+          <Dialog.Content
+            ref={modalContentRef}
+            className="max-w-xl w-full rounded-md border bg-gray-50 h-96 overflow-scroll"
+          >
             <Dialog.Title className="sr-only">Search</Dialog.Title>
 
             <div className="sticky top-0 space-x-1 bg-gray-50 px-4 py-3 border-b border-gray-200 flex items-center">
               <Icon.Search />
               <input
+                ref={searchInputRef}
                 type="text"
                 placeholder="Search&hellip;"
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  setSelectedIndex(0);
+                  setSelectionSource("keyboard");
+                }}
+                onKeyDown={handleKeyDown}
                 className="w-full focus:outline-none ml-2 placeholder:text-gray-400 flex-1"
               />
               <CategoryButton
@@ -100,7 +185,7 @@ export default function Search({
 
             <div className="divide-y divide-gray-200">
               {"hits" in results &&
-                results.hits.map((hit) => {
+                results.hits.map((hit, index) => {
                   return (
                     <SearchResultRow
                       key={hit.id}
@@ -108,6 +193,9 @@ export default function Search({
                       body={hit.document.body}
                       href={`/${hit.document.slug}`}
                       query={query}
+                      isSelected={index === selectedIndex}
+                      resultIndex={index}
+                      selectionSource={selectionSource}
                     />
                   );
                 })}
@@ -128,16 +216,37 @@ function SearchResultRow({
   body,
   href,
   query,
+  isSelected = false,
+  resultIndex,
+  selectionSource,
 }: {
   title: string;
   body?: string;
   href: string;
   query: string;
+  isSelected?: boolean;
+  resultIndex?: number;
+  selectionSource?: "keyboard" | "mouse";
 }) {
   const LinkComponent = href.startsWith("/") ? Link : "a";
+  const rowRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    if (isSelected && rowRef.current && selectionSource === "keyboard") {
+      rowRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [isSelected, selectionSource]);
 
   return (
-    <LinkComponent href={href} className="block py-2.5 px-4 hover:bg-gray-200">
+    <LinkComponent
+      ref={rowRef}
+      href={href}
+      data-result-index={resultIndex}
+      className={clsx("block py-2.5 px-4", isSelected && "bg-gray-200")}
+    >
       <p
         dangerouslySetInnerHTML={{
           __html: highlighter.highlight(title, query).HTML,
