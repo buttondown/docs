@@ -37,4 +37,33 @@ test("Remove markdown", async () => {
       `Here is some text {% noticeWarn text="Warning message" /%} and more text`
     )
   ).toBe("Here is some text Warning message and more text");
+
+  expect(
+    removeMarkdown(`Here is a diagram:
+
+\`\`\`mermaid
+graph TD
+    A[Start] --> B[End]
+\`\`\`
+
+And some text after.`)
+  ).toBe(`Here is a diagram:
+
+
+
+And some text after.`);
+
+  expect(
+    removeMarkdown(
+      `\`\`\`mermaid
+sequenceDiagram
+    Alice->>Bob: Hello
+\`\`\`
+Some content
+\`\`\`mermaid
+graph LR
+    A --> B
+\`\`\``
+    )
+  ).toBe("Some content");
 });

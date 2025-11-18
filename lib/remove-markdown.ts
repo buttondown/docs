@@ -1,6 +1,8 @@
 export function removeMarkdown(text: string) {
   return (
     text
+      // Remove Mermaid diagrams
+      .replace(/```mermaid[\s\S]*?```/g, "")
       // Extract text from custom components (noticeInfo, noticeWarn, etc.)
       .replace(/{%\s*\w+\s+text="([^"]*)"\s*\/%}/g, "$1")
       // Remove images
