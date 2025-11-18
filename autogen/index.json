@@ -985,16 +985,6 @@
     ]
   },
   {
-    "title": "Integrating daisyUI",
-    "url": "daisyui",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": [
-      "daisyui"
-    ]
-  },
-  {
     "title": "Discord",
     "url": "discord",
     "section": "guides",
@@ -1074,14 +1064,6 @@
       "plausible",
       "xss"
     ]
-  },
-  {
-    "title": "Integrating shadcn/ui",
-    "url": "shadcn-ui",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": []
   },
   {
     "title": "Shopify",

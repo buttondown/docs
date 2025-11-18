@@ -430,10 +430,6 @@
         },
         {
           "discriminant": "page",
-          "value": "daisyui"
-        },
-        {
-          "discriminant": "page",
           "value": "discord"
         },
         {
@@ -463,10 +459,6 @@
         {
           "discriminant": "page",
           "value": "plausible"
-        },
-        {
-          "discriminant": "page",
-          "value": "shadcn-ui"
         },
         {
           "discriminant": "page",
