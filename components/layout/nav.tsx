@@ -11,29 +11,19 @@ import {
   type NavData,
 } from "./lib";
 
-export default function Nav({ data, slug }: { data: NavData; slug: string }) {
-  let currentNavigationGroup: keyof NavData | null = null;
-  let currentFolderName: string | null = null;
-
-  for (const [navigationGroup, folders] of Object.entries(data)) {
-    for (const folder of folders) {
-      for (const page of folder.items) {
-        if (
-          (page.type === "page" || page.type === "hidden_page") &&
-          page.slug === slug
-        ) {
-          currentNavigationGroup = navigationGroup as keyof NavData;
-          currentFolderName = folder.name;
-        }
-      }
-    }
-  }
-
-  if (!currentNavigationGroup || !currentFolderName) {
-    throw new Error(
-      `Can’t find current navigation group and/or folder name for "${slug}". (Has it been added to the navigation hierarchy in 'navigation.json'?) `
-    );
-  }
+export default function Nav({
+  data,
+  slug,
+  currentNavigationGroup,
+  currentFolderName,
+  onNavigationGroupChange,
+}: {
+  data: NavData;
+  slug: string;
+  currentNavigationGroup: keyof NavData;
+  currentFolderName: string;
+  onNavigationGroupChange: (group: keyof NavData) => void;
+}) {
 
   // Auto-scroll to active link when component mounts or slug changes
   useEffect(() => {
@@ -49,7 +39,8 @@ export default function Nav({ data, slug }: { data: NavData; slug: string }) {
 
   return (
     <Tabs.Root
-      defaultValue={currentNavigationGroup}
+      value={currentNavigationGroup}
+      onValueChange={(value) => onNavigationGroupChange(value as keyof NavData)}
       className="h-full overflow-hidden grid grid-rows-[max-content_1fr]"
     >
       <Tabs.List className="flex gap-x-4 sm:gap-x-3 border-b border-gray-200">

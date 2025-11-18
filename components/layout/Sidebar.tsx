@@ -26,6 +26,33 @@ const Sidebar = ({
   const [openOnMobile, setOpenOnMobile] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
+  // Determine current navigation group from slug
+  let currentNavigationGroup: keyof NavData | null = null;
+  let currentFolderName: string | null = null;
+
+  for (const [navigationGroup, folders] of Object.entries(nav)) {
+    for (const folder of folders) {
+      for (const page of folder.items) {
+        if (
+          (page.type === "page" || page.type === "hidden_page") &&
+          page.slug === slug
+        ) {
+          currentNavigationGroup = navigationGroup as keyof NavData;
+          currentFolderName = folder.name;
+        }
+      }
+    }
+  }
+
+  if (!currentNavigationGroup || !currentFolderName) {
+    throw new Error(
+      `Can't find current navigation group and/or folder name for "${slug}". (Has it been added to the navigation hierarchy in 'navigation.json'?) `
+    );
+  }
+
+  const [activeNavigationGroup, setActiveNavigationGroup] = useState<keyof NavData>(currentNavigationGroup);
+  const searchDefaultCategory = activeNavigationGroup === "api" ? "api" : "general";
+
   return (
     <>
       <div className="sticky top-0 inset-x-0 lg:hidden p-4 bg-gray-100 flex items-center gap-x-2 z-30">
@@ -72,11 +99,18 @@ const Sidebar = ({
               open={searchOpen}
               setOpen={setSearchOpen}
               contentArray={contentArray}
+              defaultCategory={searchDefaultCategory}
             />
           </div>
 
           <div className="mt-4 overflow-hidden transition-opacity">
-            <Nav data={nav} slug={slug} />
+            <Nav
+              data={nav}
+              slug={slug}
+              currentNavigationGroup={activeNavigationGroup}
+              currentFolderName={currentFolderName}
+              onNavigationGroupChange={setActiveNavigationGroup}
+            />
           </div>
 
           <div className="border-t border-gray-200 pt-3">

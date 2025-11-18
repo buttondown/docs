@@ -16,14 +16,20 @@ export default function Search({
   open,
   setOpen,
   contentArray,
+  defaultCategory = "general",
 }: {
   open: boolean;
   setOpen: (open: boolean) => void;
   contentArray: ContentArray;
+  defaultCategory?: "general" | "api";
 }) {
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState<"general" | "api">("general");
+  const [category, setCategory] = useState<"general" | "api">(defaultCategory);
   const index = useMemo(() => buildSearchIndex(contentArray), [contentArray]);
+
+  useEffect(() => {
+    setCategory(defaultCategory);
+  }, [defaultCategory]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
