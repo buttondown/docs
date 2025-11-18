@@ -22,10 +22,10 @@ lint:
 lint-css:
     bun lint-css
 
-build-indexes:
+build-index:
     cd .. && uv run docs/scripts/compile_index.py
 
-build: lint build-indexes
+build: lint build-index
     bun build
 
 dev:
