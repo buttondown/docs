@@ -23,7 +23,7 @@ lint-css:
     bun lint-css
 
 build-index:
-    cd .. && uv run docs/scripts/compile_index.py
+    cd .. && uv run docs/scripts/build_index.py
 
 build: lint build-index
     bun build
