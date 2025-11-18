@@ -93,7 +93,7 @@
     "schema": null,
     "description": "Send test emails to yourself to preview how they'll look to subscribers",
     "references": [
-      "stripe-test-mode"
+      "paid-subscriptions"
     ]
   },
   {
@@ -482,7 +482,7 @@
     ]
   },
   {
-    "title": "Previewing your email in an email inbox",
+    "title": "Previewing your email / sending a draft email",
     "url": "draft-send",
     "section": "guides",
     "schema": null,
@@ -554,9 +554,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "sending-your-first-email"
-    ]
+    "references": []
   },
   {
     "title": "Why is my email all... purple?",
@@ -564,9 +562,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "sending-your-first-email"
-    ]
+    "references": []
   },
   {
     "title": "Why does my email look different on some clients?",
@@ -574,9 +570,7 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": [
-      "sending-your-first-email"
-    ]
+    "references": []
   },
   {
     "title": "Does Buttondown support one-click unsubscribe?",
@@ -746,29 +740,21 @@
     "url": "paid-subscriptions",
     "section": "guides",
     "schema": null,
-    "description": "Buttondown offers a variety of ways to offer paid subscriptions. And, we don't charge so you\u2019ll keep all of the money that you make.",
+    "description": "Buttondown offers a variety of ways to offer paid subscriptions. And, we don't charge so you'll keep all of the money that you make.",
     "references": [
       "affiliate-program",
       "beehiiv",
       "buttondown-data",
       "customizing-subscriber-list-view",
+      "gifting-subscriptions",
       "glossary-paywall",
       "paid-subscriptions",
-      "perks",
       "podia",
       "quickstart",
       "stripe",
       "transactional-emails-gift",
       "transactional-emails-premium-welcome"
     ]
-  },
-  {
-    "title": "Offering perks for paid subscribers",
-    "url": "perks",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown makes it easy to share special perks and incentives with your paid readers.",
-    "references": []
   },
   {
     "title": "Sponsorships",
@@ -781,15 +767,7 @@
     ]
   },
   {
-    "title": "/buy",
-    "url": "slash-buy",
-    "section": "guides",
-    "schema": null,
-    "description": "`/buy` is a durable URL that instantly spins up a new checkout link for your preferred paid subscribers who go through this URL.",
-    "references": []
-  },
-  {
-    "title": "Gift subscriptions",
+    "title": "Comped subscriptions",
     "url": "gift-subscriptions",
     "section": "guides",
     "schema": null,
@@ -800,14 +778,30 @@
     ]
   },
   {
+    "title": "Buying a subscription as a gift",
+    "url": "gifting-subscriptions",
+    "section": "guides",
+    "schema": null,
+    "description": "Buttondown's PaymentElement allows your subscribers to purchase paid subscriptions as gifts for others directly from your subscribe page.",
+    "references": [
+      "gift-subscriptions"
+    ]
+  },
+  {
+    "title": "/buy",
+    "url": "slash-buy",
+    "section": "guides",
+    "schema": null,
+    "description": "`/buy` is a durable URL that instantly spins up a new checkout link for your preferred paid subscribers who go through this URL.",
+    "references": []
+  },
+  {
     "title": "What pricing models can I use for my paid newsletter?",
     "url": "pricing-models",
     "section": "guides",
     "schema": null,
     "description": "Buttondown offers a variety of different pricing models for your paid newsletter.",
-    "references": [
-      "paid-subscriptions"
-    ]
+    "references": []
   },
   {
     "title": "How to send a teaser email",
@@ -826,14 +820,6 @@
     "references": [
       "stripe-upsell"
     ]
-  },
-  {
-    "title": "Can I use Stripe Test mode with Buttondown?",
-    "url": "stripe-test-mode",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown does not currently support Stripe's test mode.",
-    "references": []
   },
   {
     "title": "Can I pay using something other than Stripe?",
@@ -1099,11 +1085,9 @@
       "mailchimp",
       "metadata",
       "paid-subscriptions",
-      "perks",
       "revue",
       "sponsorships",
       "stripe",
-      "stripe-test-mode",
       "stripe-upsell",
       "substack",
       "tip-jar"
@@ -1149,7 +1133,7 @@
     ]
   },
   {
-    "title": "Wordpress",
+    "title": "WordPress",
     "url": "wordpress",
     "section": "guides",
     "schema": null,
@@ -1167,7 +1151,6 @@
     "references": [
       "buttondown-data",
       "paused-billing",
-      "perks",
       "quickstart",
       "sending-your-first-email-advanced"
     ]
@@ -1575,7 +1558,7 @@
     ]
   },
   {
-    "title": "Buttondown's Markdown rendering engine",
+    "title": "Buttondown's markdown rendering engine",
     "url": "using-markdown-rendering",
     "section": "reference",
     "schema": null,
@@ -1772,7 +1755,7 @@
     "references": []
   },
   {
-    "title": "Transactional Emails",
+    "title": "Transactional emails",
     "url": "transactional-emails",
     "section": "reference",
     "schema": null,
@@ -1783,7 +1766,7 @@
     ]
   },
   {
-    "title": "Confirmation Email",
+    "title": "Confirmation email",
     "url": "transactional-emails-confirmation",
     "section": "reference",
     "schema": null,
@@ -1793,7 +1776,7 @@
     ]
   },
   {
-    "title": "Reminder Email",
+    "title": "Reminder email",
     "url": "transactional-emails-reminder",
     "section": "reference",
     "schema": null,
@@ -1803,7 +1786,7 @@
     ]
   },
   {
-    "title": "Welcome Email",
+    "title": "Welcome email",
     "url": "transactional-emails-welcome",
     "section": "reference",
     "schema": null,
@@ -1813,7 +1796,7 @@
     ]
   },
   {
-    "title": "Premium Welcome Email",
+    "title": "Premium welcome email",
     "url": "transactional-emails-premium-welcome",
     "section": "reference",
     "schema": null,
@@ -1823,7 +1806,7 @@
     ]
   },
   {
-    "title": "Gift Email",
+    "title": "Gift email",
     "url": "transactional-emails-gift",
     "section": "reference",
     "schema": null,
@@ -1840,6 +1823,7 @@
     "description": "Buttondown's comments feature allows you to stay connected with your readers.",
     "references": [
       "api-changelog-2024-04-03",
+      "api-comment-create",
       "api-comments-list",
       "api-comments-retrieve",
       "api-expansion",
@@ -1920,7 +1904,7 @@
     "references": []
   },
   {
-    "title": "Why is my Google Workspace domain not SPF-aligned? ",
+    "title": "Why is my Google Workspace domain not SPF-aligned?",
     "url": "workspace-spf",
     "section": "reference",
     "schema": null,
@@ -1957,7 +1941,7 @@
     "references": []
   },
   {
-    "title": "What does \"Images in this message are hidden\" mean?",
+    "title": "What does \"images in this message are hidden\" mean?",
     "url": "gmail-images-hidden",
     "section": "reference",
     "schema": null,
@@ -2140,6 +2124,7 @@
     "schema": null,
     "description": "Buttondown's \"Firewall\" is an opt-in feature that audits all incoming subscribers to confirm that they're legitimate people.",
     "references": [
+      "api-subscribers-create",
       "subscriber-cleanup"
     ]
   },
@@ -2213,7 +2198,7 @@
     ]
   },
   {
-    "title": "Complaint Rate",
+    "title": "Complaint rate",
     "url": "complaint-rate",
     "section": "reference",
     "schema": null,
@@ -2223,7 +2208,7 @@
     ]
   },
   {
-    "title": "Gross Volume",
+    "title": "Gross volume",
     "url": "gross-volume",
     "section": "reference",
     "schema": null,
@@ -2260,7 +2245,7 @@
     ]
   },
   {
-    "title": "Permanent Failure Rate",
+    "title": "Permanent failure rate",
     "url": "permanent-failure-rate",
     "section": "reference",
     "schema": null,
@@ -2291,7 +2276,7 @@
     ]
   },
   {
-    "title": "GDPR and EU Compliance",
+    "title": "GDPR and EU compliance",
     "url": "gdpr-eu-compliance",
     "section": "reference",
     "schema": null,
@@ -2550,7 +2535,7 @@
     ]
   },
   {
-    "title": "Captcha",
+    "title": "CAPTCHA",
     "url": "glossary-captcha",
     "section": "reference",
     "schema": null,
@@ -2794,7 +2779,8 @@
     "schema": null,
     "description": null,
     "references": [
-      "perks",
+      "premium-content",
+      "premium-teaser",
       "seo"
     ]
   },
@@ -3223,7 +3209,7 @@
     "references": []
   },
   {
-    "title": "Email Template",
+    "title": "Email template",
     "url": "api-emails-template",
     "section": "Reference",
     "schema": "NewsletterEmailTemplate",
@@ -3231,7 +3217,7 @@
     "references": []
   },
   {
-    "title": "Commenting Mode",
+    "title": "Commenting mode",
     "url": "api-emails-commenting-mode",
     "section": "Reference",
     "schema": "EmailCommentingMode",
@@ -4027,6 +4013,14 @@
     ]
   },
   {
+    "title": "Creating a comment",
+    "url": "api-comment-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Retrieving comment",
     "url": "api-comments-retrieve",
     "section": "api",
@@ -4412,6 +4406,16 @@
       "api-changelog",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2025-11-15",
+    "url": "api-changelog-2025-11-15",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
     ]
   },
   {
