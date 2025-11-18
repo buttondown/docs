@@ -10,9 +10,6 @@ Sentry.init({
   debug: process.env.NODE_ENV !== "production",
   enabled: process.env.NODE_ENV === "production",
 
-  // uncomment the line below to enable Spotlight (https://spotlightjs.com)
-  // spotlight: process.env.NODE_ENV === 'development',
-
   ignoreErrors: [
     // Safari is incorrectly failing to parse some JSON+LD metadata. This is a known issue in Safari:
     // https://github.com/getsentry/sentry/issues/61469

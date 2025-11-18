@@ -11251,6 +11251,10 @@
             "items": {
               "$ref": "#/components/schemas/APIRequest"
             }
+          },
+          "cursor": {
+            "title": "Cursor",
+            "type": "string"
           }
         },
         "required": [
