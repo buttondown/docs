@@ -1,10 +1,36 @@
 ---
 title: Substack
 relatedPages:
-- substack-application-fee
 - importing-your-data
 description:  >-
   Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Substack. We'll even do the import for you!
+faqItems: >
+  [
+    {
+      "question": "Substack is taking 10% of my revenue. What should I do?",
+      "answer": "We recommend reaching out to Substack's [support team](https://substack.com/support) and asking that they \"disconnect Stripe from my publication and remove the 10% application fee, without cancelling or refunding any existing subscriptions.\"\n\nThey'll be able to programmatically remove the 10% cut from your revenue!\n\n## I've already disconnected Stripe from Substack\n\nIf you've already disconnected your Substack account from Stripe, and you're still seeing Substack take a 10% cut of your revenue, we can fix this on our side. Just send our [support team](https://buttondown.com/support) a message, and we'll take a look.\n\nWe also have an ad-hoc script we _can_ run to remove the application fees from your Substack subscriptions, but it does require some extra steps on your part. That's why we always recommend contacting Substack's support first."
+    },
+    {
+      "question": "Can I import comped subscriptions from Substack?",
+      "answer": "Yes! \"Comped\" subscriptions technically don't exist in Stripe, but Buttondown detects them from your export and automatically maps them over to your Buttondown account. (Our parlance is a little bit different; we refer to them as [gift subscriptions](/gift-subscriptions).)"
+    },
+    {
+      "question": "Do I need to do anything to make sure my URLs don't break?",
+      "answer": "If you're using a [custom domain on Substack](/hosting-on-a-custom-domain), your archived URLs look something like this:\n\n```\nnewsletter.sarah.com/p/hello-world\n```\n\nIt's very important for [SEO](/seo) (and just for good internet hygiene) to make sure that those URLs continue to work!\n\nBy default, Buttondown's archived URLs have a slightly different format:\n\n```\nnewsletter.sarah.com/archive/hello-world\n```\n\n_But_, for emails migrated in from Substack, we automatically redirect your old URLs to the new Buttondown URL format, so that all of your links continue to work. (No need to do anything additional on your end!)"
+    },
+    {
+      "question": "Can I manually disconnect my Substack account from Stripe?",
+      "answer": "Yes, you can, but we advise you to first contact their support team to ensure that the 10% fee is removed. If you do want to manually disconnect, you should [use your Stripe dashboard](https://support.stripe.com/questions/disconnect-your-stripe-account-from-a-connected-third-party-platform#:~:text=To%20disconnect%20your%20Stripe%20account,they%20create%20subscriptions%20for%20you) to do this.\n\n*Don't use your Substack dashboard to disconnect.* If you disconnect your account from your Substack dashboard, you run the risk of canceling and refunding your existing subscriptions, which means you won't be able to transfer them over to Buttondown. To avoid this, and to make sure each and every one of your paid subscriptions transfers over, initiate any connection changes from Stripe.\n\nDisconnect your Substack account under \"Installed apps\" in the \"Business settings\" section of your Stripe dashboard."
+    },
+    {
+      "question": "Will my paid posts still be available publicly?",
+      "answer": "Nop! By default, we respect any paywalled posts you have in your Substack account and mark them as \"premium\"."
+    },
+    {
+      "question": "What should I do with my Substack account after migrating?",
+      "answer": "After you've migrated your Substack account to Buttondown and handled any other necessary tasks, you can safely delete your Substack account.\n\nHowever, you may _want_ to keep that account around, if the following things apply to you:\n\n1. You were _not_ using a custom domain on Substack (and your account lives on a subdomain like `sarah.substack.com`)\n2. You want to make sure links from other blogs or websites to your Substack account continue to work, so as to collect subscribers from those links\n\nIf that applies to you, we recommend the following options:\n\n1. Keep your Substack account around, and use it to collect any lingering subscribers.\n2. Delete all _posts_ from your Substack account. This ensures that Google and other search engines don't penalize you from having the same posts on your Substack account and Buttondown account.\n3. Set up a recurring reminder to periodically migrate any new subscribers from your Substack account to Buttondown."
+    }
+  ]
 ---
 
 
@@ -54,7 +80,7 @@ Now that you have the export from Substack, you're ready to start importing into
 3. Click "Import" in the top toolbar
 4. Select this zip file
 
-Your data import should only take a few moments to complete. Your past Substack posts should now appear in the “Emails” tab of your Buttondown dashboard. 
+Your data import should only take a few moments to complete. Your past Substack posts should now appear in the "Emails" tab of your Buttondown dashboard. 
 
 
 ## Importing your subscribers
@@ -70,11 +96,11 @@ Now you can [import your subscribers](/importing-your-data#importing-your-subscr
 1. Click **Done.**
 
 
-It can take anywhere from a few seconds to a few hours for Buttondown to import all of your data, depending on the number of subscribers you’re adding. In some cases, if you’re importing a large quantity of new subscribers, we may temporarily deactivate your account to make sure everything is working correctly.
+It can take anywhere from a few seconds to a few hours for Buttondown to import all of your data, depending on the number of subscribers you're adding. In some cases, if you're importing a large quantity of new subscribers, we may temporarily deactivate your account to make sure everything is working correctly.
 
-After your import completes, you’ll receive a notification from Buttondown, and will be able to view your subscriber data in the “Subscribers” tab of your dashboard. 
+After your import completes, you'll receive a notification from Buttondown, and will be able to view your subscriber data in the "Subscribers" tab of your dashboard. 
 
-{% noticeWarn text="If you’re importing a large quantity of new subscribers, we may temporarily deactivate your account to make sure everything is working correctly." /%}
+{% noticeWarn text="If you're importing a large quantity of new subscribers, we may temporarily deactivate your account to make sure everything is working correctly." /%}
 
 
 ## Importing your paid subscriptions (optional)
@@ -85,7 +111,7 @@ If you offered paid subscriptions on Substack, you can easily transfer these to 
 
 Substack and Buttondown use the same payment processor: [Stripe](https://stripe.com/). Because you're not changing your payment processor, your subscribers won't have to re-enter their credit card information or re-confirm their subscriptions.
 
-In addition to a Stripe account, you'll also need a [paid Buttondown account](https://buttondown.com/pricing) to manage your paid subscriptions. After you set that up, scroll down to the “Features” section in your Buttondown settings, and click the “Connect to Stripe” button. From there, follow the prompts to connect to your existing Stripe account. Be sure to use the same email and login as you do for Substack, because Stripe needs to access previous account information and payments in order to ensure that subscribers are mapped over gracefully.
+In addition to a Stripe account, you'll also need a [paid Buttondown account](https://buttondown.com/pricing) to manage your paid subscriptions. After you set that up, scroll down to the "Features" section in your Buttondown settings, and click the "Connect to Stripe" button. From there, follow the prompts to connect to your existing Stripe account. Be sure to use the same email and login as you do for Substack, because Stripe needs to access previous account information and payments in order to ensure that subscribers are mapped over gracefully.
 
 {% iframe src="https://demo.buttondown.com/settings/basics?emphasis=paid_subscriptions" /%}
 
@@ -95,53 +121,21 @@ For further help with setting up your account, read our dedicated [Stripe integr
 
 Substack takes a 10% cut of all paid subscriptions through Stripe. 
 
-The next step will be to contact Substack’s [support team](https://substack.com/support) and ask that they "disconnect Stripe from my publication and remove the 10% application fee, without cancelling or refunding any existing subscriptions." 
+The next step will be to contact Substack's [support team](https://substack.com/support) and ask that they "disconnect Stripe from my publication and remove the 10% application fee, without cancelling or refunding any existing subscriptions." 
 
 {% noticeWarn text="Substack's support has a few tiers. The first tier is a chatbot. But, you'll then be contacted by a real person over email." /%}
 
 ## Deleting your Substack account
 
-You’ve done it! Your subscriber, archive, and paid subscription data have been moved over to Buttondown.
+You've done it! Your subscriber, archive, and paid subscription data have been moved over to Buttondown.
 
-There’s just one last thing to check before you’re free to delete your Substack account: Your newsletter images. 
+There's just one last thing to check before you're free to delete your Substack account: Your newsletter images. 
 
-Buttondown automatically replaces the images that are hosted on Substack’s CDN with ones that are hosted on Buttondown’s infrastructure so that your images won’t disappear. However, this replacement process can take some time. Check to confirm that all the images from your Substack posts appear in your newsletter archives.
+Buttondown automatically replaces the images that are hosted on Substack's CDN with ones that are hosted on Buttondown's infrastructure so that your images won't disappear. However, this replacement process can take some time. Check to confirm that all the images from your Substack posts appear in your newsletter archives.
 
-After you’ve double checked that all of your images have been replaced, feel free to sign off of Substack.
+After you've double checked that all of your images have been replaced, feel free to sign off of Substack.
 
 If you have a question about importing your data, the Buttondown team is [here to help](https://buttondown.com/support).
-
-## Frequently asked questions
-
-### Can I import comped subscriptions from Substack?
-
-Yes! "Comped" subscriptions technically don't exist in Stripe, but Buttondown detects them from your export and automatically maps them over to your Buttondown account. (Our parlance is a little bit different; we refer to them as [gift subscriptions](/gift-subscriptions).)
-
-### Do I need to do anything to make sure my URLs don't break?
-
-If you're using a [custom domain on Substack](/hosting-on-a-custom-domain), your archived URLs look something like this:
-
-```
-newsletter.sarah.com/p/hello-world
-```
-
-It's very important for [SEO](/seo) (and just for good internet hygiene) to make sure that those URLs continue to work!
-
-By default, Buttondown's archived URLs have a slightly different format:
-
-```
-newsletter.sarah.com/archive/hello-world
-```
-
-_But_, for emails migrated in from Substack, we automatically redirect your old URLs to the new Buttondown URL format, so that all of your links continue to work. (No need to do anything additional on your end!)
-
-### Can I manually disconnect my Substack account from Stripe?
-
-Yes, you can, but we advise you to first contact their support team to ensure that the 10% fee is removed. If you do want to manually disconnect, you should [use your Stripe dashboard](https://support.stripe.com/questions/disconnect-your-stripe-account-from-a-connected-third-party-platform#:~:text=To%20disconnect%20your%20Stripe%20account,they%20create%20subscriptions%20for%20you) to do this. 
-
-*Don't use your Substack dashboard to disconnect.* If you disconnect your account from your Substack dashboard, you run the risk of canceling and refunding your existing subscriptions, which means you won’t be able to transfer them over to Buttondown. To avoid this, and to make sure each and every one of your paid subscriptions transfers over, initiate any connection changes from Stripe.
-
-Disconnect your Substack account under “Installed apps” in the “Business settings” section of your Stripe dashboard.
 
 {% video file="/substack/substack_stripe-business-settings.mp4" /%}
 
@@ -149,22 +143,6 @@ This video shows how to locate the "Installed apps" section of your Stripe accou
 
 {% noticeWarn text="Do not disconnect Stripe via the Substack dashboard. This will cancel and refund all paid subscriptions." /%}
 
-### Will my paid posts still be available publicly? 
+## Frequently asked questions
 
-Nop! By default, we respect any paywalled posts you have in your Substack account and mark them as "premium". 
-
-
-### What should I do with my Substack account after migrating?
-
-After you've migrated your Substack account to Buttondown and handled any other necessary tasks, you can safely delete your Substack account.
-
-However, you may _want_ to keep that account around, if the following things apply to you:
-
-1. You were _not_ using a custom domain on Substack (and your account lives on a subdomain like `sarah.substack.com`)
-2. You want to make sure links from other blogs or websites to your Substack account continue to work, so as to collect subscribers from those links
-
-If that applies to you, we recommend the following options:
-
-1. Keep your Substack account around, and use it to collect any lingering subscribers.
-2. Delete all _posts_ from your Substack account. This ensures that Google and other search engines don't penalize you from having the same posts on your Substack account and Buttondown account.
-3. Set up a recurring reminder to periodically migrate any new subscribers from your Substack account to Buttondown.
+{% faq /%}

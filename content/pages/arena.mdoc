@@ -3,6 +3,21 @@ title: Are.na
 
 description:  >-
   Buttondown makes it easy to connect your Are.na and automatically share your newsletters.
+faqItems: >
+  [
+    {
+      "question": "How do I find my Are.na channel slug?",
+      "answer": "Your channel slug is the part of the URL after your username. For example, in `https://www.are.na/buttondown/mood-vy0yu8sp4ba`, the channel slug is `mood-vy0yu8sp4ba`."
+    },
+    {
+      "question": "Can I dynamically customize the contents of the post?",
+      "answer": "Yes, through [template variables](/template-variables)! These variables are supported:\n\n- `email`\n- sub-variables of `email` (`email.subject`, etc)\n- `email_url`"
+    },
+    {
+      "question": "What kind of content can I share on Are.na?",
+      "answer": "Are.na supports both text and links. When you share your newsletter via the automation, it will be posted as text content along with a link to your newsletter."
+    }
+  ]
 ---
 {% paidFeature feature="automations" /%}
 
@@ -45,18 +60,4 @@ To enable the new automation, either click **Unpause** in the automation panel, 
 
 ## Frequently asked questions
 
-### How do I find my Are.na channel slug?
-
-Your channel slug is the part of the URL after your username. For example, in `https://www.are.na/buttondown/mood-vy0yu8sp4ba`, the channel slug is `mood-vy0yu8sp4ba`.
-
-### Can I dynamically customize the contents of the post?
-
-Yes, through [template variables](/template-variables)! These variables are supported:
-
-- `email`
-- sub-variables of `email` (`email.subject`, etc)
-- `email_url`
-
-### What kind of content can I share on Are.na?
-
-Are.na supports both text and links. When you share your newsletter via the automation, it will be posted as text content along with a link to your newsletter. 
+{% faq /%} 

@@ -172,10 +172,6 @@
         },
         {
           "discriminant": "page",
-          "value": "substack-application-fee"
-        },
-        {
-          "discriminant": "page",
           "value": "import-limitations"
         }
       ]
@@ -320,11 +316,19 @@
         },
         {
           "discriminant": "page",
-          "value": "perks"
+          "value": "sponsorships"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Features"
         },
         {
           "discriminant": "page",
-          "value": "sponsorships"
+          "value": "gift-subscriptions"
+        },
+        {
+          "discriminant": "page",
+          "value": "gifting-subscriptions"
         },
         {
           "discriminant": "divider",
@@ -333,10 +337,6 @@
         {
           "discriminant": "page",
           "value": "slash-buy"
-        },
-        {
-          "discriminant": "page",
-          "value": "gift-subscriptions"
         },
         {
           "discriminant": "page",
@@ -349,10 +349,6 @@
         {
           "discriminant": "page",
           "value": "stripe-upsell"
-        },
-        {
-          "discriminant": "page",
-          "value": "stripe-test-mode"
         },
         {
           "discriminant": "page",

@@ -1,0 +1,55 @@
+---
+title: Buying a subscription as a gift
+navigationTitle: Gifting subscriptions
+relatedPages:
+- paid-subscriptions
+- gift-subscriptions
+description:  >-
+  Buttondown's PaymentElement allows your subscribers to purchase paid subscriptions as gifts for others directly from your subscribe page.
+faqItems: >
+  [
+    {
+      "question": "Can subscribers schedule a gift subscription to start in the future?",
+      "answer": "Not yet, but this feature is on our roadmap! Currently, gift subscriptions purchased through PaymentElement start immediately after payment is completed."
+    },
+    {
+      "question": "Can subscribers purchase a gift subscription anonymously?",
+      "answer": "Not yet, but this feature is on our roadmap! Currently, the purchaser's email address is stored in the subscription metadata, and the recipient will see who purchased the gift for them."
+    }
+  ]
+---
+
+If you have [embedded checkout](/paid-subscriptions) enabled, your subscribers can purchase paid subscriptions as gifts for others directly from your subscribe page.
+
+{% iframe src="https://buttondown.com/justin" height=800 /%}
+
+## How it works
+
+When someone visits your subscribe page, they'll see a checkbox labeled **"This is a gift"** next to the email address field. When checked, additional fields appear:
+
+| Field                         | Description                                                                                                 |
+|-------------------------------|-------------------------------------------------------------------------------------------------------------|
+| **Purchaser's email**        | The buyer enters their own email address for billing purposes and payment receipts.                       |
+| **Recipient's email** | A new field appears where the purchaser can enter the email address of the person who will receive the subscription. |
+| **Gift message**   | The purchaser can optionally add a personal message that will be included when the recipient is notified about their gift subscription. |
+
+
+After payment is completed, the subscription is created for the recipient's email address, not the purchaser's. The recipient receives a notification email letting them know they've been gifted a subscription.
+
+## How gift subscriptions appear in your dashboard
+
+These gift subscriptions appear exactly like regular premium subscriptions in your dashboard — you'll see the recipient as a premium subscriber with full access to your paid content. The only difference is that the subscription metadata includes information about who purchased it as a gift, which you can view in the subscriber's details.
+
+{% iframe src="https://demo.buttondown.com/subscribers/a1b2c3d4-e5f6-7890-abcd-ef1234567890?emphasis=activity" height=500 /%}
+
+## Benefits for your newsletter
+
+This feature enables your subscribers to:
+
+- **Gift subscriptions to friends or family** — Purchase subscriptions as birthday or holiday gifts
+- **Corporate gifting** — Buy subscriptions for team members or clients
+- **Support creators** — Purchase subscriptions for others who might enjoy your newsletter
+
+## FAQs
+
+{% faq /%}

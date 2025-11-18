@@ -1,19 +1,25 @@
 ---
 title: Paid subscriptions
 relatedPages:
-- perks
-- stripe-test-mode
 - can-i-pay-using-something-other-than-stripe
 - how-do-i-handle-taxes
 - pricing-models
+- gifting-subscriptions
 description:  >-
-  Buttondown offers a variety of ways to offer paid subscriptions. And, we don't charge so you’ll keep all of the money that you make.
+  Buttondown offers a variety of ways to offer paid subscriptions. And, we don't charge so you'll keep all of the money that you make.
+faqItems: >
+  [
+    {
+      "question": "Can I use Stripe Test mode with Buttondown?",
+      "answer": "Buttondown does not currently support Stripe's [test mode](https://stripe.com/docs/test-mode), which lets you test your integration without charging a credit card.\n\nTo test your integration, we recommend charging a small amount on a real credit card and then refunding the charge. This will cost a few cents for each transaction."
+    }
+  ]
 ---
 
 {% paidFeature feature="paid_subscriptions" /%}
 
 
-Whether you’d like to set up a formal paid subscription program or a pay-what-you-want model, Buttondown offers a number of different ways to collect revenue from your subscribers, while also rewarding them with exclusive perks!
+Whether you'd like to set up a formal paid subscription program or a pay-what-you-want model, Buttondown offers a number of different ways to collect revenue from your subscribers, while also rewarding them with exclusive perks!
 
 ## Getting started
 
@@ -79,9 +85,9 @@ You just sent your first premium newsletter email to all paid subscribers.
 ## Advanced configuration
 ### Buttondown's default settings
 
-Here’s what you need to know about Buttondown’s default settings for paid newsletters:
+Here's what you need to know about Buttondown's default settings for paid newsletters:
 
-* Paid subscriptions automatically renew at the end of the billing cycle you specify, whether that’s monthly or annually. After your subscribers convert their subscriptions to paid, it will not expire unless they cancel it.
+* Paid subscriptions automatically renew at the end of the billing cycle you specify, whether that's monthly or annually. After your subscribers convert their subscriptions to paid, it will not expire unless they cancel it.
 * Subscribers can cancel their subscriptions to your newsletter any time by clicking "Unsubscribe."
 
 While these practices are defaults in Buttondown, you can always alter your payment settings in Stripe.
@@ -91,3 +97,7 @@ While these practices are defaults in Buttondown, you can always alter your paym
 In the "Paid subscriptions" page, you can choose to prohibit free subscriptions. You can change this at any time. To disable free subscriptions, select **Paid only** from the "Content access" dropdown in the subscription configuration form.
 
 {% noticeWarn text="Are you creating multiple newsletters with paid subscriptions? Each newsletter will need it's own Stripe account." /%}
+
+## FAQs
+
+{% faq /%}

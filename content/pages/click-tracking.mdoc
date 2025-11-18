@@ -1,7 +1,21 @@
 ---
 title: Click tracking
 description: A guide to click tracking, and how to use it in Buttondown.
-
+faqItems: >
+  [
+    {
+      "question": "Why am I seeing a different number of Clicks in the Analytics modal, and the Click list?",
+      "answer": "We will hide rows in Clicks that are \"duplicates\". When a reader clicks on the same link two or three times within the span of 5 minutes, that will only show up as one click on the click list. However, the overall click count in the Analytics modal is not affected by this which might result in some discrepancy."
+    },
+    {
+      "question": "One of my subscribers has clicked on an email, but not opened it. How is that possible?",
+      "answer": "One of the limitations with the tracking pixel-based approach that Buttondown uses is that we are largely at the mercy of clients like Gmail or Outlook in terms of how that tracking pixel is actually processed and used.\n\nFor instance, some clients or networks will automatically open every single asset and URL in a given email to scan for malware or other nefarious content. Some clients will automatically or in an ad hoc manner let readers disable all images, whether for privacy reasons or to save on bandwidth. Both of these cases have the same net result: the tracking pixel data is invalid, whether in the order of minutes or even hours. Buttondown tries to detect automated open events that do not actually correspond with a subscriber actually opening the email, but it is an imperfect science.\n\n**Our recommendation is to treat open tracking and open rates as a relative trend to see how your engagement varies over time rather than heavily indexing on individual data points from a single subscriber.**\n\nIn particular, it used to be considered common guidance to \"clean\" a subscriber list by removing all subscribers who haven't opened an email in a certain period of time, say 90 days. In today's email climate, it's hard to confidently perform operations like that without unintentionally purging well-meaning and engaged subscribers who have simply turned off images or are using a client with a firewall. We recommend identifying unengaged subscribers through a combination of open tracking and click tracking and then explicitly sending those subscribers an email prompting them to reply if they want to stay subscribed."
+    },
+    {
+      "question": "Can I exempt certain links from tracking?",
+      "answer": "Yes! If you add the query parameter `do_not_track=true` to a link, it will not be tracked. For example:\n\n```html\n<a href=\"https://google.com?do_not_track=true\">Google</a>\n```"
+    }
+  ]
 ---
 ```mermaid
 flowchart
@@ -37,24 +51,4 @@ When a subscriber clicks on the link, they will immediately be redirected to the
 
 ## Frequently asked questions
 
-### Why am I seeing a different number of Clicks in the Analytics modal, and the Click list?\
-
-We will hide rows in Clicks that are "duplicates". When a reader clicks on the same link two or three times within the span of 5 minutes, that will only show up as one click on the click list. However, the overall click count in the Analytics modal is not affected by this which might result in some discrepancy.
-
-### One of my subscribers has clicked on an email, but not opened it. How is that possible?
-
-One of the limitations with the tracking pixel-based approach that Buttondown uses is that we are largely at the mercy of clients like Gmail or Outlook in terms of how that tracking pixel is actually processed and used.
-
-For instance, some clients or networks will automatically open every single asset and URL in a given email to scan for malware or other nefarious content. Some clients will automatically or in an ad hoc manner let readers disable all images, whether for privacy reasons or to save on bandwidth. Both of these cases have the same net result: the tracking pixel data is invalid, whether in the order of minutes or even hours. Buttondown tries to detect automated open events that do not actually correspond with a subscriber actually opening the email, but it is an imperfect science.
-
-**Our recommendation is to treat open tracking and open rates as a relative trend to see how your engagement varies over time rather than heavily indexing on individual data points from a single subscriber.**
-
-In particular, it used to be considered common guidance to "clean" a subscriber list by removing all subscribers who haven't opened an email in a certain period of time, say 90 days. In today's email climate, it's hard to confidently perform operations like that without unintentionally purging well-meaning and engaged subscribers who have simply turned off images or are using a client with a firewall. We recommend identifying unengaged subscribers through a combination of open tracking and click tracking and then explicitly sending those subscribers an email prompting them to reply if they want to stay subscribed.
-
-### Can I exempt certain links from tracking?
-
-Yes! If you add the query parameter `do_not_track=true` to a link, it will not be tracked. For example:
-
-```html
-<a href="https://google.com?do_not_track=true">Google</a>
-```
+{% faq /%}

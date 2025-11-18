@@ -6,6 +6,17 @@ description:  >-
 date: 2024-08-02
 relatedPages:
   - paid-subscriptions
+faqItems: >
+  [
+    {
+      "question": "This is a Premium email, why is the audience \"Public\"?",
+      "answer": "As this email contains content for *both* free and Premium readers the audience must be set as public.\n\nThe content *above* the paywall component will be visible to all readers.\n\nContent *below* the paywall will only be visible to premium readers."
+    },
+    {
+      "question": "How do I add custom teaser text?",
+      "answer": "This [feature was deprecated](https://buttondown.com/changelog/2025-02-06) in favor of paywalls.\n\nBut, you can still replicate this behavior using paywalls. To do this you'll add a \"Free-only\" block at the top of your email. Then place your paywall below that."
+    }
+  ]
 ---
 If you have a paid newsletter, you might want to send a "teaser" version of the email to your free subscribers.
 
@@ -16,20 +27,11 @@ Here's how to send a teaser email:
 1. Navigate to the "Emails" page of your Buttondown account and start a new email draft.
 1. Insert an empty line at the point in your email where you'd like to hide the remainder of the text. 
 1. Type `/paywall` and press **Enter**.
-1. Everything *below* the Paywall block will only be visible to [Premium](/api-subscribers-type#premium) subscribers. [Regular](/api-subscribers-type#regular) subscribers will see only the text *above* the paywall, followed by a link to pay for a subscription.
+1. Everything *below* the [paywall](/glossary-paywall) block will only be visible to [Premium](/api-subscribers-type#premium) subscribers. [Regular](/api-subscribers-type#regular) subscribers will see only the text *above* the paywall, followed by a link to pay for a subscription.
 1. Send the email to a [Public](/api-emails-type#public) audience. This way, the email will be sent to both paid and unpaid subscribers—but the different types of subscribers will see different content.
 
 {% noticeWarn text="Looking for information about adding custom teaser text to a premium email? This [feature was deprecated](https://buttondown.com/changelog/2025-02-06) in favor of paywalls." /%}
 
 ## Frequently asked questions
-### This is a Premium email, why is the audience "Public"?
-As this email contains content for *both* free and Premium readers the audience must be set as public.
 
-The content *above* the paywall component will be visible to all readers.
-
-Content *below* the paywall will only be visible to premium readers.
-
-### How do I add custom teaser text?
-This [feature was deprecated](https://buttondown.com/changelog/2025-02-06) in favor of paywalls.
-
-But, you can still replicate this behavior using paywalls. To do this you'll add a "Free-only" block at the top of your email. Then place your paywall below that.
+{% faq /%}

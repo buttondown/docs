@@ -4,6 +4,13 @@ relatedPages:
 - importing-your-data
 description:  >-
   Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Mailchimp. We'll even do the import for you!
+faqItems: >
+  [
+    {
+      "question": "I see a bunch of different subscriber lists in my export! Which one should I choose?",
+      "answer": "| CSV File Name                   | Description                                 |\n|---------------------------------|---------------------------------------------|\n| subscribed_members_export.csv   | All of your *active* subscribers            |\n| unsubscribed_members_export.csv | Just unsubscribers                          |\n| cleaned_members_export.csv      | Subscribers who have been cleaned (invalid, bounced, etc.) |\n\nChoose `subscribed_members_export.csv`. This is the list of all of your *active* subscribers.\n\nWhile \"cleaned\" and \"unsubscribed\" members are still in your Mailchimp account, they are not active subscribers. They are either unsubscribed or have been cleaned from your list, and so you don't want to bring them over to Buttondown."
+    }
+  ]
 ---
 Welcome to Buttondown! After you've read through our "[Getting Started](/registration-and-setup)" guide, we're here to help you with your next step: transferring your subscribers from your old email platform to Buttondown.
 
@@ -53,14 +60,4 @@ You bring your subscribers' history to Buttondown when you connect your Stripe a
 
 ## Frequently asked questions
 
-### I see a bunch of different subscriber lists in my export! Which one should I choose?
-
-| CSV File Name                   | Description                                 |
-|---------------------------------|---------------------------------------------|
-| subscribed_members_export.csv   | All of your *active* subscribers            |
-| unsubscribed_members_export.csv | Just unsubscribers                          |
-| cleaned_members_export.csv      | Subscribers who have been cleaned (invalid, bounced, etc.) |
-
-Choose `subscribed_members_export.csv`. This is the list of all of your *active* subscribers.
-
-While "cleaned" and "unsubscribed" members are still in your Mailchimp account, they are not active subscribers. They are either unsubscribed or have been cleaned from your list, and so you don't want to bring them over to Buttondown.
+{% faq /%}

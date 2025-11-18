@@ -3,6 +3,25 @@ title: "Podia"
 description: >-
   Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Podia.
 date: 2025-05-23
+faqItems: >
+  [
+    {
+      "question": "My subscriber import failed",
+      "answer": "If your import doesn't work correctly, try formatting your CSV file to ensure it has clear headers and that all special characters are properly encoded. If problems persist, contact [Buttondown support](https://buttondown.com/support)."
+    },
+    {
+      "question": "Can I migrate my automations from Podia?",
+      "answer": "Buttondown has limited automation capabilities compared to Podia. You'll need to manually recreate your welcome email sequence, which is the primary automation Buttondown offers. Learn more about [welcome sequences](/welcome-sequence)."
+    },
+    {
+      "question": "What happens to my paid subscribers?",
+      "answer": "When properly configured with the same Stripe account, your paid subscribers will continue their subscriptions without interruption. They won't need to re-enter payment information."
+    },
+    {
+      "question": "Will my subscribers need to reconfirm their subscription?",
+      "answer": "No. As long as your subscribers already consented to receive your newsletter from Podia, they don't need to reconfirm when you move to Buttondown."
+    }
+  ]
 ---
 
 Moving your newsletter from Podia to Buttondown can help you take advantage of Buttondown's minimalist approach, markdown support, and pricing model that doesn't charge fees on paid subscriptions. This guide will walk you through the entire migration process to ensure a smooth transition.
@@ -112,17 +131,7 @@ Once you've confirmed everything is working properly in Buttondown:
 
 ## Troubleshooting and FAQ
 
-### My subscriber import failed
-If your import doesn't work correctly, try formatting your CSV file to ensure it has clear headers and that all special characters are properly encoded. If problems persist, contact [Buttondown support](https://buttondown.com/support).
-
-### Can I migrate my automations from Podia?
-Buttondown has limited automation capabilities compared to Podia. You'll need to manually recreate your welcome email sequence, which is the primary automation Buttondown offers. Learn more about [welcome sequences](/welcome-sequence).
-
-### What happens to my paid subscribers?
-When properly configured with the same Stripe account, your paid subscribers will continue their subscriptions without interruption. They won't need to re-enter payment information.
-
-### Will my subscribers need to reconfirm their subscription?
-No. As long as your subscribers already consented to receive your newsletter from Podia, they don't need to reconfirm when you move to Buttondown.
+{% faq /%}
 
 ## Conclusion
 

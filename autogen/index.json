@@ -432,8 +432,7 @@
     "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Substack. We'll even do the import for you!",
     "references": [
       "importing-your-data",
-      "substack",
-      "substack-application-fee"
+      "substack"
     ]
   },
   {
@@ -452,14 +451,6 @@
     "section": "guides",
     "schema": null,
     "description": "There are some circumstances where we may ask your subscribers to re-confirm their subscription.",
-    "references": []
-  },
-  {
-    "title": "Substack is taking 10% of my revenue. What should I do?",
-    "url": "substack-application-fee",
-    "section": "guides",
-    "schema": null,
-    "description": null,
     "references": []
   },
   {

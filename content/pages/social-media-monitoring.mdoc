@@ -1,5 +1,24 @@
 ---
 title: Social media monitoring
+faqItems: >
+  [
+    {
+      "question": "What pricing tier is this feature available on?",
+      "answer": "While this feature is in beta, it's available to all customers. Once it leaves beta, it\nwill be available to paying customers only."
+    },
+    {
+      "question": "I'm getting notified about my own posts about my newsletter.",
+      "answer": "We determine whether or not a post is coming from you or from someone else by checking your\nsocial networks that you list under [Your URLs in the design settings page](https://buttondown.com/settings/design)."
+    },
+    {
+      "question": "How is this different than Webmentions?",
+      "answer": "[Webmentions](/glossary-webmentions) are a way to get notifications when people mention your\nwebsite on other sites. It's built on an open standard, and supported by most blogging\nplatforms... but adoption outside the blogging world is relatively low, and this feature is meant to fill in the gaps."
+    },
+    {
+      "question": "What networks are supported?",
+      "answer": "| Network | Supported |\n| ------- | --------- |\n| Twitter | Yes       |\n| Bluesky | Yes       |\n| Mastodon | Yes, through Webmentions       |\n| GitHub  | Not yet       |\n| Reddit | Not yet       |\n| LinkedIn | No       |\n| Facebook | No       |\n| Threads | No       |\n\n(Networks marked \"no\" are not supported because they don't offer a public API for searching content.)"
+    }
+  ]
 ---
 
 (This feature is currently in beta; details are subject to change.)
@@ -12,34 +31,4 @@ having to go trawling social media yourself. Additionally, you'll be able to vie
 
 ## Frequently asked questions
 
-### What pricing tier is this feature available on?
-
-While this feature is in beta, it's available to all customers. Once it leaves beta, it
-will be available to paying customers only.
-
-### I'm getting notified about my own posts about my newsletter.
-
-We determine whether or not a post is coming from you or from someone else by checking your
-social networks that you list under [Your URLs in the design settings page](https://buttondown.com/settings/design).
-
-### How is this different than Webmentions?
-
-[Webmentions](/glossary-webmentions) are a way to get notifications when people mention your
-website on other sites. It's built on an open standard, and supported by most blogging
-platforms... but adoption outside the blogging world is relatively low, and this feature is meant to fill in the gaps.
-
-
-### What networks are supported?
-
-| Network | Supported |
-| ------- | --------- |
-| Twitter | Yes       |
-| Bluesky | Yes       |
-| Mastodon | Yes, through Webmentions       |
-| GitHub  | Not yet       |
-| Reddit | Not yet       |
-| LinkedIn | No       |
-| Facebook | No       |
-| Threads | No       |
-
-(Networks marked "no" are not supported because they don't offer a public API for searching content.)
+{% faq /%}
