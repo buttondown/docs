@@ -202,9 +202,11 @@ const VALID_INTERNAL_LINKS_THAT_ARE_NOT_BACKED_BY_MDOC = [
 ];
 
 const isInternalURLValid = (url: string) => {
+  const urlWithKnownFragmentRemoved = url.replace(/#faqs$/, "");
+
   return (
     VALID_INTERNAL_LINKS_THAT_ARE_NOT_BACKED_BY_MDOC.includes(url) ||
-    fs.existsSync(`${MARKDOC_DIRECTORY}/${url}.mdoc`)
+    fs.existsSync(`${MARKDOC_DIRECTORY}/${urlWithKnownFragmentRemoved}.mdoc`)
   );
 };
 
@@ -302,6 +304,128 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
 
   test(filename + " does not contain 'Missing image' text", () => {
     expect(content).not.toContain("Missing image");
+  });
+
+  // Terms that should be capitalized in a specific way
+  const CAPITALIZATION_EXCEPTIONS = [
+    "A/A",
+    "A/B",
+    "Alpine.js",
+    "AMP",
+    "API",
+    "AWeber",
+    "Benchmark",
+    "BIMI",
+    "Buttondown",
+    "CAC",
+    "CAN-SPAM",
+    "Campaign Monitor",
+    "CAPTCHA",
+    "CFBL",
+    "CLI",
+    "ConvertKit",
+    "Constant Contact",
+    "CORS",
+    "CPM",
+    "CSS",
+    "CSV",
+    "CTA",
+    "DaisyUI",
+    "DKIM",
+    "DMARC",
+    "DNS",
+    "DreamHost",
+    "EmailOctopus",
+    "ESP",
+    "EU",
+    "Fancy mode",
+    "FAQ",
+    "FeedBlitz",
+    "GDPR",
+    "Gmail",
+    "Google Workspace",
+    "H1",
+    "HTML",
+    "I",
+    "IP",
+    "JAMStack",
+    "JSON",
+    "JSON-LD",
+    "KYC",
+    "LaTeX",
+    "LinkedIn",
+    "MailerLite",
+    "Mantine",
+    "Modern template",
+    "Monthly Recurring Revenue",
+    "oEmbed",
+    "OpenAPI",
+    "POSSE",
+    "Precedence: Bulk",
+    "Promotions",
+    "REST",
+    "RSS",
+    "SEO",
+    "shadcn/ui",
+    "SimpleAnalytics",
+    "SMTP",
+    "SpamAssassin",
+    "SPF",
+    "Stripe",
+    "UGC",
+    "URL",
+    "UTM",
+    "WordPress",
+    "WYSIWYG",
+  ];
+
+  test(filename + " has a sentence-case title", () => {
+    const titleMatch = content.match(/title: (.+?)\s*$/m);
+    if (!titleMatch) return;
+
+    const originalTitle = titleMatch[1].replace(/^["']|["']$/g, "");
+    // Skip date-only titles (e.g., "2025-01-02")
+    if (/^\d{4}-\d{2}-\d{2}$/.test(originalTitle)) return;
+    // Skip code/variable names (e.g., "email.subject", "subscribe_form")
+    if (
+      /^[a-z_]+(\.[a-z_]+)+$/.test(originalTitle) ||
+      /^[a-z_]+_[a-z_]+$/.test(originalTitle)
+    )
+      return;
+
+    let titleWithoutExceptions = originalTitle;
+    CAPITALIZATION_EXCEPTIONS.sort((a, b) => b.length - a.length).forEach(
+      (exception) => {
+        const escapedException = exception.replace(
+          /[.*+?^${}()|[\]\\]/g,
+          "\\$&"
+        );
+        titleWithoutExceptions = titleWithoutExceptions.replace(
+          new RegExp(`\\b${escapedException}\\b`, "g"),
+          ""
+        );
+      }
+    );
+
+    const removeCapitalFirstLetter = (str: string): string => {
+      return str.replace(/^[A-Z]/, "");
+    };
+
+    const isSentenceCased = (str: string): boolean => {
+      const sentences = str.split(".").map((sentence) => sentence.trim());
+      const sentencesWithoutCapitalFirstLetter = sentences.map(
+        removeCapitalFirstLetter
+      );
+
+      return sentencesWithoutCapitalFirstLetter.every((sentence) => {
+        return sentence === sentence.toLowerCase();
+      });
+    };
+
+    expect(
+      isSentenceCased(titleWithoutExceptions),
+      `Title "${originalTitle}" should be sentence case, got "${titleWithoutExceptions}"`
+    ).toBe(true);
   });
 });
 

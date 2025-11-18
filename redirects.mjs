@@ -47,12 +47,12 @@ const REDIRECTS = [
   {
     source: "/advanced-features/paid-subscriptions/test-mode",
     permanent: false,
-    destination: "/paid-subscriptions#can-i-use-stripe-test-mode-with-buttondown",
+    destination: "/paid-subscriptions#faqs",
   },
   {
     source: "/stripe-test-mode",
     permanent: false,
-    destination: "/paid-subscriptions#can-i-use-stripe-test-mode-with-buttondown",
+    destination: "/paid-subscriptions#faqs",
   },
   {
     source: "/advanced-features/paid-subscriptions",

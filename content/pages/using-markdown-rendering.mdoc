@@ -1,7 +1,6 @@
 ---
-title: Buttondown's Markdown rendering engine
+title: Buttondown's markdown rendering engine
 navigationTitle: Buttondown's rendering engine
-
 ---
 
 Buttondown's Markdown rendering engine is [Python-Markdown](https://github.com/Python-Markdown/markdown). Some details about the gnarly implementation below: feel free to ignore this unless you're a Buttondown (and/or Markdown) power user!
@@ -19,9 +18,9 @@ In addition, Buttondown uses a handful of extensions:
 
 ### Embeds
 
-In addition to all of *those*, Buttondown uses some proprietary extensions for embedding things like tweets, YouTube videos, and gifs — but none of these should affect your general rendering experience.
+In addition to all of _those_, Buttondown uses some proprietary extensions for embedding things like tweets, YouTube videos, and gifs — but none of these should affect your general rendering experience.
 
-Embeds can be invoked by putting the URL of the resource (Tweet, post, image, etc.) on its own line. *Only* the URL should be on the line. Any additional whitespace or characters will intercept the magic of embeds.
+Embeds can be invoked by putting the URL of the resource (Tweet, post, image, etc.) on its own line. _Only_ the URL should be on the line. Any additional whitespace or characters will intercept the magic of embeds.
 
 Embeds support URLs from the following sources:
 
@@ -41,10 +40,9 @@ Play around with it!
 
 Embeds only trigger on their own self-contained lines. If you're looking for an escape hatch out of these embeds, you can simply wrap the link in an HTML tag, like so:
 
-
 {% preview before="Here is a tweet I liked!\n\n<div>https://twitter.com/rachsyme/status/1352057677359288321</div>"
             after="Here is a tweet I liked!\nhttps://twitter.com/rachsyme/status/1352057677359288321" /%}
 
 ### Tables of contents
 
-If you're interested in creating a table of contents in your Buttondown newsletter, be sure to use *names* (such as `<a name='heading'>`) rather than *ids* (such as `<a id='heading'>`)! Gmail and many other email clients strip `id` tags from emails, which will break internal links.
+If you're interested in creating a table of contents in your Buttondown newsletter, be sure to use _names_ (such as `<a name='heading'>`) rather than _ids_ (such as `<a id='heading'>`)! Gmail and many other email clients strip `id` tags from emails, which will break internal links.
