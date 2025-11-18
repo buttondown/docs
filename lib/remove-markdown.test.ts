@@ -66,4 +66,22 @@ graph LR
 \`\`\``
     )
   ).toBe("Some content");
+
+    expect(
+      removeMarkdown(
+        `Intro
+
+{% playgroundEmbed
+   title="sample playground"
+   initialContent="<p>Hello</p>" /%}
+
+Outro`
+      )
+    ).toBe("Intro\n\n\n\nOutro");
+
+    expect(
+      removeMarkdown(
+        `Before {% preview src="/docs/example" label="Example" /%} after`
+      )
+    ).toBe("Before  after");
 });

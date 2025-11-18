@@ -1,10 +1,42 @@
+const COMPONENTS_TO_REMOVE = [
+  "playgroundEmbed",
+  "preview",
+  "iframe",
+  "video",
+  "generatedMultilanguageSnippets",
+  "automation",
+  "liveCodeBlock",
+  "fileExplorer",
+  "faq",
+  "table",
+  "supportSnippet",
+  "paidFeature",
+  "snippetSpacer",
+];
+
+const COMPONENTS_WITH_TEXT = ["noticeInfo", "noticeWarn"];
+
 export function removeMarkdown(text: string) {
   return (
     text
       // Remove Mermaid diagrams
       .replace(/```mermaid[\s\S]*?```/g, "")
-      // Extract text from custom components (noticeInfo, noticeWarn, etc.)
-      .replace(/{%\s*\w+\s+text="([^"]*)"\s*\/%}/g, "$1")
+      // Remove specific Markdoc components entirely
+      .replace(
+        new RegExp(
+          `{%\\s*(?:${COMPONENTS_TO_REMOVE.join("|")})\\s+[^%]*%}`,
+          "g",
+        ),
+        "",
+      )
+      // Extract text attribute from notice components
+      .replace(
+        new RegExp(
+          `{%\\s*(?:${COMPONENTS_WITH_TEXT.join("|")})\\s+text="([^"]*)"\\s*\\/%}`,
+          "g",
+        ),
+        "$1",
+      )
       // Remove images
       .replace(/\!\[(.*?)\][\[\(].*?[\]\)]/g, "")
       // Remove inline links
