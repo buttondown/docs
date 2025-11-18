@@ -6,6 +6,7 @@ export const buildSearchIndex = (contentArray: ContentArray) => {
     schema: {
       title: "string",
       body: "string",
+      categories: "string[]",
     },
   });
 
