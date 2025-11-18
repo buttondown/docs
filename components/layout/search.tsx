@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 const highlighter = new Highlight({
-  CSSClass: "bg-amber-100 text-amber-900",
+  CSSClass: "bg-amber-100",
 });
 
 export default function Search({
@@ -74,10 +74,10 @@ export default function Search({
 
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-50 grid sm:place-items-center p-2">
-          <Dialog.Content className="max-w-xl w-full rounded-md pb-4 border bg-gray-50 h-96 overflow-scroll">
+          <Dialog.Content className="max-w-xl w-full rounded-md border bg-gray-50 h-96 overflow-scroll">
             <Dialog.Title className="sr-only">Search</Dialog.Title>
 
-            <div className="sticky top-0 space-x-1 bg-gray-50 px-4 pr-2 py-3 border-b border-gray-200 flex items-center">
+            <div className="sticky top-0 space-x-1 bg-gray-50 px-4 py-3 border-b border-gray-200 flex items-center">
               <Icon.Search />
               <input
                 type="text"
@@ -137,18 +137,19 @@ function SearchResultRow({
   const LinkComponent = href.startsWith("/") ? Link : "a";
 
   return (
-    <LinkComponent href={href} className="block py-2 px-4">
+    <LinkComponent href={href} className="block py-2.5 px-4 hover:bg-gray-200">
       <p
         dangerouslySetInnerHTML={{
           __html: highlighter.highlight(title, query).HTML,
         }}
+        className="font-medium"
       />
       {body && (
         <p
           dangerouslySetInnerHTML={{
             __html: highlighter.highlight(body, query).trim(100),
           }}
-          className="text-sm text-gray-500"
+          className="mt-0.5 text-sm text-gray-500"
         />
       )}
     </LinkComponent>
@@ -183,7 +184,9 @@ function CategoryButton({
 function NoResultsFound() {
   return (
     <>
-      <div className="py-2 px-4 text-sm text-gray-400">No results found</div>
+      <div className="pt-2 pb-2.5 px-4 text-sm text-gray-400">
+        No results found
+      </div>
       <SearchResultRow
         title="Email support@buttondown.com"
         href="mailto:support@buttondown.com"
