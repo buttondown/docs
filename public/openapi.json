@@ -1934,14 +1934,12 @@
               "example": "telemachus@buttondown.email",
               "anyOf": [
                 {
-                  "type": "string",
-                  "pattern": "^[a-zA-Z0-9.'_%+\\-!]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$"
+                  "type": "string"
                 },
                 {
                   "type": "array",
                   "items": {
-                    "type": "string",
-                    "pattern": "^[a-zA-Z0-9.'_%+\\-!]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$"
+                    "type": "string"
                   }
                 }
               ]
@@ -9250,6 +9248,7 @@
           },
           "email_address": {
             "title": "Email Address",
+            "pattern": "^[a-zA-Z0-9.'_%+\\-!]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$",
             "example": "newsletter@sheinhardt.com",
             "type": "string"
           },
@@ -9403,6 +9402,7 @@
           "email_address": {
             "title": "Email Address",
             "description": "The email address of the newsletter.",
+            "pattern": "^[a-zA-Z0-9.'_%+\\-!]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$",
             "example": "newsletter@sheinhardt.com",
             "type": "string"
           },

@@ -1492,6 +1492,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "converting-between-modes",
       "fancy-mode",
       "fancy-mode-text",
       "preflight",
@@ -1540,6 +1541,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "converting-between-modes",
       "fancy-mode",
       "quickstart",
       "sending-your-first-email",
@@ -1560,6 +1562,14 @@
   {
     "title": "Buttondown's markdown rendering engine",
     "url": "using-markdown-rendering",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Converting between fancy mode and markdown mode",
+    "url": "converting-between-modes",
     "section": "reference",
     "schema": null,
     "description": null,
@@ -2982,6 +2992,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "converting-between-modes",
       "fancy-mode",
       "quickstart",
       "using-markdown"

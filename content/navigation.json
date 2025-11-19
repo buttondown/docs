@@ -698,6 +698,10 @@
           "value": "using-markdown-rendering"
         },
         {
+          "discriminant": "page",
+          "value": "converting-between-modes"
+        },
+        {
           "discriminant": "divider",
           "value": "Naked mode"
         },

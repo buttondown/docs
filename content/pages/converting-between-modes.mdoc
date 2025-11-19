@@ -1,0 +1,55 @@
+---
+title: Converting between fancy mode and markdown mode
+relatedPages:
+ - fancy-mode
+ - using-markdown
+---
+
+Buttondown allows you to write emails in either [fancy mode](/fancy-mode) (a [WYSIWYG](/glossary-wysiwyg) editor) or [Markdown mode](/using-markdown) (a plain text editor). You can switch between these modes at any time while editing your email, and Buttondown will automatically convert your content to match the new editor format.
+
+The conversion only becomes permanent when you edit the contents in the new mode. If you switch modes and don't like how something looks, you can simply switch back without editing the content and your original will be preserved.
+
+When converting from Markdown to fancy mode, if something can't be converted properly, you'll see a warning banner at the top of the editor (if you don't see this banner but things don't look right, [let us know](mailto:support@buttondown.com)). You can also recover previous versions of your email using the revision history.
+
+## From fancy mode to Markdown
+
+When you switch from fancy mode to Markdown mode, Buttondown converts your formatted text back into Markdown notation. The visual formatting you see in fancy mode is turned into the equivalent Markdown code.
+
+## From Markdown to fancy mode
+
+When you switch from Markdown mode to fancy mode, Buttondown turns your Markdown notation into formatted text that you can see and edit visually. For example:
+
+- `**bold text**` becomes actual bold text
+- `[link text](https://example.com)` becomes a clickable link
+- `![alt text](https://example.com/image.png)` becomes a displayed image
+
+### What converts safely
+
+Most common Markdown formatting converts to fancy mode without issue:
+
+| Formatting | Details |
+| --- | --- |
+| Text formatting | Bold, italic, underline, strikethrough, subscript, and superscript |
+| Headings | All heading levels (h1 through h6) |
+| Links | Standard links |
+| Lists | Ordered and unordered lists, including nested lists |
+| Code blocks | Fenced code blocks with language specifications |
+| Blockquotes | Standard blockquotes |
+| Horizontal rules | Dividers/separators |
+| Images | Basic images |
+| Template tags | Buttondown's `{{ template_tag }}` syntax is preserved |
+
+### What doesn't convert cleanly
+
+Custom HTML is not supported when converting from Markdown to fancy mode. While some HTML elements might convert (like using an `<img>` tag instead of Markdown image syntax), the conversion won't be 1:1 — any attributes that fancy mode doesn't support will be lost. Elements that aren't standard Markdown formatting (like `<center>`, custom `<div>` tags, or other HTML) will usually cause an error when switching to fancy mode.
+
+## The conversion dialog
+
+When you paste Markdown-formatted content into fancy mode editor, Buttondown will detect it and ask if you'd like to switch to Markdown mode instead. This helps prevent unexpected formatting when you're copying content from Markdown files or other sources.
+
+![The Markdown conversion dialog showing a preview of pasted content](/images/markdown-conversion-dialog.png)
+
+You can choose to:
+- **Stay in fancy mode**: The Markdown will be converted and displayed visually
+- **Switch to Markdown mode**: The content will be pasted as plain Markdown text
+- **Don't ask again**: Disable this prompt for future pastes (you can re-enable it in your preferences)
