@@ -275,11 +275,6 @@ const REDIRECTS = [
     destination: "/discord",
   },
   {
-    source: "/integrations/duda",
-    permanent: false,
-    destination: "/duda",
-  },
-  {
     source: "/integrations/fathom",
     permanent: false,
     destination: "/fathom",
@@ -288,11 +283,6 @@ const REDIRECTS = [
     source: "/integrations/framer",
     permanent: false,
     destination: "/framer",
-  },
-  {
-    source: "/integrations/linktree",
-    permanent: false,
-    destination: "/linktree",
   },
   {
     source: "/integrations/plausible",

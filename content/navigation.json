@@ -410,10 +410,6 @@
       "items": [
         {
           "discriminant": "page",
-          "value": "alpinejs"
-        },
-        {
-          "discriminant": "page",
           "value": "arena"
         },
         {
@@ -434,10 +430,6 @@
         },
         {
           "discriminant": "page",
-          "value": "duda"
-        },
-        {
-          "discriminant": "page",
           "value": "fathom"
         },
         {
@@ -450,19 +442,7 @@
         },
         {
           "discriminant": "page",
-          "value": "linktree"
-        },
-        {
-          "discriminant": "page",
-          "value": "mantine"
-        },
-        {
-          "discriminant": "page",
           "value": "plausible"
-        },
-        {
-          "discriminant": "page",
-          "value": "shopify"
         },
         {
           "discriminant": "page",

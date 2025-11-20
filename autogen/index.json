@@ -56,7 +56,6 @@
     "schema": null,
     "description": null,
     "references": [
-      "alpinejs",
       "beehiiv",
       "customizing-email-design",
       "glossary-latex",
@@ -129,7 +128,6 @@
     "schema": null,
     "description": "Buttondown allows you to collect subscriber names, and create a more personalized email for your readers.",
     "references": [
-      "duda",
       "importing-your-data"
     ]
   },
@@ -176,7 +174,6 @@
     "schema": null,
     "description": "Buttondown makes it easy to segment your readers by using tags.",
     "references": [
-      "alpinejs",
       "api-tags-analytics",
       "api-tags-create",
       "api-tags-delete",
@@ -186,10 +183,8 @@
       "building-your-subscriber-base",
       "constant-contact",
       "customizing-subscriber-list-view",
-      "duda",
       "how-can-i-segment-users",
       "importing-your-data",
-      "linktree",
       "multiple-newsletters",
       "portal",
       "quickstart",
@@ -207,15 +202,12 @@
     "schema": null,
     "description": "Want to do a \"mail merge\" on your Buttondown newsletter? We make it easy information in Metadata!",
     "references": [
-      "alpinejs",
       "api-notes-create",
       "building-your-subscriber-base",
       "constant-contact",
       "customizing-subscriber-list-view",
-      "duda",
       "how-can-i-segment-users",
       "importing-your-data",
-      "linktree",
       "metadata",
       "moosend",
       "sending-your-first-email",
@@ -925,16 +917,6 @@
     "references": []
   },
   {
-    "title": "Building a newsletter subscription form with Alpine.js",
-    "url": "alpinejs",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": [
-      "alpinejs"
-    ]
-  },
-  {
     "title": "Are.na",
     "url": "arena",
     "section": "guides",
@@ -976,19 +958,7 @@
     "section": "guides",
     "schema": null,
     "description": "You can send notifications about new Buttondown newsletter emails, new subscribers, or other events to your Discord server.",
-    "references": [
-      "discord"
-    ]
-  },
-  {
-    "title": "Duda",
-    "url": "duda",
-    "section": "guides",
-    "schema": null,
-    "description": "Duda and Buttondown integrate seamlessly so you can easily collect new newsletter subscribers.",
-    "references": [
-      "duda"
-    ]
+    "references": []
   },
   {
     "title": "Fathom",
@@ -1021,26 +991,6 @@
     ]
   },
   {
-    "title": "Linktree",
-    "url": "linktree",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": [
-      "linktree"
-    ]
-  },
-  {
-    "title": "Integrating Mantine with Buttondown",
-    "url": "mantine",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": [
-      "mantine"
-    ]
-  },
-  {
     "title": "Plausible",
     "url": "plausible",
     "section": "guides",
@@ -1050,14 +1000,6 @@
       "plausible",
       "xss"
     ]
-  },
-  {
-    "title": "Shopify",
-    "url": "shopify",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": []
   },
   {
     "title": "SimpleAnalytics",
@@ -2032,7 +1974,6 @@
       "building-your-subscriber-base",
       "can-i-send-an-email-to-new-subscribers",
       "creating-your-first-automation",
-      "duda",
       "linkedin",
       "portal",
       "replies",
@@ -2094,9 +2035,7 @@
       "creating-webhooks-dashboard",
       "data-exports-event",
       "discord",
-      "duda",
-      "glossary-webhook",
-      "linktree"
+      "glossary-webhook"
     ]
   },
   {
