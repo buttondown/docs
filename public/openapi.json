@@ -11016,7 +11016,8 @@
         "title": "UpdateSurveyErrorCode",
         "description": "An enumeration.",
         "enum": [
-          "answers_empty"
+          "answers_empty",
+          "survey_has_responses"
         ],
         "type": "string"
       },
