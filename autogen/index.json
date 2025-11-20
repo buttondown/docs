@@ -4415,6 +4415,7 @@
     "description": null,
     "references": [
       "api-changelog",
+      "api-changelog-2022-11-19",
       "api-changelog-2024-12-09",
       "api-introduction"
     ]
@@ -4717,7 +4718,8 @@
     "schema": null,
     "description": null,
     "references": [
-      "api-changelog"
+      "api-changelog",
+      "api-changelog-2022-11-19"
     ]
   },
   {

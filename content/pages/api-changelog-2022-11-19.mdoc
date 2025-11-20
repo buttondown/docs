@@ -6,4 +6,4 @@ navigationTitle: "2022-11-19"
 Removed the `/v1/drafts`, `/v1/scheduled-emails`, and `/v1/unsubscribers` endpoints. The behavior of all three endpoints have been subsumed into `/v1/emails` and `/v1/subscribers`:
 - you can create (or list) drafts by specifying `status='draft'`
 - you can create (or list) scheduled emails by specifying `status='scheduled'`
-- you can list unsubscribers by specifying `subscriber_type='unsubscribed'`
+- you can list unsubscribers by specifying `type='unsubscribed'` (Note: this field was renamed from `subscriber_type` to `type` in [2024-08-01](/api-changelog-2024-08-01))

@@ -7,10 +7,10 @@
 To run Docs for the first time you'll:
 
 1. Clone the `monorepo` and navigate to `docs` (or, if you don't have access, clone the `docs` repo)
-2. Use `just install` to install all packages and dependencies (or, if you're using the standalone `docs` repo, run `pnpm install`)
-3. Run `pnpm dev` (or, if you're trying to build the docs statically for production, run `just build`)
+2. Use `just install` to install all packages and dependencies (or, if you're using the standalone `docs` repo, run `bun install`)
+3. Run `bun dev` (or, if you're trying to build the docs statically for production, run `just build`)
 
-Now you're ready to work! You can now run `pnpm dev` in your command line.
+Now you're ready to work! You can now run `bun dev` in your command line.
 
 The docs will now be accessible in your browser.
 
@@ -20,14 +20,11 @@ Terminal will watch for changes, and recompile when they're detected.
 
 ### Troubleshooting build issues
 
-**Check your Node version**
+**Check your Bun version**
 
-You can check your Node version by running `node -v` in your command line.
+You can check your Bun version by running `bun -v` in your command line.
 
-> Docs v2 is running on Node `20.18.1`
-
-**Check your NPM version**
-You can check your NPM version by running `npm -v` in your command line.
+> Docs uses Bun for package management and running the dev server.
 
 **Clear the server cache**
 Run `just clear_cache` to reset Next.js
