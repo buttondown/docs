@@ -3587,6 +3587,14 @@
     "references": []
   },
   {
+    "title": "Retrieving an attachment",
+    "url": "api-attachments-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Deleting an attachment",
     "url": "api-attachments-delete",
     "section": "api",

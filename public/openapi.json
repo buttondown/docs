@@ -787,7 +787,34 @@
       "get": {
         "operationId": "list_attachments",
         "summary": "List Attachments",
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "ids",
+            "schema": {
+              "title": "Ids",
+              "description": "If provided, only return attachments matching the given IDs.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return attachments matching the given IDs."
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "title": "Page Size",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000,
+              "type": "integer"
+            },
+            "required": false
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -808,6 +835,59 @@
       }
     },
     "/attachments/{id}": {
+      "get": {
+        "operationId": "retrieve_attachment",
+        "summary": "Retrieve Attachment",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Attachment"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve an attachment",
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      },
       "delete": {
         "operationId": "delete_attachment",
         "summary": "Delete Attachment",

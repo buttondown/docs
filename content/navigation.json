@@ -1702,6 +1702,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-attachments-retrieve"
+        },
+        {
+          "discriminant": "page",
           "value": "api-attachments-delete"
         }
       ]
