@@ -1941,6 +1941,10 @@
         {
           "discriminant": "page",
           "value": "api-comments-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-comments-delete"
         }
       ]
     },
@@ -1998,6 +2002,10 @@
         {
           "discriminant": "page",
           "value": "api-survey-responses-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-survey-responses-update"
         }
       ]
     },

@@ -6494,6 +6494,56 @@
             "PermissionAuthenticationRequirement": []
           }
         ]
+      },
+      "delete": {
+        "operationId": "delete_comment",
+        "summary": "Delete Comment",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Delete a comment. Only the comment owner (subscriber) or the newsletter author can delete a comment.",
+        "security": [
+          {
+            "SubscriberFacingAuthentication": []
+          },
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
       }
     },
     "/survey_responses": {
@@ -6681,6 +6731,85 @@
           "required": true
         },
         "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
+    },
+    "/survey_responses/{id}": {
+      "patch": {
+        "operationId": "update_survey_response",
+        "summary": "Update Survey Response",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Update a survey response's text. Only the response owner (subscriber) can update their response.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResponseUpdateInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "SubscriberFacingAuthentication": []
+          },
           {
             "PermissionAuthenticationRequirement": []
           }
@@ -12618,6 +12747,17 @@
           "email_id",
           "answer"
         ]
+      },
+      "ResponseUpdateInput": {
+        "title": "ResponseUpdateInput",
+        "type": "object",
+        "properties": {
+          "text": {
+            "title": "Text",
+            "description": "The text response to update. Only applicable if the survey has freeform responses enabled.",
+            "type": "string"
+          }
+        }
       },
       "EmailEventType": {
         "title": "EmailEventType",

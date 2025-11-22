@@ -915,6 +915,18 @@
     "survey.updated": {
       "description": "Whenever a survey's content or metadata has been updated.",
       "name": "survey.updated"
+    },
+    "form.created": {
+      "description": "Whenever a new form is created.",
+      "name": "form.created"
+    },
+    "form.deleted": {
+      "description": "Whenever a form has been deleted.",
+      "name": "form.deleted"
+    },
+    "form.updated": {
+      "description": "Whenever a form's content or metadata has been updated.",
+      "name": "form.updated"
     }
   },
   "ExternalFeedAutomationBehavior": {
