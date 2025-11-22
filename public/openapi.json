@@ -4925,6 +4925,337 @@
         ]
       }
     },
+    "/forms": {
+      "post": {
+        "operationId": "create_form",
+        "summary": "Create Form",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Form"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage_CreateFormErrorCode_"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FormInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "list_forms",
+        "summary": "List Forms",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "description": "If provided, only return forms with the given status.",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FormStatus"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return forms with the given status."
+          },
+          {
+            "in": "query",
+            "name": "-status",
+            "schema": {
+              "description": "If provided, only return forms without the given status.",
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FormStatus"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return forms without the given status."
+          },
+          {
+            "in": "query",
+            "name": "admin",
+            "schema": {
+              "title": "Admin",
+              "description": "If provided, filter by admin-only flag.",
+              "type": "boolean"
+            },
+            "required": false,
+            "description": "If provided, filter by admin-only flag."
+          },
+          {
+            "in": "query",
+            "name": "ordering",
+            "schema": {
+              "default": "-creation_date",
+              "allOf": [
+                {
+                  "title": "Ordering",
+                  "description": "An enumeration.",
+                  "enum": [
+                    "creation_date",
+                    "-creation_date",
+                    "title",
+                    "-title",
+                    "slug",
+                    "-slug",
+                    "status",
+                    "-status"
+                  ],
+                  "type": "string"
+                }
+              ]
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormPage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
+    },
+    "/forms/{id}": {
+      "get": {
+        "operationId": "retrieve_form",
+        "summary": "Retrieve Form",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Form"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "Retrieve a specific form by its ID",
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "update_form",
+        "summary": "Update Form",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Form"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "Update a form's properties",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FormUpdateInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "delete_form",
+        "summary": "Delete Form",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "Delete a form",
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
+    },
     "/api_requests/{id}": {
       "get": {
         "operationId": "retrieve_api_request",
@@ -5855,7 +6186,10 @@
                 "survey.cleared_responses",
                 "survey.created",
                 "survey.deleted",
-                "survey.updated"
+                "survey.updated",
+                "form.created",
+                "form.deleted",
+                "form.updated"
               ],
               "type": "string"
             },
@@ -8166,6 +8500,14 @@
                 "$ref": "#/components/schemas/AccessLevel"
               }
             ]
+          },
+          "forms": {
+            "default": "none",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccessLevel"
+              }
+            ]
           }
         }
       },
@@ -10196,7 +10538,10 @@
           "survey.cleared_responses",
           "survey.created",
           "survey.deleted",
-          "survey.updated"
+          "survey.updated",
+          "form.created",
+          "form.deleted",
+          "form.updated"
         ],
         "type": "string"
       },
@@ -11164,6 +11509,242 @@
           },
           "input_type": {
             "$ref": "#/components/schemas/SurveyInputType"
+          }
+        }
+      },
+      "FormStatus": {
+        "title": "Status",
+        "description": "An enumeration.",
+        "enum": [
+          "active",
+          "inactive"
+        ],
+        "type": "string"
+      },
+      "Form": {
+        "title": "Form",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "description": "A unique UUID associated with the object.",
+            "type": "string",
+            "format": "uuid"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was created.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "slug": {
+            "title": "Slug",
+            "type": "string"
+          },
+          "body": {
+            "title": "Body",
+            "type": "string"
+          },
+          "css": {
+            "title": "Css",
+            "type": "string"
+          },
+          "success_body": {
+            "title": "Success Body",
+            "type": "string"
+          },
+          "surveys": {
+            "title": "Surveys",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "admin": {
+            "title": "Admin",
+            "type": "boolean"
+          },
+          "status": {
+            "$ref": "#/components/schemas/FormStatus"
+          }
+        },
+        "required": [
+          "id",
+          "creation_date",
+          "title",
+          "slug",
+          "body",
+          "css",
+          "success_body",
+          "surveys",
+          "admin",
+          "status"
+        ]
+      },
+      "CreateFormErrorCode": {
+        "title": "CreateFormErrorCode",
+        "description": "Represents the type of error that occurred when creating a form.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
+        "enum": [
+          "slug_already_exists"
+        ],
+        "type": "string"
+      },
+      "ErrorMessage_CreateFormErrorCode_": {
+        "title": "ErrorMessage[CreateFormErrorCode]",
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/CreateFormErrorCode"
+          },
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "default": {},
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "code",
+          "detail"
+        ]
+      },
+      "FormInput": {
+        "title": "FormInput",
+        "type": "object",
+        "properties": {
+          "title": {
+            "title": "Title",
+            "example": "Contact Form",
+            "type": "string"
+          },
+          "slug": {
+            "title": "Slug",
+            "example": "contact",
+            "type": "string"
+          },
+          "body": {
+            "title": "Body",
+            "default": "",
+            "example": "",
+            "type": "string"
+          },
+          "css": {
+            "title": "Css",
+            "default": "",
+            "example": "",
+            "type": "string"
+          },
+          "success_body": {
+            "title": "Success Body",
+            "default": "",
+            "example": "Thank you for your submission!",
+            "type": "string"
+          },
+          "surveys": {
+            "title": "Surveys",
+            "example": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "admin": {
+            "title": "Admin",
+            "default": false,
+            "example": false,
+            "type": "boolean"
+          },
+          "status": {
+            "default": "active",
+            "example": "active",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FormStatus"
+              }
+            ]
+          }
+        },
+        "required": [
+          "title",
+          "slug"
+        ]
+      },
+      "FormPage": {
+        "title": "Page[Form]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Form"
+            }
+          },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
+      "FormUpdateInput": {
+        "title": "FormUpdateInput",
+        "type": "object",
+        "properties": {
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "slug": {
+            "title": "Slug",
+            "type": "string"
+          },
+          "body": {
+            "title": "Body",
+            "type": "string"
+          },
+          "css": {
+            "title": "Css",
+            "type": "string"
+          },
+          "success_body": {
+            "title": "Success Body",
+            "type": "string"
+          },
+          "surveys": {
+            "title": "Surveys",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "admin": {
+            "title": "Admin",
+            "type": "boolean"
+          },
+          "status": {
+            "$ref": "#/components/schemas/FormStatus"
           }
         }
       },

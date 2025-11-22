@@ -581,6 +581,26 @@ const UNDOCUMENTED_API_ENDPOINTS = [
     path: "/advertising_units/{id}",
     operation: "delete",
   },
+  {
+    path: "/forms",
+    operation: "post",
+  },
+  {
+    path: "/forms",
+    operation: "get",
+  },
+  {
+    path: "/forms/{id}",
+    operation: "get",
+  },
+  {
+    path: "/forms/{id}",
+    operation: "patch",
+  },
+  {
+    path: "/forms/{id}",
+    operation: "delete",
+  },
 ];
 
 API_ENDPOINTS.filter(
