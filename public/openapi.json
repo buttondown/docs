@@ -7202,6 +7202,63 @@
           }
         ]
       }
+    },
+    "/public/emails/{username}": {
+      "get": {
+        "operationId": "list_public_emails",
+        "summary": "Search public emails",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "username",
+            "schema": {
+              "title": "Username",
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "title": "Q",
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "title": "Page",
+              "default": 1,
+              "type": "integer"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicEmailPage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Search and list public emails for a newsletter. No authentication required.",
+        "tags": [
+          "public"
+        ],
+        "security": [
+          {
+            "NoAuthenticatorAuth": []
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -13035,6 +13092,80 @@
           "count"
         ]
       },
+      "PublicEmail": {
+        "title": "PublicEmail",
+        "description": "Public email schema for email search results.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "subject": {
+            "title": "Subject",
+            "type": "string"
+          },
+          "slug": {
+            "title": "Slug",
+            "type": "string"
+          },
+          "publish_date": {
+            "title": "Publish Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "absolute_url": {
+            "title": "Absolute Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "subject",
+          "creation_date",
+          "description",
+          "absolute_url"
+        ]
+      },
+      "PublicEmailPage": {
+        "title": "Page[PublicEmail]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublicEmail"
+            }
+          },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
       "EmailExcludableField": {
         "type": "string",
         "enum": [
@@ -13064,6 +13195,10 @@
         "scheme": "none"
       },
       "BulkActionAuth": {
+        "type": "http",
+        "scheme": "none"
+      },
+      "NoAuthenticatorAuth": {
         "type": "http",
         "scheme": "none"
       }

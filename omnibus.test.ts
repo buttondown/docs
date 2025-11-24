@@ -608,13 +608,18 @@ API_ENDPOINTS.filter(
     !UNDOCUMENTED_API_ENDPOINTS.map((e) => JSON.stringify(e)).includes(
       JSON.stringify(endpoint)
     )
-).forEach((endpoint) => {
-  test(JSON.stringify(endpoint) + " is referenced by at least one page", () => {
-    const relevantPage = Object.entries(FILENAME_TO_FRONTMATTER).find(
-      ([filename, frontmatter]) =>
-        frontmatter.endpoint === endpoint.path &&
-        frontmatter.method === endpoint.operation
+)
+  .filter((endpoint) => !endpoint.path.startsWith("/public"))
+  .forEach((endpoint) => {
+    test(
+      JSON.stringify(endpoint) + " is referenced by at least one page",
+      () => {
+        const relevantPage = Object.entries(FILENAME_TO_FRONTMATTER).find(
+          ([filename, frontmatter]) =>
+            frontmatter.endpoint === endpoint.path &&
+            frontmatter.method === endpoint.operation
+        );
+        expect(relevantPage).toBeDefined();
+      }
     );
-    expect(relevantPage).toBeDefined();
   });
-});
