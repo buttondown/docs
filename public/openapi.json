@@ -8922,6 +8922,29 @@
           "type"
         ]
       },
+      "EmailTransition": {
+        "title": "EmailTransition",
+        "type": "object",
+        "properties": {
+          "date": {
+            "title": "Date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "old_email_address": {
+            "title": "Old Email Address",
+            "type": "string"
+          },
+          "new_email_address": {
+            "title": "New Email Address",
+            "type": "string"
+          }
+        },
+        "required": [
+          "date",
+          "new_email_address"
+        ]
+      },
       "SubscriberUndeliverabilityReason": {
         "title": "UndeliverabilityReason",
         "description": "The reason Buttondown has marked the subscriber as undeliverable.\nUndeliverable subscribers are not sent emails, and may be periodically removed from the system (or restored, if the reason is no longer valid.)",
@@ -9069,6 +9092,14 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Transition"
+            }
+          },
+          "email_transitions": {
+            "title": "Email Transitions",
+            "default": [],
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmailTransition"
             }
           },
           "type": {
