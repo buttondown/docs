@@ -1822,7 +1822,9 @@
     "section": "reference",
     "schema": null,
     "description": "Buttondown allows you to set a canonical URL for your web archives.",
-    "references": []
+    "references": [
+      "rss-to-email"
+    ]
   },
   {
     "title": "Does Buttondown automatically index my web archives?",

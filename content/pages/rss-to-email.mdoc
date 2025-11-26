@@ -8,6 +8,17 @@ relatedPages:
 - rss-cadence
 description:  >-
   With Buttondown's RSS automation, you can automatically send a new email every time you publish a new blog post.
+faqItems: >
+  [
+    {
+      "question": "Do relative image URLs in my RSS feed get resolved correctly?",
+      "answer": "Yes! Buttondown resolves relative URLs (like `/_astro/image.abc123.webp`) if you place the base URL in your RSS feed. You can do this using the `xml:base` attribute on your RSS feed or item elements. If you're using a static site generator like Astro that outputs optimized images with relative paths, you don't need to convert them to absolute URLs—just make sure your RSS feed includes a base URL. If you see any issues with URL resolution, [let us know](https://buttondown.com/support) and we can take a look."
+    },
+    {
+      "question": "Does Buttondown automatically set canonical URLs for RSS-to-email?",
+      "answer": "Yes! If you're using RSS-to-email with one email per RSS item, Buttondown automatically sets the canonical URL to the post's URL from your RSS feed. This helps with SEO by ensuring search engines index your original post rather than Buttondown's archived version. No configuration needed—it just works. You can read more about [canonical URLs](/canonical-url) if you'd like."
+    }
+  ]
 ---
 
 {% paidFeature feature="rss_automation" /%}
@@ -170,3 +181,7 @@ It's also possible that you might have a `robots.txt` file that's blocking acces
 Items in an RSS feed my be marked as irrelevant for two reasons:
 1. They do not have a publish date associated with them 
 1. The publish date came before the RSS feed itself was connected to Buttondown
+
+## FAQs
+
+{% faq /%}
