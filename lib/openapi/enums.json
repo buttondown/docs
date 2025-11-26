@@ -1,1465 +1,1465 @@
 {
-  "AutomationActionType": {
-    "add_metadata": {
-      "description": "Add metadata to a subscriber.",
-      "name": "Apply metadata",
-      "variant": "info"
-    },
-    "add_tags": {
-      "description": "Add tags to a subscriber.",
-      "name": "Add tags",
-      "variant": "info"
-    },
-    "change_email_address": {
-      "description": "Change the email address of a subscriber.",
-      "name": "Change email address",
-      "variant": "info"
-    },
-    "create_arena_post": {
-      "description": "Posts a block to a specific Arena channel. See our [Are.na integration docs](https://docs.buttondown.com/arena) for more details.",
-      "name": "Create Arena post",
-      "variant": "info"
-    },
-    "create_bluesky_post": {
-      "description": "Create a Bluesky post. See our [Bluesky integration docs](https://docs.buttondown.com/bsky) for more details.",
-      "name": "Create Bluesky post",
-      "variant": "info"
-    },
-    "create_export": {
-      "description": "Create an export.",
-      "name": "Create export",
-      "variant": "info"
-    },
-    "create_linkedin_post": {
-      "description": "Create a LinkedIn post. See our [LinkedIn integration docs](https://docs.buttondown.com/linkedin) for more details.",
-      "name": "Create LinkedIn post",
-      "variant": "info"
-    },
-    "create_subscriber": {
-      "description": "Create a new subscriber.",
-      "name": "Create subscriber",
-      "variant": "info"
-    },
-    "create_tumblr_post": {
-      "description": "Create a Tumblr post. See our [Tumblr integration docs](https://docs.buttondown.com/tumblr) for more details.",
-      "name": "Create Tumblr post",
-      "variant": "info"
-    },
-    "create_twitter_post": {
-      "description": "Create a Twitter post. See our [Twitter integration docs](https://docs.buttondown.com/twitter) for more details.",
-      "name": "Create Twitter post",
-      "variant": "info"
-    },
-    "forward_reply": {
-      "description": "Forward the reply to a given recipient.",
-      "name": "Forward reply",
-      "variant": "info"
-    },
-    "gift_premium_subscription": {
-      "description": "Gift a premium subscription to a subscriber.",
-      "name": "Gift premium subscription",
-      "variant": "info"
-    },
-    "remove_tags": {
-      "description": "Remove tags from a subscriber.",
-      "name": "Remove tags",
-      "variant": "info"
-    },
-    "send_discord_invitation": {
-      "description": "Send a Discord invitation to a subscriber.",
-      "name": "Send Discord invitation",
-      "variant": "info"
-    },
-    "send_email": {
-      "description": "Send an email to a subscriber.",
-      "name": "Send email",
-      "variant": "info"
-    },
-    "send_github_invitation": {
-      "description": "Send a GitHub invitation to a subscriber.",
-      "name": "Send GitHub invitation",
-      "variant": "info"
-    },
-    "send_notification": {
-      "description": "Send a notification to the newsletter author.",
-      "name": "Send notification",
-      "variant": "info"
-    },
-    "send_post_request": {
-      "description": "Send a POST request to a specified URL.",
-      "name": "Send POST request",
-      "variant": "info"
-    },
-    "send_confirmation_reminder": {
-      "description": "Send a confirmation reminder to a subscriber.",
-      "name": "Send confirmation reminder",
-      "variant": "info"
-    },
-    "shopify_create_customer": {
-      "description": "Create a new customer in your Shopify store from a newsletter subscriber.",
-      "name": "Create Shopify customer",
-      "variant": "info"
-    },
-    "shopify_resubscribe": {
-      "description": "Resubscribe a subscriber to your Shopify store marketing emails.",
-      "name": "Resubscribe to Shopify",
-      "variant": "info"
-    },
-    "shopify_set_tags": {
-      "description": "Set tags for a subscriber in your Shopify store.",
-      "name": "Set Shopify tags",
-      "variant": "info"
-    },
-    "shopify_unsubscribe": {
-      "description": "Unsubscribe a subscriber from your Shopify store.",
-      "name": "Unsubscribe from Shopify",
-      "variant": "info"
-    },
-    "ungift_premium_subscription": {
-      "description": "Remove a gifted premium subscription from a subscriber.",
-      "name": "Ungift premium subscription",
-      "variant": "info"
-    },
-    "unsubscribe_subscriber": {
-      "description": "Unsubscribe a subscriber from your newsletter.",
-      "name": "Unsubscribe from Buttondown",
-      "variant": "info"
-    }
-  },
-  "AccessLevel": {
-    "none": {
-      "description": "No access to this functionality.",
-      "name": "None",
-      "variant": "info"
-    },
-    "read": {
-      "description": "Read-only access to this functionality.",
-      "name": "Read",
-      "variant": "info"
-    },
-    "write": {
-      "description": "Full read and write access to this functionality.",
-      "name": "Write",
-      "variant": "success"
-    }
-  },
-  "AutomationStatus": {
-    "active": {
-      "description": "Active.",
-      "name": "Active",
-      "variant": "info"
-    },
-    "inactive": {
-      "description": "Inactive.",
-      "name": "Inactive",
-      "variant": "warning"
-    }
-  },
-  "BulkActionStatus": {
-    "failed": {
-      "description": "The bulk action was unable to be completed. Buttondown is looking into it.",
-      "name": "Error",
-      "variant": "error"
-    },
-    "in_progress": {
-      "description": "The bulk action is currently being processed.",
-      "name": "In progress",
-      "variant": "info"
-    },
-    "not_started": {
-      "description": "The bulk action has not yet started.",
-      "name": "Not started",
-      "variant": "info"
-    },
-    "processed": {
-      "description": "The bulk action has completed.",
-      "name": "Success",
-      "variant": "success"
-    }
-  },
-  "BulkActionType": {
-    "add_notes": {
-      "description": "Add notes to multiple subscribers in bulk.",
-      "name": "Add notes",
-      "variant": "info"
-    },
-    "apply_metadata": {
-      "description": "This action requires two additional parameters within `metadata`: `action` (which can be either `add`, `set`, or `remove`), and `metadata` (the value of the metadata which you'd like to either add or remove to the list of subscribers).",
-      "name": "Apply metadata (to subscribers)",
-      "variant": "info"
-    },
-    "apply_tags": {
-      "description": "This action requires two additional parameters within `metadata`: `tag_id` (the ID of the tag which you'd like to either add or remove to the list of subscribers) and `action` (which can be either `add` or `remove`).",
-      "name": "Apply tags",
-      "variant": "info"
-    },
-    "ban_subscribers": {
-      "description": "Ban subscribers from your newsletter.",
-      "name": "Ban subscribers",
-      "variant": "info"
-    },
-    "change_tags_colors": {
-      "description": "Change the color of multiple tags in bulk.",
-      "name": "Change tags colors",
-      "variant": "info"
-    },
-    "delete_comments": {
-      "description": "Delete multiple comments in bulk.",
-      "name": "Delete comments",
-      "variant": "info"
-    },
-    "delete_emails": {
-      "description": "Delete multiple emails in bulk.",
-      "name": "Delete emails",
-      "variant": "info"
-    },
-    "delete_inbox_items": {
-      "description": "Delete multiple inbox items in bulk.",
-      "name": "Delete inbox items",
-      "variant": "info"
-    },
-    "delete_subscribers": {
-      "description": "Delete multiple subscribers in bulk.",
-      "name": "Delete subscribers",
-      "variant": "info"
-    },
-    "delete_survey_responses": {
-      "description": "Delete multiple survey responses in bulk.",
-      "name": "Delete survey responses",
-      "variant": "info"
-    },
-    "delete_surveys": {
-      "description": "Delete multiple surveys in bulk.",
-      "name": "Delete surveys",
-      "variant": "info"
-    },
-    "delete_tags": {
-      "description": "Delete multiple tags in bulk.",
-      "name": "Delete tags",
-      "variant": "info"
-    },
-    "gift_subscribers": {
-      "description": "Gift premium subscriptions to multiple subscribers in bulk.",
-      "name": "Gift subscribers",
-      "variant": "info"
-    },
-    "mark_inbox_items_read": {
-      "description": "Mark multiple inbox items as read.",
-      "name": "Mark inbox items as read",
-      "variant": "info"
-    },
-    "mark_subscribers_as_not_spammy": {
-      "description": "Restore the status of multiple subscribers. Their exact type will depend on their history with your newsletter, but in general Buttondown will do the 'right' thing (e.g. restoring their premium subscription if they had one.)",
-      "name": "Mark subscribers as not spammy",
-      "variant": "info"
-    },
-    "modify_stripe_subscriptions": {
-      "description": "Modify the Stripe subscriptions for multiple subscribers in bulk.",
-      "name": "Modify Stripe subscriptions",
-      "variant": "info"
-    },
-    "reactivate_subscribers": {
-      "description": "Reactivate multiple subscribers in bulk.",
-      "name": "Reactivate subscribers",
-      "variant": "info"
-    },
-    "rename_metadata": {
-      "description": "Rename multiple metadata fields in bulk.",
-      "name": "Rename metadata",
-      "variant": "info"
-    },
-    "replay_events": {
-      "description": "Replay multiple events in bulk.",
-      "name": "Replay events",
-      "variant": "info"
-    },
-    "resubscribe_subscribers": {
-      "description": "Resubscribe multiple unsubscribed subscribers in bulk.",
-      "name": "Resubscribe subscribers",
-      "variant": "info"
-    },
-    "send_emails": {
-      "description": "This action requires one additional parameter within `metadata`: `email_id` (the ID of the email which you'd like to send).",
-      "name": "Send emails",
-      "variant": "info"
-    },
-    "send_reminders": {
-      "description": "Send reminders to multiple subscribers in bulk.",
-      "name": "Send reminders",
-      "variant": "info"
-    },
-    "ungift_subscribers": {
-      "description": "Remove gifted premium subscriptions from multiple subscribers in bulk.",
-      "name": "Ungift subscribers",
-      "variant": "info"
-    },
-    "unsubscribe_subscribers": {
-      "description": "Unsubscribe multiple subscribers in bulk.",
-      "name": "Unsubscribe subscribers",
-      "variant": "info"
-    },
-    "update_archival_modes": {
-      "description": "Update the archival modes for multiple emails in bulk.",
-      "name": "Update archival modes",
-      "variant": "info"
-    },
-    "update_commenting_modes": {
-      "description": "Update the commenting modes for multiple emails in bulk.",
-      "name": "Update commenting modes",
-      "variant": "info"
-    },
-    "update_email_types": {
-      "description": "Update the email types for multiple emails in bulk.",
-      "name": "Update email types",
-      "variant": "info"
-    },
-    "update_survey_statuses": {
-      "description": "Update the status types for multiple surveys in bulk.",
-      "name": "Update status types",
-      "variant": "info"
-    }
-  },
-  "CreateExportErrorCode": {
-    "collection_empty_invalid": {
-      "description": "You must pass in at least one collection to export.",
-      "name": "No collections passed in",
-      "variant": "error"
-    },
-    "columns_empty_invalid": {
-      "description": "You must pass in at least one column to export; otherwise, omit the parameter entirely.",
-      "name": "No columns passed in",
-      "variant": "error"
-    },
-    "columns_invalid": {
-      "description": "You passed in at least one column that is not valid for the collection you're exporting.",
-      "name": "Invalid columns passed in",
-      "variant": "error"
-    }
-  },
-  "CreateNewsletterErrorCode": {
-    "username_already_exists": {
-      "description": "A newsletter already exists with that username.",
-      "name": "Username already exists",
-      "variant": "error"
-    },
-    "username_malformed": {
-      "description": "The username is malformed.",
-      "name": "Username malformed",
-      "variant": "error"
-    }
-  },
-  "CommentType": {
-    "reviewer": {
-      "description": "A comment from a newsletter author or reviewer.",
-      "name": "Reviewer",
-      "variant": "info"
-    },
-    "subscriber": {
-      "description": "A comment from a subscriber.",
-      "name": "Subscriber",
-      "variant": "info"
-    }
-  },
-  "EmailCommentingMode": {
-    "disabled": {
-      "description": "Commenting is disabled for this email.",
-      "name": "Disabled",
-      "variant": "info"
-    },
-    "enabled": {
-      "description": "Commenting is enabled for this email.",
-      "name": "Enabled",
-      "variant": "info"
-    },
-    "enabled_for_paid_subscribers": {
-      "description": "Commenting is enabled for paid subscribers only.",
-      "name": "Enabled for paid subscribers",
-      "variant": "info"
-    }
-  },
-  "EmailCreationErrorCode": {
-    "body_invalid": {
-      "description": "The email body provided is invalid or cannot be parsed.",
-      "name": "Body invalid",
-      "variant": "error"
-    },
-    "canonical_url_invalid": {
-      "description": "The canonical URL provided is not a valid URL.",
-      "name": "Canonical URL invalid",
-      "variant": "error"
-    },
-    "email_duplicate": {
-      "description": "An email with the same identifiers already exists.",
-      "name": "Duplicate email",
-      "variant": "error"
-    },
-    "email_invalid": {
-      "description": "The email is invalid.",
-      "name": "Invalid email",
-      "variant": "error"
-    },
-    "publish_date_invalid": {
-      "description": "The publish date provided is not valid or is in an incorrect format.",
-      "name": "Publish date invalid",
-      "variant": "error"
-    },
-    "publish_date_missing": {
-      "description": "A publish date is required but was not provided.",
-      "name": "Publish date missing",
-      "variant": "error"
-    },
-    "slug_invalid": {
-      "description": "The slug provided is invalid or already in use.",
-      "name": "Slug invalid",
-      "variant": "error"
-    },
-    "status_invalid": {
-      "description": "The status provided is not valid.",
-      "name": "Status invalid",
-      "variant": "error"
-    },
-    "subject_invalid": {
-      "description": "The subject provided is invalid or missing.",
-      "name": "Invalid subject",
-      "variant": "error"
-    },
-    "tag_invalid": {
-      "description": "The tag provided is invalid or does not exist.",
-      "name": "Invalid tag",
-      "variant": "error"
-    }
-  },
-  "EmailListErrorCode": {
-    "creation_date_invalid": {
-      "description": "The creation date provided is not valid or is in an incorrect format.",
-      "name": "Creation date invalid",
-      "variant": "error"
-    },
-    "publish_date_invalid": {
-      "description": "The publish date provided is not valid or is in an incorrect format.",
-      "name": "Publish date invalid",
-      "variant": "error"
-    }
-  },
-  "EmailSource": {
-    "api": {
-      "description": "This email was created via the API.",
-      "name": "API",
-      "variant": "info"
-    },
-    "app": {
-      "description": "This email was created via the Buttondown web app.",
-      "name": "App",
-      "variant": "info"
-    },
-    "external_feed": {
-      "description": "This email was created by an external RSS feed.",
-      "name": "External feed",
-      "variant": "info"
-    },
-    "import": {
-      "description": "This email was imported from another service.",
-      "name": "Import",
-      "variant": "info"
-    }
-  },
-  "EmailStatus": {
-    "about_to_send": {
-      "description": "This email has been queued to send out to subscribers, and will be sent automatically within a few minutes.\n\nIf you're seeing that an email you just sent out is 'stuck' here, worry not — Buttondown sometimes takes a little bit longer to send out emails to ensure deliverability, but once it's marked as 'about to send' it will get sent out.",
-      "name": "About to send",
-      "variant": "info"
-    },
-    "deleted": {
-      "description": "This email has been deleted, and is no longer visible in your web archives.",
-      "name": "Deleted",
-      "variant": "warning"
-    },
-    "draft": {
-      "description": "Draft emails are only visible to you and are not sent out to subscribers.",
-      "name": "Draft",
-      "variant": "info"
-    },
-    "errored": {
-      "description": "This email has encountered an error while sending out to subscribers, and is not visible in your web archives.",
-      "name": "Errored",
-      "variant": "error"
-    },
-    "imported": {
-      "description": "This email was imported from another service, and is visible in your web archives if enabled.",
-      "name": "Imported",
-      "variant": "info"
-    },
-    "in_flight": {
-      "description": "This email is currently being sent out to subscribers, and is visible in your web archives if enabled.\n\nSome emails, especially those with large subscriber lists, may take a while to send out — Buttondown sends emails out in batches to ensure deliverability, so if you're seeing an email 'stuck' here, it's because our systems have detected that that's the optimal way to reach your subscribers.",
-      "name": "In flight",
-      "variant": "info"
-    },
-    "managed_by_rss": {
-      "description": "This email was created by an external feed, and has not yet been finalized and sent out by Buttondown.",
-      "name": "Managed by RSS",
-      "variant": "info"
-    },
-    "paused": {
-      "description": "This email has been paused, and is not visible in your web archives.",
-      "name": "Paused",
-      "variant": "warning"
-    },
-    "resending": {
-      "description": "This email is in the process of automatically being resent to subscribers by Buttondown's systems in order to make sure all subscribers have received it.",
-      "name": "Resending",
-      "variant": "warning"
-    },
-    "scheduled": {
-      "description": "This email has been scheduled to send out to subscribers at a specific time. This specific time is available on the email as its `publish_date`.",
-      "name": "Scheduled",
-      "variant": "info"
-    },
-    "sent": {
-      "description": "This email has been sent out to subscribers, and is visible in your web archives if enabled.",
-      "name": "Sent",
-      "variant": "success"
-    },
-    "suppressed": {
-      "description": "This email has been suppressed and is not visible to subscribers.",
-      "name": "Suppressed",
-      "variant": "warning"
-    },
-    "throttled": {
-      "description": "This email is in the process of being sent out, but is being intentionally sent slowly to ensure deliverability.",
-      "name": "Throttled",
-      "variant": "warning"
-    },
-    "transactional": {
-      "description": "This email is a transactional email used by a core workflow in your newsletter or Automations, and is not visible in your web archives nor sent out to subscribers.",
-      "name": "Transactional",
-      "variant": "info"
-    }
-  },
-  "EmailType": {
-    "archival": {
-      "description": "Emails that are only available in the archive and not sent to subscribers.",
-      "name": "Archival",
-      "variant": "info"
-    },
-    "churned": {
-      "description": "Emails sent specifically to subscribers who were previously premium but have since churned.",
-      "name": "Churned",
-      "variant": "info"
-    },
-    "free": {
-      "description": "Free emails are sent out only to subscribers who are not paying for your newsletter (so you can send specific emails to convince them to pay, for instance!)",
-      "name": "Free",
-      "variant": "info"
-    },
-    "premium": {
-      "description": "Premium emails are sent out to only paying subscribers (including those with gift subscriptions or on a free trial), and only premium subscribers can view them in online archives.",
-      "name": "Premium",
-      "variant": "info"
-    },
-    "private": {
-      "description": "Private emails are sent out to all of your subscribers but are not viewable in your web archives.",
-      "name": "Private",
-      "variant": "info"
-    },
-    "public": {
-      "description": "Public emails are sent out to all of your subscribers and are available in your web archives.",
-      "name": "Public",
-      "variant": "info"
-    }
-  },
-  "ExportCollection": {
-    "comments": {
-      "name": "Comments",
-      "variant": "info"
-    },
-    "conversations": {
-      "name": "Conversations",
-      "variant": "info"
-    },
-    "emails": {
-      "name": "Emails",
-      "variant": "info"
-    },
-    "events": {
-      "name": "Events",
-      "variant": "info"
-    },
-    "images": {
-      "name": "Images",
-      "variant": "info"
-    },
-    "mentions": {
-      "name": "Mentions",
-      "variant": "info"
-    },
-    "referrals": {
-      "name": "Referrals",
-      "variant": "info"
-    },
-    "requests": {
-      "name": "API Requests",
-      "variant": "info"
-    },
-    "stripe_charges": {
-      "name": "Stripe Charges",
-      "variant": "info"
-    },
-    "stripe_customers": {
-      "name": "Stripe Customers",
-      "variant": "info"
-    },
-    "stripe_prices": {
-      "name": "Stripe Prices",
-      "variant": "info"
-    },
-    "stripe_products": {
-      "name": "Stripe Products",
-      "variant": "info"
-    },
-    "stripe_subscriptions": {
-      "name": "Stripe Subscriptions",
-      "variant": "info"
-    },
-    "subscribers": {
-      "name": "Subscribers",
-      "variant": "info"
-    },
-    "surveys": {
-      "name": "Surveys",
-      "variant": "info"
-    }
-  },
-  "ExportFormat": {
-    "csv": {
-      "description": "Comma-separated values.",
-      "name": "CSV",
-      "variant": "info"
-    },
-    "json": {
-      "description": "JavaScript Object Notation.",
-      "name": "JSON",
-      "variant": "info"
-    }
-  },
-  "ExportStatus": {
-    "error": {
-      "description": "The export was unable to be completed. Buttondown is looking into it.",
-      "name": "Error",
-      "variant": "error"
-    },
-    "in_progress": {
-      "description": "The export is currently being processed.",
-      "name": "In progress",
-      "variant": "info"
-    },
-    "not_started": {
-      "description": "The export has not yet started.",
-      "name": "Not started",
-      "variant": "info"
-    },
-    "ready": {
-      "description": "The export has completed.",
-      "name": "Ready",
-      "variant": "success"
-    }
-  },
-  "ExternalEventType": {
-    "advertising_slot.purchased": {
-      "description": "Whenever an advertising slot in your newsletter is purchased.",
-      "name": "advertising_slot.purchased"
-    },
-    "automation.invoked": {
-      "description": "Whenever an automation is manually invoked (e.g. by a webhook or API call).",
-      "name": "automation.invoked"
-    },
-    "date.day.started": {
-      "description": "Whenever a new day starts. This event is fired at midnight UTC.",
-      "name": "date.day.started"
-    },
-    "date.month.started": {
-      "description": "Whenever a new month starts. This event is fired at midnight UTC on the first day of each month.",
-      "name": "date.month.started"
-    },
-    "date.week.started": {
-      "description": "Whenever a new week starts. This event is fired at midnight UTC on Monday.",
-      "name": "date.week.started"
-    },
-    "date.year.started": {
-      "description": "Whenever a new year starts. This event is fired at midnight UTC on January 1st.",
-      "name": "date.year.started"
-    },
-    "email.created": {
-      "description": "Whenever a new email is created and begins delivery. Note that event happens immediately before the emails themselves are sent.",
-      "name": "email.created"
-    },
-    "email.deleted": {
-      "description": "Whenever an email has been deleted.",
-      "name": "email.deleted"
-    },
-    "email.sent": {
-      "description": "Whenever an email has finished its delivery. Note that event happens immediately after all emails have been sent, but some email events may not have finished processing.",
-      "name": "email.sent"
-    },
-    "email.status.changed": {
-      "description": "Whenever an email's status has changed (e.g. from 'draft' to 'sent'.) The `metadata` field will contain the previous and new statii in 'old_value' and 'new_value' respectively.",
-      "name": "email.status.changed"
-    },
-    "email.updated": {
-      "description": "Whenever an email's content or metadata has been updated.",
-      "name": "email.updated"
-    },
-    "export.completed": {
-      "description": "Whenever an export is completed.",
-      "name": "export.completed"
-    },
-    "export.created": {
-      "description": "Whenever an export is created.",
-      "name": "export.created"
-    },
-    "export.failed": {
-      "description": "Whenever an export fails.",
-      "name": "export.failed"
-    },
-    "external_feed_item.created": {
-      "description": "Whenever a new item is created in an [RSS feed](https://docs.buttondown.com/rss-to-email).",
-      "name": "external_feed_item.created"
-    },
-    "firewall.blocked": {
-      "description": "Represents an incoming request that was blocked by the [firewall](https://docs.buttondown.com/firewall).",
-      "name": "firewall.blocked"
-    },
-    "memberful.member.updated": {
-      "description": "Whenever a member changes their email address in Memberful.",
-      "name": "memberful.member.updated"
-    },
-    "memberful.subscription.created": {
-      "description": "Whenever a new subscription is created in Memberful.",
-      "name": "memberful.subscription.created"
-    },
-    "memberful.subscription.deleted": {
-      "description": "Whenever a subscription is deleted in Memberful.",
-      "name": "memberful.subscription.deleted"
-    },
-    "mention.created": {
-      "description": "Whenever your newsletter is mentioned elsewhere.",
-      "name": "mention.created"
-    },
-    "note.created": {
-      "description": "Whenever a note is created.",
-      "name": "note.created"
-    },
-    "note.deleted": {
-      "description": "Whenever a note is deleted.",
-      "name": "note.deleted"
-    },
-    "patreon.member.updated": {
-      "description": "Whenever a member changes their email address in Patreon.",
-      "name": "patreon.member.updated"
-    },
-    "patreon.membership.created": {
-      "description": "Whenever a new membership is created in Patreon.",
-      "name": "patreon.membership.created"
-    },
-    "patreon.membership.deleted": {
-      "description": "Whenever a membership is deleted in Patreon.",
-      "name": "patreon.membership.deleted"
-    },
-    "shopify.customer.created": {
-      "description": "Whenever a new customer is created in Shopify.",
-      "name": "shopify.customer.created"
-    },
-    "shopify.customer.updated": {
-      "description": "Whenever a customer changes their email address in Shopify.",
-      "name": "shopify.customer.updated"
-    },
-    "social_mention.created": {
-      "description": "Whenever your newsletter is mentioned on another website such as Reddit, Twitter, Bluesky, etc.",
-      "name": "social_mention.created"
-    },
-    "stripe.checkout.session.completed": {
-      "description": "Whenever a Stripe checkout session is completed successfully.",
-      "name": "stripe.checkout.session.completed"
-    },
-    "stripe.customer.updated": {
-      "description": "Whenever a customer changes their email address in Stripe.",
-      "name": "stripe.customer.updated"
-    },
-    "stripe.subscription.activated": {
-      "description": "Whenever a subscription is activated in Stripe.",
-      "name": "stripe.subscription.activated"
-    },
-    "stripe.subscription.churning": {
-      "description": "Whenever a subscription is churning in Stripe.",
-      "name": "stripe.subscription.churning"
-    },
-    "stripe.subscription.deactivated": {
-      "description": "Whenever a subscription is deactivated in Stripe.",
-      "name": "stripe.subscription.deactivated"
-    },
-    "subscriber.bounced": {
-      "description": "Whenever a subscriber's email is bounced.",
-      "name": "subscriber.bounced"
-    },
-    "subscriber.changed_email": {
-      "description": "When a subscriber's email address has been changed.",
-      "name": "subscriber.changed_email"
-    },
-    "subscriber.churned": {
-      "description": "When a subscriber has unenrolled from your newsletter's paid offering.",
-      "name": "subscriber.churned"
-    },
-    "subscriber.clicked": {
-      "description": "When a subscriber has clicked a link in one of your emails.",
-      "name": "subscriber.clicked"
-    },
-    "subscriber.commented": {
-      "description": "When a subscriber has commented on one of your emails.",
-      "name": "subscriber.commented"
-    },
-    "subscriber.complained": {
-      "description": "Whenever a subscriber has complained about one of your emails.",
-      "name": "subscriber.complained"
-    },
-    "subscriber.confirmed": {
-      "description": "When a subscriber has confirmed that they are enrolled in your newsletter. (For newsletters without double opt-in, this event is created immediately after `subscriber.created`.)",
-      "name": "subscriber.confirmed"
-    },
-    "subscriber.created": {
-      "description": "Whenever a new subscriber is created.",
-      "name": "subscriber.created"
-    },
-    "subscriber.deleted": {
-      "description": "When a subscriber has been deleted from your newsletter.",
-      "name": "subscriber.deleted"
-    },
-    "subscriber.delivered": {
-      "description": "Whenever a subscriber's email is successfully delivered.",
-      "name": "subscriber.delivered"
-    },
-    "subscriber.opened": {
-      "description": "When a subscriber has opened one of your emails.",
-      "name": "subscriber.opened"
-    },
-    "subscriber.paid": {
-      "description": "When a subscriber has enrolled in your newsletter's paid offering.",
-      "name": "subscriber.paid"
-    },
-    "subscriber.paused": {
-      "description": "When a subscriber has paused their subscription.",
-      "name": "subscriber.paused"
-    },
-    "subscriber.referred": {
-      "description": "When a subscriber has referred someone to your newsletter.",
-      "name": "subscriber.referred"
-    },
-    "subscriber.referred.paid": {
-      "description": "When a subscriber's referral has converted to a paid subscription.",
-      "name": "subscriber.referred.paid"
-    },
-    "subscriber.rejected": {
-      "description": "Whenever a subscriber (or their email provider) has rejected an email from your newsletter. Buttondown takes rejections seriously, and will likely block the subscriber's email address from future emails and/or mark them as undeliverable.",
-      "name": "subscriber.rejected"
-    },
-    "subscriber.replied": {
-      "description": "Whenever a subscriber has replied to one of your emails.",
-      "name": "subscriber.replied"
-    },
-    "subscriber.responded_to_survey": {
-      "description": "When a subscriber has responded to a survey in your newsletter.",
-      "name": "subscriber.responded_to_survey"
-    },
-    "subscriber.resumed": {
-      "description": "When a subscriber has resumed their subscription after pausing it.",
-      "name": "subscriber.resumed"
-    },
-    "subscriber.tags.changed": {
-      "description": "When a subscriber's tags have been modified.",
-      "name": "subscriber.tags.changed"
-    },
-    "subscriber.trial_ended": {
-      "description": "When the trial has ended for a subscriber.",
-      "name": "subscriber.trial_ended"
-    },
-    "subscriber.trial_started": {
-      "description": "When the trial has started for a subscriber. (For newsletters with automatic free trials, this will be created immediately after `subscriber.confirmed`.)",
-      "name": "subscriber.trial_started"
-    },
-    "subscriber.type.changed": {
-      "description": "When a subscriber's type has been changed.",
-      "name": "subscriber.type.changed"
-    },
-    "subscriber.unsubscribed": {
-      "description": "When a subscriber has manually unsubscribed from your newsletter.",
-      "name": "subscriber.unsubscribed"
-    },
-    "subscriber.updated": {
-      "description": "When a subscriber's notes or metadata has changed.",
-      "name": "subscriber.updated"
-    },
-    "subscriber.viewed_checkout_page": {
-      "description": "When a subscriber has viewed your checkout page.",
-      "name": "subscriber.viewed_checkout_page"
-    },
-    "survey.cleared_responses": {
-      "description": "Whenever a survey's responses have been cleared.",
-      "name": "survey.cleared_responses"
-    },
-    "survey.created": {
-      "description": "Whenever a new survey is created.",
-      "name": "survey.created"
-    },
-    "survey.deleted": {
-      "description": "Whenever a survey has been deleted.",
-      "name": "survey.deleted"
-    },
-    "survey.updated": {
-      "description": "Whenever a survey's content or metadata has been updated.",
-      "name": "survey.updated"
-    },
-    "form.created": {
-      "description": "Whenever a new form is created.",
-      "name": "form.created"
-    },
-    "form.deleted": {
-      "description": "Whenever a form has been deleted.",
-      "name": "form.deleted"
-    },
-    "form.updated": {
-      "description": "Whenever a form's content or metadata has been updated.",
-      "name": "form.updated"
-    }
-  },
-  "ExternalFeedAutomationBehavior": {
-    "draft": {
-      "description": "Create a draft email.",
-      "name": "Create draft",
-      "variant": "info"
-    },
-    "emails": {
-      "description": "Send emails to subscribers.",
-      "name": "Send email",
-      "variant": "info"
-    }
-  },
-  "ExternalFeedAutomationCadence": {
-    "daily": {
-      "description": "Act every day, compiling a digest of new items.",
-      "name": "Daily",
-      "variant": "info"
-    },
-    "every": {
-      "description": "Act every single time a new item is added to the RSS feed.",
-      "name": "Every new item",
-      "variant": "success"
-    },
-    "monthly": {
-      "description": "Act every month, compiling a digest of new items.",
-      "name": "Monthly",
-      "variant": "info"
-    },
-    "weekly": {
-      "description": "Act every week, compiling a digest of new items.",
-      "name": "Weekly",
-      "variant": "info"
-    }
-  },
-  "ExternalFeedAutomationStatus": {
-    "active": {
-      "description": "Active.",
-      "name": "Active",
-      "variant": "info"
-    },
-    "deleted": {
-      "description": "The automation has been deleted.",
-      "name": "Deleted",
-      "variant": "error"
-    },
-    "failing": {
-      "description": "Buttondown cannot retrieve items from this feed. It will continue to attempt to do so until it gives up, at which point the automation will be set to `inactive`.",
-      "name": "Failing",
-      "variant": "error"
-    },
-    "inactive": {
-      "description": "Inactive.",
-      "name": "Inactive",
-      "variant": "warning"
-    }
-  },
-  "ExternalFeedItemStatus": {
-    "errored": {
-      "description": "Errored.",
-      "name": "Errored",
-      "variant": "error"
-    },
-    "irrelevant": {
-      "description": "Items in an RSS feed are marked as irrelevant if they do not have a publish date associated with them or if the publish date came before the RSS feed itself was connected to Buttondown.",
-      "name": "Irrelevant",
-      "variant": "warning"
-    },
-    "processed": {
-      "description": "An email has been created for this item.",
-      "name": "Processed",
-      "variant": "success"
-    },
-    "queued": {
-      "description": "Queued.",
-      "name": "Queued",
-      "variant": "info"
-    },
-    "skipped": {
-      "description": "Items in an RSS feed are marked as 'skipped' if the RSS feed itself is paused or inactive in Buttondown when the item is processed. To send this item, you must manually process & send it using Buttondown's writing interface.",
-      "name": "Skipped",
-      "variant": "info"
-    },
-    "unprocessed": {
-      "description": "Unprocessed.",
-      "name": "Unprocessed",
-      "variant": "info"
-    }
-  },
-  "InvitationStatus": {
-    "accepted": {
-      "description": "The invitation has been accepted by the recipient.",
-      "name": "Accepted",
-      "variant": "success"
-    },
-    "declined": {
-      "description": "The invitation has been declined by the recipient.",
-      "name": "Declined",
-      "variant": "warning"
-    },
-    "owner": {
-      "description": "Special status indicating the user is the owner of the newsletter.",
-      "name": "Owner",
-      "variant": "success"
-    },
-    "pending": {
-      "description": "The invitation has been sent but not yet responded to by the recipient.",
-      "name": "Pending",
-      "variant": "info"
-    },
-    "revoked": {
-      "description": "The invitation has been revoked by the sender before being accepted.",
-      "name": "Revoked",
-      "variant": "error"
-    }
-  },
-  "ListSubscribersErrorCode": {
-    "date_invalid": {
-      "description": "The date provided is not valid or is in an incorrect format.",
-      "name": "Date invalid",
-      "variant": "error"
-    },
-    "invalid_ordering": {
-      "description": "The ordering provided is not valid.",
-      "name": "Invalid ordering",
-      "variant": "error"
-    },
-    "invalid_tag": {
-      "description": "The tag provided is invalid or does not exist.",
-      "name": "Invalid tag",
-      "variant": "error"
-    }
-  },
-  "NewsletterEmailTemplate": {
-    "classic": {
-      "description": "A plaintext template that puts emphasis on your content.",
-      "name": "Classic",
-      "variant": "info"
-    },
-    "modern": {
-      "description": "The default email template.",
-      "name": "Modern",
-      "variant": "info"
-    },
-    "naked": {
-      "description": "The email body itself is used as the template, with no outside scaffolding provided by Buttondown.",
-      "name": "Naked",
-      "variant": "warning"
-    },
-    "plaintext": {
-      "description": "A plaintext (like, literally plaintext, no HTML at all) template for the truly minimalist.",
-      "name": "Plaintext",
-      "variant": "info"
-    }
-  },
-  "Operator": {
-    "contains": {
-      "description": "The value contains the field.",
-      "name": "Contains",
-      "variant": "info"
-    },
-    "equals": {
-      "description": "The value is equal to the field.",
-      "name": "Equals",
-      "variant": "info"
-    },
-    "greater_than": {
-      "description": "The value is greater than the field.",
-      "name": "Greater than",
-      "variant": "info"
-    },
-    "is_empty": {
-      "description": "The value is empty.",
-      "name": "Is empty",
-      "variant": "info"
-    },
-    "is_not_empty": {
-      "description": "The value is not empty.",
-      "name": "Is not empty",
-      "variant": "info"
-    },
-    "less_than": {
-      "description": "The value is less than the field.",
-      "name": "Less than",
-      "variant": "info"
-    },
-    "not_contains": {
-      "description": "The value does not contain the field.",
-      "name": "Not contains",
-      "variant": "info"
-    },
-    "not_equals": {
-      "description": "The value is not equal to the field.",
-      "name": "Not equals",
-      "variant": "info"
-    }
-  },
-  "SubscriberSource": {
-    "admin": {
-      "description": "This subscriber was added by a member of Buttondown support staff.",
-      "name": "Admin",
-      "variant": "info"
-    },
-    "api": {
-      "description": "Subscriber created by API.",
-      "name": "API",
-      "variant": "info"
-    },
-    "carrd": {
-      "description": "This subscriber joined via Carrd.",
-      "name": "Carrd",
-      "variant": "info"
-    },
-    "comment": {
-      "description": "This subscriber joined via commenting on an email.",
-      "name": "Comment",
-      "variant": "info"
-    },
-    "import": {
-      "description": "This subscriber was imported from another service.",
-      "name": "Import",
-      "variant": "info"
-    },
-    "organic": {
-      "description": "This subscriber subscribed to your newsletter of their own volition.",
-      "name": "Organic",
-      "variant": "info"
-    },
-    "stripe": {
-      "description": "This subscriber joined via Stripe.",
-      "name": "Stripe",
-      "variant": "info"
-    },
-    "user": {
-      "description": "This subscriber was added by a user with write permissions for subscribers within the Buttondown dashboard.",
-      "name": "User",
-      "variant": "info"
-    },
-    "zapier": {
-      "description": "This subscriber joined via Zapier.",
-      "name": "Zapier",
-      "variant": "info"
-    }
-  },
-  "SubscriberType": {
-    "blocked": {
-      "description": "Subscribers that were automatically blocked from signing up for your newsletter by Buttondown's automated filtering systems. You can review the subscriber's email address and make a decision about whether to allow them to subscribe.",
-      "name": "Blocked",
-      "variant": "error"
-    },
-    "churned": {
-      "description": "Subscribers which were previously premium subscribers, but have since churned but are not unsubscribed. These subscribers receive public emails as well as teasers.",
-      "name": "Churned",
-      "variant": "warning"
-    },
-    "churning": {
-      "description": "Subscribers who have elected to not renew their subscription to your newsletter and will become unpaid subscribers at the end of their current billing period.",
-      "name": "Churning",
-      "variant": "warning"
-    },
-    "complained": {
-      "description": "Subscribers that have registered a complaint with their email provider. Buttondown will not try to send them any future emails; no action is required on your part.",
-      "name": "Complained",
-      "variant": "error"
-    },
-    "gifted": {
-      "description": "Subscribers that have been gifted free premium subscriptions.",
-      "name": "Gifted",
-      "variant": "info"
-    },
-    "past_due": {
-      "description": "Subscribers who technically have active paid subscriptions, but have not paid their invoices in time.",
-      "name": "Past due",
-      "variant": "error"
-    },
-    "paused": {
-      "description": "Subscribers that are on a temporary hold from their premium subscription, but are still subscribed to your newsletter.",
-      "name": "Paused",
-      "variant": "warning"
-    },
-    "premium": {
-      "description": "Subscribers with active premium subscriptions.",
-      "name": "Premium",
-      "variant": "success"
-    },
-    "regular": {
-      "description": "Normal subscribers who have not unsubscribed or deactivated in any way.",
-      "name": "Regular",
-      "variant": "success"
-    },
-    "removed": {
-      "description": "Subscribers who have been explicitly removed by the newsletter (notably, this does not mean unsubscribers: use /v1/unsubscribers for that!)",
-      "name": "Removed",
-      "variant": "error"
-    },
-    "trialed": {
-      "description": "Subscribers that are temporarily receiving a premium subscription to your newsletter.",
-      "name": "Trialed",
-      "variant": "info"
-    },
-    "unactivated": {
-      "description": "Subscribers who have not yet confirmed their email or opted in.",
-      "name": "Unactivated",
-      "variant": "warning"
-    },
-    "undeliverable": {
-      "description": "Buttondown marks subscribers as undeliverable when we receive some sort of proof that this address does not exist, such as a suppression notification from one of our email providers or a [hard bounce](https://docs.buttondown.com/glossary-permanent-failure) from the host or mailbox itself. We don't try to deliver email to subscribers marked as undeliverable, but you can, in some cases, change their email address (e.g. if they've changed their email address in your CRM, or if you had a typo in their email address) to try and fix things.",
-      "name": "Undeliverable",
-      "variant": "error"
-    },
-    "unpaid": {
-      "description": "Subscribers who have not yet purchased a subscription to your newsletter. Subscribers will only be marked as unpaid if you have turned off free subscriptions to your paid newsletter; otherwise, they will be marked as [Regular](/api-subscribers-type#regular).",
-      "name": "Unpaid",
-      "variant": "info"
-    },
-    "upcoming": {
-      "description": "Subscribers who have a premium subscription starting in the future.",
-      "name": "Upcoming",
-      "variant": "info"
-    },
-    "unsubscribed": {
-      "description": "Subscribers that have or have been unsubscribed from your newsletter.",
-      "name": "Unsubscribed",
-      "variant": "error"
-    }
-  },
-  "SubscriberUndeliverabilityReason": {
-    "access_denied": {
-      "description": "Access to the subscriber's email was denied.",
-      "name": "Access denied",
-      "variant": "error"
-    },
-    "disabled": {
-      "description": "The subscriber's email account is disabled.",
-      "name": "Disabled",
-      "variant": "error"
-    },
-    "does_not_exist": {
-      "description": "The subscriber's email does not exist.",
-      "name": "Does not exist",
-      "variant": "error"
-    },
-    "domain_blocked": {
-      "description": "The subscriber's domain is blocked.",
-      "name": "Domain blocked",
-      "variant": "error"
-    },
-    "email_blocked": {
-      "description": "The subscriber's email address is blocked.",
-      "name": "Email blocked",
-      "variant": "error"
-    },
-    "ip_blocked": {
-      "description": "The subscriber's IP address is blocked.",
-      "name": "IP blocked",
-      "variant": "error"
-    },
-    "ip_undeliverable": {
-      "description": "The subscriber's IP address is undeliverable.",
-      "name": "IP undeliverable",
-      "variant": "error"
-    },
-    "malformed": {
-      "description": "The subscriber's email is malformed.",
-      "name": "Malformed",
-      "variant": "error"
-    },
-    "on_esp_denylist": {
-      "description": "The subscriber's email is on an ESP denylist.",
-      "name": "On ESP denylist",
-      "variant": "error"
-    },
-    "other": {
-      "description": "The subscriber is deemed undeliverable for an unknown reason.",
-      "name": "Other",
-      "variant": "error"
-    },
-    "out_of_storage": {
-      "description": "The subscriber's mailbox is out of storage.",
-      "name": "Out of storage",
-      "variant": "error"
-    },
-    "problematic_url": {
-      "description": "The email contained a problematic URL.",
-      "name": "Problematic URL",
-      "variant": "error"
-    },
-    "rate_limited": {
-      "description": "The email provider, i.e. Gmail, acknowledges the message, but is temporarily refusing to send the message due to overall volume coming from the sender. Sender can mean a number of different things. For instance, it can mean that your specific newsletter is sending a high amount of volume. It can mean your domain is sending a high amount of volume. Or, in rare cases, it can mean that Buttondown itself as an overall system is sending too much volume. You do not need to change or retry any errors you see due to rate limiting. Buttondown will automatically handle that. However, if you see this error come up often, consider more regularly sending your email at a specific cadence, i.e. weekly.",
-      "name": "Rate limited",
-      "variant": "error"
-    },
-    "spam": {
-      "description": "The email was marked as spam.",
-      "name": "Spam",
-      "variant": "error"
-    },
-    "spf_failed": {
-      "description": "SPF validation failed for the email.",
-      "name": "SPF failed",
-      "variant": "error"
-    },
-    "unreachable": {
-      "description": "The subscriber's email is unreachable.",
-      "name": "Unreachable",
-      "variant": "error"
-    }
-  },
-  "SurveyResponseCadence": {
-    "once": {
-      "description": "A subscriber can only respond to this survey once.",
-      "name": "Once",
-      "variant": "info"
-    },
-    "once_per_email": {
-      "description": "A subscriber can respond to this survey once per email.",
-      "name": "Once per email",
-      "variant": "info"
-    }
-  },
-  "SurveyInputType": {
-    "radio": {
-      "description": "Radio button input type. Subscribers can select one option from multiple choices.",
-      "name": "Radio",
-      "variant": "info"
-    },
-    "checkbox": {
-      "description": "Checkbox input type. Subscribers can select multiple options from the available choices.",
-      "name": "Checkbox",
-      "variant": "info"
-    },
-    "text": {
-      "description": "Text input type. Subscribers can provide freeform text responses.",
-      "name": "Text",
-      "variant": "info"
-    }
-  },
-  "SurveyStatus": {
-    "active": {
-      "description": "Active.",
-      "name": "Active",
-      "variant": "info"
-    },
-    "inactive": {
-      "description": "Inactive.",
-      "name": "Inactive",
-      "variant": "warning"
-    }
-  },
-  "UpdateSubscriberErrorCode": {
-    "email_already_exists": {
-      "description": "A subscriber with this email address already exists.",
-      "name": "Email already exists",
-      "variant": "error"
-    },
-    "email_has_been_changed_too_many_times": {
-      "description": "This subscriber's email has been changed too many times.",
-      "name": "Email changed too many times",
-      "variant": "error"
-    },
-    "email_invalid": {
-      "description": "The email address provided is not valid.",
-      "name": "Email invalid",
-      "variant": "error"
-    },
-    "firewall_blocked": {
-      "description": "The email address was blocked by the firewall.",
-      "name": "Firewall blocked",
-      "variant": "error"
-    },
-    "subscriber_type_invalid": {
-      "description": "The subscriber type provided is not valid.",
-      "name": "Subscriber type invalid",
-      "variant": "error"
-    },
-    "tag_invalid": {
-      "description": "The tag provided is invalid or does not exist.",
-      "name": "Invalid tag",
-      "variant": "error"
-    }
-  },
-  "UpdateTagErrorCode": {
-    "name_already_exists": {
-      "description": "The name of the tag already exists.",
-      "name": "Name already exists",
-      "variant": "error"
-    },
-    "name_too_long": {
-      "description": "The name of the tag is too long.",
-      "name": "Name too long",
-      "variant": "error"
-    }
-  },
-  "WebhookStatus": {
-    "disabled": {
-      "description": "The webhook is disabled and will not receive events.",
-      "name": "Disabled",
-      "variant": "warning"
-    },
-    "enabled": {
-      "description": "The webhook is enabled and will receive events.",
-      "name": "Enabled",
-      "variant": "success"
-    }
-  },
-  "EmailSuppressionReason": {
-    "law_enforcement": {
-      "description": "Used for communications with law enforcement agencies regarding legal inquiries or data requests.",
-      "name": "Law Enforcement",
-      "variant": "info"
-    },
-    "internal_auditing": {
-      "description": "Used for internal auditing and compliance-related communications.",
-      "name": "Internal Auditing",
-      "variant": "info"
-    }
-  },
-  "NewsletterAuditingMode": {
-    "disabled": {
-      "description": "No IP auditing.",
-      "name": "Disabled",
-      "variant": "info"
-    },
-    "enabled": {
-      "description": "IP auditing.",
-      "name": "Enabled",
-      "variant": "info"
-    },
-    "aggressive": {
-      "description": "IP auditing before a subscriber is even created. This mode is admin-only.",
-      "name": "Aggressive",
-      "variant": "warning"
-    }
-  }
+	"AutomationActionType": {
+		"add_metadata": {
+			"description": "Add metadata to a subscriber.",
+			"name": "Apply metadata",
+			"variant": "info"
+		},
+		"add_tags": {
+			"description": "Add tags to a subscriber.",
+			"name": "Add tags",
+			"variant": "info"
+		},
+		"change_email_address": {
+			"description": "Change the email address of a subscriber.",
+			"name": "Change email address",
+			"variant": "info"
+		},
+		"create_arena_post": {
+			"description": "Posts a block to a specific Arena channel. See our [Are.na integration docs](https://docs.buttondown.com/arena) for more details.",
+			"name": "Create Arena post",
+			"variant": "info"
+		},
+		"create_bluesky_post": {
+			"description": "Create a Bluesky post. See our [Bluesky integration docs](https://docs.buttondown.com/bsky) for more details.",
+			"name": "Create Bluesky post",
+			"variant": "info"
+		},
+		"create_export": {
+			"description": "Create an export.",
+			"name": "Create export",
+			"variant": "info"
+		},
+		"create_linkedin_post": {
+			"description": "Create a LinkedIn post. See our [LinkedIn integration docs](https://docs.buttondown.com/linkedin) for more details.",
+			"name": "Create LinkedIn post",
+			"variant": "info"
+		},
+		"create_subscriber": {
+			"description": "Create a new subscriber.",
+			"name": "Create subscriber",
+			"variant": "info"
+		},
+		"create_tumblr_post": {
+			"description": "Create a Tumblr post. See our [Tumblr integration docs](https://docs.buttondown.com/tumblr) for more details.",
+			"name": "Create Tumblr post",
+			"variant": "info"
+		},
+		"create_twitter_post": {
+			"description": "Create a Twitter post. See our [Twitter integration docs](https://docs.buttondown.com/twitter) for more details.",
+			"name": "Create Twitter post",
+			"variant": "info"
+		},
+		"forward_reply": {
+			"description": "Forward the reply to a given recipient.",
+			"name": "Forward reply",
+			"variant": "info"
+		},
+		"gift_premium_subscription": {
+			"description": "Gift a premium subscription to a subscriber.",
+			"name": "Gift premium subscription",
+			"variant": "info"
+		},
+		"remove_tags": {
+			"description": "Remove tags from a subscriber.",
+			"name": "Remove tags",
+			"variant": "info"
+		},
+		"send_discord_invitation": {
+			"description": "Send a Discord invitation to a subscriber.",
+			"name": "Send Discord invitation",
+			"variant": "info"
+		},
+		"send_email": {
+			"description": "Send an email to a subscriber.",
+			"name": "Send email",
+			"variant": "info"
+		},
+		"send_github_invitation": {
+			"description": "Send a GitHub invitation to a subscriber.",
+			"name": "Send GitHub invitation",
+			"variant": "info"
+		},
+		"send_notification": {
+			"description": "Send a notification to the newsletter author.",
+			"name": "Send notification",
+			"variant": "info"
+		},
+		"send_post_request": {
+			"description": "Send a POST request to a specified URL.",
+			"name": "Send POST request",
+			"variant": "info"
+		},
+		"send_confirmation_reminder": {
+			"description": "Send a confirmation reminder to a subscriber.",
+			"name": "Send confirmation reminder",
+			"variant": "info"
+		},
+		"shopify_create_customer": {
+			"description": "Create a new customer in your Shopify store from a newsletter subscriber.",
+			"name": "Create Shopify customer",
+			"variant": "info"
+		},
+		"shopify_resubscribe": {
+			"description": "Resubscribe a subscriber to your Shopify store marketing emails.",
+			"name": "Resubscribe to Shopify",
+			"variant": "info"
+		},
+		"shopify_set_tags": {
+			"description": "Set tags for a subscriber in your Shopify store.",
+			"name": "Set Shopify tags",
+			"variant": "info"
+		},
+		"shopify_unsubscribe": {
+			"description": "Unsubscribe a subscriber from your Shopify store.",
+			"name": "Unsubscribe from Shopify",
+			"variant": "info"
+		},
+		"ungift_premium_subscription": {
+			"description": "Remove a gifted premium subscription from a subscriber.",
+			"name": "Ungift premium subscription",
+			"variant": "info"
+		},
+		"unsubscribe_subscriber": {
+			"description": "Unsubscribe a subscriber from your newsletter.",
+			"name": "Unsubscribe from Buttondown",
+			"variant": "info"
+		}
+	},
+	"AccessLevel": {
+		"none": {
+			"description": "No access to this functionality.",
+			"name": "None",
+			"variant": "info"
+		},
+		"read": {
+			"description": "Read-only access to this functionality.",
+			"name": "Read",
+			"variant": "info"
+		},
+		"write": {
+			"description": "Full read and write access to this functionality.",
+			"name": "Write",
+			"variant": "success"
+		}
+	},
+	"AutomationStatus": {
+		"active": {
+			"description": "Active.",
+			"name": "Active",
+			"variant": "info"
+		},
+		"inactive": {
+			"description": "Inactive.",
+			"name": "Inactive",
+			"variant": "warning"
+		}
+	},
+	"BulkActionStatus": {
+		"failed": {
+			"description": "The bulk action was unable to be completed. Buttondown is looking into it.",
+			"name": "Error",
+			"variant": "error"
+		},
+		"in_progress": {
+			"description": "The bulk action is currently being processed.",
+			"name": "In progress",
+			"variant": "info"
+		},
+		"not_started": {
+			"description": "The bulk action has not yet started.",
+			"name": "Not started",
+			"variant": "info"
+		},
+		"processed": {
+			"description": "The bulk action has completed.",
+			"name": "Success",
+			"variant": "success"
+		}
+	},
+	"BulkActionType": {
+		"add_notes": {
+			"description": "Add notes to multiple subscribers in bulk.",
+			"name": "Add notes",
+			"variant": "info"
+		},
+		"apply_metadata": {
+			"description": "This action requires two additional parameters within `metadata`: `action` (which can be either `add`, `set`, or `remove`), and `metadata` (the value of the metadata which you'd like to either add or remove to the list of subscribers).",
+			"name": "Apply metadata (to subscribers)",
+			"variant": "info"
+		},
+		"apply_tags": {
+			"description": "This action requires two additional parameters within `metadata`: `tag_id` (the ID of the tag which you'd like to either add or remove to the list of subscribers) and `action` (which can be either `add` or `remove`).",
+			"name": "Apply tags",
+			"variant": "info"
+		},
+		"ban_subscribers": {
+			"description": "Ban subscribers from your newsletter.",
+			"name": "Ban subscribers",
+			"variant": "info"
+		},
+		"change_tags_colors": {
+			"description": "Change the color of multiple tags in bulk.",
+			"name": "Change tags colors",
+			"variant": "info"
+		},
+		"delete_comments": {
+			"description": "Delete multiple comments in bulk.",
+			"name": "Delete comments",
+			"variant": "info"
+		},
+		"delete_emails": {
+			"description": "Delete multiple emails in bulk.",
+			"name": "Delete emails",
+			"variant": "info"
+		},
+		"delete_inbox_items": {
+			"description": "Delete multiple inbox items in bulk.",
+			"name": "Delete inbox items",
+			"variant": "info"
+		},
+		"delete_subscribers": {
+			"description": "Delete multiple subscribers in bulk.",
+			"name": "Delete subscribers",
+			"variant": "info"
+		},
+		"delete_survey_responses": {
+			"description": "Delete multiple survey responses in bulk.",
+			"name": "Delete survey responses",
+			"variant": "info"
+		},
+		"delete_surveys": {
+			"description": "Delete multiple surveys in bulk.",
+			"name": "Delete surveys",
+			"variant": "info"
+		},
+		"delete_tags": {
+			"description": "Delete multiple tags in bulk.",
+			"name": "Delete tags",
+			"variant": "info"
+		},
+		"gift_subscribers": {
+			"description": "Gift premium subscriptions to multiple subscribers in bulk.",
+			"name": "Gift subscribers",
+			"variant": "info"
+		},
+		"mark_inbox_items_read": {
+			"description": "Mark multiple inbox items as read.",
+			"name": "Mark inbox items as read",
+			"variant": "info"
+		},
+		"mark_subscribers_as_not_spammy": {
+			"description": "Restore the status of multiple subscribers. Their exact type will depend on their history with your newsletter, but in general Buttondown will do the 'right' thing (e.g. restoring their premium subscription if they had one.)",
+			"name": "Mark subscribers as not spammy",
+			"variant": "info"
+		},
+		"modify_stripe_subscriptions": {
+			"description": "Modify the Stripe subscriptions for multiple subscribers in bulk.",
+			"name": "Modify Stripe subscriptions",
+			"variant": "info"
+		},
+		"reactivate_subscribers": {
+			"description": "Reactivate multiple subscribers in bulk.",
+			"name": "Reactivate subscribers",
+			"variant": "info"
+		},
+		"rename_metadata": {
+			"description": "Rename multiple metadata fields in bulk.",
+			"name": "Rename metadata",
+			"variant": "info"
+		},
+		"replay_events": {
+			"description": "Replay multiple events in bulk.",
+			"name": "Replay events",
+			"variant": "info"
+		},
+		"resubscribe_subscribers": {
+			"description": "Resubscribe multiple unsubscribed subscribers in bulk.",
+			"name": "Resubscribe subscribers",
+			"variant": "info"
+		},
+		"send_emails": {
+			"description": "This action requires one additional parameter within `metadata`: `email_id` (the ID of the email which you'd like to send).",
+			"name": "Send emails",
+			"variant": "info"
+		},
+		"send_reminders": {
+			"description": "Send reminders to multiple subscribers in bulk.",
+			"name": "Send reminders",
+			"variant": "info"
+		},
+		"ungift_subscribers": {
+			"description": "Remove gifted premium subscriptions from multiple subscribers in bulk.",
+			"name": "Ungift subscribers",
+			"variant": "info"
+		},
+		"unsubscribe_subscribers": {
+			"description": "Unsubscribe multiple subscribers in bulk.",
+			"name": "Unsubscribe subscribers",
+			"variant": "info"
+		},
+		"update_archival_modes": {
+			"description": "Update the archival modes for multiple emails in bulk.",
+			"name": "Update archival modes",
+			"variant": "info"
+		},
+		"update_commenting_modes": {
+			"description": "Update the commenting modes for multiple emails in bulk.",
+			"name": "Update commenting modes",
+			"variant": "info"
+		},
+		"update_email_types": {
+			"description": "Update the email types for multiple emails in bulk.",
+			"name": "Update email types",
+			"variant": "info"
+		},
+		"update_survey_statuses": {
+			"description": "Update the status types for multiple surveys in bulk.",
+			"name": "Update status types",
+			"variant": "info"
+		}
+	},
+	"CreateExportErrorCode": {
+		"collection_empty_invalid": {
+			"description": "You must pass in at least one collection to export.",
+			"name": "No collections passed in",
+			"variant": "error"
+		},
+		"columns_empty_invalid": {
+			"description": "You must pass in at least one column to export; otherwise, omit the parameter entirely.",
+			"name": "No columns passed in",
+			"variant": "error"
+		},
+		"columns_invalid": {
+			"description": "You passed in at least one column that is not valid for the collection you're exporting.",
+			"name": "Invalid columns passed in",
+			"variant": "error"
+		}
+	},
+	"CreateNewsletterErrorCode": {
+		"username_already_exists": {
+			"description": "A newsletter already exists with that username.",
+			"name": "Username already exists",
+			"variant": "error"
+		},
+		"username_malformed": {
+			"description": "The username is malformed.",
+			"name": "Username malformed",
+			"variant": "error"
+		}
+	},
+	"CommentType": {
+		"reviewer": {
+			"description": "A comment from a newsletter author or reviewer.",
+			"name": "Reviewer",
+			"variant": "info"
+		},
+		"subscriber": {
+			"description": "A comment from a subscriber.",
+			"name": "Subscriber",
+			"variant": "info"
+		}
+	},
+	"EmailCommentingMode": {
+		"disabled": {
+			"description": "Commenting is disabled for this email.",
+			"name": "Disabled",
+			"variant": "info"
+		},
+		"enabled": {
+			"description": "Commenting is enabled for this email.",
+			"name": "Enabled",
+			"variant": "info"
+		},
+		"enabled_for_paid_subscribers": {
+			"description": "Commenting is enabled for paid subscribers only.",
+			"name": "Enabled for paid subscribers",
+			"variant": "info"
+		}
+	},
+	"EmailCreationErrorCode": {
+		"body_invalid": {
+			"description": "The email body provided is invalid or cannot be parsed.",
+			"name": "Body invalid",
+			"variant": "error"
+		},
+		"canonical_url_invalid": {
+			"description": "The canonical URL provided is not a valid URL.",
+			"name": "Canonical URL invalid",
+			"variant": "error"
+		},
+		"email_duplicate": {
+			"description": "An email with the same identifiers already exists.",
+			"name": "Duplicate email",
+			"variant": "error"
+		},
+		"email_invalid": {
+			"description": "The email is invalid.",
+			"name": "Invalid email",
+			"variant": "error"
+		},
+		"publish_date_invalid": {
+			"description": "The publish date provided is not valid or is in an incorrect format.",
+			"name": "Publish date invalid",
+			"variant": "error"
+		},
+		"publish_date_missing": {
+			"description": "A publish date is required but was not provided.",
+			"name": "Publish date missing",
+			"variant": "error"
+		},
+		"slug_invalid": {
+			"description": "The slug provided is invalid or already in use.",
+			"name": "Slug invalid",
+			"variant": "error"
+		},
+		"status_invalid": {
+			"description": "The status provided is not valid.",
+			"name": "Status invalid",
+			"variant": "error"
+		},
+		"subject_invalid": {
+			"description": "The subject provided is invalid or missing.",
+			"name": "Invalid subject",
+			"variant": "error"
+		},
+		"tag_invalid": {
+			"description": "The tag provided is invalid or does not exist.",
+			"name": "Invalid tag",
+			"variant": "error"
+		}
+	},
+	"EmailListErrorCode": {
+		"creation_date_invalid": {
+			"description": "The creation date provided is not valid or is in an incorrect format.",
+			"name": "Creation date invalid",
+			"variant": "error"
+		},
+		"publish_date_invalid": {
+			"description": "The publish date provided is not valid or is in an incorrect format.",
+			"name": "Publish date invalid",
+			"variant": "error"
+		}
+	},
+	"EmailSource": {
+		"api": {
+			"description": "This email was created via the API.",
+			"name": "API",
+			"variant": "info"
+		},
+		"app": {
+			"description": "This email was created via the Buttondown web app.",
+			"name": "App",
+			"variant": "info"
+		},
+		"external_feed": {
+			"description": "This email was created by an external RSS feed.",
+			"name": "External feed",
+			"variant": "info"
+		},
+		"import": {
+			"description": "This email was imported from another service.",
+			"name": "Import",
+			"variant": "info"
+		}
+	},
+	"EmailStatus": {
+		"about_to_send": {
+			"description": "This email has been queued to send out to subscribers, and will be sent automatically within a few minutes.\n\nIf you're seeing that an email you just sent out is 'stuck' here, worry not — Buttondown sometimes takes a little bit longer to send out emails to ensure deliverability, but once it's marked as 'about to send' it will get sent out.",
+			"name": "About to send",
+			"variant": "info"
+		},
+		"deleted": {
+			"description": "This email has been deleted, and is no longer visible in your web archives.",
+			"name": "Deleted",
+			"variant": "warning"
+		},
+		"draft": {
+			"description": "Draft emails are only visible to you and are not sent out to subscribers.",
+			"name": "Draft",
+			"variant": "info"
+		},
+		"errored": {
+			"description": "This email has encountered an error while sending out to subscribers, and is not visible in your web archives.",
+			"name": "Errored",
+			"variant": "error"
+		},
+		"imported": {
+			"description": "This email was imported from another service, and is visible in your web archives if enabled.",
+			"name": "Imported",
+			"variant": "info"
+		},
+		"in_flight": {
+			"description": "This email is currently being sent out to subscribers, and is visible in your web archives if enabled.\n\nSome emails, especially those with large subscriber lists, may take a while to send out — Buttondown sends emails out in batches to ensure deliverability, so if you're seeing an email 'stuck' here, it's because our systems have detected that that's the optimal way to reach your subscribers.",
+			"name": "In flight",
+			"variant": "info"
+		},
+		"managed_by_rss": {
+			"description": "This email was created by an external feed, and has not yet been finalized and sent out by Buttondown.",
+			"name": "Managed by RSS",
+			"variant": "info"
+		},
+		"paused": {
+			"description": "This email has been paused, and is not visible in your web archives.",
+			"name": "Paused",
+			"variant": "warning"
+		},
+		"resending": {
+			"description": "This email is in the process of automatically being resent to subscribers by Buttondown's systems in order to make sure all subscribers have received it.",
+			"name": "Resending",
+			"variant": "warning"
+		},
+		"scheduled": {
+			"description": "This email has been scheduled to send out to subscribers at a specific time. This specific time is available on the email as its `publish_date`.",
+			"name": "Scheduled",
+			"variant": "info"
+		},
+		"sent": {
+			"description": "This email has been sent out to subscribers, and is visible in your web archives if enabled.",
+			"name": "Sent",
+			"variant": "success"
+		},
+		"suppressed": {
+			"description": "This email has been suppressed and is not visible to subscribers.",
+			"name": "Suppressed",
+			"variant": "warning"
+		},
+		"throttled": {
+			"description": "This email is in the process of being sent out, but is being intentionally sent slowly to ensure deliverability.",
+			"name": "Throttled",
+			"variant": "warning"
+		},
+		"transactional": {
+			"description": "This email is a transactional email used by a core workflow in your newsletter or Automations, and is not visible in your web archives nor sent out to subscribers.",
+			"name": "Transactional",
+			"variant": "info"
+		}
+	},
+	"EmailType": {
+		"archival": {
+			"description": "Emails that are only available in the archive and not sent to subscribers.",
+			"name": "Archival",
+			"variant": "info"
+		},
+		"churned": {
+			"description": "Emails sent specifically to subscribers who were previously premium but have since churned.",
+			"name": "Churned",
+			"variant": "info"
+		},
+		"free": {
+			"description": "Free emails are sent out only to subscribers who are not paying for your newsletter (so you can send specific emails to convince them to pay, for instance!)",
+			"name": "Free",
+			"variant": "info"
+		},
+		"premium": {
+			"description": "Premium emails are sent out to only paying subscribers (including those with gift subscriptions or on a free trial), and only premium subscribers can view them in online archives.",
+			"name": "Premium",
+			"variant": "info"
+		},
+		"private": {
+			"description": "Private emails are sent out to all of your subscribers but are not viewable in your web archives.",
+			"name": "Private",
+			"variant": "info"
+		},
+		"public": {
+			"description": "Public emails are sent out to all of your subscribers and are available in your web archives.",
+			"name": "Public",
+			"variant": "info"
+		}
+	},
+	"ExportCollection": {
+		"comments": {
+			"name": "Comments",
+			"variant": "info"
+		},
+		"conversations": {
+			"name": "Conversations",
+			"variant": "info"
+		},
+		"emails": {
+			"name": "Emails",
+			"variant": "info"
+		},
+		"events": {
+			"name": "Events",
+			"variant": "info"
+		},
+		"images": {
+			"name": "Images",
+			"variant": "info"
+		},
+		"mentions": {
+			"name": "Mentions",
+			"variant": "info"
+		},
+		"referrals": {
+			"name": "Referrals",
+			"variant": "info"
+		},
+		"requests": {
+			"name": "API Requests",
+			"variant": "info"
+		},
+		"stripe_charges": {
+			"name": "Stripe Charges",
+			"variant": "info"
+		},
+		"stripe_customers": {
+			"name": "Stripe Customers",
+			"variant": "info"
+		},
+		"stripe_prices": {
+			"name": "Stripe Prices",
+			"variant": "info"
+		},
+		"stripe_products": {
+			"name": "Stripe Products",
+			"variant": "info"
+		},
+		"stripe_subscriptions": {
+			"name": "Stripe Subscriptions",
+			"variant": "info"
+		},
+		"subscribers": {
+			"name": "Subscribers",
+			"variant": "info"
+		},
+		"surveys": {
+			"name": "Surveys",
+			"variant": "info"
+		}
+	},
+	"ExportFormat": {
+		"csv": {
+			"description": "Comma-separated values.",
+			"name": "CSV",
+			"variant": "info"
+		},
+		"json": {
+			"description": "JavaScript Object Notation.",
+			"name": "JSON",
+			"variant": "info"
+		}
+	},
+	"ExportStatus": {
+		"error": {
+			"description": "The export was unable to be completed. Buttondown is looking into it.",
+			"name": "Error",
+			"variant": "error"
+		},
+		"in_progress": {
+			"description": "The export is currently being processed.",
+			"name": "In progress",
+			"variant": "info"
+		},
+		"not_started": {
+			"description": "The export has not yet started.",
+			"name": "Not started",
+			"variant": "info"
+		},
+		"ready": {
+			"description": "The export has completed.",
+			"name": "Ready",
+			"variant": "success"
+		}
+	},
+	"ExternalEventType": {
+		"advertising_slot.purchased": {
+			"description": "Whenever an advertising slot in your newsletter is purchased.",
+			"name": "advertising_slot.purchased"
+		},
+		"automation.invoked": {
+			"description": "Whenever an automation is manually invoked (e.g. by a webhook or API call).",
+			"name": "automation.invoked"
+		},
+		"date.day.started": {
+			"description": "Whenever a new day starts. This event is fired at midnight UTC.",
+			"name": "date.day.started"
+		},
+		"date.month.started": {
+			"description": "Whenever a new month starts. This event is fired at midnight UTC on the first day of each month.",
+			"name": "date.month.started"
+		},
+		"date.week.started": {
+			"description": "Whenever a new week starts. This event is fired at midnight UTC on Monday.",
+			"name": "date.week.started"
+		},
+		"date.year.started": {
+			"description": "Whenever a new year starts. This event is fired at midnight UTC on January 1st.",
+			"name": "date.year.started"
+		},
+		"email.created": {
+			"description": "Whenever a new email is created and begins delivery. Note that event happens immediately before the emails themselves are sent.",
+			"name": "email.created"
+		},
+		"email.deleted": {
+			"description": "Whenever an email has been deleted.",
+			"name": "email.deleted"
+		},
+		"email.sent": {
+			"description": "Whenever an email has finished its delivery. Note that event happens immediately after all emails have been sent, but some email events may not have finished processing.",
+			"name": "email.sent"
+		},
+		"email.status.changed": {
+			"description": "Whenever an email's status has changed (e.g. from 'draft' to 'sent'.) The `metadata` field will contain the previous and new statii in 'old_value' and 'new_value' respectively.",
+			"name": "email.status.changed"
+		},
+		"email.updated": {
+			"description": "Whenever an email's content or metadata has been updated.",
+			"name": "email.updated"
+		},
+		"export.completed": {
+			"description": "Whenever an export is completed.",
+			"name": "export.completed"
+		},
+		"export.created": {
+			"description": "Whenever an export is created.",
+			"name": "export.created"
+		},
+		"export.failed": {
+			"description": "Whenever an export fails.",
+			"name": "export.failed"
+		},
+		"external_feed_item.created": {
+			"description": "Whenever a new item is created in an [RSS feed](https://docs.buttondown.com/rss-to-email).",
+			"name": "external_feed_item.created"
+		},
+		"firewall.blocked": {
+			"description": "Represents an incoming request that was blocked by the [firewall](https://docs.buttondown.com/firewall).",
+			"name": "firewall.blocked"
+		},
+		"memberful.member.updated": {
+			"description": "Whenever a member changes their email address in Memberful.",
+			"name": "memberful.member.updated"
+		},
+		"memberful.subscription.created": {
+			"description": "Whenever a new subscription is created in Memberful.",
+			"name": "memberful.subscription.created"
+		},
+		"memberful.subscription.deleted": {
+			"description": "Whenever a subscription is deleted in Memberful.",
+			"name": "memberful.subscription.deleted"
+		},
+		"mention.created": {
+			"description": "Whenever your newsletter is mentioned elsewhere.",
+			"name": "mention.created"
+		},
+		"note.created": {
+			"description": "Whenever a note is created.",
+			"name": "note.created"
+		},
+		"note.deleted": {
+			"description": "Whenever a note is deleted.",
+			"name": "note.deleted"
+		},
+		"patreon.member.updated": {
+			"description": "Whenever a member changes their email address in Patreon.",
+			"name": "patreon.member.updated"
+		},
+		"patreon.membership.created": {
+			"description": "Whenever a new membership is created in Patreon.",
+			"name": "patreon.membership.created"
+		},
+		"patreon.membership.deleted": {
+			"description": "Whenever a membership is deleted in Patreon.",
+			"name": "patreon.membership.deleted"
+		},
+		"shopify.customer.created": {
+			"description": "Whenever a new customer is created in Shopify.",
+			"name": "shopify.customer.created"
+		},
+		"shopify.customer.updated": {
+			"description": "Whenever a customer changes their email address in Shopify.",
+			"name": "shopify.customer.updated"
+		},
+		"social_mention.created": {
+			"description": "Whenever your newsletter is mentioned on another website such as Reddit, Twitter, Bluesky, etc.",
+			"name": "social_mention.created"
+		},
+		"stripe.checkout.session.completed": {
+			"description": "Whenever a Stripe checkout session is completed successfully.",
+			"name": "stripe.checkout.session.completed"
+		},
+		"stripe.customer.updated": {
+			"description": "Whenever a customer changes their email address in Stripe.",
+			"name": "stripe.customer.updated"
+		},
+		"stripe.subscription.activated": {
+			"description": "Whenever a subscription is activated in Stripe.",
+			"name": "stripe.subscription.activated"
+		},
+		"stripe.subscription.churning": {
+			"description": "Whenever a subscription is churning in Stripe.",
+			"name": "stripe.subscription.churning"
+		},
+		"stripe.subscription.deactivated": {
+			"description": "Whenever a subscription is deactivated in Stripe.",
+			"name": "stripe.subscription.deactivated"
+		},
+		"subscriber.bounced": {
+			"description": "Whenever a subscriber's email is bounced.",
+			"name": "subscriber.bounced"
+		},
+		"subscriber.changed_email": {
+			"description": "When a subscriber's email address has been changed.",
+			"name": "subscriber.changed_email"
+		},
+		"subscriber.churned": {
+			"description": "When a subscriber has unenrolled from your newsletter's paid offering.",
+			"name": "subscriber.churned"
+		},
+		"subscriber.clicked": {
+			"description": "When a subscriber has clicked a link in one of your emails.",
+			"name": "subscriber.clicked"
+		},
+		"subscriber.commented": {
+			"description": "When a subscriber has commented on one of your emails.",
+			"name": "subscriber.commented"
+		},
+		"subscriber.complained": {
+			"description": "Whenever a subscriber has complained about one of your emails.",
+			"name": "subscriber.complained"
+		},
+		"subscriber.confirmed": {
+			"description": "When a subscriber has confirmed that they are enrolled in your newsletter. (For newsletters without double opt-in, this event is created immediately after `subscriber.created`.)",
+			"name": "subscriber.confirmed"
+		},
+		"subscriber.created": {
+			"description": "Whenever a new subscriber is created.",
+			"name": "subscriber.created"
+		},
+		"subscriber.deleted": {
+			"description": "When a subscriber has been deleted from your newsletter.",
+			"name": "subscriber.deleted"
+		},
+		"subscriber.delivered": {
+			"description": "Whenever a subscriber's email is successfully delivered.",
+			"name": "subscriber.delivered"
+		},
+		"subscriber.opened": {
+			"description": "When a subscriber has opened one of your emails.",
+			"name": "subscriber.opened"
+		},
+		"subscriber.paid": {
+			"description": "When a subscriber has enrolled in your newsletter's paid offering.",
+			"name": "subscriber.paid"
+		},
+		"subscriber.paused": {
+			"description": "When a subscriber has paused their subscription.",
+			"name": "subscriber.paused"
+		},
+		"subscriber.referred": {
+			"description": "When a subscriber has referred someone to your newsletter.",
+			"name": "subscriber.referred"
+		},
+		"subscriber.referred.paid": {
+			"description": "When a subscriber's referral has converted to a paid subscription.",
+			"name": "subscriber.referred.paid"
+		},
+		"subscriber.rejected": {
+			"description": "Whenever a subscriber (or their email provider) has rejected an email from your newsletter. Buttondown takes rejections seriously, and will likely block the subscriber's email address from future emails and/or mark them as undeliverable.",
+			"name": "subscriber.rejected"
+		},
+		"subscriber.replied": {
+			"description": "Whenever a subscriber has replied to one of your emails.",
+			"name": "subscriber.replied"
+		},
+		"subscriber.responded_to_survey": {
+			"description": "When a subscriber has responded to a survey in your newsletter.",
+			"name": "subscriber.responded_to_survey"
+		},
+		"subscriber.resumed": {
+			"description": "When a subscriber has resumed their subscription after pausing it.",
+			"name": "subscriber.resumed"
+		},
+		"subscriber.tags.changed": {
+			"description": "When a subscriber's tags have been modified.",
+			"name": "subscriber.tags.changed"
+		},
+		"subscriber.trial_ended": {
+			"description": "When the trial has ended for a subscriber.",
+			"name": "subscriber.trial_ended"
+		},
+		"subscriber.trial_started": {
+			"description": "When the trial has started for a subscriber. (For newsletters with automatic free trials, this will be created immediately after `subscriber.confirmed`.)",
+			"name": "subscriber.trial_started"
+		},
+		"subscriber.type.changed": {
+			"description": "When a subscriber's type has been changed.",
+			"name": "subscriber.type.changed"
+		},
+		"subscriber.unsubscribed": {
+			"description": "When a subscriber has manually unsubscribed from your newsletter.",
+			"name": "subscriber.unsubscribed"
+		},
+		"subscriber.updated": {
+			"description": "When a subscriber's notes or metadata has changed.",
+			"name": "subscriber.updated"
+		},
+		"subscriber.viewed_checkout_page": {
+			"description": "When a subscriber has viewed your checkout page.",
+			"name": "subscriber.viewed_checkout_page"
+		},
+		"survey.cleared_responses": {
+			"description": "Whenever a survey's responses have been cleared.",
+			"name": "survey.cleared_responses"
+		},
+		"survey.created": {
+			"description": "Whenever a new survey is created.",
+			"name": "survey.created"
+		},
+		"survey.deleted": {
+			"description": "Whenever a survey has been deleted.",
+			"name": "survey.deleted"
+		},
+		"survey.updated": {
+			"description": "Whenever a survey's content or metadata has been updated.",
+			"name": "survey.updated"
+		},
+		"form.created": {
+			"description": "Whenever a new form is created.",
+			"name": "form.created"
+		},
+		"form.deleted": {
+			"description": "Whenever a form has been deleted.",
+			"name": "form.deleted"
+		},
+		"form.updated": {
+			"description": "Whenever a form's content or metadata has been updated.",
+			"name": "form.updated"
+		}
+	},
+	"ExternalFeedAutomationBehavior": {
+		"draft": {
+			"description": "Create a draft email.",
+			"name": "Create draft",
+			"variant": "info"
+		},
+		"emails": {
+			"description": "Send emails to subscribers.",
+			"name": "Send email",
+			"variant": "info"
+		}
+	},
+	"ExternalFeedAutomationCadence": {
+		"daily": {
+			"description": "Act every day, compiling a digest of new items.",
+			"name": "Daily",
+			"variant": "info"
+		},
+		"every": {
+			"description": "Act every single time a new item is added to the RSS feed.",
+			"name": "Every new item",
+			"variant": "success"
+		},
+		"monthly": {
+			"description": "Act every month, compiling a digest of new items.",
+			"name": "Monthly",
+			"variant": "info"
+		},
+		"weekly": {
+			"description": "Act every week, compiling a digest of new items.",
+			"name": "Weekly",
+			"variant": "info"
+		}
+	},
+	"ExternalFeedAutomationStatus": {
+		"active": {
+			"description": "Active.",
+			"name": "Active",
+			"variant": "info"
+		},
+		"deleted": {
+			"description": "The automation has been deleted.",
+			"name": "Deleted",
+			"variant": "error"
+		},
+		"failing": {
+			"description": "Buttondown cannot retrieve items from this feed. It will continue to attempt to do so until it gives up, at which point the automation will be set to `inactive`.",
+			"name": "Failing",
+			"variant": "error"
+		},
+		"inactive": {
+			"description": "Inactive.",
+			"name": "Inactive",
+			"variant": "warning"
+		}
+	},
+	"ExternalFeedItemStatus": {
+		"errored": {
+			"description": "Errored.",
+			"name": "Errored",
+			"variant": "error"
+		},
+		"irrelevant": {
+			"description": "Items in an RSS feed are marked as irrelevant if they do not have a publish date associated with them or if the publish date came before the RSS feed itself was connected to Buttondown.",
+			"name": "Irrelevant",
+			"variant": "warning"
+		},
+		"processed": {
+			"description": "An email has been created for this item.",
+			"name": "Processed",
+			"variant": "success"
+		},
+		"queued": {
+			"description": "Queued.",
+			"name": "Queued",
+			"variant": "info"
+		},
+		"skipped": {
+			"description": "Items in an RSS feed are marked as 'skipped' if the RSS feed itself is paused or inactive in Buttondown when the item is processed. To send this item, you must manually process & send it using Buttondown's writing interface.",
+			"name": "Skipped",
+			"variant": "info"
+		},
+		"unprocessed": {
+			"description": "Unprocessed.",
+			"name": "Unprocessed",
+			"variant": "info"
+		}
+	},
+	"InvitationStatus": {
+		"accepted": {
+			"description": "The invitation has been accepted by the recipient.",
+			"name": "Accepted",
+			"variant": "success"
+		},
+		"declined": {
+			"description": "The invitation has been declined by the recipient.",
+			"name": "Declined",
+			"variant": "warning"
+		},
+		"owner": {
+			"description": "Special status indicating the user is the owner of the newsletter.",
+			"name": "Owner",
+			"variant": "success"
+		},
+		"pending": {
+			"description": "The invitation has been sent but not yet responded to by the recipient.",
+			"name": "Pending",
+			"variant": "info"
+		},
+		"revoked": {
+			"description": "The invitation has been revoked by the sender before being accepted.",
+			"name": "Revoked",
+			"variant": "error"
+		}
+	},
+	"ListSubscribersErrorCode": {
+		"date_invalid": {
+			"description": "The date provided is not valid or is in an incorrect format.",
+			"name": "Date invalid",
+			"variant": "error"
+		},
+		"invalid_ordering": {
+			"description": "The ordering provided is not valid.",
+			"name": "Invalid ordering",
+			"variant": "error"
+		},
+		"invalid_tag": {
+			"description": "The tag provided is invalid or does not exist.",
+			"name": "Invalid tag",
+			"variant": "error"
+		}
+	},
+	"NewsletterEmailTemplate": {
+		"classic": {
+			"description": "A plaintext template that puts emphasis on your content.",
+			"name": "Classic",
+			"variant": "info"
+		},
+		"modern": {
+			"description": "The default email template.",
+			"name": "Modern",
+			"variant": "info"
+		},
+		"naked": {
+			"description": "The email body itself is used as the template, with no outside scaffolding provided by Buttondown.",
+			"name": "Naked",
+			"variant": "warning"
+		},
+		"plaintext": {
+			"description": "A plaintext (like, literally plaintext, no HTML at all) template for the truly minimalist.",
+			"name": "Plaintext",
+			"variant": "info"
+		}
+	},
+	"Operator": {
+		"contains": {
+			"description": "The value contains the field.",
+			"name": "Contains",
+			"variant": "info"
+		},
+		"equals": {
+			"description": "The value is equal to the field.",
+			"name": "Equals",
+			"variant": "info"
+		},
+		"greater_than": {
+			"description": "The value is greater than the field.",
+			"name": "Greater than",
+			"variant": "info"
+		},
+		"is_empty": {
+			"description": "The value is empty.",
+			"name": "Is empty",
+			"variant": "info"
+		},
+		"is_not_empty": {
+			"description": "The value is not empty.",
+			"name": "Is not empty",
+			"variant": "info"
+		},
+		"less_than": {
+			"description": "The value is less than the field.",
+			"name": "Less than",
+			"variant": "info"
+		},
+		"not_contains": {
+			"description": "The value does not contain the field.",
+			"name": "Not contains",
+			"variant": "info"
+		},
+		"not_equals": {
+			"description": "The value is not equal to the field.",
+			"name": "Not equals",
+			"variant": "info"
+		}
+	},
+	"SubscriberSource": {
+		"admin": {
+			"description": "This subscriber was added by a member of Buttondown support staff.",
+			"name": "Admin",
+			"variant": "info"
+		},
+		"api": {
+			"description": "Subscriber created by API.",
+			"name": "API",
+			"variant": "info"
+		},
+		"carrd": {
+			"description": "This subscriber joined via Carrd.",
+			"name": "Carrd",
+			"variant": "info"
+		},
+		"comment": {
+			"description": "This subscriber joined via commenting on an email.",
+			"name": "Comment",
+			"variant": "info"
+		},
+		"import": {
+			"description": "This subscriber was imported from another service.",
+			"name": "Import",
+			"variant": "info"
+		},
+		"organic": {
+			"description": "This subscriber subscribed to your newsletter of their own volition.",
+			"name": "Organic",
+			"variant": "info"
+		},
+		"stripe": {
+			"description": "This subscriber joined via Stripe.",
+			"name": "Stripe",
+			"variant": "info"
+		},
+		"user": {
+			"description": "This subscriber was added by a user with write permissions for subscribers within the Buttondown dashboard.",
+			"name": "User",
+			"variant": "info"
+		},
+		"zapier": {
+			"description": "This subscriber joined via Zapier.",
+			"name": "Zapier",
+			"variant": "info"
+		}
+	},
+	"SubscriberType": {
+		"blocked": {
+			"description": "Subscribers that were automatically blocked from signing up for your newsletter by Buttondown's automated filtering systems. You can review the subscriber's email address and make a decision about whether to allow them to subscribe.",
+			"name": "Blocked",
+			"variant": "error"
+		},
+		"churned": {
+			"description": "Subscribers which were previously premium subscribers, but have since churned but are not unsubscribed. These subscribers receive public emails as well as teasers.",
+			"name": "Churned",
+			"variant": "warning"
+		},
+		"churning": {
+			"description": "Subscribers who have elected to not renew their subscription to your newsletter and will become unpaid subscribers at the end of their current billing period.",
+			"name": "Churning",
+			"variant": "warning"
+		},
+		"complained": {
+			"description": "Subscribers that have registered a complaint with their email provider. Buttondown will not try to send them any future emails; no action is required on your part.",
+			"name": "Complained",
+			"variant": "error"
+		},
+		"gifted": {
+			"description": "Subscribers that have been gifted free premium subscriptions.",
+			"name": "Gifted",
+			"variant": "info"
+		},
+		"past_due": {
+			"description": "Subscribers who technically have active paid subscriptions, but have not paid their invoices in time.",
+			"name": "Past due",
+			"variant": "error"
+		},
+		"paused": {
+			"description": "Subscribers that are on a temporary hold from their premium subscription, but are still subscribed to your newsletter.",
+			"name": "Paused",
+			"variant": "warning"
+		},
+		"premium": {
+			"description": "Subscribers with active premium subscriptions.",
+			"name": "Premium",
+			"variant": "success"
+		},
+		"regular": {
+			"description": "Normal subscribers who have not unsubscribed or deactivated in any way.",
+			"name": "Regular",
+			"variant": "success"
+		},
+		"removed": {
+			"description": "Subscribers who have been explicitly removed by the newsletter (notably, this does not mean unsubscribers: use /v1/unsubscribers for that!)",
+			"name": "Removed",
+			"variant": "error"
+		},
+		"trialed": {
+			"description": "Subscribers that are temporarily receiving a premium subscription to your newsletter.",
+			"name": "Trialed",
+			"variant": "info"
+		},
+		"unactivated": {
+			"description": "Subscribers who have not yet confirmed their email or opted in.",
+			"name": "Unactivated",
+			"variant": "warning"
+		},
+		"undeliverable": {
+			"description": "Buttondown marks subscribers as undeliverable when we receive some sort of proof that this address does not exist, such as a suppression notification from one of our email providers or a [hard bounce](https://docs.buttondown.com/glossary-permanent-failure) from the host or mailbox itself. We don't try to deliver email to subscribers marked as undeliverable, but you can, in some cases, change their email address (e.g. if they've changed their email address in your CRM, or if you had a typo in their email address) to try and fix things.",
+			"name": "Undeliverable",
+			"variant": "error"
+		},
+		"unpaid": {
+			"description": "Subscribers who have not yet purchased a subscription to your newsletter. Subscribers will only be marked as unpaid if you have turned off free subscriptions to your paid newsletter; otherwise, they will be marked as [Regular](/api-subscribers-type#regular).",
+			"name": "Unpaid",
+			"variant": "info"
+		},
+		"upcoming": {
+			"description": "Subscribers who have a premium subscription starting in the future.",
+			"name": "Upcoming",
+			"variant": "info"
+		},
+		"unsubscribed": {
+			"description": "Subscribers that have or have been unsubscribed from your newsletter.",
+			"name": "Unsubscribed",
+			"variant": "error"
+		}
+	},
+	"SubscriberUndeliverabilityReason": {
+		"access_denied": {
+			"description": "Access to the subscriber's email was denied.",
+			"name": "Access denied",
+			"variant": "error"
+		},
+		"disabled": {
+			"description": "The subscriber's email account is disabled.",
+			"name": "Disabled",
+			"variant": "error"
+		},
+		"does_not_exist": {
+			"description": "The subscriber's email does not exist.",
+			"name": "Does not exist",
+			"variant": "error"
+		},
+		"domain_blocked": {
+			"description": "The subscriber's domain is blocked.",
+			"name": "Domain blocked",
+			"variant": "error"
+		},
+		"email_blocked": {
+			"description": "The subscriber's email address is blocked.",
+			"name": "Email blocked",
+			"variant": "error"
+		},
+		"ip_blocked": {
+			"description": "The subscriber's IP address is blocked.",
+			"name": "IP blocked",
+			"variant": "error"
+		},
+		"ip_undeliverable": {
+			"description": "The subscriber's IP address is undeliverable.",
+			"name": "IP undeliverable",
+			"variant": "error"
+		},
+		"malformed": {
+			"description": "The subscriber's email is malformed.",
+			"name": "Malformed",
+			"variant": "error"
+		},
+		"on_esp_denylist": {
+			"description": "The subscriber's email is on an ESP denylist.",
+			"name": "On ESP denylist",
+			"variant": "error"
+		},
+		"other": {
+			"description": "The subscriber is deemed undeliverable for an unknown reason.",
+			"name": "Other",
+			"variant": "error"
+		},
+		"out_of_storage": {
+			"description": "The subscriber's mailbox is out of storage.",
+			"name": "Out of storage",
+			"variant": "error"
+		},
+		"problematic_url": {
+			"description": "The email contained a problematic URL.",
+			"name": "Problematic URL",
+			"variant": "error"
+		},
+		"rate_limited": {
+			"description": "The email provider, i.e. Gmail, acknowledges the message, but is temporarily refusing to send the message due to overall volume coming from the sender. Sender can mean a number of different things. For instance, it can mean that your specific newsletter is sending a high amount of volume. It can mean your domain is sending a high amount of volume. Or, in rare cases, it can mean that Buttondown itself as an overall system is sending too much volume. You do not need to change or retry any errors you see due to rate limiting. Buttondown will automatically handle that. However, if you see this error come up often, consider more regularly sending your email at a specific cadence, i.e. weekly.",
+			"name": "Rate limited",
+			"variant": "error"
+		},
+		"spam": {
+			"description": "The email was marked as spam.",
+			"name": "Spam",
+			"variant": "error"
+		},
+		"spf_failed": {
+			"description": "SPF validation failed for the email.",
+			"name": "SPF failed",
+			"variant": "error"
+		},
+		"unreachable": {
+			"description": "The subscriber's email is unreachable.",
+			"name": "Unreachable",
+			"variant": "error"
+		}
+	},
+	"SurveyResponseCadence": {
+		"once": {
+			"description": "A subscriber can only respond to this survey once.",
+			"name": "Once",
+			"variant": "info"
+		},
+		"once_per_email": {
+			"description": "A subscriber can respond to this survey once per email.",
+			"name": "Once per email",
+			"variant": "info"
+		}
+	},
+	"SurveyInputType": {
+		"radio": {
+			"description": "Radio button input type. Subscribers can select one option from multiple choices.",
+			"name": "Radio",
+			"variant": "info"
+		},
+		"checkbox": {
+			"description": "Checkbox input type. Subscribers can select multiple options from the available choices.",
+			"name": "Checkbox",
+			"variant": "info"
+		},
+		"text": {
+			"description": "Text input type. Subscribers can provide freeform text responses.",
+			"name": "Text",
+			"variant": "info"
+		}
+	},
+	"SurveyStatus": {
+		"active": {
+			"description": "Active.",
+			"name": "Active",
+			"variant": "info"
+		},
+		"inactive": {
+			"description": "Inactive.",
+			"name": "Inactive",
+			"variant": "warning"
+		}
+	},
+	"UpdateSubscriberErrorCode": {
+		"email_already_exists": {
+			"description": "A subscriber with this email address already exists.",
+			"name": "Email already exists",
+			"variant": "error"
+		},
+		"email_has_been_changed_too_many_times": {
+			"description": "This subscriber's email has been changed too many times.",
+			"name": "Email changed too many times",
+			"variant": "error"
+		},
+		"email_invalid": {
+			"description": "The email address provided is not valid.",
+			"name": "Email invalid",
+			"variant": "error"
+		},
+		"firewall_blocked": {
+			"description": "The email address was blocked by the firewall.",
+			"name": "Firewall blocked",
+			"variant": "error"
+		},
+		"subscriber_type_invalid": {
+			"description": "The subscriber type provided is not valid.",
+			"name": "Subscriber type invalid",
+			"variant": "error"
+		},
+		"tag_invalid": {
+			"description": "The tag provided is invalid or does not exist.",
+			"name": "Invalid tag",
+			"variant": "error"
+		}
+	},
+	"UpdateTagErrorCode": {
+		"name_already_exists": {
+			"description": "The name of the tag already exists.",
+			"name": "Name already exists",
+			"variant": "error"
+		},
+		"name_too_long": {
+			"description": "The name of the tag is too long.",
+			"name": "Name too long",
+			"variant": "error"
+		}
+	},
+	"WebhookStatus": {
+		"disabled": {
+			"description": "The webhook is disabled and will not receive events.",
+			"name": "Disabled",
+			"variant": "warning"
+		},
+		"enabled": {
+			"description": "The webhook is enabled and will receive events.",
+			"name": "Enabled",
+			"variant": "success"
+		}
+	},
+	"EmailSuppressionReason": {
+		"law_enforcement": {
+			"description": "Used for communications with law enforcement agencies regarding legal inquiries or data requests.",
+			"name": "Law Enforcement",
+			"variant": "info"
+		},
+		"internal_auditing": {
+			"description": "Used for internal auditing and compliance-related communications.",
+			"name": "Internal Auditing",
+			"variant": "info"
+		}
+	},
+	"NewsletterAuditingMode": {
+		"disabled": {
+			"description": "No IP auditing.",
+			"name": "Disabled",
+			"variant": "info"
+		},
+		"enabled": {
+			"description": "IP auditing.",
+			"name": "Enabled",
+			"variant": "info"
+		},
+		"aggressive": {
+			"description": "IP auditing before a subscriber is even created. This mode is admin-only.",
+			"name": "Aggressive",
+			"variant": "warning"
+		}
+	}
 }

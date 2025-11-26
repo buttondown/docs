@@ -5,19 +5,19 @@
 import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({
-  dsn: "https://42cec06a25fe1da9e05706b845c96e0b@o97520.ingest.us.sentry.io/4507018876026880",
-  tracesSampleRate: 1,
-  enabled: process.env.NODE_ENV === "production",
+	dsn: "https://42cec06a25fe1da9e05706b845c96e0b@o97520.ingest.us.sentry.io/4507018876026880",
+	tracesSampleRate: 1,
+	enabled: process.env.NODE_ENV === "production",
 });
 
 export async function register() {
-  if (process.env.NEXT_RUNTIME === "nodejs") {
-    await import("./sentry.server.config");
-  }
+	if (process.env.NEXT_RUNTIME === "nodejs") {
+		await import("./sentry.server.config");
+	}
 
-  if (process.env.NEXT_RUNTIME === "edge") {
-    await import("./sentry.edge.config");
-  }
+	if (process.env.NEXT_RUNTIME === "edge") {
+		await import("./sentry.edge.config");
+	}
 }
 
 export const onRequestError = Sentry.captureRequestError;

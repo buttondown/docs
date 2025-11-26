@@ -1,21 +1,21 @@
 import {
-  type ObjectField,
-  type PreviewProps,
-  component,
-  fields,
+	component,
+	fields,
+	type ObjectField,
+	type PreviewProps,
 } from "@keystatic/core";
 
 const schema = {
-  before: fields.text({ label: "Before", multiline: true }),
-  after: fields.text({ label: "After", multiline: true }),
+	before: fields.text({ label: "Before", multiline: true }),
+	after: fields.text({ label: "After", multiline: true }),
 };
 
 function Preview(props: PreviewProps<ObjectField<typeof schema>>) {
-  return <div>{props.fields.before.value}</div>;
+	return <div>{props.fields.before.value}</div>;
 }
 
 export const preview = component({
-  label: "Preview",
-  schema,
-  preview: Preview,
+	label: "Preview",
+	schema,
+	preview: Preview,
 });

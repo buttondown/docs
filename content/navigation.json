@@ -1,2406 +1,2406 @@
 {
-  "guides": [
-    {
-      "name": "Getting started",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "quickstart"
-        },
-        {
-          "discriminant": "page",
-          "value": "registration-and-setup"
-        },
-        {
-          "discriminant": "page",
-          "value": "sending-your-first-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "sending-your-first-email-advanced"
-        },
-        {
-          "discriminant": "page",
-          "value": "test-mode"
-        }
-      ]
-    },
-    {
-      "name": "Collecting subscribers",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "building-your-subscriber-base"
-        },
-        {
-          "discriminant": "page",
-          "value": "subscriber-data"
-        },
-        {
-          "discriminant": "page",
-          "value": "private-mode"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "manually-adding-subscribers"
-        },
-        {
-          "discriminant": "page",
-          "value": "dealing-with-spam-subscribers"
-        },
-        {
-          "discriminant": "page",
-          "value": "embed-form-cors-csp"
-        }
-      ]
-    },
-    {
-      "name": "Enriching subscribers",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "tags"
-        },
-        {
-          "discriminant": "page",
-          "value": "metadata"
-        },
-        {
-          "discriminant": "page",
-          "value": "surveys"
-        },
-        {
-          "discriminant": "page",
-          "value": "subscriber-referrals"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-can-i-segment-users"
-        }
-      ]
-    },
-    {
-      "name": "Importing from elsewhere",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "importing-your-data"
-        },
-        {
-          "discriminant": "page",
-          "value": "aweber"
-        },
-        {
-          "discriminant": "page",
-          "value": "beehiiv"
-        },
-        {
-          "discriminant": "page",
-          "value": "benchmark"
-        },
-        {
-          "discriminant": "page",
-          "value": "campaign-monitor"
-        },
-        {
-          "discriminant": "page",
-          "value": "constant-contact"
-        },
-        {
-          "discriminant": "page",
-          "value": "convertkit"
-        },
-        {
-          "discriminant": "page",
-          "value": "emailoctopus"
-        },
-        {
-          "discriminant": "page",
-          "value": "feedblitz"
-        },
-        {
-          "discriminant": "page",
-          "value": "mailchimp"
-        },
-        {
-          "discriminant": "page",
-          "value": "mailcoach"
-        },
-        {
-          "discriminant": "page",
-          "value": "mailerlite"
-        },
-        {
-          "discriminant": "page",
-          "value": "moosend"
-        },
-        {
-          "discriminant": "page",
-          "value": "podia"
-        },
-        {
-          "discriminant": "page",
-          "value": "revue"
-        },
-        {
-          "discriminant": "page",
-          "value": "substack"
-        },
-        {
-          "discriminant": "page",
-          "value": "tinyletter"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "do-imported-subscribers-have-to-re-confirm-their-subscription"
-        },
-        {
-          "discriminant": "page",
-          "value": "import-limitations"
-        }
-      ]
-    },
-    {
-      "name": "Writing and sending",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "using-attachments"
-        },
-        {
-          "discriminant": "page",
-          "value": "uploading-images"
-        },
-        {
-          "discriminant": "page",
-          "value": "draft-send"
-        },
-        {
-          "discriminant": "page",
-          "value": "scheduling-an-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "premium-content"
-        },
-        {
-          "discriminant": "page",
-          "value": "sending-via-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "replies"
-        },
-        {
-          "discriminant": "page",
-          "value": "warming-up"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "rate-limiting"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-do-i-avoid-the-promotions-tab"
-        },
-        {
-          "discriminant": "page",
-          "value": "why-is-my-email-purple"
-        },
-        {
-          "discriminant": "page",
-          "value": "why-some-email-clients-look-different"
-        },
-        {
-          "discriminant": "page",
-          "value": "one-click-unsubscribe"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-to-write-accessible-emails"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-do-i-format-dates"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-do-i-include-audio-in-my-newsletter"
-        },
-        {
-          "discriminant": "page",
-          "value": "support-amp-for-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-set-custom-reply-to"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-do-i-set-sender-information"
-        },
-        {
-          "discriminant": "page",
-          "value": "resend-email"
-        }
-      ]
-    },
-    {
-      "name": "Custom domains",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "getting-a-custom-domain"
-        },
-        {
-          "discriminant": "page",
-          "value": "sending-from-a-custom-domain"
-        },
-        {
-          "discriminant": "page",
-          "value": "hosting-on-a-custom-domain"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Registrars"
-        },
-        {
-          "discriminant": "page",
-          "value": "sending-from-dreamhost"
-        }
-      ]
-    },
-    {
-      "name": "Automating your newsletter",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "creating-your-first-automation"
-        },
-        {
-          "discriminant": "page",
-          "value": "welcome-sequence"
-        },
-        {
-          "discriminant": "page",
-          "value": "rss-to-email"
-        }
-      ]
-    },
-    {
-      "name": "Monetizing your newsletter",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "paid-subscriptions"
-        },
-        {
-          "discriminant": "page",
-          "value": "sponsorships"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Features"
-        },
-        {
-          "discriminant": "page",
-          "value": "gift-subscriptions"
-        },
-        {
-          "discriminant": "page",
-          "value": "gifting-subscriptions"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "slash-buy"
-        },
-        {
-          "discriminant": "page",
-          "value": "pricing-models"
-        },
-        {
-          "discriminant": "page",
-          "value": "premium-teaser"
-        },
-        {
-          "discriminant": "page",
-          "value": "stripe-upsell"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-pay-using-something-other-than-stripe"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-do-i-handle-taxes"
-        },
-        {
-          "discriminant": "page",
-          "value": "price-changes"
-        },
-        {
-          "discriminant": "page",
-          "value": "tip-jar"
-        }
-      ]
-    },
-    {
-      "name": "Account",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "multiple-newsletters"
-        },
-        {
-          "discriminant": "page",
-          "value": "data-exports"
-        },
-        {
-          "discriminant": "page",
-          "value": "help-i-deleted-everything"
-        },
-        {
-          "discriminant": "page",
-          "value": "teams"
-        },
-        {
-          "discriminant": "page",
-          "value": "deleting-your-account"
-        },
-        {
-          "discriminant": "page",
-          "value": "dormancy"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQs"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-point-my-old-buttondown-newsletter-to-a-new-url"
-        }
-      ]
-    },
-    {
-      "name": "Integrations",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "arena"
-        },
-        {
-          "discriminant": "page",
-          "value": "blogger"
-        },
-        {
-          "discriminant": "page",
-          "value": "bsky"
-        },
-        {
-          "discriminant": "page",
-          "value": "carrd"
-        },
-        {
-          "discriminant": "page",
-          "value": "discord"
-        },
-        {
-          "discriminant": "page",
-          "value": "fathom"
-        },
-        {
-          "discriminant": "page",
-          "value": "framer"
-        },
-        {
-          "discriminant": "page",
-          "value": "linkedin"
-        },
-        {
-          "discriminant": "page",
-          "value": "plausible"
-        },
-        {
-          "discriminant": "page",
-          "value": "simple-analytics"
-        },
-        {
-          "discriminant": "page",
-          "value": "stripe"
-        },
-        {
-          "discriminant": "page",
-          "value": "twitter"
-        },
-        {
-          "discriminant": "page",
-          "value": "tumblr"
-        },
-        {
-          "discriminant": "page",
-          "value": "umami"
-        },
-        {
-          "discriminant": "page",
-          "value": "webflow"
-        },
-        {
-          "discriminant": "page",
-          "value": "wordpress"
-        }
-      ]
-    },
-    {
-      "name": "About Buttondown",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "billing"
-        },
-        {
-          "discriminant": "page",
-          "value": "affiliate-program"
-        }
-      ]
-    }
-  ],
-  "reference": [
-    {
-      "name": "Dashboard",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "home"
-        },
-        {
-          "discriminant": "page",
-          "value": "using-a-screen-reader"
-        },
-        {
-          "discriminant": "page",
-          "value": "privacy-and-security"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Columns"
-        },
-        {
-          "discriminant": "page",
-          "value": "customizing-email-list-view"
-        },
-        {
-          "discriminant": "page",
-          "value": "customizing-subscriber-list-view"
-        },
-        {
-          "discriminant": "page",
-          "value": "customizing-request-list-view"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "auditing"
-        },
-        {
-          "discriminant": "page",
-          "value": "change-password"
-        },
-        {
-          "discriminant": "page",
-          "value": "change-username"
-        },
-        {
-          "discriminant": "page",
-          "value": "change-login-method"
-        },
-        {
-          "discriminant": "page",
-          "value": "paused-billing"
-        }
-      ]
-    },
-    {
-      "name": "Editor",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "using-templating"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Variables"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-email-publish-date"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-email-secondary-id"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-email-is-premium"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-email-subject"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-email-url"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-manage-subscription-url"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-medium"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-premium-subscribe-url"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-random-number"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscribe-form"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscribe-url"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscriber-can-be-upsold"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscriber-can-view-premium-content"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscriber-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscriber-id"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscriber-metadata"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscriber-subscriber-type"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscriber-tags"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-unsubscribe-url"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-upgrade-url"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Fancy mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "fancy-mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "fancy-mode-images"
-        },
-        {
-          "discriminant": "page",
-          "value": "fancy-mode-text"
-        },
-        {
-          "discriminant": "page",
-          "value": "fancy-mode-dynamic"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Markdown mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "using-markdown"
-        },
-        {
-          "discriminant": "page",
-          "value": "using-markdown-syntax"
-        },
-        {
-          "discriminant": "page",
-          "value": "using-markdown-rendering"
-        },
-        {
-          "discriminant": "page",
-          "value": "converting-between-modes"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Naked mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "naked-mode"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "buttondown-editor-mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "keyboard-shortcuts"
-        }
-      ]
-    },
-    {
-      "name": "Subscriber management",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "subscriber-cleanup"
-        },
-        {
-          "discriminant": "page",
-          "value": "portal"
-        },
-        {
-          "discriminant": "page",
-          "value": "domains"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-set-a-custom-unsubscribe-link"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-send-an-email-to-new-subscribers"
-        }
-      ]
-    },
-    {
-      "name": "Customization",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "customizing-email-design"
-        },
-        {
-          "discriminant": "page",
-          "value": "customizing-web-design"
-        },
-        {
-          "discriminant": "page",
-          "value": "localization"
-        },
-        {
-          "discriminant": "page",
-          "value": "customizing-transactional-emails"
-        },
-        {
-          "discriminant": "page",
-          "value": "xss"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "what-s-a-good-tutorial-for-learning-css"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-use-a-custom-font"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-link-two-related-emails"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-exclude-an-email-from-archive"
-        },
-        {
-          "discriminant": "page",
-          "value": "modern-template-hide-top"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-center-my-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-customize-my-gmail-icon"
-        }
-      ]
-    },
-    {
-      "name": "Transactional emails",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "transactional-emails"
-        },
-        {
-          "discriminant": "page",
-          "value": "transactional-emails-confirmation"
-        },
-        {
-          "discriminant": "page",
-          "value": "transactional-emails-reminder"
-        },
-        {
-          "discriminant": "page",
-          "value": "transactional-emails-welcome"
-        },
-        {
-          "discriminant": "page",
-          "value": "transactional-emails-premium-welcome"
-        },
-        {
-          "discriminant": "page",
-          "value": "transactional-emails-gift"
-        }
-      ]
-    },
-    {
-      "name": "Archives",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "comments"
-        },
-        {
-          "discriminant": "page",
-          "value": "email-to-rss"
-        },
-        {
-          "discriminant": "page",
-          "value": "share-images"
-        },
-        {
-          "discriminant": "page",
-          "value": "seo"
-        },
-        {
-          "discriminant": "page",
-          "value": "canonical-url"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "does-buttondown-automatically-index-my-web-archives"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-do-subscribers-customize-their-name-photo"
-        },
-        {
-          "discriminant": "page",
-          "value": "why-arent-i-seeing-my-new-share-image"
-        }
-      ]
-    },
-    {
-      "name": "Deliverability",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "preflight"
-        },
-        {
-          "discriminant": "page",
-          "value": "workspace-spf"
-        },
-        {
-          "discriminant": "page",
-          "value": "monitoring-your-domain"
-        },
-        {
-          "discriminant": "page",
-          "value": "standards"
-        },
-        {
-          "discriminant": "page",
-          "value": "gmail-suspicious-link"
-        },
-        {
-          "discriminant": "page",
-          "value": "gmail-images-hidden"
-        }
-      ]
-    },
-    {
-      "name": "Exports",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "data-exports-api"
-        },
-        {
-          "discriminant": "page",
-          "value": "data-exports-comments"
-        },
-        {
-          "discriminant": "page",
-          "value": "data-exports-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "data-exports-event"
-        },
-        {
-          "discriminant": "page",
-          "value": "data-exports-subscriber"
-        },
-        {
-          "discriminant": "page",
-          "value": "data-exports-survey"
-        }
-      ]
-    },
-    {
-      "name": "Automations",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "automations-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "automation-triggers"
-        },
-        {
-          "discriminant": "page",
-          "value": "automation-filters"
-        },
-        {
-          "discriminant": "page",
-          "value": "automation-actions"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "what-happens-if-i-change-an-automation"
-        }
-      ]
-    },
-    {
-      "name": "Events and webhooks",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "events-and-webhooks-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "creating-webhooks-dashboard"
-        },
-        {
-          "discriminant": "page",
-          "value": "event-types"
-        }
-      ]
-    },
-    {
-      "name": "Advanced features",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "dedicated-ip"
-        },
-        {
-          "discriminant": "page",
-          "value": "firewall"
-        },
-        {
-          "discriminant": "page",
-          "value": "social-media-monitoring"
-        },
-        {
-          "discriminant": "page",
-          "value": "hidden-settings"
-        },
-        {
-          "discriminant": "page",
-          "value": "buttondown-cli"
-        },
-        {
-          "discriminant": "hidden_page",
-          "value": "bookmarklet"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "does-buttondown-offer-a-b-testing"
-        },
-        {
-          "discriminant": "page",
-          "value": "podcasts"
-        }
-      ]
-    },
-    {
-      "name": "RSS-to-email",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "rss-audience"
-        },
-        {
-          "discriminant": "page",
-          "value": "rss-cadence"
-        }
-      ]
-    },
-    {
-      "name": "Analytics",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "click-tracking"
-        },
-        {
-          "discriminant": "page",
-          "value": "complaint-rate"
-        },
-        {
-          "discriminant": "page",
-          "value": "gross-volume"
-        },
-        {
-          "discriminant": "page",
-          "value": "monthly-recurring-revenue"
-        },
-        {
-          "discriminant": "page",
-          "value": "open-tracking"
-        },
-        {
-          "discriminant": "page",
-          "value": "pageviews-by-referrer"
-        },
-        {
-          "discriminant": "page",
-          "value": "permanent-failure-rate"
-        },
-        {
-          "discriminant": "page",
-          "value": "rss-subscribers"
-        },
-        {
-          "discriminant": "page",
-          "value": "utm"
-        }
-      ]
-    },
-    {
-      "name": "Legal stuff",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "gdpr-eu-compliance"
-        },
-        {
-          "discriminant": "page",
-          "value": "support-policy"
-        },
-        {
-          "discriminant": "page",
-          "value": "adult-content-policy"
-        },
-        {
-          "discriminant": "page",
-          "value": "acceptable-use-policy"
-        },
-        {
-          "discriminant": "page",
-          "value": "law-enforcement-requests"
-        },
-        {
-          "discriminant": "page",
-          "value": "late-payments"
-        },
-        {
-          "discriminant": "page",
-          "value": "data-processing-agreement"
-        },
-        {
-          "discriminant": "page",
-          "value": "subprocessors"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "buttondown-data"
-        },
-        {
-          "discriminant": "page",
-          "value": "does-buttondown-offer-stipends"
-        },
-        {
-          "discriminant": "page",
-          "value": "self-hosting"
-        }
-      ]
-    },
-    {
-      "name": "A/B testing",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "ab-test-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0001"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0002"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0003"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0004"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0005"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0006"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0007"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0008"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0009"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0010"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0011"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0012"
-        }
-      ]
-    },
-    {
-      "name": "Glossary",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "glossary-alt-text"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-amp"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-api"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-bimi"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-cac"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-can-spam"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-captcha"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-cfl"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-cold-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-cors"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-cpm"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-csv"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-cta"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-dkim"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-dmarc"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-dns"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-double-optin"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-drip-sequence"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-esp"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-gdpr"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-gravatar"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-headless-mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-hosting-domain"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-jamstack"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-json-ld"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-latex"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-oembed"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-omnichannel"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-openapi"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-paywall"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-permanent-failure"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-posse"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-precedence-bulk"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-preheader"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-rate-sheet"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-rest"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-reverse-dns"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-rss"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-sending-domain"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-slug"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-smtp"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-spamassassin"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-spf"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-temporary-failure"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-transactional-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-ugc"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-webhook"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-webmentions"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-whitelabeling"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-wysiwyg"
-        }
-      ]
-    }
-  ],
-  "api": [
-    {
-      "name": "Introduction",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-authentication"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-formatting"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-filtering"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-ordering"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-pagination"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-expansion"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-versioning"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-idempotency-keys"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-rate-limits"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-response-codes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-error-codes"
-        }
-      ]
-    },
-    {
-      "name": "API recipes",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "drafting-emails-via-the-api"
-        },
-        {
-          "discriminant": "page",
-          "value": "creating-template-emails-via-api"
-        },
-        {
-          "discriminant": "page",
-          "value": "platform"
-        },
-        {
-          "discriminant": "page",
-          "value": "scheduling-emails-via-the-api"
-        },
-        {
-          "discriminant": "page",
-          "value": "retrieving-analytics-data"
-        }
-      ]
-    },
-    {
-      "name": "Emails",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-emails-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-source"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-type"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-analytic"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-template"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-commenting-mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-suppression-reason"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Audience filters"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-filters"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-filter"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-operator"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-delete"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-analytics"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-send-draft"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-events"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-history-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-history-body-retrieve"
-        }
-      ]
-    },
-    {
-      "name": "Subscribers",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-type"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-source"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-undeliverability-reason"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-delete"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-reminder"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-send-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-retrieve-responses"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-referrals"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-automations"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-stripe-subscriptions"
-        }
-      ]
-    },
-    {
-      "name": "Tags",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-tags-introduction"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-tags-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-tags-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-tags-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-tags-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-tags-delete"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-tags-analytics"
-        }
-      ]
-    },
-    {
-      "name": "Images",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-images-introduction"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-images-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-images-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-images-delete"
-        }
-      ]
-    },
-    {
-      "name": "Attachments",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-attachments-introduction"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-attachments-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-attachments-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-attachments-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-attachments-delete"
-        }
-      ]
-    },
-    {
-      "name": "Newsletters",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-auditing-mode"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-delete"
-        }
-      ]
-    },
-    {
-      "name": "Exports",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-exports-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-exports-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-exports-collections"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-exports-format"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-exports-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-exports-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-exports-list"
-        }
-      ]
-    },
-    {
-      "name": "Bulk actions",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-bulk-actions-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-bulk-action-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-bulk-action-type"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-bulk-actions-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-bulk-actions-retrieve"
-        }
-      ]
-    },
-    {
-      "name": "RSS feeds",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-cadence"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-behavior"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-item-status"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-delete"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-items-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-items-create"
-        }
-      ]
-    },
-    {
-      "name": "Webhooks",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-event-types"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhook-status"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-delete"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-test"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-attempts-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-retrieve"
-        }
-      ]
-    },
-    {
-      "name": "Comments",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-comments-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-comments-type"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-comments-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-comment-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-comments-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-comments-delete"
-        }
-      ]
-    },
-    {
-      "name": "Surveys",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-surveys-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-cadence"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-input-type"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-survey-responses"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-delete"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-list-responses"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-survey-responses-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-survey-responses-update"
-        }
-      ]
-    },
-    {
-      "name": "Coupons",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-coupons-introduction"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-coupons-list"
-        }
-      ]
-    },
-    {
-      "name": "Automations",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-automation-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automation-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automation-timing"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automation-delay"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automations-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automations-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automations-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automations-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automations-delete"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automations-invoke"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automations-analytics"
-        }
-      ]
-    },
-    {
-      "name": "Accounts",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-accounts-me"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-user-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-invitation-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-permissions"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-permissions-access-level"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-users-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-users-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-users-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-users-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-users-delete"
-        }
-      ]
-    },
-    {
-      "name": "Notes",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-notes-introduction"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-notes-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-notes-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-notes-delete"
-        }
-      ]
-    },
-    {
-      "name": "Prices",
-      "items": [
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-prices-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-prices-create"
-        }
-      ]
-    },
-    {
-      "name": "API Requests",
-      "items": [
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-api-requests-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-api-requests-retrieve"
-        }
-      ]
-    },
-    {
-      "name": "Events",
-      "items": [
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-events-retrieve"
-        }
-      ]
-    },
-    {
-      "name": "Ping",
-      "items": [
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-ping"
-        }
-      ]
-    },
-    {
-      "name": "Changelog",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-changelog"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-11-15"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-09-23"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-09-18"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-07-28"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-07-13"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-06-26"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-06-01"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-05-30"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-05-19"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-05-17"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-05-14"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-04-17"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-04-14"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-03-31"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-03-25"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-03-01"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-02-26"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-02-12"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-02-06"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2025-01-02"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-12-31"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-12-30"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-12-14"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-12-11"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-12-10"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-12-09"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-12-05"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-09-30"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-08-15"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-08-01"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-07-13"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-06-27"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-06-21"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-05-22"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2024-04-03"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2023-08-23"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2023-08-21"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2023-07-23"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2022-11-24"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2022-11-19"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2022-03-08"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2021-11-26"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2021-08-27"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2021-01-02"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2020-12-23"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-changelog-2020-12-09"
-        }
-      ]
-    }
-  ]
+	"guides": [
+		{
+			"name": "Getting started",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "quickstart"
+				},
+				{
+					"discriminant": "page",
+					"value": "registration-and-setup"
+				},
+				{
+					"discriminant": "page",
+					"value": "sending-your-first-email"
+				},
+				{
+					"discriminant": "page",
+					"value": "sending-your-first-email-advanced"
+				},
+				{
+					"discriminant": "page",
+					"value": "test-mode"
+				}
+			]
+		},
+		{
+			"name": "Collecting subscribers",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "building-your-subscriber-base"
+				},
+				{
+					"discriminant": "page",
+					"value": "subscriber-data"
+				},
+				{
+					"discriminant": "page",
+					"value": "private-mode"
+				},
+				{
+					"discriminant": "divider",
+					"value": "FAQ"
+				},
+				{
+					"discriminant": "page",
+					"value": "manually-adding-subscribers"
+				},
+				{
+					"discriminant": "page",
+					"value": "dealing-with-spam-subscribers"
+				},
+				{
+					"discriminant": "page",
+					"value": "embed-form-cors-csp"
+				}
+			]
+		},
+		{
+			"name": "Enriching subscribers",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "tags"
+				},
+				{
+					"discriminant": "page",
+					"value": "metadata"
+				},
+				{
+					"discriminant": "page",
+					"value": "surveys"
+				},
+				{
+					"discriminant": "page",
+					"value": "subscriber-referrals"
+				},
+				{
+					"discriminant": "divider",
+					"value": "FAQ"
+				},
+				{
+					"discriminant": "page",
+					"value": "how-can-i-segment-users"
+				}
+			]
+		},
+		{
+			"name": "Importing from elsewhere",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "importing-your-data"
+				},
+				{
+					"discriminant": "page",
+					"value": "aweber"
+				},
+				{
+					"discriminant": "page",
+					"value": "beehiiv"
+				},
+				{
+					"discriminant": "page",
+					"value": "benchmark"
+				},
+				{
+					"discriminant": "page",
+					"value": "campaign-monitor"
+				},
+				{
+					"discriminant": "page",
+					"value": "constant-contact"
+				},
+				{
+					"discriminant": "page",
+					"value": "convertkit"
+				},
+				{
+					"discriminant": "page",
+					"value": "emailoctopus"
+				},
+				{
+					"discriminant": "page",
+					"value": "feedblitz"
+				},
+				{
+					"discriminant": "page",
+					"value": "mailchimp"
+				},
+				{
+					"discriminant": "page",
+					"value": "mailcoach"
+				},
+				{
+					"discriminant": "page",
+					"value": "mailerlite"
+				},
+				{
+					"discriminant": "page",
+					"value": "moosend"
+				},
+				{
+					"discriminant": "page",
+					"value": "podia"
+				},
+				{
+					"discriminant": "page",
+					"value": "revue"
+				},
+				{
+					"discriminant": "page",
+					"value": "substack"
+				},
+				{
+					"discriminant": "page",
+					"value": "tinyletter"
+				},
+				{
+					"discriminant": "divider",
+					"value": "FAQ"
+				},
+				{
+					"discriminant": "page",
+					"value": "do-imported-subscribers-have-to-re-confirm-their-subscription"
+				},
+				{
+					"discriminant": "page",
+					"value": "import-limitations"
+				}
+			]
+		},
+		{
+			"name": "Writing and sending",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "using-attachments"
+				},
+				{
+					"discriminant": "page",
+					"value": "uploading-images"
+				},
+				{
+					"discriminant": "page",
+					"value": "draft-send"
+				},
+				{
+					"discriminant": "page",
+					"value": "scheduling-an-email"
+				},
+				{
+					"discriminant": "page",
+					"value": "premium-content"
+				},
+				{
+					"discriminant": "page",
+					"value": "sending-via-email"
+				},
+				{
+					"discriminant": "page",
+					"value": "replies"
+				},
+				{
+					"discriminant": "page",
+					"value": "warming-up"
+				},
+				{
+					"discriminant": "divider",
+					"value": "FAQ"
+				},
+				{
+					"discriminant": "page",
+					"value": "rate-limiting"
+				},
+				{
+					"discriminant": "page",
+					"value": "how-do-i-avoid-the-promotions-tab"
+				},
+				{
+					"discriminant": "page",
+					"value": "why-is-my-email-purple"
+				},
+				{
+					"discriminant": "page",
+					"value": "why-some-email-clients-look-different"
+				},
+				{
+					"discriminant": "page",
+					"value": "one-click-unsubscribe"
+				},
+				{
+					"discriminant": "page",
+					"value": "how-to-write-accessible-emails"
+				},
+				{
+					"discriminant": "page",
+					"value": "how-do-i-format-dates"
+				},
+				{
+					"discriminant": "page",
+					"value": "how-do-i-include-audio-in-my-newsletter"
+				},
+				{
+					"discriminant": "page",
+					"value": "support-amp-for-email"
+				},
+				{
+					"discriminant": "page",
+					"value": "can-i-set-custom-reply-to"
+				},
+				{
+					"discriminant": "page",
+					"value": "how-do-i-set-sender-information"
+				},
+				{
+					"discriminant": "page",
+					"value": "resend-email"
+				}
+			]
+		},
+		{
+			"name": "Custom domains",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "getting-a-custom-domain"
+				},
+				{
+					"discriminant": "page",
+					"value": "sending-from-a-custom-domain"
+				},
+				{
+					"discriminant": "page",
+					"value": "hosting-on-a-custom-domain"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Registrars"
+				},
+				{
+					"discriminant": "page",
+					"value": "sending-from-dreamhost"
+				}
+			]
+		},
+		{
+			"name": "Automating your newsletter",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "creating-your-first-automation"
+				},
+				{
+					"discriminant": "page",
+					"value": "welcome-sequence"
+				},
+				{
+					"discriminant": "page",
+					"value": "rss-to-email"
+				}
+			]
+		},
+		{
+			"name": "Monetizing your newsletter",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "paid-subscriptions"
+				},
+				{
+					"discriminant": "page",
+					"value": "sponsorships"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Features"
+				},
+				{
+					"discriminant": "page",
+					"value": "gift-subscriptions"
+				},
+				{
+					"discriminant": "page",
+					"value": "gifting-subscriptions"
+				},
+				{
+					"discriminant": "divider",
+					"value": "FAQ"
+				},
+				{
+					"discriminant": "page",
+					"value": "slash-buy"
+				},
+				{
+					"discriminant": "page",
+					"value": "pricing-models"
+				},
+				{
+					"discriminant": "page",
+					"value": "premium-teaser"
+				},
+				{
+					"discriminant": "page",
+					"value": "stripe-upsell"
+				},
+				{
+					"discriminant": "page",
+					"value": "can-i-pay-using-something-other-than-stripe"
+				},
+				{
+					"discriminant": "page",
+					"value": "how-do-i-handle-taxes"
+				},
+				{
+					"discriminant": "page",
+					"value": "price-changes"
+				},
+				{
+					"discriminant": "page",
+					"value": "tip-jar"
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "multiple-newsletters"
+				},
+				{
+					"discriminant": "page",
+					"value": "data-exports"
+				},
+				{
+					"discriminant": "page",
+					"value": "help-i-deleted-everything"
+				},
+				{
+					"discriminant": "page",
+					"value": "teams"
+				},
+				{
+					"discriminant": "page",
+					"value": "deleting-your-account"
+				},
+				{
+					"discriminant": "page",
+					"value": "dormancy"
+				},
+				{
+					"discriminant": "divider",
+					"value": "FAQs"
+				},
+				{
+					"discriminant": "page",
+					"value": "can-i-point-my-old-buttondown-newsletter-to-a-new-url"
+				}
+			]
+		},
+		{
+			"name": "Integrations",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "arena"
+				},
+				{
+					"discriminant": "page",
+					"value": "blogger"
+				},
+				{
+					"discriminant": "page",
+					"value": "bsky"
+				},
+				{
+					"discriminant": "page",
+					"value": "carrd"
+				},
+				{
+					"discriminant": "page",
+					"value": "discord"
+				},
+				{
+					"discriminant": "page",
+					"value": "fathom"
+				},
+				{
+					"discriminant": "page",
+					"value": "framer"
+				},
+				{
+					"discriminant": "page",
+					"value": "linkedin"
+				},
+				{
+					"discriminant": "page",
+					"value": "plausible"
+				},
+				{
+					"discriminant": "page",
+					"value": "simple-analytics"
+				},
+				{
+					"discriminant": "page",
+					"value": "stripe"
+				},
+				{
+					"discriminant": "page",
+					"value": "twitter"
+				},
+				{
+					"discriminant": "page",
+					"value": "tumblr"
+				},
+				{
+					"discriminant": "page",
+					"value": "umami"
+				},
+				{
+					"discriminant": "page",
+					"value": "webflow"
+				},
+				{
+					"discriminant": "page",
+					"value": "wordpress"
+				}
+			]
+		},
+		{
+			"name": "About Buttondown",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "billing"
+				},
+				{
+					"discriminant": "page",
+					"value": "affiliate-program"
+				}
+			]
+		}
+	],
+	"reference": [
+		{
+			"name": "Dashboard",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "home"
+				},
+				{
+					"discriminant": "page",
+					"value": "using-a-screen-reader"
+				},
+				{
+					"discriminant": "page",
+					"value": "privacy-and-security"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Columns"
+				},
+				{
+					"discriminant": "page",
+					"value": "customizing-email-list-view"
+				},
+				{
+					"discriminant": "page",
+					"value": "customizing-subscriber-list-view"
+				},
+				{
+					"discriminant": "page",
+					"value": "customizing-request-list-view"
+				},
+				{
+					"discriminant": "divider",
+					"value": "FAQ"
+				},
+				{
+					"discriminant": "page",
+					"value": "auditing"
+				},
+				{
+					"discriminant": "page",
+					"value": "change-password"
+				},
+				{
+					"discriminant": "page",
+					"value": "change-username"
+				},
+				{
+					"discriminant": "page",
+					"value": "change-login-method"
+				},
+				{
+					"discriminant": "page",
+					"value": "paused-billing"
+				}
+			]
+		},
+		{
+			"name": "Editor",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "using-templating"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Variables"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-email-publish-date"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-email-secondary-id"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-email-is-premium"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-email-subject"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-email-url"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-manage-subscription-url"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-medium"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-premium-subscribe-url"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-random-number"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-subscribe-form"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-subscribe-url"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-subscriber-can-be-upsold"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-subscriber-can-view-premium-content"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-subscriber-email"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-subscriber-id"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-subscriber-metadata"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-subscriber-subscriber-type"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-subscriber-tags"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-unsubscribe-url"
+				},
+				{
+					"discriminant": "page",
+					"value": "template-variables-upgrade-url"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Fancy mode"
+				},
+				{
+					"discriminant": "page",
+					"value": "fancy-mode"
+				},
+				{
+					"discriminant": "page",
+					"value": "fancy-mode-images"
+				},
+				{
+					"discriminant": "page",
+					"value": "fancy-mode-text"
+				},
+				{
+					"discriminant": "page",
+					"value": "fancy-mode-dynamic"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Markdown mode"
+				},
+				{
+					"discriminant": "page",
+					"value": "using-markdown"
+				},
+				{
+					"discriminant": "page",
+					"value": "using-markdown-syntax"
+				},
+				{
+					"discriminant": "page",
+					"value": "using-markdown-rendering"
+				},
+				{
+					"discriminant": "page",
+					"value": "converting-between-modes"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Naked mode"
+				},
+				{
+					"discriminant": "page",
+					"value": "naked-mode"
+				},
+				{
+					"discriminant": "divider",
+					"value": "FAQ"
+				},
+				{
+					"discriminant": "page",
+					"value": "buttondown-editor-mode"
+				},
+				{
+					"discriminant": "page",
+					"value": "keyboard-shortcuts"
+				}
+			]
+		},
+		{
+			"name": "Subscriber management",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "subscriber-cleanup"
+				},
+				{
+					"discriminant": "page",
+					"value": "portal"
+				},
+				{
+					"discriminant": "page",
+					"value": "domains"
+				},
+				{
+					"discriminant": "divider",
+					"value": "FAQ"
+				},
+				{
+					"discriminant": "page",
+					"value": "can-i-set-a-custom-unsubscribe-link"
+				},
+				{
+					"discriminant": "page",
+					"value": "can-i-send-an-email-to-new-subscribers"
+				}
+			]
+		},
+		{
+			"name": "Customization",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "customizing-email-design"
+				},
+				{
+					"discriminant": "page",
+					"value": "customizing-web-design"
+				},
+				{
+					"discriminant": "page",
+					"value": "localization"
+				},
+				{
+					"discriminant": "page",
+					"value": "customizing-transactional-emails"
+				},
+				{
+					"discriminant": "page",
+					"value": "xss"
+				},
+				{
+					"discriminant": "divider",
+					"value": "FAQ"
+				},
+				{
+					"discriminant": "page",
+					"value": "what-s-a-good-tutorial-for-learning-css"
+				},
+				{
+					"discriminant": "page",
+					"value": "can-i-use-a-custom-font"
+				},
+				{
+					"discriminant": "page",
+					"value": "can-i-link-two-related-emails"
+				},
+				{
+					"discriminant": "page",
+					"value": "can-i-exclude-an-email-from-archive"
+				},
+				{
+					"discriminant": "page",
+					"value": "modern-template-hide-top"
+				},
+				{
+					"discriminant": "page",
+					"value": "can-i-center-my-email"
+				},
+				{
+					"discriminant": "page",
+					"value": "can-i-customize-my-gmail-icon"
+				}
+			]
+		},
+		{
+			"name": "Transactional emails",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "transactional-emails"
+				},
+				{
+					"discriminant": "page",
+					"value": "transactional-emails-confirmation"
+				},
+				{
+					"discriminant": "page",
+					"value": "transactional-emails-reminder"
+				},
+				{
+					"discriminant": "page",
+					"value": "transactional-emails-welcome"
+				},
+				{
+					"discriminant": "page",
+					"value": "transactional-emails-premium-welcome"
+				},
+				{
+					"discriminant": "page",
+					"value": "transactional-emails-gift"
+				}
+			]
+		},
+		{
+			"name": "Archives",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "comments"
+				},
+				{
+					"discriminant": "page",
+					"value": "email-to-rss"
+				},
+				{
+					"discriminant": "page",
+					"value": "share-images"
+				},
+				{
+					"discriminant": "page",
+					"value": "seo"
+				},
+				{
+					"discriminant": "page",
+					"value": "canonical-url"
+				},
+				{
+					"discriminant": "divider",
+					"value": "FAQ"
+				},
+				{
+					"discriminant": "page",
+					"value": "does-buttondown-automatically-index-my-web-archives"
+				},
+				{
+					"discriminant": "page",
+					"value": "how-do-subscribers-customize-their-name-photo"
+				},
+				{
+					"discriminant": "page",
+					"value": "why-arent-i-seeing-my-new-share-image"
+				}
+			]
+		},
+		{
+			"name": "Deliverability",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "preflight"
+				},
+				{
+					"discriminant": "page",
+					"value": "workspace-spf"
+				},
+				{
+					"discriminant": "page",
+					"value": "monitoring-your-domain"
+				},
+				{
+					"discriminant": "page",
+					"value": "standards"
+				},
+				{
+					"discriminant": "page",
+					"value": "gmail-suspicious-link"
+				},
+				{
+					"discriminant": "page",
+					"value": "gmail-images-hidden"
+				}
+			]
+		},
+		{
+			"name": "Exports",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "data-exports-api"
+				},
+				{
+					"discriminant": "page",
+					"value": "data-exports-comments"
+				},
+				{
+					"discriminant": "page",
+					"value": "data-exports-email"
+				},
+				{
+					"discriminant": "page",
+					"value": "data-exports-event"
+				},
+				{
+					"discriminant": "page",
+					"value": "data-exports-subscriber"
+				},
+				{
+					"discriminant": "page",
+					"value": "data-exports-survey"
+				}
+			]
+		},
+		{
+			"name": "Automations",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "automations-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "automation-triggers"
+				},
+				{
+					"discriminant": "page",
+					"value": "automation-filters"
+				},
+				{
+					"discriminant": "page",
+					"value": "automation-actions"
+				},
+				{
+					"discriminant": "divider",
+					"value": "FAQ"
+				},
+				{
+					"discriminant": "page",
+					"value": "what-happens-if-i-change-an-automation"
+				}
+			]
+		},
+		{
+			"name": "Events and webhooks",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "events-and-webhooks-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "creating-webhooks-dashboard"
+				},
+				{
+					"discriminant": "page",
+					"value": "event-types"
+				}
+			]
+		},
+		{
+			"name": "Advanced features",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "dedicated-ip"
+				},
+				{
+					"discriminant": "page",
+					"value": "firewall"
+				},
+				{
+					"discriminant": "page",
+					"value": "social-media-monitoring"
+				},
+				{
+					"discriminant": "page",
+					"value": "hidden-settings"
+				},
+				{
+					"discriminant": "page",
+					"value": "buttondown-cli"
+				},
+				{
+					"discriminant": "hidden_page",
+					"value": "bookmarklet"
+				},
+				{
+					"discriminant": "divider",
+					"value": "FAQ"
+				},
+				{
+					"discriminant": "page",
+					"value": "does-buttondown-offer-a-b-testing"
+				},
+				{
+					"discriminant": "page",
+					"value": "podcasts"
+				}
+			]
+		},
+		{
+			"name": "RSS-to-email",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "rss-audience"
+				},
+				{
+					"discriminant": "page",
+					"value": "rss-cadence"
+				}
+			]
+		},
+		{
+			"name": "Analytics",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "click-tracking"
+				},
+				{
+					"discriminant": "page",
+					"value": "complaint-rate"
+				},
+				{
+					"discriminant": "page",
+					"value": "gross-volume"
+				},
+				{
+					"discriminant": "page",
+					"value": "monthly-recurring-revenue"
+				},
+				{
+					"discriminant": "page",
+					"value": "open-tracking"
+				},
+				{
+					"discriminant": "page",
+					"value": "pageviews-by-referrer"
+				},
+				{
+					"discriminant": "page",
+					"value": "permanent-failure-rate"
+				},
+				{
+					"discriminant": "page",
+					"value": "rss-subscribers"
+				},
+				{
+					"discriminant": "page",
+					"value": "utm"
+				}
+			]
+		},
+		{
+			"name": "Legal stuff",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "gdpr-eu-compliance"
+				},
+				{
+					"discriminant": "page",
+					"value": "support-policy"
+				},
+				{
+					"discriminant": "page",
+					"value": "adult-content-policy"
+				},
+				{
+					"discriminant": "page",
+					"value": "acceptable-use-policy"
+				},
+				{
+					"discriminant": "page",
+					"value": "law-enforcement-requests"
+				},
+				{
+					"discriminant": "page",
+					"value": "late-payments"
+				},
+				{
+					"discriminant": "page",
+					"value": "data-processing-agreement"
+				},
+				{
+					"discriminant": "page",
+					"value": "subprocessors"
+				},
+				{
+					"discriminant": "divider",
+					"value": "FAQ"
+				},
+				{
+					"discriminant": "page",
+					"value": "buttondown-data"
+				},
+				{
+					"discriminant": "page",
+					"value": "does-buttondown-offer-stipends"
+				},
+				{
+					"discriminant": "page",
+					"value": "self-hosting"
+				}
+			]
+		},
+		{
+			"name": "A/B testing",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "ab-test-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "ab-test-0001"
+				},
+				{
+					"discriminant": "page",
+					"value": "ab-test-0002"
+				},
+				{
+					"discriminant": "page",
+					"value": "ab-test-0003"
+				},
+				{
+					"discriminant": "page",
+					"value": "ab-test-0004"
+				},
+				{
+					"discriminant": "page",
+					"value": "ab-test-0005"
+				},
+				{
+					"discriminant": "page",
+					"value": "ab-test-0006"
+				},
+				{
+					"discriminant": "page",
+					"value": "ab-test-0007"
+				},
+				{
+					"discriminant": "page",
+					"value": "ab-test-0008"
+				},
+				{
+					"discriminant": "page",
+					"value": "ab-test-0009"
+				},
+				{
+					"discriminant": "page",
+					"value": "ab-test-0010"
+				},
+				{
+					"discriminant": "page",
+					"value": "ab-test-0011"
+				},
+				{
+					"discriminant": "page",
+					"value": "ab-test-0012"
+				}
+			]
+		},
+		{
+			"name": "Glossary",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "glossary-alt-text"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-amp"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-api"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-bimi"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-cac"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-can-spam"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-captcha"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-cfl"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-cold-email"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-cors"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-cpm"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-csv"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-cta"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-dkim"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-dmarc"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-dns"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-double-optin"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-drip-sequence"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-esp"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-gdpr"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-gravatar"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-headless-mode"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-hosting-domain"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-jamstack"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-json-ld"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-latex"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-oembed"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-omnichannel"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-openapi"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-paywall"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-permanent-failure"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-posse"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-precedence-bulk"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-preheader"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-rate-sheet"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-rest"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-reverse-dns"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-rss"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-sending-domain"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-slug"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-smtp"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-spamassassin"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-spf"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-temporary-failure"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-transactional-email"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-ugc"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-webhook"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-webmentions"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-whitelabeling"
+				},
+				{
+					"discriminant": "page",
+					"value": "glossary-wysiwyg"
+				}
+			]
+		}
+	],
+	"api": [
+		{
+			"name": "Introduction",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-authentication"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-formatting"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-filtering"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-ordering"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-pagination"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-expansion"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-versioning"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-idempotency-keys"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-rate-limits"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-response-codes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-error-codes"
+				}
+			]
+		},
+		{
+			"name": "API recipes",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "drafting-emails-via-the-api"
+				},
+				{
+					"discriminant": "page",
+					"value": "creating-template-emails-via-api"
+				},
+				{
+					"discriminant": "page",
+					"value": "platform"
+				},
+				{
+					"discriminant": "page",
+					"value": "scheduling-emails-via-the-api"
+				},
+				{
+					"discriminant": "page",
+					"value": "retrieving-analytics-data"
+				}
+			]
+		},
+		{
+			"name": "Emails",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-emails-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-status"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-source"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-type"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-analytic"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-template"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-commenting-mode"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-suppression-reason"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Audience filters"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-filters"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-filter"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-operator"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-retrieve"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-update"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-delete"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-analytics"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-send-draft"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-events"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-history-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-emails-history-body-retrieve"
+				}
+			]
+		},
+		{
+			"name": "Subscribers",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-type"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-source"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-undeliverability-reason"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-retrieve"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-update"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-delete"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-reminder"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-send-email"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-retrieve-responses"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-referrals"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-automations"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-subscribers-stripe-subscriptions"
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-tags-introduction"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-tags-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-tags-retrieve"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-tags-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-tags-update"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-tags-delete"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-tags-analytics"
+				}
+			]
+		},
+		{
+			"name": "Images",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-images-introduction"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-images-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-images-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-images-delete"
+				}
+			]
+		},
+		{
+			"name": "Attachments",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-attachments-introduction"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-attachments-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-attachments-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-attachments-retrieve"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-attachments-delete"
+				}
+			]
+		},
+		{
+			"name": "Newsletters",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-newsletters-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-newsletters-auditing-mode"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-newsletters-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-newsletters-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-newsletters-update"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-newsletters-delete"
+				}
+			]
+		},
+		{
+			"name": "Exports",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-exports-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-exports-status"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-exports-collections"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-exports-format"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-exports-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-exports-retrieve"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-exports-list"
+				}
+			]
+		},
+		{
+			"name": "Bulk actions",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-bulk-actions-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-bulk-action-status"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-bulk-action-type"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-bulk-actions-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-bulk-actions-retrieve"
+				}
+			]
+		},
+		{
+			"name": "RSS feeds",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-external-feed-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-external-feed-status"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-external-feed-cadence"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-external-feed-behavior"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-external-feed-item-status"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-external-feed-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-external-feed-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-external-feed-update"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-external-feed-delete"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-external-feed-retrieve"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-external-feed-items-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-external-feed-items-create"
+				}
+			]
+		},
+		{
+			"name": "Webhooks",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-webhooks-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-webhooks-event-types"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-webhook-status"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-webhooks-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-webhooks-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-webhooks-update"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-webhooks-delete"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-webhooks-test"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-webhooks-attempts-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-webhooks-retrieve"
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-comments-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-comments-type"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-comments-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-comment-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-comments-retrieve"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-comments-delete"
+				}
+			]
+		},
+		{
+			"name": "Surveys",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-surveys-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-surveys-status"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-surveys-cadence"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-surveys-input-type"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-survey-responses"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-surveys-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-surveys-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-surveys-update"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-surveys-delete"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-surveys-list-responses"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-surveys-retrieve"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-survey-responses-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-survey-responses-update"
+				}
+			]
+		},
+		{
+			"name": "Coupons",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-coupons-introduction"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-coupons-list"
+				}
+			]
+		},
+		{
+			"name": "Automations",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-automation-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-automation-status"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-automation-timing"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-automation-delay"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-automations-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-automations-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-automations-retrieve"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-automations-update"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-automations-delete"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-automations-invoke"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-automations-analytics"
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-accounts-me"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-user-introduction"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-invitation-status"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-permissions"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-permissions-access-level"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-users-retrieve"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-users-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-users-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-users-update"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-users-delete"
+				}
+			]
+		},
+		{
+			"name": "Notes",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-notes-introduction"
+				},
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-notes-create"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-notes-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-notes-delete"
+				}
+			]
+		},
+		{
+			"name": "Prices",
+			"items": [
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-prices-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-prices-create"
+				}
+			]
+		},
+		{
+			"name": "API Requests",
+			"items": [
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-api-requests-list"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-api-requests-retrieve"
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"items": [
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-events-retrieve"
+				}
+			]
+		},
+		{
+			"name": "Ping",
+			"items": [
+				{
+					"discriminant": "divider",
+					"value": "Routes"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-ping"
+				}
+			]
+		},
+		{
+			"name": "Changelog",
+			"items": [
+				{
+					"discriminant": "page",
+					"value": "api-changelog"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-11-15"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-09-23"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-09-18"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-07-28"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-07-13"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-06-26"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-06-01"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-05-30"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-05-19"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-05-17"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-05-14"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-04-17"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-04-14"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-03-31"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-03-25"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-03-01"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-02-26"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-02-12"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-02-06"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2025-01-02"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-12-31"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-12-30"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-12-14"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-12-11"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-12-10"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-12-09"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-12-05"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-09-30"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-08-15"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-08-01"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-07-13"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-06-27"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-06-21"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-05-22"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2024-04-03"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2023-08-23"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2023-08-21"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2023-07-23"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2022-11-24"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2022-11-19"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2022-03-08"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2021-11-26"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2021-08-27"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2021-01-02"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2020-12-23"
+				},
+				{
+					"discriminant": "page",
+					"value": "api-changelog-2020-12-09"
+				}
+			]
+		}
+	]
 }

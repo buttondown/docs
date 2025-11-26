@@ -1,15 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
 
 @theme {
-  --font-sans: Hex Franklin, ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
-  --shadow-no-bottom-md: 0 -4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--font-sans:
+		Hex Franklin, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-mono:
+		"IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Consolas,
+		"Liberation Mono", Menlo, monospace;
+	--shadow-no-bottom-md:
+		0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
-  --color-buttondown: #0069ff;
+	--color-buttondown: #0069ff;
 }
 
 /*
@@ -21,40 +24,41 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentcolor);
+	}
 }
 
-
 @font-face {
-  font-family: "IBM Plex Mono";
-  font-style: normal;
-  font-weight: 100 700;
-  src: local("IBM Plex Mono"), url("https://fonts.gstatic.com/s/ibmplexmono/v13/-F62fjptAgt5VM-kVkqdyU8n3kWlK5E2.woff2") format("woff2");
-  font-display: swap;
+	font-family: "IBM Plex Mono";
+	font-style: normal;
+	font-weight: 100 700;
+	src:
+		local("IBM Plex Mono"),
+		url("https://fonts.gstatic.com/s/ibmplexmono/v13/-F62fjptAgt5VM-kVkqdyU8n3kWlK5E2.woff2")
+		format("woff2");
+	font-display: swap;
 }
 
-
 @font-face {
-  font-family: "Hex Franklin";
-  src: url("https://d33wubrfki0l68.cloudfront.net/409516e806160febfc4d1d7902107ae378404d3f/fd4dc/fonts/hex-franklin/hex-franklin-0.2.woff2")
-    format("woff2");
-  font-weight: 1 999;
-  font-stretch: 0% 100%;
+	font-family: "Hex Franklin";
+	src: url("https://d33wubrfki0l68.cloudfront.net/409516e806160febfc4d1d7902107ae378404d3f/fd4dc/fonts/hex-franklin/hex-franklin-0.2.woff2")
+		format("woff2");
+	font-weight: 1 999;
+	font-stretch: 0% 100%;
 }
 
 .no-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
 }
 
 .no-scrollbar::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 /* Apply IBM Plex Mono to all code blocks */
@@ -62,119 +66,121 @@ pre[class*="language-"],
 code[class*="language-"],
 pre,
 code {
-  font-family: var(--font-mono) !important;
+	font-family: var(--font-mono) !important;
 }
 
 /* Necessary for the notation diff transformer */
 code .diff {
-  transition: background-color 0.5s;
-  margin: 0 -24px;
-  padding: 0 24px;
-  width: calc(100% + 48px);
-  display: inline-block;
+	transition: background-color 0.5s;
+	margin: 0 -24px;
+	padding: 0 24px;
+	width: calc(100% + 48px);
+	display: inline-block;
 }
 
 code .diff:before {
-  position: absolute;
-  left: 10px;
+	position: absolute;
+	left: 10px;
 }
 
 code .diff.remove {
-  background-color: rgba(244, 63, 94, 0.5);
-  opacity: 0.7;
+	background-color: rgba(244, 63, 94, 0.5);
+	opacity: 0.7;
 }
 
 code .diff.add {
-  background-color: rgba(16, 185, 129, 0.5);
-  opacity: 0.9;
+	background-color: rgba(16, 185, 129, 0.5);
+	opacity: 0.9;
 }
 
 .flowchart .node rect:not([ry]),
 .entityBox,
 .attributeBoxOdd {
-  fill: white !important;
-  stroke: oklch(0.707 0.022 261.325) !important;
-  @apply shadow-lg;
+	fill: white !important;
+	stroke: oklch(0.707 0.022 261.325) !important;
+	@apply shadow-lg;
 }
 
 .flowchart .node rect[ry] {
-  @apply fill-gray-200! stroke-gray-400! text-xs!;
+	@apply fill-gray-200! stroke-gray-400! text-xs!;
 }
 
 .flowchart .node rect[ry] ~ g .nodeLabel p {
-  @apply text-xs!;
+	@apply text-xs!;
 }
 
 .flowchart .node rect[ry] ~ g div {
-  @apply max-w-none! w-full! mt-[2px]! block!;
+	@apply max-w-none! w-full! mt-[2px]! block!;
 }
 
 .nodeLabel p,
 .entityLabel {
-  font-family: "Hex Franklin" !important;
-  @apply text-sm whitespace-nowrap;
+	font-family: "Hex Franklin" !important;
+	@apply text-sm whitespace-nowrap;
 }
 
 .edgeLabel p {
-  @apply text-xs whitespace-nowrap;
-  background-color: #f9fafb !important;
+	@apply text-xs whitespace-nowrap;
+	background-color: #f9fafb !important;
 }
 
 pre.mermaid {
-  @apply m-0 bg-gray-100 border border-gray-200 rounded-md p-4 w-full flex items-center justify-center;
+	@apply m-0 bg-gray-100 border border-gray-200 rounded-md p-4 w-full flex items-center justify-center;
 
-  /* We intentionally hide the content because it's jarring to see the text. */
-  visibility: hidden;
+	/* We intentionally hide the content because it's jarring to see the text. */
+	visibility: hidden;
 }
 
 pre.mermaid[data-processed] {
-  visibility: visible;
+	visibility: visible;
 }
 
 .clickable path,
 .clickable.node rect[ry] {
-  transition: fill 0.1s ease-in-out, text 0.1s ease-in-out,
-    stroke 0.1s ease-in-out;
-  @apply fill-blue-100! text-blue-600! stroke-blue-600!;
+	transition:
+		fill 0.1s ease-in-out,
+		text 0.1s ease-in-out,
+		stroke 0.1s ease-in-out;
+	@apply fill-blue-100! text-blue-600! stroke-blue-600!;
 }
 
 .clickable:hover path,
 .clickable:hover.node rect[ry] {
-  @apply fill-blue-200! text-blue-700! stroke-blue-700! shadow-xs!;
+	@apply fill-blue-200! text-blue-700! stroke-blue-700! shadow-xs!;
 }
 
 .cluster rect {
-  @apply fill-white! stroke-gray-400!;
+	@apply fill-white! stroke-gray-400!;
 }
 
 .prose-lg
-  :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  background-color: #1e1e1e;
+	:where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+	background-color: #1e1e1e;
 }
 
 /* Accordion animations */
 @keyframes accordion-down {
-  from {
-    height: 0;
-  }
-  to {
-    height: var(--radix-accordion-content-height);
-  }
+	from {
+		height: 0;
+	}
+	to {
+		height: var(--radix-accordion-content-height);
+	}
 }
 
 @keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height);
-  }
-  to {
-    height: 0;
-  }
+	from {
+		height: var(--radix-accordion-content-height);
+	}
+	to {
+		height: 0;
+	}
 }
 
 .animate-accordion-down {
-  animation: accordion-down 0.2s ease-out;
+	animation: accordion-down 0.2s ease-out;
 }
 
 .animate-accordion-up {
-  animation: accordion-up 0.2s ease-out;
+	animation: accordion-up 0.2s ease-out;
 }
