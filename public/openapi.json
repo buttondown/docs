@@ -938,6 +938,276 @@
         ]
       }
     },
+    "/books": {
+      "post": {
+        "operationId": "create_book",
+        "summary": "Create Book",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "Create a new book",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "list_books",
+        "summary": "List Books",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookPage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "List all books for the authenticated newsletter",
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
+    },
+    "/books/{id}": {
+      "get": {
+        "operationId": "retrieve_book",
+        "summary": "Retrieve Book",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "Retrieve a specific book by its ID",
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "update_book",
+        "summary": "Update Book",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "Update a book's properties",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookUpdateInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "delete_book",
+        "summary": "Delete Book",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "Delete a book",
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
+    },
     "/emails": {
       "post": {
         "operationId": "create_email",
@@ -7827,6 +8097,162 @@
           "results",
           "count"
         ]
+      },
+      "Book": {
+        "title": "Book",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "title": {
+            "title": "Title",
+            "description": "The title of the book.",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "description": "The URL where the book can be purchased or viewed.",
+            "type": "string"
+          },
+          "image_url": {
+            "title": "Image Url",
+            "description": "The URL of the book's cover image.",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "description": "A description of the book.",
+            "type": "string"
+          },
+          "year": {
+            "title": "Year",
+            "description": "The year the book was published.",
+            "type": "integer"
+          },
+          "isbn": {
+            "title": "Isbn",
+            "description": "The ISBN of the book.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "creation_date",
+          "title"
+        ]
+      },
+      "BookInput": {
+        "title": "BookInput",
+        "type": "object",
+        "properties": {
+          "title": {
+            "title": "Title",
+            "description": "The title of the book.",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "description": "The URL where the book can be purchased or viewed.",
+            "type": "string"
+          },
+          "image_url": {
+            "title": "Image Url",
+            "description": "The URL of the book's cover image.",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "description": "A description of the book.",
+            "type": "string"
+          },
+          "year": {
+            "title": "Year",
+            "description": "The year the book was published.",
+            "type": "integer"
+          },
+          "isbn": {
+            "title": "Isbn",
+            "description": "The ISBN of the book.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title"
+        ]
+      },
+      "BookPage": {
+        "title": "Page[Book]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Book"
+            }
+          },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
+      "BookUpdateInput": {
+        "title": "BookUpdateInput",
+        "type": "object",
+        "properties": {
+          "title": {
+            "title": "Title",
+            "description": "The title of the book.",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "description": "The URL where the book can be purchased or viewed.",
+            "type": "string"
+          },
+          "image_url": {
+            "title": "Image Url",
+            "description": "The URL of the book's cover image.",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "description": "A description of the book.",
+            "type": "string"
+          },
+          "year": {
+            "title": "Year",
+            "description": "The year the book was published.",
+            "type": "integer"
+          },
+          "isbn": {
+            "title": "Isbn",
+            "description": "The ISBN of the book.",
+            "type": "string"
+          }
+        }
       },
       "Analytics": {
         "title": "Analytics",
