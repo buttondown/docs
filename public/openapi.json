@@ -8576,10 +8576,7 @@
             "title": "Metadata",
             "description": "A structured key-value blob that you can use to store arbitrary data on the object. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
             "default": {},
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "type": "object"
           },
           "modification_date": {
             "title": "Modification Date",
@@ -8788,10 +8785,7 @@
             "title": "Metadata",
             "description": "A structured key-value blob that you can use to store arbitrary data on the object. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
             "default": {},
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "type": "object"
           },
           "secondary_id": {
             "title": "Secondary Id",
@@ -8975,10 +8969,7 @@
             "title": "Metadata",
             "description": "A structured key-value blob that you can use to store arbitrary data on the object. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
             "default": {},
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "type": "object"
           },
           "image": {
             "title": "Image",
@@ -9441,10 +9432,7 @@
             "title": "Metadata",
             "description": "A structured key-value blob that you can use to store arbitrary data on the object. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
             "default": {},
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "type": "object"
           },
           "notes": {
             "title": "Notes",
@@ -9644,10 +9632,7 @@
             "title": "Metadata",
             "description": "A structured key-value blob that you can use to store arbitrary data on the object. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
             "default": {},
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "type": "object"
           },
           "tags": {
             "title": "Tags",
@@ -9827,10 +9812,7 @@
             "title": "Metadata",
             "description": "A structured key-value blob that you can use to store arbitrary data on the object. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
             "default": {},
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "type": "object"
           },
           "tags": {
             "title": "Tags",
@@ -10793,10 +10775,7 @@
             "example": {
               "foo": "bar"
             },
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "type": "object"
           },
           "skip_old_items": {
             "title": "Skip Old Items",
@@ -10875,10 +10854,7 @@
             "example": {
               "foo": "bar"
             },
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "type": "object"
           },
           "skip_old_items": {
             "title": "Skip Old Items",
@@ -10977,10 +10953,7 @@
             "example": {
               "foo": "bar"
             },
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "type": "object"
           },
           "skip_old_items": {
             "title": "Skip Old Items",
@@ -11320,10 +11293,7 @@
           },
           "metadata": {
             "title": "Metadata",
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "type": "object"
           }
         },
         "required": [
@@ -11475,10 +11445,7 @@
           },
           "metadata": {
             "title": "Metadata",
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "type": "object"
           }
         }
       },
