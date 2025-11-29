@@ -18,6 +18,20 @@ I'd recommend also reading up on [Stripe's explanation of metadata](https://stri
 
 Internally, metadata is stored as raw JSON, so you can be pretty liberal with what you place into it. (If you try and view or set metadata using the Buttondown interface, there will likely be some stringification issues — for complex use cases, it's recommended to use the API or an integration like Zapier.)
 
+Metadata can be nested — you can store objects and arrays within your metadata. For example:
+
+```json
+{
+  "first_name": "John",
+  "address": {
+    "street": "123 Main St",
+    "city": "Seattle",
+    "state": "WA"
+  },
+  "preferences": ["email", "sms"]
+}
+```
+
 Note that while you can store metadata keys with hyphens (such as `first-name`), it is difficult to access that metadata
 when writing an email: `{{ subscriber.metadata.first-name }}` is a syntax error due to the templating language used by Buttondown. As a result, I recommend using underscores instead (such as `first_name`).
 
