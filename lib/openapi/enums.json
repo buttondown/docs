@@ -1146,6 +1146,11 @@
       "name": "Comment",
       "variant": "info"
     },
+    "embedded_form": {
+      "description": "This subscriber subscribed via an embedded form.",
+      "name": "Embedded Form",
+      "variant": "info"
+    },
     "import": {
       "description": "This subscriber was imported from another service.",
       "name": "Import",
