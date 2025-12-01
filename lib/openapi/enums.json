@@ -1161,6 +1161,16 @@
       "name": "Organic",
       "variant": "info"
     },
+    "memberful": {
+      "description": "This subscriber joined via Memberful.",
+      "name": "Memberful",
+      "variant": "info"
+    },
+    "patreon": {
+      "description": "This subscriber joined via Patreon.",
+      "name": "Patreon",
+      "variant": "info"
+    },
     "stripe": {
       "description": "This subscriber joined via Stripe.",
       "name": "Stripe",
