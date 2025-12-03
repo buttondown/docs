@@ -412,9 +412,7 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Revue. ",
-    "references": [
-      "revue"
-    ]
+    "references": []
   },
   {
     "title": "Substack",
