@@ -1999,6 +1999,90 @@
         ]
       }
     },
+    "/emails/{id}/renders": {
+      "get": {
+        "operationId": "retrieve_email_renders",
+        "summary": "Retrieve Email Renders",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "target",
+            "schema": {
+              "title": "Target",
+              "description": "The target format for the rendered HTML. Use 'email' for rendered_html_for_email or 'html' for rendered_html_for_web.",
+              "enum": [
+                "email",
+                "html"
+              ],
+              "type": "string"
+            },
+            "required": true,
+            "description": "The target format for the rendered HTML. Use 'email' for rendered_html_for_email or 'html' for rendered_html_for_web."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Render"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "Retrieve rendered HTML for a specific email",
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
+    },
     "/emails/{id}/send-draft": {
       "post": {
         "operationId": "send_draft",
@@ -9215,6 +9299,20 @@
         "required": [
           "results",
           "count"
+        ]
+      },
+      "Render": {
+        "title": "Render",
+        "type": "object",
+        "properties": {
+          "content": {
+            "title": "Content",
+            "description": "The rendered HTML for the specified target format.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "content"
         ]
       },
       "SendDraftInput": {

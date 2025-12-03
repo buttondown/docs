@@ -629,6 +629,10 @@ const UNDOCUMENTED_API_ENDPOINTS = [
 		path: "/books/{id}",
 		operation: "delete",
 	},
+	{
+		path: "/emails/{id}/renders",
+		operation: "get",
+	}
 ];
 
 API_ENDPOINTS.filter(
