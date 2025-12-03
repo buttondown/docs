@@ -11651,8 +11651,7 @@
         "properties": {
           "id": {
             "title": "Id",
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           },
           "product_id": {
             "title": "Product Id",
