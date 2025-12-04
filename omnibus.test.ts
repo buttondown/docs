@@ -53,7 +53,7 @@ const VALID_APPLICATION_ROUTES = [
 	"el-classico/archive/who-was-telemachus-anyway/",
 	"cryptography-dispatches",
 	"occasional-puzzles?tag=utm_source:buttondown_website",
-	"<yourusername>/referral/{{ subscriber.referral_code }}",
+	"<yourusername>/?referral_code={{ subscriber.referral_code }}",
 
 	// Weird edge cases.
 	"features/markdown",
