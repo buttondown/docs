@@ -97,6 +97,7 @@
           "Blue"
         ],
         "notes": "",
+        "randomize_answers": false,
         "response_cadence": "once",
         "status": "active",
         "is_freeform_response_enabled": false,
@@ -117,6 +118,7 @@
           "Other"
         ],
         "notes": "",
+        "randomize_answers": false,
         "response_cadence": "once_per_email",
         "status": "active",
         "is_freeform_response_enabled": false,

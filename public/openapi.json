@@ -11983,6 +11983,10 @@
             "title": "Notes",
             "type": "string"
           },
+          "randomize_answers": {
+            "title": "Randomize Answers",
+            "type": "boolean"
+          },
           "response_cadence": {
             "$ref": "#/components/schemas/SurveyResponseCadence"
           },
@@ -12005,6 +12009,7 @@
           "response_count",
           "answers",
           "notes",
+          "randomize_answers",
           "response_cadence",
           "status",
           "is_freeform_response_enabled",
@@ -12090,6 +12095,12 @@
                 "$ref": "#/components/schemas/SurveyInputType"
               }
             ]
+          },
+          "randomize_answers": {
+            "title": "Randomize Answers",
+            "default": false,
+            "example": false,
+            "type": "boolean"
           },
           "response_cadence": {
             "default": "once",
@@ -12208,6 +12219,10 @@
           },
           "input_type": {
             "$ref": "#/components/schemas/SurveyInputType"
+          },
+          "randomize_answers": {
+            "title": "Randomize Answers",
+            "type": "boolean"
           }
         }
       },
