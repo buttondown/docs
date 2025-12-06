@@ -69,9 +69,9 @@ Then, you can add custom Markdown links using some template variables that Butto
 ```markdown
 If you liked this email, please share it:
 
-- on [Twitter](https://twitter.com/intent/tweet?url={{email_link}}&text={{email.subject}})
-- on [Facebook](https://www.facebook.com/sharer/sharer.php?u={{email_url}})
-- on [LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url={{email_url}})
+- on [Twitter](https://twitter.com/intent/tweet?url={{email.absolute_url}}&text={{email.subject}})
+- on [Facebook](https://www.facebook.com/sharer/sharer.php?u={{email.absolute_url}})
+- on [LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url={{email.absolute_url}})
 ```
 
 ## Send emails based on an RSS feed

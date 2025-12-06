@@ -579,7 +579,7 @@
 				},
 				{
 					"discriminant": "page",
-					"value": "template-variables-email-url"
+					"value": "template-variables-email-absolute-url"
 				},
 				{
 					"discriminant": "page",

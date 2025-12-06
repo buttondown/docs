@@ -1266,8 +1266,8 @@
     ]
   },
   {
-    "title": "email_url",
-    "url": "template-variables-email-url",
+    "title": "email.absolute_url",
+    "url": "template-variables-email-absolute-url",
     "section": "reference",
     "schema": null,
     "description": null,
