@@ -1296,19 +1296,6 @@
           },
           {
             "in": "query",
-            "name": "automations",
-            "schema": {
-              "title": "Automations",
-              "default": [],
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "required": false
-          },
-          {
-            "in": "query",
             "name": "ids",
             "schema": {
               "title": "Ids",
