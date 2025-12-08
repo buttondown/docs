@@ -10208,6 +10208,15 @@
             "default": "",
             "type": "string"
           },
+          "css_tokens": {
+            "title": "Css Tokens",
+            "description": "Custom CSS tokens for your newsletter emails.",
+            "default": {},
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
           "web_css": {
             "title": "Web Css",
             "description": "Custom CSS styling for your newsletter's web presence",
@@ -10353,6 +10362,18 @@
             "example": ".header { color: #000; }",
             "type": "string"
           },
+          "css_tokens": {
+            "title": "Css Tokens",
+            "description": "Custom CSS tokens for your newsletter emails.",
+            "default": {},
+            "example": {
+              "primary-color": "#0069FF"
+            },
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
           "custom_email_template": {
             "title": "Custom Email Template",
             "description": "Custom email template identifier.",
@@ -10487,6 +10508,17 @@
             "description": "Custom CSS styling for your newsletter emails.",
             "example": ".header { color: #000; }",
             "type": "string"
+          },
+          "css_tokens": {
+            "title": "Css Tokens",
+            "description": "Custom CSS tokens for your newsletter emails.",
+            "example": {
+              "primary-color": "#0069FF"
+            },
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "custom_churn_email_body": {
             "title": "Custom Churn Email Body",
