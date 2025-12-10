@@ -632,7 +632,7 @@ const UNDOCUMENTED_API_ENDPOINTS = [
 	{
 		path: "/emails/{id}/renders",
 		operation: "get",
-	}
+	},
 ];
 
 API_ENDPOINTS.filter(

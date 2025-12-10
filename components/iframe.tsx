@@ -191,6 +191,7 @@ export default function Iframe({
 						<iframe
 							src={mungedSrc}
 							inert
+							loading="lazy"
 							className="aspect-video w-full rounded-b-none transition-all duration-300"
 							style={{ height: `${height ?? DEFAULT_HEIGHT}px` }}
 						/>
