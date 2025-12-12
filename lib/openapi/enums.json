@@ -264,7 +264,7 @@
       "variant": "info"
     },
     "rename_metadata": {
-      "description": "Rename multiple metadata fields in bulk.",
+      "description": "Rename multiple metadata fields in bulk. This action requires two additional parameters within `metadata`: `rename_mapping` field and an `ids` field (either a list of specific subscriber IDs for whom you want to rename metadata, or `all`).",
       "name": "Rename metadata",
       "variant": "info"
     },
