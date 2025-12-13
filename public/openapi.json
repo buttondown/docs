@@ -629,7 +629,9 @@
                     "format": "binary"
                   }
                 },
-                "required": ["image"]
+                "required": [
+                  "image"
+                ]
               }
             }
           },
@@ -768,7 +770,9 @@
                     "format": "binary"
                   }
                 },
-                "required": ["file"]
+                "required": [
+                  "file"
+                ]
               }
             }
           },
@@ -1731,7 +1735,9 @@
               "description": "If provided, expand the given field.",
               "type": "array",
               "items": {
-                "enum": ["user"],
+                "enum": [
+                  "user"
+                ],
                 "type": "string"
               }
             },
@@ -1765,7 +1771,10 @@
             "schema": {
               "title": "Ordering",
               "default": "creation_date",
-              "enum": ["creation_date", "-creation_date"],
+              "enum": [
+                "creation_date",
+                "-creation_date"
+              ],
               "type": "string"
             },
             "required": false
@@ -1865,7 +1874,9 @@
               "description": "If provided, expand the given field.",
               "type": "array",
               "items": {
-                "enum": ["user"],
+                "enum": [
+                  "user"
+                ],
                 "type": "string"
               }
             },
@@ -1996,7 +2007,10 @@
             "schema": {
               "title": "Target",
               "description": "The target format for the rendered HTML. Use 'email' for rendered_html_for_email or 'html' for rendered_html_for_web.",
-              "enum": ["email", "html"],
+              "enum": [
+                "email",
+                "html"
+              ],
               "type": "string"
             },
             "required": true,
@@ -2143,7 +2157,12 @@
                 {
                   "title": "CollisionBehavior",
                   "description": "An enumeration.",
-                  "enum": ["no_op", "add", "overwrite", "fail"]
+                  "enum": [
+                    "no_op",
+                    "add",
+                    "overwrite",
+                    "fail"
+                  ]
                 }
               ]
             },
@@ -2258,7 +2277,9 @@
             "schema": {
               "title": "Coupon",
               "description": "If provided, only return subscribers with the given coupon ID(s).",
-              "example": ["coupon_whatever"],
+              "example": [
+                "coupon_whatever"
+              ],
               "type": "array",
               "items": {
                 "type": "string"
@@ -2273,7 +2294,9 @@
             "schema": {
               "title": "Current Price",
               "description": "If provided, only return subscribers who are currently subscribed to the given price ID(s).",
-              "example": ["price_whatever"],
+              "example": [
+                "price_whatever"
+              ],
               "type": "array",
               "items": {
                 "type": "string"
@@ -2312,7 +2335,9 @@
             "schema": {
               "title": "Domain",
               "description": "If provided, only return subscribers whose email domain matches the given domain(s).",
-              "example": ["gmail.com"],
+              "example": [
+                "gmail.com"
+              ],
               "type": "array",
               "items": {
                 "type": "string"
@@ -2351,7 +2376,9 @@
               "description": "If provided, expand the given field. (Only supported fields: 'stripe_customer')",
               "type": "array",
               "items": {
-                "enum": ["stripe_customer"],
+                "enum": [
+                  "stripe_customer"
+                ],
                 "type": "string"
               }
             },
@@ -2833,7 +2860,9 @@
               "default": [],
               "type": "array",
               "items": {
-                "enum": ["stripe_customer"],
+                "enum": [
+                  "stripe_customer"
+                ],
                 "type": "string"
               }
             },
@@ -4011,7 +4040,9 @@
               "description": "If provided, expand the given field.",
               "type": "array",
               "items": {
-                "enum": ["email"],
+                "enum": [
+                  "email"
+                ],
                 "type": "string"
               }
             },
@@ -4759,7 +4790,9 @@
               "description": "If provided, expand the given field.",
               "type": "array",
               "items": {
-                "enum": ["product"],
+                "enum": [
+                  "product"
+                ],
                 "type": "string"
               }
             },
@@ -6610,7 +6643,10 @@
                 {
                   "title": "Type",
                   "description": "An enumeration.",
-                  "enum": ["reviewer", "subscriber"],
+                  "enum": [
+                    "reviewer",
+                    "subscriber"
+                  ],
                   "type": "string"
                 }
               ]
@@ -6662,7 +6698,10 @@
               "description": "If provided, expand the given field. (Only supported fields: 'subscriber', 'email').",
               "type": "array",
               "items": {
-                "enum": ["subscriber", "email"],
+                "enum": [
+                  "subscriber",
+                  "email"
+                ],
                 "type": "string"
               }
             },
@@ -6912,7 +6951,12 @@
               "description": "If provided, expand the given field.",
               "type": "array",
               "items": {
-                "enum": ["email", "subscriber", "survey", "automation"],
+                "enum": [
+                  "email",
+                  "subscriber",
+                  "survey",
+                  "automation"
+                ],
                 "type": "string"
               }
             },
@@ -7120,7 +7164,10 @@
                 {
                   "title": "Ordering",
                   "description": "An enumeration.",
-                  "enum": ["creation_date", "-creation_date"],
+                  "enum": [
+                    "creation_date",
+                    "-creation_date"
+                  ],
                   "type": "string"
                 }
               ]
@@ -7135,7 +7182,11 @@
               "description": "If provided, expand the given field. (Only supported field: 'subscriber').",
               "type": "array",
               "items": {
-                "enum": ["automation", "subscriber", "email"],
+                "enum": [
+                  "automation",
+                  "subscriber",
+                  "email"
+                ],
                 "type": "string"
               }
             },
@@ -7228,7 +7279,11 @@
               "description": "If provided, expand the given field. (Only supported field: 'subscriber').",
               "type": "array",
               "items": {
-                "enum": ["automation", "subscriber", "email"],
+                "enum": [
+                  "automation",
+                  "subscriber",
+                  "email"
+                ],
                 "type": "string"
               }
             },
@@ -7381,7 +7436,9 @@
               "description": "If provided, expand the given field.",
               "type": "array",
               "items": {
-                "enum": ["user"],
+                "enum": [
+                  "user"
+                ],
                 "type": "string"
               }
             },
@@ -7519,7 +7576,9 @@
           }
         },
         "description": "Search and list public emails for a newsletter. No authentication required.",
-        "tags": ["public"],
+        "tags": [
+          "public"
+        ],
         "security": [
           {
             "NoAuthenticatorAuth": []
@@ -7555,13 +7614,21 @@
       "ExportFormat": {
         "title": "Format",
         "description": "An enumeration.",
-        "enum": ["csv", "json"],
+        "enum": [
+          "csv",
+          "json"
+        ],
         "type": "string"
       },
       "ExportStatus": {
         "title": "Status",
         "description": "Represents the status of an export.\n\nNo action is required to move from one state or another; Buttondown\ninternally handles the transitions, and exposing the status is for\nobservability purposes only.",
-        "enum": ["error", "in_progress", "not_started", "ready"],
+        "enum": [
+          "error",
+          "in_progress",
+          "not_started",
+          "ready"
+        ],
         "type": "string"
       },
       "Export": {
@@ -7629,7 +7696,12 @@
             ]
           }
         },
-        "required": ["collections", "id", "creation_date", "status"]
+        "required": [
+          "collections",
+          "id",
+          "creation_date",
+          "status"
+        ]
       },
       "ErrorMessage": {
         "title": "ErrorMessage",
@@ -7651,7 +7723,9 @@
             }
           }
         },
-        "required": ["detail"]
+        "required": [
+          "detail"
+        ]
       },
       "CreateExportErrorCode": {
         "title": "CreateExportErrorCode",
@@ -7683,7 +7757,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "ExportInput": {
         "title": "ExportInput",
@@ -7719,7 +7796,9 @@
             }
           }
         },
-        "required": ["collections"]
+        "required": [
+          "collections"
+        ]
       },
       "ExportPage": {
         "title": "Page[Export]",
@@ -7745,7 +7824,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "Tag": {
         "title": "Tag",
@@ -7782,7 +7864,13 @@
             "type": "integer"
           }
         },
-        "required": ["name", "color", "id", "creation_date", "secondary_id"]
+        "required": [
+          "name",
+          "color",
+          "id",
+          "creation_date",
+          "secondary_id"
+        ]
       },
       "TagInput": {
         "title": "TagInput",
@@ -7803,7 +7891,10 @@
             "type": "string"
           }
         },
-        "required": ["name", "color"]
+        "required": [
+          "name",
+          "color"
+        ]
       },
       "TagPage": {
         "title": "Page[Tag]",
@@ -7829,12 +7920,18 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "UpdateTagErrorCode": {
         "title": "UpdateTagErrorCode",
         "description": "A potential error code that can be returned when updating a tag.",
-        "enum": ["name_already_exists", "name_too_long"],
+        "enum": [
+          "name_already_exists",
+          "name_too_long"
+        ],
         "type": "string"
       },
       "ErrorMessage_UpdateTagErrorCode_": {
@@ -7857,7 +7954,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "TagUpdateInput": {
         "title": "TagUpdateInput",
@@ -7929,7 +8029,10 @@
             "type": "string"
           }
         },
-        "required": ["username", "email_address"]
+        "required": [
+          "username",
+          "email_address"
+        ]
       },
       "Image": {
         "title": "Image",
@@ -7954,7 +8057,11 @@
             "type": "string"
           }
         },
-        "required": ["id", "creation_date", "image"]
+        "required": [
+          "id",
+          "creation_date",
+          "image"
+        ]
       },
       "ImagePage": {
         "title": "Page[Image]",
@@ -7980,7 +8087,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "Attachment": {
         "title": "Attachment",
@@ -8017,7 +8127,13 @@
             "type": "integer"
           }
         },
-        "required": ["id", "creation_date", "name", "file", "size"]
+        "required": [
+          "id",
+          "creation_date",
+          "name",
+          "file",
+          "size"
+        ]
       },
       "AttachmentPage": {
         "title": "Page[Attachment]",
@@ -8043,7 +8159,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "Book": {
         "title": "Book",
@@ -8091,7 +8210,11 @@
             "type": "string"
           }
         },
-        "required": ["id", "creation_date", "title"]
+        "required": [
+          "id",
+          "creation_date",
+          "title"
+        ]
       },
       "BookInput": {
         "title": "BookInput",
@@ -8128,7 +8251,9 @@
             "type": "string"
           }
         },
-        "required": ["title"]
+        "required": [
+          "title"
+        ]
       },
       "BookPage": {
         "title": "Page[Book]",
@@ -8154,7 +8279,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "BookUpdateInput": {
         "title": "BookUpdateInput",
@@ -8291,13 +8419,24 @@
       "EmailCommentingMode": {
         "title": "CommentingMode",
         "description": "Governs who can comment on this email.\n\nThis enum replaces the `is_comments_disabled` field, which has been deprecated. (Also note that this field may be superseded by newsletter-level settings; for instance, \"enabled\" is an invalid and inert value if the newsletter itself has comments disabled.)",
-        "enum": ["disabled", "enabled", "enabled_for_paid_subscribers"],
+        "enum": [
+          "disabled",
+          "enabled",
+          "enabled_for_paid_subscribers"
+        ],
         "type": "string"
       },
       "EmailType": {
         "title": "Type",
         "description": "Represents the audience of an email, and to whom it is visible both in the initial\nemail and in online archives.",
-        "enum": ["public", "private", "premium", "free", "churned", "archival"],
+        "enum": [
+          "public",
+          "private",
+          "premium",
+          "free",
+          "churned",
+          "archival"
+        ],
         "type": "string"
       },
       "Operator": {
@@ -8332,7 +8471,11 @@
             "type": "string"
           }
         },
-        "required": ["field", "operator", "value"]
+        "required": [
+          "field",
+          "operator",
+          "value"
+        ]
       },
       "FilterGroup": {
         "title": "FilterGroup",
@@ -8358,16 +8501,28 @@
           "predicate": {
             "title": "Predicate",
             "description": "The logical operator to use when combining filters (either 'and' or 'or').",
-            "enum": ["and", "or"],
+            "enum": [
+              "and",
+              "or"
+            ],
             "type": "string"
           }
         },
-        "required": ["filters", "groups", "predicate"]
+        "required": [
+          "filters",
+          "groups",
+          "predicate"
+        ]
       },
       "EmailSource": {
         "title": "Source",
         "description": "Represents the original provenance of an email. This value is not exposed\nto subscribers, but does determine some behavior of the email (e.g. whether\nor not analytics can be calculated.)",
-        "enum": ["api", "import", "app", "external_feed"],
+        "enum": [
+          "api",
+          "import",
+          "app",
+          "external_feed"
+        ],
         "type": "string"
       },
       "EmailStatus": {
@@ -8394,13 +8549,21 @@
       "EmailSuppressionReason": {
         "title": "SuppressionReason",
         "description": "Represents the reason an email was suppressed.",
-        "enum": ["law_enforcement", "internal_auditing"],
+        "enum": [
+          "law_enforcement",
+          "internal_auditing"
+        ],
         "type": "string"
       },
       "NewsletterEmailTemplate": {
         "title": "EmailTemplate",
         "description": "Represents the template of an email.\n\nEach template has a different layout/style; you can view screenshots and examples [in the docs](https://docs.buttondown.com/customizing-email-design#buttondowns-default-templates).",
-        "enum": ["classic", "modern", "plaintext", "naked"],
+        "enum": [
+          "classic",
+          "modern",
+          "plaintext",
+          "naked"
+        ],
         "type": "string"
       },
       "Email": {
@@ -8614,7 +8777,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "EmailInput": {
         "title": "EmailInput",
@@ -8733,7 +8899,9 @@
             "type": "boolean"
           }
         },
-        "required": ["subject"]
+        "required": [
+          "subject"
+        ]
       },
       "EmailPage": {
         "title": "Page[Email]",
@@ -8759,12 +8927,18 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "EmailListErrorCode": {
         "title": "EmailListErrorCode",
         "description": "Represents the type of error that occurred when listing emails.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
-        "enum": ["creation_date_invalid", "publish_date_invalid"],
+        "enum": [
+          "creation_date_invalid",
+          "publish_date_invalid"
+        ],
         "type": "string"
       },
       "ErrorMessage_EmailListErrorCode_": {
@@ -8787,7 +8961,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "EmailUpdateInput": {
         "title": "EmailUpdateInput",
@@ -8809,7 +8986,9 @@
                 "format": "date-time"
               },
               {
-                "enum": ["none"],
+                "enum": [
+                  "none"
+                ],
                 "type": "string"
               }
             ]
@@ -8882,7 +9061,9 @@
                 "$ref": "#/components/schemas/NewsletterEmailTemplate"
               },
               {
-                "enum": ["none"],
+                "enum": [
+                  "none"
+                ],
                 "type": "string"
               }
             ]
@@ -8912,7 +9093,11 @@
       "AccessLevel": {
         "title": "AccessLevel",
         "description": "An enumeration.",
-        "enum": ["none", "read", "write"],
+        "enum": [
+          "none",
+          "read",
+          "write"
+        ],
         "type": "string"
       },
       "Permissions": {
@@ -8988,7 +9173,13 @@
       "InvitationStatus": {
         "title": "Status",
         "description": "An enumeration.",
-        "enum": ["pending", "accepted", "declined", "revoked", "owner"],
+        "enum": [
+          "pending",
+          "accepted",
+          "declined",
+          "revoked",
+          "owner"
+        ],
         "type": "string"
       },
       "User": {
@@ -9057,7 +9248,11 @@
             "$ref": "#/components/schemas/User"
           }
         },
-        "required": ["history_id", "creation_date", "value"]
+        "required": [
+          "history_id",
+          "creation_date",
+          "value"
+        ]
       },
       "HistoryPage": {
         "title": "Page[History]",
@@ -9083,7 +9278,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "Render": {
         "title": "Render",
@@ -9095,7 +9293,9 @@
             "type": "string"
           }
         },
-        "required": ["content"]
+        "required": [
+          "content"
+        ]
       },
       "SendDraftInput": {
         "title": "SendDraftInput",
@@ -9117,7 +9317,9 @@
           "recipients": {
             "title": "Recipients",
             "description": "A list of email addresses to send the email to.",
-            "example": ["telemachus@buttondown.email"],
+            "example": [
+              "telemachus@buttondown.email"
+            ],
             "type": "array",
             "items": {
               "type": "string"
@@ -9165,7 +9367,9 @@
             "type": "string"
           }
         },
-        "required": ["coupon_id"]
+        "required": [
+          "coupon_id"
+        ]
       },
       "SubscriberType": {
         "title": "Type",
@@ -9203,7 +9407,10 @@
             "$ref": "#/components/schemas/SubscriberType"
           }
         },
-        "required": ["date", "type"]
+        "required": [
+          "date",
+          "type"
+        ]
       },
       "EmailTransition": {
         "title": "EmailTransition",
@@ -9223,7 +9430,10 @@
             "type": "string"
           }
         },
-        "required": ["date", "new_email_address"]
+        "required": [
+          "date",
+          "new_email_address"
+        ]
       },
       "SubscriberUndeliverabilityReason": {
         "title": "UndeliverabilityReason",
@@ -9478,7 +9688,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "SubscriberInput": {
         "title": "SubscriberInput",
@@ -9554,7 +9767,9 @@
             "type": "string"
           }
         },
-        "required": ["email_address"]
+        "required": [
+          "email_address"
+        ]
       },
       "SubscriberPage": {
         "title": "Page[Subscriber]",
@@ -9580,12 +9795,19 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "ListSubscribersErrorCode": {
         "title": "ListSubscribersErrorCode",
         "description": "Represents the type of error that occurred when listing subscribers.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
-        "enum": ["invalid_tag", "date_invalid", "invalid_ordering"],
+        "enum": [
+          "invalid_tag",
+          "date_invalid",
+          "invalid_ordering"
+        ],
         "type": "string"
       },
       "ErrorMessage_ListSubscribersErrorCode_": {
@@ -9608,7 +9830,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "UpdateSubscriberErrorCode": {
         "title": "UpdateSubscriberErrorCode",
@@ -9643,7 +9868,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "SubscriberUpdateInput": {
         "title": "SubscriberUpdateInput",
@@ -9698,7 +9926,13 @@
       "AutomationAttemptStatus": {
         "title": "Status",
         "description": "An enumeration.",
-        "enum": ["unprocessed", "processed", "failed", "pending", "skipped"],
+        "enum": [
+          "unprocessed",
+          "processed",
+          "failed",
+          "pending",
+          "skipped"
+        ],
         "type": "string"
       },
       "AutomationForSubscriber": {
@@ -9768,7 +10002,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "StripeSubscription": {
         "title": "StripeSubscription",
@@ -9817,7 +10054,10 @@
           "source": {
             "title": "Source",
             "description": "Buttondown attempts to detect the source of a subscription, but this is not always possible.",
-            "enum": ["substack", "buttondown"],
+            "enum": [
+              "substack",
+              "buttondown"
+            ],
             "type": "string"
           },
           "product": {
@@ -9860,12 +10100,19 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "NewsletterAuditingMode": {
         "title": "AuditingMode",
         "description": "An enumeration.",
-        "enum": ["disabled", "enabled", "aggressive"],
+        "enum": [
+          "disabled",
+          "enabled",
+          "aggressive"
+        ],
         "type": "string"
       },
       "Newsletter": {
@@ -9885,6 +10132,12 @@
           "name": {
             "title": "Name",
             "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "description": "Arbitrary user-defined key/value data for this newsletter.",
+            "default": {},
+            "type": "object"
           },
           "description": {
             "title": "Description",
@@ -9983,7 +10236,11 @@
           },
           "auditing_mode": {
             "description": "The auditing mode for your newsletter. See [the Firewall](https://docs.buttondown.com/firewall) for more information.",
-            "enum": ["disabled", "enabled", "aggressive"],
+            "enum": [
+              "disabled",
+              "enabled",
+              "aggressive"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/NewsletterAuditingMode"
@@ -10053,12 +10310,18 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "CreateNewsletterErrorCode": {
         "title": "CreateNewsletterErrorCode",
         "description": "Represents the type of error that occurred when creating a newsletter.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
-        "enum": ["username_already_exists", "username_malformed"],
+        "enum": [
+          "username_already_exists",
+          "username_malformed"
+        ],
         "type": "string"
       },
       "ErrorMessage_CreateNewsletterErrorCode_": {
@@ -10081,7 +10344,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "NewsletterInput": {
         "title": "NewsletterInput",
@@ -10144,7 +10410,11 @@
             "title": "Enabled Features",
             "description": "List of enabled features for your newsletter.",
             "default": [],
-            "example": ["archives", "portal", "surveys"],
+            "example": [
+              "archives",
+              "portal",
+              "surveys"
+            ],
             "type": "array",
             "items": {
               "type": "string"
@@ -10190,6 +10460,16 @@
             "example": "Sheinhardt Wig Company",
             "type": "string"
           },
+          "metadata": {
+            "title": "Metadata",
+            "description": "Arbitrary user-defined key/value data for this newsletter.",
+            "default": {},
+            "example": {
+              "source": "my-app",
+              "tier": "pro"
+            },
+            "type": "object"
+          },
           "test_mode": {
             "title": "Test Mode",
             "description": "Whether test mode is enabled for this newsletter.",
@@ -10215,7 +10495,11 @@
             "type": "string"
           }
         },
-        "required": ["description", "name", "username"]
+        "required": [
+          "description",
+          "name",
+          "username"
+        ]
       },
       "NewsletterUpdateInput": {
         "title": "NewsletterUpdateInput",
@@ -10299,7 +10583,11 @@
           "enabled_features": {
             "title": "Enabled Features",
             "description": "List of enabled features for your newsletter.",
-            "example": ["archives", "portal", "surveys"],
+            "example": [
+              "archives",
+              "portal",
+              "surveys"
+            ],
             "type": "array",
             "items": {
               "type": "string"
@@ -10339,6 +10627,15 @@
             "title": "Name",
             "example": "Sheinhardt Wig Company",
             "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "description": "Arbitrary user-defined key/value data for this newsletter.",
+            "example": {
+              "source": "my-app",
+              "tier": "pro"
+            },
+            "type": "object"
           },
           "test_mode": {
             "title": "Test Mode",
@@ -10402,7 +10699,12 @@
       "BulkActionStatus": {
         "title": "Status",
         "description": "Represents the status of a bulk action.\n\nNo action is required to move from one state or another; Buttondown\ninternally handles the transitions, and exposing the status is for\nobservability purposes only.",
-        "enum": ["not_started", "in_progress", "processed", "failed"],
+        "enum": [
+          "not_started",
+          "in_progress",
+          "processed",
+          "failed"
+        ],
         "type": "string"
       },
       "BulkAction": {
@@ -10467,7 +10769,13 @@
             "format": "date-time"
           }
         },
-        "required": ["type", "metadata", "id", "creation_date", "status"]
+        "required": [
+          "type",
+          "metadata",
+          "id",
+          "creation_date",
+          "status"
+        ]
       },
       "BulkActionInput": {
         "title": "BulkActionInput",
@@ -10509,24 +10817,40 @@
             }
           }
         },
-        "required": ["type", "metadata"]
+        "required": [
+          "type",
+          "metadata"
+        ]
       },
       "ExternalFeedAutomationStatus": {
         "title": "Status",
         "description": "Represents the status of the automation, and whether or not it is active. Inactive automations will not be processed. Deleted automations will not be processed.",
-        "enum": ["active", "failing", "inactive", "deleted"],
+        "enum": [
+          "active",
+          "failing",
+          "inactive",
+          "deleted"
+        ],
         "type": "string"
       },
       "ExternalFeedAutomationBehavior": {
         "title": "Behavior",
         "description": "An enumeration.",
-        "enum": ["draft", "emails"],
+        "enum": [
+          "draft",
+          "emails"
+        ],
         "type": "string"
       },
       "ExternalFeedAutomationCadence": {
         "title": "Cadence",
         "description": "An enumeration.",
-        "enum": ["every", "daily", "weekly", "monthly"],
+        "enum": [
+          "every",
+          "daily",
+          "weekly",
+          "monthly"
+        ],
         "type": "string"
       },
       "ExternalFeed": {
@@ -10713,7 +11037,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "ExternalFeedUpdateInput": {
         "title": "ExternalFeedUpdateInput",
@@ -10877,12 +11204,18 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "AutomationStatus": {
         "title": "Status",
         "description": "An enumeration.",
-        "enum": ["active", "inactive"],
+        "enum": [
+          "active",
+          "inactive"
+        ],
         "type": "string"
       },
       "ExternalEventType": {
@@ -10968,16 +11301,28 @@
           },
           "unit": {
             "title": "Unit",
-            "enum": ["minutes", "hours", "days", "weeks"],
+            "enum": [
+              "minutes",
+              "hours",
+              "days",
+              "weeks"
+            ],
             "type": "string"
           },
           "time_of_day": {
             "title": "Time Of Day",
-            "enum": ["morning", "evening", ""],
+            "enum": [
+              "morning",
+              "evening",
+              ""
+            ],
             "type": "string"
           }
         },
-        "required": ["value", "unit"]
+        "required": [
+          "value",
+          "unit"
+        ]
       },
       "Timing": {
         "title": "Timing",
@@ -10985,14 +11330,19 @@
         "properties": {
           "time": {
             "title": "Time",
-            "enum": ["immediate", "delay"],
+            "enum": [
+              "immediate",
+              "delay"
+            ],
             "type": "string"
           },
           "delay": {
             "$ref": "#/components/schemas/Delay"
           }
         },
-        "required": ["time"]
+        "required": [
+          "time"
+        ]
       },
       "AutomationActionType": {
         "title": "ActionType",
@@ -11038,7 +11388,10 @@
             "type": "object"
           }
         },
-        "required": ["type", "metadata"]
+        "required": [
+          "type",
+          "metadata"
+        ]
       },
       "Automation": {
         "title": "Automation",
@@ -11119,7 +11472,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "AutomationCreationErrorCode": {
         "title": "AutomationCreationErrorCode",
@@ -11154,7 +11510,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "AutomationInput": {
         "title": "AutomationInput",
@@ -11189,7 +11548,13 @@
             }
           }
         },
-        "required": ["name", "trigger", "timing", "actions", "filters"]
+        "required": [
+          "name",
+          "trigger",
+          "timing",
+          "actions",
+          "filters"
+        ]
       },
       "AutomationUpdateInput": {
         "title": "AutomationUpdateInput",
@@ -11227,7 +11592,9 @@
       "Failure": {
         "title": "Failure",
         "description": "An enumeration.",
-        "enum": ["email_already_exists"],
+        "enum": [
+          "email_already_exists"
+        ],
         "type": "string"
       },
       "ErrorMessage_Failure_": {
@@ -11250,7 +11617,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "UserInput": {
         "title": "UserInput",
@@ -11264,7 +11634,10 @@
             "type": "string"
           }
         },
-        "required": ["permissions", "email_address"]
+        "required": [
+          "permissions",
+          "email_address"
+        ]
       },
       "UserPage": {
         "title": "Page[User]",
@@ -11290,7 +11663,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "UserUpdateInput": {
         "title": "UserUpdateInput",
@@ -11304,7 +11680,9 @@
             }
           }
         },
-        "required": ["permissions"]
+        "required": [
+          "permissions"
+        ]
       },
       "Product": {
         "title": "Product",
@@ -11335,7 +11713,13 @@
             "type": "string"
           }
         },
-        "required": ["id", "product_id", "name", "creation_date", "active"]
+        "required": [
+          "id",
+          "product_id",
+          "name",
+          "creation_date",
+          "active"
+        ]
       },
       "Price": {
         "title": "Price",
@@ -11347,7 +11731,13 @@
           },
           "cadence": {
             "title": "Cadence",
-            "enum": ["year", "month", "one-time", "email", "week"],
+            "enum": [
+              "year",
+              "month",
+              "one-time",
+              "email",
+              "week"
+            ],
             "type": "string"
           },
           "currency": {
@@ -11364,7 +11754,11 @@
           },
           "style": {
             "title": "Style",
-            "enum": ["pay-what-you-want", "fixed", "usage-based"],
+            "enum": [
+              "pay-what-you-want",
+              "fixed",
+              "usage-based"
+            ],
             "type": "string"
           },
           "suggested_amount": {
@@ -11379,7 +11773,12 @@
             "$ref": "#/components/schemas/Product"
           }
         },
-        "required": ["cadence", "currency", "style", "id"]
+        "required": [
+          "cadence",
+          "currency",
+          "style",
+          "id"
+        ]
       },
       "PricePage": {
         "title": "Page[Price]",
@@ -11405,12 +11804,17 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "ListPricesErrorCode": {
         "title": "ListPricesErrorCode",
         "description": "Represents the type of error that occurred when listing a price.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
-        "enum": ["paid_subscriptions_uninitialized"],
+        "enum": [
+          "paid_subscriptions_uninitialized"
+        ],
         "type": "string"
       },
       "ErrorMessage_ListPricesErrorCode_": {
@@ -11433,12 +11837,18 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "CreatePriceErrorCode": {
         "title": "CreatePriceErrorCode",
         "description": "Represents the type of error that occurred when listing a price.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
-        "enum": ["paid_subscriptions_uninitialized", "invalid_amount"],
+        "enum": [
+          "paid_subscriptions_uninitialized",
+          "invalid_amount"
+        ],
         "type": "string"
       },
       "ErrorMessage_CreatePriceErrorCode_": {
@@ -11461,7 +11871,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "PriceInput": {
         "title": "PriceInput",
@@ -11473,7 +11886,13 @@
           },
           "cadence": {
             "title": "Cadence",
-            "enum": ["year", "month", "one-time", "email", "week"],
+            "enum": [
+              "year",
+              "month",
+              "one-time",
+              "email",
+              "week"
+            ],
             "type": "string"
           },
           "currency": {
@@ -11490,7 +11909,11 @@
           },
           "style": {
             "title": "Style",
-            "enum": ["pay-what-you-want", "fixed", "usage-based"],
+            "enum": [
+              "pay-what-you-want",
+              "fixed",
+              "usage-based"
+            ],
             "type": "string"
           },
           "suggested_amount": {
@@ -11498,7 +11921,11 @@
             "type": "integer"
           }
         },
-        "required": ["cadence", "currency", "style"]
+        "required": [
+          "cadence",
+          "currency",
+          "style"
+        ]
       },
       "StripeCouponPage": {
         "title": "Page[StripeCoupon]",
@@ -11524,24 +11951,37 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "SurveyResponseCadence": {
         "title": "ResponseCadence",
         "description": "An enumeration.",
-        "enum": ["once", "once_per_email"],
+        "enum": [
+          "once",
+          "once_per_email"
+        ],
         "type": "string"
       },
       "SurveyStatus": {
         "title": "Status",
         "description": "An enumeration.",
-        "enum": ["active", "inactive"],
+        "enum": [
+          "active",
+          "inactive"
+        ],
         "type": "string"
       },
       "SurveyInputType": {
         "title": "InputType",
         "description": "An enumeration.",
-        "enum": ["radio", "checkbox", "text"],
+        "enum": [
+          "radio",
+          "checkbox",
+          "text"
+        ],
         "type": "string"
       },
       "Survey": {
@@ -11618,7 +12058,9 @@
       "CreateSurveyErrorCode": {
         "title": "CreateSurveyErrorCode",
         "description": "Represents the type of error that occurred when creating a survey.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
-        "enum": ["identifier_already_exists"],
+        "enum": [
+          "identifier_already_exists"
+        ],
         "type": "string"
       },
       "ErrorMessage_CreateSurveyErrorCode_": {
@@ -11641,7 +12083,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "SurveyInput": {
         "title": "SurveyInput",
@@ -11659,7 +12104,11 @@
           },
           "answers": {
             "title": "Answers",
-            "example": ["Red", "Green", "Blue"],
+            "example": [
+              "Red",
+              "Green",
+              "Blue"
+            ],
             "type": "array",
             "items": {
               "type": "string"
@@ -11702,7 +12151,11 @@
             ]
           }
         },
-        "required": ["identifier", "question", "answers"]
+        "required": [
+          "identifier",
+          "question",
+          "answers"
+        ]
       },
       "SurveyPage": {
         "title": "Page[Survey]",
@@ -11728,12 +12181,18 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "UpdateSurveyErrorCode": {
         "title": "UpdateSurveyErrorCode",
         "description": "An enumeration.",
-        "enum": ["answers_empty", "survey_has_responses"],
+        "enum": [
+          "answers_empty",
+          "survey_has_responses"
+        ],
         "type": "string"
       },
       "ErrorMessage_UpdateSurveyErrorCode_": {
@@ -11756,7 +12215,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "SurveyUpdateInput": {
         "title": "SurveyUpdateInput",
@@ -11768,7 +12230,11 @@
           },
           "answers": {
             "title": "Answers",
-            "example": ["Red", "Green", "Blue"],
+            "example": [
+              "Red",
+              "Green",
+              "Blue"
+            ],
             "type": "array",
             "items": {
               "type": "string"
@@ -11802,7 +12268,10 @@
       "FormStatus": {
         "title": "Status",
         "description": "An enumeration.",
-        "enum": ["active", "inactive"],
+        "enum": [
+          "active",
+          "inactive"
+        ],
         "type": "string"
       },
       "Form": {
@@ -11872,7 +12341,9 @@
       "CreateFormErrorCode": {
         "title": "CreateFormErrorCode",
         "description": "Represents the type of error that occurred when creating a form.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
-        "enum": ["slug_already_exists"],
+        "enum": [
+          "slug_already_exists"
+        ],
         "type": "string"
       },
       "ErrorMessage_CreateFormErrorCode_": {
@@ -11895,7 +12366,10 @@
             }
           }
         },
-        "required": ["code", "detail"]
+        "required": [
+          "code",
+          "detail"
+        ]
       },
       "FormInput": {
         "title": "FormInput",
@@ -11953,7 +12427,10 @@
             ]
           }
         },
-        "required": ["title", "slug"]
+        "required": [
+          "title",
+          "slug"
+        ]
       },
       "FormPage": {
         "title": "Page[Form]",
@@ -11979,7 +12456,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "FormUpdateInput": {
         "title": "FormUpdateInput",
@@ -12024,7 +12504,14 @@
       "APIRequestSource": {
         "title": "Source",
         "description": "An enumeration.",
-        "enum": ["api", "app", "carrd", "zapier", "cli", "make"],
+        "enum": [
+          "api",
+          "app",
+          "carrd",
+          "zapier",
+          "cli",
+          "make"
+        ],
         "type": "string"
       },
       "APIRequestDetail": {
@@ -12185,18 +12672,29 @@
             "type": "string"
           }
         },
-        "required": ["results"]
+        "required": [
+          "results"
+        ]
       },
       "AdvertisingSKUStatus": {
         "title": "Status",
         "description": "An enumeration.",
-        "enum": ["active", "inactive"],
+        "enum": [
+          "active",
+          "inactive"
+        ],
         "type": "string"
       },
       "AdvertisingSlotStatus": {
         "title": "Status",
         "description": "An enumeration.",
-        "enum": ["open", "sold", "finalized", "executed", "expired"],
+        "enum": [
+          "open",
+          "sold",
+          "finalized",
+          "executed",
+          "expired"
+        ],
         "type": "string"
       },
       "AdvertisingSlot": {
@@ -12224,7 +12722,12 @@
             "type": "string"
           }
         },
-        "required": ["id", "date", "status", "content"]
+        "required": [
+          "id",
+          "date",
+          "status",
+          "content"
+        ]
       },
       "AdvertisingUnit": {
         "title": "AdvertisingUnit",
@@ -12307,7 +12810,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "AdvertisingUnitInput": {
         "title": "AdvertisingUnitInput",
@@ -12369,7 +12875,9 @@
             "type": "integer"
           }
         },
-        "required": ["dates"]
+        "required": [
+          "dates"
+        ]
       },
       "AdvertisingSlotUpdateInput": {
         "title": "AdvertisingSlotUpdateInput",
@@ -12384,7 +12892,10 @@
       "WebhookStatus": {
         "title": "WebhookStatus",
         "description": "The status of a webhook.",
-        "enum": ["enabled", "disabled"],
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
         "type": "string"
       },
       "Webhook": {
@@ -12415,7 +12926,10 @@
           },
           "event_types": {
             "description": "The types of event for which the webhook will be triggered.",
-            "example": ["email.created", "email.sent"],
+            "example": [
+              "email.created",
+              "email.sent"
+            ],
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ExternalEventType"
@@ -12445,7 +12959,12 @@
             "type": "string"
           }
         },
-        "required": ["id", "creation_date", "event_types", "url"]
+        "required": [
+          "id",
+          "creation_date",
+          "event_types",
+          "url"
+        ]
       },
       "WebhookInput": {
         "title": "WebhookInput",
@@ -12463,7 +12982,10 @@
           },
           "event_types": {
             "description": "The types of event for which the webhook will be triggered.",
-            "example": ["email.created", "email.sent"],
+            "example": [
+              "email.created",
+              "email.sent"
+            ],
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ExternalEventType"
@@ -12493,7 +13015,10 @@
             "type": "string"
           }
         },
-        "required": ["event_types", "url"]
+        "required": [
+          "event_types",
+          "url"
+        ]
       },
       "WebhookPage": {
         "title": "Page[Webhook]",
@@ -12519,12 +13044,19 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "WebhookAttemptStatus": {
         "title": "Status",
         "description": "An enumeration.",
-        "enum": ["unattempted", "successful", "failed"],
+        "enum": [
+          "unattempted",
+          "successful",
+          "failed"
+        ],
         "type": "string"
       },
       "WebhookAttemptOutput": {
@@ -12552,7 +13084,11 @@
             ]
           }
         },
-        "required": ["id", "creation_date", "status"]
+        "required": [
+          "id",
+          "creation_date",
+          "status"
+        ]
       },
       "WebhookAttemptOutputPage": {
         "title": "Page[WebhookAttemptOutput]",
@@ -12578,12 +13114,18 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "CommentType": {
         "title": "Type",
         "description": "An enumeration.",
-        "enum": ["reviewer", "subscriber"],
+        "enum": [
+          "reviewer",
+          "subscriber"
+        ],
         "type": "string"
       },
       "Comment": {
@@ -12637,7 +13179,13 @@
             "$ref": "#/components/schemas/Email"
           }
         },
-        "required": ["id", "creation_date", "email_id", "text", "comment_type"]
+        "required": [
+          "id",
+          "creation_date",
+          "email_id",
+          "text",
+          "comment_type"
+        ]
       },
       "CommentInput": {
         "title": "CommentInput",
@@ -12661,7 +13209,9 @@
             "format": "uuid"
           }
         },
-        "required": ["text"]
+        "required": [
+          "text"
+        ]
       },
       "CommentPage": {
         "title": "Page[Comment]",
@@ -12687,7 +13237,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "Response": {
         "title": "Response",
@@ -12776,7 +13329,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "ResponseInput": {
         "title": "ResponseInput",
@@ -12799,7 +13355,12 @@
             "type": "integer"
           }
         },
-        "required": ["subscriber_id", "survey_id", "email_id", "answer"]
+        "required": [
+          "subscriber_id",
+          "survey_id",
+          "email_id",
+          "answer"
+        ]
       },
       "ResponseUpdateInput": {
         "title": "ResponseUpdateInput",
@@ -12897,7 +13458,12 @@
             "$ref": "#/components/schemas/Automation"
           }
         },
-        "required": ["id", "creation_date", "metadata", "event_type"]
+        "required": [
+          "id",
+          "creation_date",
+          "metadata",
+          "event_type"
+        ]
       },
       "EmailEventPage": {
         "title": "Page[EmailEvent]",
@@ -12923,7 +13489,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "Note": {
         "title": "Note",
@@ -12979,7 +13548,10 @@
             "title": "Source",
             "description": "The source of the note. If the note was created by a Buttondown admin, this will be 'admin'; otherwise, it will be 'user'.",
             "example": "admin",
-            "enum": ["admin", "user"],
+            "enum": [
+              "admin",
+              "user"
+            ],
             "type": "string"
           },
           "user_id": {
@@ -13042,7 +13614,11 @@
             "type": "object"
           }
         },
-        "required": ["body", "model_type", "model_id"]
+        "required": [
+          "body",
+          "model_type",
+          "model_id"
+        ]
       },
       "NotePage": {
         "title": "Page[Note]",
@@ -13068,7 +13644,10 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "PublicEmail": {
         "title": "PublicEmail",
@@ -13139,11 +13718,16 @@
             "type": "integer"
           }
         },
-        "required": ["results", "count"]
+        "required": [
+          "results",
+          "count"
+        ]
       },
       "EmailExcludableField": {
         "type": "string",
-        "enum": ["body"]
+        "enum": [
+          "body"
+        ]
       }
     },
     "securitySchemes": {
