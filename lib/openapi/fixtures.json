@@ -26,7 +26,9 @@
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "status": "enabled",
-        "event_types": ["subscriber.created"],
+        "event_types": [
+          "subscriber.created"
+        ],
         "url": "https://example.com/webhook",
         "description": "",
         "signing_key": ""
@@ -119,7 +121,11 @@
         "identifier": "color",
         "question": "What's your favorite color?",
         "response_count": 11,
-        "answers": ["Red", "Green", "Blue"],
+        "answers": [
+          "Red",
+          "Green",
+          "Blue"
+        ],
         "notes": "",
         "randomize_answers": false,
         "response_cadence": "once",
@@ -136,7 +142,11 @@
         "identifier": "feedback",
         "question": "How can we improve?",
         "response_count": 11,
-        "answers": ["More content", "Better content", "Other"],
+        "answers": [
+          "More content",
+          "Better content",
+          "Other"
+        ],
         "notes": "",
         "randomize_answers": false,
         "response_cadence": "once_per_email",
@@ -351,7 +361,9 @@
     {
       "description": "Basic export",
       "object": {
-        "collections": ["subscribers"],
+        "collections": [
+          "subscribers"
+        ],
         "parameters": null,
         "format": "csv",
         "columns": null,
@@ -365,7 +377,10 @@
     {
       "description": "In-progress export",
       "object": {
-        "collections": ["emails", "subscribers"],
+        "collections": [
+          "emails",
+          "subscribers"
+        ],
         "parameters": {
           "start_date": "2019-01-01",
           "end_date": "2019-12-31"
@@ -382,7 +397,9 @@
     {
       "description": "Export with error",
       "object": {
-        "collections": ["events"],
+        "collections": [
+          "events"
+        ],
         "parameters": null,
         "format": "csv",
         "columns": null,
@@ -396,10 +413,16 @@
     {
       "description": "Export with custom columns",
       "object": {
-        "collections": ["subscribers"],
+        "collections": [
+          "subscribers"
+        ],
         "parameters": null,
         "format": "csv",
-        "columns": ["email", "creation_date", "subscriber_type"],
+        "columns": [
+          "email",
+          "creation_date",
+          "subscriber_type"
+        ],
         "id": "exp_3bmyw157dd278r1d00r17x8c68",
         "creation_date": "2019-08-24T14:15:22",
         "url": "https://s3.amazonaws.com/buttondown-exports/custom-columns-export.csv",
@@ -410,7 +433,12 @@
     {
       "description": "Multi-collection export",
       "object": {
-        "collections": ["emails", "subscribers", "comments", "referrals"],
+        "collections": [
+          "emails",
+          "subscribers",
+          "comments",
+          "referrals"
+        ],
         "parameters": {
           "include_archived": true
         },
@@ -693,7 +721,9 @@
         "status": "completed",
         "type": "delete_subscribers",
         "metadata": {
-          "ids": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"]
+          "ids": [
+            "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+          ]
         }
       }
     },
@@ -708,7 +738,9 @@
         "metadata": {
           "tag": "4931-4f5c-9b5b-2c9f6c9f6c9f",
           "action": "add",
-          "ids": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"]
+          "ids": [
+            "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+          ]
         }
       }
     },
@@ -725,7 +757,9 @@
             "first_name": "firstname",
             "pet": "animal"
           },
-          "ids": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"]
+          "ids": [
+            "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+          ]
         }
       }
     }
@@ -783,7 +817,7 @@
     {
       "description": "Basic automation",
       "object": {
-        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "aut_0k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2000-01-01T00:00:00+00:00",
         "name": "Welcome email",
         "status": "inactive",
@@ -811,7 +845,7 @@
     {
       "description": "Automation in the future",
       "object": {
-        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb1",
+        "id": "aut_0k28edc3fw896bp4mrhc535z5h",
         "creation_date": "2000-01-01T00:00:00+00:00",
         "name": "Welcome email",
         "status": "inactive",
@@ -992,7 +1026,9 @@
           "updated_subscribers": null,
           "existing_subscribers": 20,
           "reason_to_bad_subscribers": {
-            "That email address is invalid.": ["email@examplecom"],
+            "That email address is invalid.": [
+              "email@examplecom"
+            ],
             "There is no MX record associated with example.biz": [
               "email@example.biz",
               "helen@example.biz"
@@ -1001,8 +1037,20 @@
           "new_tags": 2
         },
         "parsed_text": [
-          ["email", "name", "tags", "notes", "metadata"],
-          ["email@example.com", "John Doe", "foo", "notes", "metadata"]
+          [
+            "email",
+            "name",
+            "tags",
+            "notes",
+            "metadata"
+          ],
+          [
+            "email@example.com",
+            "John Doe",
+            "foo",
+            "notes",
+            "metadata"
+          ]
         ]
       }
     },
@@ -1025,7 +1073,9 @@
           "updated_subscribers": null,
           "existing_subscribers": 20,
           "reason_to_bad_subscribers": {
-            "That email address is invalid.": ["email@examplecom"],
+            "That email address is invalid.": [
+              "email@examplecom"
+            ],
             "There is no MX record associated with example.biz": [
               "email@example.biz",
               "helen@example.biz"
@@ -1034,9 +1084,18 @@
           "new_tags": 2
         },
         "parsed_text": [
-          ["email", "first_name"],
-          ["email@example.com", "John"],
-          ["email2@example.com", "Jane"]
+          [
+            "email",
+            "first_name"
+          ],
+          [
+            "email@example.com",
+            "John"
+          ],
+          [
+            "email2@example.com",
+            "Jane"
+          ]
         ]
       }
     }
