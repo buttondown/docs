@@ -155,9 +155,7 @@ We published the following essays this week:
 Or if you chose a cadence of "every time" for your RSS feed, you'd just send information on the latest item:
 
 
-{% preview
-   before="I just published the following essay (read it online [here]({{ item.url }})):{{ item.content }}"
-   after="I just published the following essay (read it online <a href=\"#\">here</a>): <p><img src=\"/images/emails/rss-alt-text.png\" alt=\"A screenshot of the modal that informs you to add ALT text\"></p><p> Buttondown now has a friendly reminder to add alt text to your images before sending your email.</p> <p>Adding alt text (alternative text) to your images is a great way to make sure your emails are accessible to everyone, including people who use screen readers. It&#39;s also a great way to make sure your emails are SEO-friendly!</p>" /%}
+{% playgroundEmbed initialContent="I just published the following essay (read it online [here]({{ item.url }})):{{ item.content }}" /%}
 
 
 ## Edge cases and esoterica

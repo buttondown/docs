@@ -129,10 +129,7 @@ A mail merge is a catchall term for sending out emails with specific fields chan
 
 For example, programmatically displaying the first name of the email recipient. Something like:
 
-{% preview
-before="Hello, {first_name}!"
-after="Hello, Justin!"
-/%}
+{% playgroundEmbed initialContent="Hello, {first_name}!" /%}
 
 Buttondown supports mail merges with subscriber metadata. You can set metadata for a given subscriber with the API, or manually in that subscriber's "Notes" section:
 
@@ -144,9 +141,7 @@ Metadata doesn't just let you change small fields like names. You can also use a
 
 Here's an example:
 
-{% preview
-before="{% if subscriber.metadata.first_name %}\n  Hello {{ subscriber.metadata.first_name}}!\n{% else %}\n   Hello friend!\n{% endif %}"
-after="Hello friend!" /%}
+{% playgroundEmbed initialContent="{% if subscriber.metadata.first_name %}\n  Hello {{ subscriber.metadata.first_name}}!\n{% else %}\n   Hello friend!\n{% endif %}" /%}
 
 
 In this example, the first two lines state that if a subscriber has the `first_name` object, the opening line of the email should greet the subscriber using that name. If the subscriber's `first_name` is Alice, the opening line will read "Hello Alice!" The third and fourth lines specify that if there is not a `first_name` object defined, the opening line of the email should read "Hello friend!"

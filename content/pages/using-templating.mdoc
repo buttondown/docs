@@ -19,9 +19,7 @@ Variables are wrapped in double curly braces. Here's how this looks:
 
 Like a mail merge, the variable code is replaced with the correct text when an email is sent out. For example, if you wanted to add a personalized greeting to your email, it might look like this:
 
-{% preview
-   before="Hey there, {{ subscriber.metadata.first_name }}!"
-   after="Hey there, Justin!" /%}
+{% playgroundEmbed initialContent="Hey there, {{ subscriber.metadata.first_name }}!" /%}
 
 Check out our articles on [template variables](/template-variables) and [metadata](/metadata) to learn what's possible!
 

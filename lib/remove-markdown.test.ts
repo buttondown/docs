@@ -81,7 +81,7 @@ Outro`,
 
 	expect(
 		removeMarkdown(
-			`Before {% preview src="/docs/example" label="Example" /%} after`,
+			`Before {% playgroundEmbed initialContent="Example" /%} after`,
 		),
 	).toBe("Before  after");
 });

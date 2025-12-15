@@ -1,6 +1,5 @@
 const COMPONENTS_TO_REMOVE = [
 	"playgroundEmbed",
-	"preview",
 	"iframe",
 	"video",
 	"generatedMultilanguageSnippets",

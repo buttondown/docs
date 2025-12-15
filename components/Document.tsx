@@ -169,22 +169,6 @@ const Document = async ({ page }: Props) => {
 						</Notice>
 					);
 				},
-				preview: (props) => {
-					return (
-						<div className="border border-gray-200 text-center p-8 mt-4 bg-gray-100">
-							<div className="shadow-xs border border-gray-300 divide-y divide-gray-300">
-								<div className="bg-white p-4 text-sm text-left border-b-0 overflow-x-scroll">
-									<div className="font-mono whitespace-pre">{props.before}</div>
-								</div>
-								<div
-									className="text-gray-800 bg-white p-4 text-left"
-									// biome-ignore lint/security/noDangerouslySetInnerHtml: It's fine
-									dangerouslySetInnerHTML={{ __html: props.after }}
-								/>
-							</div>
-						</div>
-					);
-				},
 				iframe: (props) => (
 					<Iframe
 						src={props.src}

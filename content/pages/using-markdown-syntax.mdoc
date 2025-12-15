@@ -9,48 +9,38 @@ navigationTitle: Syntax guide
 
 #### Heading
 
-{% preview
-   before="# H1 \n\n## H2 \n\n### H3"
-   after="<h1>H1</h1>\n<h2>H2</h2>\n<h3>H3</h3>" /%}
+{% playgroundEmbed initialContent="# H1 \n\n## H2 \n\n### H3" /%}
 
 ### Bold
 
-{% preview before="**bold text**" after="<strong>bold text</strong>" /%}
+{% playgroundEmbed initialContent="**bold text**" /%}
 
 ### Italic
 
-{% preview before="*italic text*  " after="<em>italic text</em>" /%}
+{% playgroundEmbed initialContent="*italic text*  " /%}
 
 ### Ordered List
 
-{% preview
-   before="1. Foo \n2. Bar \n3. Baz "
-   after="<ol>\n<li>Foo</li>\n<li>Bar</li>\n<li>Baz</li>\n</ol>" /%}
+{% playgroundEmbed initialContent="1. Foo \n2. Bar \n3. Baz " /%}
 
 ### Unordered List
 
-{% preview
-   before="- Foo \n- Baz \n- Bar "
-   after="<ul>\n<li>Foo</li>\n<li>Bar</li>\n<li>Baz</li>\n</ul>" /%}
+{% playgroundEmbed initialContent="- Foo \n- Baz \n- Bar " /%}
 
 ### Code
 
-{% preview before="`code` " after="<code>code</code>" /%}
+{% playgroundEmbed initialContent="`code` " /%}
 
 ### Horizontal Rule
 
-{% preview before="--- " after="<hr />" /%}
+{% playgroundEmbed initialContent="--- " /%}
 
 ### Link
 
-{% preview
-   before="[link](https://google.com)"
-   after="<a href=\"https://google.com\">link</a>" /%}
+{% playgroundEmbed initialContent="[link](https://google.com)" /%}
 
 ### Image
 
-{% preview
-   before="![description](https://picsum.photos/200/300)"
-   after="<img src=\"https://picsum.photos/200/300\" alt=\"description\" />" /%}
+{% playgroundEmbed initialContent="![description](https://picsum.photos/200/300)" /%}
 
 If you're looking for a in-depth guide for more Markdown tips and tricks, I highly recommend the unofficial but authoritative [Markdown Guide](https://www.markdownguide.org).
