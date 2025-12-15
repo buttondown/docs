@@ -38,7 +38,7 @@ export default async function Layout({
 
   const nav = assembleNavData(
     navigation as KeystaticNavigationFile,
-    pages as KeystaticPage[],
+    pages as KeystaticPage[]
   );
 
   if ("errors" in nav) {
@@ -63,49 +63,36 @@ export default async function Layout({
 
   return (
     <>
-      {/* Desktop */}
-      <div className="max-lg:hidden grid grid-cols-[320px_1fr]">
-        <div className="h-screen overflow-hidden grid grid-rows-[max-content_1fr] sticky top-0">
-          <DesktopLogo />
-          <div className="overflow-scroll no-scrollbar">
-            <Sidebar slug={slug} nav={nav} className="px-5 py-4" />
-          </div>
-        </div>
-        <div>
-          <Nav activeGroup={currentNavigationGroup} />
-          <div className="p-8 lg:pb-24 flex-1 overflow-hidden">
-            <div className="max-w-[650px]">
-              <h1 className="text-3xl font-extrabold text-gray-800 mb-8">
-                {title}
-              </h1>
-
-              <Prose>{children}</Prose>
-            </div>
-          </div>
-
-          <div className="sticky bottom-0">
-            <Footer />
-          </div>
+      {/* Desktop sidebar */}
+      <div className="max-lg:hidden fixed top-0 left-0 w-[320px] h-screen grid grid-rows-[max-content_1fr]">
+        <DesktopLogo />
+        <div className="overflow-scroll no-scrollbar">
+          <Sidebar slug={slug} nav={nav} className="px-5 py-4" />
         </div>
       </div>
 
-      {/* Mobile */}
-      <div className="lg:hidden">
-        <MobileNav
-          slug={slug}
-          nav={nav}
-          contentArray={contentArray}
-          activeGroup={currentNavigationGroup}
-        />
+      {/* Mobile nav header */}
+      <MobileNav
+        slug={slug}
+        nav={nav}
+        contentArray={contentArray}
+        activeGroup={currentNavigationGroup}
+      />
 
-        <div className="max-w-[650px] mx-auto p-4 pb-16">
+      <div className="lg:ml-[320px]">
+        {/* Desktop nav header */}
+        <Nav activeGroup={currentNavigationGroup} />
+
+        <div className="max-w-[650px] p-4 pb-16 lg:p-8 lg:pb-24 lg:mx-0 mx-auto">
           <h1 className="text-3xl font-extrabold text-gray-800 mb-8">
             {title}
           </h1>
           <Prose>{children}</Prose>
         </div>
 
-        <Footer />
+        <div className="lg:sticky lg:bottom-0">
+          <Footer />
+        </div>
       </div>
     </>
   );
@@ -127,8 +114,8 @@ const Nav = ({ activeGroup }: { activeGroup: string | null }) => {
   return (
     <nav
       className={clsx(
-        "border-b px-5 h-[50px] sticky top-0 bg-white z-50",
-        "flex items-center justify-between",
+        "max-lg:hidden border-b px-5 h-[50px] sticky top-0 bg-white z-50",
+        "flex items-center justify-between"
       )}
     >
       <div className="flex items-center gap-x-6">
@@ -176,7 +163,7 @@ const NavItem = ({
       href={href}
       className={clsx(
         "flex items-center gap-x-1.5 transition-colors",
-        isActive ? "text-blue-700" : "text-gray-500 hover:text-gray-600",
+        isActive ? "text-blue-700" : "text-gray-500 hover:text-gray-600"
       )}
     >
       <Icon className="size-5 flex-shrink-0" />

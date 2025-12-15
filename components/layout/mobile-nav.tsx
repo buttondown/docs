@@ -36,7 +36,7 @@ export default function MobileNav({
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <header className="bg-gray-50 border-b px-4 pt-3 pb-2.5 flex items-center justify-between">
+      <header className="lg:hidden sticky top-0 z-50 bg-gray-50 border-b px-4 pt-3 pb-2.5 flex items-center justify-between">
         <div className="flex-1 flex items-center">
           <Dialog.Trigger asChild>
             <button aria-label="Open menu">
@@ -62,7 +62,7 @@ export default function MobileNav({
         <Dialog.Portal forceMount>
           <Dialog.Overlay
             forceMount
-            className="mobile-nav-overlay fixed inset-0 bg-black/50 z-40"
+            className="mobile-nav-overlay fixed inset-0 bg-black/50 z-50"
           />
           <Dialog.Content
             forceMount
@@ -90,7 +90,7 @@ export default function MobileNav({
                     "px-2 py-1 text-sm rounded-md transition-colors",
                     tabValue === "guides"
                       ? "bg-blue-600 text-white"
-                      : "bg-gray-200 text-gray-600 hover:bg-gray-300",
+                      : "bg-gray-200 text-gray-600 hover:bg-gray-300"
                   )}
                 >
                   Getting started
@@ -101,7 +101,7 @@ export default function MobileNav({
                     "px-2 py-1 text-sm rounded-md transition-colors",
                     tabValue === "reference"
                       ? "bg-blue-600 text-white"
-                      : "bg-gray-200 text-gray-600 hover:bg-gray-300",
+                      : "bg-gray-200 text-gray-600 hover:bg-gray-300"
                   )}
                 >
                   Reference
@@ -112,7 +112,7 @@ export default function MobileNav({
                     "px-2 py-1 text-sm rounded-md transition-colors",
                     tabValue === "api"
                       ? "bg-blue-600 text-white"
-                      : "bg-gray-200 text-gray-600 hover:bg-gray-300",
+                      : "bg-gray-200 text-gray-600 hover:bg-gray-300"
                   )}
                 >
                   API
