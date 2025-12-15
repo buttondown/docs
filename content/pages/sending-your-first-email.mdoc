@@ -131,9 +131,7 @@ For example, programmatically displaying the first name of the email recipient. 
 
 {% playgroundEmbed initialContent="Hello, {first_name}!" /%}
 
-Buttondown supports mail merges with subscriber metadata. You can set metadata for a given subscriber with the API, or manually in that subscriber's "Notes" section:
-
-![A screenshot of the subscriber details modal, where you can set metadata.](/images/metadata.png)
+Buttondown supports mail merges with subscriber metadata. You can set metadata for a given subscriber with the API, or manually in that subscriber's "Metadata" section.
 
 After you set the metadata, you can refer to it in an email by including this variable: `{{ subscriber.metadata.first_name }}`.
 

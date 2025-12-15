@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#MISE description="Lint CSS files"
+#MISE sources=["docs/**/*.css"]
+bun lint-css

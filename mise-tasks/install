@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#MISE description="Install dependencies"
+#MISE sources=["docs/package.json"]
+bun install

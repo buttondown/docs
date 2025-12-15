@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#MISE description="Lint docs files"
+#MISE sources=["docs/**/*.{ts,tsx,mdoc}"]
+bun knip
+bun check-for-typos --no-progress
+bun lint
+bun tsc

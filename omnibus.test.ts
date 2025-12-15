@@ -461,7 +461,7 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
 				`Reference to ${
 					// @ts-ignore
 					(ref as OpenAPIProperty).$ref
-				} in ${filename} does not have a URL in the schema. Maybe try running \`just docs/build-index\`?`,
+				} in ${filename} does not have a URL in the schema. Maybe try running \`MISE_EXPERIMENTAL=true mise run //docs:build-index\`?`,
 			).toBeTruthy();
 		});
 	});
