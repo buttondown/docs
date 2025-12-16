@@ -11743,6 +11743,14 @@
             "title": "Description",
             "type": "string"
           },
+          "maximum_amount": {
+            "title": "Maximum Amount",
+            "type": "integer"
+          },
+          "minimum_amount": {
+            "title": "Minimum Amount",
+            "type": "integer"
+          },
           "product_id": {
             "title": "Product Id",
             "type": "string"
@@ -11897,6 +11905,14 @@
           "description": {
             "title": "Description",
             "type": "string"
+          },
+          "maximum_amount": {
+            "title": "Maximum Amount",
+            "type": "integer"
+          },
+          "minimum_amount": {
+            "title": "Minimum Amount",
+            "type": "integer"
           },
           "product_id": {
             "title": "Product Id",

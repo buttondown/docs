@@ -1212,6 +1212,8 @@
         "cadence": "month",
         "currency": "usd",
         "description": null,
+        "maximum_amount": null,
+        "minimum_amount": null,
         "product_id": "prod_123",
         "style": "fixed",
         "suggested_amount": null,
