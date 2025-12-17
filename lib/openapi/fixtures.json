@@ -177,7 +177,7 @@
     {
       "description": "Basic external feed",
       "object": {
-        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "rss_0k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "last_checked_date": null,
         "status": "active",
@@ -200,7 +200,7 @@
     {
       "description": "Filtered external feed",
       "object": {
-        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "rss_0k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "last_checked_date": null,
         "status": "active",
@@ -221,7 +221,7 @@
         "url": "https://example.com/feed",
         "subject": "New post: {{ item.title }}",
         "body": "I just published a new post: {{ item.url }}",
-        "label": "Basic external feed",
+        "label": "Filtered external feed",
         "metadata": {},
         "skip_old_items": true
       }
@@ -1395,7 +1395,7 @@
     {
       "description": "Basic external feed item",
       "object": {
-        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "rssi_0k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "status": "processed",
         "url": "https://example.com/blog/post-1",
@@ -1404,7 +1404,7 @@
         "description": "This is an example blog post description.",
         "content": "<p>This is the full content of the blog post.</p>",
         "author": "John Doe",
-        "email_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "email_id": "em_0k28edc3fw896bp4mrhc535z5k",
         "email": null
       }
     }
