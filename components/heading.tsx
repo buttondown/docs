@@ -27,7 +27,7 @@ export default function Heading({
 		<a href={`#${slug}`} className="no-underline">
 			<Component
 				id={slug}
-				className="scroll-mt-20 md:scroll-mt-4 target:bg-amber-200 max-w-max"
+				className="scroll-mt-20 md:scroll-mt-16 target:bg-amber-200 max-w-max"
 			>
 				{children}
 			</Component>

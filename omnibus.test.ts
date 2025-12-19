@@ -240,11 +240,11 @@ Object.entries(FILENAME_TO_INTERNAL_LINKS).forEach(
 			expect(filename.toLowerCase()).toBe(filename);
 		});
 
-		test("Check internal links in " + filename, () => {
-			internalLinks.forEach((outboundPath) => {
+		internalLinks.forEach((outboundPath) => {
+			test(`Internal link from "${filename}" to "${outboundPath}" is valid`, () => {
 				expect(
 					isInternalURLValid(mungeInternalLinks(outboundPath)),
-					`Internal link to "${outboundPath}" in "${filename}" does not exist.`,
+					`Internal link from "${filename}" to "${outboundPath}" does not exist.`,
 				).toBeTruthy();
 			});
 		});
