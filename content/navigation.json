@@ -295,10 +295,6 @@
 			"items": [
 				{
 					"discriminant": "page",
-					"value": "creating-your-first-automation"
-				},
-				{
-					"discriminant": "page",
 					"value": "welcome-sequence"
 				},
 				{
@@ -935,14 +931,6 @@
 				{
 					"discriminant": "page",
 					"value": "automation-actions"
-				},
-				{
-					"discriminant": "divider",
-					"value": "FAQ"
-				},
-				{
-					"discriminant": "page",
-					"value": "what-happens-if-i-change-an-automation"
 				}
 			]
 		},

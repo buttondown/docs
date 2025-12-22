@@ -689,20 +689,13 @@
     "references": []
   },
   {
-    "title": "Creating your first automation",
-    "url": "creating-your-first-automation",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
     "title": "Automating welcome sequences",
     "url": "welcome-sequence",
     "section": "guides",
     "schema": null,
     "description": "You can use Buttondown's automations feature to create a welcome sequence for your new subscribers!",
     "references": [
+      "automations-introduction",
       "beehiiv",
       "can-i-send-an-email-to-new-subscribers",
       "podia",
@@ -1973,7 +1966,6 @@
       "bsky",
       "building-your-subscriber-base",
       "can-i-send-an-email-to-new-subscribers",
-      "creating-your-first-automation",
       "linkedin",
       "portal",
       "replies",
@@ -1990,7 +1982,8 @@
     "schema": null,
     "description": "Triggers are the events that cause a Buttondown Automation to fire.",
     "references": [
-      "automation-filters"
+      "automation-filters",
+      "automations-introduction"
     ]
   },
   {
@@ -1999,7 +1992,9 @@
     "section": "reference",
     "schema": null,
     "description": "Filters allow you to set the criteria for when an automation fires.",
-    "references": []
+    "references": [
+      "automations-introduction"
+    ]
   },
   {
     "title": "Types of automation actions",
@@ -2009,20 +2004,13 @@
     "description": null,
     "references": [
       "arena",
+      "automations-introduction",
       "bsky",
       "can-i-send-an-email-to-new-subscribers",
       "linkedin",
       "tumblr",
       "twitter"
     ]
-  },
-  {
-    "title": "What happens if I change an existing automation?",
-    "url": "what-happens-if-i-change-an-automation",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
   },
   {
     "title": "Events and webhooks",
@@ -2054,6 +2042,7 @@
     "description": null,
     "references": [
       "automation-triggers",
+      "automations-introduction",
       "can-i-send-an-email-to-new-subscribers",
       "events-and-webhooks-introduction"
     ]
