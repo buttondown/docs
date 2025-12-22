@@ -7188,8 +7188,7 @@
             "name": "email_id",
             "schema": {
               "title": "Email Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": false
           },
@@ -7198,8 +7197,7 @@
             "name": "automation_id",
             "schema": {
               "title": "Automation Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": false
           },
@@ -7208,8 +7206,7 @@
             "name": "subscriber_id",
             "schema": {
               "title": "Subscriber Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": false
           }
@@ -7256,8 +7253,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           },
@@ -13419,29 +13415,26 @@
         "properties": {
           "id": {
             "title": "Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "subscriber_id": {
-            "title": "Subscriber Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "email_id": {
-            "title": "Email Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "automation_id": {
-            "title": "Automation Id",
-            "type": "string",
-            "format": "uuid"
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
           },
           "creation_date": {
             "title": "Creation Date",
             "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
+          },
+          "subscriber_id": {
+            "title": "Subscriber Id",
+            "type": "string"
+          },
+          "email_id": {
+            "title": "Email Id",
+            "type": "string"
+          },
+          "automation_id": {
+            "title": "Automation Id",
+            "type": "string"
           },
           "metadata": {
             "title": "Metadata",
