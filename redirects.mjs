@@ -454,6 +454,11 @@ const REDIRECTS = [
 		destination: "/rss/api-changelog",
 		permanent: true,
 	},
+	{
+		source: "/tip-jar",
+		destination: "/pricing-models#pay-what-you-want",
+		permanent: true,
+	},
 ];
 
 export default REDIRECTS;
