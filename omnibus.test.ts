@@ -209,13 +209,51 @@ const VALID_INTERNAL_LINKS_THAT_ARE_NOT_BACKED_BY_MDOC = [
 	"$WORKSPACE_URL",
 ];
 
-const isInternalURLValid = (url: string) => {
-	const urlWithKnownFragmentRemoved = url.replace(/#faqs$/, "");
+function slugify(text: string): string {
+	return (text || "")
+		.toString()
+		.toLowerCase()
+		.replace(/\s+/g, "-")
+		.replace(/[^\w-]+/g, "")
+		.replace(/--+/g, "-")
+		.replace(/^-+/, "")
+		.replace(/-+$/, "");
+}
 
-	return (
-		VALID_INTERNAL_LINKS_THAT_ARE_NOT_BACKED_BY_MDOC.includes(url) ||
-		fs.existsSync(`${MARKDOC_DIRECTORY}/${urlWithKnownFragmentRemoved}.mdoc`)
-	);
+function getHeadingSlugsFromMdoc(filePath: string): string[] {
+	if (!fs.existsSync(filePath)) {
+		return [];
+	}
+	const content = fs.readFileSync(filePath, "utf-8");
+	const headingRegex = /^#{1,6}\s+(.+)$/gm;
+	const slugs: string[] = [];
+	let match;
+	while ((match = headingRegex.exec(content)) !== null) {
+		slugs.push(slugify(match[1]));
+	}
+	return slugs;
+}
+
+const isInternalURLValid = (url: string) => {
+	if (VALID_INTERNAL_LINKS_THAT_ARE_NOT_BACKED_BY_MDOC.includes(url)) {
+		return true;
+	}
+
+	const fragmentMatch = url.match(/#(.+)$/);
+	const fragment = fragmentMatch ? fragmentMatch[1] : null;
+	const urlWithFragmentRemoved = url.replace(/#.*$/, "");
+	const filePath = `${MARKDOC_DIRECTORY}/${urlWithFragmentRemoved}.mdoc`;
+
+	if (!fs.existsSync(filePath)) {
+		return false;
+	}
+
+	if (fragment && fragment !== "faqs") {
+		const validSlugs = getHeadingSlugsFromMdoc(filePath);
+		return validSlugs.includes(fragment);
+	}
+
+	return true;
 };
 
 test("All redirect destinations are valid", () => {
