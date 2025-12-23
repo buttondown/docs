@@ -367,7 +367,7 @@ const REDIRECTS = [
 	{
 		source: "/migration-guides/tinyletter",
 		permanent: false,
-		destination: "/tinyletter",
+		destination: "/importing-your-data",
 	},
 	{
 		source: "/need-more-help",
@@ -455,10 +455,15 @@ const REDIRECTS = [
 		permanent: true,
 	},
 	{
+		source: "/tinyletter",
+		destination: "/importing-your-data",
+		permanent: true,
+	},
+	{
 		source: "/tip-jar",
 		destination: "/pricing-models#pay-what-you-want",
 		permanent: true,
-	},
+	}
 ];
 
 export default REDIRECTS;

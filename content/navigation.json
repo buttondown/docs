@@ -159,10 +159,6 @@
           "value": "substack"
         },
         {
-          "discriminant": "page",
-          "value": "tinyletter"
-        },
-        {
           "discriminant": "divider",
           "value": "FAQ"
         },
