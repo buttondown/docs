@@ -180,11 +180,6 @@ const Footer = () => {
 
         <span className="max-lg:hidden inline-block w-3" />
         <br className="lg:hidden" />
-
-        <a href="TODO" target="_blank" className="underline">
-          Accessibility
-        </a>
-        <span> &middot; </span>
         <a
           href="https://buttondown.com/blog"
           target="_blank"
