@@ -463,6 +463,11 @@ const REDIRECTS = [
 		source: "/tip-jar",
 		destination: "/pricing-models#pay-what-you-want",
 		permanent: true,
+	},
+	{
+		source: "/slash-buy",
+		destination: "/paid-subscriptions",
+		permanent: true,
 	}
 ];
 

@@ -328,10 +328,6 @@
         },
         {
           "discriminant": "page",
-          "value": "slash-buy"
-        },
-        {
-          "discriminant": "page",
           "value": "pricing-models"
         },
         {
