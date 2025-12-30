@@ -659,14 +659,6 @@
         },
         {
           "discriminant": "page",
-          "value": "using-markdown-syntax"
-        },
-        {
-          "discriminant": "page",
-          "value": "using-markdown-rendering"
-        },
-        {
-          "discriminant": "page",
           "value": "converting-between-modes"
         },
         {

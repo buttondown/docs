@@ -4,6 +4,13 @@ date: 2025-04-20
 description: Buttondown's "Firewall" is an opt-in feature that audits all incoming subscribers to confirm that they're legitimate people.
 relatedPages:
   - dealing-with-spam-subscribers
+faqItems: >
+  [
+    {
+      "question": "I have firewall disabled but some subscribers are still being blocked!",
+      "answer": "Even with the firewall disabled, Buttondown blocks subscribers using disposable email addresses. Disposable email domains (like mailinator.com, tempmail.com, and thousands of others) are temporary inboxes often used for spam or to game free trials. We maintain a blocklist sourced from an [open-source community project](https://github.com/disposable-email-domains/disposable-email-domains) that updates daily. This behavior is intentional and separate from the firewall: sending emails to disposable addresses is almost always a waste of resources and can harm your sender reputation, since these addresses are frequently abandoned or never checked. There's no way to disable this check."
+    }
+  ]
 ---
 
 Buttondown's "Firewall" (a slightly aggressive term, but illustrative enough) is an opt-in feature that audits all incoming subscribers to confirm that they're legitimate people.
@@ -84,3 +91,7 @@ Sandbox addresses use the domain `sandbox.buttondown.com` with a special format 
 - `test+firewall-2@sandbox.buttondown.com` - Adds 2.0 to the risk score (will be blocked if your threshold is 2.0 or lower)
 - `user+firewall-0.5@sandbox.buttondown.com` - Adds 0.5 to the risk score (will be blocked if your threshold is 0.5 or lower)
 - `anything+firewall-10@sandbox.buttondown.com` - Adds 10.0 to the risk score (will be blocked regardless of threshold)
+
+## FAQ
+
+{% faq /%}
