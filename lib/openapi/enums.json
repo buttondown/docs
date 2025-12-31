@@ -1275,6 +1275,16 @@
       "name": "Access denied",
       "variant": "error"
     },
+    "authentication_issue": {
+      "description": "The email failed authentication checks (DMARC, SPF, or relay permissions).",
+      "name": "Authentication issue",
+      "variant": "error"
+    },
+    "delivery_expired": {
+      "description": "The delivery attempt timed out before the email could be delivered.",
+      "name": "Delivery expired",
+      "variant": "error"
+    },
     "disabled": {
       "description": "The subscriber's email account is disabled.",
       "name": "Disabled",
@@ -1293,6 +1303,11 @@
     "email_blocked": {
       "description": "The subscriber's email address is blocked.",
       "name": "Email blocked",
+      "variant": "error"
+    },
+    "hard_bounce": {
+      "description": "The subscriber's email address permanently bounced (the address does not exist or is unreachable).",
+      "name": "Hard bounce",
       "variant": "error"
     },
     "ip_blocked": {
@@ -1343,6 +1358,11 @@
     "spf_failed": {
       "description": "SPF validation failed for the email.",
       "name": "SPF failed",
+      "variant": "error"
+    },
+    "transient": {
+      "description": "The email encountered a temporary delivery issue and will be retried automatically.",
+      "name": "Transient",
       "variant": "error"
     },
     "unreachable": {

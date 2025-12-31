@@ -473,7 +473,9 @@
         "paid_subscriptions": 0,
         "replies": 0,
         "comments": 0,
-        "social_mentions": 0
+        "social_mentions": 0,
+        "temporary_failure_breakdown": [],
+        "permanent_failure_breakdown": []
       }
     }
   ],
