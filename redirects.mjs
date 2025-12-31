@@ -6,7 +6,7 @@ const REDIRECTS = [
 	},
 	{
 		source: "/odd-and-ends/exporting-your-data",
-		permanent: true,
+		permanent: false,
 		destination: "/data-exports",
 	},
 	{
@@ -452,23 +452,28 @@ const REDIRECTS = [
 	{
 		source: "/rss/api-changelog.xml",
 		destination: "/rss/api-changelog",
-		permanent: true,
+		permanent: false,
 	},
 	{
 		source: "/tinyletter",
 		destination: "/importing-your-data",
-		permanent: true,
+		permanent: false,
 	},
 	{
 		source: "/tip-jar",
 		destination: "/pricing-models#pay-what-you-want",
-		permanent: true,
+		permanent: false,
 	},
 	{
 		source: "/slash-buy",
 		destination: "/paid-subscriptions",
-		permanent: true,
-	}
+		permanent: false,
+	},
+	{
+		source: "/self-hosting",
+		destination: "https://buttondown.com/open-source",
+		permanent: false,
+	},
 ];
 
 export default REDIRECTS;
