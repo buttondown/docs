@@ -535,95 +535,11 @@
       "items": [
         {
           "discriminant": "page",
-          "value": "using-templating"
+          "value": "template-tags"
         },
         {
           "discriminant": "page",
           "value": "template-variables"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Variables"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-email-publish-date"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-email-secondary-id"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-email-is-premium"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-email-subject"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-email-absolute-url"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-manage-subscription-url"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-medium"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-premium-subscribe-url"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-random-number"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscribe-form"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscribe-url"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscriber-can-be-upsold"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscriber-can-view-premium-content"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscriber-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscriber-id"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscriber-metadata"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscriber-subscriber-type"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-subscriber-tags"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-unsubscribe-url"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables-upgrade-url"
         },
         {
           "discriminant": "divider",
