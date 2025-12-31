@@ -1173,6 +1173,10 @@
         },
         {
           "discriminant": "page",
+          "value": "glossary-coi"
+        },
+        {
+          "discriminant": "page",
           "value": "glossary-cold-email"
         },
         {
