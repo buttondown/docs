@@ -1,0 +1,90 @@
+---
+title: Template tags
+relatedPages:
+- rss-to-email
+- template-variables
+- metadata
+---
+Buttondown uses a templating language to mix programming code into plain old HTML. By adding logic and [variables](/template-variables) to your email you can customize your content per-subscriber, or to repeat structures in your email without having to hand code them multiple times.
+
+{% noticeInfo text="Buttondown's templating language is built on top of Django." /%}
+
+## Variables
+Variables allow you to programmatically add text to your email. You may have previously worked with variables in the form of "mail merges".
+
+Variables are wrapped in double curly braces. Here's how this looks:
+```jinja {% process=false %}
+{{ variable }}
+```
+
+Like a mail merge, the variable code is replaced with the correct text when an email is sent out. For example, if you wanted to add a personalized greeting to your email, it might look like this:
+
+{% playgroundEmbed initialContent="Hey there, {{ subscriber.metadata.first_name }}!" /%}
+
+Check out our articles on [template variables](/template-variables) and [metadata](/metadata) to learn what's possible!
+
+## Filters
+Filters are tools that you can use to modify the output of a variable. This uses the same double curly brace syntax, but the variable name is followed by a pipe and the filter you'd like to use.
+
+For example, if you wanted to make sure your email subject line was always capitalized, you could add the `capfirst` filter, like so:
+
+```jinja {% process=false %}
+{{ email.subject|capfirst }}
+```
+
+As Buttondown's templating language is built on Django you can use any of their [available filters](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#ref-templates-builtins-filters).
+
+## Tags
+Tags are bits of code that are added to your HTML content that can do all sorts of things, including logic!
+
+Tags are wrapped in a single curly brace and a percentage sign, and look like this:
+
+```jinja {% process=false %}
+{% tag %}
+```
+
+The `for` and `if else` loops should cover most use cases in Buttondown.
+
+### `for`
+If you want to send a weekly digest of all your blog posts, you could iterate over the list of these items with a `for` loop:
+
+```jinja {% process=false %}
+{% for email in emails %}
+    <h2>{{ email.title }}</h2>
+    <p><a href="{{ email.url }}">Read more</a></p>
+{% endfor %}
+```
+
+You might want to also be able to access a counter for each iteration. You can do this by using the `forloop` object. Here's how you could use it to add a number to each blog post:
+
+```jinja {% process=false %}
+{% for email in emails %}
+    <h2>{{ forloop.counter }}. {{ email.title }}</h2>
+    <p><a href="{{ email.url }}">Read more</a></p>
+{% endfor %}
+```
+
+### `if  else`
+If you wanted to send your premium subscribers a special message you could use an if/else loop, like this:
+
+```jinja {% process=false %}
+{% if subscriber.subscriber_type == 'premium' %}
+    Thanks for being a paid subscriber!
+{% else %}
+    Thanks for reading!
+{% endif %}.
+```
+
+You could also use `elif` (else if) tags to send different messages to your premium subscribers, free subscribers, and non-subscribers. Here's how this would look:
+
+```jinja {% process=false %}
+{% if subscriber.subscriber_type == 'premium' %}
+    Thanks for being a paid subscriber!
+{% elif subscriber.subscriber_type == 'regular' %}
+   Want to support my writing? <a href="{{ premium_subscribe_url }}">Upgrade now!</a>
+{% else %}
+    Like what you read? <a href="{{ subscribe_url }}">Subscribe now!</a>
+{% endif %}.
+```
+
+Have a situation that needs something more than a `for` or `if else` loop? Fear not! There are lots of other pre-built tags on the [Django site](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#ref-templates-builtins-tags).

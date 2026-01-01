@@ -4056,16 +4056,6 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
           "403": {
             "description": "Forbidden",
             "content": {
@@ -5116,16 +5106,6 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          },
           "403": {
             "description": "Forbidden",
             "content": {
@@ -5240,16 +5220,6 @@
         "responses": {
           "204": {
             "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
           },
           "403": {
             "description": "Forbidden",
@@ -8336,27 +8306,6 @@
           }
         }
       },
-      "FailureBreakdownItem": {
-        "title": "FailureBreakdownItem",
-        "description": "A single failure reason with its count.",
-        "type": "object",
-        "properties": {
-          "code": {
-            "title": "Code",
-            "description": "The failure reason code (e.g. 'hard_bounce', 'spam')",
-            "type": "string"
-          },
-          "count": {
-            "title": "Count",
-            "description": "Number of failures with this reason",
-            "type": "integer"
-          }
-        },
-        "required": [
-          "code",
-          "count"
-        ]
-      },
       "Analytics": {
         "title": "Analytics",
         "type": "object",
@@ -8450,22 +8399,6 @@
             "title": "Social Mentions",
             "default": 0,
             "type": "integer"
-          },
-          "temporary_failure_breakdown": {
-            "title": "Temporary Failure Breakdown",
-            "description": "Breakdown of temporary failures, sorted by count descending",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FailureBreakdownItem"
-            }
-          },
-          "permanent_failure_breakdown": {
-            "title": "Permanent Failure Breakdown",
-            "description": "Breakdown of permanent failures, sorted by count descending",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FailureBreakdownItem"
-            }
           }
         }
       },
@@ -9490,28 +9423,24 @@
       },
       "SubscriberUndeliverabilityReason": {
         "title": "UndeliverabilityReason",
-        "description": "The reason Buttondown has marked the subscriber as undeliverable.\nUndeliverable subscribers are not sent emails, and may be periodically removed from the system (or restored, if the reason is no longer valid.)\n\nThese reasons are grouped into three categories:\n- PermanentFailure (\"Failed (recipient)\"): Address-based issues where the recipient is truly unreachable.\n  Includes: HARD_BOUNCE\n- MessageFailure (\"Failed (message)\"): Message/sender problems where future emails may succeed.\n  Includes: ACCESS_DENIED, AUTHENTICATION_ISSUE, DELIVERY_EXPIRED, DOMAIN_BLOCKED, EMAIL_BLOCKED,\n            IP_BLOCKED, ON_ESP_DENYLIST, OUT_OF_STORAGE, PROBLEMATIC_URL, SPAM\n- Deferral (not shown to customers): Transient delivery issues that will be retried.\n  Includes: RATE_LIMITED, TRANSIENT",
+        "description": "The reason Buttondown has marked the subscriber as undeliverable.\nUndeliverable subscribers are not sent emails, and may be periodically removed from the system (or restored, if the reason is no longer valid.)",
         "enum": [
-          "access_denied",
-          "authentication_issue",
-          "delivery_expired",
-          "domain_blocked",
           "email_blocked",
-          "hard_bounce",
           "ip_blocked",
           "ip_undeliverable",
-          "malformed",
-          "on_esp_denylist",
-          "other",
           "out_of_storage",
-          "problematic_url",
+          "disabled",
+          "unreachable",
+          "access_denied",
+          "does_not_exist",
           "rate_limited",
           "spam",
-          "transient",
-          "disabled",
-          "does_not_exist",
+          "problematic_url",
+          "on_esp_denylist",
+          "domain_blocked",
           "spf_failed",
-          "unreachable"
+          "malformed",
+          "other"
         ],
         "type": "string"
       },

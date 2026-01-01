@@ -1,5 +1,6 @@
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import Script from "next/script";
 import { DESCRIPTION, TITLE } from "@/lib/constants";
 
 import "@fontsource/ibm-plex-mono/400.css";
@@ -11,6 +12,7 @@ import "@fontsource/ibm-plex-mono/600-italic.css";
 import "@fontsource/ibm-plex-mono/700.css";
 import "@fontsource/ibm-plex-mono/700-italic.css";
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://docs.buttondown.com"),
@@ -32,11 +34,8 @@ export default function RootLayout({
 		<html lang="en">
 			<body>
 				{children}
-				<Script
-					src="https://cdn.seline.com/seline.js"
-					data-token="fa13d3d8a7aeb56"
-					strategy="afterInteractive"
-				/>
+				<Analytics />
+				<SpeedInsights />
 				<Script id="mermaid-fix" strategy="beforeInteractive">
 					{`
             // Fix a bug with mermaid block diagrams in react.
