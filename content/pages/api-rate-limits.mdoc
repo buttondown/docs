@@ -10,4 +10,24 @@ Buttondown does not have blanket rate limits on the API, but we do have some spe
 |----------|-----------|
 | [`POST /v1/subscribers`](/api-subscribers-create) | 100 requests per day |
 
-At this moment, we do not surface rate limit information via API headers; you'll want to check the response body for an explicit error message.
+{% noticeInfo text="Newsletters on paid plans with permanently active status are exempt from these rate limits." /%}
+
+## Rate limit headers
+
+When you create a subscriber via the API, Buttondown returns rate limit information in the response headers:
+
+| Header | Description |
+|--------|-------------|
+| `X-RateLimit-Limit` | The maximum number of subscribers you can create per day |
+| `X-RateLimit-Remaining` | The number of subscriber creations remaining for the current day |
+| `X-RateLimit-Reset` | Unix timestamp (in seconds) when the rate limit resets (midnight UTC) |
+
+Here's an example of the headers you might see:
+
+```
+X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 95
+X-RateLimit-Reset: 1735776000
+```
+
+You can use these headers to track your API usage and avoid hitting rate limits. If you exceed the rate limit, the API will return a `400` status code with an error indicating that you've hit the daily limit.
