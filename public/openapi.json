@@ -11910,8 +11910,10 @@
         "title": "CreatePriceErrorCode",
         "description": "Represents the type of error that occurred when listing a price.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
         "enum": [
+          "invalid_amount",
+          "maximum_amount_too_high",
           "paid_subscriptions_uninitialized",
-          "invalid_amount"
+          "product_deleted"
         ],
         "type": "string"
       },
