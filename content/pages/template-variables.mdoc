@@ -1,70 +1,73 @@
 ---
 title: Template variables
 relatedPages:
-- using-templating
+- template-tags
 ---
 Template variables are a concept that have multiple names: "mail merges" might be one you're more familiar with if you have a marketing and email background.
 
-The concept is to add snippets in your email that are programmatically replaced when Buttondown sends out an email. This with [a little templating logic](/using-templating) allows you to customize your content per-subscriber or to repeat certain key concepts in your email without having to change them over and over again.
+The concept is to add snippets in your email that are programmatically replaced when Buttondown sends out an email. This with [a little templating logic](/template-tags) allows you to customize your content per-subscriber or to repeat certain key concepts in your email without having to change them over and over again.
 
 ## Template variable library
 
 {% table %}
 - Variable
 ---
-- **[email.publish\_date](/template-variables-email-publish-date)**
-- Date/time the email is sent.
----
-- **[email.secondary\_id](/template-variables-email-secondary-id)**
-- Email issue number.
----
-- **[email.subject](/template-variables-email-subject)**
-- Email subject line.
----
-- **[email.absolute\_url](/template-variables-email-absolute-url)**
+- **[email.absolute\_url](/template-tags#email.absolute_url)**
 - Permalink to the email.
 ---
-- **[manage\_subscription\_url](/template-variables-manage-subscription-url)**
+- **[email.is\_premium](/template-tags#email.is_premium)**
+- If email is sent to a premium subscriber.
+---
+- **[email.publish\_date](/template-tags#email.publish_date)**
+- Date/time the email is sent.
+---
+- **[email.secondary\_id](/template-tags#email.secondary_id)**
+- Email issue number.
+---
+- **[email.subject](/template-tags#email.subject)**
+- Email subject line.
+---
+- **[manage\_subscription\_url](/template-tags#manage_subscription_url)**
 - Link to Portal.
 ---
-- **[medium](/template-variables-medium)**
+- **[medium](/template-tags#medium)**
 - 'email' or 'web'.
 ---
-- **[premium\_subscribe\_url](/template-variables-premium-subscribe-url)**
+- **[premium\_subscribe\_url](/template-tags#premium_subscribe_url)**
 - Upgrade link for free subscribers.
 ---
-- **[random\_number](/template-variables-random-number)**
+- **[random\_number](/template-tags#random_number)**
 - Random number for A/B testing.
 ---
-- **[subscribe\_form](/template-variables-subscribe-form)**
+- **[subscribe\_form](/template-tags#subscribe_form)**
 - Embedded subscribe form.
 ---
-- **[subscribe\_url](/template-variables-subscribe-url)**
+- **[subscribe\_url](/template-tags#subscribe_url)**
 - URL to your subscription page.
 ---
-- **[subscriber.can\_be\_upsold](/template-variables-subscriber-can-be-upsold)**
+- **[subscriber.can\_be\_upsold](/template-tags#subscriber.can_be_upsold)**
 - If subscriber can be upsold to paid.
 ---
-- **[subscriber.can\_view\_premium\_content](/template-variables-subscriber-can-view-premium-content)**
+- **[subscriber.can\_view\_premium\_content](/template-tags#subscriber.can_view_premium_content)**
 - If subscriber can view premium content.
 ---
-- **[subscriber.email](/template-variables-subscriber-email)**
+- **[subscriber.email](/template-tags#subscriber.email)**
 - Subscriber's email address.
 ---
-- **[subscriber.id](/template-variables-subscriber-id)**
+- **[subscriber.id](/template-tags#subscriber.id)**
 - Subscriber's unique ID.
 ---
-- **[subscriber.metadata](/template-variables-subscriber-metadata)**
+- **[subscriber.metadata](/template-tags#subscriber.metadata)**
 - Subscriber metadata.
 ---
-- **[subscriber.subscriber\_type](/template-variables-subscriber-subscriber-type)**
+- **[subscriber.subscriber\_type](/template-tags#subscriber.subscriber_type)**
 - Subscriber type (premium, regular, etc).
 ---
-- **[subscriber.tags](/template-variables-subscriber-tags)**
+- **[subscriber.tags](/template-tags#subscriber.tags)**
 - Subscriber's tag names.
 ---
-- **[unsubscribe\_url](/template-variables-unsubscribe-url)**
+- **[unsubscribe\_url](/template-tags#unsubscribe_url)**
 - Personalized unsubscribe link.
 ---
-- **[upgrade\_url](/template-variables-upgrade-url)**
+- **[upgrade\_url](/template-tags#upgrade_url)**
 - Upgrade link for free subscribers.

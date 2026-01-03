@@ -9,25 +9,22 @@ const EXTERNAL_DOMAIN =
 
 const DEFAULT_HEIGHT = 300;
 
-const iframeVariants = cva(
-	"relative p-8 -mx-8 bg-gray-100 pb-0 rounded-lg border border-gray-200 dark:border-white/10 dark:bg-zinc-700",
-	{
-		variants: {
-			variant: {
-				page: "mt-0",
-				subscriber: "mt-0",
-				email: "",
-			},
-			width: {
-				normal: "",
-				wide: "lg:!-mx-48",
-			},
+const iframeVariants = cva("relative", {
+	variants: {
+		variant: {
+			page: "mt-0",
+			subscriber: "mt-0",
+			email: "",
 		},
-		defaultVariants: {
-			variant: "page",
+		width: {
+			normal: "",
+			wide: "lg:-mx-40",
 		},
 	},
-);
+	defaultVariants: {
+		variant: "page",
+	},
+});
 
 const containerVariants = cva(
 	"rounded-t-lg m-0 border border-gray-300 h-full flex flex-col border-b-0 dark:border-white/10",
@@ -170,19 +167,17 @@ export default function Iframe({
 	description,
 	height,
 	variant = "page",
-	width = "normal",
 }: {
 	src: string;
 	description?: string;
 	height?: number;
-	width?: "normal" | "wide";
 	variant?: Variant;
 }) {
 	const mungedSrc = src.replace("demo.buttondown.com", EXTERNAL_DOMAIN);
 
 	return (
 		<div>
-			<div className={iframeVariants({ variant, width })}>
+			<div className={iframeVariants({ variant })}>
 				<div className={containerVariants({ variant })}>
 					{variant !== "email" && <BrowserBar path={src} />}
 					{variant === "email" && <GmailBar />}

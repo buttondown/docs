@@ -174,7 +174,6 @@ const Document = async ({ page }: Props) => {
 						src={props.src}
 						height={props.height}
 						variant={props.variant}
-						width={props.width}
 					/>
 				),
 				video: (props) => <Video src={props.file} />,

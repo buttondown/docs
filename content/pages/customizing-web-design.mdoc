@@ -10,14 +10,43 @@ description:  >-
   You can use CSS to fully customize your Buttondown web archives.
 ---
 
-{% paidFeature feature="css" /%}
-
 Buttondown is fairly opinionated about the best reading experience being friendly and minimal.
 
-You can use HTML and CSS to fully customize the web design of your newsletter archives in [Buttondown's design settings](https://buttondown.com/settings/archives).
+You can customize the design and functionality of your newsletter archives in [Buttondown's archive settings](https://buttondown.com/settings/archives).
 
-## Buttondown's default templates
-Buttondown comes with default templates: Classic and Modern.
+## Archive settings
+
+### Announcement bar
+
+Display a customizable message at the top of your archive pages. You can configure:
+
+- **Visibility**: Choose who sees the announcement (everyone, free subscribers only, logged out visitors only, or paid subscribers only)
+- **Message**: The text to display, with support for Markdown links
+- **Background color**: Customize the bar's background color, or leave empty to use your newsletter's tint color
+
+### Dark mode
+
+Enable dark mode support so your archives automatically match your reader's system preference for light or dark mode.
+
+### Header and footer
+
+Customize the header and footer sections of your archive pages using Buttondown's rich text editor. You can add text, links, subscribe buttons, subscribe forms, and other elements.
+
+### Navigation links
+
+Add custom links to your archive's navigation bar. This is useful for linking to external pages like your main website, social media profiles, or other resources.
+
+### Search
+
+Allow subscribers to search through your archive to find specific content.
+
+### Web analytics
+
+Track page views on your archive to understand how readers engage with your content.
+
+## Themes
+
+Buttondown comes with several built-in themes you can choose from:
 
 ### Classic template
 - [Classic template preview](https://buttondown.com/el-classico/archive/who-was-telemachus-anyway/)
@@ -29,9 +58,15 @@ Buttondown comes with default templates: Classic and Modern.
 
 You can view all available themes and their source code in the [buttondown/themes repository](https://github.com/buttondown/themes).
 
-## Available CSS classes
+## Custom CSS
 
-### Email content classes
+{% paidFeature feature="css" /%}
+
+You can use custom CSS to fully customize the styling of your newsletter archives.
+
+### Available CSS classes
+
+#### Email content classes
 
 | Class | Description |
 |-----|---------------|
@@ -44,7 +79,13 @@ You can view all available themes and their source code in the [buttondown/theme
 | `newsletter-icon` | The newsletter icon/image |
 | `newsletter-name` | The newsletter name |
 
-### Navigation classes
+#### Announcement bar classes
+
+| Class | Description |
+|-----|---------------|
+| `announcement-bar` | The announcement bar container |
+
+#### Navigation classes
 
 | Class | Description |
 |-----|---------------|
@@ -54,7 +95,7 @@ You can view all available themes and their source code in the [buttondown/theme
 | `header-brand` | Newsletter brand/logo link |
 | `header-brand-name` | Newsletter name in header |
 
-### Button classes
+#### Button classes
 
 | Class | Description |
 |-----|---------------|
@@ -62,14 +103,14 @@ You can view all available themes and their source code in the [buttondown/theme
 | `archive__button--upgrade` | Upgrade button variant |
 | `archive__button--subscribe` | Subscribe button variant |
 
-### Social sharing classes
+#### Social sharing classes
 
 | Class | Description |
 |-----|---------------|
 | `archive__social-share-link` | Individual social share link |
 | `archive__social-share-link-container` | Container for social share links |
 
-### Related emails classes
+#### Related emails classes
 
 | Class | Description |
 |-----|---------------|
@@ -83,7 +124,7 @@ You can view all available themes and their source code in the [buttondown/theme
 | `related-email-description` | Description of related email |
 | `related-email-image` | Image for related email |
 
-### Comment classes
+#### Comment classes
 
 | Class | Description |
 |-----|---------------|
@@ -99,7 +140,7 @@ You can view all available themes and their source code in the [buttondown/theme
 | `comment-input__actions` | Action buttons container |
 | `comment-input__back-link` | Back link from comment detail page |
 
-### Payment form classes
+#### Payment form classes
 
 | Class | Description |
 |-----|---------------|
@@ -110,7 +151,7 @@ You can view all available themes and their source code in the [buttondown/theme
 | `archive__gift-toggle` | Gift subscription toggle |
 | `archive__gift-checkbox` | Gift subscription checkbox |
 
-### Modal classes
+#### Modal classes
 
 | Class | Description |
 |-----|---------------|
@@ -127,13 +168,13 @@ You can view all available themes and their source code in the [buttondown/theme
 | `archive__success-icon` | Success icon |
 | `archive__success-message` | Success message text |
 
-### Other classes
+#### Other classes
 
 | Class | Description |
 |-----|---------------|
+| `app-container` | Main application container |
+| `attachment` | Email attachment container |
+| `attachment-link` | Link to download attachment |
 | `card` | Generic card container |
 | `card--takeover` | Full-width takeover card |
 | `footer` | Footer section |
-| `attachment` | Email attachment container |
-| `attachment-link` | Link to download attachment |
-| `app-container` | Main application container |
