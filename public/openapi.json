@@ -657,6 +657,16 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -822,6 +832,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AttachmentPage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
                 }
               }
             }
@@ -2470,7 +2490,9 @@
             "schema": {
               "title": "-Domain",
               "description": "If provided, only return subscribers whose email domain does not match the given domain(s).",
-              "example": "gmail.com",
+              "example": [
+                "gmail.com"
+              ],
               "type": "array",
               "items": {
                 "type": "string"
@@ -2517,7 +2539,9 @@
             "schema": {
               "title": "Price",
               "description": "If provided, only return subscribers who have at one point subscribed to the given price ID(s).",
-              "example": "price_whatever",
+              "example": [
+                "price_whatever"
+              ],
               "type": "array",
               "items": {
                 "type": "string"
@@ -2581,7 +2605,9 @@
             "name": "source",
             "schema": {
               "description": "If provided, only return subscribers with the given source(s).",
-              "example": "api",
+              "example": [
+                "api"
+              ],
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/SubscriberSource"
@@ -2622,7 +2648,9 @@
             "name": "type",
             "schema": {
               "description": "If provided, only return subscribers with the given type.",
-              "example": "regular",
+              "example": [
+                "regular"
+              ],
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/SubscriberType"
@@ -2736,7 +2764,9 @@
             "schema": {
               "title": "Utm Campaign",
               "description": "If provided, only return subscribers with the given UTM campaign(s).",
-              "example": "paid_campaign_2024",
+              "example": [
+                "paid_campaign_2024"
+              ],
               "type": "array",
               "items": {
                 "type": "string"
@@ -2751,7 +2781,9 @@
             "schema": {
               "title": "Utm Medium",
               "description": "If provided, only return subscribers with the given UTM medium(s).",
-              "example": "paid_campaign_2024",
+              "example": [
+                "paid_campaign_2024"
+              ],
               "type": "array",
               "items": {
                 "type": "string"
@@ -2766,7 +2798,9 @@
             "schema": {
               "title": "Utm Source",
               "description": "If provided, only return subscribers with the given UTM source(s).",
-              "example": "paid_campaign_2024",
+              "example": [
+                "paid_campaign_2024"
+              ],
               "type": "array",
               "items": {
                 "type": "string"
@@ -7589,6 +7623,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found"
           }
         },
         "description": "Search and list public emails for a newsletter. No authentication required.",
@@ -10734,6 +10771,7 @@
           "mark_subscribers_as_not_spammy",
           "resubscribe_subscribers",
           "send_emails",
+          "unban_subscribers",
           "send_reminders",
           "unsubscribe_subscribers",
           "delete_emails",

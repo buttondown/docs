@@ -288,6 +288,11 @@
       "name": "Send reminders",
       "variant": "info"
     },
+    "unban_subscribers": {
+      "description": "Unban multiple subscribers in bulk.",
+      "name": "Unban subscribers",
+      "variant": "info"
+    },
     "ungift_subscribers": {
       "description": "Remove gifted premium subscriptions from multiple subscribers in bulk.",
       "name": "Ungift subscribers",
