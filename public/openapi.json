@@ -8051,17 +8051,12 @@
           "open_rate": {
             "title": "Open Rate",
             "type": "number"
-          },
-          "retention": {
-            "title": "Retention",
-            "type": "number"
           }
         },
         "required": [
           "created_subscribers",
           "click_rate",
-          "open_rate",
-          "retention"
+          "open_rate"
         ]
       },
       "Empty": {

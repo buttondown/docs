@@ -1493,8 +1493,7 @@
       "object": {
         "created_subscribers": 150,
         "click_rate": 0.25,
-        "open_rate": 0.5,
-        "retention": 0.85
+        "open_rate": 0.5
       }
     }
   ],
