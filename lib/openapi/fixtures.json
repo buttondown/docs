@@ -483,13 +483,14 @@
     {
       "description": "Basic email",
       "object": {
+        "id": "em_29fxqcmrkp969vzttksexvmvr8",
+        "creation_date": "2000-01-01T00:00:00+00:00",
         "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
         "analytics": null,
         "attachments": [],
         "body": "I hope you really enjoy it!",
         "canonical_url": "",
         "commenting_mode": "enabled",
-        "creation_date": "2000-01-01T00:00:00+00:00",
         "description": "",
         "email_type": "public",
         "featured": false,
@@ -498,7 +499,6 @@
           "groups": [],
           "predicate": "and"
         },
-        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
         "image": "",
         "metadata": {},
         "modification_date": "2000-01-01T00:00:00+00:00",
@@ -517,13 +517,14 @@
     {
       "description": "Draft email",
       "object": {
+        "id": "em_29fxqcmrkp969vzttksexvmvr8",
+        "creation_date": "2000-01-01T00:00:00+00:00",
         "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
         "analytics": null,
         "attachments": [],
         "body": "I hope you really enjoy it!",
         "canonical_url": "",
         "commenting_mode": "enabled",
-        "creation_date": "2000-01-01T00:00:00+00:00",
         "description": "",
         "email_type": "public",
         "featured": false,
@@ -532,7 +533,6 @@
           "groups": [],
           "predicate": "and"
         },
-        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
         "image": "",
         "metadata": {},
         "modification_date": "2000-01-01T00:00:00+00:00",
@@ -551,13 +551,14 @@
     {
       "description": "Scheduled email",
       "object": {
+        "id": "em_29fxqcmrkp969vzttksexvmvr8",
+        "creation_date": "2000-01-01T00:00:00+00:00",
         "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
         "analytics": null,
         "attachments": [],
         "body": "I hope you really enjoy it!",
         "canonical_url": "",
         "commenting_mode": "enabled",
-        "creation_date": "2000-01-01T00:00:00+00:00",
         "description": "",
         "email_type": "public",
         "featured": false,
@@ -566,7 +567,6 @@
           "groups": [],
           "predicate": "and"
         },
-        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
         "image": "",
         "metadata": {},
         "modification_date": "2000-01-01T00:00:00+00:00",

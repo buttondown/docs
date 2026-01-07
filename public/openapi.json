@@ -1322,8 +1322,7 @@
               "description": "If provided, only return emails with the given ids.",
               "type": "array",
               "items": {
-                "type": "string",
-                "format": "uuid"
+                "type": "string"
               }
             },
             "required": false,
@@ -1556,8 +1555,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -1633,8 +1631,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -1690,8 +1687,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -1742,8 +1738,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           },
@@ -1872,8 +1867,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           },
@@ -1957,8 +1951,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -2016,8 +2009,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           },
@@ -2100,8 +2092,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -8656,6 +8647,17 @@
         "description": "Emails are why you're here on Buttondown, right?\nCreating an email via the API is just like creating one in the interface;\nit will instantly trigger sending actual emails,\nbased on the tags and email type you provide.\n\nRelevant changes to the schema:\n\n- [2024-08-15](https://docs.buttondown.com/api-changelog-2024-08-15): unshipped the `included_tags` and `excluded_tags` fields.\n- [2024-12-30](https://docs.buttondown.com/api-changelog-2024-12-30): unshipped the `is_comments_disabled` field, and replaced it with a more flexible `commenting_mode` field.\n- [2025-09-23](https://docs.buttondown.com/api-changelog-2025-09-23): increased the maximum length of the `subject` field from 1000 to 2000 characters.",
         "type": "object",
         "properties": {
+          "id": {
+            "title": "Id",
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
+            "type": "string",
+            "format": "date-time"
+          },
           "absolute_url": {
             "title": "Absolute Url",
             "type": "string"
@@ -8684,12 +8686,6 @@
           "commenting_mode": {
             "$ref": "#/components/schemas/EmailCommentingMode"
           },
-          "creation_date": {
-            "title": "Creation Date",
-            "description": "The date and time at which the object was first created.",
-            "type": "string",
-            "format": "date-time"
-          },
           "description": {
             "title": "Description",
             "description": "A human-readable description of the email, used for archives and SEO.",
@@ -8710,13 +8706,6 @@
           },
           "filters": {
             "$ref": "#/components/schemas/FilterGroup"
-          },
-          "id": {
-            "title": "Id",
-            "description": "The unique identifier for the email.",
-            "example": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-            "type": "string",
-            "format": "uuid"
           },
           "image": {
             "title": "Image",
@@ -8807,15 +8796,15 @@
           }
         },
         "required": [
+          "id",
+          "creation_date",
           "absolute_url",
           "body",
           "canonical_url",
           "commenting_mode",
-          "creation_date",
           "description",
           "featured",
           "filters",
-          "id",
           "image",
           "modification_date",
           "related_email_ids",
@@ -9326,8 +9315,7 @@
           },
           "user_id": {
             "title": "User Id",
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           },
           "user": {
             "$ref": "#/components/schemas/User"
@@ -9395,8 +9383,7 @@
             ],
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             }
           },
           "recipients": {
