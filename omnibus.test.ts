@@ -48,6 +48,7 @@ const VALID_APPLICATION_ROUTES = [
   "changelog/2025-02-06",
   "register",
   "login",
+  "login?subscriber=1",
 
   // Specific pages.
   "el-classico/archive/who-was-telemachus-anyway/",
