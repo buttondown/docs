@@ -1,0 +1,51 @@
+# Buttondown
+
+> Buttondown is a newsletter platform that makes it easy to start, grow, and monetize your newsletter. It offers subscriber management, email composition, paid subscriptions, automations, and a comprehensive API.
+
+Buttondown is designed for simplicity and power. It supports Markdown and rich text editing, custom domains, paid subscriptions via Stripe, automations, webhooks, and deep integrations with tools like Zapier, Discord, and RSS feeds.
+
+## Docs
+
+- [Introduction](https://docs.buttondown.com/introduction): Overview of Buttondown and getting started
+- [Quickstart](https://docs.buttondown.com/quickstart): Get from nothing to a functional newsletter fast
+- [API Introduction](https://docs.buttondown.com/api-introduction): RESTful API for programmatic access to subscribers, emails, and more
+- [API Authentication](https://docs.buttondown.com/api-authentication): How to authenticate API requests
+- [Importing Your Data](https://docs.buttondown.com/importing-your-data): Migrate from other newsletter providers
+
+## API Reference
+
+- [Subscribers API](https://docs.buttondown.com/api-subscribers-introduction): Create, list, update, and delete subscribers
+- [Emails API](https://docs.buttondown.com/api-emails-introduction): Draft, schedule, send, and manage emails
+- [Tags API](https://docs.buttondown.com/api-tags-introduction): Organize subscribers with tags
+- [Webhooks API](https://docs.buttondown.com/api-webhooks-introduction): Receive real-time notifications for events
+- [Automations API](https://docs.buttondown.com/api-automation-introduction): Create automated email sequences
+- [Surveys API](https://docs.buttondown.com/api-surveys-introduction): Collect feedback from subscribers
+- [Newsletters API](https://docs.buttondown.com/api-newsletters-introduction): Manage multiple newsletters
+- [Exports API](https://docs.buttondown.com/api-exports-introduction): Export your data
+- [Bulk Actions API](https://docs.buttondown.com/api-bulk-actions-introduction): Perform operations on many records at once
+
+## Features
+
+- [Paid Subscriptions](https://docs.buttondown.com/paid-subscriptions): Monetize your newsletter with Stripe
+- [Automations](https://docs.buttondown.com/automations-introduction): Set up welcome sequences and triggered emails
+- [Custom Domains](https://docs.buttondown.com/getting-a-custom-domain): Send from and host on your own domain
+- [Tags](https://docs.buttondown.com/tags): Segment and organize your subscribers
+- [Surveys](https://docs.buttondown.com/surveys): Collect feedback and data from subscribers
+- [RSS-to-Email](https://docs.buttondown.com/rss-to-email): Automatically send emails from RSS feeds
+- [Template Variables](https://docs.buttondown.com/template-variables): Personalize emails with subscriber data
+- [Webhooks](https://docs.buttondown.com/events-and-webhooks-introduction): Integrate with external services via webhooks
+
+## Integrations
+
+- [Discord](https://docs.buttondown.com/discord): Post to Discord when emails are sent
+- [Stripe](https://docs.buttondown.com/stripe): Accept payments for paid subscriptions
+- [WordPress](https://docs.buttondown.com/wordpress): Embed subscription forms in WordPress
+- [Webflow](https://docs.buttondown.com/webflow): Add forms to Webflow sites
+- [Framer](https://docs.buttondown.com/framer): Integrate with Framer sites
+
+## Optional
+
+- [OpenAPI Spec](https://docs.buttondown.com/openapi.json): Machine-readable API specification
+- [Glossary](https://docs.buttondown.com/glossary-api): Definitions of common terms
+- [API Changelog](https://docs.buttondown.com/api-changelog): Recent API changes and updates
+- [CLI Guide](https://docs.buttondown.com/buttondown-cli): Command-line interface for Buttondown
