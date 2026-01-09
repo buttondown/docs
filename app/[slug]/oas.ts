@@ -1,14 +1,169 @@
-import Oas from "oas";
-import OASNormalize from "oas-normalize";
 import OpenAPI from "@/public/openapi.json";
 
-export const plainOas = Oas.init(structuredClone(OpenAPI));
+// Types for OpenAPI 3.0 schema
+type OpenAPISchema = typeof OpenAPI;
+type HttpMethod = "get" | "post" | "put" | "patch" | "delete" | "head" | "options";
+
+interface Parameter {
+	in: "path" | "query" | "header" | "cookie";
+	name: string;
+	required?: boolean;
+	schema?: SchemaObject;
+}
+
+interface SchemaObject {
+	type?: string;
+	format?: string;
+	properties?: Record<string, SchemaObject>;
+	required?: string[];
+	$ref?: string;
+	example?: unknown;
+	in?: string;
+}
+
+interface MediaTypeObject {
+	schema?: SchemaObject;
+}
+
+interface RequestBodyObject {
+	content?: Record<string, MediaTypeObject>;
+	required?: boolean;
+}
+
+interface OperationObject {
+	parameters?: Parameter[];
+	requestBody?: RequestBodyObject;
+}
+
+// Recursively dereference all $ref in the schema
+function dereferenceSchema(schema: OpenAPISchema): OpenAPISchema {
+	const seen = new WeakSet();
+
+	function resolveRef(ref: string): SchemaObject | undefined {
+		// Handle refs like "#/components/schemas/Foo"
+		const parts = ref.replace(/^#\//, "").split("/");
+		// biome-ignore lint/suspicious/noExplicitAny: navigating dynamic schema structure
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		let current: any = schema;
+		for (const part of parts) {
+			if (current && typeof current === "object" && part in current) {
+				current = current[part];
+			} else {
+				return undefined;
+			}
+		}
+		return current as SchemaObject;
+	}
+
+	// biome-ignore lint/suspicious/noExplicitAny: deep cloning arbitrary objects
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	function deref(obj: any): any {
+		if (obj === null || typeof obj !== "object") {
+			return obj;
+		}
+
+		if (seen.has(obj)) {
+			return obj; // Handle circular refs by returning as-is
+		}
+
+		if (Array.isArray(obj)) {
+			return obj.map(deref);
+		}
+
+		seen.add(obj);
+
+		// If this object has a $ref, resolve it
+		if ("$ref" in obj && typeof obj.$ref === "string") {
+			const resolved = resolveRef(obj.$ref);
+			if (resolved) {
+				return deref(resolved);
+			}
+			return obj;
+		}
+
+		// Otherwise, recursively dereference all properties
+		// biome-ignore lint/suspicious/noExplicitAny: building new object dynamically
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		const result: any = {};
+		for (const key of Object.keys(obj)) {
+			result[key] = deref(obj[key]);
+		}
+		return result;
+	}
+
+	return deref(structuredClone(schema));
+}
+
+// Operation wrapper class
+class Operation {
+	private op: OperationObject;
+	private path: string;
+	private method: HttpMethod;
+
+	constructor(op: OperationObject, path: string, method: HttpMethod) {
+		this.op = op;
+		this.path = path;
+		this.method = method;
+	}
+
+	hasRequestBody(): boolean {
+		return !!this.op.requestBody;
+	}
+
+	hasRequiredRequestBody(): boolean {
+		return !!this.op.requestBody?.required;
+	}
+
+	getRequestBodyMediaTypes(): string[] {
+		if (!this.op.requestBody?.content) {
+			return [];
+		}
+		return Object.keys(this.op.requestBody.content);
+	}
+
+	getRequestBody(mediaType?: string): MediaTypeObject | undefined {
+		if (!this.op.requestBody?.content) {
+			return undefined;
+		}
+		if (mediaType) {
+			return this.op.requestBody.content[mediaType];
+		}
+		const types = this.getRequestBodyMediaTypes();
+		return types.length > 0 ? this.op.requestBody.content[types[0]] : undefined;
+	}
+
+	getParameters(): Parameter[] {
+		return this.op.parameters || [];
+	}
+}
+
+// OAS wrapper class
+class OasWrapper {
+	private schema: OpenAPISchema;
+
+	constructor(schema: OpenAPISchema) {
+		this.schema = schema;
+	}
+
+	operation(path: string, method: HttpMethod): Operation {
+		const pathObj = this.schema.paths[path as keyof typeof this.schema.paths];
+		if (!pathObj) {
+			throw new Error(`Path not found: ${path}`);
+		}
+		const methodObj = pathObj[method as keyof typeof pathObj];
+		if (!methodObj) {
+			throw new Error(`Method ${method} not found for path ${path}`);
+		}
+		return new Operation(methodObj as OperationObject, path, method);
+	}
+}
+
+// Create OAS instances
+export const plainOas = new OasWrapper(structuredClone(OpenAPI));
 
 async function getOas() {
-	const oas = new OASNormalize(structuredClone(OpenAPI));
-	// biome-ignore lint/suspicious/noExplicitAny: OpenAPI schema types are incompatible with Oas library
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const circularOas = Oas.init((await oas.deref()) as any);
+	const dereferencedSchema = dereferenceSchema(OpenAPI);
+	const circularOas = new OasWrapper(dereferencedSchema);
 	return { circularOas };
 }
 
