@@ -641,7 +641,7 @@
         },
         {
           "discriminant": "page",
-          "value": "xss"
+          "value": "external-scripts"
         },
         {
           "discriminant": "divider",

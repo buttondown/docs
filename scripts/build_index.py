@@ -9,10 +9,10 @@ from dataclasses import dataclass
 
 import yaml
 
-FILE_PATH_TEMPLATE = "docs/content/pages/{}.mdoc"
-INPUT_PATH = "docs/content/navigation.json"
-OUTPUT_PATH = "docs/autogen/index.json"
-OPENAPI_PATH = "docs/public/openapi.json"
+FILE_PATH_TEMPLATE = "content/pages/{}.mdoc"
+INPUT_PATH = "content/navigation.json"
+OUTPUT_PATH = "autogen/index.json"
+OPENAPI_PATH = "public/openapi.json"
 
 
 @dataclass

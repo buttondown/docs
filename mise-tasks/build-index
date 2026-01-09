@@ -2,4 +2,4 @@
 #MISE description="Build search index"
 #MISE sources=["docs/content/**/*.mdoc"]
 #MISE outputs={auto=true}
-uv run docs/scripts/build_index.py
+uv run scripts/build_index.py
