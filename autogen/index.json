@@ -45,7 +45,6 @@
       "substack",
       "surveys",
       "teams",
-      "tinyletter",
       "welcome-sequence"
     ]
   },
@@ -118,7 +117,7 @@
       "sending-your-first-email",
       "sending-your-first-email-advanced",
       "tags",
-      "template-variables-manage-subscription-url"
+      "template-tags"
     ]
   },
   {
@@ -212,7 +211,7 @@
       "moosend",
       "subscriber-data",
       "surveys",
-      "using-templating"
+      "template-tags"
     ]
   },
   {
@@ -422,16 +421,6 @@
     "references": [
       "importing-your-data",
       "substack"
-    ]
-  },
-  {
-    "title": "Tinyletter",
-    "url": "tinyletter",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Tinyletter.",
-    "references": [
-      "tinyletter"
     ]
   },
   {
@@ -770,14 +759,6 @@
     ]
   },
   {
-    "title": "/buy",
-    "url": "slash-buy",
-    "section": "guides",
-    "schema": null,
-    "description": "`/buy` is a durable URL that instantly spins up a new checkout link for your preferred paid subscribers who go through this URL.",
-    "references": []
-  },
-  {
     "title": "What pricing models can I use for my paid newsletter?",
     "url": "pricing-models",
     "section": "guides",
@@ -825,14 +806,6 @@
     "section": "guides",
     "schema": null,
     "description": "You can change the price of your paid Buttondown newsletter by updating the product in Stripe.",
-    "references": []
-  },
-  {
-    "title": "Can I use Buttondown to set up a tip jar for my newsletter?",
-    "url": "tip-jar",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown's \"pay what you want\" pricing model works as a tip jar for your newsletter",
     "references": []
   },
   {
@@ -987,8 +960,8 @@
     "schema": null,
     "description": null,
     "references": [
-      "plausible",
-      "xss"
+      "external-scripts",
+      "plausible"
     ]
   },
   {
@@ -1021,8 +994,7 @@
       "sponsorships",
       "stripe",
       "stripe-upsell",
-      "substack",
-      "tip-jar"
+      "substack"
     ]
   },
   {
@@ -1033,7 +1005,7 @@
     "description": "Automatically share your newsletters to your Twitter profile to promote your newsletter.",
     "references": [
       "sending-your-first-email-advanced",
-      "using-markdown-rendering"
+      "using-markdown"
     ]
   },
   {
@@ -1103,7 +1075,7 @@
     "description": "A detailed guide to the modules on Buttondown's new home page",
     "references": [
       "home",
-      "using-markdown-rendering"
+      "using-markdown"
     ]
   },
   {
@@ -1193,7 +1165,7 @@
   },
   {
     "title": "Template tags",
-    "url": "using-templating",
+    "url": "template-tags",
     "section": "reference",
     "schema": null,
     "description": null,
@@ -1214,207 +1186,8 @@
       "portal",
       "sending-your-first-email",
       "subscriber-data",
-      "template-variables",
-      "transactional-emails",
-      "using-templating"
-    ]
-  },
-  {
-    "title": "email.publish_date",
-    "url": "template-variables-email-publish-date",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "email.secondary_id",
-    "url": "template-variables-email-secondary-id",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "email.is_premium",
-    "url": "template-variables-email-is-premium",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
-    "title": "email.subject",
-    "url": "template-variables-email-subject",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "email.absolute_url",
-    "url": "template-variables-email-absolute-url",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "manage_subscription_url",
-    "url": "template-variables-manage-subscription-url",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "medium",
-    "url": "template-variables-medium",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "premium_subscribe_url",
-    "url": "template-variables-premium-subscribe-url",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "random_number",
-    "url": "template-variables-random-number",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "subscribe_form",
-    "url": "template-variables-subscribe-form",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "subscribe_url",
-    "url": "template-variables-subscribe-url",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "subscriber.can_be_upsold",
-    "url": "template-variables-subscriber-can-be-upsold",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "subscriber.can_view_premium_content",
-    "url": "template-variables-subscriber-can-view-premium-content",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "subscriber.email",
-    "url": "template-variables-subscriber-email",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "subscriber.id",
-    "url": "template-variables-subscriber-id",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "subscriber.metadata",
-    "url": "template-variables-subscriber-metadata",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "subscriber.subscriber_type",
-    "url": "template-variables-subscriber-subscriber-type",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "subscriber.tags",
-    "url": "template-variables-subscriber-tags",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "unsubscribe_url",
-    "url": "template-variables-unsubscribe-url",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
-    ]
-  },
-  {
-    "title": "upgrade_url",
-    "url": "template-variables-upgrade-url",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "template-variables"
+      "template-tags",
+      "transactional-emails"
     ]
   },
   {
@@ -1478,26 +1251,9 @@
       "quickstart",
       "sending-your-first-email",
       "uploading-images",
-      "using-attachments"
+      "using-attachments",
+      "using-markdown"
     ]
-  },
-  {
-    "title": "Markdown syntax guide",
-    "url": "using-markdown-syntax",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "uploading-images"
-    ]
-  },
-  {
-    "title": "Buttondown's markdown rendering engine",
-    "url": "using-markdown-rendering",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
   },
   {
     "title": "Converting between fancy mode and markdown mode",
@@ -1526,14 +1282,6 @@
     "references": []
   },
   {
-    "title": "Keyboard shortcuts",
-    "url": "keyboard-shortcuts",
-    "section": "reference",
-    "schema": null,
-    "description": "Keyboard shortcuts that work in the editor",
-    "references": []
-  },
-  {
     "title": "Subscriber cleanup",
     "url": "subscriber-cleanup",
     "section": "reference",
@@ -1550,7 +1298,7 @@
     "references": [
       "portal",
       "tags",
-      "template-variables-manage-subscription-url"
+      "template-tags"
     ]
   },
   {
@@ -1632,7 +1380,7 @@
   },
   {
     "title": "External scripts",
-    "url": "xss",
+    "url": "external-scripts",
     "section": "reference",
     "schema": null,
     "description": null,
@@ -1797,7 +1545,7 @@
     ]
   },
   {
-    "title": "SEO",
+    "title": "Search engine optimization",
     "url": "seo",
     "section": "reference",
     "schema": null,
@@ -2302,14 +2050,6 @@
     "references": []
   },
   {
-    "title": "Self-hosting",
-    "url": "self-hosting",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
     "title": "Buttondown's A/B testing log",
     "url": "ab-test-introduction",
     "section": "reference",
@@ -2420,7 +2160,8 @@
     "schema": null,
     "description": null,
     "references": [
-      "uploading-images"
+      "uploading-images",
+      "using-markdown"
     ]
   },
   {
@@ -2496,6 +2237,14 @@
       "standards",
       "warming-up"
     ]
+  },
+  {
+    "title": "COI",
+    "url": "glossary-coi",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
   },
   {
     "title": "Cold email",
@@ -2587,6 +2336,7 @@
     "references": [
       "acceptable-use-policy",
       "api-subscribers-create",
+      "glossary-coi",
       "glossary-cold-email",
       "hidden-settings"
     ]
@@ -2621,6 +2371,7 @@
       "do-imported-subscribers-have-to-re-confirm-their-subscription",
       "fathom",
       "gdpr-eu-compliance",
+      "glossary-coi",
       "glossary-double-optin"
     ]
   },
@@ -3065,7 +2816,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "xss"
+      "external-scripts"
     ]
   },
   {
