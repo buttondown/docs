@@ -16,5 +16,5 @@ These parameters work just like existing filters - pass them as query parameters
 
 {% generatedMultilanguageSnippets
    method="GET"
-   endpoint="/subscribers?utm_campaign=spring_promo&utm_medium=social"
-   body="" /%}
+   endpoint="/subscribers"
+   query="{\"utm_campaign\": \"spring_promo\", \"utm_medium\": \"social\"}" /%}

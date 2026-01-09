@@ -44,7 +44,7 @@ Want to add metadata to an existing subscriber using our [API](/api-subscribers-
 
 {% generatedMultilanguageSnippets
    method="PATCH"
-   endpoint="/subscribers/{id}"
+   endpoint="/subscribers/{id_or_email}"
    body="{\"metadata\": {\"first_name\": \"John\"}}" /%}
 
 Run this code, and the metadata in your subscriber “Notes” should be updated and ready to go.

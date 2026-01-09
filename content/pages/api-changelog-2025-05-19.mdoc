@@ -27,12 +27,12 @@ The old style of doing things:
 
 {% generatedMultilanguageSnippets
    method="GET"
-   endpoint="/subscribers?date=2025-01-01&date=2025-03-31"
-   body="" /%}
+   endpoint="/subscribers"
+   query="{\"date\": [\"2025-01-01\", \"2025-03-31\"]}" /%}
 
 The new style of doing things:
 
 {% generatedMultilanguageSnippets
    method="GET"
-   endpoint="/subscribers?date__start=2025-01-01&date__end=2025-03-31"
-   body="" /%}
+   endpoint="/subscribers"
+   query="{\"date__start\": \"2025-01-01\", \"date__end\": \"2025-03-31\"}" /%}

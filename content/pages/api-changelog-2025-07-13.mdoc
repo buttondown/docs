@@ -16,21 +16,21 @@ Get all subscribers added via API:
 
 {% generatedMultilanguageSnippets
    method="GET"
-   endpoint="/subscribers?source=api"
-   body="" /%}
+   endpoint="/subscribers"
+   query="{\"source\": \"api\"}" /%}
 
 Get subscribers from multiple sources (import and organic):
 
 {% generatedMultilanguageSnippets
    method="GET"
-   endpoint="/subscribers?source=import&source=organic"
-   body="" /%}
+   endpoint="/subscribers"
+   query="{\"source\": [\"import\", \"organic\"]}" /%}
 
 Combine with other filters to create more specific queries:
 
 {% generatedMultilanguageSnippets
    method="GET"
-   endpoint="/subscribers?source=api&type=regular&tag=newsletter"
-   body="" /%}
+   endpoint="/subscribers"
+   query="{\"source\": \"api\", \"type\": \"regular\", \"tag\": \"newsletter\"}" /%}
 
 This filter works alongside all existing filters, making it easy to create powerful queries to understand your subscriber base better.
