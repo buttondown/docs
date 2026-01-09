@@ -579,6 +579,11 @@ const REDIRECTS = [
     destination: "https://buttondown.com/open-source",
     permanent: false,
   },
+  {
+    source: "/xss",
+    destination: "/external-scripts",
+    permanent: false,
+  },
 ];
 
 export default REDIRECTS;
