@@ -6,7 +6,7 @@ import {
   PlayCircleIcon,
 } from "@heroicons/react/24/outline";
 import { createReader } from "@keystatic/core/reader";
-import clsx from "clsx";
+import { clsx } from "@/lib/utils";
 import Link from "next/link";
 import AccountButtons from "./account-buttons";
 import {

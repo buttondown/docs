@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import matter from "gray-matter";
+import matter from "../gray-matter";
 import { removeMarkdown } from "../remove-markdown";
 
 export type ContentArray = {

@@ -7,7 +7,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Highlight } from "@orama/highlight";
 import { search } from "@orama/orama";
 import * as Dialog from "@radix-ui/react-dialog";
-import clsx from "clsx";
+import { clsx } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 

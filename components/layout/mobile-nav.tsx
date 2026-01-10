@@ -4,7 +4,7 @@ import type { ContentArray } from "@/lib/search/server";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Tabs from "@radix-ui/react-tabs";
-import clsx from "clsx";
+import { clsx } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import type { NavData } from "./lib";

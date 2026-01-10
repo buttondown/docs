@@ -2,7 +2,7 @@
 
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import * as Accordion from "@radix-ui/react-accordion";
-import clsx from "clsx";
+import { clsx } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect } from "react";
 import type { NavData } from "./lib";

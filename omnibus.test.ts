@@ -2,7 +2,7 @@
    Before adding to this file, please consider whether the test should be in a different file, closer with the behavior under test. */
 import dotenv from "dotenv";
 import fs from "fs";
-import matter from "gray-matter";
+import matter from "./lib/gray-matter";
 import { expect, test } from "vitest";
 import {
   type OpenAPIProperty,

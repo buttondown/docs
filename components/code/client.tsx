@@ -2,7 +2,7 @@
 
 import elk from "@mermaid-js/layout-elk";
 import * as Tabs from "@radix-ui/react-tabs";
-import clsx from "clsx";
+import { clsx } from "@/lib/utils";
 import mermaid from "mermaid";
 import { useEffect } from "react";
 import useButtondownCookie, {
