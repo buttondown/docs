@@ -640,10 +640,7 @@
           "discriminant": "divider",
           "value": "FAQ"
         },
-        {
-          "discriminant": "page",
-          "value": "what-s-a-good-tutorial-for-learning-css"
-        },
+
         {
           "discriminant": "page",
           "value": "can-i-use-a-custom-font"
