@@ -857,10 +857,6 @@
           "value": "buttondown-cli"
         },
         {
-          "discriminant": "hidden_page",
-          "value": "bookmarklet"
-        },
-        {
           "discriminant": "divider",
           "value": "FAQ"
         },

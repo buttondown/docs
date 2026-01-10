@@ -590,6 +590,11 @@ const REDIRECTS = [
     permanent: false,
   },
   {
+    source: "/bookmarklet",
+    destination: "/introduction",
+    permanent: true,
+  },
+  {
     source: "/what-s-a-good-tutorial-for-learning-css",
     destination: "/customizing-email-design",
     permanent: true,
