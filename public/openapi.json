@@ -12174,7 +12174,8 @@
         "title": "CreateSurveyErrorCode",
         "description": "Represents the type of error that occurred when creating a survey.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
         "enum": [
-          "identifier_already_exists"
+          "identifier_already_exists",
+          "not_enough_answers"
         ],
         "type": "string"
       },
@@ -12306,6 +12307,7 @@
         "description": "An enumeration.",
         "enum": [
           "answers_empty",
+          "not_enough_answers",
           "survey_has_responses"
         ],
         "type": "string"
