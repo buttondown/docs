@@ -100,10 +100,6 @@
         },
         {
           "discriminant": "page",
-          "value": "aweber"
-        },
-        {
-          "discriminant": "page",
           "value": "beehiiv"
         },
         {

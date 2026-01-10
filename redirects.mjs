@@ -302,7 +302,7 @@ const REDIRECTS = [
   {
     source: "/migration-guides/aweber",
     permanent: false,
-    destination: "/aweber",
+    destination: "/importing-your-data",
   },
   {
     source: "/migration-guides/benchmark",
@@ -582,6 +582,11 @@ const REDIRECTS = [
   {
     source: "/xss",
     destination: "/external-scripts",
+    permanent: false,
+  },
+  {
+    source: "/aweber",
+    destination: "/importing-your-data",
     permanent: false,
   },
 ];

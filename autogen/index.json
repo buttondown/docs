@@ -26,7 +26,6 @@
     "schema": null,
     "description": "Ready to dive into Buttondown? This resource will help you sign up and configure some important settings before you send a newsletter to your subscribers.",
     "references": [
-      "aweber",
       "benchmark",
       "campaign-monitor",
       "constant-contact",
@@ -260,7 +259,6 @@
     "description": "Buttondown makes it easy to migrate your posts, and subscribers from another service. We'll even do the import for you!",
     "references": [
       "api-subscribers-create",
-      "aweber",
       "beehiiv",
       "benchmark",
       "campaign-monitor",
@@ -280,16 +278,6 @@
       "revue",
       "sending-your-first-email",
       "substack"
-    ]
-  },
-  {
-    "title": "AWeber",
-    "url": "aweber",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown makes it easy to migrate your posts and subscribers from AWeber. We'll even do the import for you!",
-    "references": [
-      "aweber"
     ]
   },
   {
@@ -982,7 +970,6 @@
       "adult-content-policy",
       "api-notes-create",
       "api-subscribers-stripe-subscriptions",
-      "aweber",
       "benchmark",
       "convertkit",
       "customizing-subscriber-list-view",
