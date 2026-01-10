@@ -10196,122 +10196,14 @@
         "description": "You will likely not need to interact with your newsletter settings\nprogrammatically, but if you do, this is the endpoint for you. You can\ncreate, update, and list newsletters via the API; this is ideal for\nintegrating with Buttondown as a headless email or newsletter provider\n(e.g. for a SaaS product.)",
         "type": "object",
         "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "username": {
-            "title": "Username",
-            "type": "string"
-          },
-          "name": {
-            "title": "Name",
-            "type": "string"
-          },
-          "metadata": {
-            "title": "Metadata",
-            "description": "Arbitrary user-defined key/value data for this newsletter.",
-            "default": {},
-            "type": "object"
-          },
-          "description": {
-            "title": "Description",
-            "description": "A brief description of your newsletter",
-            "type": "string"
-          },
-          "creation_date": {
-            "title": "Creation Date",
-            "description": "The date and time at which the object was first created.",
-            "type": "string",
-            "format": "date-time"
-          },
           "api_key": {
             "title": "Api Key",
+            "description": "The API key for this newsletter, used for authenticating API requests.",
             "type": "string",
             "format": "uuid"
           },
-          "tint_color": {
-            "title": "Tint Color",
-            "default": "#0069FF",
-            "type": "string"
-          },
-          "from_name": {
-            "title": "From Name",
-            "default": "",
-            "type": "string"
-          },
-          "header": {
-            "title": "Header",
-            "default": "",
-            "type": "string"
-          },
-          "footer": {
-            "title": "Footer",
-            "default": "",
-            "type": "string"
-          },
-          "domain": {
-            "title": "Domain",
-            "default": "",
-            "type": "string"
-          },
-          "email_address": {
-            "title": "Email Address",
-            "description": "The email address used by your newsletter for sending messages.",
-            "default": "",
-            "type": "string"
-          },
-          "email_domain": {
-            "title": "Email Domain",
-            "default": "",
-            "type": "string"
-          },
-          "enabled_features": {
-            "title": "Enabled Features",
-            "default": [],
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "custom_email_template": {
-            "title": "Custom Email Template",
-            "type": "string"
-          },
-          "css": {
-            "title": "Css",
-            "description": "Custom CSS styling for your newsletter emails",
-            "default": "",
-            "type": "string"
-          },
-          "css_tokens": {
-            "title": "Css Tokens",
-            "description": "Custom CSS tokens for your newsletter emails.",
-            "default": {},
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "web_css": {
-            "title": "Web Css",
-            "description": "Custom CSS styling for your newsletter's web presence",
-            "default": "",
-            "type": "string"
-          },
-          "icon": {
-            "title": "Icon",
-            "description": "URL to your newsletter's icon image",
-            "type": "string"
-          },
-          "image": {
-            "title": "Image",
-            "description": "URL to your newsletter's header or branding image",
-            "type": "string"
-          },
           "auditing_mode": {
-            "description": "The auditing mode for your newsletter. See [the Firewall](https://docs.buttondown.com/firewall) for more information.",
+            "description": "The auditing mode for your newsletter, which controls spam and abuse protection. See [the Firewall](https://docs.buttondown.com/firewall) for more information.",
             "enum": [
               "disabled",
               "enabled",
@@ -10323,43 +10215,163 @@
               }
             ]
           },
-          "custom_churn_email_subject": {
-            "title": "Custom Churn Email Subject",
-            "description": "Custom subject line for churn emails",
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "css": {
+            "title": "Css",
+            "description": "Custom CSS styling applied to your newsletter emails. See [CSS customization](https://docs.buttondown.com/customizing-email-design#adding-custom-css) for more information.",
             "default": "",
             "type": "string"
           },
+          "css_tokens": {
+            "title": "Css Tokens",
+            "description": "Custom CSS tokens (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
+            "default": {},
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
           "custom_churn_email_body": {
             "title": "Custom Churn Email Body",
-            "description": "Custom body content for churn emails",
+            "description": "Custom body content for the email sent when a paid subscriber cancels. Supports template tags like `{{ subscriber.email }}` and `{{ newsletter.name }}`.",
+            "default": "",
+            "type": "string"
+          },
+          "custom_churn_email_subject": {
+            "title": "Custom Churn Email Subject",
+            "description": "Custom subject line for the email sent when a paid subscriber cancels. Supports template tags like `{{ newsletter.name }}`.",
             "default": "",
             "type": "string"
           },
           "custom_churn_email_template": {
             "title": "Custom Churn Email Template",
-            "description": "Custom template for churn emails",
+            "description": "The email template to use for churn emails. If not set, uses the newsletter's default template.",
+            "type": "string"
+          },
+          "custom_email_template": {
+            "title": "Custom Email Template",
+            "description": "The identifier for a custom email template. See [email templates](https://docs.buttondown.com/customizing-email-design#buttondowns-default-templates) for available options.",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "description": "A brief description of your newsletter, displayed on your public archive page and used for SEO.",
+            "type": "string"
+          },
+          "domain": {
+            "title": "Domain",
+            "description": "The custom domain where your newsletter archives are hosted (e.g., 'newsletter.example.com'). See [custom domains](https://docs.buttondown.com/hosting-on-a-custom-domain) for setup instructions.",
+            "default": "",
+            "type": "string"
+          },
+          "email_address": {
+            "title": "Email Address",
+            "description": "The 'From' email address used when sending your newsletter. Must be verified before use.",
+            "default": "",
+            "type": "string"
+          },
+          "email_domain": {
+            "title": "Email Domain",
+            "description": "The custom domain from which your newsletter emails are sent (e.g., 'mail.example.com'). See [sending domains](https://docs.buttondown.com/sending-from-a-custom-domain) for setup instructions.",
+            "default": "",
+            "type": "string"
+          },
+          "enabled_features": {
+            "title": "Enabled Features",
+            "description": "A list of features enabled for your newsletter. Common values include 'archives', 'portal', 'surveys', 'comments', 'paid_subscriptions', 'automations', 'webhooks', 'tracking', and 'referrals'.",
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "footer": {
+            "title": "Footer",
+            "description": "HTML content displayed at the bottom of your newsletter emails. Supports [template tags](https://docs.buttondown.com/template-tags).",
+            "default": "",
+            "type": "string"
+          },
+          "from_name": {
+            "title": "From Name",
+            "description": "The display name shown in the 'From' field of your emails (e.g., 'Jane from Acme Newsletter').",
+            "default": "",
+            "type": "string"
+          },
+          "header": {
+            "title": "Header",
+            "description": "HTML content displayed at the top of your newsletter emails. Supports [template tags](https://docs.buttondown.com/template-tags).",
+            "default": "",
+            "type": "string"
+          },
+          "icon": {
+            "title": "Icon",
+            "description": "URL to your newsletter's icon image, used as a favicon and in various UI contexts.",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "description": "The unique identifier for this newsletter.",
+            "type": "string",
+            "format": "uuid"
+          },
+          "image": {
+            "title": "Image",
+            "description": "URL to your newsletter's header or branding image, displayed on archive pages and in social previews.",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "description": "A structured key-value blob that you can use to store arbitrary data on the object. Metadata can be nested \u2014 you can store objects and arrays within your metadata. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
+            "default": {},
+            "type": "object"
+          },
+          "name": {
+            "title": "Name",
+            "description": "The display name of your newsletter, shown to subscribers and on your archive page.",
+            "type": "string"
+          },
+          "sort": {
+            "title": "Sort",
+            "description": "The default sorting method for listing subscribers or messages. Example values: 'creation_date', '-creation_date', 'email_address'.",
+            "default": "creation_date",
             "type": "string"
           },
           "test_mode": {
             "title": "Test Mode",
-            "description": "Whether test mode is enabled for this newsletter",
+            "description": "Whether test mode is enabled. When enabled, emails are not actually sent to subscribers, useful for testing automations and workflows.",
             "default": false,
             "type": "boolean"
           },
-          "sort": {
-            "title": "Sort",
-            "description": "The sorting method to apply to newsletter subscribers or messages. Example values: 'creation_date', '-creation_date', 'email_address', etc.",
-            "default": "creation_date",
+          "tint_color": {
+            "title": "Tint Color",
+            "description": "The accent color for your newsletter, used in emails and on your archive page. Must be a valid hex color code.",
+            "default": "#0069FF",
+            "type": "string"
+          },
+          "username": {
+            "title": "Username",
+            "description": "The unique URL-safe identifier for your newsletter, used in your archive URL (e.g., 'buttondown.com/username').",
+            "type": "string"
+          },
+          "web_css": {
+            "title": "Web Css",
+            "description": "Custom CSS styling applied to your newsletter's web presence (archive pages, subscription forms, etc.).",
+            "default": "",
             "type": "string"
           }
         },
         "required": [
-          "id",
-          "username",
-          "name",
-          "description",
+          "api_key",
           "creation_date",
-          "api_key"
+          "description",
+          "id",
+          "name",
+          "username"
         ]
       },
       "NewsletterPage": {
@@ -10430,18 +10442,24 @@
         "type": "object",
         "properties": {
           "auditing_mode": {
-            "$ref": "#/components/schemas/NewsletterAuditingMode"
+            "description": "The auditing mode for your newsletter, which controls spam and abuse protection. See [the Firewall](https://docs.buttondown.com/firewall) for more information.",
+            "example": "enabled",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterAuditingMode"
+              }
+            ]
           },
           "css": {
             "title": "Css",
-            "description": "Custom CSS styling for your newsletter emails.",
+            "description": "Custom CSS styling applied to your newsletter emails. See [CSS customization](https://docs.buttondown.com/customizing-email-design#adding-custom-css) for more information.",
             "default": "",
             "example": ".header { color: #000; }",
             "type": "string"
           },
           "css_tokens": {
             "title": "Css Tokens",
-            "description": "Custom CSS tokens for your newsletter emails.",
+            "description": "Custom CSS tokens (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
             "default": {},
             "example": {
               "primary-color": "#0069FF"
@@ -10453,38 +10471,40 @@
           },
           "custom_email_template": {
             "title": "Custom Email Template",
-            "description": "Custom email template identifier.",
-            "example": "custom-template",
+            "description": "The identifier for a custom email template. See [email templates](https://docs.buttondown.com/customizing-email-design#buttondowns-default-templates) for available options.",
+            "example": "modern",
             "type": "string"
           },
           "description": {
             "title": "Description",
+            "description": "A brief description of your newsletter, displayed on your public archive page and used for SEO.",
             "example": "Stay up to date with the latest trends in wigs and hairpieces",
             "type": "string"
           },
           "domain": {
             "title": "Domain",
-            "description": "The domain of the newsletter on which archives are hosted.",
+            "description": "The custom domain where your newsletter archives are hosted (e.g., 'newsletter.example.com'). See [custom domains](https://docs.buttondown.com/hosting-on-a-custom-domain) for setup instructions.",
             "default": "",
             "example": "sheinhardt.com",
             "type": "string"
           },
           "email_address": {
             "title": "Email Address",
+            "description": "The 'From' email address used when sending your newsletter. Must be verified before use.",
             "pattern": "^[a-zA-Z0-9.'_%+\\-!]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$",
             "example": "newsletter@sheinhardt.com",
             "type": "string"
           },
           "email_domain": {
             "title": "Email Domain",
-            "description": "The domain of the newsletter from which emails are sent.",
+            "description": "The custom domain from which your newsletter emails are sent (e.g., 'mail.example.com'). See [sending domains](https://docs.buttondown.com/sending-from-a-custom-domain) for setup instructions.",
             "default": "",
             "example": "mail.sheinhardt.com",
             "type": "string"
           },
           "enabled_features": {
             "title": "Enabled Features",
-            "description": "List of enabled features for your newsletter.",
+            "description": "A list of features enabled for your newsletter. Common values include 'archives', 'portal', 'surveys', 'comments', 'paid_subscriptions', 'automations', 'webhooks', 'tracking', and 'referrals'.",
             "default": [],
             "example": [
               "archives",
@@ -10498,74 +10518,72 @@
           },
           "footer": {
             "title": "Footer",
-            "description": "HTML content displayed at the bottom of your newsletter emails.",
+            "description": "HTML content displayed at the bottom of your newsletter emails. Supports [template tags](https://docs.buttondown.com/template-tags).",
             "default": "",
             "example": "<p>Thanks for reading!</p>",
             "type": "string"
           },
           "from_name": {
             "title": "From Name",
-            "description": "The name displayed in the 'From' field of your emails.",
+            "description": "The display name shown in the 'From' field of your emails (e.g., 'Jane from Acme Newsletter').",
             "default": "",
             "example": "Sheinhardt Wig Company",
             "type": "string"
           },
           "header": {
             "title": "Header",
-            "description": "HTML content displayed at the top of your newsletter emails.",
+            "description": "HTML content displayed at the top of your newsletter emails. Supports [template tags](https://docs.buttondown.com/template-tags).",
             "default": "",
             "example": "<p>Welcome to our newsletter!</p>",
             "type": "string"
           },
           "icon": {
             "title": "Icon",
-            "description": "URL to your newsletter's icon image.",
+            "description": "URL to your newsletter's icon image, used as a favicon and in various UI contexts.",
             "default": "",
             "example": "https://example.com/icon.png",
             "type": "string"
           },
           "image": {
             "title": "Image",
-            "description": "URL to your newsletter's header or branding image.",
+            "description": "URL to your newsletter's header or branding image, displayed on archive pages and in social previews.",
             "default": "",
             "example": "https://example.com/header.jpg",
             "type": "string"
           },
+          "metadata": {
+            "title": "Metadata",
+            "description": "A structured key-value blob that you can use to store arbitrary data on the object. Metadata can be nested \u2014 you can store objects and arrays within your metadata. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
+            "default": {},
+            "type": "object"
+          },
           "name": {
             "title": "Name",
+            "description": "The display name of your newsletter, shown to subscribers and on your archive page.",
             "example": "Sheinhardt Wig Company",
             "type": "string"
           },
-          "metadata": {
-            "title": "Metadata",
-            "description": "Arbitrary user-defined key/value data for this newsletter.",
-            "default": {},
-            "example": {
-              "source": "my-app",
-              "tier": "pro"
-            },
-            "type": "object"
-          },
           "test_mode": {
             "title": "Test Mode",
-            "description": "Whether test mode is enabled for this newsletter.",
+            "description": "Whether test mode is enabled. When enabled, emails are not actually sent to subscribers, useful for testing automations and workflows.",
             "type": "boolean"
           },
           "tint_color": {
             "title": "Tint Color",
-            "description": "The accent color for your newsletter.",
+            "description": "The accent color for your newsletter, used in emails and on your archive page. Must be a valid hex color code.",
             "default": "#0069FF",
             "example": "#0069FF",
             "type": "string"
           },
           "username": {
             "title": "Username",
+            "description": "The unique URL-safe identifier for your newsletter, used in your archive URL (e.g., 'buttondown.com/username').",
             "example": "sheinhardt",
             "type": "string"
           },
           "web_css": {
             "title": "Web Css",
-            "description": "Custom CSS styling for your newsletter's web presence.",
+            "description": "Custom CSS styling applied to your newsletter's web presence (archive pages, subscription forms, etc.).",
             "default": "",
             "example": ".container { max-width: 800px; }",
             "type": "string"
@@ -10582,7 +10600,7 @@
         "type": "object",
         "properties": {
           "auditing_mode": {
-            "description": "The auditing mode for your newsletter. See [the Firewall](https://docs.buttondown.com/firewall) for more information.",
+            "description": "The auditing mode for your newsletter, which controls spam and abuse protection. See [the Firewall](https://docs.buttondown.com/firewall) for more information.",
             "example": "enabled",
             "allOf": [
               {
@@ -10592,13 +10610,13 @@
           },
           "css": {
             "title": "Css",
-            "description": "Custom CSS styling for your newsletter emails.",
+            "description": "Custom CSS styling applied to your newsletter emails. See [CSS customization](https://docs.buttondown.com/customizing-email-design#adding-custom-css) for more information.",
             "example": ".header { color: #000; }",
             "type": "string"
           },
           "css_tokens": {
             "title": "Css Tokens",
-            "description": "Custom CSS tokens for your newsletter emails.",
+            "description": "Custom CSS tokens (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
             "example": {
               "primary-color": "#0069FF"
             },
@@ -10609,56 +10627,57 @@
           },
           "custom_churn_email_body": {
             "title": "Custom Churn Email Body",
-            "description": "Custom body content for churn emails.",
+            "description": "Custom body content for the email sent when a paid subscriber cancels. Supports template tags like `{{ subscriber.email }}` and `{{ newsletter.name }}`.",
             "example": "Hi {{ subscriber.email }},\n\nWe're sorry to see you go!",
             "type": "string"
           },
           "custom_churn_email_subject": {
             "title": "Custom Churn Email Subject",
-            "description": "Custom subject line for churn emails.",
+            "description": "Custom subject line for the email sent when a paid subscriber cancels. Supports template tags like `{{ newsletter.name }}`.",
             "example": "You've canceled your premium subscription to {{ newsletter.name }}",
             "type": "string"
           },
           "custom_churn_email_template": {
             "title": "Custom Churn Email Template",
-            "description": "Custom template for churn emails.",
-            "example": "churn-template",
+            "description": "The email template to use for churn emails. If not set, uses the newsletter's default template.",
+            "example": "modern",
             "type": "string"
           },
           "custom_email_template": {
             "title": "Custom Email Template",
-            "description": "Custom email template identifier.",
-            "example": "custom-template",
+            "description": "The identifier for a custom email template. See [email templates](https://docs.buttondown.com/customizing-email-design#buttondowns-default-templates) for available options.",
+            "example": "modern",
             "type": "string"
           },
           "description": {
             "title": "Description",
+            "description": "A brief description of your newsletter, displayed on your public archive page and used for SEO.",
             "example": "Stay up to date with the latest trends in wigs and hairpieces",
             "type": "string"
           },
           "domain": {
             "title": "Domain",
-            "description": "The domain of the newsletter on which archives are hosted.",
+            "description": "The custom domain where your newsletter archives are hosted (e.g., 'newsletter.example.com'). See [custom domains](https://docs.buttondown.com/hosting-on-a-custom-domain) for setup instructions.",
             "pattern": "^(([a-zA-Z]{1})|([a-zA-Z]{1}[a-zA-Z]{1})|([a-zA-Z]{1}[0-9]{1})|([0-9]{1}[a-zA-Z]{1})|([a-zA-Z0-9][-_.a-zA-Z0-9]{0,61}[a-zA-Z0-9]))\\.([a-zA-Z]{2,13}|[a-zA-Z0-9-]{2,30}.[a-zA-Z]{2,3})$|^$",
             "example": "sheinhardt.com",
             "type": "string"
           },
           "email_address": {
             "title": "Email Address",
-            "description": "The email address of the newsletter.",
+            "description": "The 'From' email address used when sending your newsletter. Must be verified before use.",
             "pattern": "^[a-zA-Z0-9.'_%+\\-!]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$",
             "example": "newsletter@sheinhardt.com",
             "type": "string"
           },
           "email_domain": {
             "title": "Email Domain",
-            "description": "The domain of the newsletter from which emails are sent.",
+            "description": "The custom domain from which your newsletter emails are sent (e.g., 'mail.example.com'). See [sending domains](https://docs.buttondown.com/sending-from-a-custom-domain) for setup instructions.",
             "example": "mail.sheinhardt.com",
             "type": "string"
           },
           "enabled_features": {
             "title": "Enabled Features",
-            "description": "List of enabled features for your newsletter.",
+            "description": "A list of features enabled for your newsletter. Common values include 'archives', 'portal', 'surveys', 'comments', 'paid_subscriptions', 'automations', 'webhooks', 'tracking', and 'referrals'.",
             "example": [
               "archives",
               "portal",
@@ -10671,67 +10690,69 @@
           },
           "footer": {
             "title": "Footer",
-            "description": "HTML content displayed at the bottom of your newsletter emails.",
+            "description": "HTML content displayed at the bottom of your newsletter emails. Supports [template tags](https://docs.buttondown.com/template-tags).",
             "example": "<p>Thanks for reading!</p>",
             "type": "string"
           },
           "from_name": {
             "title": "From Name",
-            "description": "The name displayed in the 'From' field of your emails.",
+            "description": "The display name shown in the 'From' field of your emails (e.g., 'Jane from Acme Newsletter').",
             "example": "Sheinhardt Wig Company",
             "type": "string"
           },
           "header": {
             "title": "Header",
-            "description": "HTML content displayed at the top of your newsletter emails.",
+            "description": "HTML content displayed at the top of your newsletter emails. Supports [template tags](https://docs.buttondown.com/template-tags).",
             "example": "<p>Welcome to our newsletter!</p>",
             "type": "string"
           },
           "icon": {
             "title": "Icon",
-            "description": "URL to your newsletter's icon image.",
+            "description": "URL to your newsletter's icon image, used as a favicon and in various UI contexts.",
             "example": "https://example.com/icon.png",
             "type": "string"
           },
           "image": {
             "title": "Image",
-            "description": "URL to your newsletter's header or branding image.",
+            "description": "URL to your newsletter's header or branding image, displayed on archive pages and in social previews.",
             "example": "https://example.com/header.jpg",
-            "type": "string"
-          },
-          "name": {
-            "title": "Name",
-            "example": "Sheinhardt Wig Company",
             "type": "string"
           },
           "metadata": {
             "title": "Metadata",
-            "description": "Arbitrary user-defined key/value data for this newsletter.",
+            "description": "A structured key-value blob that you can use to store arbitrary data on the object. Metadata can be nested \u2014 you can store objects and arrays within your metadata. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
             "example": {
               "source": "my-app",
               "tier": "pro"
             },
             "type": "object"
           },
+          "name": {
+            "title": "Name",
+            "description": "The display name of your newsletter, shown to subscribers and on your archive page.",
+            "example": "Sheinhardt Wig Company",
+            "type": "string"
+          },
           "test_mode": {
             "title": "Test Mode",
-            "description": "Whether test mode is enabled for this newsletter.",
+            "description": "Whether test mode is enabled. When enabled, emails are not actually sent to subscribers, useful for testing automations and workflows.",
             "type": "boolean"
           },
           "tint_color": {
             "title": "Tint Color",
-            "description": "The accent color for your newsletter.",
+            "description": "The accent color for your newsletter, used in emails and on your archive page. Must be a valid hex color code.",
             "example": "#0069FF",
             "type": "string"
           },
           "username": {
             "title": "Username",
+            "description": "The unique URL-safe identifier for your newsletter, used in your archive URL (e.g., 'buttondown.com/username').",
             "example": "sheinhardt",
             "type": "string"
           },
           "web_css": {
             "title": "Web Css",
-            "description": "Custom CSS styling for your newsletter's web presence.",
+            "description": "Custom CSS styling applied to your newsletter's web presence (archive pages, subscription forms, etc.).",
             "example": ".container { max-width: 800px; }",
             "type": "string"
           }
