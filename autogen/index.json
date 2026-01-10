@@ -644,7 +644,8 @@
       "quickstart",
       "sending-from-dreamhost",
       "sending-your-first-email-advanced",
-      "standards"
+      "standards",
+      "support-policy"
     ]
   },
   {
@@ -664,6 +665,7 @@
       "sending-from-a-custom-domain",
       "sending-your-first-email-advanced",
       "substack",
+      "support-policy",
       "warming-up"
     ]
   },
@@ -849,6 +851,7 @@
     "description": "With our Teams feature you and your colleagues can collaborate on writing and managing your Buttondown newsletter.",
     "references": [
       "replies",
+      "support-policy",
       "teams"
     ]
   },
@@ -976,6 +979,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "adult-content-policy",
       "api-notes-create",
       "api-subscribers-stripe-subscriptions",
       "aweber",
@@ -1338,6 +1342,7 @@
       "glossary-whitelabeling",
       "modern-template-hide-top",
       "registration-and-setup",
+      "support-policy",
       "test-mode",
       "uploading-images"
     ]
@@ -1351,7 +1356,8 @@
     "references": [
       "glossary-whitelabeling",
       "late-payments",
-      "registration-and-setup"
+      "registration-and-setup",
+      "support-policy"
     ]
   },
   {
@@ -1964,6 +1970,38 @@
     "references": []
   },
   {
+    "title": "Support policy",
+    "url": "support-policy",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Adult content policy",
+    "url": "adult-content-policy",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "acceptable-use-policy"
+    ]
+  },
+  {
+    "title": "Acceptable use policy",
+    "url": "acceptable-use-policy",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "billing",
+      "complaint-rate",
+      "permanent-failure-rate",
+      "platform",
+      "standards"
+    ]
+  },
+  {
     "title": "Law enforcement requests",
     "url": "law-enforcement-requests",
     "section": "reference",
@@ -2215,6 +2253,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "acceptable-use-policy",
       "auditing",
       "glossary-double-optin"
     ]
@@ -2295,6 +2334,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "acceptable-use-policy",
       "api-subscribers-create",
       "glossary-coi",
       "glossary-cold-email",
@@ -2648,7 +2688,8 @@
       "glossary-headless-mode",
       "glossary-jamstack",
       "introduction",
-      "sending-your-first-email"
+      "sending-your-first-email",
+      "support-policy"
     ]
   },
   {
