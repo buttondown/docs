@@ -407,7 +407,12 @@ const REDIRECTS = [
   {
     source: "/odds-and-ends/screen-reader",
     permanent: false,
-    destination: "/using-a-screen-reader",
+    destination: "/how-to-write-accessible-emails",
+  },
+  {
+    source: "/using-a-screen-reader",
+    destination: "/how-to-write-accessible-emails",
+    permanent: false,
   },
   {
     source: "/odds-and-ends/template-variables",
