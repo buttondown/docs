@@ -584,6 +584,21 @@ const REDIRECTS = [
     destination: "/external-scripts",
     permanent: false,
   },
+  {
+    source: "/acceptable-use-policy",
+    destination: "https://buttondown.com/legal/acceptable-use-policy",
+    permanent: false,
+  },
+  {
+    source: "/adult-content-policy",
+    destination: "https://buttondown.com/legal/adult-content-policy",
+    permanent: false,
+  },
+  {
+    source: "/support-policy",
+    destination: "https://buttondown.com/legal/support-policy",
+    permanent: false,
+  },
 ];
 
 export default REDIRECTS;
