@@ -148,10 +148,6 @@
         },
         {
           "discriminant": "page",
-          "value": "revue"
-        },
-        {
-          "discriminant": "page",
           "value": "substack"
         },
         {

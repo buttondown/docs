@@ -357,7 +357,12 @@ const REDIRECTS = [
   {
     source: "/migration-guides/revue",
     permanent: false,
-    destination: "/revue",
+    destination: "/importing-your-data",
+  },
+  {
+    source: "/revue",
+    destination: "/importing-your-data",
+    permanent: false,
   },
   {
     source: "/migration-guides/substack",
