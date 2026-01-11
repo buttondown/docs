@@ -507,14 +507,6 @@
     "references": []
   },
   {
-    "title": "Rate limiting",
-    "url": "rate-limiting",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
     "title": "How do I avoid the \"Promotions\" tab in Gmail?",
     "url": "how-do-i-avoid-the-promotions-tab",
     "section": "guides",
@@ -2848,8 +2840,7 @@
       "can-i-exclude-an-email-from-archive",
       "customizing-email-list-view",
       "premium-content",
-      "premium-teaser",
-      "rate-limiting"
+      "premium-teaser"
     ]
   },
   {
