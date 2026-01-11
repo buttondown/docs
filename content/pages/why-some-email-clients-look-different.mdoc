@@ -1,7 +1,13 @@
 ---
 title: Why does my email look different on some clients?
 navigationTitle: Why does my email look different on some clients?
-
+faqItems: >
+  [
+    {
+      "question": "Why is my email all purple?",
+      "answer": "If you're previewing multiple drafts of an email in Gmail, you might notice that the text is all purple! This isn't a Buttondown problem. This happens when Gmail decides that multiple emails sent in the same day with the same subject are responses to one another. When this happens, it displays the thread of emails in a \"conversation view.\"\n\nThe purple coloration is a display-only feature that only exists in the display where it is being seen. It is not sent in any messages. The color is applied to text that is repeated from a previous message in the current conversation."
+    }
+  ]
 ---
 This is a common and unfortunate problem. The short answer is: **email is weird, email inboxes are weird, and there's nothing you or I or anyone can do about it.**
 
@@ -14,3 +20,7 @@ Our friends over at Litmus have a really useful, detailed answer about why this 
 Some additional notes:
 
 - Fastmail does not really support CSS variables. You'll want to add fallback values for your CSS variables.
+
+## Frequently asked questions
+
+{% faq /%}

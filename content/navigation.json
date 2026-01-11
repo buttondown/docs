@@ -213,10 +213,6 @@
         },
         {
           "discriminant": "page",
-          "value": "why-is-my-email-purple"
-        },
-        {
-          "discriminant": "page",
           "value": "why-some-email-clients-look-different"
         },
         {
