@@ -34,6 +34,7 @@
 	/* Prevent layout shift when Radix dialogs lock scroll */
 	html {
 		scrollbar-gutter: stable;
+		scroll-behavior: smooth;
 	}
 
 	/* Radix adds margin-right: 16px here to offset the scrollbar disappearing, but the above removes the need for that */
@@ -238,4 +239,33 @@ pre.mermaid[data-processed] {
 	to {
 		transform: translateX(-100%);
 	}
+}
+
+/* Shimmer loading animation for nav links */
+@keyframes shimmer-wave {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+.shimmer-loading {
+	position: relative;
+	overflow: hidden;
+}
+
+.shimmer-loading::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		rgba(255, 255, 255, 0.6) 50%,
+		transparent 100%
+	);
+	animation: shimmer-wave 1s ease-in-out infinite;
+	pointer-events: none;
 }

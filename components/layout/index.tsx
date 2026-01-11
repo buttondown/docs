@@ -7,8 +7,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { createReader } from "@keystatic/core/reader";
 import { clsx } from "@/lib/utils";
-import Link from "next/link";
 import AccountButtons from "./account-buttons";
+import HeadingsMinimap from "@/components/headings-minimap";
 import {
   type KeystaticNavigationFile,
   type KeystaticPage,
@@ -17,6 +17,7 @@ import {
 } from "./lib";
 import MobileNav from "./mobile-nav";
 import Search from "./search";
+import { ShimmerLink } from "./ShimmerLink";
 import Sidebar from "./Sidebar";
 
 export default async function Layout({
@@ -90,6 +91,10 @@ export default async function Layout({
           <Prose>{children}</Prose>
         </div>
 
+        <div className="max-xl:hidden">
+          <HeadingsMinimap />
+        </div>
+
         <div className="lg:sticky lg:bottom-0">
           <Footer />
         </div>
@@ -159,7 +164,7 @@ const NavItem = ({
   isActive?: boolean;
 }) => {
   return (
-    <Link
+    <ShimmerLink
       href={href}
       className={clsx(
         "flex items-center gap-x-1.5 transition-colors",
@@ -168,7 +173,7 @@ const NavItem = ({
     >
       <Icon className="size-5 flex-shrink-0" />
       <span className="font-medium">{label}</span>
-    </Link>
+    </ShimmerLink>
   );
 };
 

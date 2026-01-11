@@ -3,9 +3,9 @@
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import * as Accordion from "@radix-ui/react-accordion";
 import { clsx } from "@/lib/utils";
-import Link from "next/link";
 import { useEffect } from "react";
 import type { NavData } from "./lib";
+import { ShimmerLink } from "./ShimmerLink";
 
 const Sidebar = ({
   slug,
@@ -109,7 +109,7 @@ const Sidebar = ({
                 }
 
                 return (
-                  <Link
+                  <ShimmerLink
                     key={item.slug}
                     href={`/${item.slug}`}
                     className={clsx(
@@ -120,7 +120,7 @@ const Sidebar = ({
                     )}
                   >
                     {item.navigationTitle || item.title}
-                  </Link>
+                  </ShimmerLink>
                 );
               })}
             </Accordion.Content>
