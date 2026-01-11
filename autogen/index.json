@@ -39,7 +39,6 @@
       "moosend",
       "quickstart",
       "registration-and-setup",
-      "revue",
       "scheduling-an-email",
       "substack",
       "surveys",
@@ -275,7 +274,6 @@
       "moosend",
       "podia",
       "quickstart",
-      "revue",
       "sending-your-first-email",
       "substack"
     ]
@@ -390,14 +388,6 @@
     "section": "guides",
     "schema": null,
     "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Podia.",
-    "references": []
-  },
-  {
-    "title": "Revue",
-    "url": "revue",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown makes it easy to migrate your posts, subscribers and paid subscriptions from Revue. ",
     "references": []
   },
   {
@@ -961,7 +951,6 @@
       "mailchimp",
       "metadata",
       "paid-subscriptions",
-      "revue",
       "sponsorships",
       "stripe",
       "stripe-upsell",
