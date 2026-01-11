@@ -730,10 +730,6 @@
         {
           "discriminant": "page",
           "value": "how-do-subscribers-customize-their-name-photo"
-        },
-        {
-          "discriminant": "page",
-          "value": "why-arent-i-seeing-my-new-share-image"
         }
       ]
     },

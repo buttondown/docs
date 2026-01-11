@@ -1511,8 +1511,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "share-images",
-      "why-arent-i-seeing-my-new-share-image"
+      "share-images"
     ]
   },
   {
@@ -1546,14 +1545,6 @@
   {
     "title": "How do subscribers customize their name and profile photo?",
     "url": "how-do-subscribers-customize-their-name-photo",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
-    "title": "Why aren't I seeing my new share image?",
-    "url": "why-arent-i-seeing-my-new-share-image",
     "section": "reference",
     "schema": null,
     "description": null,

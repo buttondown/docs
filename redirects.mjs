@@ -590,6 +590,11 @@ const REDIRECTS = [
     permanent: false,
   },
   {
+    source: "/aweber",
+    destination: "/importing-your-data",
+    permanent: true,
+  },
+  {
     source: "/bookmarklet",
     destination: "/introduction",
     permanent: true,
@@ -600,8 +605,8 @@ const REDIRECTS = [
     permanent: true,
   },
   {
-    source: "/aweber",
-    destination: "/importing-your-data",
+    source: "/why-arent-i-seeing-my-new-share-image",
+    destination: "/share-images",
     permanent: true,
   },
 ];
