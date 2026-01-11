@@ -209,10 +209,6 @@
         },
         {
           "discriminant": "page",
-          "value": "rate-limiting"
-        },
-        {
-          "discriminant": "page",
           "value": "how-do-i-avoid-the-promotions-tab"
         },
         {

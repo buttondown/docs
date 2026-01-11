@@ -609,6 +609,11 @@ const REDIRECTS = [
     destination: "/share-images",
     permanent: true,
   },
+  {
+    source: "/rate-limiting",
+    destination: "/warming-up",
+    permanent: false,
+  },
 ];
 
 export default REDIRECTS;
