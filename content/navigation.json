@@ -140,10 +140,6 @@
         },
         {
           "discriminant": "page",
-          "value": "moosend"
-        },
-        {
-          "discriminant": "page",
           "value": "podia"
         },
         {
@@ -930,10 +926,6 @@
         {
           "discriminant": "page",
           "value": "law-enforcement-requests"
-        },
-        {
-          "discriminant": "page",
-          "value": "late-payments"
         },
         {
           "discriminant": "page",

@@ -621,7 +621,6 @@
       "glossary-dns",
       "glossary-hosting-domain",
       "glossary-whitelabeling",
-      "late-payments",
       "podia",
       "quickstart",
       "sending-from-a-custom-domain",
@@ -1307,7 +1306,6 @@
     "description": "You can use CSS to fully customize your Buttondown web archives.",
     "references": [
       "glossary-whitelabeling",
-      "late-payments",
       "registration-and-setup",
       "support-policy"
     ]
@@ -1939,14 +1937,6 @@
   {
     "title": "Law enforcement requests",
     "url": "law-enforcement-requests",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
-    "title": "Payment policy",
-    "url": "late-payments",
     "section": "reference",
     "schema": null,
     "description": null,

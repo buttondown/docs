@@ -57,69 +57,7 @@ Each attachment is limited to a maximum size of 2 MB. This limit helps ensure re
 
 ## Adding attachments
 
-### Using the web editor
-
-- While composing or editing an email in [Fancy mode](/fancy-mode), type "/attachments" then select the file
-- In [Markdown mode](https://docs.buttondown.com/using-markdown), drag and drop the file from your computer to the Editor
-
-### Using the API
-
-If you're using Buttondown's API to create or update emails, you can include attachments by:
-
-1. First uploading the attachment using the `/v1/attachments` endpoint
-1. Then referencing the attachment ID in your email creation/update request
-
-Here's an example of adding an attachment via the API:
-
-```javascript
-// First, upload the attachment
-// You need to create FormData with the file and a name
-const formData = new FormData();
-formData.append('file', yourFileObject);
-formData.append('name', 'Your File Name.pdf');
-
-const attachmentResponse = await fetch('https://api.buttondown.com/v1/attachments', {
-  method: 'POST',
-  headers: {
-    'Authorization': `Token ${YOUR_API_KEY}`
-    // Note: Don't set Content-Type header with FormData, 
-    // the browser will set it correctly with the boundary
-  },
-  body: formData
-});
-
-const attachment = await attachmentResponse.json();
-
-// Then, create or update an email with the attachment
-const emailResponse = await fetch('https://api.buttondown.com/v1/emails', {
-  method: 'POST',
-  headers: {
-    'Authorization': `Token ${YOUR_API_KEY}`,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    subject: 'Email with attachment',
-    body: 'Check out the attached file!',
-    attachments: [attachment.id] // Include attachment IDs as an array
-  })
-});
-```
-
-You can also update an existing email to add attachments:
-
-```javascript
-// Adding an attachment to an existing email
-const updateResponse = await fetch(`https://api.buttondown.com/v1/emails/${emailId}`, {
-  method: 'PUT',
-  headers: {
-    'Authorization': `Token ${YOUR_API_KEY}`,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    attachments: [attachment.id]
-  })
-});
-```
+While composing or editing an email in [Fancy mode](/fancy-mode), type "/attachments" then select the file. In [Markdown mode](https://docs.buttondown.com/using-markdown), drag and drop the file from your computer to the Editor.
 
 ## Attachment delivery
 
