@@ -1,0 +1,49 @@
+---
+title: Warming up your email sending
+navigationTitle: Warming up
+description: >-
+  How to properly warm up your sending domain when starting with Buttondown to ensure maximum deliverability
+relatedPages:
+- monitoring-your-domain
+- dealing-with-spam-subscribers
+- hosting-on-a-custom-domain
+- glossary-permanent-failure
+- glossary-temporary-failure
+- glossary-cfl
+date: 2025-05-13
+---
+
+{% noticeInfo text="You only really need to worry about this stuff if you're migrating a list of at least ten thousand subscribers from another service." /%}
+
+"Warming up" is a catch-all term for the process of slowly sending to a large list of subscribers to maximize long-term deliverability. When first sending emails through Buttondown, there are several important factors to consider.
+
+Buttondown automatically throttles and monitors the performance of new senders to maintain our reputation and your deliverability. We cap the number of emails a newsletter can send in a given hour until you've reached a baseline level of engagement and reputation for your content. 
+
+If we detect issues during this process, such as a high number of unsubscribes, [complaints](/glossary-cfl), or [hard bounces](/glossary-permanent-failure), we will temporarily disable your sending capability and reach out to help resolve the issue.
+
+## Domain vs. IP warming
+
+Warming up is less important when sending from a new IP than when sending from a new domain. If you're bringing over new subscribers and using your own domain, our guidance is to let Buttondown handle the warming up process for you.
+
+## Best practices
+
+### 1. Start with engaged subscribers
+
+Try to make sure your first few sends from Buttondown are to a highly engaged cohort of subscribers. One of the most important metrics that Email Service Providers (ESPs) like Gmail and Yahoo use is the presence of positive engagement.
+
+### 2. Embrace the migration
+
+A common and effective tactic used by our newsletter authors is to acknowledge the migration process by encouraging subscribers to reply to their first few emails. This serves two purposes:
+
+- It trains ESPs like Gmail to prioritize the placement of your emails in your subscribers' inboxes
+- It creates a positive feedback loop to maintain consistent and strong deliverability
+
+### 3. Monitor your performance
+
+Use tools like [Google Postmaster Tools](https://postmaster.google.com/) to monitor your domain's reputation. You can also check our [domain monitoring guide](/monitoring-your-domain) for additional resources on tracking your deliverability performance.
+
+### 4. Be patient
+
+Building a good sender reputation takes time. Follow Buttondown's guidelines, maintain a clean subscriber list, and consistently provide valuable content to your audience.
+
+For more information on maintaining high deliverability, see our guides on [dealing with spam subscribers](/dealing-with-spam-subscribers) and [hosting on a custom domain](/hosting-on-a-custom-domain).

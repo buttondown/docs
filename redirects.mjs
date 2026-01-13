@@ -352,12 +352,7 @@ const REDIRECTS = [
   {
     source: "/migration-guides/moosend",
     permanent: false,
-    destination: "/importing-your-data",
-  },
-  {
-    source: "/moosend",
-    permanent: false,
-    destination: "/importing-your-data",
+    destination: "/moosend",
   },
   {
     source: "/migration-guides/revue",
@@ -398,6 +393,11 @@ const REDIRECTS = [
     source: "/odds-and-ends/glossary",
     permanent: false,
     destination: "/introduction",
+  },
+  {
+    source: "/odds-and-ends/law-enforcement-requests",
+    permanent: false,
+    destination: "/law-enforcement-requests",
   },
   {
     source: "/odds-and-ends/offboarding",
@@ -595,16 +595,6 @@ const REDIRECTS = [
     permanent: false,
   },
   {
-    source: "/acceptable-use-policy",
-    destination: "https://buttondown.com/legal/acceptable-use-policy",
-    permanent: false,
-  },
-  {
-    source: "/adult-content-policy",
-    destination: "https://buttondown.com/legal/adult-content-policy",
-    permanent: false,
-  },
-  {
     source: "/aweber",
     destination: "/importing-your-data",
     permanent: true,
@@ -613,36 +603,6 @@ const REDIRECTS = [
     source: "/bookmarklet",
     destination: "/introduction",
     permanent: true,
-  },
-  {
-    source: "/data-processing-agreement",
-    destination: "https://buttondown.com/legal/data-processing-agreement",
-    permanent: false,
-  },
-  {
-    source: "/law-enforcement-requests",
-    destination: "https://buttondown.com/legal/law-enforcement-requests",
-    permanent: false,
-  },
-  {
-    source: "/odds-and-ends/law-enforcement-requests",
-    destination: "https://buttondown.com/legal/law-enforcement-requests",
-    permanent: false,
-  },
-  {
-    source: "/rate-limiting",
-    destination: "/warming-up",
-    permanent: false,
-  },
-  {
-    source: "/subprocessors",
-    destination: "https://buttondown.com/legal/subprocessors",
-    permanent: false,
-  },
-  {
-    source: "/support-policy",
-    destination: "https://buttondown.com/legal/support-policy",
-    permanent: false,
   },
   {
     source: "/what-s-a-good-tutorial-for-learning-css",
@@ -656,12 +616,7 @@ const REDIRECTS = [
   },
   {
     source: "/rate-limiting",
-    destination: "/sending-from-a-custom-domain#warming-up-your-domain",
-    permanent: false,
-  },
-  {
-    source: "/warming-up",
-    destination: "/sending-from-a-custom-domain#warming-up-your-domain",
+    destination: "/warming-up",
     permanent: false,
   },
   {
