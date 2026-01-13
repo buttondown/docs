@@ -191,10 +191,7 @@
           "discriminant": "page",
           "value": "replies"
         },
-        {
-          "discriminant": "page",
-          "value": "warming-up"
-        },
+
         {
           "discriminant": "divider",
           "value": "FAQ"
@@ -910,30 +907,6 @@
         {
           "discriminant": "page",
           "value": "gdpr-eu-compliance"
-        },
-        {
-          "discriminant": "page",
-          "value": "support-policy"
-        },
-        {
-          "discriminant": "page",
-          "value": "adult-content-policy"
-        },
-        {
-          "discriminant": "page",
-          "value": "acceptable-use-policy"
-        },
-        {
-          "discriminant": "page",
-          "value": "law-enforcement-requests"
-        },
-        {
-          "discriminant": "page",
-          "value": "data-processing-agreement"
-        },
-        {
-          "discriminant": "page",
-          "value": "subprocessors"
         },
         {
           "discriminant": "divider",

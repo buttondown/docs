@@ -656,7 +656,12 @@ const REDIRECTS = [
   },
   {
     source: "/rate-limiting",
-    destination: "/warming-up",
+    destination: "/sending-from-a-custom-domain#warming-up-your-domain",
+    permanent: false,
+  },
+  {
+    source: "/warming-up",
+    destination: "/sending-from-a-custom-domain#warming-up-your-domain",
     permanent: false,
   },
   {
