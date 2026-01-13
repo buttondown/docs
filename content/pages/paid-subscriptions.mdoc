@@ -12,6 +12,10 @@ faqItems: >
     {
       "question": "Can I use Stripe Test mode with Buttondown?",
       "answer": "Buttondown does not currently support Stripe's [test mode](https://stripe.com/docs/test-mode), which lets you test your integration without charging a credit card.\n\nTo test your integration, we recommend charging a small amount on a real credit card and then refunding the charge. This will cost a few cents for each transaction."
+    },
+    {
+      "question": "How do I change the price of my paid newsletter?",
+      "answer": "You can change the price by adding a new price to your existing product in Stripe and archiving the old price. Buttondown will automatically use the new price for new subscribers; existing subscribers will retain their current price.\n\nMigrating existing subscribers to the new price is more complex: neither Buttondown nor Stripe currently supports this within the interface. Please [contact support](https://buttondown.com/support) if you'd like to migrate existing subscribers to a new price."
     }
   ]
 ---

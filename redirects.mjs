@@ -660,6 +660,11 @@ const REDIRECTS = [
     permanent: true,
   },
   {
+    source: "/price-changes",
+    destination: "/paid-subscriptions#faqs",
+    permanent: false,
+  },
+  {
     source: "/rate-limiting",
     destination: "/sending-from-a-custom-domain#warming-up-your-domain",
     permanent: false,
