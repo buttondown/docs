@@ -636,8 +636,8 @@ const REDIRECTS = [
   },
   {
     source: "/rate-limiting",
-    destination: "/warming-up",
-    permanent: false,
+    destination: "/sending-from-a-custom-domain#warming-up-your-domain",
+    permanent: true,
   },
   {
     source: "/subprocessors",
@@ -667,7 +667,7 @@ const REDIRECTS = [
   {
     source: "/warming-up",
     destination: "/sending-from-a-custom-domain#warming-up-your-domain",
-    permanent: false,
+    permanent: true,
   },
   {
     source: "/late-payments",

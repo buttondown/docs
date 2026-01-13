@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { expect, test } from "vitest";
+import { expect, test } from "bun:test";
 import { assembleNavData } from "./lib";
 
 dotenv.config();

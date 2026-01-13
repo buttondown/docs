@@ -9,7 +9,7 @@
     "lint": "next lint",
     "knip": "knip",
     "check-for-typos": "cspell '**/*.{md,mdx,ts,tsx,mdoc}'",
-    "test": "vitest",
+    "test": "bun test",
     "format": "biome format --write .",
     "check": "biome check --write .",
     "lint-css": "biome check --write public/subscriber_facing_styles/*.css"
@@ -48,12 +48,10 @@
   "devDependencies": {
     "@biomejs/biome": "2.0.6",
     "@shikijs/transformers": "^1.29.2",
-    "@vitejs/plugin-react": "^4.5.2",
+    "@types/bun": "^1.3.5",
     "cspell": "^8.19.4",
     "eslint-config-next": "15.3.5",
-    "jsdom": "^24.1.3",
-    "knip": "^5.61.2",
-    "vitest": "^1.6.1"
+    "knip": "^5.61.2"
   },
   "trustedDependencies": [
     "@biomejs/biome",

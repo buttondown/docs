@@ -3,7 +3,7 @@
 import dotenv from "dotenv";
 import fs from "fs";
 import matter from "./lib/gray-matter";
-import { expect, test } from "vitest";
+import { expect, test } from "bun:test";
 import {
   type OpenAPIProperty,
   urlForSchema,
@@ -85,11 +85,6 @@ const KNOWN_GLOSSARY_PAGES_WITHOUT_INTERNAL_LINKS = [
 ];
 
 const CHANGELOG_FILE = `api-changelog.mdoc`;
-
-const mungeInternalLinks = (internalLink: string) => {
-  // Remove any hashes, transforming /foo#bar to /foo.
-  return internalLink.replace(/#.*$/, "");
-};
 
 const extractInternalLinks = (content: string): string[] => {
   // We look for links in two places:
@@ -261,19 +256,21 @@ const isInternalURLValid = (url: string) => {
   return true;
 };
 
-test("All redirect destinations are valid", () => {
-  REDIRECTS.forEach(({ source, destination }) => {
-    // We only care about relative links.
-    if (destination.startsWith("http")) {
-      return;
-    }
-
+REDIRECTS.forEach(({ source, destination }) => {
+  // We only care about relative links.
+  if (destination.startsWith("http")) {
+    return;
+  }
+  test(`Redirect from "${source}" to "${destination}" is valid`, () => {
     expect(
       isInternalURLValid(destination),
       `Redirect from "${source}" to "${destination}" does not exist.`,
     ).toBeTruthy();
   });
 });
+
+// Test that all CSS files in subscriber_facing_styles are not empty
+const SUBSCRIBER_FACING_STYLES_DIRECTORY = "public/subscriber_facing_styles";
 
 // Make sure all mdoc files with internal links are valid.
 Object.entries(FILENAME_TO_INTERNAL_LINKS).forEach(
@@ -286,15 +283,15 @@ Object.entries(FILENAME_TO_INTERNAL_LINKS).forEach(
     internalLinks.forEach((outboundPath) => {
       test(`Internal link from "${filename}" to "${outboundPath}" is valid`, () => {
         expect(
-          isInternalURLValid(mungeInternalLinks(outboundPath)),
+          isInternalURLValid(
+            // Remove any hashes, transforming /foo#bar to /foo.
+            outboundPath.replace(/#.*$/, ""),
+          ),
           `Internal link from "${filename}" to "${outboundPath}" does not exist.`,
         ).toBeTruthy();
       });
     });
 
-    // Test that all CSS files in subscriber_facing_styles are not empty
-    const SUBSCRIBER_FACING_STYLES_DIRECTORY =
-      "public/subscriber_facing_styles";
     const CSS_FILES = fs
       .readdirSync(SUBSCRIBER_FACING_STYLES_DIRECTORY)
       .filter((filename) => filename.endsWith(".css"));
@@ -338,6 +335,78 @@ Object.entries(FILENAME_TO_INTERNAL_LINKS).forEach(
 
 const MAXIMUM_TITLE_LENGTH = 60;
 
+// Terms that should be capitalized in a specific way
+const CAPITALIZATION_EXCEPTIONS = [
+  "A/A",
+  "A/B",
+  "Alpine.js",
+  "AMP",
+  "API",
+  "AWeber",
+  "Benchmark",
+  "BIMI",
+  "Buttondown",
+  "CAC",
+  "COI",
+  "CAN-SPAM",
+  "Campaign Monitor",
+  "CAPTCHA",
+  "CFBL",
+  "CLI",
+  "ConvertKit",
+  "Constant Contact",
+  "CORS",
+  "CPM",
+  "CSS",
+  "CSV",
+  "CTA",
+  "DKIM",
+  "DMARC",
+  "DNS",
+  "DreamHost",
+  "EmailOctopus",
+  "ESP",
+  "EU",
+  "Fancy mode",
+  "FAQ",
+  "FeedBlitz",
+  "GDPR",
+  "Gmail",
+  "Google Workspace",
+  "H1",
+  "HTML",
+  "I",
+  "IP",
+  "JAMStack",
+  "JSON",
+  "JSON-LD",
+  "KYC",
+  "LaTeX",
+  "LinkedIn",
+  "MailerLite",
+  "Mantine",
+  "Modern template",
+  "Monthly Recurring Revenue",
+  "oEmbed",
+  "OpenAPI",
+  "POSSE",
+  "Precedence: Bulk",
+  "Promotions",
+  "REST",
+  "RSS",
+  "SEO",
+  "SimpleAnalytics",
+  "SMTP",
+  "SpamAssassin",
+  "SPF",
+  "Stripe",
+  "UGC",
+  "URL",
+  "UTM",
+  "WordPress",
+  "WYSIWYG",
+];
+
 // Make sure that there are no broken video links.
 Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
   test(filename + " has only valid video links", () => {
@@ -356,78 +425,6 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
   test(filename + " does not contain 'Missing image' text", () => {
     expect(content).not.toContain("Missing image");
   });
-
-  // Terms that should be capitalized in a specific way
-  const CAPITALIZATION_EXCEPTIONS = [
-    "A/A",
-    "A/B",
-    "Alpine.js",
-    "AMP",
-    "API",
-    "AWeber",
-    "Benchmark",
-    "BIMI",
-    "Buttondown",
-    "CAC",
-    "COI",
-    "CAN-SPAM",
-    "Campaign Monitor",
-    "CAPTCHA",
-    "CFBL",
-    "CLI",
-    "ConvertKit",
-    "Constant Contact",
-    "CORS",
-    "CPM",
-    "CSS",
-    "CSV",
-    "CTA",
-    "DKIM",
-    "DMARC",
-    "DNS",
-    "DreamHost",
-    "EmailOctopus",
-    "ESP",
-    "EU",
-    "Fancy mode",
-    "FAQ",
-    "FeedBlitz",
-    "GDPR",
-    "Gmail",
-    "Google Workspace",
-    "H1",
-    "HTML",
-    "I",
-    "IP",
-    "JAMStack",
-    "JSON",
-    "JSON-LD",
-    "KYC",
-    "LaTeX",
-    "LinkedIn",
-    "MailerLite",
-    "Mantine",
-    "Modern template",
-    "Monthly Recurring Revenue",
-    "oEmbed",
-    "OpenAPI",
-    "POSSE",
-    "Precedence: Bulk",
-    "Promotions",
-    "REST",
-    "RSS",
-    "SEO",
-    "SimpleAnalytics",
-    "SMTP",
-    "SpamAssassin",
-    "SPF",
-    "Stripe",
-    "UGC",
-    "URL",
-    "UTM",
-    "WordPress",
-    "WYSIWYG",
-  ];
 
   test(filename + " has a sentence-case title", () => {
     const titleMatch = content.match(/title: (.+?)\s*$/m);
@@ -542,6 +539,7 @@ Object.values(NAVIGATION).forEach((section) => {
     });
   });
 });
+
 test("Glossary is sorted correctly", () => {
   const glossary = NAVIGATION.reference.find(
     (section) => section.name === "Glossary",
