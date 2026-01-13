@@ -6705,8 +6705,7 @@
             "schema": {
               "title": "Email Id",
               "description": "If provided, only return comments for the given email.",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": false,
             "description": "If provided, only return comments for the given email."
@@ -6717,8 +6716,7 @@
             "schema": {
               "title": "Subscriber Id",
               "description": "If provided, only return comments for the given subscriber.",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": false,
             "description": "If provided, only return comments for the given subscriber."
@@ -6729,8 +6727,7 @@
             "schema": {
               "title": "Parent Id",
               "description": "If provided, only return comments that are replies to the given parent comment.",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": false,
             "description": "If provided, only return comments that are replies to the given parent comment."
@@ -6822,8 +6819,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -6879,8 +6875,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -11954,7 +11949,8 @@
           "invalid_amount",
           "maximum_amount_too_high",
           "paid_subscriptions_uninitialized",
-          "product_deleted"
+          "product_deleted",
+          "suggested_amount_out_of_range"
         ],
         "type": "string"
       },
@@ -13252,31 +13248,27 @@
         "properties": {
           "id": {
             "title": "Id",
-            "description": "A unique UUID associated with the object.",
-            "type": "string",
-            "format": "uuid"
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
           },
           "creation_date": {
             "title": "Creation Date",
-            "description": "The date and time at which the object was created.",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
           "email_id": {
             "title": "Email Id",
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           },
           "subscriber_id": {
             "title": "Subscriber Id",
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           },
           "parent_id": {
             "title": "Parent Id",
             "description": "The ID of the parent comment, if this comment is a reply to another comment.",
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           },
           "text": {
             "title": "Text",
@@ -13316,14 +13308,12 @@
           "parent_id": {
             "title": "Parent Id",
             "description": "The ID of the parent comment, if this comment is a reply to another comment.",
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           },
           "email_id": {
             "title": "Email Id",
             "description": "The ID of the email this comment is for. Required if parent_id is not provided.",
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           }
         },
         "required": [

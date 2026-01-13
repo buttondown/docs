@@ -160,10 +160,10 @@
     {
       "description": "Basic comment",
       "object": {
-        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "com_0k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
-        "email_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
-        "subscriber_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "email_id": "em_6ehevt3pht86fsjhfvrv9sgvpc",
+        "subscriber_id": "sub_1khehgsaf28kaswx35hyvvnyez",
         "parent_id": null,
         "text": "This is a test comment",
         "comment_type": "subscriber",
