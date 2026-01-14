@@ -55,7 +55,7 @@ export default function FAQ({ items }: FAQProps) {
 								</Accordion.Trigger>
 							</Accordion.Header>
 							<Accordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-								<div className="px-5 pb-4 bg-white prose max-w-none">
+								<div className="px-5 pb-4 bg-white prose max-w-none faq-content">
 									<div
 										// biome-ignore lint/security/noDangerouslySetInnerHtml: Markdown rendered content
 										dangerouslySetInnerHTML={{

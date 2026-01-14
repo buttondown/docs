@@ -188,6 +188,10 @@ pre.mermaid[data-processed] {
 	animation: accordion-up 0.2s ease-out;
 }
 
+.faq-content a {
+	@apply font-medium text-gray-900 underline hover:bg-[color-mix(in_srgb,currentColor_10%,transparent)];
+}
+
 /* Mobile nav animations */
 .mobile-nav-overlay[data-state="open"] {
 	animation: fade-in 0.25s cubic-bezier(0.16, 1, 0.3, 1);
