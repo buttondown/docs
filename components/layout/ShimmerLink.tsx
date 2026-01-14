@@ -2,7 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect, type ComponentProps, type MouseEvent } from "react";
+import {
+  type ComponentProps,
+  type MouseEvent,
+  useEffect,
+  useState,
+} from "react";
 import { clsx } from "@/lib/utils";
 
 export function ShimmerLink({

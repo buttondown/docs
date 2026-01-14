@@ -2,7 +2,7 @@ import type OpenAPI from "@/public/openapi.json";
 import type OpenAPIFixtures from "./fixtures.json";
 
 type KeysOfType<T, V> = keyof {
-	[P in keyof T as V extends keyof T[P] ? P : never]: unknown;
+  [P in keyof T as V extends keyof T[P] ? P : never]: unknown;
 };
 
 // An OpenAPI spec has many `Routes` (e.g. /v1/subscribers).
@@ -18,62 +18,62 @@ type KeysOfType<T, V> = keyof {
 export type Route = keyof typeof OpenAPI.paths;
 export type Method<R extends Route> = keyof (typeof OpenAPI.paths)[R] & string;
 type Content = {
-	schema: {
-		$ref: string;
-	};
+  schema: {
+    $ref: string;
+  };
 };
 export type RequestBody = {
-	content:
-		| {
-				"application/json": Content;
-		  }
-		| {
-				"multipart/form-data": Content;
-		  };
+  content:
+    | {
+        "application/json": Content;
+      }
+    | {
+        "multipart/form-data": Content;
+      };
 };
 
 type Parameter = {
-	in: "path" | "query" | "header";
-	name: string;
-	schema:
-		| {
-				title: string;
-				type: string;
-				description?: string;
-		  }
-		| {
-				$ref: string;
-		  }
-		| {
-				type: "array";
-				items: {
-					$ref: string;
-				};
-		  };
-	required: boolean;
-	description: string;
+  in: "path" | "query" | "header";
+  name: string;
+  schema:
+    | {
+        title: string;
+        type: string;
+        description?: string;
+      }
+    | {
+        $ref: string;
+      }
+    | {
+        type: "array";
+        items: {
+          $ref: string;
+        };
+      };
+  required: boolean;
+  description: string;
 };
 export type Operation<
-	R extends Route,
-	M extends Method<R>,
+  R extends Route,
+  M extends Method<R>,
 > = (typeof OpenAPI.paths)[R][M] & {
-	operationId: string;
-	summary: string;
-	requestBody: RequestBody;
-	parameters: Parameter[];
-	responses: {
-		[key in string]: {
-			description: string;
-			content: {
-				"application/json": Content;
-			};
-		};
-	};
+  operationId: string;
+  summary: string;
+  requestBody: RequestBody;
+  parameters: Parameter[];
+  responses: {
+    [key in string]: {
+      description: string;
+      content: {
+        "application/json": Content;
+      };
+    };
+  };
 };
 
 export type Object = KeysOfType<
-	typeof OpenAPI.components.schemas,
-	"properties"
+  typeof OpenAPI.components.schemas,
+  "properties"
 > &
-	KeysOfType<typeof OpenAPI.components.schemas, "description"> &
-	keyof typeof OpenAPIFixtures;
+  KeysOfType<typeof OpenAPI.components.schemas, "description"> &
+  keyof typeof OpenAPIFixtures;

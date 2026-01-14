@@ -38,14 +38,14 @@ const navigationGroupSchema = (label: string) =>
             itemLabel: (props) => props?.value ?? "",
           },
         },
-        { label: "Navigation" }
+        { label: "Navigation" },
       ),
     }),
     {
       label,
       itemLabel: (props) =>
         `${props.fields.name.value} (${props.fields.items.elements.length})`,
-    }
+    },
   );
 
 // NON-OBVIOUS LOGIC ALERT!
@@ -78,10 +78,13 @@ export default config({
       label: "Navigation",
       path: generatePath("content/navigation"),
       format: { data: "json" },
-      schema: NAVIGATION_GROUPS.reduce((acc, group) => {
-        acc[group] = navigationGroupSchema(NAVIGATION_GROUP_LABELS[group]);
-        return acc;
-      }, {} as Record<string, any>),
+      schema: NAVIGATION_GROUPS.reduce(
+        (acc, group) => {
+          acc[group] = navigationGroupSchema(NAVIGATION_GROUP_LABELS[group]);
+          return acc;
+        },
+        {} as Record<string, any>,
+      ),
     }),
   },
   collections: {
@@ -148,7 +151,7 @@ export default config({
         }),
         relatedPages: fields.array(
           fields.relationship({ label: "Page", collection: "pages" }),
-          { label: "Related Pages", itemLabel: (props) => props.value ?? "" }
+          { label: "Related Pages", itemLabel: (props) => props.value ?? "" },
         ),
       },
     }),

@@ -1,5 +1,5 @@
-import dotenv from "dotenv";
 import { expect, test } from "bun:test";
+import dotenv from "dotenv";
 import { removeMarkdown } from "./remove-markdown";
 
 dotenv.config();

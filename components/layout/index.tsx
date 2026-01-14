@@ -1,24 +1,24 @@
-import keystaticConfig, { localBaseURL } from "@/keystatic.config";
-import { buildContentArray } from "@/lib/search/server";
 import {
   BookOpenIcon,
   CodeBracketIcon,
   PlayCircleIcon,
 } from "@heroicons/react/24/outline";
 import { createReader } from "@keystatic/core/reader";
+import HeadingsMinimap from "@/components/headings-minimap";
+import keystaticConfig, { localBaseURL } from "@/keystatic.config";
+import { buildContentArray } from "@/lib/search/server";
 import { clsx } from "@/lib/utils";
 import AccountButtons from "./account-buttons";
-import HeadingsMinimap from "@/components/headings-minimap";
 import {
+  assembleNavData,
   type KeystaticNavigationFile,
   type KeystaticPage,
   type NavData,
-  assembleNavData,
 } from "./lib";
 import MobileNav from "./mobile-nav";
-import Search from "./search";
 import { ShimmerLink } from "./ShimmerLink";
 import Sidebar from "./Sidebar";
+import Search from "./search";
 
 export default async function Layout({
   slug,
@@ -39,7 +39,7 @@ export default async function Layout({
 
   const nav = assembleNavData(
     navigation as KeystaticNavigationFile,
-    pages as KeystaticPage[]
+    pages as KeystaticPage[],
   );
 
   if ("errors" in nav) {
@@ -120,7 +120,7 @@ const Nav = ({ activeGroup }: { activeGroup: string | null }) => {
     <nav
       className={clsx(
         "max-lg:hidden border-b px-5 h-[50px] sticky top-0 bg-white z-50",
-        "flex items-center justify-between"
+        "flex items-center justify-between",
       )}
     >
       <div className="flex items-center gap-x-6">
@@ -168,7 +168,7 @@ const NavItem = ({
       href={href}
       className={clsx(
         "flex items-center gap-x-1.5 transition-colors",
-        isActive ? "text-blue-700" : "text-gray-500 hover:text-gray-600"
+        isActive ? "text-blue-700" : "text-gray-500 hover:text-gray-600",
       )}
     >
       <Icon className="size-5 flex-shrink-0" />

@@ -1,13 +1,13 @@
 "use client";
 
-import type { ContentArray } from "@/lib/search/server";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Tabs from "@radix-ui/react-tabs";
-import { clsx } from "@/lib/utils";
 import { useEffect, useState } from "react";
-import Sidebar from "./Sidebar";
+import type { ContentArray } from "@/lib/search/server";
+import { clsx } from "@/lib/utils";
 import type { NavData } from "./lib";
+import Sidebar from "./Sidebar";
 import Search from "./search";
 
 export default function MobileNav({
@@ -90,7 +90,7 @@ export default function MobileNav({
                     "px-2 py-1 text-sm rounded-md transition-colors",
                     tabValue === "guides"
                       ? "bg-blue-600 text-white"
-                      : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+                      : "bg-gray-200 text-gray-600 hover:bg-gray-300",
                   )}
                 >
                   Getting started
@@ -101,7 +101,7 @@ export default function MobileNav({
                     "px-2 py-1 text-sm rounded-md transition-colors",
                     tabValue === "reference"
                       ? "bg-blue-600 text-white"
-                      : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+                      : "bg-gray-200 text-gray-600 hover:bg-gray-300",
                   )}
                 >
                   Reference
@@ -112,7 +112,7 @@ export default function MobileNav({
                     "px-2 py-1 text-sm rounded-md transition-colors",
                     tabValue === "api"
                       ? "bg-blue-600 text-white"
-                      : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+                      : "bg-gray-200 text-gray-600 hover:bg-gray-300",
                   )}
                 >
                   API

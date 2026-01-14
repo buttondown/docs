@@ -1,15 +1,15 @@
 "use client";
 
-import Icon from "@/components/Icon";
-import { buildSearchIndex } from "@/lib/search/client";
-import { ContentArray } from "@/lib/search/server";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Highlight } from "@orama/highlight";
 import { search } from "@orama/orama";
 import * as Dialog from "@radix-ui/react-dialog";
-import { clsx } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
+import Icon from "@/components/Icon";
+import { buildSearchIndex } from "@/lib/search/client";
+import { ContentArray } from "@/lib/search/server";
+import { clsx } from "@/lib/utils";
 
 const highlighter = new Highlight({
   CSSClass: "bg-amber-100",

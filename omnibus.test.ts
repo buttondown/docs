@@ -1,14 +1,15 @@
 /* This file is a test suite for the documentation. It checks for broken links, missing glossary terms, and other issues.
    Before adding to this file, please consider whether the test should be in a different file, closer with the behavior under test. */
+
+import { expect, test } from "bun:test";
 import dotenv from "dotenv";
 import fs from "fs";
-import matter from "./lib/gray-matter";
-import { expect, test } from "bun:test";
 import {
   type OpenAPIProperty,
   urlForSchema,
 } from "./components/ObjectDescription";
 import NAVIGATION from "./content/navigation.json";
+import matter from "./lib/gray-matter";
 import OpenAPI from "./public/openapi.json";
 import REDIRECTS from "./redirects.mjs";
 

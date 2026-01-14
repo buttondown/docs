@@ -1,28 +1,28 @@
 export type HandwrittenBlock = {
-	name: string;
-	code: string;
-	language: string;
+  name: string;
+  code: string;
+  language: string;
 };
 
 type SingletonBlock = {
-	code: string;
-	language: string;
+  code: string;
+  language: string;
 };
 
 export type SingletonLanguageBlockList = [SingletonBlock];
 
 export type IntermediateBlock = (HandwrittenBlock | SingletonBlock) & {
-	html?: string;
+  html?: string;
 };
 
 export type ProcessedBlock = {
-	name?: string;
-	html: string;
-	language: string;
+  name?: string;
+  html: string;
+  language: string;
 };
 
 export const shikiWithoutWrapper = (html: string) =>
-	html.replace(/<pre.*?><code.*?>(.*?)<\/code><\/pre>/s, "$1");
+  html.replace(/<pre.*?><code.*?>(.*?)<\/code><\/pre>/s, "$1");
 
 const API_KEY_PLACEHOLDER_SENTINEL = "BUTTONDOWN_API_KEY_PLACEHOLDER";
 
