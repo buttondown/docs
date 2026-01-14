@@ -3,3 +3,26 @@ title: Creating an email
 endpoint: /emails
 method: post
 ---
+
+## Body format detection
+
+When you create an email via the API, Buttondown automatically detects whether your content is plain text or formatted (HTML/Markdown) and handles it appropriately.
+
+**Plain text** content is sent as-is, without any Markdown processing. This is ideal for simple, conversational emails.
+
+**Formatted content** (HTML or Markdown) is processed and rendered. Buttondown detects formatted content by looking for:
+
+- HTML tags (e.g., `<div>`, `<p>`, `</h1>`)
+- Markdown syntax (e.g., `# headings`, `**bold**`, `[links](url)`, lists)
+
+If you want to explicitly control the format, prepend your body with an editor mode comment:
+
+```
+<!-- buttondown-editor-mode: plaintext -->Your plain text content here...
+```
+
+or
+
+```
+<!-- buttondown-editor-mode: fancy -->Your **Markdown** or <em>HTML</em> content here...
+```

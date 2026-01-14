@@ -208,6 +208,7 @@ const VALID_INTERNAL_LINKS_THAT_ARE_NOT_BACKED_BY_MDOC = [
   "$THREAD_2_LINK",
   "$THREAD_3_LINK",
   "$WORKSPACE_URL",
+  "url",
 ];
 
 function slugify(text: string): string {
