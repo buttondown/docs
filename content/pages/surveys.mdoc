@@ -8,120 +8,124 @@ description:  >-
 
 {% paidFeature feature="surveys" /%}
 
-Whether you’ve got a casual question ("What’s your favorite Star Wars movie?") or a debate that needs settling ("Who shot first: Han Solo or Greedo?"), Buttondown’s "Surveys" feature is a nifty way to get feedback from your subscriber base. Read on to discover how to create, send, and analyze surveys—and learn valuable insights about your subscribers along the way!
+Want to ask your subscribers a question – and personalize future emails based on their answers? Buttondown lets you create surveys in any email. In this lesson, you’ll learn how to create, send, and analyze surveys.
 
 ## Creating your survey
 
 ### Determine your survey's question
 
-Venture to the "[Surveys](https://buttondown.com/surveys)" tab of your newsletter and click "New." You’ll encounter a pop-up that will guide you through the process of creating your survey. Your first task? Coming up with a question to ask your subscribers.
+All of your newsletter’s surveys live under the [Surveys](https://buttondown.com/surveys) tab. First, tap “+ Add” at top right. You’ll encounter a pop-up that will guide you through the process of creating your survey.
 
-{% iframe src="https://demo.buttondown.com/surveys/new?newsletter=basic-newsletter" height=900 /%}
+{% iframe src="https://demo.buttondown.com/surveys/new?newsletter=basic-newsletter" width="wide" height=900 /%}
 
-Each survey has room for one question and one question only, so make it count! However, you can always include multiple surveys in a single email if you have more than one question to ask.
+Each survey has room for one question and one question only. If you want to ask multiple questions in a row, you can create an additional survey for each one.
 
 ### Assign a code to your survey
 
 {% iframe src="https://demo.buttondown.com/surveys/new?newsletter=basic-newsletter&emphasis=code" height=500 /%}
 
-Next up, devise an ID for your survey in the "Code" field using letters (A–Z) and numbers (0–9). Your subscribers won't see this code—it's just for your internal use—but we recommend making it identifiable so that you can retrieve and render your survey more easily.
+Then, enter an identifier for your survey in the "Code" field using letters (A–Z) and numbers (0–9). Your subscribers won't see this code, but we recommend making it identifiable so you can retrieve and render your survey more easily.
 
 ### Provide your survey's responses
 
-The "Answers" field is where any and all possible survey responses should go. List out each of your responses (e.g. "R2-D2," "C-3PO," and "BB-8") on separate lines without any punctuation. Buttondown will take care of the formatting for you!
+The "Answers" field is where your survey responses should go. List out each of your responses (e.g. "R2-D2," "C-3PO," and "BB-8") on separate lines without any punctuation. Buttondown will take care of the formatting for you!
 
 {% video file="/surveys/surveys_answers-field-in-pop-up_AdobeExpress.mp4" /%}
 
 ### Preview your survey
 
-Get a sneak peek of your survey in the "Preview" section.
+Next, tap “Preview” to see how your survey will look to subscribers.
 
 {% video file="/surveys/surveys_preview-section-in-pop-up_AdobeExpress.mp4" /%}
 
-This is also a good opportunity to glance back at your "Question," "Code," and "Answer" fields, as once you publish your survey, these fields can’t be changed.
+Note that once you publish your survey, you can’t change your question, code, or answers. For now, the best way to “edit” your survey will be to create a new survey from scratch.
 
-Down the line, if you’d like to make an adjustment to your survey, feel free to [contact our support team](https://buttondown.com/support) for assistance. However, whether your changes are big or small, the best way to edit your survey will be to create a new survey from scratch.
+### Copy your survey’s code
 
-### Copy your survey code
-
-At this point, your preview’s looking good and you’re ready to publish your survey. Before clicking "Create," take a moment to copy your survey’s code in the "Usage" section. You’ll need this code to render your survey in your email.
+Before clicking "Create," take a moment to copy your survey’s code in the "Usage" section. You’ll need this code to render your survey in your email.
 
 Each survey’s code will always follow the same format. Here’s a quick example:
 
 ```
-{{ survey.ID }}
+{{ survey.code }}
 ```
 
-In this case, "ID" refers to the text you used to populate your survey's "Code" field. Here’s a more "real world" example:
+In this case, `code` refers to the text you used to populate your survey's "Code" field. For example, a survey with the code `starwars` can be rendered in your email like this:
+
+```
+{{ survey.starwars }}
+```
+
+Here’s a more "real world" example:
 
 {% video file="/surveys/surveys_usage-section-in-pop-up_AdobeExpress.mp4" /%}
 
-Once you’ve copied your code, all that’s left to do is to click "Create"! In just a few moments, your survey will be published and ready to share with your subscribers.
+Once you’ve copied your code, click “create” and your survey will be ready to share with your subscribers.
 
 ## Sending your survey
 
-### Preview your survey in an email
+Now, we’ll embed your survey in an email.
 
-You’ve drafted up your email and now all it needs is the cherry on top: Your survey!
-
-Here’s where that code you copied from the "Usage" section will come in handy. Simply paste the code where you’d like your survey to appear.
+Here’s where that code you copied from the "Usage" section will come in handy. Simply paste the code where you’d like your survey to appear:
 
 {% video file="/surveys/surveys_email-draft-in-writing-interface_AdobeExpress.mp4" /%}
 
-Your writing interface won't render your survey in its entirety, so we recommend sending an email draft in order to make sure your survey’s ship shape. (Need a refresher on sending email drafts? Our "[Getting Started](/registration-and-setup#draft-your-first-newsletter)" page is the best place to go!)
+### Preview your survey
+
+Your writing interface won't render your survey in its entirety, so we recommend [sending a draft of your email](/draft-send) to yourself in order to check everything.
 
 Here’s what your survey might look like as part of your email draft:
 
 {% video file="/surveys/surveys_email-draft-in-inbox_AdobeExpress.mp4" /%}
 
-Note that if you try to click through the survey in this draft email, the buttons won’t work. That’s totally normal! Your survey will only record responses from subscribers who receive your finished email. This ensures that your survey results are as accurate as possible—more on this later!
+Note that if you try to click through the survey in this draft email, the buttons won’t work. That’s because your survey will only record responses from subscribers who receive your finished email. This ensures that your survey results are as accurate as possible!
 
 ### Style your survey
 
-Feel free to customize the look and feel of your survey by modifying Buttondown’s basic HTML markup. Our standard styling is as follows:
+You can also customize the look and feel of your survey by modifying Buttondown’s basic HTML markup. Our standard styling is as follows:
 
 {% liveCodeBlock
    filename="public/code/surveys/1.html" /%}
 
 ---
 
-{% noticeInfo text="Buttondown automatically assigns a \"survey\" div class to your code, so if you’re having trouble finding your survey in your CSS, all you have to do is search for the \"survey\" wrapping div! Convenient, right?" /%}
-
+{% noticeInfo text="Buttondown automatically assigns a \"survey\" div class to your code, so if you’re having trouble finding your survey in your CSS, all you have to do is search for the \"survey\" wrapping div.” /%}
 
 ### Send your survey
 
-If the rest of your email is all set, that means it’s time to click "Send"! (Sending your very first email with Buttondown? Our "[Getting Started](/sending-your-first-email#send-your-first-newsletter-email)" guide will walk you through the process.)
-
-Here’s an example of what any given subscriber will see when they engage with your survey:
+Once the rest of your email is all set, [send it to your subscribers](/sending-your-first-email)! Here’s an example of what your subscribers will see when they engage with your survey:
 
 {% video file="/surveys/surveys_completed-survey_AdobeExpress.mp4" /%}
 
 ## Analyzing your survey
 
-### Understand your survey's responses
-
 There are two things to keep in mind as you comb through your survey’s responses:
-- Surveys are not available in the web version of your email. This ensures that responses will only come from subscribers who received the survey from you directly.
-- Subscribers can only complete your survey once. No duplicate responses here!
+
+- Surveys are not available in the web archive of your email. This ensures that responses will only come from subscribers who received the survey from you directly.
+- Subscribers can only complete your survey once.
 
 We put these measures in place to ensure that your survey responses are an accurate reflection of your subscriber base. With that in mind, let’s take a look at your survey’s results!
 
 ### Read your survey's responses
 
-Toggle to the "[Surveys](https://buttondown.com/surveys)" tab of your newsletter and click on the three dots to the far right of your survey’s ID. When the drop-down menu appears, select "Answers" to view a breakdown of your survey’s responses to date, as well as an accompanying graph.
+Go to the [Surveys](https://buttondown.com/surveys) tab of your newsletter and click on the three dots (`…`) to the far right of your survey’s ID, and then select "Answers" to view a breakdown of your survey’s responses to date:
 
 {% iframe src="https://demo.buttondown.com/surveys/13121cd6-0dfc-424c-bb12-988b0a32fcb3?newsletter=basic-newsletter" height=600 /%}
 
 ### Export your survey's responses
 
-Want to analyze your survey’s responses in more detail? We recommend exporting your survey’s data as a CSV file so that you can cross-reference it with other variables like tags, metadata, and more.
-
-If you’re already in your newsletter’s "[Surveys](https://buttondown.com/surveys)" tab, you can export survey data by clicking the little check mark next to your desired survey and then clicking "Export" in the upper right hand corner:
+Want to analyze your survey’s responses in more detail? You can export your survey’s data by tapping the check box next to it and then tapping “Export” at the bottom:
 
 {% iframe src="https://demo.buttondown.com/surveys?newsletter=basic-newsletter&emphasis=export" /%}
 
 ## Going above and beyond
 
-### Add tags and metadata
+Now that you’ve surveyed your audience, you might want to act on what they’re saying.
 
-Looking for new ways to organize and analyze your subscriber base? Check out our guides on "[Tags](/tags)" and "[Metadata](/metadata)" for ideas!
+### Tag your survey responses
+
+You can tag your audience based on how they responded to a survey. Check out our guides on [tags](/tags) & [metadata](/metadata) to learn more.
+
+### Personalize your emails
+
+Based on those tags, you can _then_ create [automations](/automations-introduction) & [personalizations](/template-variables) for your emails. This works great for those who want to create opt-in launch sequences, or who want to survey new subscribers [when they sign up](/building-your-subscriber-base) and custom-tailor future content to them. Head to those guides to learn more!
