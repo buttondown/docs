@@ -40,7 +40,6 @@
       "registration-and-setup",
       "scheduling-an-email",
       "substack",
-      "surveys",
       "teams",
       "welcome-sequence"
     ]
@@ -113,6 +112,7 @@
       "scheduling-an-email",
       "sending-your-first-email",
       "sending-your-first-email-advanced",
+      "surveys",
       "tags",
       "template-tags"
     ]
@@ -431,6 +431,7 @@
     "references": [
       "api-emails-send-draft",
       "draft-send",
+      "surveys",
       "test-mode"
     ]
   },
@@ -1100,6 +1101,7 @@
       "portal",
       "sending-your-first-email",
       "subscriber-data",
+      "surveys",
       "template-tags",
       "transactional-emails"
     ]
@@ -1611,6 +1613,7 @@
       "linkedin",
       "portal",
       "replies",
+      "surveys",
       "teams",
       "tumblr",
       "twitter",
