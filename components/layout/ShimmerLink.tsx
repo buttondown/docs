@@ -26,7 +26,9 @@ export function ShimmerLink({
   }, [pathname]);
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    if (pathname !== targetPath) {
+    const isNewTab =
+      e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1;
+    if (!isNewTab && pathname !== targetPath) {
       setIsLoading(true);
     }
     onClick?.(e);

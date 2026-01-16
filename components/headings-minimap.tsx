@@ -22,13 +22,13 @@ export default function HeadingsMinimap() {
 
   useEffect(() => {
     const extractHeadings = () => {
-      const elements = document.querySelectorAll("h2[id], h3[id]");
+      const elements = document.querySelectorAll("h2[id], h3[id], h4[id]");
       const items: HeadingItem[] = [];
 
       elements.forEach((el) => {
         const id = el.getAttribute("id");
         const text = el.textContent?.trim() || "";
-        const level = el.tagName === "H2" ? 2 : 3;
+        const level = el.tagName === "H2" ? 2 : el.tagName === "H3" ? 3 : 4;
 
         if (id && text) {
           items.push({ id, text, level });
@@ -191,6 +191,7 @@ export default function HeadingsMinimap() {
                   className={cn(
                     "block py-1.5 pl-4 text-[13px] leading-snug transition-colors duration-150",
                     level === 3 && "pl-6",
+                    level === 4 && "pl-8",
                     isHighlighted
                       ? "font-medium text-gray-700"
                       : "text-gray-400 hover:text-gray-600",
