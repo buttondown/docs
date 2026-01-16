@@ -3181,8 +3181,7 @@
             "name": "email_id",
             "schema": {
               "title": "Email Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -3345,6 +3344,92 @@
           "409": {
             "description": "Conflict"
           }
+        },
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
+    },
+    "/subscribers/{id_or_email}/automations/{automation_attempt_id}": {
+      "patch": {
+        "operationId": "update_automation_attempt",
+        "summary": "Update Automation Attempt",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id_or_email",
+            "schema": {
+              "title": "Id Or Email",
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "automation_attempt_id",
+            "schema": {
+              "title": "Automation Attempt Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AutomationForSubscriber"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage_UpdateAutomationAttemptErrorCode_"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AutomationAttemptUpdateInput"
+              }
+            }
+          },
+          "required": true
         },
         "security": [
           {
@@ -10126,6 +10211,57 @@
         "required": [
           "results",
           "count"
+        ]
+      },
+      "UpdateAutomationAttemptErrorCode": {
+        "title": "UpdateAutomationAttemptErrorCode",
+        "description": "Represents the type of error that occurred when updating an automation attempt.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
+        "enum": [
+          "automation_attempt_not_found",
+          "invalid_status"
+        ],
+        "type": "string"
+      },
+      "ErrorMessage_UpdateAutomationAttemptErrorCode_": {
+        "title": "ErrorMessage[UpdateAutomationAttemptErrorCode]",
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/UpdateAutomationAttemptErrorCode"
+          },
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "default": {},
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "code",
+          "detail"
+        ]
+      },
+      "AutomationAttemptUpdateInput": {
+        "title": "AutomationAttemptUpdateInput",
+        "type": "object",
+        "properties": {
+          "status": {
+            "title": "Status",
+            "description": "The status to set for the automation attempt. Only 'skipped' is allowed.",
+            "enum": [
+              "skipped"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
         ]
       },
       "StripeSubscription": {

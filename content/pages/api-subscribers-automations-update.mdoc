@@ -1,0 +1,9 @@
+---
+title: Updating a subscriber's automation
+endpoint: /subscribers/{id_or_email}/automations/{automation_attempt_id}
+method: patch
+---
+
+This endpoint allows you to update an automation attempt for a specific subscriber. Currently, the only supported action is skipping an automation attempt by setting its status to `skipped`.
+
+This is useful when you want to prevent a specific automation from being sent to a subscriber without removing them from the automation entirely.

@@ -1426,6 +1426,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-subscribers-automations-update"
+        },
+        {
+          "discriminant": "page",
           "value": "api-subscribers-stripe-subscriptions"
         }
       ]

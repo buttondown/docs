@@ -3031,6 +3031,14 @@
     "references": []
   },
   {
+    "title": "Updating a subscriber's automation",
+    "url": "api-subscribers-automations-update",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Subscriber Stripe subscriptions",
     "url": "api-subscribers-stripe-subscriptions",
     "section": "api",
