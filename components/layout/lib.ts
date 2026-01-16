@@ -53,6 +53,25 @@ export type KeystaticPage = {
   };
 };
 
+export const getFirstPageSlug = (
+  nav: NavData,
+  group: NavigationGroup,
+): string => {
+  const folders = nav[group];
+  if (!folders || folders.length === 0) {
+    throw new Error(`No folders found for navigation group: ${group}`);
+  }
+
+  for (const folder of folders) {
+    for (const item of folder.items) {
+      if (item.type === "page") {
+        return item.slug;
+      }
+    }
+  }
+  throw new Error(`No pages found in navigation group: ${group}`);
+};
+
 export const assembleNavData = (
   navigation: KeystaticNavigationFile,
   pages: KeystaticPage[],

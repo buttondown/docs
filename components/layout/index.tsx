@@ -11,6 +11,7 @@ import { clsx } from "@/lib/utils";
 import AccountButtons from "./account-buttons";
 import {
   assembleNavData,
+  getFirstPageSlug,
   type KeystaticNavigationFile,
   type KeystaticPage,
   type NavData,
@@ -82,7 +83,7 @@ export default async function Layout({
 
       <div className="lg:ml-[320px]">
         {/* Desktop nav header */}
-        <Nav activeGroup={currentNavigationGroup} />
+        <Nav activeGroup={currentNavigationGroup} nav={nav} />
 
         <div className="max-w-[650px] p-4 pb-16 lg:p-8 lg:pb-24 lg:mx-0 mx-auto">
           <h1 className="text-3xl font-extrabold text-gray-800 mb-8">
@@ -113,8 +114,18 @@ const DesktopLogo = () => {
   );
 };
 
-const Nav = ({ activeGroup }: { activeGroup: string | null }) => {
+const Nav = ({
+  activeGroup,
+  nav,
+}: {
+  activeGroup: string | null;
+  nav: NavData;
+}) => {
   const contentArray = buildContentArray();
+
+  const guidesHref = `/${getFirstPageSlug(nav, "guides")}`;
+  const referenceHref = `/${getFirstPageSlug(nav, "reference")}`;
+  const apiHref = `/${getFirstPageSlug(nav, "api")}`;
 
   return (
     <nav
@@ -126,19 +137,19 @@ const Nav = ({ activeGroup }: { activeGroup: string | null }) => {
       <div className="flex items-center gap-x-6">
         <NavItem
           label="Getting started"
-          href="/introduction"
+          href={guidesHref}
           icon={PlayCircleIcon}
           isActive={activeGroup === "guides"}
         />
         <NavItem
           label="Reference"
-          href="/home"
+          href={referenceHref}
           icon={BookOpenIcon}
           isActive={activeGroup === "reference"}
         />
         <NavItem
           label="API"
-          href="/api-introduction"
+          href={apiHref}
           icon={CodeBracketIcon}
           isActive={activeGroup === "api"}
         />

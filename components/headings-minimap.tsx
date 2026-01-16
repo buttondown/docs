@@ -11,8 +11,14 @@ type HeadingItem = {
 
 export default function HeadingsMinimap() {
   const [headings, setHeadings] = useState<HeadingItem[]>([]);
-  const [activeId, setActiveId] = useState<string>("");
-  const activeRef = useRef<HTMLAnchorElement>(null);
+  const [visibleIds, setVisibleIds] = useState<Set<string>>(new Set());
+  const [currentSectionId, setCurrentSectionId] = useState<string | null>(null);
+  const itemRefs = useRef<Map<string, HTMLLIElement>>(new Map());
+  const listRef = useRef<HTMLUListElement>(null);
+  const [indicatorStyle, setIndicatorStyle] = useState<{
+    top: number;
+    height: number;
+  } | null>(null);
 
   useEffect(() => {
     const extractHeadings = () => {
@@ -30,10 +36,6 @@ export default function HeadingsMinimap() {
       });
 
       setHeadings(items);
-
-      if (items.length > 0 && !activeId) {
-        setActiveId(items[0].id);
-      }
     };
 
     extractHeadings();
@@ -42,61 +44,114 @@ export default function HeadingsMinimap() {
     observer.observe(document.body, { childList: true, subtree: true });
 
     return () => observer.disconnect();
-  }, [activeId]);
+  }, []);
 
   useEffect(() => {
     if (headings.length === 0) return;
 
-    const handleScroll = () => {
-      const headerOffset = 100;
-      const hash = window.location.hash.slice(1);
+    const visibleSet = new Set<string>();
 
-      let currentId = headings[0]?.id || "";
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.getAttribute("id");
+          if (id) {
+            if (entry.isIntersecting) {
+              visibleSet.add(id);
+            } else {
+              visibleSet.delete(id);
+            }
+          }
+        });
+        setVisibleIds(new Set(visibleSet));
+      },
+      {
+        rootMargin: "-100px 0px -100px 0px",
+        threshold: 0,
+      },
+    );
+
+    headings.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) {
+        observer.observe(el);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, [headings]);
+
+  useEffect(() => {
+    if (headings.length === 0) return;
+
+    const updateCurrentSection = () => {
+      const headerOffset = 100;
+      let current: string | null = null;
 
       for (const { id } of headings) {
         const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
           if (rect.top <= headerOffset) {
-            currentId = id;
+            current = id;
           }
         }
       }
 
-      // If hash matches a heading and it's visible in the upper half, prioritize it
-      if (hash && headings.some((h) => h.id === hash)) {
-        const hashEl = document.getElementById(hash);
-        if (hashEl) {
-          const rect = hashEl.getBoundingClientRect();
-          const inUpperHalf =
-            rect.top >= 0 && rect.top <= window.innerHeight * 0.5;
-          if (inUpperHalf) {
-            currentId = hash;
-          }
-        }
-      }
-
-      setActiveId(currentId);
+      setCurrentSectionId(current);
     };
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("hashchange", handleScroll);
+    updateCurrentSection();
+    window.addEventListener("scroll", updateCurrentSection, { passive: true });
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("hashchange", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", updateCurrentSection);
   }, [headings]);
 
   useEffect(() => {
-    if (activeRef.current) {
-      activeRef.current.scrollIntoView({
-        block: "nearest",
-        behavior: "smooth",
-      });
+    if (!listRef.current) {
+      setIndicatorStyle(null);
+      return;
     }
-  }, [activeId]);
+
+    const idsToHighlight =
+      visibleIds.size > 0
+        ? visibleIds
+        : currentSectionId
+          ? new Set([currentSectionId])
+          : new Set<string>();
+
+    if (idsToHighlight.size === 0) {
+      setIndicatorStyle(null);
+      return;
+    }
+
+    const highlightIndices = headings
+      .map((h, i) => (idsToHighlight.has(h.id) ? i : -1))
+      .filter((i) => i !== -1);
+
+    if (highlightIndices.length === 0) {
+      setIndicatorStyle(null);
+      return;
+    }
+
+    const firstVisibleId = headings[highlightIndices[0]].id;
+    const lastVisibleId = headings[highlightIndices[highlightIndices.length - 1]].id;
+
+    const firstEl = itemRefs.current.get(firstVisibleId);
+    const lastEl = itemRefs.current.get(lastVisibleId);
+    const listEl = listRef.current;
+
+    if (firstEl && lastEl && listEl) {
+      const listRect = listEl.getBoundingClientRect();
+      const firstRect = firstEl.getBoundingClientRect();
+      const lastRect = lastEl.getBoundingClientRect();
+
+      const top = firstRect.top - listRect.top;
+      const height = lastRect.bottom - firstRect.top;
+
+      setIndicatorStyle({ top, height });
+    }
+  }, [visibleIds, currentSectionId, headings]);
 
   if (headings.length < 2) return null;
 
@@ -105,28 +160,49 @@ export default function HeadingsMinimap() {
       className="fixed right-8 top-[90px] w-[180px] max-h-[calc(100vh-150px)] overflow-y-auto no-scrollbar"
       aria-label="Table of contents"
     >
-      <ul className="border-l border-gray-200">
-        {headings.map(({ id, text, level }) => {
-          const isActive = activeId === id;
-          return (
-            <li key={id}>
-              <a
-                ref={isActive ? activeRef : null}
-                href={`#${id}`}
-                className={cn(
-                  "block py-1.5 pl-4 text-[13px] leading-snug transition-all duration-150 -ml-px border-l",
-                  level === 3 && "pl-6",
-                  isActive
-                    ? "border-gray-500 font-medium text-gray-700"
-                    : "border-transparent text-gray-400 hover:text-gray-600 hover:border-gray-300",
-                )}
+      <div className="relative">
+        <div
+          className="absolute left-0 w-px bg-gray-500 transition-all duration-200 ease-out"
+          style={{
+            top: indicatorStyle?.top ?? 0,
+            height: indicatorStyle?.height ?? 0,
+            opacity: indicatorStyle ? 1 : 0,
+          }}
+        />
+        <ul ref={listRef} className="border-l border-gray-200">
+          {headings.map(({ id, text, level }) => {
+            const isHighlighted =
+              visibleIds.size > 0
+                ? visibleIds.has(id)
+                : currentSectionId === id;
+            return (
+              <li
+                key={id}
+                ref={(el) => {
+                  if (el) {
+                    itemRefs.current.set(id, el);
+                  } else {
+                    itemRefs.current.delete(id);
+                  }
+                }}
               >
-                {text}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
+                <a
+                  href={`#${id}`}
+                  className={cn(
+                    "block py-1.5 pl-4 text-[13px] leading-snug transition-colors duration-150",
+                    level === 3 && "pl-6",
+                    isHighlighted
+                      ? "font-medium text-gray-700"
+                      : "text-gray-400 hover:text-gray-600",
+                  )}
+                >
+                  {text}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </nav>
   );
 }
