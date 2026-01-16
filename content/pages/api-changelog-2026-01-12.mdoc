@@ -1,0 +1,13 @@
+---
+title: "2026-01-12"
+navigationTitle: "2026-01-12"
+---
+
+Added a new endpoint [`/v1/subscribers/{id_or_email}/send-magic-link`](/api-subscribers-magic-link) that sends a magic login link to a subscriber. This allows authors and integrations to trigger subscriber login flows programmatically, enabling subscribers to authenticate and access their subscription management portal.
+
+Example:
+
+```bash
+curl -X POST "https://api.buttondown.com/v1/subscribers/{id}/send-magic-link" \
+  -H "Authorization: Token YOUR_API_KEY"
+```

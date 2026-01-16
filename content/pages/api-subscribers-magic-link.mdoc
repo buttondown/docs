@@ -1,0 +1,23 @@
+---
+title: Sending a magic link
+endpoint: /subscribers/{id_or_email}/send-magic-link
+method: post
+---
+
+This endpoint sends a magic login link to a subscriber, allowing them to authenticate and access their subscription management portal.
+
+This is useful for authors and integrations that need to trigger subscriber login flows programmatically, such as when you want to let subscribers manage their subscriptions from within your own application.
+
+## Example
+
+```bash
+curl -X POST "https://api.buttondown.com/v1/subscribers/{id_or_email}/send-magic-link" \
+  -H "Authorization: Token YOUR_API_KEY"
+```
+
+## Notes
+
+- The magic link will be sent to the subscriber's email address.
+- Magic links expire after 30 minutes.
+- The link will direct subscribers to the [portal](/portal), where they can view and manage all their subscriptions associated with that email address.
+- If your newsletter has a [custom domain](/hosting-on-a-custom-domain) configured, the magic link URL will use that domain.

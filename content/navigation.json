@@ -1418,6 +1418,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-subscribers-magic-link"
+        },
+        {
+          "discriminant": "page",
           "value": "api-subscribers-automations"
         },
         {
@@ -2022,6 +2026,10 @@
         {
           "discriminant": "page",
           "value": "api-changelog"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2026-01-12"
         },
         {
           "discriminant": "page",

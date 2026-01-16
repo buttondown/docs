@@ -3112,6 +3112,56 @@
         ]
       }
     },
+    "/subscribers/{id_or_email}/send-magic-link": {
+      "post": {
+        "operationId": "send_magic_link_to_subscriber",
+        "summary": "Send Magic Link To Subscriber",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id_or_email",
+            "schema": {
+              "title": "Id Or Email",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
+    },
     "/subscribers/{id_or_email}/emails/{email_id}": {
       "post": {
         "operationId": "send_email_to",

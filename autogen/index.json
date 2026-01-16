@@ -594,6 +594,7 @@
     "schema": null,
     "description": "Hosting your Buttondown archives on a custom domain helps establish your newsletter's brand.",
     "references": [
+      "api-subscribers-magic-link",
       "beehiiv",
       "glossary-dns",
       "glossary-hosting-domain",
@@ -1212,6 +1213,7 @@
     "schema": null,
     "description": "Buttondown lets you let your subscribers change their metadata, tags, and more.",
     "references": [
+      "api-subscribers-magic-link",
       "portal",
       "tags",
       "template-tags"
@@ -3011,6 +3013,16 @@
     "references": []
   },
   {
+    "title": "Sending a magic link",
+    "url": "api-subscribers-magic-link",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog-2026-01-12"
+    ]
+  },
+  {
     "title": "Subscriber automations",
     "url": "api-subscribers-automations",
     "section": "api",
@@ -3941,6 +3953,16 @@
       "api-changelog-2022-11-19",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2026-01-12",
+    "url": "api-changelog-2026-01-12",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
     ]
   },
   {
