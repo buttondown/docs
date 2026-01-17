@@ -192,6 +192,25 @@ pre.mermaid[data-processed] {
   @apply font-medium text-gray-900 underline hover:bg-[color-mix(in_srgb,currentColor_10%,transparent)];
 }
 
+.faq-content ul {
+  @apply list-disc pl-6 my-4;
+}
+
+.faq-content ol {
+  @apply list-decimal pl-6 my-4;
+}
+
+.faq-content li {
+  @apply my-1;
+}
+
+.faq-content ul ul,
+.faq-content ol ol,
+.faq-content ul ol,
+.faq-content ol ul {
+  @apply my-2;
+}
+
 /* Mobile nav animations */
 .mobile-nav-overlay[data-state="open"] {
   animation: fade-in 0.25s cubic-bezier(0.16, 1, 0.3, 1);
