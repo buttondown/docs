@@ -20,6 +20,7 @@ Our friends over at Litmus have a really useful, detailed answer about why this 
 Some additional notes:
 
 - Fastmail does not really support CSS variables. You'll want to add fallback values for your CSS variables.
+- Outlook (especially on Android) does not respect `word-break` or `overflow-wrap` CSS properties. Long, unbreakable strings like URLs or email addresses inside table cells can force columns to expand beyond their intended width, causing uneven or "wonky" table layouts. To work around this, try adding spaces around long links, keeping table cells reasonably wide, or manually breaking up long text with line breaks.
 
 ## Frequently asked questions
 
