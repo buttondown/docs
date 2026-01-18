@@ -313,6 +313,10 @@
         },
         {
           "discriminant": "page",
+          "value": "stripe-receipts"
+        },
+        {
+          "discriminant": "page",
           "value": "stripe-upsell"
         },
         {
