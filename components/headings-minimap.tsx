@@ -66,7 +66,7 @@ export default function HeadingsMinimap() {
         setVisibleIds(new Set(visibleSet));
       },
       {
-        rootMargin: "-100px 0px -100px 0px",
+        rootMargin: "-50px 0px 0px 0px",
         threshold: 0,
       },
     );
@@ -150,6 +150,18 @@ export default function HeadingsMinimap() {
       const height = lastRect.bottom - firstRect.top;
 
       setIndicatorStyle({ top, height });
+    }
+  }, [visibleIds, currentSectionId, headings]);
+
+  useEffect(() => {
+    const activeId =
+      visibleIds.size > 0
+        ? headings.find((h) => visibleIds.has(h.id))?.id
+        : currentSectionId;
+
+    if (activeId) {
+      const el = itemRefs.current.get(activeId);
+      el?.scrollIntoView({ block: "nearest", behavior: "smooth" });
     }
   }, [visibleIds, currentSectionId, headings]);
 
