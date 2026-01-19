@@ -712,6 +712,14 @@
     "references": []
   },
   {
+    "title": "How do I enable Stripe-managed receipts?",
+    "url": "stripe-receipts",
+    "section": "guides",
+    "schema": null,
+    "description": "Stripe can automatically send payment receipts to your paid subscribers.",
+    "references": []
+  },
+  {
     "title": "Allow subscribers to choose between paying monthly or yearly",
     "url": "stripe-upsell",
     "section": "guides",
@@ -3137,6 +3145,30 @@
   {
     "title": "Deleting an image",
     "url": "api-images-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Advertising slots",
+    "url": "api-advertising-slots-introduction",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing advertising slots",
+    "url": "api-advertising-slots-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Updating an advertising slot",
+    "url": "api-advertising-slots-update",
     "section": "api",
     "schema": null,
     "description": null,

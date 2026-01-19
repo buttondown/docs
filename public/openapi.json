@@ -6222,6 +6222,54 @@
         ]
       }
     },
+    "/advertising_units/slots": {
+      "get": {
+        "operationId": "list_advertising_slots",
+        "summary": "List Advertising Slots",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdvertisingSlotPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "List all advertising slots",
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      }
+    },
     "/advertising_units/slots/{id}": {
       "patch": {
         "operationId": "update_advertising_slot",
@@ -13002,7 +13050,14 @@
         "properties": {
           "id": {
             "title": "Id",
+            "description": "A unique TypeID associated with the object.",
             "type": "string"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
+            "type": "string",
+            "format": "date-time"
           },
           "date": {
             "title": "Date",
@@ -13016,16 +13071,66 @@
             "title": "Invoice Url",
             "type": "string"
           },
+          "sku_id": {
+            "title": "Sku Id",
+            "type": "string"
+          },
+          "sponsor_company": {
+            "title": "Sponsor Company",
+            "type": "string"
+          },
+          "sponsor_email": {
+            "title": "Sponsor Email",
+            "type": "string"
+          },
+          "sponsor_name": {
+            "title": "Sponsor Name",
+            "type": "string"
+          },
           "content": {
             "title": "Content",
             "type": "string"
+          },
+          "content_image_id": {
+            "title": "Content Image Id",
+            "type": "string"
+          },
+          "content_url": {
+            "title": "Content Url",
+            "type": "string"
+          },
+          "content_approved_at": {
+            "title": "Content Approved At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "content_rejected_at": {
+            "title": "Content Rejected At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "content_rejection_reason": {
+            "title": "Content Rejection Reason",
+            "type": "string"
+          },
+          "content_submitted_at": {
+            "title": "Content Submitted At",
+            "type": "string",
+            "format": "date-time"
           }
         },
         "required": [
           "id",
+          "creation_date",
           "date",
           "status",
-          "content"
+          "sku_id",
+          "sponsor_company",
+          "sponsor_email",
+          "sponsor_name",
+          "content",
+          "content_url",
+          "content_rejection_reason"
         ]
       },
       "AdvertisingUnit": {
@@ -13072,6 +13177,22 @@
           "price": {
             "title": "Price",
             "type": "integer"
+          },
+          "allows_html": {
+            "title": "Allows Html",
+            "type": "boolean"
+          },
+          "allows_image": {
+            "title": "Allows Image",
+            "type": "boolean"
+          },
+          "max_characters": {
+            "title": "Max Characters",
+            "type": "integer"
+          },
+          "submission_deadline_days": {
+            "title": "Submission Deadline Days",
+            "type": "integer"
           }
         },
         "required": [
@@ -13082,7 +13203,10 @@
           "title",
           "description",
           "behavior",
-          "url"
+          "url",
+          "allows_html",
+          "allows_image",
+          "submission_deadline_days"
         ]
       },
       "AdvertisingUnitPage": {
@@ -13172,10 +13296,55 @@
           "price": {
             "title": "Price",
             "type": "integer"
+          },
+          "allows_html": {
+            "title": "Allows Html",
+            "type": "boolean"
+          },
+          "allows_image": {
+            "title": "Allows Image",
+            "type": "boolean"
+          },
+          "max_characters": {
+            "title": "Max Characters",
+            "type": "integer"
+          },
+          "submission_deadline_days": {
+            "title": "Submission Deadline Days",
+            "type": "integer"
           }
         },
         "required": [
           "dates"
+        ]
+      },
+      "AdvertisingSlotPage": {
+        "title": "Page[AdvertisingSlot]",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AdvertisingSlot"
+            }
+          },
+          "next": {
+            "title": "Next",
+            "type": "string"
+          },
+          "previous": {
+            "title": "Previous",
+            "type": "string"
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "results",
+          "count"
         ]
       },
       "AdvertisingSlotUpdateInput": {
@@ -13184,6 +13353,35 @@
         "properties": {
           "content": {
             "title": "Content",
+            "type": "string"
+          },
+          "content_approved_at": {
+            "title": "Content Approved At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "content_image_id": {
+            "title": "Content Image Id",
+            "type": "string"
+          },
+          "content_rejection_reason": {
+            "title": "Content Rejection Reason",
+            "type": "string"
+          },
+          "content_url": {
+            "title": "Content Url",
+            "type": "string"
+          },
+          "sponsor_company": {
+            "title": "Sponsor Company",
+            "type": "string"
+          },
+          "sponsor_email": {
+            "title": "Sponsor Email",
+            "type": "string"
+          },
+          "sponsor_name": {
+            "title": "Sponsor Name",
             "type": "string"
           }
         }

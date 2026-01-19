@@ -1501,6 +1501,27 @@
       ]
     },
     {
+      "name": "Advertising slots",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-advertising-slots-introduction"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-advertising-slots-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-advertising-slots-update"
+        }
+      ]
+    },
+    {
       "name": "Attachments",
       "items": [
         {

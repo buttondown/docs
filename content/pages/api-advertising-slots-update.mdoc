@@ -1,0 +1,15 @@
+---
+title: Updating an advertising slot
+endpoint: /advertising_units/slots/{id}
+method: patch
+---
+
+Update an advertising slot's sponsor content and approval status.
+
+## Approving content
+
+To approve a slot's content, set `content_approved_at` to a datetime value. This will automatically clear any rejection status.
+
+## Rejecting content
+
+To reject a slot's content, set `content_rejection_reason` to explain why the content was rejected.

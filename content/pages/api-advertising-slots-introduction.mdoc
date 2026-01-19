@@ -1,0 +1,25 @@
+---
+title: Advertising slots
+---
+
+Advertising slots represent individual sponsorship opportunities within your newsletter. Each slot is tied to an advertising unit (SKU) and a specific date.
+
+## Slot status
+
+Advertising slots have one of the following statuses:
+
+- `open` - The slot is available for purchase
+- `sold` - The slot has been purchased but content hasn't been finalized
+- `finalized` - The sponsor has submitted their content
+- `executed` - The newsletter containing the slot has been sent
+- `expired` - The slot date has passed without being sold
+
+## Content workflow
+
+Sponsors can submit content for their slots, which includes:
+
+- **content** - The text content for the advertisement
+- **content_url** - A CTA link for the ad
+- **content_image_id** - An optional image attachment
+
+After content is submitted, you can approve it by setting `content_approved_at`, or reject it by setting `content_rejection_reason`.
