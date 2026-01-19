@@ -12988,11 +12988,11 @@
         "title": "Status",
         "description": "An enumeration.",
         "enum": [
-          "open",
-          "sold",
-          "finalized",
+          "expired",
           "executed",
-          "expired"
+          "finalized",
+          "open",
+          "sold"
         ],
         "type": "string"
       },
