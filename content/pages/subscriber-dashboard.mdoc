@@ -1,13 +1,10 @@
 ---
-title: Customizing your subscriber dashboard
-navigationTitle: Subscriber dashboard
-relatedPages:
-- 'customizing-email-list-view'
+title: Subscriber dashboard
 description:  >-
-  You can use filters to customize your Subscribers dashboard to your liking.
+  View all of your subscribers.
 ---
 
-Sometimes you want things to be organized just right. We get it! That’s why we created a way for you to see all the information that you want—and nothing more—when you’re glancing at your “Subscriber” tab.
+You can view your full list of subscribers at [Subscribers](https://buttondown.com/subscribers). Here, you can view individual properties of a subscriber by clicking on one, and you can make changes in batch by checking each box to the left of various subscribers.
 
 ## Personalizing your “Subscriber” list view
 
@@ -15,9 +12,7 @@ No two authors are exactly alike—and that extends to their “Subscriber” li
 
 {% iframe src="https://demo.buttondown.com/subscribers?emphasis=customize" /%}
 
-
 You can also sort your subscribers based on any column of your choosing. Note that the only required column is the “Email” column.
-
 
 | COLUMN              | DESCRIPTION                                                                                    |
 |---------------------|------------------------------------------------------------------------------------------------|
@@ -42,11 +37,32 @@ You can also sort your subscribers based on any column of your choosing. Note th
 | Click rate (%)     | The percentage of links clicked by the subscriber.                                               |
 | Stripe | The [Stripe customer ID for the subscriber](/stripe), if one exists.           |
 
+Not seeing some of these columns listed? That’s because you might not have certain data available. For instance, if you don’t use [metadata](/subscriber-data), the “Metadata” column won’t be listed as an option.
 
-(Note that you can't sort by all of these columns yet — notably click and open rate — for architectural reasons, though we hope to improve that soon!)
+## Auditing your subscribers
 
-Not seeing some of these columns listed? That’s because you might not have certain data available. For instance, if you don’t use [metadata](/subscriber-data), the “Metadata” column won’t be listed as an option—because, well, there’d be nothing to populate it with! However, if you ever do want to start using metadata to [sort your subscriber base](/subscriber-data), then the option will pop up.
+It's important that Buttondown makes sure all newsletters on our platform are compliant and well-behaved. Part of the process in doing so is periodic verifications and audits of accounts. If your account was disabled, it was likely due to one of the following reasons:
 
-## Going above and beyond
+- **You uploaded a new list of subscribers**. We verify all new lists of subscribers to ensure they are compliant with our terms of service and that they're well-behaved.
+- **We detected some unusual activity with your account**, such as an unusually high subscription/unsubscription rate or an irregular volume of emails being sent.
+- **The email address associated with your user account is bouncing**. If your email address is bouncing, we'll disable your account to prevent further bounces — sending out emails from an address that can't receive emails back is a good way to get flagged as spam.
+- **One or more of your subscribers has registered a complaint**. We adhere to [CFBL](/glossary-cfl) standards and have a very low tolerance for complaints: if you're sending spam, or sending a lot of [cold emails](/glossary-cold-email), your account will be disabled.
+- **Your email's engagement metrics are too low**. If your email's engagement metrics are [too low](/monitoring-your-domain), we'll disable your account to prevent further bounces.
 
-You’re ready to go off and organize to your heart’s content. Just one last thing: If you ever think up a column that’s not listed here, please [contact us](https://buttondown.com/support)—we’d love to hear about it!
+The vast majority of audits take less than a full business day to complete; we'll reach out to you if we need more information or if we need to take further action, but otherwise you'll receive an email once your account is cleared.
+
+
+If you believe your account was disabled in error, please [contact us](https://buttondown.com/support).
+
+## What can I do while my account is disabled?
+
+While you're waiting for your account to get re-enabled, you can still log in and access your data, as well as drafting emails and performing administrative tasks like updating your billing information or changing your email address.
+
+| Task | Can do while disabled |
+|------|----------------------|
+| Log in and access your data | ✅ |
+| Draft emails | ✅ |
+| Update billing information | ✅ |
+| Change your email address | ✅ |
+| Send emails (both newsletters and [transactional](/glossary-transactional-email) emails) | ❌ |
+| Publicly access your newsletter's archive | ❌ |

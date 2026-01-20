@@ -37,24 +37,12 @@
           "value": "building-your-subscriber-base"
         },
         {
-          "discriminant": "page",
-          "value": "subscriber-data"
-        },
-        {
-          "discriminant": "page",
-          "value": "private-mode"
-        },
-        {
           "discriminant": "divider",
           "value": "FAQ"
         },
         {
           "discriminant": "page",
           "value": "manually-adding-subscribers"
-        },
-        {
-          "discriminant": "page",
-          "value": "dealing-with-spam-subscribers"
         },
         {
           "discriminant": "page",
@@ -71,23 +59,7 @@
         },
         {
           "discriminant": "page",
-          "value": "metadata"
-        },
-        {
-          "discriminant": "page",
           "value": "surveys"
-        },
-        {
-          "discriminant": "page",
-          "value": "subscriber-referrals"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-can-i-segment-users"
         }
       ]
     },
@@ -451,6 +423,39 @@
   ],
   "reference": [
     {
+      "name": "Subscribers",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "subscriber-dashboard"
+        },
+        {
+          "discriminant": "page",
+          "value": "subscriber-data"
+        },
+        {
+          "discriminant": "page",
+          "value": "segmenting-your-audience"
+        },
+        {
+          "discriminant": "page",
+          "value": "subscriber-cleanup"
+        },
+        {
+          "discriminant": "page",
+          "value": "portal"
+        },
+        {
+          "discriminant": "page",
+          "value": "private-mode"
+        },
+        {
+          "discriminant": "page",
+          "value": "subscriber-referrals"
+        }
+      ]
+    },
+    {
       "name": "Dashboard",
       "items": [
         {
@@ -481,10 +486,6 @@
         {
           "discriminant": "divider",
           "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "auditing"
         },
         {
           "discriminant": "page",
@@ -562,35 +563,6 @@
         {
           "discriminant": "page",
           "value": "buttondown-editor-mode"
-        }
-      ]
-    },
-    {
-      "name": "Subscriber management",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "subscriber-cleanup"
-        },
-        {
-          "discriminant": "page",
-          "value": "portal"
-        },
-        {
-          "discriminant": "page",
-          "value": "domains"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-set-a-custom-unsubscribe-link"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-send-an-email-to-new-subscribers"
         }
       ]
     },

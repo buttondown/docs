@@ -105,35 +105,17 @@
       "glossary-jamstack",
       "importing-your-data",
       "manually-adding-subscribers",
-      "metadata",
       "portal",
       "private-mode",
       "quickstart",
       "scheduling-an-email",
+      "segmenting-your-audience",
       "sending-your-first-email",
       "sending-your-first-email-advanced",
       "surveys",
       "tags",
       "template-tags"
     ]
-  },
-  {
-    "title": "Collecting and using subscribers' data",
-    "url": "subscriber-data",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown allows you to collect subscriber names, and create a more personalized email for your readers.",
-    "references": [
-      "importing-your-data"
-    ]
-  },
-  {
-    "title": "Keeping your newsletter private",
-    "url": "private-mode",
-    "section": "guides",
-    "schema": null,
-    "description": "Private Mode makes it easy to limit who can see you Buttondown newsletter.",
-    "references": []
   },
   {
     "title": "How do I manually add subscribers?",
@@ -144,14 +126,6 @@
     "references": [
       "api-subscribers-create"
     ]
-  },
-  {
-    "title": "Dealing with spammy subscribers",
-    "url": "dealing-with-spam-subscribers",
-    "section": "guides",
-    "schema": null,
-    "description": "Spam happens. If you're seeing lots of spammy subscribers, please reach out and we'll help you out.",
-    "references": []
   },
   {
     "title": "Why won't my embedded form submit?",
@@ -177,35 +151,17 @@
       "building-your-subscriber-base",
       "constant-contact",
       "customizing-subscriber-list-view",
-      "how-can-i-segment-users",
       "importing-your-data",
       "multiple-newsletters",
       "portal",
       "quickstart",
+      "segmenting-your-audience",
       "sending-your-first-email",
+      "subscriber-dashboard",
       "surveys",
       "tags",
       "webflow",
       "welcome-sequence"
-    ]
-  },
-  {
-    "title": "Metadata",
-    "url": "metadata",
-    "section": "guides",
-    "schema": null,
-    "description": "Want to do a \"mail merge\" on your Buttondown newsletter? We make it easy information in Metadata!",
-    "references": [
-      "api-notes-create",
-      "building-your-subscriber-base",
-      "constant-contact",
-      "customizing-subscriber-list-view",
-      "how-can-i-segment-users",
-      "importing-your-data",
-      "metadata",
-      "subscriber-data",
-      "surveys",
-      "template-tags"
     ]
   },
   {
@@ -227,24 +183,6 @@
       "teams",
       "welcome-sequence"
     ]
-  },
-  {
-    "title": "Subscriber referrals",
-    "url": "subscriber-referrals",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown provides the building blocks to build out your own referral system.",
-    "references": [
-      "affiliate-program"
-    ]
-  },
-  {
-    "title": "How can I segment users?",
-    "url": "how-can-i-segment-users",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown allows you to segment your audience using tags, metadata, or by creating a new newsletter.",
-    "references": []
   },
   {
     "title": "Importing your newsletter data",
@@ -270,6 +208,7 @@
       "podia",
       "quickstart",
       "sending-your-first-email",
+      "subscriber-dashboard",
       "substack"
     ]
   },
@@ -623,7 +562,6 @@
     "references": [
       "automations-introduction",
       "beehiiv",
-      "can-i-send-an-email-to-new-subscribers",
       "podia",
       "welcome-sequence"
     ]
@@ -659,7 +597,9 @@
       "paid-subscriptions",
       "podia",
       "quickstart",
+      "segmenting-your-audience",
       "stripe",
+      "subscriber-dashboard",
       "transactional-emails-gift",
       "transactional-emails-premium-welcome"
     ]
@@ -753,7 +693,7 @@
     "description": "With Buttondown you can connect multiple newsletters to the same account and login",
     "references": [
       "constant-contact",
-      "how-can-i-segment-users",
+      "segmenting-your-audience",
       "sending-from-a-custom-domain",
       "teams"
     ]
@@ -921,11 +861,12 @@
       "customizing-subscriber-list-view",
       "how-do-i-handle-taxes",
       "mailchimp",
-      "metadata",
       "paid-subscriptions",
       "sponsorships",
       "stripe",
       "stripe-upsell",
+      "subscriber-dashboard",
+      "subscriber-data",
       "substack"
     ]
   },
@@ -1000,6 +941,80 @@
     "references": []
   },
   {
+    "title": "Subscriber dashboard",
+    "url": "subscriber-dashboard",
+    "section": "reference",
+    "schema": null,
+    "description": "View all of your subscribers.",
+    "references": []
+  },
+  {
+    "title": "Collecting and using subscribers\u2019 data",
+    "url": "subscriber-data",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown allows you to collect subscriber names, and create a more personalized email for your readers.",
+    "references": [
+      "api-notes-create",
+      "building-your-subscriber-base",
+      "constant-contact",
+      "customizing-subscriber-list-view",
+      "importing-your-data",
+      "segmenting-your-audience",
+      "subscriber-dashboard",
+      "surveys",
+      "template-tags"
+    ]
+  },
+  {
+    "title": "Segmenting your audience",
+    "url": "segmenting-your-audience",
+    "section": "reference",
+    "schema": null,
+    "description": "Tag subscribers & target people based on specific properties.",
+    "references": []
+  },
+  {
+    "title": "Subscriber cleanup",
+    "url": "subscriber-cleanup",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown can clean up spammy or unactivated email addresses from your subscriber list.",
+    "references": []
+  },
+  {
+    "title": "Portal",
+    "url": "portal",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown lets you let your subscribers change their metadata, tags, and more.",
+    "references": [
+      "api-subscribers-magic-link",
+      "portal",
+      "segmenting-your-audience",
+      "tags",
+      "template-tags"
+    ]
+  },
+  {
+    "title": "Keeping your newsletter private",
+    "url": "private-mode",
+    "section": "reference",
+    "schema": null,
+    "description": "Private Mode makes it easy to limit who can see you Buttondown newsletter.",
+    "references": []
+  },
+  {
+    "title": "Subscribers referring other subscribers",
+    "url": "subscriber-referrals",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown provides the building blocks to build out your own referral system.",
+    "references": [
+      "affiliate-program"
+    ]
+  },
+  {
     "title": "Home",
     "url": "home",
     "section": "reference",
@@ -1042,14 +1057,6 @@
     "section": "reference",
     "schema": null,
     "description": "You can use filters to customize your API request dashboard to your liking!",
-    "references": []
-  },
-  {
-    "title": "Auditing & KYC",
-    "url": "auditing",
-    "section": "reference",
-    "schema": null,
-    "description": "All Buttondown newsletters are subject to periodic auditing to ensure compliance.",
     "references": []
   },
   {
@@ -1204,57 +1211,6 @@
     "section": "reference",
     "schema": null,
     "description": "This code comment doesn't affect the appearance or functionality of your email. ",
-    "references": []
-  },
-  {
-    "title": "Subscriber cleanup",
-    "url": "subscriber-cleanup",
-    "section": "reference",
-    "schema": null,
-    "description": "Buttondown can clean up spammy or unactivated email addresses from your subscriber list.",
-    "references": []
-  },
-  {
-    "title": "Portal",
-    "url": "portal",
-    "section": "reference",
-    "schema": null,
-    "description": "Buttondown lets you let your subscribers change their metadata, tags, and more.",
-    "references": [
-      "api-subscribers-magic-link",
-      "portal",
-      "tags",
-      "template-tags"
-    ]
-  },
-  {
-    "title": "Prohibited domains",
-    "url": "domains",
-    "section": "reference",
-    "schema": null,
-    "description": "We've compiled a list of emails domains that are disposable, invalid, or otherwise undeliverable.",
-    "references": [
-      "domains",
-      "hosting-on-a-custom-domain",
-      "sending-from-dreamhost"
-    ]
-  },
-  {
-    "title": "Can I set my own unsubscribe redirect link?",
-    "url": "can-i-set-a-custom-unsubscribe-link",
-    "section": "reference",
-    "schema": null,
-    "description": "Contact our support team and we can set up a custom unsubscribe link for your newsletter.",
-    "references": [
-      "hidden-settings"
-    ]
-  },
-  {
-    "title": "Can I send a specific email to my new subscribers?",
-    "url": "can-i-send-an-email-to-new-subscribers",
-    "section": "reference",
-    "schema": null,
-    "description": "You can send an email to all new readers by creating an automation.",
     "references": []
   },
   {
@@ -1517,10 +1473,10 @@
     "schema": null,
     "description": "Keeping your deliverability high is largely about managing your domain's reputation.",
     "references": [
-      "auditing",
       "complaint-rate",
       "permanent-failure-rate",
-      "sending-from-a-custom-domain"
+      "sending-from-a-custom-domain",
+      "subscriber-dashboard"
     ]
   },
   {
@@ -1619,7 +1575,6 @@
       "arena",
       "bsky",
       "building-your-subscriber-base",
-      "can-i-send-an-email-to-new-subscribers",
       "linkedin",
       "portal",
       "replies",
@@ -1661,7 +1616,6 @@
       "arena",
       "automations-introduction",
       "bsky",
-      "can-i-send-an-email-to-new-subscribers",
       "linkedin",
       "tumblr",
       "twitter"
@@ -1698,7 +1652,6 @@
     "references": [
       "automation-triggers",
       "automations-introduction",
-      "can-i-send-an-email-to-new-subscribers",
       "events-and-webhooks-introduction"
     ]
   },
@@ -1735,7 +1688,9 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "subscriber-cleanup"
+    ]
   },
   {
     "title": "Buttondown CLI",
@@ -2065,12 +2020,12 @@
     "schema": null,
     "description": null,
     "references": [
-      "auditing",
       "complaint-rate",
       "monitoring-your-domain",
       "retrieving-analytics-data",
       "sending-from-a-custom-domain",
-      "standards"
+      "standards",
+      "subscriber-dashboard"
     ]
   },
   {
@@ -2088,8 +2043,8 @@
     "schema": null,
     "description": null,
     "references": [
-      "auditing",
-      "glossary-double-optin"
+      "glossary-double-optin",
+      "subscriber-dashboard"
     ]
   },
   {
@@ -2451,9 +2406,9 @@
     "schema": null,
     "description": null,
     "references": [
-      "auditing",
       "customizing-transactional-emails",
-      "one-click-unsubscribe"
+      "one-click-unsubscribe",
+      "subscriber-dashboard"
     ]
   },
   {
@@ -2888,7 +2843,6 @@
       "api-changelog-2025-02-26",
       "api-notes-create",
       "glossary-rest",
-      "metadata",
       "subscriber-data"
     ]
   },
@@ -2905,7 +2859,8 @@
       "customizing-subscriber-list-view",
       "glossary-cfl",
       "premium-teaser",
-      "subscriber-cleanup"
+      "subscriber-cleanup",
+      "subscriber-dashboard"
     ]
   },
   {
@@ -3063,6 +3018,7 @@
     "references": [
       "api-notes-create",
       "api-subscribers-create",
+      "segmenting-your-audience",
       "tags"
     ]
   },

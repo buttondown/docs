@@ -6,6 +6,7 @@ description: >-
 date: 2024-05-21
 relatedPages:
   - api-subscribers-type
+  - hidden-settings
 ---
 
 Buttondown can clean up subscribers who are, for one reason or another, no longer receiving emails from you (or perhaps never did). This cleans up your subscriber list, reduces your monthly bill, and improves your deliverability (and peace of mind).
@@ -29,4 +30,18 @@ We generally recommend against this, since click and open tracking is blocked by
 
 ## What does "clean up" mean, really?
 
-Technically speaking, Buttondown soft deletes subscribers rather than hard deleting them. This is to prevent situations like a subscriber who has unsubscribed or complained about your newsletter getting resubscribed when you re-import a CSV containing their email address. If you'd like us to turn on hard deletion for your newsletter, here, you can reach out to us with the caveat that the onus is on you to make sure that when we delete or clean up subscribers, you update your own backing exports and data stores to reflect that information. 
+Technically speaking, Buttondown soft deletes subscribers rather than hard deleting them. This is to prevent situations like a subscriber who has unsubscribed or complained about your newsletter getting resubscribed when you re-import a CSV containing their email address. If you'd like us to turn on hard deletion for your newsletter, here, you can reach out to us with the caveat that the onus is on you to make sure that when we delete or clean up subscribers, you update your own backing exports and data stores to reflect that information.
+
+## Dealing with spammy subscribers
+
+If you're seeing lots of spammy subscribers, please [contact us](https://buttondown.com/support) and we'll help you out.
+
+### Buttondown marked a subscriber as spammy, but they're not
+
+{% iframe src="https://demo.buttondown.com/subscribers/0c16141d-ae6b-4b58-aa42-bd1cc1938528?newsletter=basic-newsletter&emphasis=header-dropdown&emphasis=mark-as-ok" /%}
+
+Buttondown errs on the side of caution to protect your deliverability. If we've blocked a subscriber who isn't actually spammy, you can restore their status by marking them as OK in the top-right corner of their subscriber profile. You can also unblock them by correcting a typo in their email address.
+
+## Custom unsubscribe redirect
+
+Want to redirect readers to a custom page when they unsubscribe? This setting is available for paid accounts but not in the dashboard by default. [Contact us](https://buttondown.com/support) to set it up, or read more about it in [hidden settings](/hidden-settings#unsubscription_redirect_url).

@@ -1,0 +1,103 @@
+---
+title: Segmenting your audience
+description:  >-
+  Tag subscribers & target people based on specific properties.
+---
+
+Buttondown has four ways of segmenting subscribers who might want to receive different content:
+
+- Using one newsletter, but having subscribers **tagged** into different groups
+- Using one newsletter, but searching **metadata** for a particular property
+- Targeting free versus **paid** subscribers
+- Creating a whole [**separate newsletter**](/multiple-newsletters), and building a different audience there
+
+```mermaid
+flowchart-elk TD
+    hosted_archives[Are you using Buttondown's hosted archives?]
+    hosted_archives --> |Yes| separate_archives[Should the content for each segment be separate?]
+    hosted_archives --> |No| mass_unsubscribe
+    separate_archives --> |Yes| multiple_newsletters[Create multiple newsletters]
+    separate_archives --> |No| mass_unsubscribe[Should subscribers be able to unsubscribe from all segments at once?]
+    mass_unsubscribe --> |No| multiple_newsletters
+    mass_unsubscribe --> |Yes| branding[Should each segment have a different branding?]
+    branding --> |Yes| multiple_newsletters[Create multiple newsletters]
+    branding --> |No| tags[Create one newsletter with tags]
+```
+
+In this guide, we teach you how to use each possible option to get the most out of your newsletter's personalization.
+
+## Tags
+
+{% paidFeature feature="tags" /%}
+
+Tags are an easy way to segment users into different groups. You can send emails including or excluding certain tags, making it easy to tailor your newsletter's content to specific subsets of your audience.
+
+To enable tags, go to [Settings → Basics](https://buttondown.com/settings/basics), scroll to the Tags section, and toggle the setting on.
+
+### Adding tags to users
+
+There are three different ways to add tags to users:
+
+1. Automatically via your subscription form
+2. Manually tagging subscribers in Buttondown
+3. Adding them via [the API](/api-tags-introduction)
+
+#### Via your subscription form
+
+You may want to create a special form that tags new subscribers based on where they came from or what they signed up for. Then, you can send specific emails to them based on their inbound behavior.
+
+You can automatically tag subscribers by adding a `GET` parameter of `tag` to your newsletter's URL. For example, to add the tag `sandwich` to all subscribers, you'd use the URL:
+
+`https://buttondown.com/username?tag=sandwich`
+
+Where `username` corresponds to your Buttondown username. You can find this at [Settings → Basics](https://buttondown.com/settings/basics).
+
+#### Via your embedded form
+
+To tag new readers who sign up with a specific embedded form, add the following code before your form's submit button:
+
+```html
+<input type="hidden" name="tag" value="sandwich" />
+```
+
+[*Note:* Learn more about tagging new subscribers in our guide to [building your subscriber base](/building-your-subscriber-base#adding-tags-to-your-subscribers).]
+
+#### Manually in Buttondown
+
+You can also *manually* tag users in Buttondown.
+
+To create a new tag, go to [Tags](https://buttondown.com/tags) and click the "New" button in the top right of the screen.
+
+Next, update [your subscribers](https://buttondown.com/subscribers) by selecting their records, then clicking the "Add tags" button in the bottom right corner.
+
+{% noticeWarn text="Not seeing Tags for your subscribers? Make sure this feature is enabled in Settings." /%}
+
+### Can a reader tag themselves?
+
+If you're interested in allowing subscribers to manage their tags, send them to [Portal](/portal), which allows subscribers to manage their tags and subscription preferences.
+
+### How many different tags can I have?
+
+There's no limit to the number of tags you can have in Buttondown.
+
+### Send an email using tags
+
+Now that you have your readers tagged, you can send a newsletter to only people with a specific tag. When sending your email, you'll see a "Custom…" link to support a tag:
+
+{% iframe src="https://demo.buttondown.com/emails/fa7bd3bb-ee24-409d-8e95-2ddd0cad5de6/details?newsletter=basic-newsletter&emphasis=audience" height=400 /%}
+
+Select "Tag", and then the tag you wish to target with your email.
+
+## Targeting subscriber metadata
+
+You can also target specific [metadata](/subscriber-data) properties that your subscribers happen to have. For more on how to add metadata, see [Building your subscriber base](/building-your-subscriber-base#adding-metadata-to-your-subscribers).
+
+When sending your email, you'll see a "Custom…" link to support metadata. Select "Metadata" and the property you wish your subscribers to have.
+
+## Free v. paid
+
+You can also segment emails so they only send to paid subscribers. To learn how, go to [Paid subscriptions](/paid-subscriptions#sending-paid-emails).
+
+## Creating a separate newsletter
+
+If you don't want to target a *subset* of subscribers, but instead build a whole new audience, you may wish to [create a second newsletter](/multiple-newsletters) for the purpose.

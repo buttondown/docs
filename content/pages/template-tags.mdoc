@@ -3,7 +3,7 @@ title: Template tags
 relatedPages:
 - rss-to-email
 - template-variables
-- metadata
+- subscriber-data
 ---
 Buttondown uses a templating language to mix programming code into plain old HTML. By adding logic and [variables](/template-variables) to your email you can customize your content per-subscriber, or to repeat structures in your email without having to hand code them multiple times.
 
@@ -21,7 +21,7 @@ Like a mail merge, the variable code is replaced with the correct text when an e
 
 {% playgroundEmbed initialContent="Hey there, {{ subscriber.metadata.first_name }}!" /%}
 
-Check out our articles on [template variables](/template-variables) and [metadata](/metadata) to learn what's possible!
+Check out our articles on [template variables](/template-variables) and [metadata](/subscriber-data) to learn what's possible!
 
 ## Filters
 Filters are tools that you can use to modify the output of a variable. This uses the same double curly brace syntax, but the variable name is followed by a pipe and the filter you'd like to use.

@@ -37,7 +37,12 @@ const REDIRECTS = [
   {
     source: "/advanced-features/metadata",
     permanent: false,
-    destination: "/metadata",
+    destination: "/subscriber-data",
+  },
+  {
+    source: "/metadata",
+    permanent: false,
+    destination: "/subscriber-data",
   },
   {
     source: "/advanced-features/multiple-newsletters",
@@ -678,6 +683,21 @@ const REDIRECTS = [
     source: "/late-payments",
     destination: "/billing",
     permanent: false,
+  },
+  {
+    source: "/domains",
+    destination: "https://disposables.app",
+    permanent: false,
+  },
+  {
+    source: "/can-i-set-a-custom-unsubscribe-link",
+    destination: "/subscriber-cleanup#custom-unsubscribe-redirect",
+    permanent: true,
+  },
+  {
+    source: "/dealing-with-spam-subscribers",
+    destination: "/subscriber-cleanup#dealing-with-spammy-subscribers",
+    permanent: true,
   },
 ];
 

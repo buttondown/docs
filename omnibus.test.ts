@@ -83,6 +83,7 @@ const KNOWN_GLOSSARY_PAGES_WITHOUT_INTERNAL_LINKS = [
   "glossary-omnichannel.mdoc",
   "glossary-cors.mdoc",
   "glossary-rate-sheet.mdoc",
+  "glossary-captcha.mdoc",
 ];
 
 const CHANGELOG_FILE = `api-changelog.mdoc`;

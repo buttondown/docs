@@ -1,16 +1,53 @@
 ---
-title: Collecting and using subscribers' data
+title: Collecting and using subscribers’ data
 navigationTitle: Collecting subscribers’ data
 description: >-
   Buttondown allows you to collect subscriber names, and create a more
   personalized email for your readers.
 relatedPages:
   - portal
-  - metadata
 ---
-When you can write a newsletter email using a subscriber's first name, it can give a friendly, personal feeling to your words. If you’ve ever received an email that starts with “Dear [Your Name Here]” as opposed to “Dear Reader,” it’s likely that there was a mail merge or substitution string involved—and those mail merges and substitution strings rely on [metadata](/metadata) to work properly.
+
+{% paidFeature feature="metadata" /%}
+
+When you can write a newsletter email using a subscriber’s first name, it can give a friendly, personal feeling to your words. If you’ve ever received an email that starts with “Dear [Your Name Here]” as opposed to “Dear Reader,” it’s likely that there was a mail merge or substitution string involved—and those mail merges and substitution strings rely on metadata to work properly.
 
 Read on to learn about how you, too, can collect and use metadata to personalize your newsletter!
+
+## What is metadata?
+
+This is a great question! The short answer is “structured key-value data”. As of this writing, you can only apply metadata to subscribers, meaning that you can attach any sort of key-value pairs you’d like to your subscribers. This can be things like identifying information such as first and last names, so you can apply “mail merges” to your newsletter; or it could be for internal use only, such as customer IDs to tie subscribers back to your web application.
+
+I’d recommend also reading up on [Stripe’s explanation of metadata](https://stripe.com/docs/api/metadata) — Buttondown’s implementation and philosophy behind it is very similar.
+
+## What constitutes valid metadata?
+
+Internally, metadata is stored as raw JSON, so you can be pretty liberal with what you place into it. (If you try and view or set metadata using the Buttondown interface, there will likely be some stringification issues — for complex use cases, it’s recommended to use the API or an integration like Zapier.)
+
+Metadata can be nested — you can store objects and arrays within your metadata. For example:
+
+```json
+{
+  "first_name": "John",
+  "address": {
+    "street": "123 Main St",
+    "city": "Seattle",
+    "state": "WA"
+  },
+  "preferences": ["email", "sms"]
+}
+```
+
+Note that while you can store metadata keys with hyphens (such as `first-name`), it is difficult to access that metadata
+when writing an email: `{{ subscriber.metadata.first-name }}` is a syntax error due to the templating language used by Buttondown. As a result, I recommend using underscores instead (such as `first_name`).
+
+## Searching for metadata
+
+You can search for metadata in Buttondown by using the `key:value` notation:
+
+{% iframe src="https://demo.buttondown.com/search?newsletter=basic-newsletter--metadata&term=first_name:Dennis" /%}
+
+At the moment, this does not work with more than one key-value pair; `location:seattle industry:finance` will not do what you would like it to. (It will _eventually_, though!)
 
 ## Collecting subscriber names
 
@@ -21,7 +58,7 @@ By default, Buttondown’s subscription forms only collect subscribers’ email 
    height=300
    variant="subscriber" /%}
 
-But with a few customizations, you can use Buttondown's subscription forms to ask subscribers for their names, the names of the companies they work for, their interests, or any other facts that might be useful for your newsletter!
+But with a few customizations, you can use Buttondown’s subscription forms to ask subscribers for their names, the names of the companies they work for, their interests, or any other facts that might be useful for your newsletter!
 
 {% iframe
    src="https://demo.buttondown.com/basic-newsletter--metadata"
@@ -30,30 +67,17 @@ But with a few customizations, you can use Buttondown's subscription forms to as
 
 ### Add metadata manually
 
-Prefer to go the manual route for updating your subscribers’ metadata? Go ahead and add your input key and value in the “Metadata” section of your subscriber’s “Notes” page. Here's how:
+Prefer to go the manual route for updating your subscribers’ metadata? Go ahead and add your input key and value in the “Metadata” section of your subscriber’s “Notes” page. Here’s how:
 
 1. Navigate to ["Subscribers"](https://buttondown.com/subscribers) and find the subscriber whose metadata you wish to view.
-1. Click the three-dot **overflow** menu and choose **Notes**. The subscriber's "Notes" page appears.
-1. Scroll to the "Metadata" section and click **Add**. A key/value field opens.
-1. Specify a key and value, such as "first_name" and "John".
+1. Click the three-dot **overflow** menu and choose **Notes**. The subscriber’s “Notes” page appears.
+1. Scroll to the “Metadata” section and click **Add**. A key/value field opens.
+1. Specify a key and value, such as “first_name” and “John”.
 1. Click **Add another** to add more metadata, or click **Save changes**.
 
-### Update metadata through Buttondown’s API
+## Using subscriber names to personalize emails
 
-Want to add metadata to an existing subscriber using our [API](/api-subscribers-introduction)? Copy the code below and plug in your subscriber ID (which you can find in the subscriber’s “Notes”), as well as your personal API key (which you can find in the “API” section of your Buttondown [settings](https://buttondown.com/requests)). Then add your input key and its corresponding value.
-
-{% generatedMultilanguageSnippets
-   method="PATCH"
-   endpoint="/subscribers/{id_or_email}"
-   body="{\"metadata\": {\"first_name\": \"John\"}}" /%}
-
-Run this code, and the metadata in your subscriber “Notes” should be updated and ready to go.
-
-## Using Subscriber Names
-
-### Send personalized emails
-
-Instead of addressing emails one at a time, you can address them automatically using Buttondown’s `{{ subscriber.metadata }}` [template variable](/template-variables). By plugging your “first_name” key into this template variable, you'll direct Buttondown to retrieve each subscriber’s first name for you!
+Instead of addressing emails one at a time, you can address them automatically using Buttondown’s `{{ subscriber.metadata }}` [template variable](/template-variables). By plugging your “first_name” key into this template variable, you’ll direct Buttondown to retrieve each subscriber’s first name for you!
 
 {% playgroundEmbed
    initialContent="Hello {{subscriber.metadata.first_name}}!"
@@ -65,6 +89,17 @@ But wait! What if you don’t have first names for every subscriber? Then it’s
 
 {% playgroundEmbed
    initialContent="Hello {% if subscriber.metadata.name %}{{subscriber.metadata.name}}{% else %}Pikachu{% endif %}!"
-   height="600px"
-   title="Fallback for missing metadata"
-   editorMode="plaintext" /%}
+height="600px"
+title="Fallback for missing metadata"
+editorMode="plaintext" /%}
+
+## Update metadata through Buttondown’s API
+
+Want to add metadata to an existing subscriber using our [API](/api-subscribers-introduction)? Copy the code below and plug in your subscriber ID (which you can find in the subscriber’s “Notes”), as well as your personal API key (which you can find in the “API” section of your Buttondown [settings](https://buttondown.com/requests)). Then add your input key and its corresponding value.
+
+{% generatedMultilanguageSnippets
+   method="PATCH"
+   endpoint="/subscribers/{id_or_email}"
+   body="{\"metadata\": {\"first_name\": \"John\"}}" /%}
+
+Run this code, and the metadata in your subscriber “Notes” should be updated and ready to go.
