@@ -7455,6 +7455,16 @@
               }
             }
           },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
           "403": {
             "description": "Forbidden",
             "content": {
@@ -9741,8 +9751,6 @@
           "email_address": {
             "title": "Email Address",
             "description": "The email address of the subscriber.",
-            "maxLength": 254,
-            "pattern": "^[a-zA-Z0-9.'_%+\\-!]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$",
             "example": "telemachus@buttondown.email",
             "type": "string"
           },
