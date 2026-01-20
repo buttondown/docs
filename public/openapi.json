@@ -13075,6 +13075,10 @@
             "title": "Sku Id",
             "type": "string"
           },
+          "submission_url": {
+            "title": "Submission Url",
+            "type": "string"
+          },
           "sponsor_company": {
             "title": "Sponsor Company",
             "type": "string"
@@ -13125,6 +13129,7 @@
           "date",
           "status",
           "sku_id",
+          "submission_url",
           "sponsor_company",
           "sponsor_email",
           "sponsor_name",
@@ -13382,6 +13387,14 @@
           },
           "sponsor_name": {
             "title": "Sponsor Name",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "enum": [
+              "approve",
+              "reject"
+            ],
             "type": "string"
           }
         }
