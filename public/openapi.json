@@ -8068,11 +8068,13 @@
         "properties": {
           "name": {
             "title": "Name",
+            "maxLength": 100,
             "example": "VIP",
             "type": "string"
           },
           "color": {
             "title": "Color",
+            "maxLength": 10,
             "example": "#FFD700",
             "type": "string"
           },
@@ -8110,11 +8112,13 @@
         "properties": {
           "name": {
             "title": "Name",
+            "maxLength": 100,
             "example": "VIP",
             "type": "string"
           },
           "color": {
             "title": "Color",
+            "maxLength": 10,
             "example": "#FFD700",
             "type": "string"
           },
@@ -8197,11 +8201,13 @@
         "properties": {
           "name": {
             "title": "Name",
+            "maxLength": 100,
             "example": "VIP",
             "type": "string"
           },
           "color": {
             "title": "Color",
+            "maxLength": 10,
             "example": "#FFD700",
             "type": "string"
           },
@@ -9069,6 +9075,7 @@
           },
           "slug": {
             "title": "Slug",
+            "maxLength": 100,
             "type": "string"
           },
           "description": {
@@ -9079,6 +9086,7 @@
           "canonical_url": {
             "title": "Canonical Url",
             "default": "",
+            "maxLength": 2000,
             "type": "string"
           },
           "image": {
@@ -9270,6 +9278,7 @@
           "canonical_url": {
             "title": "Canonical Url",
             "description": "The URL of the original source of the content.",
+            "maxLength": 2000,
             "example": "https://sheinhardtwig.com/2025/01/17/our-nbc-partnership",
             "type": "string"
           },
@@ -9306,6 +9315,7 @@
           },
           "slug": {
             "title": "Slug",
+            "maxLength": 100,
             "example": "hello-world",
             "type": "string"
           },
@@ -9995,16 +10005,19 @@
           "utm_campaign": {
             "title": "Utm Campaign",
             "default": "",
+            "maxLength": 300,
             "type": "string"
           },
           "utm_medium": {
             "title": "Utm Medium",
             "default": "",
+            "maxLength": 300,
             "type": "string"
           },
           "utm_source": {
             "title": "Utm Source",
             "default": "",
+            "maxLength": 300,
             "type": "string"
           },
           "referring_subscriber_id": {
@@ -10722,6 +10735,7 @@
             "title": "Domain",
             "description": "The custom domain where your newsletter archives are hosted (e.g., 'newsletter.example.com'). See [custom domains](https://docs.buttondown.com/hosting-on-a-custom-domain) for setup instructions.",
             "default": "",
+            "maxLength": 500,
             "example": "sheinhardt.com",
             "type": "string"
           },
@@ -10736,6 +10750,7 @@
             "title": "Email Domain",
             "description": "The custom domain from which your newsletter emails are sent (e.g., 'mail.example.com'). See [sending domains](https://docs.buttondown.com/sending-from-a-custom-domain) for setup instructions.",
             "default": "",
+            "maxLength": 500,
             "example": "mail.sheinhardt.com",
             "type": "string"
           },
@@ -10809,6 +10824,7 @@
             "title": "Tint Color",
             "description": "The accent color for your newsletter, used in emails and on your archive page. Must be a valid hex color code.",
             "default": "#0069FF",
+            "maxLength": 7,
             "example": "#0069FF",
             "type": "string"
           },
@@ -10895,6 +10911,7 @@
           "domain": {
             "title": "Domain",
             "description": "The custom domain where your newsletter archives are hosted (e.g., 'newsletter.example.com'). See [custom domains](https://docs.buttondown.com/hosting-on-a-custom-domain) for setup instructions.",
+            "maxLength": 500,
             "pattern": "^(([a-zA-Z]{1})|([a-zA-Z]{1}[a-zA-Z]{1})|([a-zA-Z]{1}[0-9]{1})|([0-9]{1}[a-zA-Z]{1})|([a-zA-Z0-9][-_.a-zA-Z0-9]{0,61}[a-zA-Z0-9]))\\.([a-zA-Z]{2,13}|[a-zA-Z0-9-]{2,30}.[a-zA-Z]{2,3})$|^$",
             "example": "sheinhardt.com",
             "type": "string"
@@ -10909,6 +10926,7 @@
           "email_domain": {
             "title": "Email Domain",
             "description": "The custom domain from which your newsletter emails are sent (e.g., 'mail.example.com'). See [sending domains](https://docs.buttondown.com/sending-from-a-custom-domain) for setup instructions.",
+            "maxLength": 500,
             "example": "mail.sheinhardt.com",
             "type": "string"
           },
@@ -10978,6 +10996,7 @@
           "tint_color": {
             "title": "Tint Color",
             "description": "The accent color for your newsletter, used in emails and on your archive page. Must be a valid hex color code.",
+            "maxLength": 7,
             "example": "#0069FF",
             "type": "string"
           },
@@ -11280,6 +11299,7 @@
           "url": {
             "title": "Url",
             "description": "The URL of the RSS feed to poll for new items.",
+            "maxLength": 2000,
             "example": "http://lorem-rss.herokuapp.com/feed",
             "type": "string"
           },
@@ -11312,6 +11332,7 @@
           },
           "subject": {
             "title": "Subject",
+            "maxLength": 255,
             "type": "string"
           },
           "body": {
@@ -11321,6 +11342,7 @@
           "label": {
             "title": "Label",
             "default": "",
+            "maxLength": 255,
             "type": "string"
           },
           "metadata": {
@@ -11409,6 +11431,7 @@
           },
           "subject": {
             "title": "Subject",
+            "maxLength": 255,
             "type": "string"
           },
           "body": {
@@ -11417,6 +11440,7 @@
           },
           "label": {
             "title": "Label",
+            "maxLength": 255,
             "type": "string"
           },
           "status": {
@@ -11855,6 +11879,7 @@
         "properties": {
           "name": {
             "title": "Name",
+            "maxLength": 100,
             "type": "string"
           },
           "trigger": {
@@ -11896,6 +11921,7 @@
         "properties": {
           "name": {
             "title": "Name",
+            "maxLength": 100,
             "type": "string"
           },
           "status": {
@@ -12448,11 +12474,13 @@
         "properties": {
           "identifier": {
             "title": "Identifier",
+            "maxLength": 100,
             "example": "color",
             "type": "string"
           },
           "question": {
             "title": "Question",
+            "maxLength": 500,
             "example": "What's your favorite color?",
             "type": "string"
           },
@@ -12732,11 +12760,13 @@
         "properties": {
           "title": {
             "title": "Title",
+            "maxLength": 255,
             "example": "Contact Form",
             "type": "string"
           },
           "slug": {
             "title": "Slug",
+            "maxLength": 100,
             "example": "contact",
             "type": "string"
           },
@@ -12822,10 +12852,12 @@
         "properties": {
           "title": {
             "title": "Title",
+            "maxLength": 255,
             "type": "string"
           },
           "slug": {
             "title": "Slug",
+            "maxLength": 100,
             "type": "string"
           },
           "body": {
