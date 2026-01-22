@@ -1,0 +1,24 @@
+---
+title: "2026-01-22"
+navigationTitle: "2026-01-22"
+---
+
+Added a new `subscriber_editable` field to the [Tag](/api-tags-introduction) object. When set to `true`, subscribers can add or remove this tag from their own profile via the [subscriber portal](/portal).
+
+Example:
+
+```bash
+curl -X POST "https://api.buttondown.com/v1/tags" \
+  -H "Authorization: Token YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Weekly digest",
+    "color": "#4CAF50",
+    "subscriber_editable": true
+  }'
+```
+
+When a tag is marked as subscriber editable:
+- It appears as a checkbox in the subscriber portal
+- Subscribers can toggle it on or off for themselves
+- Tags not marked as subscriber editable can only be managed by the newsletter owner or via the API

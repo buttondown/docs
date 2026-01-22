@@ -8082,6 +8082,12 @@
             "title": "Description",
             "type": "string"
           },
+          "subscriber_editable": {
+            "title": "Subscriber Editable",
+            "description": "If true, subscribers can add or remove this tag from their own profile via the subscriber portal.",
+            "default": false,
+            "type": "boolean"
+          },
           "id": {
             "title": "Id",
             "description": "A unique TypeID associated with the object.",
@@ -8125,6 +8131,12 @@
           "description": {
             "title": "Description",
             "type": "string"
+          },
+          "subscriber_editable": {
+            "title": "Subscriber Editable",
+            "description": "If true, subscribers can add or remove this tag from their own profile via the subscriber portal.",
+            "default": false,
+            "type": "boolean"
           }
         },
         "required": [
@@ -8218,6 +8230,11 @@
           "secondary_id": {
             "title": "Secondary Id",
             "type": "integer"
+          },
+          "subscriber_editable": {
+            "title": "Subscriber Editable",
+            "description": "If true, subscribers can add or remove this tag from their own profile via the subscriber portal.",
+            "type": "boolean"
           }
         }
       },

@@ -142,6 +142,7 @@
     "schema": null,
     "description": "Buttondown makes it easy to segment your readers by using tags.",
     "references": [
+      "api-changelog-2026-01-22",
       "api-tags-analytics",
       "api-tags-create",
       "api-tags-delete",
@@ -989,6 +990,7 @@
     "schema": null,
     "description": "Buttondown lets you let your subscribers change their metadata, tags, and more.",
     "references": [
+      "api-changelog-2026-01-22",
       "api-subscribers-magic-link",
       "portal",
       "segmenting-your-audience",
@@ -3016,6 +3018,7 @@
     "schema": "Tag",
     "description": null,
     "references": [
+      "api-changelog-2026-01-22",
       "api-notes-create",
       "api-subscribers-create",
       "segmenting-your-audience",
@@ -3949,6 +3952,16 @@
       "api-changelog-2022-11-19",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2026-01-22",
+    "url": "api-changelog-2026-01-22",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
     ]
   },
   {
