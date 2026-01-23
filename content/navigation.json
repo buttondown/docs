@@ -537,6 +537,10 @@
           "value": "fancy-mode-dynamic"
         },
         {
+          "discriminant": "page",
+          "value": "snippets"
+        },
+        {
           "discriminant": "divider",
           "value": "Markdown mode"
         },

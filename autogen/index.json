@@ -1174,6 +1174,17 @@
     ]
   },
   {
+    "title": "Snippets",
+    "url": "snippets",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "fancy-mode",
+      "snippets"
+    ]
+  },
+  {
     "title": "Markdown mode",
     "url": "using-markdown",
     "section": "reference",

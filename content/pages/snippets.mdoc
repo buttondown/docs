@@ -1,0 +1,48 @@
+---
+title: Snippets
+navigationTitle: Snippets
+relatedPages:
+  - fancy-mode
+  - using-markdown
+---
+
+Snippets are reusable content blocks you can insert into any email. Create a snippet once for content you use frequently — like your bio, a standard sign-off, or a sponsor disclaimer — and insert it wherever you need it.
+
+## Creating a snippet
+
+Head to **Settings → Design → Snippets** to create your first snippet. Each snippet has:
+
+- **Name**: A human-readable label (e.g., "Weekly sign-off")
+- **Identifier**: A unique ID used to insert the snippet (e.g., `weekly-signoff`)
+- **Content**: The actual content that gets inserted
+
+## Inserting snippets
+
+### In Fancy mode
+
+Type `/` to open the command menu and search for your snippet by name. Select it, and the content gets inserted at your cursor.
+
+![](/images/snippets-command-menu.png)
+
+### In Markdown mode
+
+Use the `<buttondown-snippet>` tag with your snippet's identifier:
+
+```html
+<buttondown-snippet name="weekly-signoff"></buttondown-snippet>
+```
+
+## Nested snippets
+
+Snippets can include other snippets, which is useful for building modular content blocks. For example, you might have a "full footer" snippet that includes both your sign-off snippet and your social links snippet.
+
+Nesting is limited to 4 levels deep to prevent circular references.
+
+## Missing snippets
+
+If you reference a snippet that doesn't exist:
+
+- **In drafts**: You'll see a warning so you can fix it before sending
+- **In sent emails**: The snippet tag is silently removed
+
+This ensures you never accidentally send emails with broken placeholder text.
