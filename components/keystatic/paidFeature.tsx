@@ -1,5 +1,5 @@
 import { component, fields } from "@keystatic/core";
-import PRICES from "@/autogen/prices.json";
+import PRICES from "@/autogen/prices-v2.json";
 
 const schema = {
   feature: fields.select({

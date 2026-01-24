@@ -1,7 +1,7 @@
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import { marked } from "marked";
 import { GeneratedCodeSnippets } from "@/app/[slug]/CodeSnippets";
-import PRICES from "@/autogen/prices.json";
+import PRICES from "@/autogen/prices-v2.json";
 import Code from "@/components/code";
 import Notice from "@/components/Notice";
 import type { Page } from "@/lib/types";
