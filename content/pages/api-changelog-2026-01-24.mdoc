@@ -1,0 +1,50 @@
+---
+title: "2026-01-24"
+navigationTitle: "2026-01-24"
+---
+
+You can now create and manage multiple API keys, each with granular permissions. This allows you to create separate keys for different integrations with only the access they need.
+
+Each API key can have independent permission levels for:
+
+| Permission | Controls |
+|------------|----------|
+| `subscriber_access` | Manage subscribers |
+| `email_access` | Manage emails and drafts |
+| `sending_access` | Send emails |
+| `administrivia_access` | Access newsletter settings |
+| `automations_access` | Manage automations |
+| `forms_access` | Manage forms |
+| `styling_access` | Manage design settings |
+| `surveys_access` | Manage surveys |
+
+Each permission can be set to `write` (full access), `read` (view only), or `none` (no access).
+
+API keys can be managed in the Buttondown UI at [API → Keys](https://buttondown.com/keys).
+
+Example of creating a read-only key for subscribers:
+
+```bash
+curl -X POST "https://api.buttondown.com/v1/api-keys" \
+  -H "Authorization: Token YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "label": "Analytics dashboard",
+    "subscriber_access": "read",
+    "email_access": "read",
+    "sending_access": "none",
+    "administrivia_access": "none",
+    "automations_access": "none",
+    "forms_access": "none",
+    "styling_access": "none",
+    "surveys_access": "none"
+  }'
+```
+
+You can also regenerate, update, or delete API keys:
+
+| Endpoint | Action |
+|----------|--------|
+| `PATCH /v1/api-keys/{id}` | Update a key's label or permissions |
+| `DELETE /v1/api-keys/{id}` | Delete a key |
+| `POST /v1/api-keys/{id}/regenerate` | Regenerate a key's secret (invalidates the old key) |

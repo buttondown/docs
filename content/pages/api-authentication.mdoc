@@ -14,7 +14,39 @@ headers = {
 }
 ```
 
-You can find your API key at the top of your [API requests page](https://buttondown.com/requests).
+You can manage your API keys at [API → Keys](https://buttondown.com/keys).
+
+## Multiple API keys
+
+You can create as many API keys as you need. This is useful when you have different integrations that need different levels of access:
+
+- A **Zapier workflow** that adds new subscribers might only need write access to subscribers
+- An **analytics dashboard** might only need read access to emails and subscribers
+- A **custom script** that sends emails might need sending access but nothing else
+
+Each key can have its own label (like "Zapier - new subscribers" or "Internal dashboard") so you can keep track of what each one is for. If one integration is compromised or you stop using it, you can delete or regenerate just that key without affecting your other integrations.
+
+## API key permissions
+
+Each API key can be configured with independent permissions for different parts of the API:
+
+| Permission | Controls |
+|------------|----------|
+| `subscriber_access` | Managing subscribers |
+| `email_access` | Managing emails and drafts |
+| `sending_access` | Sending emails |
+| `administrivia_access` | Newsletter settings |
+| `automations_access` | Managing automations |
+| `forms_access` | Managing forms |
+| `styling_access` | Design settings |
+| `surveys_access` | Managing surveys |
+
+Each permission can be set to:
+- **write** — full access to create, update, and delete
+- **read** — can view but not modify
+- **none** — no access
+
+If you attempt an operation that your API key doesn't have permission for, you'll receive a `403 Forbidden` response.
 
 ## Platform authentication
 

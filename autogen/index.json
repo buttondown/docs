@@ -3966,6 +3966,16 @@
     ]
   },
   {
+    "title": "2026-01-24",
+    "url": "api-changelog-2026-01-24",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
+    ]
+  },
+  {
     "title": "2026-01-22",
     "url": "api-changelog-2026-01-22",
     "section": "api",

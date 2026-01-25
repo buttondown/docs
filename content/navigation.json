@@ -2034,6 +2034,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-changelog-2026-01-24"
+        },
+        {
+          "discriminant": "page",
           "value": "api-changelog-2026-01-22"
         },
         {
