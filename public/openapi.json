@@ -5839,6 +5839,19 @@
         "parameters": [
           {
             "in": "query",
+            "name": "api_key_id",
+            "schema": {
+              "title": "Api Key Id",
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false
+          },
+          {
+            "in": "query",
             "name": "status_code",
             "schema": {
               "title": "Status Code",
@@ -11809,6 +11822,11 @@
           "metadata": {
             "title": "Metadata",
             "type": "object"
+          },
+          "should_evaluate_filter_after_delay": {
+            "title": "Should Evaluate Filter After Delay",
+            "description": "If true, filters are re-evaluated after the delay has passed.",
+            "type": "boolean"
           }
         },
         "required": [
@@ -11820,7 +11838,8 @@
           "timing",
           "actions",
           "filters",
-          "metadata"
+          "metadata",
+          "should_evaluate_filter_after_delay"
         ]
       },
       "AutomationPage": {
@@ -11922,6 +11941,12 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          "should_evaluate_filter_after_delay": {
+            "title": "Should Evaluate Filter After Delay",
+            "description": "If true, filters are re-evaluated after the delay has passed.",
+            "default": false,
+            "type": "boolean"
           }
         },
         "required": [
@@ -11963,6 +11988,11 @@
           "metadata": {
             "title": "Metadata",
             "type": "object"
+          },
+          "should_evaluate_filter_after_delay": {
+            "title": "Should Evaluate Filter After Delay",
+            "description": "If true, filters are re-evaluated after the delay has passed.",
+            "type": "boolean"
           }
         }
       },
@@ -12968,6 +12998,14 @@
             "title": "Ip Address",
             "type": "string"
           },
+          "api_key_id": {
+            "title": "Api Key Id",
+            "type": "string"
+          },
+          "api_key_label": {
+            "title": "Api Key Label",
+            "type": "string"
+          },
           "request_data": {
             "title": "Request Data",
             "type": "string"
@@ -13046,6 +13084,14 @@
           },
           "ip_address": {
             "title": "Ip Address",
+            "type": "string"
+          },
+          "api_key_id": {
+            "title": "Api Key Id",
+            "type": "string"
+          },
+          "api_key_label": {
+            "title": "Api Key Label",
             "type": "string"
           }
         },
