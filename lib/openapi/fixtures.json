@@ -888,7 +888,8 @@
           "groups": [],
           "predicate": "and"
         },
-        "metadata": {}
+        "metadata": {},
+        "should_evaluate_filter_after_delay": false
       }
     },
     {
@@ -920,7 +921,8 @@
           "groups": [],
           "predicate": "and"
         },
-        "metadata": {}
+        "metadata": {},
+        "should_evaluate_filter_after_delay": false
       }
     }
   ],
@@ -977,7 +979,8 @@
           "groups": [],
           "predicate": "and"
         },
-        "metadata": {}
+        "metadata": {},
+        "should_evaluate_filter_after_delay": false
       }
     },
     {
@@ -1006,7 +1009,8 @@
           "groups": [],
           "predicate": "and"
         },
-        "metadata": {}
+        "metadata": {},
+        "should_evaluate_filter_after_delay": false
       }
     }
   ],
@@ -1160,7 +1164,9 @@
         "method": "GET",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "127.0.0.1"
+        "ip_address": "[REDACTED]",
+        "api_key_id": null,
+        "api_key_label": null
       }
     },
     {
@@ -1173,7 +1179,9 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "192.168.1.1"
+        "ip_address": "[REDACTED]",
+        "api_key_id": null,
+        "api_key_label": null
       }
     },
     {
@@ -1186,7 +1194,9 @@
         "method": "POST",
         "source": "app",
         "version": "2024-08-01",
-        "ip_address": "10.0.0.1"
+        "ip_address": "[REDACTED]",
+        "api_key_id": null,
+        "api_key_label": null
       }
     },
     {
@@ -1199,7 +1209,9 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "127.0.0.1"
+        "ip_address": "[REDACTED]",
+        "api_key_id": null,
+        "api_key_label": null
       }
     }
   ],
@@ -1469,7 +1481,9 @@
         "method": "GET",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "127.0.0.1",
+        "ip_address": "[REDACTED]",
+        "api_key_id": null,
+        "api_key_label": null,
         "request_data": "{\"subject\": \"Test email\"}",
         "response_data": "{\"id\": \"123e4567-e89b-12d3-a456-426614174001\"}",
         "headers": {
@@ -1488,7 +1502,9 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "192.168.1.1",
+        "ip_address": "[REDACTED]",
+        "api_key_id": null,
+        "api_key_label": null,
         "request_data": "{\"email\": \"test@example.com\"}",
         "response_data": "null",
         "headers": {
@@ -1506,7 +1522,9 @@
         "method": "POST",
         "source": "app",
         "version": "2024-08-01",
-        "ip_address": "10.0.0.1",
+        "ip_address": "[REDACTED]",
+        "api_key_id": null,
+        "api_key_label": null,
         "request_data": "{\"subject\": \"New email\", \"body\": \"Hello world\"}",
         "response_data": "{\"id\": \"123e4567-e89b-12d3-a456-426614174002\"}",
         "headers": {
@@ -1524,7 +1542,9 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "127.0.0.1",
+        "ip_address": "[REDACTED]",
+        "api_key_id": null,
+        "api_key_label": null,
         "request_data": "{\"email\": \"subscriber@example.com\"}",
         "response_data": "{\"id\": \"123e4567-e89b-12d3-a456-426614174003\"}",
         "headers": {

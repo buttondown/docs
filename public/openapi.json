@@ -1062,8 +1062,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -1119,8 +1118,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -1186,8 +1184,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -14264,8 +14261,14 @@
         "properties": {
           "id": {
             "title": "Id",
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
-            "format": "uuid"
+            "format": "date-time"
           },
           "subject": {
             "title": "Subject",
@@ -14280,11 +14283,6 @@
             "type": "string",
             "format": "date-time"
           },
-          "creation_date": {
-            "title": "Creation Date",
-            "type": "string",
-            "format": "date-time"
-          },
           "description": {
             "title": "Description",
             "type": "string"
@@ -14296,8 +14294,8 @@
         },
         "required": [
           "id",
-          "subject",
           "creation_date",
+          "subject",
           "description",
           "absolute_url"
         ]
