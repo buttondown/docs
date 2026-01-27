@@ -1495,6 +1495,20 @@
             },
             "required": false,
             "description": "If provided, only return emails with the given attachments."
+          },
+          {
+            "in": "query",
+            "name": "snippet_id",
+            "schema": {
+              "title": "Snippet Id",
+              "description": "If provided, only return emails that reference the given snippets.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return emails that reference the given snippets."
           }
         ],
         "responses": {
@@ -7291,6 +7305,9 @@
           "required": true
         },
         "security": [
+          {
+            "SubscriberFacingAuthentication": []
+          },
           {
             "PermissionAuthenticationRequirement": []
           }
