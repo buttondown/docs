@@ -1180,6 +1180,12 @@
     "schema": null,
     "description": null,
     "references": [
+      "api-snippets-create",
+      "api-snippets-delete",
+      "api-snippets-introduction",
+      "api-snippets-list",
+      "api-snippets-retrieve",
+      "api-snippets-update",
       "fancy-mode",
       "snippets"
     ]
@@ -3899,6 +3905,54 @@
   {
     "title": "Deleting a note",
     "url": "api-notes-delete",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Snippets",
+    "url": "api-snippets-introduction",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Listing snippets",
+    "url": "api-snippets-list",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Creating a snippet",
+    "url": "api-snippets-create",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Retrieving a snippet",
+    "url": "api-snippets-retrieve",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Updating a snippet",
+    "url": "api-snippets-update",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Deleting a snippet",
+    "url": "api-snippets-delete",
     "section": "api",
     "schema": null,
     "description": null,

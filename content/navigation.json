@@ -1966,6 +1966,39 @@
       ]
     },
     {
+      "name": "Snippets",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-snippets-introduction"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-snippets-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-snippets-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-snippets-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-snippets-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-snippets-delete"
+        }
+      ]
+    },
+    {
       "name": "Prices",
       "items": [
         {
