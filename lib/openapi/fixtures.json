@@ -1602,8 +1602,8 @@
     {
       "description": "Basic snippet",
       "object": {
-        "id": "snip_497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "creation_date": "2000-01-01T00:00:00Z",
+        "id": "snip_29fxqcmrkp969vzttksexvmvr8",
+        "creation_date": "2023-01-01T00:00:00+00:00",
         "identifier": "footer",
         "name": "Footer",
         "content": "Thanks for reading!",
