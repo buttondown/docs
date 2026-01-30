@@ -8370,22 +8370,26 @@
         "properties": {
           "name": {
             "title": "Name",
+            "description": "The name of the tag.",
             "maxLength": 100,
             "example": "VIP",
             "type": "string"
           },
           "color": {
             "title": "Color",
+            "description": "The hex color code associated with the tag.",
             "maxLength": 10,
             "example": "#FFD700",
             "type": "string"
           },
           "description": {
             "title": "Description",
+            "description": "An internal description of the tag, only visible to the newsletter author.",
             "type": "string"
           },
           "public_description": {
             "title": "Public Description",
+            "description": "A public-facing description of the tag, visible to subscribers in the subscriber portal.",
             "type": "string"
           },
           "subscriber_editable": {
@@ -8407,6 +8411,7 @@
           },
           "secondary_id": {
             "title": "Secondary Id",
+            "description": "The secondary ID of the tag, used as a human-readable numeric identifier.",
             "type": "integer"
           }
         },
@@ -8420,26 +8425,31 @@
       },
       "TagInput": {
         "title": "TagInput",
+        "description": "Input schema for creating a new tag.",
         "type": "object",
         "properties": {
           "name": {
             "title": "Name",
+            "description": "The name of the tag.",
             "maxLength": 100,
             "example": "VIP",
             "type": "string"
           },
           "color": {
             "title": "Color",
+            "description": "The hex color code associated with the tag.",
             "maxLength": 10,
             "example": "#FFD700",
             "type": "string"
           },
           "description": {
             "title": "Description",
+            "description": "An internal description of the tag, only visible to the newsletter author.",
             "type": "string"
           },
           "public_description": {
             "title": "Public Description",
+            "description": "A public-facing description of the tag, visible to subscribers in the subscriber portal.",
             "type": "string"
           },
           "subscriber_editable": {
@@ -8519,30 +8529,36 @@
       },
       "TagUpdateInput": {
         "title": "TagUpdateInput",
+        "description": "Input schema for updating an existing tag. All fields are optional.",
         "type": "object",
         "properties": {
           "name": {
             "title": "Name",
+            "description": "The name of the tag.",
             "maxLength": 100,
             "example": "VIP",
             "type": "string"
           },
           "color": {
             "title": "Color",
+            "description": "The hex color code associated with the tag.",
             "maxLength": 10,
             "example": "#FFD700",
             "type": "string"
           },
           "description": {
             "title": "Description",
+            "description": "An internal description of the tag, only visible to the newsletter author.",
             "type": "string"
           },
           "public_description": {
             "title": "Public Description",
+            "description": "A public-facing description of the tag, visible to subscribers in the subscriber portal.",
             "type": "string"
           },
           "secondary_id": {
             "title": "Secondary Id",
+            "description": "The secondary ID of the tag, used as a human-readable numeric identifier.",
             "type": "integer"
           },
           "subscriber_editable": {
@@ -8554,18 +8570,22 @@
       },
       "TagAnalytics": {
         "title": "TagAnalytics",
+        "description": "Analytics data associated with a given tag.",
         "type": "object",
         "properties": {
           "created_subscribers": {
             "title": "Created Subscribers",
+            "description": "The number of subscribers who have been created with this tag.",
             "type": "integer"
           },
           "click_rate": {
             "title": "Click Rate",
+            "description": "The click rate of emails sent to subscribers with this tag.",
             "type": "number"
           },
           "open_rate": {
             "title": "Open Rate",
+            "description": "The open rate of emails sent to subscribers with this tag.",
             "type": "number"
           }
         },
