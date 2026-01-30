@@ -8384,6 +8384,10 @@
             "title": "Description",
             "type": "string"
           },
+          "public_description": {
+            "title": "Public Description",
+            "type": "string"
+          },
           "subscriber_editable": {
             "title": "Subscriber Editable",
             "description": "If true, subscribers can add or remove this tag from their own profile via the subscriber portal.",
@@ -8432,6 +8436,10 @@
           },
           "description": {
             "title": "Description",
+            "type": "string"
+          },
+          "public_description": {
+            "title": "Public Description",
             "type": "string"
           },
           "subscriber_editable": {
@@ -8527,6 +8535,10 @@
           },
           "description": {
             "title": "Description",
+            "type": "string"
+          },
+          "public_description": {
+            "title": "Public Description",
             "type": "string"
           },
           "secondary_id": {
