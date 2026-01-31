@@ -753,6 +753,7 @@
         "name": "VIP",
         "color": "#FFD700",
         "description": "VIP subscribers",
+        "public_description": null,
         "subscriber_editable": false,
         "id": "sub_tag_0k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
