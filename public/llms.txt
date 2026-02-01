@@ -32,7 +32,7 @@ Buttondown is designed for simplicity and power. It supports Markdown and rich t
 - [Tags](https://docs.buttondown.com/tags): Segment and organize your subscribers
 - [Surveys](https://docs.buttondown.com/surveys): Collect feedback and data from subscribers
 - [RSS-to-Email](https://docs.buttondown.com/rss-to-email): Automatically send emails from RSS feeds
-- [Template Variables](https://docs.buttondown.com/template-variables): Personalize emails with subscriber data
+- [Templating](https://docs.buttondown.com/templating): Personalize emails with subscriber data
 - [Webhooks](https://docs.buttondown.com/events-and-webhooks-introduction): Integrate with external services via webhooks
 
 ## Integrations

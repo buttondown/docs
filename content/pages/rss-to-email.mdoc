@@ -4,7 +4,7 @@ relatedPages:
 - glossary-rss
 - glossary-posse
 - glossary-headless-mode
-- template-tags
+- templating
 - rss-cadence
 description:  >-
   With Buttondown's RSS automation, you can automatically send a new email every time you publish a new blog post.
@@ -138,7 +138,7 @@ Here's a similar example, except in Atom 1.0:
 
 ## Building a template
 
-To populate your email with content relevant to the item in your RSS feed, you'll need to build a template. Buttondown uses [Django's template language](/template-tags) to render your email. This means that you can use all of the standard Django template tags and filters.
+To populate your email with content relevant to the item in your RSS feed, you'll need to build a template. Buttondown uses [Django's template language](/templating) to render your email. This means that you can use all of the standard Django template tags and filters.
 
 For instance, if you want to send a weekly digest of blog posts, you'd start by iterating over the list of items:
 

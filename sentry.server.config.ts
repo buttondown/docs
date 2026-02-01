@@ -9,6 +9,11 @@ Sentry.init({
   tracesSampleRate: 1,
   enabled: process.env.NODE_ENV === "production",
 
+  // Disable Prisma integration since we don't use Prisma in the docs app.
+  // This prevents webpack warnings from @prisma/instrumentation's dynamic requires.
+  integrations: (defaults) =>
+    defaults.filter((integration) => integration.name !== "Prisma"),
+
   ignoreErrors: [
     // Safari is incorrectly failing to parse some JSON+LD metadata. This is a known issue in Safari:
     // https://github.com/getsentry/sentry/issues/61469

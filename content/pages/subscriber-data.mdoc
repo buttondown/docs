@@ -77,7 +77,7 @@ Prefer to go the manual route for updating your subscribers’ metadata? Go ahea
 
 ## Using subscriber names to personalize emails
 
-Instead of addressing emails one at a time, you can address them automatically using Buttondown’s `{{ subscriber.metadata }}` [template variable](/template-variables). By plugging your “first_name” key into this template variable, you’ll direct Buttondown to retrieve each subscriber’s first name for you!
+Instead of addressing emails one at a time, you can address them automatically using Buttondown’s `{{ subscriber.metadata }}` [template variable](/templating). By plugging your “first_name” key into this template variable, you’ll direct Buttondown to retrieve each subscriber’s first name for you!
 
 {% playgroundEmbed
    initialContent="Hello {{subscriber.metadata.first_name}}!"

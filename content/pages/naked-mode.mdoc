@@ -1,14 +1,14 @@
 ---
 title: Naked mode
-navigationTitle: Introduction
+navigationTitle: Naked mode
 relatedPages:
- - fancy-mode
- - using-markdown
+  - fancy-mode
+  - using-markdown
 ---
 
 {% paidFeature feature="naked_mode" /%}
 
-In Buttondown, we give you access to the full HTML template of your email through Naked mode. 
+In Buttondown, we give you access to the full HTML template of your email through Naked mode.
 
 Select the "Naked mode" option in the editor mode dropdown menu to get started.
 
@@ -20,22 +20,19 @@ When using Naked mode, you get exposed to the bare HTML template of your email. 
 
 {% noticeWarn text="Any changes you make inside Naked mode won't be saved when you switch to Markdown or Fancy Mode." /%}
 
-
 **Note:** Before publishing your email, you must include a way for the recipients to unsubscribe from your newsletter. We expose the `{{ unsubscribe_url }}` template tag so you can include an unsubscribe link for each recipient.
 
 For example, you can include an unsubscribe link using this example:
-
 
 ```html
 <p>
   Click <a href="{{ unsubscribe_url }}" target="_blank">here</a> to unsubscribe.
 </p>
-````
+```
 
 ---
 
 {% noticeInfo text="Your email must include the {{ unsubscribe_url }} template tag when using Naked mode." /%}
-
 
 ## Additional notes
 

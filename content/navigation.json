@@ -17,10 +17,6 @@
         },
         {
           "discriminant": "page",
-          "value": "sending-your-first-email"
-        },
-        {
-          "discriminant": "page",
           "value": "sending-your-first-email-advanced"
         },
         {
@@ -56,10 +52,6 @@
         {
           "discriminant": "page",
           "value": "tags"
-        },
-        {
-          "discriminant": "page",
-          "value": "surveys"
         }
       ]
     },
@@ -149,28 +141,11 @@
         },
         {
           "discriminant": "page",
-          "value": "scheduling-an-email"
-        },
-        {
-          "discriminant": "page",
           "value": "premium-content"
         },
         {
-          "discriminant": "page",
-          "value": "sending-via-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "replies"
-        },
-
-        {
           "discriminant": "divider",
           "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-do-i-avoid-the-promotions-tab"
         },
         {
           "discriminant": "page",
@@ -198,15 +173,7 @@
         },
         {
           "discriminant": "page",
-          "value": "can-i-set-custom-reply-to"
-        },
-        {
-          "discriminant": "page",
           "value": "how-do-i-set-sender-information"
-        },
-        {
-          "discriminant": "page",
-          "value": "resend-email"
         }
       ]
     },
@@ -456,6 +423,59 @@
       ]
     },
     {
+      "name": "Emails",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "email-dashboard"
+        },
+        {
+          "discriminant": "page",
+          "value": "editor-modes"
+        },
+        {
+          "discriminant": "page",
+          "value": "fancy-mode"
+        },
+        {
+          "discriminant": "page",
+          "value": "using-markdown"
+        },
+        {
+          "discriminant": "page",
+          "value": "naked-mode"
+        },
+        {
+          "discriminant": "page",
+          "value": "sending-emails"
+        },
+        {
+          "discriminant": "page",
+          "value": "sending-via-email"
+        },
+        {
+          "discriminant": "page",
+          "value": "surveys"
+        },
+        {
+          "discriminant": "page",
+          "value": "snippets"
+        },
+        {
+          "discriminant": "page",
+          "value": "templating"
+        },
+        {
+          "discriminant": "page",
+          "value": "replies"
+        },
+        {
+          "discriminant": "page",
+          "value": "external-scripts"
+        }
+      ]
+    },
+    {
       "name": "Dashboard",
       "items": [
         {
@@ -471,10 +491,7 @@
           "discriminant": "divider",
           "value": "Columns"
         },
-        {
-          "discriminant": "page",
-          "value": "customizing-email-list-view"
-        },
+
         {
           "discriminant": "page",
           "value": "customizing-subscriber-list-view"
@@ -505,71 +522,7 @@
         }
       ]
     },
-    {
-      "name": "Editor",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "template-tags"
-        },
-        {
-          "discriminant": "page",
-          "value": "template-variables"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Fancy mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "fancy-mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "fancy-mode-images"
-        },
-        {
-          "discriminant": "page",
-          "value": "fancy-mode-text"
-        },
-        {
-          "discriminant": "page",
-          "value": "fancy-mode-dynamic"
-        },
-        {
-          "discriminant": "page",
-          "value": "snippets"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Markdown mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "using-markdown"
-        },
-        {
-          "discriminant": "page",
-          "value": "converting-between-modes"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Naked mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "naked-mode"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "buttondown-editor-mode"
-        }
-      ]
-    },
+
     {
       "name": "Customization",
       "items": [
@@ -588,10 +541,6 @@
         {
           "discriminant": "page",
           "value": "customizing-transactional-emails"
-        },
-        {
-          "discriminant": "page",
-          "value": "external-scripts"
         },
         {
           "discriminant": "divider",

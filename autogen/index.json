@@ -38,31 +38,8 @@
       "mailerlite",
       "quickstart",
       "registration-and-setup",
-      "scheduling-an-email",
       "substack",
       "teams",
-      "welcome-sequence"
-    ]
-  },
-  {
-    "title": "Publishing your first email",
-    "url": "sending-your-first-email",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": [
-      "beehiiv",
-      "customizing-email-design",
-      "glossary-latex",
-      "glossary-preheader",
-      "glossary-slug",
-      "hidden-settings",
-      "importing-your-data",
-      "podia",
-      "registration-and-setup",
-      "scheduling-an-email",
-      "sending-your-first-email",
-      "surveys",
       "welcome-sequence"
     ]
   },
@@ -76,8 +53,7 @@
       "customizing-email-design",
       "glossary-preheader",
       "glossary-slug",
-      "hidden-settings",
-      "sending-your-first-email"
+      "hidden-settings"
     ]
   },
   {
@@ -99,7 +75,7 @@
     "references": [
       "blogger",
       "building-your-subscriber-base",
-      "fancy-mode-dynamic",
+      "fancy-mode",
       "framer",
       "glossary-headless-mode",
       "glossary-jamstack",
@@ -108,13 +84,12 @@
       "portal",
       "private-mode",
       "quickstart",
-      "scheduling-an-email",
       "segmenting-your-audience",
-      "sending-your-first-email",
+      "sending-emails",
       "sending-your-first-email-advanced",
       "surveys",
       "tags",
-      "template-tags"
+      "templating"
     ]
   },
   {
@@ -157,31 +132,11 @@
       "portal",
       "quickstart",
       "segmenting-your-audience",
-      "sending-your-first-email",
+      "sending-emails",
       "subscriber-dashboard",
       "surveys",
       "tags",
       "webflow",
-      "welcome-sequence"
-    ]
-  },
-  {
-    "title": "Surveys",
-    "url": "surveys",
-    "section": "guides",
-    "schema": null,
-    "description": "Adding a survey to your Buttondown newsletter is a great way to engage with your readers.",
-    "references": [
-      "api-changelog-2024-06-21",
-      "api-subscribers-create",
-      "api-surveys-create",
-      "api-surveys-delete",
-      "api-surveys-list",
-      "api-surveys-retrieve",
-      "api-surveys-update",
-      "data-exports-survey",
-      "surveys",
-      "teams",
       "welcome-sequence"
     ]
   },
@@ -208,7 +163,6 @@
       "mailerlite",
       "podia",
       "quickstart",
-      "sending-your-first-email",
       "subscriber-dashboard",
       "substack"
     ]
@@ -358,9 +312,7 @@
     "section": "guides",
     "schema": null,
     "description": "You can use the editor to easily add images to your Buttondown newsletter.",
-    "references": [
-      "fancy-mode-images"
-    ]
+    "references": []
   },
   {
     "title": "Previewing your email / sending a draft email",
@@ -376,50 +328,11 @@
     ]
   },
   {
-    "title": "Scheduling an email",
-    "url": "scheduling-an-email",
-    "section": "guides",
-    "schema": null,
-    "description": "Want to send an email some time in the future? Buttondown allows you to schedule an exact date and time to send.",
-    "references": [
-      "quickstart",
-      "sending-your-first-email",
-      "test-mode"
-    ]
-  },
-  {
     "title": "Premium content",
     "url": "premium-content",
     "section": "guides",
     "schema": null,
     "description": "Buttondown makes it easy to share special perks and incentives with your paid readers.",
-    "references": []
-  },
-  {
-    "title": "Sending via email",
-    "url": "sending-via-email",
-    "section": "guides",
-    "schema": null,
-    "description": "Use Buttondown's Magic Email Address to send a newsletter without logging into the Dashboard.",
-    "references": []
-  },
-  {
-    "title": "Replies to your emails",
-    "url": "replies",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown offers more sophisticated ways to manage your reader replies.",
-    "references": [
-      "hidden-settings",
-      "how-do-i-set-sender-information"
-    ]
-  },
-  {
-    "title": "How do I avoid the \"Promotions\" tab in Gmail?",
-    "url": "how-do-i-avoid-the-promotions-tab",
-    "section": "guides",
-    "schema": null,
-    "description": null,
     "references": []
   },
   {
@@ -471,33 +384,14 @@
     "references": []
   },
   {
-    "title": "Can I set a custom reply-to address?",
-    "url": "can-i-set-custom-reply-to",
-    "section": "guides",
-    "schema": null,
-    "description": "Contact our support team and we can set up a custom reply-to address.",
-    "references": [
-      "hidden-settings",
-      "how-do-i-set-sender-information"
-    ]
-  },
-  {
     "title": "How do I set sender information?",
     "url": "how-do-i-set-sender-information",
     "section": "guides",
     "schema": null,
     "description": null,
     "references": [
-      "can-i-set-custom-reply-to"
+      "replies"
     ]
-  },
-  {
-    "title": "How do I re-send an email that's been blocked or errored?",
-    "url": "resend-email",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown can block email sends because of an error or an insufficient billing tier. To re-send the email, duplicate it, delete the original, and send the copy. ",
-    "references": []
   },
   {
     "title": "Buying a custom domain",
@@ -706,9 +600,9 @@
     "schema": null,
     "description": "At Buttondown you own your data. That's why we make it easy to download all your data any time you want it.",
     "references": [
-      "buttondown-editor-mode",
       "data-exports",
       "deleting-your-account",
+      "editor-modes",
       "subscriber-referrals"
     ]
   },
@@ -964,7 +858,7 @@
       "segmenting-your-audience",
       "subscriber-dashboard",
       "surveys",
-      "template-tags"
+      "templating"
     ]
   },
   {
@@ -995,7 +889,7 @@
       "portal",
       "segmenting-your-audience",
       "tags",
-      "template-tags"
+      "templating"
     ]
   },
   {
@@ -1017,6 +911,163 @@
     ]
   },
   {
+    "title": "Email dashboard",
+    "url": "email-dashboard",
+    "section": "reference",
+    "schema": null,
+    "description": "You can use filters to customize your email list view.",
+    "references": []
+  },
+  {
+    "title": "Writing & editing emails",
+    "url": "editor-modes",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "glossary-latex"
+    ]
+  },
+  {
+    "title": "Fancy mode",
+    "url": "fancy-mode",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "editor-modes",
+      "fancy-mode",
+      "preflight",
+      "premium-content",
+      "quickstart",
+      "using-attachments"
+    ]
+  },
+  {
+    "title": "Markdown mode",
+    "url": "using-markdown",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "editor-modes",
+      "fancy-mode",
+      "quickstart",
+      "uploading-images",
+      "using-attachments",
+      "using-markdown"
+    ]
+  },
+  {
+    "title": "Naked mode",
+    "url": "naked-mode",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "editor-modes"
+    ]
+  },
+  {
+    "title": "Sending emails",
+    "url": "sending-emails",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "beehiiv",
+      "importing-your-data",
+      "podia",
+      "quickstart",
+      "registration-and-setup",
+      "surveys",
+      "test-mode",
+      "welcome-sequence"
+    ]
+  },
+  {
+    "title": "Sending via email",
+    "url": "sending-via-email",
+    "section": "reference",
+    "schema": null,
+    "description": "Use Buttondown's Magic Email Address to send a newsletter without logging into the Dashboard.",
+    "references": []
+  },
+  {
+    "title": "Surveys",
+    "url": "surveys",
+    "section": "reference",
+    "schema": null,
+    "description": "Adding a survey to your Buttondown newsletter is a great way to engage with your readers.",
+    "references": [
+      "api-changelog-2024-06-21",
+      "api-subscribers-create",
+      "api-surveys-create",
+      "api-surveys-delete",
+      "api-surveys-list",
+      "api-surveys-retrieve",
+      "api-surveys-update",
+      "data-exports-survey",
+      "surveys",
+      "teams",
+      "welcome-sequence"
+    ]
+  },
+  {
+    "title": "Snippets",
+    "url": "snippets",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-snippets-create",
+      "api-snippets-delete",
+      "api-snippets-introduction",
+      "api-snippets-list",
+      "api-snippets-retrieve",
+      "api-snippets-update",
+      "fancy-mode",
+      "snippets"
+    ]
+  },
+  {
+    "title": "Templating",
+    "url": "templating",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "arena",
+      "does-buttondown-offer-a-b-testing",
+      "linkedin",
+      "portal",
+      "rss-to-email",
+      "sending-emails",
+      "subscriber-data",
+      "surveys",
+      "transactional-emails"
+    ]
+  },
+  {
+    "title": "Replies to your emails",
+    "url": "replies",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown offers more sophisticated ways to manage your reader replies.",
+    "references": [
+      "hidden-settings",
+      "how-do-i-set-sender-information"
+    ]
+  },
+  {
+    "title": "External scripts",
+    "url": "external-scripts",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
     "title": "Home",
     "url": "home",
     "section": "reference",
@@ -1033,14 +1084,6 @@
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": []
-  },
-  {
-    "title": "Customizing your email dashboard",
-    "url": "customizing-email-list-view",
-    "section": "reference",
-    "schema": null,
-    "description": "You can use filters to customize your email list view.",
     "references": []
   },
   {
@@ -1097,142 +1140,6 @@
     ]
   },
   {
-    "title": "Template tags",
-    "url": "template-tags",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "rss-to-email",
-      "template-variables"
-    ]
-  },
-  {
-    "title": "Template variables",
-    "url": "template-variables",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "arena",
-      "linkedin",
-      "portal",
-      "sending-your-first-email",
-      "subscriber-data",
-      "surveys",
-      "template-tags",
-      "transactional-emails"
-    ]
-  },
-  {
-    "title": "Fancy mode",
-    "url": "fancy-mode",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "converting-between-modes",
-      "fancy-mode",
-      "fancy-mode-text",
-      "preflight",
-      "premium-content",
-      "quickstart",
-      "sending-your-first-email",
-      "using-attachments"
-    ]
-  },
-  {
-    "title": "Images in Fancy mode",
-    "url": "fancy-mode-images",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "fancy-mode"
-    ]
-  },
-  {
-    "title": "Text styling in Fancy mode",
-    "url": "fancy-mode-text",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "fancy-mode"
-    ]
-  },
-  {
-    "title": "Dynamic blocks in Fancy mode",
-    "url": "fancy-mode-dynamic",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "fancy-mode",
-      "preflight",
-      "premium-content"
-    ]
-  },
-  {
-    "title": "Snippets",
-    "url": "snippets",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "api-snippets-create",
-      "api-snippets-delete",
-      "api-snippets-introduction",
-      "api-snippets-list",
-      "api-snippets-retrieve",
-      "api-snippets-update",
-      "fancy-mode",
-      "snippets"
-    ]
-  },
-  {
-    "title": "Markdown mode",
-    "url": "using-markdown",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "converting-between-modes",
-      "fancy-mode",
-      "quickstart",
-      "sending-your-first-email",
-      "uploading-images",
-      "using-attachments",
-      "using-markdown"
-    ]
-  },
-  {
-    "title": "Converting between fancy mode and markdown mode",
-    "url": "converting-between-modes",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
-    "title": "Naked mode",
-    "url": "naked-mode",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "sending-your-first-email"
-    ]
-  },
-  {
-    "title": "What is `buttondown-editor-mode`?",
-    "url": "buttondown-editor-mode",
-    "section": "reference",
-    "schema": null,
-    "description": "This code comment doesn't affect the appearance or functionality of your email. ",
-    "references": []
-  },
-  {
     "title": "Customizing your emails",
     "url": "customizing-email-design",
     "section": "reference",
@@ -1240,6 +1147,7 @@
     "description": "Using CSS you can customize some aspects of your Buttondown email.",
     "references": [
       "customizing-transactional-emails",
+      "fancy-mode",
       "glossary-whitelabeling",
       "modern-template-hide-top",
       "registration-and-setup",
@@ -1275,14 +1183,6 @@
     "references": [
       "transactional-emails"
     ]
-  },
-  {
-    "title": "External scripts",
-    "url": "external-scripts",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
   },
   {
     "title": "Can I use a custom web font?",
@@ -1549,8 +1449,8 @@
     "schema": null,
     "description": "Buttondown allows you to easily export all your email data as a csv file.",
     "references": [
-      "buttondown-editor-mode",
-      "data-exports"
+      "data-exports",
+      "editor-modes"
     ]
   },
   {
@@ -1969,6 +1869,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "fancy-mode",
       "uploading-images",
       "using-markdown"
     ]
@@ -2089,8 +1990,8 @@
     "schema": null,
     "description": null,
     "references": [
-      "importing-your-data",
-      "sending-your-first-email"
+      "data-exports-subscriber",
+      "importing-your-data"
     ]
   },
   {
@@ -2100,7 +2001,7 @@
     "schema": null,
     "description": "CTA is a marketing term for a prompt that encourages a user to take a specific action.",
     "references": [
-      "fancy-mode-dynamic",
+      "fancy-mode",
       "welcome-sequence"
     ]
   },
@@ -2237,7 +2138,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "fancy-mode-text"
+      "fancy-mode"
     ]
   },
   {
@@ -2458,7 +2359,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "customizing-email-list-view",
+      "email-dashboard",
       "social-media-monitoring"
     ]
   },
@@ -2477,7 +2378,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "converting-between-modes",
+      "editor-modes",
       "fancy-mode",
       "quickstart",
       "using-markdown"
@@ -2494,7 +2395,7 @@
       "glossary-headless-mode",
       "glossary-jamstack",
       "introduction",
-      "sending-your-first-email"
+      "sending-emails"
     ]
   },
   {
@@ -2667,7 +2568,7 @@
     "references": [
       "api-changelog-2025-04-17",
       "buttondown-cli",
-      "customizing-email-list-view",
+      "email-dashboard",
       "scheduling-emails-via-the-api"
     ]
   },
@@ -2678,7 +2579,7 @@
     "schema": "EmailSource",
     "description": null,
     "references": [
-      "customizing-email-list-view"
+      "email-dashboard"
     ]
   },
   {
@@ -2689,7 +2590,7 @@
     "description": null,
     "references": [
       "can-i-exclude-an-email-from-archive",
-      "customizing-email-list-view",
+      "email-dashboard",
       "premium-content",
       "premium-teaser"
     ]

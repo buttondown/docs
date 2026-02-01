@@ -54,7 +54,10 @@ const navigationGroupSchema = (label: string) =>
 // application is in the root directory of the monorepo, not this directory. As a result, this process
 // should be run from the root directory of the monorepo even when local — this helps ensure that the
 // behavior is similar to production.
-const IN_PRODUCTION = process.env.NODE_ENV === "production";
+// Use KEYSTATIC_LOCAL=true to force local storage during builds (e.g., for local testing).
+const IN_PRODUCTION =
+  process.env.NODE_ENV === "production" &&
+  process.env.KEYSTATIC_LOCAL !== "true";
 const APPLICATION_DIRECTORY = IN_PRODUCTION ? "docs" : ".";
 export const localBaseURL = IN_PRODUCTION ? "../" : "./";
 const generatePath = (path: string) => {

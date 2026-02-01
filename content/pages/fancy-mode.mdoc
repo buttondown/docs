@@ -1,34 +1,312 @@
 ---
 title: Fancy mode
-navigationTitle: Introduction
+navigationTitle: Fancy mode
 relatedPages:
- - glossary-wysiwyg
+  - glossary-wysiwyg
 ---
+
 Buttondown has a built-in [WYSIWYG](/glossary-wysiwyg) editor (in addition to the [markdown editor](/using-markdown)) that allows you to view and edit your emails in a way that resembles how they will be formatted when they are sent.
 
-
 ## Built-in components
+
 Fancy mode comes with a variety of different built-in components. To view the different options, use the toolbar at the top of the editor or type "/" on a new line.
 
 ![A photo of the slash menu in fancy mode](/images/slash-menu.png)
 
-Using Fancy mode you can include any of the following:
+## Text options
 
-- [Images](/fancy-mode-images)
-- [Emojis](/fancy-mode-text#emojis)
-- [Block quotes](/fancy-mode-text#block-quote)
-- [Pull quotes](/fancy-mode-text#pull-quote)
-- [Tables](/fancy-mode-text#table)
-- [Poetry blocks](/fancy-mode-text#poetry-block)
-- [Code blocks](/fancy-mode-text#code-block)
-- [Footnotes](/fancy-mode-text#footnote)
-- [LaTeX blocks](/fancy-mode-text#latex-block)
-- [Horizontal dividers](/fancy-mode-text#divider)
-- [Webwalls](/fancy-mode-dynamic#webwall)
-- [Emailwalls](/fancy-mode-dynamic#emailwall)
-- [Subscription forms](/fancy-mode-dynamic#subscription-form)
-- [Subscription buttons](/fancy-mode-dynamic#subscription-button)
-- [Free/premium blocks](/fancy-mode-dynamic#freepremium-blocks)
-- [Internal links](/fancy-mode-dynamic#internal-linking)
-- [Snippets](/snippets)
-- And more!
+In Fancy Mode, you also have a variety of text formatting options. This includes things like:
+
+- Text color
+- Font styling: bold, italic
+- Adding a link
+- Paragraph alignment: left, center, right
+- Superscript and subscript
+- Selecting a different font
+
+To access text formatting, you'll select the text you'd like to format, and a tooltip will pop-up with the available options.
+
+{% video file="/fancy-mode/text-formatting-fancy-mode.mp4" /%}
+
+### Font selection
+
+The available email-safe font options are:
+
+- Inter
+- Comic Sans
+- cursive
+- serif
+- monospace
+- default
+
+### Emojis
+
+Emojis are fully supported in the editor.
+
+Not sure which emoji to use? Simply type a colon (":") followed by a word describing the emoji (e.g., "happy") to see some suggestions.
+
+{% playgroundEmbed
+  title="Emojis"
+  height="400px"
+  initialContent="We support emojis! :tad"
+/%}
+
+---
+
+### Block quote
+
+**Shortcut**: You can add a block quote by typing `>` followed by a space.
+
+{% playgroundEmbed
+  title="Block quote"
+  height="400px"
+  initialContent="<blockquote>This is a block quote</blockquote>"
+/%}
+
+---
+
+### Pull quote
+
+Text inside a pull quote is italicized and centered, as opposed to a block quote.
+
+{% playgroundEmbed
+  title="Pull quote"
+  height="400px"
+  initialContent="<blockquote class='pullquote'>This is a pull quote</blockquote>"
+/%}
+
+---
+
+### Table
+
+{% playgroundEmbed
+  title="Table"
+  height="400px"
+  initialContent="<table><tr><td>This</td><td>is</td><td>a</td><td>table</td></tr></table>"
+/%}
+
+Tables are a great way to display data in a structured format. Buttondown formats tables with a subtle border by default, but you can also remove that border if you're using a table for a design element to align items horizontally.
+
+---
+
+### Poetry block
+
+Use a poetry block if you want the text to maintain its spacing when it is published — useful, for example, for poetry. (Internally, we render poetry blocks as `<pre>` tags, which is why the spacing is preserved.)
+
+{% playgroundEmbed
+  title="Poetry block"
+  height="400px"
+  initialContent="<pre class='poetry'>This is a poetry block\nText in the section     maintains its spacing</pre>"
+/%}
+
+---
+
+### Code block
+
+Code blocks are automatically syntax highlighted based on the programming language.
+
+**Shortcut**: type 3 backticks followed by the programming language and press enter (for example: \`\`\`python).
+
+{% playgroundEmbed
+  title="Code block"
+  height="400px"
+  initialContent="```python\nprint('Hello, world!')\n```"
+/%}
+
+---
+
+### Footnote
+
+Adding a footnote will add 2 things in the editor:
+
+- a footnote reference
+- a footnote at the bottom of the editor
+
+**Note**: when you delete a footnote reference, the corresponding footnote will also be deleted.
+
+**Shortcut**: add a footnote by typing [^text], "text" being any string sequence.
+
+{% playgroundEmbed
+  title="Footnotes"
+  height="400px"
+  initialContent="This is a footnote[^1]\n\n[^1]: This is a footnote"
+/%}
+
+---
+
+### LaTeX block
+
+A [LaTeX](/glossary-latex) block allows you to write & render LaTeX content inside the editor. (Note that as of now, LaTeX is only renderable as a "block", and not inline with text.)
+
+**Shortcut**: add a LaTeX block by typing your expression inside two dollar signs ($$) and pressing space/enter.
+
+{% playgroundEmbed
+  title="LaTeX block"
+  height="400px"
+  initialContent="<div class='buttondown-block-math'>x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}</div>"
+/%}
+
+---
+
+### Divider
+
+A divider is a horizontal line that sits between 2 pieces of content.
+
+**Shortcut**: add a divider by typing 3 dashes or underscores & pressing space/enter.
+
+{% playgroundEmbed
+  title="Divider"
+  height="400px"
+  initialContent="Here's a divider\n\n---\n\nHere's some more content"
+/%}
+
+## Images
+
+You can either upload your own image or use a stock photo from [Unsplash](https://unsplash.com).
+
+### Using Unsplash
+
+Buttondown has a built-in Unsplash integration, allowing you to search & embed high-quality images without leaving the app.
+
+To search for images on Unsplash, click `Find image on Unsplash` using the slash menu and a modal will pop up. Search for the image that you want and click on it for it to be added to your email.
+
+{% video file="/images/emails/unsplash_image_upload.mp4" /%}
+
+### Uploading Images
+
+To upload an image, you can drag and drop the image into the editor, or type `/image` on a new line to attach the image file.
+
+{% video file="/images/emails/email-upload_fancy-mode.mp4" /%}
+
+#### Adding a caption
+
+Once the image is uploaded you can add a caption. This will appear for all readers, right below the image.
+
+#### Adding a link
+
+You have the option to make your image into a link. To do this, click the "Add link" button at the bottom of the image
+
+#### Updating alt text
+
+[Alt text](/glossary-alt-text) is an important tool for visually impaired users to be able to access the content of your page, and also for search engine bots to index your archives. This text should be set on every image, by clicking the "Edit" button at the bottom of the image.
+
+You can ask Buttondown to generate this text, or write your own. (Or maybe do a mix of both!)
+
+{% video file="/images/emails/emails-generate-alt.mp4" /%}
+
+The best alt text describes exactly what's happening in the image. Instead of "A cat in box", consider "A black and white cat staring straight ahead while sitting inside an open cardboard box"
+
+### Set class name
+
+If you're using [custom CSS](/customizing-email-design) you can set a class name for the image to make it easier to style.
+
+### Compression
+
+By default, Buttondown compresses your images to reduce the size of your email. If you'd prefer to turn this off, you can by clicking the "Edit" button at the bottom of the image.
+
+## Dynamic content
+
+Finally, you can add all sorts of dynamic blocks in Fancy Mode, including:
+
+### Webwall
+
+A webwall enables you to add content that will only be displayed on the web. Any content below the webwall will not be included in the email sent to email clients.
+
+{% playgroundEmbed
+  title="Webwall"
+  height="400px"
+  initialContent="Everything below this webwall will not be included in the email sent to email clients.\n\n<div role='webwall'></div>\n\nEverything above the webwall will be included."
+/%}
+
+---
+
+### Emailwall
+
+An emailwall enables you to add content that will only be displayed in the email sent to subscribers. Any content below the emailwall will not be included in the web version of your email.
+
+{% playgroundEmbed
+  title="Emailwall"
+  height="400px"
+  initialContent="Everything below this emailwall will not be included in the web version.\n\n<div role='emailwall'></div>\n\nEverything above the emailwall will be included."
+/%}
+
+---
+
+### Paywall
+
+A paywall enables you to add content that will only be displayed to premium subscribers.
+
+{% playgroundEmbed
+  title="Paywall"
+  height="400px"
+  initialContent="Everything below this paywall will not be included in the email sent to free subscribers.\n\n<div role='paywall'></div>\n\nEverything above the paywall will be included."
+/%}
+
+---
+
+### Subscription form
+
+Add a subscription form to allow your readers to easily subscribe to your newsletter from within the email.
+
+{% playgroundEmbed
+  title="Subscription form"
+  height="400px"
+  initialContent="Here's a subscription form.\n\n{{ subscribe_form }}\n\nCool, right?"
+/%}
+
+---
+
+### Subscription button
+
+A subscription button is a [CTA button](/glossary-cta) that links to your [newsletter's URL](/building-your-subscriber-base#sharing-your-buttondown-url), allowing people to subscribe to your newsletter there.
+
+![A subscription button in fancy mode](/images/subscription-button.png)
+
+---
+
+### Free/premium blocks
+
+Free/premium blocks are a way to display content to your subscribers based on their subscription status:
+
+- "Free-only" blocks are only displayed to free subscribers.
+- "Premium-only" blocks are only displayed to premium subscribers.
+
+![A free/premium block in fancy mode](/images/premium-block.png)
+
+---
+
+### Internal linking
+
+Search and link to another email by typing two opening square brackets ("[["), this will open up a list of your emails.
+
+![Email autocompletion list in fancy mode](/images/internal-link-autocomplete.png)
+
+---
+
+### Snippets
+
+[Snippets](/snippets) are reusable blocks of content that you can insert into your emails. Type `/snippet` or use the command menu to insert a snippet.
+
+---
+
+### Comments
+
+Comments are a way to add notes to your email. They are not displayed to your subscribers, but can be useful for you to keep track of your thoughts, or to share with your team.
+
+{% playgroundEmbed
+  title="Comments"
+  height="400px"
+  initialContent="This is a comment\n\n<div class='buttondown-block-comment'>Hey gang, please make sure the text below looks good.</div>\n\nHere's some more content"
+/%}
+
+## Including audio
+
+Buttondown doesn't support native audio uploading like we do with images, nor do we have active plans on supporting it. However, we do have integrations with many _other_ platforms, including:
+
+- [Soundcloud](https://buttondown.com/features/integrations/soundcloud),
+- [YouTube](https://buttondown.com/features/integrations/youtube)
+- [Transistor](https://buttondown.com/features/integrations/transistor)
+- [Spotify](https://buttondown.com/features/integrations/spotify)
+- [Vimeo](https://buttondown.com/features/integrations/vimeo)
+
+Your best bet at the moment is to upload your audio to one of those platforms and then add it to your newsletter.

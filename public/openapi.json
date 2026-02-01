@@ -10893,7 +10893,7 @@
           },
           "footer": {
             "title": "Footer",
-            "description": "HTML content displayed at the bottom of your newsletter emails. Supports [template tags](https://docs.buttondown.com/template-tags).",
+            "description": "HTML content displayed at the bottom of your newsletter emails. Supports [template tags](https://docs.buttondown.com/templating).",
             "default": "",
             "type": "string"
           },
@@ -10905,7 +10905,7 @@
           },
           "header": {
             "title": "Header",
-            "description": "HTML content displayed at the top of your newsletter emails. Supports [template tags](https://docs.buttondown.com/template-tags).",
+            "description": "HTML content displayed at the top of your newsletter emails. Supports [template tags](https://docs.buttondown.com/templating).",
             "default": "",
             "type": "string"
           },
@@ -11121,7 +11121,7 @@
           },
           "footer": {
             "title": "Footer",
-            "description": "HTML content displayed at the bottom of your newsletter emails. Supports [template tags](https://docs.buttondown.com/template-tags).",
+            "description": "HTML content displayed at the bottom of your newsletter emails. Supports [template tags](https://docs.buttondown.com/templating).",
             "default": "",
             "example": "<p>Thanks for reading!</p>",
             "type": "string"
@@ -11135,7 +11135,7 @@
           },
           "header": {
             "title": "Header",
-            "description": "HTML content displayed at the top of your newsletter emails. Supports [template tags](https://docs.buttondown.com/template-tags).",
+            "description": "HTML content displayed at the top of your newsletter emails. Supports [template tags](https://docs.buttondown.com/templating).",
             "default": "",
             "example": "<p>Welcome to our newsletter!</p>",
             "type": "string"
@@ -11296,7 +11296,7 @@
           },
           "footer": {
             "title": "Footer",
-            "description": "HTML content displayed at the bottom of your newsletter emails. Supports [template tags](https://docs.buttondown.com/template-tags).",
+            "description": "HTML content displayed at the bottom of your newsletter emails. Supports [template tags](https://docs.buttondown.com/templating).",
             "example": "<p>Thanks for reading!</p>",
             "type": "string"
           },
@@ -11308,7 +11308,7 @@
           },
           "header": {
             "title": "Header",
-            "description": "HTML content displayed at the top of your newsletter emails. Supports [template tags](https://docs.buttondown.com/template-tags).",
+            "description": "HTML content displayed at the top of your newsletter emails. Supports [template tags](https://docs.buttondown.com/templating).",
             "example": "<p>Welcome to our newsletter!</p>",
             "type": "string"
           },

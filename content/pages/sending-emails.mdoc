@@ -1,0 +1,152 @@
+---
+title: Sending emails
+relatedPages:
+  - editor-modes
+  - glossary-precedence-bulk
+  - glossary-reverse-dns
+  - sending-your-first-email-advanced
+  - templating
+faqItems: >
+  [
+    {
+      "question": "What happens if I get new subscribers after I've already scheduled an email?",
+      "answer": "Buttondown will send this email to your entire audience at the time of the send.\n\nFor example: It's Friday and you've scheduled an email to your 95 subscribers to go out first thing Monday.\n\nOver the weekend 5 more readers sign up for your newsletter. On Monday, Buttondown would send your email to your audience, which is now _100_ readers."
+    }
+  ]
+---
+
+This page walks you through everything you need to send emails to your subscribers: drafting, previewing, scheduling, and troubleshooting common delivery issues.
+
+## Drafting an email
+
+The "Emails" page is the command center for your newsletter. When you write, schedule, and publish newsletters, they'll appear here.
+
+To write a newsletter, click **New** in the upper right corner of the Emails page:
+
+{% iframe src="https://demo.buttondown.com/emails/fa7bd3bb-ee24-409d-8e95-2ddd0cad5de7?newsletter=basic-newsletter" height=400 /%}
+
+Buttondown saves your work automatically as you write.
+
+## Previewing and sending drafts
+
+Before publishing to your subscribers, you can send a draft to yourself:
+
+1. Open the Preview pane by clicking **Preview** in the top-right corner.
+2. Click the **Send draft** button.
+3. Enter the email address to receive your test newsletter.
+4. Click **Send draft**.
+
+{% video file="/sending-your-first-email/registration_pop-up-for-choosing-draft-recipients.mp4" /%}
+
+The draft will appear in the recipient's inbox with `[PREVIEW]` in the subject line.
+
+{% video file="/sending-your-first-email/registration_newsletter-draft_AdobeExpress.mp4" /%}
+
+## Publishing your email
+
+When you're ready to send, review this checklist:
+
+- Verify that all links work
+- Decide your target audience (all subscribers, or only those with certain [tags](/tags))
+- Decide whether to send immediately or [schedule for later](#scheduling-an-email)
+
+To publish:
+
+1. Click the **Publish** button in the top-right corner. The "Send this email" drawer appears.
+2. Review the summary and verify everything looks correct.
+3. Click **Publish**.
+
+![A screenshot of an email with the publish drawer open](/sending-your-first-email/email-publish-drawer.png)
+
+After sending, a pop-up appears with social sharing buttons and a URL to copy. You'll also see an **Undo** option if you change your mind.
+
+## Scheduling an email
+
+You don't have to send an email immediately. To schedule it for later:
+
+1. Open the email you wish to send.
+2. Click **Send** at the bottom. A drawer appears.
+3. Expand the **Schedule** section.
+4. Select **Send at a specified time**.
+5. Set your target date and time.
+6. Click **Send**.
+
+{% iframe src="https://demo.buttondown.com/emails/fa7bd3bb-ee24-409d-8e95-2ddd0cad5de6/details?newsletter=basic-newsletter&emphasis=schedule" height=400 /%}
+
+![A screenshot of the Schedule section](/sending-your-first-email/email-send-schedule-1.png)
+
+{% noticeInfo text="Timezones matter! Scheduling an email at 9am Pacific sends it at 12pm Eastern. Make sure your timezone setting reflects when you want the email delivered." /%}
+
+## Re-sending blocked or errored emails
+
+Sometimes Buttondown blocks an email due to a processing error or billing tier issue.
+
+{% noticeInfo text="If you're confused about why an email was blocked or errored, please contact our [support team](https://buttondown.com/support) with the URL of your email!" /%}
+
+To re-send a blocked email:
+
+1. Open the Emails page.
+2. Find the email, click the ••• (three-dot icon), then click **Reuse**.
+3. Delete the original email.
+4. Open the new copy and click **Send**.
+
+## Avoiding the Promotions tab
+
+The Gmail "Promotions" tab filters low-value or sales-focused emails. While it's not the enemy—it helps your subscribers manage their inbox—you want your newsletter in Primary.
+
+Best practices to improve inbox placement:
+
+- **Avoid using too many links or images.** These suggest the email is low-quality or purely promotional.
+- **Send emails of readable length.** 500 to 750 words works well.
+- **Remove inactive subscribers.** Gmail tracks how often readers click, open, and reply. Higher engagement means better placement.
+
+There's no guaranteed method for landing in Primary—Gmail's categorization is deliberately opaque. The best strategy is great content.
+
+[More tips on avoiding the Promotions tab](https://www.saleshandy.com/blog/avoid-gmail-promotions-tab/#4_Keep_the_HTML_to_text_ratio)
+
+## Custom unsubscribe links
+
+Buttondown automatically appends an unsubscribe link to all emails, but you can place one manually using the `{{ unsubscribe_url }}` variable:
+
+```jinja
+[Click here to unsubscribe!]({{unsubscribe_url}}).
+```
+
+This link renders in drafts but won't function until the email is sent. See [Templating](/templating) for more variables.
+
+## Tags and segmentation
+
+Tags create subgroups of subscribers. Subscribers can have multiple tags, letting you tailor content to specific audiences.
+
+Ways to apply tags:
+
+- Manually in a subscriber's details page
+- Through your [subscription form](/building-your-subscriber-base#embedding-an-html-form)
+- Via the [API](/api-introduction)
+
+To manually tag a subscriber:
+
+1. Click **Subscribers**.
+2. Select the subscriber.
+3. In the "Tags" section, choose the tags to apply.
+4. Click **Save changes**.
+
+Learn more in [Tags](/tags).
+
+## Mail merges
+
+Mail merges personalize emails using subscriber metadata. For example:
+
+{% playgroundEmbed initialContent="Hello, {first_name}!" /%}
+
+Set metadata via the API or in a subscriber's "Metadata" section, then reference it with `{{ subscriber.metadata.first_name }}`.
+
+You can also use conditionals:
+
+{% playgroundEmbed initialContent="{% if subscriber.metadata.first_name %}\n  Hello {{ subscriber.metadata.first_name}}!\n{% else %}\n   Hello friend!\n{% endif %}" /%}
+
+## FAQs
+
+{% faq /%}
+
+{% supportSnippet /%}
