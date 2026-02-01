@@ -23,9 +23,9 @@ export default function ImageWithLightbox(props: {
       </Dialog.Trigger>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/75 cursor-zoom-out" />
+        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/75 cursor-zoom-out" />
         <Dialog.Content>
-          <div className="fixed inset-0 h-screen w-screen p-2 sm:p-6 pointer-events-none">
+          <div className="fixed inset-0 z-50 h-screen w-screen p-2 sm:p-6 pointer-events-none">
             <Image
               src={props.src}
               className="h-full w-full object-contain"
