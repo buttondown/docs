@@ -490,6 +490,12 @@ export default async function DocsPage(props: Props) {
 }
 
 export async function generateStaticParams() {
+  // Skip prerendering on preview deployments to speed up builds.
+  // Pages will be rendered on-demand instead.
+  if (process.env.VERCEL_ENV !== "production") {
+    return [];
+  }
+
   const reader = createReader(localBaseURL, keystaticConfig);
   const slugs = await reader.collections.pages.list();
 

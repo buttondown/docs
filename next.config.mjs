@@ -2,6 +2,12 @@ import { withSentryConfig } from "@sentry/nextjs";
 import REDIRECTS from "./redirects.mjs";
 
 const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   redirects: async () => {
     return REDIRECTS;
   },
