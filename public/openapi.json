@@ -10056,6 +10056,75 @@
           "new_email_address"
         ]
       },
+      "FirewallReasonCode": {
+        "title": "FirewallReasonCode",
+        "description": "An enumeration.",
+        "enum": [
+          "email_address_capital_letters",
+          "email_address_cleantalk_score",
+          "email_address_contains_prohibited_string",
+          "email_address_extant_subscriber_count",
+          "email_address_is_honeypot",
+          "email_address_is_pwned",
+          "email_address_length",
+          "email_address_local_part_has_many_periods",
+          "email_address_many_consonants_in_a_row",
+          "email_address_mx_record_is_valid",
+          "email_address_noreply_local_part",
+          "email_address_null_characters",
+          "email_address_peaceful_domain",
+          "email_address_previous_evaluation",
+          "email_address_prohibited_via_domain",
+          "email_address_regex",
+          "email_address_sandbox_test",
+          "email_address_shannon_entropy",
+          "email_address_stopforumspam_score",
+          "email_address_tied_to_account",
+          "email_address_typo",
+          "fingerprint_missing",
+          "ip_address_cleantalk_score",
+          "ip_address_extant_subscriber_count",
+          "ip_address_peaceful",
+          "ip_address_prohibited",
+          "metadata_has_garbage",
+          "newsletter_age",
+          "newsletter_has_customized_transactional_email",
+          "newsletter_has_prohibited_string",
+          "newsletter_status",
+          "project_honeypot",
+          "referrer_url_prohibited",
+          "subscriber_import_provenance",
+          "subscriber_import_source",
+          "text_contains_malicious_url",
+          "text_contains_prohibited_string",
+          "turnstile_response_token_is_valid",
+          "user_agent_known"
+        ],
+        "type": "string"
+      },
+      "FirewallReason": {
+        "title": "FirewallReason",
+        "type": "object",
+        "properties": {
+          "code": {
+            "description": "The code of the firewall facet that flagged this subscriber.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FirewallReasonCode"
+              }
+            ]
+          },
+          "reason": {
+            "title": "Reason",
+            "description": "Human-readable explanation for why we flagged the subscriber.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "reason"
+        ]
+      },
       "SubscriberUndeliverabilityReason": {
         "title": "UndeliverabilityReason",
         "description": "The reason Buttondown has marked the subscriber as undeliverable.\nUndeliverable subscribers are not sent emails, and may be periodically removed from the system (or restored, if the reason is no longer valid.)\n\nThese reasons are grouped into three categories:\n- PermanentFailure (\"Failed (recipient)\"): Address-based issues where the recipient is truly unreachable.\n  Includes: HARD_BOUNCE\n- MessageFailure (\"Failed (message)\"): Message/sender problems where future emails may succeed.\n  Includes: ACCESS_DENIED, AUTHENTICATION_ISSUE, DELIVERY_EXPIRED, DOMAIN_BLOCKED, EMAIL_BLOCKED,\n            IP_BLOCKED, ON_ESP_DENYLIST, OUT_OF_STORAGE, PROBLEMATIC_URL, SPAM\n- Deferral (not shown to customers): Transient delivery issues that will be retried.\n  Includes: RATE_LIMITED, TRANSIENT",
@@ -10210,6 +10279,14 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/EmailTransition"
+            }
+          },
+          "firewall_reasons": {
+            "title": "Firewall Reasons",
+            "description": "Information collected by Buttondown's firewall about this subscriber. See [the firewall](https://docs.buttondown.com/firewall) for more information.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FirewallReason"
             }
           },
           "type": {
