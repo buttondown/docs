@@ -394,53 +394,6 @@
     ]
   },
   {
-    "title": "Buying a custom domain",
-    "url": "getting-a-custom-domain",
-    "section": "guides",
-    "schema": null,
-    "description": "Registering a custom domain helps you build a distinct and recognizable brand for your newsletter. ",
-    "references": [
-      "plausible",
-      "quickstart",
-      "registration-and-setup",
-      "sending-your-first-email-advanced"
-    ]
-  },
-  {
-    "title": "Sending from a custom domain",
-    "url": "sending-from-a-custom-domain",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown allows all newsletters to send from a custom domain. This helps you build a recognizable brand and improves deliverability.",
-    "references": [
-      "glossary-dns",
-      "glossary-sending-domain",
-      "quickstart",
-      "sending-from-dreamhost",
-      "sending-your-first-email-advanced",
-      "standards"
-    ]
-  },
-  {
-    "title": "Hosting on a custom domain",
-    "url": "hosting-on-a-custom-domain",
-    "section": "guides",
-    "schema": null,
-    "description": "Hosting your Buttondown archives on a custom domain helps establish your newsletter's brand.",
-    "references": [
-      "api-subscribers-magic-link",
-      "beehiiv",
-      "glossary-dns",
-      "glossary-hosting-domain",
-      "glossary-whitelabeling",
-      "podia",
-      "quickstart",
-      "sending-from-a-custom-domain",
-      "sending-your-first-email-advanced",
-      "substack"
-    ]
-  },
-  {
     "title": "Sending from DreamHost",
     "url": "sending-from-dreamhost",
     "section": "guides",
@@ -468,10 +421,10 @@
     "schema": null,
     "description": "With Buttondown's RSS automation, you can automatically send a new email every time you publish a new blog post.",
     "references": [
-      "canonical-url",
       "glossary-headless-mode",
       "glossary-posse",
       "glossary-rss",
+      "hosting-domain",
       "quickstart",
       "sending-your-first-email-advanced"
     ]
@@ -639,14 +592,6 @@
     "section": "guides",
     "schema": null,
     "description": "Dormancy is a status that allows you to mark newsletters as inactive without deleting them or affecting your billing.",
-    "references": []
-  },
-  {
-    "title": "Can I point my old Buttondown newsletter to a new URL?",
-    "url": "can-i-point-my-old-buttondown-newsletter-to-a-new-url",
-    "section": "guides",
-    "schema": null,
-    "description": "Our support team can set a redirect from your Buttondown newsletter to a new URL.",
     "references": []
   },
   {
@@ -986,6 +931,22 @@
     ]
   },
   {
+    "title": "Sending from a custom domain",
+    "url": "sending-from-a-custom-domain",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown allows all newsletters to send from a custom domain. This helps you build a recognizable brand and improves deliverability.",
+    "references": [
+      "glossary-dns",
+      "glossary-sending-domain",
+      "hosting-domain",
+      "quickstart",
+      "registration-and-setup",
+      "sending-from-dreamhost",
+      "standards"
+    ]
+  },
+  {
     "title": "Sending via email",
     "url": "sending-via-email",
     "section": "reference",
@@ -1066,6 +1027,94 @@
     "schema": null,
     "description": null,
     "references": []
+  },
+  {
+    "title": "Email archives",
+    "url": "email-archives",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "URLs & domains for archives",
+    "url": "hosting-domain",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-subscribers-magic-link",
+      "beehiiv",
+      "email-archives",
+      "glossary-dns",
+      "glossary-hosting-domain",
+      "glossary-whitelabeling",
+      "plausible",
+      "podia",
+      "quickstart",
+      "rss-to-email",
+      "sending-from-a-custom-domain",
+      "sending-your-first-email-advanced",
+      "substack"
+    ]
+  },
+  {
+    "title": "Designing your archives",
+    "url": "customizing-web-design",
+    "section": "reference",
+    "schema": null,
+    "description": "You can use CSS to fully customize your Buttondown web archives.",
+    "references": [
+      "email-archives",
+      "glossary-whitelabeling",
+      "registration-and-setup"
+    ]
+  },
+  {
+    "title": "Comments",
+    "url": "comments",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown's comments feature allows you to stay connected with your readers.",
+    "references": [
+      "api-changelog-2024-04-03",
+      "api-comment-create",
+      "api-comments-delete",
+      "api-comments-list",
+      "api-comments-retrieve",
+      "api-expansion",
+      "data-exports-comments",
+      "glossary-ugc",
+      "workspace-spf"
+    ]
+  },
+  {
+    "title": "RSS feed for archives",
+    "url": "email-to-rss",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Social sharing images",
+    "url": "share-images",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "share-images"
+    ]
+  },
+  {
+    "title": "Search engine optimization",
+    "url": "seo",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "substack"
+    ]
   },
   {
     "title": "Home",
@@ -1153,17 +1202,6 @@
       "registration-and-setup",
       "test-mode",
       "uploading-images"
-    ]
-  },
-  {
-    "title": "Customizing your archives",
-    "url": "customizing-web-design",
-    "section": "reference",
-    "schema": null,
-    "description": "You can use CSS to fully customize your Buttondown web archives.",
-    "references": [
-      "glossary-whitelabeling",
-      "registration-and-setup"
     ]
   },
   {
@@ -1294,80 +1332,6 @@
     "references": [
       "transactional-emails"
     ]
-  },
-  {
-    "title": "Comments",
-    "url": "comments",
-    "section": "reference",
-    "schema": null,
-    "description": "Buttondown's comments feature allows you to stay connected with your readers.",
-    "references": [
-      "api-changelog-2024-04-03",
-      "api-comment-create",
-      "api-comments-delete",
-      "api-comments-list",
-      "api-comments-retrieve",
-      "api-expansion",
-      "data-exports-comments",
-      "glossary-ugc",
-      "workspace-spf"
-    ]
-  },
-  {
-    "title": "RSS",
-    "url": "email-to-rss",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "glossary-rss"
-    ]
-  },
-  {
-    "title": "Social sharing images",
-    "url": "share-images",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "share-images"
-    ]
-  },
-  {
-    "title": "Search engine optimization",
-    "url": "seo",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "substack"
-    ]
-  },
-  {
-    "title": "Canonical URL",
-    "url": "canonical-url",
-    "section": "reference",
-    "schema": null,
-    "description": "Buttondown allows you to set a canonical URL for your web archives.",
-    "references": [
-      "rss-to-email"
-    ]
-  },
-  {
-    "title": "Does Buttondown automatically index my web archives?",
-    "url": "does-buttondown-automatically-index-my-web-archives",
-    "section": "reference",
-    "schema": null,
-    "description": "Buttondown automatically indexes your web archives!",
-    "references": []
-  },
-  {
-    "title": "How do subscribers customize their name and profile photo?",
-    "url": "how-do-subscribers-customize-their-name-photo",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
   },
   {
     "title": "Buttondown's pre-flight checks",
@@ -2106,7 +2070,7 @@
     "description": null,
     "references": [
       "glossary-sending-domain",
-      "hosting-on-a-custom-domain"
+      "hosting-domain"
     ]
   },
   {
@@ -2251,7 +2215,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "does-buttondown-automatically-index-my-web-archives",
+      "email-archives",
       "rss-to-email"
     ]
   },
@@ -2262,8 +2226,7 @@
     "schema": null,
     "description": null,
     "references": [
-      "glossary-hosting-domain",
-      "hosting-on-a-custom-domain"
+      "glossary-hosting-domain"
     ]
   },
   {
@@ -2553,10 +2516,10 @@
       "api-changelog-2024-07-13",
       "api-changelog-2024-08-15",
       "api-notes-create",
-      "canonical-url",
       "drafting-emails-via-the-api",
       "glossary-rest",
-      "glossary-slug"
+      "glossary-slug",
+      "hosting-domain"
     ]
   },
   {
@@ -2590,6 +2553,7 @@
     "description": null,
     "references": [
       "can-i-exclude-an-email-from-archive",
+      "email-archives",
       "email-dashboard",
       "premium-content",
       "premium-teaser"

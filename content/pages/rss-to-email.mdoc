@@ -1,12 +1,12 @@
 ---
 title: RSS-to-email
 relatedPages:
-- glossary-rss
-- glossary-posse
-- glossary-headless-mode
-- templating
-- rss-cadence
-description:  >-
+  - glossary-rss
+  - glossary-posse
+  - glossary-headless-mode
+  - templating
+  - rss-cadence
+description: >-
   With Buttondown's RSS automation, you can automatically send a new email every time you publish a new blog post.
 faqItems: >
   [
@@ -16,7 +16,7 @@ faqItems: >
     },
     {
       "question": "Does Buttondown automatically set canonical URLs for RSS-to-email?",
-      "answer": "Yes! If you're using RSS-to-email with one email per RSS item, Buttondown automatically sets the canonical URL to the post's URL from your RSS feed. This helps with SEO by ensuring search engines index your original post rather than Buttondown's archived version. No configuration needed—it just works. You can read more about [canonical URLs](/canonical-url) if you'd like."
+      "answer": "Yes! If you're using RSS-to-email with one email per RSS item, Buttondown automatically sets the canonical URL to the post's URL from your RSS feed. This helps with SEO by ensuring search engines index your original post rather than Buttondown's archived version. No configuration needed—it just works. You can read more about [canonical URLs](/hosting-domain#canonical-urls) if you'd like."
     }
   ]
 ---
@@ -71,7 +71,6 @@ and how it extracts them, in order:
 3. `url`: Buttondown looks for the `link` field in the RSS item.
 4. `publish_date`: Buttondown looks for the `published` field in the RSS item. If it's not found, it looks for the `updated` field.
 5. `description`: Buttondown looks for the `subtitle` field in the RSS item. If it's not found, it looks for the `summary` field.
-
 
 Here's a simple example of the minimum possible RSS entry that Buttondown needs in RSS 2.0:
 
@@ -154,9 +153,7 @@ We published the following essays this week:
 
 Or if you chose a cadence of "every time" for your RSS feed, you'd just send information on the latest item:
 
-
 {% playgroundEmbed initialContent="I just published the following essay (read it online [here]({{ item.url }})):{{ item.content }}" /%}
-
 
 ## Edge cases and esoterica
 
@@ -176,8 +173,10 @@ To fix this, add a [custom WAF rule to your Cloudflare account](https://develope
 It's also possible that you might have a `robots.txt` file that's blocking access to your feed. Buttondown uses the `User-Agent: Buttondown RSS-Feed-Parser/1.0 (https://buttondown.com)` user agent to access your feed, so you can add a `Allow:` line to your `robots.txt` file to allow Buttondown's feed parser to access your feed.
 
 ### Why is an item in my feed labeled as "irrelevant" in Buttondown?
+
 Items in an RSS feed my be marked as irrelevant for two reasons:
-1. They do not have a publish date associated with them 
+
+1. They do not have a publish date associated with them
 1. The publish date came before the RSS feed itself was connected to Buttondown
 
 ## FAQs

@@ -1,0 +1,59 @@
+---
+title: URLs & domains for archives
+navigationTitle: Domains & URLs
+relatedPages:
+  - sending-from-a-custom-domain
+  - glossary-whitelabeling
+---
+
+{% paidFeature feature="custom_domain" /%}
+
+By default, your archives reside at `buttondown.com/username`, corresponding to the username you selected upon registering. You can view and change that username at [Settings → Basics](https://buttondown.com/settings/general).
+
+That archive URL always works, even if you set up a custom domain name for your archives. Put another way, if you change your archives to `newsletter.example.com`, visitors to `buttondown.com/username` will be forwarded to `newsletter.example.com`.
+
+## Setting up a hosting domain
+
+A [hosting domain](/glossary-hosting-domain) lets you serve your newsletter archives from your own domain, such as `newsletter.janedoe.com`, instead of `buttondown.com/username`.
+
+1. If you're not signed up for either the **Standard** or **Professional** plan, [upgrade your account](https://buttondown.com/settings).
+2. Go to the [Domains](https://buttondown.com/settings/domains) page.
+3. Specify your domain name in the "Hosting domain" field.
+4. Click **Save changes**.
+
+{% iframe src="https://demo.buttondown.com/settings/domains?emphasis=hosting-domain" /%}
+
+After you save, Buttondown prompts you to add a `CNAME` record pointing to `custom-domains.buttondown.com`. Add this record with your DNS provider, and your custom archive URL will be live once the DNS propagates.
+
+{% noticeInfo text="Looking to send emails from a custom domain? See [Sending from a custom domain](/sending-from-a-custom-domain) for setup instructions." /%}
+
+## Canonical URLs
+
+Let's say you're the CEO of Sheinhardt Wig Company. You have a robust and mature corporate blog at `sheinhardtwig.com`, but you want to send out all new blog posts as emails as well.
+
+A standard workflow might involve you grabbing the content of your blog post (e.g. `https://sheinhardtwig.com/2025/01/17/my-new-blog-post`) and sending it out as an email to your subscribers. Buttondown will then create an archived version of that email to be shared on the web — at, say, `https://buttondown.com/sheinhardtwig/archive/my-new-blog-post`.
+
+This has a couple problems:
+
+- Google will index the archived version of your email in addition to the original blog post, potentially penalizing your overall traffic.
+- Your blog — the original source of the content — might have additional content that you'd prefer your subscribers to see rather than Buttondown's archived version.
+
+In order to more harmoniously integrate Buttondown with your existing content, Buttondown allows you to set a **canonical URL** for every email you send. Buttondown will surface _this_ URL rather than its own archive URL in a number of places:
+
+- In the email's header, so that your subscribers can click through to the original source of the content without going through Buttondown's archives.
+- In the `<meta>` tags of the email's HTML, so that search engines index the original source of the content.
+- In the RSS and archive pages, so that subscribers can click through to the original post from Buttondown's archives.
+
+### Setting a canonical URL
+
+You can set a canonical URL in a number of ways:
+
+- If you're using [RSS-to-email](/rss-to-email), Buttondown will automatically set the canonical URL of every email to URL of the relevant RSS item.
+- If you're using the API, you can [set the Email.canonical_url](/api-emails-introduction) field.
+- If you're sending emails using the user interface, you can set the canonical URL in the "metadata" section when finalizing your email.
+
+## Moving away from Buttondown
+
+Sometimes our users find a newsletter platform that better meets their needs. No hard feelings! But if you're moving away from Buttondown, you want to make sure old links to your Buttondown account don't suddenly break.
+
+We don't have a do-it-yourself feature to enable link forwarding, but if you contact [our support team](https://buttondown.com/support), we'd be happy to set this up for you.

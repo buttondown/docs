@@ -405,6 +405,7 @@ const CAPITALIZATION_EXCEPTIONS = [
   "Stripe",
   "UGC",
   "URL",
+  "URLs",
   "UTM",
   "WordPress",
   "WYSIWYG",

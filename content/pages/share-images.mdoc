@@ -2,9 +2,16 @@
 title: Social sharing images
 relatedPages:
   - glossary-alt-text
+faqItems: >
+  [
+    {
+      "question": "Why aren't I seeing my new share image?",
+      "answer": "If you've updated your share image and you're not seeing it when you share your site, it's likely that the old image is being cached by social media platforms.\n\nYou can confirm that this is the case by using a tool like [metatags.io](https://metatags.io/), which automatically pulls in and previews those tags for you.\n\n**Force clearing the cache:** If it looks like the correct image is being shared, but you're still seeing the old image, try sharing the URL with a little parameter at the end such as `?123`. For example, if your URL is `https://buttondown.com/telemachus`, try sharing `https://buttondown.com/telemachus?123`. This will force the social media platform to fetch the new image, since it's technically a \"new\" URL.\n\n**LinkedIn:** LinkedIn is notorious for caching preview content for about one week. To refresh this content, you can use their [\"Post Inspector\" tool](https://www.linkedin.com/post-inspector/). Simply enter your URL, and this will signal to LinkedIn that they need to clear the cache and get the latest share image."
+    }
+  ]
 ---
 
-In Buttondown, you can specify a “share image,” which is the image that platforms like Twitter, Facebook, iMessage, etc. will use when you share your email’s web link.
+In Buttondown, you can specify a "share image," which is the image that platforms like Twitter, Facebook, iMessage, etc. will use when you share your email's web link.
 
 ## Setting a share image for all newsletters
 You can set this image for all newsletters in [Settings](https://buttondown.com/settings/general).
@@ -13,22 +20,26 @@ You can set this image for all newsletters in [Settings](https://buttondown.com/
 
 There may be times where you'd like to set a special image for a single newsletter. Buttondown makes that easy!
 
-Buttondown allows you to pick any image that you’ve used in your newsletter, or you can upload your own.
+Buttondown allows you to pick any image that you've used in your newsletter, or you can upload your own.
 
 To set a share image for an email: 
 1. Open the email in the Buttondown editor. 
 2. Click the "Send" button (Or the "Details" button if you're updating an existing email) 
 3. Open the "Web" section.
 4. Click the "Share image" section.
-5. Here you’ll see a “Share image” section, where you can upload your newsletter’s share image, or use one of the templates.
+5. Here you'll see a "Share image" section, where you can upload your newsletter's share image, or use one of the templates.
 
 
 ## Our templates
 
-One template places more emphasis on your newsletter’s name:
+One template places more emphasis on your newsletter's name:
 
-![This share image design shows the newsletter’s name larger, and the subject line and date smaller.s](/share-images/emphasize-newsletter.png)
+![This share image design shows the newsletter's name larger, and the subject line and date smaller.s](/share-images/emphasize-newsletter.png)
 
-While the other places more emphasis on your email’s subject line:
+While the other places more emphasis on your email's subject line:
 
-![This share image design shows the newsletter’s subject larger, and the newsletter’s name and date smaller.](/share-images/emphasize-subject.png)
+![This share image design shows the newsletter's subject larger, and the newsletter's name and date smaller.](/share-images/emphasize-subject.png)
+
+## FAQs
+
+{% faq /%}

@@ -5,6 +5,17 @@ const REDIRECTS = [
     permanent: false,
   },
   {
+    source: "/does-buttondown-automatically-index-my-web-archives",
+    destination: "/email-archives#indexing-your-web-archives",
+    permanent: true,
+  },
+
+  {
+    source: "/how-do-subscribers-customize-their-name-photo",
+    destination: "/comments#faqs",
+    permanent: true,
+  },
+  {
     source: "/buttondown-editor-mode",
     destination: "/editor-modes#faqs",
     permanent: true,
@@ -227,12 +238,12 @@ const REDIRECTS = [
   {
     source: "/getting-started/getting-a-custom-domain",
     permanent: false,
-    destination: "/getting-a-custom-domain",
+    destination: "/hosting-domain",
   },
   {
     source: "/getting-started/hosting-on-a-custom-domain",
     permanent: false,
-    destination: "/hosting-on-a-custom-domain",
+    destination: "/hosting-domain",
   },
   {
     source: "/getting-started/importing-your-data",
@@ -656,7 +667,7 @@ const REDIRECTS = [
   },
   {
     source: "/rate-limiting",
-    destination: "/sending-from-a-custom-domain#warming-up-your-domain",
+    destination: "/hosting-domain",
     permanent: true,
   },
   {
@@ -686,12 +697,12 @@ const REDIRECTS = [
   },
   {
     source: "/rate-limiting",
-    destination: "/sending-from-a-custom-domain#warming-up-your-domain",
+    destination: "/hosting-domain",
     permanent: false,
   },
   {
     source: "/warming-up",
-    destination: "/sending-from-a-custom-domain#warming-up-your-domain",
+    destination: "/hosting-domain",
     permanent: true,
   },
   {
@@ -762,6 +773,26 @@ const REDIRECTS = [
   {
     source: "/converting-between-modes",
     destination: "/editor-modes",
+    permanent: true,
+  },
+  {
+    source: "/can-i-point-my-old-buttondown-newsletter-to-a-new-url",
+    destination: "/hosting-domain",
+    permanent: true,
+  },
+  {
+    source: "/canonical-url",
+    destination: "/hosting-domain",
+    permanent: true,
+  },
+  {
+    source: "/getting-a-custom-domain",
+    destination: "/hosting-domain",
+    permanent: true,
+  },
+  {
+    source: "/hosting-on-a-custom-domain",
+    destination: "/hosting-domain",
     permanent: true,
   },
 ];

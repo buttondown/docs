@@ -181,18 +181,6 @@
       "name": "Custom domains",
       "items": [
         {
-          "discriminant": "page",
-          "value": "getting-a-custom-domain"
-        },
-        {
-          "discriminant": "page",
-          "value": "sending-from-a-custom-domain"
-        },
-        {
-          "discriminant": "page",
-          "value": "hosting-on-a-custom-domain"
-        },
-        {
           "discriminant": "divider",
           "value": "Registrars"
         },
@@ -294,14 +282,6 @@
         {
           "discriminant": "page",
           "value": "dormancy"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQs"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-point-my-old-buttondown-newsletter-to-a-new-url"
         }
       ]
     },
@@ -451,6 +431,10 @@
         },
         {
           "discriminant": "page",
+          "value": "sending-from-a-custom-domain"
+        },
+        {
+          "discriminant": "page",
           "value": "sending-via-email"
         },
         {
@@ -472,6 +456,39 @@
         {
           "discriminant": "page",
           "value": "external-scripts"
+        }
+      ]
+    },
+    {
+      "name": "Archives",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "email-archives"
+        },
+        {
+          "discriminant": "page",
+          "value": "hosting-domain"
+        },
+        {
+          "discriminant": "page",
+          "value": "customizing-web-design"
+        },
+        {
+          "discriminant": "page",
+          "value": "comments"
+        },
+        {
+          "discriminant": "page",
+          "value": "email-to-rss"
+        },
+        {
+          "discriminant": "page",
+          "value": "share-images"
+        },
+        {
+          "discriminant": "page",
+          "value": "seo"
         }
       ]
     },
@@ -529,10 +546,6 @@
         {
           "discriminant": "page",
           "value": "customizing-email-design"
-        },
-        {
-          "discriminant": "page",
-          "value": "customizing-web-design"
         },
         {
           "discriminant": "page",
@@ -599,43 +612,6 @@
         {
           "discriminant": "page",
           "value": "transactional-emails-gift"
-        }
-      ]
-    },
-    {
-      "name": "Archives",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "comments"
-        },
-        {
-          "discriminant": "page",
-          "value": "email-to-rss"
-        },
-        {
-          "discriminant": "page",
-          "value": "share-images"
-        },
-        {
-          "discriminant": "page",
-          "value": "seo"
-        },
-        {
-          "discriminant": "page",
-          "value": "canonical-url"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "does-buttondown-automatically-index-my-web-archives"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-do-subscribers-customize-their-name-photo"
         }
       ]
     },

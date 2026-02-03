@@ -1,12 +1,13 @@
 ---
 title: Sending from a custom domain
+navigationTitle: Sending domain
 relatedPages:
-  - glossary-cfl
-  - glossary-permanent-failure
+  - sending-from-dreamhost
   - glossary-reverse-dns
   - monitoring-your-domain
-  - sending-from-dreamhost
-  - subscriber-cleanup
+  - glossary-sending-domain
+  - glossary-permanent-failure
+  - glossary-cfl
 description: >-
   Buttondown allows all newsletters to send from a custom domain. This helps you build a recognizable brand and improves deliverability.
 faqItems: >
@@ -34,7 +35,7 @@ faqItems: >
   ]
 ---
 
-Unlike hosting your newsletter on a [custom domain](/hosting-on-a-custom-domain), which is largely a cosmetic feature, there are significant benefits to sending your emails from a custom domain.
+Unlike hosting your newsletter on a [custom domain](/hosting-domain), which is largely a cosmetic feature, there are significant benefits to sending your emails from a custom domain.
 
 By default, Buttondown sends your emails from its own domain and webserver. This is a good thing because it lets you focus on writing, editing, and growing your subscriber base, instead of dealing with arcane [DNS issues](/glossary-dns).
 
@@ -73,16 +74,16 @@ If we detect issues during this process, such as a high number of unsubscribes, 
 
 ## "Managed" sending domain setup
 
-Buttondown offers a “managed” experience for connecting a sending domain. (Your sending domain is the domain that you send emails from — for example, `anything@yourdomain.com`).
+Buttondown offers a "managed" experience for connecting a sending domain. (Your sending domain is the domain that you send emails from — for example, `anything@yourdomain.com`).
 
-The “managed” experience requires giving Buttondown control over a subdomain of your domain, which you will only use for Buttondown. We recommend that users use `mail.example.com` or `newsletter.example.com`, but you can use any subdomain you’d like.
+The "managed" experience requires giving Buttondown control over a subdomain of your domain, which you will only use for Buttondown. We recommend that users use `mail.example.com` or `newsletter.example.com`, but you can use any subdomain you'd like.
 
 The advantage of "managed" is that Buttondown can continuously update your DNS configuration to verify your domain with a growing number of email-sending partners. As a result, we can shift your newsletter's email traffic across those partners to balance deliverability and reliability, and in case of outages.
 
 If you don't use the "managed" DNS setup (also known as the "manual" setup), everything will work just fine, but we won't be able to switch your newsletter between different email-sending partners for optimal performance.
 
 {% noticeInfo
-   text="There is no need to change your sending domain configuration if you're already set up. Your current configuration will be supported indefinitely. However, we suggest using the “managed” process for new sending domains." /%}
+   text="There is no need to change your sending domain configuration if you're already set up. Your current configuration will be supported indefinitely. However, we suggest using the 'managed' process for new sending domains." /%}
 
 ### How do I use the "managed" sending domain setup?
 
