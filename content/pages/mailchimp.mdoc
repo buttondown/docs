@@ -9,6 +9,10 @@ faqItems: >
     {
       "question": "I see a bunch of different subscriber lists in my export! Which one should I choose?",
       "answer": "| CSV File Name                   | Description                                 |\n|---------------------------------|---------------------------------------------|\n| subscribed_members_export.csv   | All of your *active* subscribers            |\n| unsubscribed_members_export.csv | Just unsubscribers                          |\n| cleaned_members_export.csv      | Subscribers who have been cleaned (invalid, bounced, etc.) |\n\nChoose `subscribed_members_export.csv`. This is the list of all of your *active* subscribers.\n\nWhile \"cleaned\" and \"unsubscribed\" members are still in your Mailchimp account, they are not active subscribers. They are either unsubscribed or have been cleaned from your list, and so you don't want to bring them over to Buttondown."
+    },
+    {
+      "question": "Do subscribers need to re-enter their credit card?",
+      "answer": "Mailchimp and Buttondown use the same payments processor: [Stripe](https://stripe.com/).\n\nStripe has your subscribers' information:\n\n- credit cards\n- purchases\n- subscriptions\n\nYou bring your subscribers' history to Buttondown when you connect your Stripe account to Buttondown. You will have their payment histories, too.\n\n**Your paying subscribers do not need to do anything extra when you switch to Buttondown**. Just [email our support team](mailto:support@buttondown.com) when you've connected your Stripe account. We'll take care of the rest, for free!"
     }
   ]
 ---
@@ -43,20 +47,6 @@ Navigate to the “[Emails](https://buttondown.com/emails)" tab of your Buttondo
 Click **Import**, then choose "Mailchimp", then choose the ZIP file you just downloaded from Mailchimp.
 
 After you complete the procedures above, Buttondown begins an audit and migration process to make sure everything is in order. After that completes, you should be safe to disable or deactivate your Mailchimp account.
-
-### Do subscribers need to re-enter their credit card?
-
-Mailchimp and Buttondown use the same payments processor: [Stripe](https://stripe.com/).
-
-Stripe has your subscribers' information:
-
-- credit cards
-- purchases
-- subscriptions
-
-You bring your subscribers' history to Buttondown when you connect your Stripe account to Buttondown. You will have their payment histories, too.
-
-**Your paying subscribers do not need to do anything extra when you switch to Buttondown**. Just [email our support team](mailto:support@buttondown.com) when you've connected your Stripe account. We'll take care of the rest, for free!
 
 ## Frequently asked questions
 
