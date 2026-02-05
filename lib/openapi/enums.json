@@ -1156,6 +1156,11 @@
       "name": "Embedded Form",
       "variant": "info"
     },
+    "form": {
+      "description": "This subscriber subscribed via a Buttondown form.",
+      "name": "Form",
+      "variant": "info"
+    },
     "import": {
       "description": "This subscriber was imported from another service.",
       "name": "Import",
