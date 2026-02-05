@@ -884,7 +884,7 @@
           {
             "type": "send_email",
             "metadata": {
-              "email_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3"
+              "email_id": "em_0k28edc3fw896bp4mrhc535z5k"
             }
           }
         ],
@@ -917,7 +917,7 @@
           {
             "type": "send_email",
             "metadata": {
-              "email_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3"
+              "email_id": "em_0k28edc3fw896bp4mrhc535z5k"
             }
           }
         ],
@@ -1169,7 +1169,7 @@
         "method": "GET",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "127.0.0.1",
         "api_key_id": null,
         "api_key_label": null
       }
@@ -1184,7 +1184,7 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "192.168.1.1",
         "api_key_id": null,
         "api_key_label": null
       }
@@ -1199,7 +1199,7 @@
         "method": "POST",
         "source": "app",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "10.0.0.1",
         "api_key_id": null,
         "api_key_label": null
       }
@@ -1214,7 +1214,7 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "127.0.0.1",
         "api_key_id": null,
         "api_key_label": null
       }
@@ -1486,7 +1486,7 @@
         "method": "GET",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "127.0.0.1",
         "api_key_id": null,
         "api_key_label": null,
         "request_data": "{\"subject\": \"Test email\"}",
@@ -1507,7 +1507,7 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "192.168.1.1",
         "api_key_id": null,
         "api_key_label": null,
         "request_data": "{\"email\": \"test@example.com\"}",
@@ -1527,7 +1527,7 @@
         "method": "POST",
         "source": "app",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "10.0.0.1",
         "api_key_id": null,
         "api_key_label": null,
         "request_data": "{\"subject\": \"New email\", \"body\": \"Hello world\"}",
@@ -1547,7 +1547,7 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "127.0.0.1",
         "api_key_id": null,
         "api_key_label": null,
         "request_data": "{\"email\": \"subscriber@example.com\"}",

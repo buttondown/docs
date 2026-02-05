@@ -1,8 +1,8 @@
 ---
 title: How to send a teaser email
 navigationTitle: Paywalls and teasers
-description:  >-
- Buttondown gives you the option of sending a "teaser" version of a paid email to encourage free readers to upgrade.
+description: >-
+  Buttondown gives you the option of sending a "teaser" version of a paid email to encourage free readers to upgrade.
 date: 2024-08-02
 relatedPages:
   - paid-subscriptions
@@ -18,6 +18,7 @@ faqItems: >
     }
   ]
 ---
+
 If you have a paid newsletter, you might want to send a "teaser" version of the email to your free subscribers.
 
 A teaser email displays an abbreviated section of a newsletter email to free subscribers, with a prompt to subscribe to continue reading. This can encourage free subscribers to upgrade to a paid subscription.
@@ -25,12 +26,20 @@ A teaser email displays an abbreviated section of a newsletter email to free sub
 Here's how to send a teaser email:
 
 1. Navigate to the "Emails" page of your Buttondown account and start a new email draft.
-1. Insert an empty line at the point in your email where you'd like to hide the remainder of the text. 
+1. Insert an empty line at the point in your email where you'd like to hide the remainder of the text.
 1. Type `/paywall` and press **Enter**.
-1. Everything *below* the [paywall](/glossary-paywall) block will only be visible to [Premium](/api-subscribers-type#premium) subscribers. [Regular](/api-subscribers-type#regular) subscribers will see only the text *above* the paywall, followed by a link to pay for a subscription.
+1. Everything _below_ the [paywall](/glossary-paywall) block will only be visible to [Premium](/api-subscribers-type#premium) subscribers. [Regular](/api-subscribers-type#regular) subscribers will see only the text _above_ the paywall, followed by a link to pay for a subscription.
 1. Send the email to a [Public](/api-emails-type#public) audience. This way, the email will be sent to both paid and unpaid subscribers—but the different types of subscribers will see different content.
 
 {% noticeWarn text="Looking for information about adding custom teaser text to a premium email? This [feature was deprecated](https://buttondown.com/changelog/2025-02-06) in favor of paywalls." /%}
+
+## Tip jars
+
+If you're coming from a platform like [Buy Me a Coffee](https://www.buymeacoffee.com/) or [Ko-fi](https://ko-fi.com/), you may be familiar with the concept of a "tip jar", which is a way to collect donations from your readers without gating access to your writing.
+
+You can do the same for your newsletter by using the "Pay what you want" pricing model. This model allows you to set a minimum price for your newsletter (if you want), and subscribers can pay any amount they want on either a recurring or one-time basis.
+
+To set up a tip jar for your newsletter, you'll get started by [setting up a paid newsletter](/stripe).
 
 ## Frequently asked questions
 

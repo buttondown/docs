@@ -140,10 +140,6 @@
           "value": "draft-send"
         },
         {
-          "discriminant": "page",
-          "value": "premium-content"
-        },
-        {
           "discriminant": "divider",
           "value": "FAQ"
         },
@@ -200,59 +196,6 @@
         {
           "discriminant": "page",
           "value": "rss-to-email"
-        }
-      ]
-    },
-    {
-      "name": "Monetizing your newsletter",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "paid-subscriptions"
-        },
-        {
-          "discriminant": "page",
-          "value": "sponsorships"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Features"
-        },
-        {
-          "discriminant": "page",
-          "value": "gift-subscriptions"
-        },
-        {
-          "discriminant": "page",
-          "value": "gifting-subscriptions"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "pricing-models"
-        },
-        {
-          "discriminant": "page",
-          "value": "premium-teaser"
-        },
-        {
-          "discriminant": "page",
-          "value": "stripe-receipts"
-        },
-        {
-          "discriminant": "page",
-          "value": "stripe-upsell"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-pay-using-something-other-than-stripe"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-do-i-handle-taxes"
         }
       ]
     },
@@ -489,6 +432,39 @@
         {
           "discriminant": "page",
           "value": "seo"
+        }
+      ]
+    },
+    {
+      "name": "Paid subscriptions",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "paid-subscriptions"
+        },
+        {
+          "discriminant": "page",
+          "value": "premium-teaser"
+        },
+        {
+          "discriminant": "page",
+          "value": "premium-content"
+        },
+        {
+          "discriminant": "page",
+          "value": "stripe-receipts"
+        },
+        {
+          "discriminant": "page",
+          "value": "sponsorships"
+        },
+        {
+          "discriminant": "page",
+          "value": "gift-subscriptions"
+        },
+        {
+          "discriminant": "page",
+          "value": "gifting-subscriptions"
         }
       ]
     },

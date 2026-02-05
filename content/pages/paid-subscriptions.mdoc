@@ -1,45 +1,45 @@
 ---
 title: Paid subscriptions
 relatedPages:
-- can-i-pay-using-something-other-than-stripe
-- how-do-i-handle-taxes
-- pricing-models
-- gifting-subscriptions
+- premium-teaser
+- premium-content
+- gift-subscriptions
 description:  >-
-  Buttondown offers a variety of ways to offer paid subscriptions. And, we don't charge so you'll keep all of the money that you make.
-faqItems: >
-  [
-    {
-      "question": "Can I use Stripe Test mode with Buttondown?",
-      "answer": "Buttondown does not currently support Stripe's [test mode](https://stripe.com/docs/test-mode), which lets you test your integration without charging a credit card.\n\nTo test your integration, we recommend charging a small amount on a real credit card and then refunding the charge. This will cost a few cents for each transaction."
-    },
-    {
-      "question": "How do I change the price of my paid newsletter?",
-      "answer": "You can change the price by adding a new price to your existing product in Stripe and archiving the old price. Buttondown will automatically use the new price for new subscribers; existing subscribers will retain their current price.\n\nMigrating existing subscribers to the new price is more complex: neither Buttondown nor Stripe currently supports this within the interface. Please [contact support](https://buttondown.com/support) if you'd like to migrate existing subscribers to a new price."
-    }
-  ]
+  Buttondown offers a variety of ways to offer paid subscriptions – and you'll keep all of the money you make.
 ---
 
 {% paidFeature feature="paid_subscriptions" /%}
 
+You can charge your readers for access to premium content on your newsletter. Paid subscriptions are set up with the following steps:
 
-Whether you'd like to set up a formal paid subscription program or a pay-what-you-want model, Buttondown offers a number of different ways to collect revenue from your subscribers, while also rewarding them with exclusive perks!
+1. Sign up for [Stripe](https://stripe.com) (which takes your customers' money & sends it to you) and connect it to Buttondown.
+2. Create a paid plan with the pricing & terms that best suit you.
+3. Promote your paid plan to subscribers.
+4. Send paid-exclusive emails to your paid subscribers.
 
-## Getting started
+In this guide, you'll learn how to get set up with paid subscribers, collect your first paying readers, and send your first paywalled email to them.
 
-To set up paid subscriptions for your newsletter, you'll work in both Stripe and Buttondown.
+## Setup
 
-Buttondown works hand in hand with Stripe to automate payments and taxes related to your newsletter.
-To start using paid subscriptions, you must have:
+First, go to [Stripe](https://stripe.com) and register for a new account.
 
-1. [A Stripe account](/stripe)
-2. [A paid Buttondown account](https://buttondown.com/pricing)
+Then, go to [Settings → Basics](https://demo.buttondown.com/settings/general). Under "Features", you'll see "Paid subscriptions". Tap "Connect to Stripe" at right. You'll be sent to Stripe to log in & connect your account to your newsletter.
 
-## Add a paid subscription plan
+### A note on Stripe's test mode
 
 After you've [integrated](/stripe) your Buttondown and Stripe accounts, you can configure your paid subscription plan in Buttondown.
 
-In Buttondown you'll:
+Buttondown does not currently support Stripe's [test mode](https://stripe.com/docs/test-mode), which lets you test your integration without charging a credit card.
+
+To test your integration, we recommend charging a small amount on a real credit card and then refunding the charge. This will cost a few cents for each transaction.
+
+### Using payment processors other than Stripe
+
+Buttondown only supports Stripe natively right now. If you'd like to provide additional payment options for your subscribers, we recommend integrating creator platform tools like [Memberful](https://buttondown.com/features/integrations/memberful), [Zapier](https://zapier.com/apps/patreon/integrations/buttondown), or Patreon with Buttondown.
+
+## Configuring paid plans
+
+Once you've connected Stripe to Buttondown, go to [Settings → Integrations → Stripe](https://buttondown.com/settings/paid-subscriptions) to begin configuring your paid plans.
 
 1. Navigate to [Settings](https://buttondown.com/settings/general) and scroll to the "Paid subscriptions" section.
 1. Click **Configure**. The "Paid subscriptions" page appears.
@@ -54,17 +54,38 @@ In Buttondown you'll:
    - **Embedded checkout**: Choose whether to show the payment element immediately on the subscribe page
 1. Click **Save** to apply your changes.
 
-{% iframe src="https://demo.buttondown.com/settings/paid-subscriptions?newsletter=jenna" height=900 /%}
+{% iframe src="https://demo.buttondown.com/settings/paid-subscriptions?newsletter=jenna" width="wide" height=900 /%}
 
-## Having subscribers subscribe to your paid newsletter
+### Pricing models
 
-There are a few ways that you can have subscribers subscribe to your paid newsletter:
+We have 3 different pricing models:
 
-1. If they subscribe and confirm their email address with the link that is sent to them, they'll be brought to a webpage that allows them to upgrade their subscription.
-2. Emails to unpaid subscribers will have a link at the bottom of the email where they can upgrade.
-3. Buttondown exposes a URL — https://buttondown.com/your-newsletter/buy — where they can upgrade their subscription.
+- **Fixed** charges your subscribers a specific amount every month or year. Most people go this route, charging people as if they were subscribing to a periodical.
+- **Pay what you want** lets people pay whatever they'd like upfront. They pay once, get access, and that's it.
+- **Per email** charges people every time you send an email. These are best for more sporadic lists, but you'll want to make sure people have a clear sense of what they're paying for before they sign up!
 
-## Customize your paid subscription confirmation
+### Changing your pricing
+
+If you want to change the price of your paid newsletter, you can do so by adding a new price to the existing product in Stripe and archiving the old price. Buttondown will automatically use the new price for new subscribers; existing subscribers will retain their current price.
+
+Migrating _existing_ subscribers to the new price is more complex, as neither Buttondown nor Stripe currently supports this within the interface. We are happy to run this manually for you; please [contact support](https://buttondown.com/support) if you'd like to do this.
+
+## Getting paid subscribers
+
+Once new visitors subscribe, they'll be brought to a page that allows them to upgrade their subscription.
+
+Emails to unpaid subscribers will also have a link at the bottom of the email where they can upgrade.
+
+Finally, Buttondown exposes a URL (`https://buttondown.com/your-username/buy`) where readers can upgrade their subscription. To find your user name, go to [Settings → Basics](https://buttondown.com/settings/general). You can share that URL with your audience anywhere you'd like. Joining through that link automatically subscribes people to your full newsletter as well.
+
+### Notes on paid subscribers
+
+Once someone upgrades to become a paid subscriber, there are a couple of things to keep in mind:
+
+* Paid subscriptions automatically renew at the end of the billing cycle you specify, whether that's monthly or annually. After your subscribers convert their subscriptions to paid, it will not expire unless they cancel it.
+* Subscribers can cancel their subscriptions to your newsletter any time by clicking "Unsubscribe." If they unsubscribe from your whole newsletter, they stop paying you on an ongoing basis, too.
+
+### Customize your paid confirmation email
 
 When a subscriber becomes a paid subscriber, it's nice to offer them a warm welcome by writing a custom confirmation email. You can create a custom email that is sent to a new paid subscriber automatically. Paid subscribers will receive this email when they opt in to your paid newsletter. Here's how:
 
@@ -72,34 +93,25 @@ When a subscriber becomes a paid subscriber, it's nice to offer them a warm welc
 1. Enter "Subject" and "Body" text for the welcome email.
 1. Click **Save changes**.
 
-## Send your first paid email
+## Send a paid email
 
 You can send a newsletter email only to paid subscribers by configuring the recipient in the email drafting menu.
 
 1. Navigate to **Emails** and draft a new newsletter email.
 1. Click **Send.** The "Send this email" panel opens. Scroll to the "Audience" section.
 1. Choose the radio button that matches the group you wish to send this email to. In this case, selecting "Premium" will send the newsletter email to all subscribers who pay for your newsletter.
-1. Optionally, configure other email settings.
 1. Click **Finalize** and then **Yes, I'm sure.**
 
-You just sent your first premium newsletter email to all paid subscribers.
-
-## Advanced configuration
-### Buttondown's default settings
-
-Here's what you need to know about Buttondown's default settings for paid newsletters:
-
-* Paid subscriptions automatically renew at the end of the billing cycle you specify, whether that's monthly or annually. After your subscribers convert their subscriptions to paid, it will not expire unless they cancel it.
-* Subscribers can cancel their subscriptions to your newsletter any time by clicking "Unsubscribe."
-
-While these practices are defaults in Buttondown, you can always alter your payment settings in Stripe.
+To learn more about paywalling *part* of an email, go to [Paywalls & Teasers](/premium-teaser). If you want to offer other perks to your paid subscribers, take a look at [our guide to offering perks](/premium-content).
 
 ### Disable free subscriptions
 
 In the "Paid subscriptions" page, you can choose to prohibit free subscriptions. You can change this at any time. To disable free subscriptions, select **Paid only** from the "Content access" dropdown in the subscription configuration form.
 
-{% noticeWarn text="Are you creating multiple newsletters with paid subscriptions? Each newsletter will need it's own Stripe account." /%}
+{% noticeWarn text="Are you creating multiple newsletters with paid subscriptions? Each newsletter will need its own Stripe account." /%}
 
-## FAQs
+### Taxes
 
-{% faq /%}
+Stripe automatically reports and collects taxes for your paid newsletter. You can learn more about this on our [Stripe setup page](/stripe), or by reading [Stripe's documentation](https://stripe.com/docs/tax/set-up).
+
+You may also need to register your paid newsletter with your local tax authority. Stripe has a tool to help you determine if you need to do this. You can use this tool in the "Monitoring" tab of your tax "Overview" page. If Stripe advises you to register with your local tax authority, Stripe's [Registration](https://stripe.com/docs/tax/registering#add-a-registration) guide explains the process of adding, editing, and checking the status of your registration. To learn more, read [Stripe's tax monitoring documentation](https://stripe.com/docs/tax/monitoring).

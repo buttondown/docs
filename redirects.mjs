@@ -502,7 +502,7 @@ const REDIRECTS = [
   },
   {
     source: "/tip-jar",
-    destination: "/pricing-models#pay-what-you-want",
+    destination: "/premium-teaser#tip-jars",
     permanent: true,
   },
   {
@@ -793,6 +793,27 @@ const REDIRECTS = [
   {
     source: "/hosting-on-a-custom-domain",
     destination: "/hosting-domain",
+    permanent: true,
+  },
+  {
+    source: "/pricing-models",
+    destination: "/paid-subscriptions#pricing-models",
+    permanent: true,
+  },
+  {
+    source: "/stripe-upsell",
+    destination: "/paid-subscriptions#configuring-paid-plans",
+    permanent: true,
+  },
+  {
+    source: "/can-i-pay-using-something-other-than-stripe",
+    destination:
+      "/paid-subscriptions#using-payment-processors-other-than-stripe",
+    permanent: true,
+  },
+  {
+    source: "/how-do-i-handle-taxes",
+    destination: "/paid-subscriptions#taxes",
     permanent: true,
   },
 ];

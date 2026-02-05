@@ -328,14 +328,6 @@
     ]
   },
   {
-    "title": "Premium content",
-    "url": "premium-content",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown makes it easy to share special perks and incentives with your paid readers.",
-    "references": []
-  },
-  {
     "title": "Why does my email look different on some clients?",
     "url": "why-some-email-clients-look-different",
     "section": "guides",
@@ -428,110 +420,6 @@
       "quickstart",
       "sending-your-first-email-advanced"
     ]
-  },
-  {
-    "title": "Paid subscriptions",
-    "url": "paid-subscriptions",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown offers a variety of ways to offer paid subscriptions. And, we don't charge so you'll keep all of the money that you make.",
-    "references": [
-      "affiliate-program",
-      "beehiiv",
-      "buttondown-data",
-      "customizing-subscriber-list-view",
-      "gifting-subscriptions",
-      "glossary-paywall",
-      "paid-subscriptions",
-      "podia",
-      "quickstart",
-      "segmenting-your-audience",
-      "stripe",
-      "subscriber-dashboard",
-      "transactional-emails-gift",
-      "transactional-emails-premium-welcome"
-    ]
-  },
-  {
-    "title": "Sponsorships",
-    "url": "sponsorships",
-    "section": "guides",
-    "schema": null,
-    "description": "Does your newsletter have sponsors? Learn how Buttondown can help you manage your sponsorships.",
-    "references": [
-      "sponsorships"
-    ]
-  },
-  {
-    "title": "Comped subscriptions",
-    "url": "gift-subscriptions",
-    "section": "guides",
-    "schema": null,
-    "description": "Gift subscriptions are a great way to \"comp\" a paid subscription to your friends, family, and favorite readers.",
-    "references": [
-      "substack",
-      "transactional-emails-gift"
-    ]
-  },
-  {
-    "title": "Buying a subscription as a gift",
-    "url": "gifting-subscriptions",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown's PaymentElement allows your subscribers to purchase paid subscriptions as gifts for others directly from your subscribe page.",
-    "references": [
-      "gift-subscriptions"
-    ]
-  },
-  {
-    "title": "What pricing models can I use for my paid newsletter?",
-    "url": "pricing-models",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown offers a variety of different pricing models for your paid newsletter.",
-    "references": []
-  },
-  {
-    "title": "How to send a teaser email",
-    "url": "premium-teaser",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown gives you the option of sending a \"teaser\" version of a paid email to encourage free readers to upgrade.",
-    "references": []
-  },
-  {
-    "title": "How do I enable Stripe-managed receipts?",
-    "url": "stripe-receipts",
-    "section": "guides",
-    "schema": null,
-    "description": "Stripe can automatically send payment receipts to your paid subscribers.",
-    "references": []
-  },
-  {
-    "title": "Allow subscribers to choose between paying monthly or yearly",
-    "url": "stripe-upsell",
-    "section": "guides",
-    "schema": null,
-    "description": "You can configure Stripe to give your subscribers the option between a monthly and yearly plan when upgrading to a premium subscription for your newsletter.",
-    "references": [
-      "stripe-upsell"
-    ]
-  },
-  {
-    "title": "Can I pay using something other than Stripe?",
-    "url": "can-i-pay-using-something-other-than-stripe",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown uses Stripe as our payment processor for both our own customers, and paid newsletters. ",
-    "references": []
-  },
-  {
-    "title": "How can I calculate and report my taxes?",
-    "url": "how-do-i-handle-taxes",
-    "section": "guides",
-    "schema": null,
-    "description": "Stripe can automatically collet can report taxes for your paid Buttondown newsletter.",
-    "references": []
   },
   {
     "title": "Multiple newsletters",
@@ -699,12 +587,11 @@
       "benchmark",
       "convertkit",
       "customizing-subscriber-list-view",
-      "how-do-i-handle-taxes",
       "mailchimp",
       "paid-subscriptions",
+      "premium-teaser",
       "sponsorships",
       "stripe",
-      "stripe-upsell",
       "subscriber-dashboard",
       "subscriber-data",
       "substack"
@@ -1114,6 +1001,88 @@
     "description": null,
     "references": [
       "substack"
+    ]
+  },
+  {
+    "title": "Paid subscriptions",
+    "url": "paid-subscriptions",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown offers a variety of ways to offer paid subscriptions \u2013 and you'll keep all of the money you make.",
+    "references": [
+      "affiliate-program",
+      "beehiiv",
+      "buttondown-data",
+      "customizing-subscriber-list-view",
+      "gifting-subscriptions",
+      "glossary-paywall",
+      "paid-subscriptions",
+      "podia",
+      "quickstart",
+      "segmenting-your-audience",
+      "stripe",
+      "subscriber-dashboard",
+      "transactional-emails-gift",
+      "transactional-emails-premium-welcome"
+    ]
+  },
+  {
+    "title": "How to send a teaser email",
+    "url": "premium-teaser",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown gives you the option of sending a \"teaser\" version of a paid email to encourage free readers to upgrade.",
+    "references": [
+      "paid-subscriptions"
+    ]
+  },
+  {
+    "title": "Offering perks for paid subscribers",
+    "url": "premium-content",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown makes it easy to share special perks and incentives with your paid readers.",
+    "references": [
+      "paid-subscriptions"
+    ]
+  },
+  {
+    "title": "How do I enable Stripe-managed receipts?",
+    "url": "stripe-receipts",
+    "section": "reference",
+    "schema": null,
+    "description": "Stripe can automatically send payment receipts to your paid subscribers.",
+    "references": []
+  },
+  {
+    "title": "Sponsorships",
+    "url": "sponsorships",
+    "section": "reference",
+    "schema": null,
+    "description": "Does your newsletter have sponsors? Learn how Buttondown can help you manage your sponsorships.",
+    "references": [
+      "sponsorships"
+    ]
+  },
+  {
+    "title": "Comped subscriptions",
+    "url": "gift-subscriptions",
+    "section": "reference",
+    "schema": null,
+    "description": "Gift subscriptions are a great way to \"comp\" a paid subscription to your friends, family, and favorite readers.",
+    "references": [
+      "substack",
+      "transactional-emails-gift"
+    ]
+  },
+  {
+    "title": "Buying a subscription as a gift",
+    "url": "gifting-subscriptions",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown's PaymentElement allows your subscribers to purchase paid subscriptions as gifts for others directly from your subscribe page.",
+    "references": [
+      "gift-subscriptions"
     ]
   },
   {
