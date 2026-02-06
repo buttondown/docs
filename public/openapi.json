@@ -10915,9 +10915,9 @@
             "default": "",
             "type": "string"
           },
-          "css_tokens": {
-            "title": "Css Tokens",
-            "description": "Custom CSS tokens (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
+          "theme_configuration": {
+            "title": "Theme Configuration",
+            "description": "Custom theme configuration (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
             "default": {},
             "type": "object",
             "additionalProperties": {
@@ -11145,9 +11145,9 @@
             "example": ".header { color: #000; }",
             "type": "string"
           },
-          "css_tokens": {
-            "title": "Css Tokens",
-            "description": "Custom CSS tokens (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
+          "theme_configuration": {
+            "title": "Theme Configuration",
+            "description": "Custom theme configuration (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
             "default": {},
             "example": {
               "primary-color": "#0069FF"
@@ -11305,9 +11305,9 @@
             "example": ".header { color: #000; }",
             "type": "string"
           },
-          "css_tokens": {
-            "title": "Css Tokens",
-            "description": "Custom CSS tokens (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
+          "theme_configuration": {
+            "title": "Theme Configuration",
+            "description": "Custom theme configuration (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
             "example": {
               "primary-color": "#0069FF"
             },
