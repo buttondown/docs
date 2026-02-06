@@ -1,6 +1,5 @@
 ---
-title: Events and webhooks
-navigationTitle: Introduction
+title: Events & webhooks
 description:  >-
   Events and webhooks allow you to monitor and react to any changes with your newsletter.
 ---
@@ -115,6 +114,52 @@ You can also use signing keys when sending post requests via automation actions.
 ## Retries
 
 We retry up to **3 times** if a webhook fails.
+
+## Creating webhooks
+
+### Step 1: Navigate to integrations
+
+{% iframe src="https://demo.buttondown.com/settings/general?emphasis=webhooks" /%}
+
+1. Log into your Buttondown account
+2. Go to **Settings**
+3. Click the **Create webhook** button:
+
+### Step 2: Configure webhook settings
+
+{% iframe src="https://demo.buttondown.com/webhooks/new" height=700 /%}
+
+You'll need to provide the following information:
+
+#### Webhook URL
+
+Enter the URL where Buttondown should send event data. This URL is typically provided by:
+- Third-party services (Discord, Slack, etc.)
+- Automation platforms (Zapier, Make, n8n)
+- Your own application endpoint
+
+#### Events to trigger
+
+Select which events should trigger your webhook. [Common event types](/api-webhooks-event-types) include:
+
+| Event Type                | Description                                      |
+|---------------------------|--------------------------------------------------|
+| **subscriber.created**    | When someone subscribes to your newsletter       |
+| **subscriber.confirmed**  | When a subscriber confirms their email           |
+| **subscriber.unsubscribed** | When someone unsubscribes                      |
+| **email.sent**            | When you send a newsletter                       |
+| **email.delivered**       | When an email is successfully delivered          |
+| **comment.created**       | When someone comments on your newsletter         |
+
+You can select multiple events for a single webhook.
+
+### Step 3: Test your webhook
+
+Once you've configured your webhook, it's recommended to test it:
+
+1. Click the **Test webhook** button
+2. Buttondown will send a test payload to your URL
+3. Verify that your receiving service gets the test data
 
 ## Keep learning
 

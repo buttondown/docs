@@ -21,6 +21,11 @@ const REDIRECTS = [
     permanent: true,
   },
   {
+    source: "/creating-webhooks-dashboard",
+    destination: "/events-and-webhooks-introduction#creating-webhooks",
+    permanent: false,
+  },
+  {
     source: "/odd-and-ends/exporting-your-data",
     permanent: false,
     destination: "/data-exports",

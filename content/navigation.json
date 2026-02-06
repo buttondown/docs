@@ -191,10 +191,6 @@
       "items": [
         {
           "discriminant": "page",
-          "value": "welcome-sequence"
-        },
-        {
-          "discriminant": "page",
           "value": "rss-to-email"
         }
       ]
@@ -469,6 +465,39 @@
       ]
     },
     {
+      "name": "Automations",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "automations-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "welcome-sequence"
+        },
+        {
+          "discriminant": "page",
+          "value": "automation-triggers"
+        },
+        {
+          "discriminant": "page",
+          "value": "automation-filters"
+        },
+        {
+          "discriminant": "page",
+          "value": "automation-actions"
+        },
+        {
+          "discriminant": "page",
+          "value": "events-and-webhooks-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "event-types"
+        }
+      ]
+    },
+    {
       "name": "Dashboard",
       "items": [
         {
@@ -646,44 +675,6 @@
         {
           "discriminant": "page",
           "value": "data-exports-survey"
-        }
-      ]
-    },
-    {
-      "name": "Automations",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "automations-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "automation-triggers"
-        },
-        {
-          "discriminant": "page",
-          "value": "automation-filters"
-        },
-        {
-          "discriminant": "page",
-          "value": "automation-actions"
-        }
-      ]
-    },
-    {
-      "name": "Events and webhooks",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "events-and-webhooks-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "creating-webhooks-dashboard"
-        },
-        {
-          "discriminant": "page",
-          "value": "event-types"
         }
       ]
     },

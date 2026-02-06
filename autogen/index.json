@@ -394,19 +394,6 @@
     "references": []
   },
   {
-    "title": "Automating welcome sequences",
-    "url": "welcome-sequence",
-    "section": "guides",
-    "schema": null,
-    "description": "You can use Buttondown's automations feature to create a welcome sequence for your new subscribers!",
-    "references": [
-      "automations-introduction",
-      "beehiiv",
-      "podia",
-      "welcome-sequence"
-    ]
-  },
-  {
     "title": "RSS-to-email",
     "url": "rss-to-email",
     "section": "guides",
@@ -1086,6 +1073,101 @@
     ]
   },
   {
+    "title": "Automations",
+    "url": "automations-introduction",
+    "section": "reference",
+    "schema": null,
+    "description": "Automations are shortcuts that facilitate your perfect Buttondown workflow.",
+    "references": [
+      "api-notes-create",
+      "arena",
+      "bsky",
+      "building-your-subscriber-base",
+      "linkedin",
+      "portal",
+      "replies",
+      "surveys",
+      "teams",
+      "tumblr",
+      "twitter",
+      "welcome-sequence"
+    ]
+  },
+  {
+    "title": "Automating welcome sequences",
+    "url": "welcome-sequence",
+    "section": "reference",
+    "schema": null,
+    "description": "You can use Buttondown's automations feature to create a welcome sequence for your new subscribers!",
+    "references": [
+      "automations-introduction",
+      "beehiiv",
+      "podia",
+      "welcome-sequence"
+    ]
+  },
+  {
+    "title": "Types of automation triggers",
+    "url": "automation-triggers",
+    "section": "reference",
+    "schema": null,
+    "description": "Triggers are the events that cause a Buttondown Automation to fire.",
+    "references": [
+      "automation-filters",
+      "automations-introduction"
+    ]
+  },
+  {
+    "title": "Types of automation filters",
+    "url": "automation-filters",
+    "section": "reference",
+    "schema": null,
+    "description": "Filters allow you to set the criteria for when an automation fires.",
+    "references": [
+      "automations-introduction"
+    ]
+  },
+  {
+    "title": "Types of automation actions",
+    "url": "automation-actions",
+    "section": "Reference",
+    "schema": "AutomationActionType",
+    "description": null,
+    "references": [
+      "arena",
+      "automations-introduction",
+      "bsky",
+      "linkedin",
+      "tumblr",
+      "twitter"
+    ]
+  },
+  {
+    "title": "Events & webhooks",
+    "url": "events-and-webhooks-introduction",
+    "section": "reference",
+    "schema": null,
+    "description": "Events and webhooks allow you to monitor and react to any changes with your newsletter.",
+    "references": [
+      "api-emails-status",
+      "data-exports-event",
+      "discord",
+      "glossary-webhook"
+    ]
+  },
+  {
+    "title": "Event types",
+    "url": "event-types",
+    "section": "Reference",
+    "schema": "ExternalEventType",
+    "description": null,
+    "references": [
+      "automation-triggers",
+      "automations-introduction",
+      "events-and-webhooks-introduction"
+    ]
+  },
+  {
     "title": "Home",
     "url": "home",
     "section": "reference",
@@ -1414,97 +1496,6 @@
     "description": "Buttondown allows you to easily export all your survey data as a csv file.",
     "references": [
       "data-exports"
-    ]
-  },
-  {
-    "title": "Automations",
-    "url": "automations-introduction",
-    "section": "reference",
-    "schema": null,
-    "description": "Automations are shortcuts that facilitate your perfect Buttondown workflow.",
-    "references": [
-      "api-notes-create",
-      "arena",
-      "bsky",
-      "building-your-subscriber-base",
-      "linkedin",
-      "portal",
-      "replies",
-      "surveys",
-      "teams",
-      "tumblr",
-      "twitter",
-      "welcome-sequence"
-    ]
-  },
-  {
-    "title": "Types of automation triggers",
-    "url": "automation-triggers",
-    "section": "reference",
-    "schema": null,
-    "description": "Triggers are the events that cause a Buttondown Automation to fire.",
-    "references": [
-      "automation-filters",
-      "automations-introduction"
-    ]
-  },
-  {
-    "title": "Types of automation filters",
-    "url": "automation-filters",
-    "section": "reference",
-    "schema": null,
-    "description": "Filters allow you to set the criteria for when an automation fires.",
-    "references": [
-      "automations-introduction"
-    ]
-  },
-  {
-    "title": "Types of automation actions",
-    "url": "automation-actions",
-    "section": "Reference",
-    "schema": "AutomationActionType",
-    "description": null,
-    "references": [
-      "arena",
-      "automations-introduction",
-      "bsky",
-      "linkedin",
-      "tumblr",
-      "twitter"
-    ]
-  },
-  {
-    "title": "Events and webhooks",
-    "url": "events-and-webhooks-introduction",
-    "section": "reference",
-    "schema": null,
-    "description": "Events and webhooks allow you to monitor and react to any changes with your newsletter.",
-    "references": [
-      "api-emails-status",
-      "creating-webhooks-dashboard",
-      "data-exports-event",
-      "discord",
-      "glossary-webhook"
-    ]
-  },
-  {
-    "title": "Creating webhooks in the dashboard",
-    "url": "creating-webhooks-dashboard",
-    "section": "reference",
-    "schema": null,
-    "description": "Learn how to create and configure webhooks through the Buttondown dashboard to automate your newsletter workflows.",
-    "references": []
-  },
-  {
-    "title": "Event types",
-    "url": "event-types",
-    "section": "Reference",
-    "schema": "ExternalEventType",
-    "description": null,
-    "references": [
-      "automation-triggers",
-      "automations-introduction",
-      "events-and-webhooks-introduction"
     ]
   },
   {
@@ -3280,8 +3271,7 @@
     "schema": "Webhook",
     "description": null,
     "references": [
-      "api-changelog-2023-08-21",
-      "creating-webhooks-dashboard"
+      "api-changelog-2023-08-21"
     ]
   },
   {
@@ -3293,7 +3283,7 @@
     "references": [
       "arena",
       "bsky",
-      "creating-webhooks-dashboard",
+      "events-and-webhooks-introduction",
       "linkedin",
       "plausible",
       "tumblr",
