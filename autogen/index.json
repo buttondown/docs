@@ -2761,7 +2761,8 @@
       "api-changelog-2025-03-31",
       "api-error-codes",
       "api-formatting",
-      "api-rate-limits"
+      "api-rate-limits",
+      "firewall"
     ]
   },
   {

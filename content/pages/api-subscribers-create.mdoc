@@ -77,7 +77,23 @@ Buttondown validates all incoming subscribers through the API, making it easy fo
 
 We can only validate based on the information you provide, though. When looking at incoming traffic, a very useful heuristic is to look at the IP address of the request: if we see, for instance, a given IP address that has submitted a lot of requests in a short period of time, we can flag that for manual review.
 
-To help with this, you can now provide an `ip_address`. This will be used to determine the subscriber's location and validate their legitimacy (especially useful for folks submitting requests from a form that doesn't have CAPTCHA protection or similar anti-spam measures). You should proxy this directly from the request you receive, and if provided we'll use it rather than the IP address from which you make the API call. If it isn’t included and your API calls come from a limited set of IPs, our [firewall](https://docs.buttondown.com/firewall) may interpret the repeat activity from those IPs as suspicious and block the corresponding subscribers.
+To help with this, you can now provide an `ip_address`. This will be used to determine the subscriber's location and validate their legitimacy (especially useful for folks submitting requests from a form that doesn't have CAPTCHA protection or similar anti-spam measures). You should proxy this directly from the request you receive, and if provided we'll use it rather than the IP address from which you make the API call. If it isn't included and your API calls come from a limited set of IPs, our [firewall](https://docs.buttondown.com/firewall) may interpret the repeat activity from those IPs as suspicious and block the corresponding subscribers.
+
+### Bypassing the firewall
+
+If you're creating subscribers from a trusted source (such as a cloud function that handles purchases from Stripe), you may want to bypass the firewall entirely for those requests. You can do this by providing a `X-Buttondown-Bypass-Firewall` header with a value of `true`:
+
+```shell
+curl -X POST https://api.buttondown.com/v1/subscribers \
+  -H "X-Buttondown-Bypass-Firewall: true" \
+  -H "Authorization: Token $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"email_address": "john@example.com", "tags": ["purchased"]}'
+```
+
+This is useful when you don't have access to the subscriber's IP address (e.g. processing a webhook from a payment provider) and don't want Buttondown's firewall to flag the request as suspicious.
+
+This header is subject to aggressive rate limiting (five requests per hour per newsletter) to prevent abuse. If you exceed this limit, the API will return a `429` status code.
 
 ---
 
