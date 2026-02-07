@@ -3,3 +3,26 @@ title: Creating an image
 endpoint: /images
 method: post
 ---
+
+## Supported formats
+
+Buttondown accepts PNG, JPG, and GIF images. SVG files are rejected by default because most email clients don't render them reliably — your subscribers would see a broken image instead.
+
+If you upload an SVG, the API will return a `400` with:
+
+```json
+{
+  "detail": "SVG files are not supported. Please upload a PNG, JPG, or GIF."
+}
+```
+
+### Bypassing SVG validation
+
+If you know what you're doing (e.g. your SVGs are only used on the web archive, not in emails), you can bypass this restriction by providing a `X-Buttondown-Live-Dangerously` header with a value of `true`:
+
+```bash
+curl -X POST "https://api.buttondown.com/v1/images" \
+  -H "Authorization: Token YOUR_API_KEY" \
+  -H "X-Buttondown-Live-Dangerously: true" \
+  -F "image=@logo.svg"
+```

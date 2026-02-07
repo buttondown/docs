@@ -2942,7 +2942,9 @@
     "section": "api",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "api-changelog-2026-02-07"
+    ]
   },
   {
     "title": "Deleting an image",
@@ -3842,6 +3844,16 @@
       "api-changelog-2022-11-19",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2026-02-07",
+    "url": "api-changelog-2026-02-07",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
     ]
   },
   {

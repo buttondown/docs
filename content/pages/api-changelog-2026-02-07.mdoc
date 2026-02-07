@@ -1,0 +1,15 @@
+---
+title: "2026-02-07"
+navigationTitle: "2026-02-07"
+---
+
+The [`POST /v1/images`](/api-images-create) endpoint now rejects SVG uploads by default, returning a `400` error. SVG files aren't reliably rendered by most email clients, so this protects you from accidentally sending broken images to subscribers.
+
+If you need to upload SVGs anyway (for instance, if they're only used in your web archive), you can bypass this restriction with the `X-Buttondown-Live-Dangerously` header:
+
+```bash
+curl -X POST "https://api.buttondown.com/v1/images" \
+  -H "Authorization: Token YOUR_API_KEY" \
+  -H "X-Buttondown-Live-Dangerously: true" \
+  -F "image=@logo.svg"
+```
