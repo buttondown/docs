@@ -303,6 +303,7 @@
         "tags": [],
         "transitions": [],
         "email_transitions": [],
+        "form_id": null,
         "firewall_reasons": [],
         "type": "unactivated",
         "undeliverability_date": null,
@@ -345,6 +346,7 @@
         "tags": [],
         "transitions": [],
         "email_transitions": [],
+        "form_id": null,
         "firewall_reasons": [],
         "type": "unsubscribed",
         "undeliverability_date": null,
@@ -392,6 +394,7 @@
         "tags": [],
         "transitions": [],
         "email_transitions": [],
+        "form_id": null,
         "firewall_reasons": [],
         "type": "premium",
         "undeliverability_date": null,
@@ -688,6 +691,7 @@
           "tags": [],
           "transitions": [],
           "email_transitions": [],
+          "form_id": null,
           "firewall_reasons": [],
           "type": "unactivated",
           "undeliverability_date": null,
@@ -1169,7 +1173,7 @@
         "method": "GET",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "127.0.0.1",
+        "ip_address": "[REDACTED]",
         "api_key_id": null,
         "api_key_label": null
       }
@@ -1184,7 +1188,7 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "192.168.1.1",
+        "ip_address": "[REDACTED]",
         "api_key_id": null,
         "api_key_label": null
       }
@@ -1199,7 +1203,7 @@
         "method": "POST",
         "source": "app",
         "version": "2024-08-01",
-        "ip_address": "10.0.0.1",
+        "ip_address": "[REDACTED]",
         "api_key_id": null,
         "api_key_label": null
       }
@@ -1214,7 +1218,7 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "127.0.0.1",
+        "ip_address": "[REDACTED]",
         "api_key_id": null,
         "api_key_label": null
       }
@@ -1486,7 +1490,7 @@
         "method": "GET",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "127.0.0.1",
+        "ip_address": "[REDACTED]",
         "api_key_id": null,
         "api_key_label": null,
         "request_data": "{\"subject\": \"Test email\"}",
@@ -1507,7 +1511,7 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "192.168.1.1",
+        "ip_address": "[REDACTED]",
         "api_key_id": null,
         "api_key_label": null,
         "request_data": "{\"email\": \"test@example.com\"}",
@@ -1527,7 +1531,7 @@
         "method": "POST",
         "source": "app",
         "version": "2024-08-01",
-        "ip_address": "10.0.0.1",
+        "ip_address": "[REDACTED]",
         "api_key_id": null,
         "api_key_label": null,
         "request_data": "{\"subject\": \"New email\", \"body\": \"Hello world\"}",
@@ -1547,7 +1551,7 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "127.0.0.1",
+        "ip_address": "[REDACTED]",
         "api_key_id": null,
         "api_key_label": null,
         "request_data": "{\"email\": \"subscriber@example.com\"}",
