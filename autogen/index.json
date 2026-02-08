@@ -1168,6 +1168,95 @@
     ]
   },
   {
+    "title": "Open tracking",
+    "url": "open-tracking",
+    "section": "reference",
+    "schema": null,
+    "description": "A guide to open tracking, and how to use it in Buttondown.",
+    "references": [
+      "standards",
+      "subscriber-cleanup"
+    ]
+  },
+  {
+    "title": "Click tracking",
+    "url": "click-tracking",
+    "section": "reference",
+    "schema": null,
+    "description": "A guide to click tracking, and how to use it in Buttondown.",
+    "references": [
+      "standards",
+      "subscriber-cleanup"
+    ]
+  },
+  {
+    "title": "Complaint rate",
+    "url": "complaint-rate",
+    "section": "reference",
+    "schema": null,
+    "description": "An explanation of what complaint rate is and how it's calculated by Buttondown.",
+    "references": [
+      "permanent-failure-rate"
+    ]
+  },
+  {
+    "title": "Gross volume",
+    "url": "gross-volume",
+    "section": "reference",
+    "schema": null,
+    "description": "An explanation on what gross volume is and how it's calculated by Buttondown.",
+    "references": []
+  },
+  {
+    "title": "Monthly Recurring Revenue",
+    "url": "monthly-recurring-revenue",
+    "section": "reference",
+    "schema": null,
+    "description": "An explanation on what MRR is and how it's calculated by Buttondown.",
+    "references": []
+  },
+  {
+    "title": "Pageviews by referrer",
+    "url": "pageviews-by-referrer",
+    "section": "reference",
+    "schema": null,
+    "description": "An explanation on what pageviews by referrer are and how they're used by Buttondown.",
+    "references": [
+      "pageviews-by-referrer"
+    ]
+  },
+  {
+    "title": "Permanent failure rate",
+    "url": "permanent-failure-rate",
+    "section": "reference",
+    "schema": null,
+    "description": "An explanation of what permanent failure rate is and how it's calculated by Buttondown.",
+    "references": [
+      "complaint-rate"
+    ]
+  },
+  {
+    "title": "RSS subscribers",
+    "url": "rss-subscribers",
+    "section": "reference",
+    "schema": null,
+    "description": "An explanation on what RSS subscribers are and how they're used by Buttondown.",
+    "references": [
+      "email-to-rss",
+      "glossary-rss"
+    ]
+  },
+  {
+    "title": "UTM parameters",
+    "url": "utm",
+    "section": "reference",
+    "schema": null,
+    "description": "A guide to UTM parameters, and how to use them in Buttondown.",
+    "references": [
+      "pageviews-by-referrer"
+    ]
+  },
+  {
     "title": "Home",
     "url": "home",
     "section": "reference",
@@ -1576,95 +1665,6 @@
     "schema": null,
     "description": null,
     "references": []
-  },
-  {
-    "title": "Click tracking",
-    "url": "click-tracking",
-    "section": "reference",
-    "schema": null,
-    "description": "A guide to click tracking, and how to use it in Buttondown.",
-    "references": [
-      "standards",
-      "subscriber-cleanup"
-    ]
-  },
-  {
-    "title": "Complaint rate",
-    "url": "complaint-rate",
-    "section": "reference",
-    "schema": null,
-    "description": "An explanation of what complaint rate is and how it's calculated by Buttondown.",
-    "references": [
-      "permanent-failure-rate"
-    ]
-  },
-  {
-    "title": "Gross volume",
-    "url": "gross-volume",
-    "section": "reference",
-    "schema": null,
-    "description": "An explanation on what gross volume is and how it's calculated by Buttondown.",
-    "references": []
-  },
-  {
-    "title": "Monthly Recurring Revenue",
-    "url": "monthly-recurring-revenue",
-    "section": "reference",
-    "schema": null,
-    "description": "An explanation on what MRR is and how it's calculated by Buttondown.",
-    "references": []
-  },
-  {
-    "title": "Open tracking",
-    "url": "open-tracking",
-    "section": "reference",
-    "schema": null,
-    "description": "A guide to open tracking, and how to use it in Buttondown.",
-    "references": [
-      "standards",
-      "subscriber-cleanup"
-    ]
-  },
-  {
-    "title": "Pageviews by referrer",
-    "url": "pageviews-by-referrer",
-    "section": "reference",
-    "schema": null,
-    "description": "An explanation on what pageviews by referrer are and how they're used by Buttondown.",
-    "references": [
-      "pageviews-by-referrer"
-    ]
-  },
-  {
-    "title": "Permanent failure rate",
-    "url": "permanent-failure-rate",
-    "section": "reference",
-    "schema": null,
-    "description": "An explanation of what permanent failure rate is and how it's calculated by Buttondown.",
-    "references": [
-      "complaint-rate"
-    ]
-  },
-  {
-    "title": "RSS subscribers",
-    "url": "rss-subscribers",
-    "section": "reference",
-    "schema": null,
-    "description": "An explanation on what RSS subscribers are and how they're used by Buttondown.",
-    "references": [
-      "email-to-rss",
-      "glossary-rss"
-    ]
-  },
-  {
-    "title": "UTM parameters",
-    "url": "utm",
-    "section": "reference",
-    "schema": null,
-    "description": "A guide to UTM parameters, and how to use them in Buttondown.",
-    "references": [
-      "pageviews-by-referrer"
-    ]
   },
   {
     "title": "What data does Buttondown store?",
