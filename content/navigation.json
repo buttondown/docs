@@ -498,6 +498,47 @@
       ]
     },
     {
+      "name": "Analytics",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "open-tracking"
+        },
+        {
+          "discriminant": "page",
+          "value": "click-tracking"
+        },
+        {
+          "discriminant": "page",
+          "value": "complaint-rate"
+        },
+        {
+          "discriminant": "page",
+          "value": "gross-volume"
+        },
+        {
+          "discriminant": "page",
+          "value": "monthly-recurring-revenue"
+        },
+        {
+          "discriminant": "page",
+          "value": "pageviews-by-referrer"
+        },
+        {
+          "discriminant": "page",
+          "value": "permanent-failure-rate"
+        },
+        {
+          "discriminant": "page",
+          "value": "rss-subscribers"
+        },
+        {
+          "discriminant": "page",
+          "value": "utm"
+        }
+      ]
+    },
+    {
       "name": "Dashboard",
       "items": [
         {
@@ -725,47 +766,6 @@
         {
           "discriminant": "page",
           "value": "rss-cadence"
-        }
-      ]
-    },
-    {
-      "name": "Analytics",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "click-tracking"
-        },
-        {
-          "discriminant": "page",
-          "value": "complaint-rate"
-        },
-        {
-          "discriminant": "page",
-          "value": "gross-volume"
-        },
-        {
-          "discriminant": "page",
-          "value": "monthly-recurring-revenue"
-        },
-        {
-          "discriminant": "page",
-          "value": "open-tracking"
-        },
-        {
-          "discriminant": "page",
-          "value": "pageviews-by-referrer"
-        },
-        {
-          "discriminant": "page",
-          "value": "permanent-failure-rate"
-        },
-        {
-          "discriminant": "page",
-          "value": "rss-subscribers"
-        },
-        {
-          "discriminant": "page",
-          "value": "utm"
         }
       ]
     },
