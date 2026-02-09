@@ -286,6 +286,11 @@
         "ip_address": null,
         "last_click_date": null,
         "last_open_date": null,
+        "delivered_count": null,
+        "open_count": null,
+        "clicked_count": null,
+        "open_rate": null,
+        "click_rate": null,
         "metadata": {
           "name": "Telemachus"
         },
@@ -329,6 +334,11 @@
         "ip_address": null,
         "last_click_date": null,
         "last_open_date": null,
+        "delivered_count": null,
+        "open_count": null,
+        "clicked_count": null,
+        "open_rate": null,
+        "click_rate": null,
         "metadata": {
           "name": "Telemachus"
         },
@@ -372,6 +382,11 @@
         "ip_address": null,
         "last_click_date": null,
         "last_open_date": null,
+        "delivered_count": null,
+        "open_count": null,
+        "clicked_count": null,
+        "open_rate": null,
+        "click_rate": null,
         "metadata": {
           "name": "Telemachus"
         },
@@ -674,6 +689,11 @@
           "ip_address": null,
           "last_click_date": null,
           "last_open_date": null,
+          "delivered_count": null,
+          "open_count": null,
+          "clicked_count": null,
+          "open_rate": null,
+          "click_rate": null,
           "metadata": {
             "name": "Telemachus"
           },
@@ -1173,7 +1193,7 @@
         "method": "GET",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "127.0.0.1",
         "api_key_id": null,
         "api_key_label": null
       }
@@ -1188,7 +1208,7 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "192.168.1.1",
         "api_key_id": null,
         "api_key_label": null
       }
@@ -1203,7 +1223,7 @@
         "method": "POST",
         "source": "app",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "10.0.0.1",
         "api_key_id": null,
         "api_key_label": null
       }
@@ -1218,7 +1238,7 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "127.0.0.1",
         "api_key_id": null,
         "api_key_label": null
       }
@@ -1490,7 +1510,7 @@
         "method": "GET",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "127.0.0.1",
         "api_key_id": null,
         "api_key_label": null,
         "request_data": "{\"subject\": \"Test email\"}",
@@ -1511,7 +1531,7 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "192.168.1.1",
         "api_key_id": null,
         "api_key_label": null,
         "request_data": "{\"email\": \"test@example.com\"}",
@@ -1531,7 +1551,7 @@
         "method": "POST",
         "source": "app",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "10.0.0.1",
         "api_key_id": null,
         "api_key_label": null,
         "request_data": "{\"subject\": \"New email\", \"body\": \"Hello world\"}",
@@ -1551,7 +1571,7 @@
         "method": "POST",
         "source": "api",
         "version": "2024-08-01",
-        "ip_address": "[REDACTED]",
+        "ip_address": "127.0.0.1",
         "api_key_id": null,
         "api_key_label": null,
         "request_data": "{\"email\": \"subscriber@example.com\"}",

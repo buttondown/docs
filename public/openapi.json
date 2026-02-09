@@ -2419,6 +2419,21 @@
           },
           {
             "in": "query",
+            "name": "form",
+            "schema": {
+              "title": "Form",
+              "description": "If provided, only return subscribers that came through the given form(s).",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "required": false,
+            "description": "If provided, only return subscribers that came through the given form(s)."
+          },
+          {
+            "in": "query",
             "name": "ids",
             "schema": {
               "title": "Ids",
@@ -2589,6 +2604,50 @@
             },
             "required": false,
             "description": "If provided, only return subscribers whose referrer URL(s) contain the given string."
+          },
+          {
+            "in": "query",
+            "name": "open_rate__end",
+            "schema": {
+              "title": "Open Rate  End",
+              "description": "If provided, only return subscribers with an open rate less than or equal to the given value.",
+              "type": "number"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with an open rate less than or equal to the given value."
+          },
+          {
+            "in": "query",
+            "name": "open_rate__start",
+            "schema": {
+              "title": "Open Rate  Start",
+              "description": "If provided, only return subscribers with an open rate greater than or equal to the given value.",
+              "type": "number"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with an open rate greater than or equal to the given value."
+          },
+          {
+            "in": "query",
+            "name": "click_rate__end",
+            "schema": {
+              "title": "Click Rate  End",
+              "description": "If provided, only return subscribers with a click rate less than or equal to the given value.",
+              "type": "number"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with a click rate less than or equal to the given value."
+          },
+          {
+            "in": "query",
+            "name": "click_rate__start",
+            "schema": {
+              "title": "Click Rate  Start",
+              "description": "If provided, only return subscribers with a click rate greater than or equal to the given value.",
+              "type": "number"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers with a click rate greater than or equal to the given value."
           },
           {
             "in": "query",
@@ -3628,8 +3687,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -3705,8 +3763,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -10073,6 +10130,7 @@
           "email_address_capital_letters",
           "email_address_cleantalk_score",
           "email_address_contains_prohibited_string",
+          "email_address_esp_suppression",
           "email_address_extant_subscriber_count",
           "email_address_is_honeypot",
           "email_address_is_pwned",
@@ -10213,6 +10271,36 @@
             "type": "string",
             "format": "date-time"
           },
+          "delivered_count": {
+            "title": "Delivered Count",
+            "description": "The subscriber's delivered count.",
+            "example": 12,
+            "type": "integer"
+          },
+          "open_count": {
+            "title": "Open Count",
+            "description": "The subscriber's open count.",
+            "example": 7,
+            "type": "integer"
+          },
+          "clicked_count": {
+            "title": "Clicked Count",
+            "description": "The subscriber's clicked count.",
+            "example": 3,
+            "type": "integer"
+          },
+          "open_rate": {
+            "title": "Open Rate",
+            "description": "The subscriber's open rate, computed from engagement counts. Null if delivered_count is 0 or null.",
+            "example": 0.5833,
+            "type": "number"
+          },
+          "click_rate": {
+            "title": "Click Rate",
+            "description": "The subscriber's click rate, computed from engagement counts. Null if delivered_count is 0 or null.",
+            "example": 0.25,
+            "type": "number"
+          },
           "metadata": {
             "title": "Metadata",
             "description": "A structured key-value blob that you can use to store arbitrary data on the object. Metadata can be nested \u2014 you can store objects and arrays within your metadata. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
@@ -10290,6 +10378,11 @@
             "items": {
               "$ref": "#/components/schemas/EmailTransition"
             }
+          },
+          "form_id": {
+            "title": "Form Id",
+            "type": "string",
+            "format": "uuid"
           },
           "firewall_reasons": {
             "title": "Firewall Reasons",
@@ -10884,6 +10977,17 @@
         "description": "You will likely not need to interact with your newsletter settings\nprogrammatically, but if you do, this is the endpoint for you. You can\ncreate, update, and list newsletters via the API; this is ideal for\nintegrating with Buttondown as a headless email or newsletter provider\n(e.g. for a SaaS product.)",
         "type": "object",
         "properties": {
+          "id": {
+            "title": "Id",
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
+          },
+          "creation_date": {
+            "title": "Creation Date",
+            "description": "The date and time at which the object was first created.",
+            "type": "string",
+            "format": "date-time"
+          },
           "api_key": {
             "title": "Api Key",
             "description": "The API key for this newsletter, used for authenticating API requests.",
@@ -10902,12 +11006,6 @@
                 "$ref": "#/components/schemas/NewsletterAuditingMode"
               }
             ]
-          },
-          "creation_date": {
-            "title": "Creation Date",
-            "description": "The date and time at which the object was first created.",
-            "type": "string",
-            "format": "date-time"
           },
           "css": {
             "title": "Css",
@@ -11001,12 +11099,6 @@
             "description": "URL to your newsletter's icon image, used as a favicon and in various UI contexts.",
             "type": "string"
           },
-          "id": {
-            "title": "Id",
-            "description": "The unique identifier for this newsletter.",
-            "type": "string",
-            "format": "uuid"
-          },
           "image": {
             "title": "Image",
             "description": "URL to your newsletter's header or branding image, displayed on archive pages and in social previews.",
@@ -11054,10 +11146,10 @@
           }
         },
         "required": [
-          "api_key",
-          "creation_date",
-          "description",
           "id",
+          "creation_date",
+          "api_key",
+          "description",
           "name",
           "username"
         ]

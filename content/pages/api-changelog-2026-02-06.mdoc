@@ -1,0 +1,47 @@
+
+---
+title: "2026-02-06"
+navigationTitle: "2026-02-06"
+---
+
+Subscribers now include engagement counts and rates in the `/v1/subscribers` response:
+
+- `delivered_count`
+- `open_count`
+- `clicked_count`
+- `open_rate`
+- `click_rate`
+
+You can also filter and order by these rates:
+
+- Order by `open_rate` / `click_rate` (ascending or descending, via `ordering=...`)
+- Filter by `open_rate__start` / `open_rate__end` and `click_rate__start` / `click_rate__end`
+
+Rates are computed from engagement counts; if a subscriber has no deliveries, the rates are `null`.
+
+Example:
+
+```bash
+curl "https://api.buttondown.com/v1/subscribers" \
+  -H "Authorization: Token YOUR_API_KEY" \
+  -G \
+  --data-urlencode "ordering=-open_rate" \
+  --data-urlencode "open_rate__start=0.5"
+```
+
+```json
+{
+  "count": 1,
+  "results": [
+    {
+      "id": "9f4c9a1e-0d2c-4a44-8a4f-cc06e97a9df2",
+      "email_address": "telemachus@buttondown.email",
+      "delivered_count": 12,
+      "open_count": 7,
+      "clicked_count": 3,
+      "open_rate": 0.5833,
+      "click_rate": 0.25
+    }
+  ]
+}
+```
