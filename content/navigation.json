@@ -539,6 +539,35 @@
       ]
     },
     {
+      "name": "Deliverability",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "preflight"
+        },
+        {
+          "discriminant": "page",
+          "value": "monitoring-your-domain"
+        },
+        {
+          "discriminant": "page",
+          "value": "standards"
+        },
+        {
+          "discriminant": "page",
+          "value": "workspace-spf"
+        },
+        {
+          "discriminant": "page",
+          "value": "gmail-suspicious-link"
+        },
+        {
+          "discriminant": "page",
+          "value": "gmail-images-hidden"
+        }
+      ]
+    },
+    {
       "name": "Dashboard",
       "items": [
         {
@@ -658,35 +687,6 @@
         {
           "discriminant": "page",
           "value": "transactional-emails-gift"
-        }
-      ]
-    },
-    {
-      "name": "Deliverability",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "preflight"
-        },
-        {
-          "discriminant": "page",
-          "value": "workspace-spf"
-        },
-        {
-          "discriminant": "page",
-          "value": "monitoring-your-domain"
-        },
-        {
-          "discriminant": "page",
-          "value": "standards"
-        },
-        {
-          "discriminant": "page",
-          "value": "gmail-suspicious-link"
-        },
-        {
-          "discriminant": "page",
-          "value": "gmail-images-hidden"
         }
       ]
     },

@@ -1257,6 +1257,59 @@
     ]
   },
   {
+    "title": "Buttondown's pre-flight checks",
+    "url": "preflight",
+    "section": "reference",
+    "schema": null,
+    "description": "Details about all the checks Buttondown performs before sending your newsletter.",
+    "references": []
+  },
+  {
+    "title": "Monitoring your domain",
+    "url": "monitoring-your-domain",
+    "section": "reference",
+    "schema": null,
+    "description": "Keeping your deliverability high is largely about managing your domain's reputation.",
+    "references": [
+      "complaint-rate",
+      "permanent-failure-rate",
+      "sending-from-a-custom-domain",
+      "subscriber-dashboard"
+    ]
+  },
+  {
+    "title": "Engagement and deliverability standards",
+    "url": "standards",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown's standards for engagement and deliverability.",
+    "references": []
+  },
+  {
+    "title": "Why is my Google Workspace domain not SPF-aligned?",
+    "url": "workspace-spf",
+    "section": "reference",
+    "schema": null,
+    "description": "Google Workspace alias domains may not have SPF alignment when also used for third-party providers, like Buttondown. In these cases, lack of SPF alignment is expected (for alias domains), and should not be a problem for deliverability. ",
+    "references": []
+  },
+  {
+    "title": "Fixing a \"suspicious link\" warning in Gmail",
+    "url": "gmail-suspicious-link",
+    "section": "reference",
+    "schema": null,
+    "description": "You can appeal to Google when your website is flagged as a \"suspicious link\" in Gmail.",
+    "references": []
+  },
+  {
+    "title": "What does \"images in this message are hidden\" mean?",
+    "url": "gmail-images-hidden",
+    "section": "reference",
+    "schema": null,
+    "description": "When Gmail hides images in your emails, Gmail is trying to protect you from potentially unsafe content.",
+    "references": []
+  },
+  {
     "title": "Home",
     "url": "home",
     "section": "reference",
@@ -1472,59 +1525,6 @@
     "references": [
       "transactional-emails"
     ]
-  },
-  {
-    "title": "Buttondown's pre-flight checks",
-    "url": "preflight",
-    "section": "reference",
-    "schema": null,
-    "description": "Details about all the checks Buttondown performs before sending your newsletter.",
-    "references": []
-  },
-  {
-    "title": "Why is my Google Workspace domain not SPF-aligned?",
-    "url": "workspace-spf",
-    "section": "reference",
-    "schema": null,
-    "description": "Google Workspace alias domains may not have SPF alignment when also used for third-party providers, like Buttondown. In these cases, lack of SPF alignment is expected (for alias domains), and should not be a problem for deliverability. ",
-    "references": []
-  },
-  {
-    "title": "Monitoring your domain",
-    "url": "monitoring-your-domain",
-    "section": "reference",
-    "schema": null,
-    "description": "Keeping your deliverability high is largely about managing your domain's reputation.",
-    "references": [
-      "complaint-rate",
-      "permanent-failure-rate",
-      "sending-from-a-custom-domain",
-      "subscriber-dashboard"
-    ]
-  },
-  {
-    "title": "Engagement and deliverability standards",
-    "url": "standards",
-    "section": "reference",
-    "schema": null,
-    "description": "Buttondown's standards for engagement and deliverability.",
-    "references": []
-  },
-  {
-    "title": "Fixing a \"suspicious link\" warning in Gmail",
-    "url": "gmail-suspicious-link",
-    "section": "reference",
-    "schema": null,
-    "description": "You can appeal to Google when your website is flagged as a \"suspicious link\" in Gmail.",
-    "references": []
-  },
-  {
-    "title": "What does \"images in this message are hidden\" mean?",
-    "url": "gmail-images-hidden",
-    "section": "reference",
-    "schema": null,
-    "description": "When Gmail hides images in your emails, Gmail is trying to protect you from potentially unsafe content.",
-    "references": []
   },
   {
     "title": "API request data exports",
