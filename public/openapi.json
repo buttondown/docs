@@ -2425,8 +2425,7 @@
               "description": "If provided, only return subscribers that came through the given form(s).",
               "type": "array",
               "items": {
-                "type": "string",
-                "format": "uuid"
+                "type": "string"
               }
             },
             "required": false,
@@ -2440,8 +2439,7 @@
               "description": "If provided, only return subscribers with the given IDs.",
               "type": "array",
               "items": {
-                "type": "string",
-                "format": "uuid"
+                "type": "string"
               }
             },
             "required": false,
@@ -2695,8 +2693,7 @@
               "description": "If provided, only return subscribers that were imported by the given subscriber import.",
               "type": "array",
               "items": {
-                "type": "string",
-                "format": "uuid"
+                "type": "string"
               }
             },
             "required": false,
@@ -6931,7 +6928,7 @@
             "description": "Conflict"
           }
         },
-        "description": "Create a new comment or reply to an existing comment. Authors can respond to comments at the given author.",
+        "description": "Create a new comment or reply to an existing comment. If subscriber_id is provided, the comment is attributed to that subscriber; otherwise it is attributed to the newsletter author.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -10227,13 +10224,12 @@
         "properties": {
           "id": {
             "title": "Id",
-            "description": "A unique UUID associated with the object.",
-            "type": "string",
-            "format": "uuid"
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
           },
           "creation_date": {
             "title": "Creation Date",
-            "description": "The date and time at which the object was created.",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
@@ -10353,8 +10349,7 @@
           },
           "subscriber_import_id": {
             "title": "Subscriber Import Id",
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           },
           "tags": {
             "title": "Tags",
@@ -10381,8 +10376,7 @@
           },
           "form_id": {
             "title": "Form Id",
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           },
           "firewall_reasons": {
             "title": "Firewall Reasons",
@@ -10466,6 +10460,7 @@
           "rate_limited",
           "subscriber_already_exists",
           "subscriber_blocked",
+          "subscriber_id_invalid",
           "subscriber_suppressed",
           "tag_invalid"
         ],
@@ -10554,8 +10549,7 @@
           "referring_subscriber_id": {
             "title": "Referring Subscriber Id",
             "description": "The ID of the subscriber that referred this subscriber.",
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           },
           "type": {
             "example": "regular",
@@ -10724,8 +10718,7 @@
           },
           "email_which_prompted_unsubscription_id": {
             "title": "Email Which Prompted Unsubscription Id",
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           }
         }
       },
@@ -10747,8 +10740,7 @@
         "properties": {
           "id": {
             "title": "Id",
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           },
           "name": {
             "title": "Name",
@@ -10759,8 +10751,7 @@
           },
           "automation_id": {
             "title": "Automation Id",
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           },
           "execution_date": {
             "title": "Execution Date",
@@ -14312,6 +14303,11 @@
           "email_id": {
             "title": "Email Id",
             "description": "The ID of the email this comment is for. Required if parent_id is not provided.",
+            "type": "string"
+          },
+          "subscriber_id": {
+            "title": "Subscriber Id",
+            "description": "The ID of the subscriber to attribute the comment to. If not provided, the comment is attributed to the newsletter author.",
             "type": "string"
           }
         },

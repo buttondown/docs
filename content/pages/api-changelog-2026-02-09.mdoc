@@ -1,0 +1,19 @@
+---
+title: "2026-02-09"
+navigationTitle: "2026-02-09"
+---
+
+The [`POST /v1/comments`](/api-comments-introduction) endpoint now accepts an optional `subscriber_id` parameter. When provided, the comment is attributed to that subscriber instead of the newsletter author.
+
+```bash
+curl -X POST "https://api.buttondown.com/v1/comments" \
+  -H "Authorization: Token YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email_id": "your-email-id",
+    "subscriber_id": "your-subscriber-id",
+    "text": "Great article, thanks for writing this!"
+  }'
+```
+
+The subscriber must belong to your newsletter and have access to comment on the email. If `subscriber_id` is omitted, the comment is attributed to the author as before.

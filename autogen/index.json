@@ -952,6 +952,7 @@
     "description": "Buttondown's comments feature allows you to stay connected with your readers.",
     "references": [
       "api-changelog-2024-04-03",
+      "api-changelog-2026-02-09",
       "api-comment-create",
       "api-comments-delete",
       "api-comments-list",
@@ -3364,7 +3365,8 @@
     "schema": "Comment",
     "description": null,
     "references": [
-      "api-changelog-2024-04-03"
+      "api-changelog-2024-04-03",
+      "api-changelog-2026-02-09"
     ]
   },
   {
@@ -3844,6 +3846,16 @@
       "api-changelog-2022-11-19",
       "api-changelog-2024-12-09",
       "api-introduction"
+    ]
+  },
+  {
+    "title": "2026-02-09",
+    "url": "api-changelog-2026-02-09",
+    "section": "api",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-changelog"
     ]
   },
   {
