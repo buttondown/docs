@@ -196,35 +196,6 @@
       ]
     },
     {
-      "name": "Account",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "multiple-newsletters"
-        },
-        {
-          "discriminant": "page",
-          "value": "data-exports"
-        },
-        {
-          "discriminant": "page",
-          "value": "help-i-deleted-everything"
-        },
-        {
-          "discriminant": "page",
-          "value": "teams"
-        },
-        {
-          "discriminant": "page",
-          "value": "deleting-your-account"
-        },
-        {
-          "discriminant": "page",
-          "value": "dormancy"
-        }
-      ]
-    },
-    {
       "name": "Integrations",
       "items": [
         {
@@ -299,10 +270,6 @@
         {
           "discriminant": "page",
           "value": "billing"
-        },
-        {
-          "discriminant": "page",
-          "value": "affiliate-program"
         }
       ]
     }
@@ -568,6 +535,56 @@
       ]
     },
     {
+      "name": "Account",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "account"
+        },
+        {
+          "discriminant": "page",
+          "value": "teams"
+        },
+        {
+          "discriminant": "page",
+          "value": "affiliate-program"
+        },
+        {
+          "discriminant": "page",
+          "value": "help-i-deleted-everything"
+        }
+      ]
+    },
+    {
+      "name": "Exporting your data",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "data-exports-email"
+        },
+        {
+          "discriminant": "page",
+          "value": "data-exports-subscriber"
+        },
+        {
+          "discriminant": "page",
+          "value": "data-exports-comments"
+        },
+        {
+          "discriminant": "page",
+          "value": "data-exports-survey"
+        },
+        {
+          "discriminant": "page",
+          "value": "data-exports-event"
+        },
+        {
+          "discriminant": "page",
+          "value": "data-exports-api"
+        }
+      ]
+    },
+    {
       "name": "Dashboard",
       "items": [
         {
@@ -591,26 +608,6 @@
         {
           "discriminant": "page",
           "value": "customizing-request-list-view"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "change-password"
-        },
-        {
-          "discriminant": "page",
-          "value": "change-username"
-        },
-        {
-          "discriminant": "page",
-          "value": "change-login-method"
-        },
-        {
-          "discriminant": "page",
-          "value": "paused-billing"
         }
       ]
     },
@@ -687,35 +684,6 @@
         {
           "discriminant": "page",
           "value": "transactional-emails-gift"
-        }
-      ]
-    },
-    {
-      "name": "Exports",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "data-exports-api"
-        },
-        {
-          "discriminant": "page",
-          "value": "data-exports-comments"
-        },
-        {
-          "discriminant": "page",
-          "value": "data-exports-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "data-exports-event"
-        },
-        {
-          "discriminant": "page",
-          "value": "data-exports-subscriber"
-        },
-        {
-          "discriminant": "page",
-          "value": "data-exports-survey"
         }
       ]
     },

@@ -28,7 +28,7 @@ const REDIRECTS = [
   {
     source: "/odd-and-ends/exporting-your-data",
     permanent: false,
-    destination: "/data-exports",
+    destination: "/data-exports-email",
   },
   {
     source: "/advanced-features/automations",
@@ -68,7 +68,7 @@ const REDIRECTS = [
   {
     source: "/advanced-features/multiple-newsletters",
     permanent: false,
-    destination: "/multiple-newsletters",
+    destination: "/account#adding-another-newsletter-to-your-account",
   },
   {
     source: "/advanced-features/paid-subscriptions/test-mode",
@@ -418,7 +418,7 @@ const REDIRECTS = [
   {
     source: "/odds-and-ends/data-exports",
     permanent: false,
-    destination: "/data-exports",
+    destination: "/data-exports-email",
   },
   {
     source: "/odds-and-ends/glossary",
@@ -428,7 +428,7 @@ const REDIRECTS = [
   {
     source: "/odds-and-ends/offboarding",
     permanent: false,
-    destination: "/deleting-your-account",
+    destination: "/account#deleting-your-buttondown-account",
   },
   {
     source: "/odds-and-ends/privacy-and-security",
@@ -819,6 +819,46 @@ const REDIRECTS = [
   {
     source: "/how-do-i-handle-taxes",
     destination: "/paid-subscriptions#taxes",
+    permanent: true,
+  },
+  {
+    source: "/multiple-newsletters",
+    destination: "/account#adding-another-newsletter-to-your-account",
+    permanent: true,
+  },
+  {
+    source: "/change-password",
+    destination: "/account#changing-your-password",
+    permanent: true,
+  },
+  {
+    source: "/change-username",
+    destination: "/account#changing-your-username",
+    permanent: true,
+  },
+  {
+    source: "/change-login-method",
+    destination: "/account#changing-your-login-method",
+    permanent: true,
+  },
+  {
+    source: "/paused-billing",
+    destination: "/account#pausing-your-subscription",
+    permanent: true,
+  },
+  {
+    source: "/deleting-your-account",
+    destination: "/account#deleting-your-buttondown-account",
+    permanent: true,
+  },
+  {
+    source: "/dormancy",
+    destination: "/account#marking-your-newsletter-as-dormant",
+    permanent: true,
+  },
+  {
+    source: "/data-exports",
+    destination: "/data-exports-email",
     permanent: true,
   },
 ];

@@ -117,6 +117,7 @@
     "schema": null,
     "description": "Buttondown makes it easy to segment your readers by using tags.",
     "references": [
+      "account",
       "api-changelog-2026-01-22",
       "api-tags-analytics",
       "api-tags-create",
@@ -128,7 +129,6 @@
       "constant-contact",
       "customizing-subscriber-list-view",
       "importing-your-data",
-      "multiple-newsletters",
       "portal",
       "quickstart",
       "segmenting-your-audience",
@@ -409,67 +409,6 @@
     ]
   },
   {
-    "title": "Multiple newsletters",
-    "url": "multiple-newsletters",
-    "section": "guides",
-    "schema": null,
-    "description": "With Buttondown you can connect multiple newsletters to the same account and login",
-    "references": [
-      "constant-contact",
-      "segmenting-your-audience",
-      "sending-from-a-custom-domain",
-      "teams"
-    ]
-  },
-  {
-    "title": "Data exports",
-    "url": "data-exports",
-    "section": "guides",
-    "schema": null,
-    "description": "At Buttondown you own your data. That's why we make it easy to download all your data any time you want it.",
-    "references": [
-      "data-exports",
-      "deleting-your-account",
-      "editor-modes",
-      "subscriber-referrals"
-    ]
-  },
-  {
-    "title": "Can I recover my deleted data?",
-    "url": "help-i-deleted-everything",
-    "section": "guides",
-    "schema": null,
-    "description": "The Buttondown team can help recover deleted data within three days of deletion.",
-    "references": []
-  },
-  {
-    "title": "Teams",
-    "url": "teams",
-    "section": "guides",
-    "schema": null,
-    "description": "With our Teams feature you and your colleagues can collaborate on writing and managing your Buttondown newsletter.",
-    "references": [
-      "replies",
-      "teams"
-    ]
-  },
-  {
-    "title": "Deleting your account",
-    "url": "deleting-your-account",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown allows you to easily export all your data, and delete your account. But we'll still be sad to see you go.",
-    "references": []
-  },
-  {
-    "title": "Dormancy",
-    "url": "dormancy",
-    "section": "guides",
-    "schema": null,
-    "description": "Dormancy is a status that allows you to mark newsletters as inactive without deleting them or affecting your billing.",
-    "references": []
-  },
-  {
     "title": "Are.na",
     "url": "arena",
     "section": "guides",
@@ -640,19 +579,11 @@
     "schema": null,
     "description": "Pricing information for Buttondown's paid plans.",
     "references": [
+      "account",
       "buttondown-data",
-      "paused-billing",
       "quickstart",
       "sending-your-first-email-advanced"
     ]
-  },
-  {
-    "title": "Affiliate program",
-    "url": "affiliate-program",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": []
   },
   {
     "title": "Subscriber dashboard",
@@ -917,6 +848,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "account",
       "api-subscribers-magic-link",
       "beehiiv",
       "email-archives",
@@ -1311,6 +1243,105 @@
     "references": []
   },
   {
+    "title": "Managing your account",
+    "url": "account",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "account",
+      "api-accounts-me",
+      "billing",
+      "buttondown-data",
+      "constant-contact",
+      "fathom",
+      "privacy-and-security",
+      "segmenting-your-audience",
+      "sending-from-a-custom-domain",
+      "teams"
+    ]
+  },
+  {
+    "title": "Adding people to your team",
+    "url": "teams",
+    "section": "reference",
+    "schema": null,
+    "description": "Collaborate on writing and managing your Buttondown newsletter.",
+    "references": [
+      "replies",
+      "teams"
+    ]
+  },
+  {
+    "title": "Referring others to Buttondown",
+    "url": "affiliate-program",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Recovering deleted data",
+    "url": "help-i-deleted-everything",
+    "section": "reference",
+    "schema": null,
+    "description": "The Buttondown team can help recover deleted data within three days of deletion.",
+    "references": []
+  },
+  {
+    "title": "Email data exports",
+    "url": "data-exports-email",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown allows you to easily export all your email data as a csv file.",
+    "references": [
+      "account",
+      "editor-modes"
+    ]
+  },
+  {
+    "title": "Subscriber data exports",
+    "url": "data-exports-subscriber",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown allows you to easily export all your subscriber data as a csv file.",
+    "references": [
+      "subscriber-referrals"
+    ]
+  },
+  {
+    "title": "Comment data exports",
+    "url": "data-exports-comments",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown allows you to easily export all your comment data as a csv file.",
+    "references": []
+  },
+  {
+    "title": "Survey data exports",
+    "url": "data-exports-survey",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown allows you to easily export all your survey data as a csv file.",
+    "references": []
+  },
+  {
+    "title": "Email event data exports",
+    "url": "data-exports-event",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown allows you to easily export all your event data as a csv file.",
+    "references": []
+  },
+  {
+    "title": "API request data exports",
+    "url": "data-exports-api",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown allows you to export all your API request data as a csv file.",
+    "references": []
+  },
+  {
     "title": "Home",
     "url": "home",
     "section": "reference",
@@ -1346,41 +1377,6 @@
     "schema": null,
     "description": "You can use filters to customize your API request dashboard to your liking!",
     "references": []
-  },
-  {
-    "title": "How do I change my account password?",
-    "url": "change-password",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
-    "title": "How do I change my newsletter's username?",
-    "url": "change-username",
-    "section": "reference",
-    "schema": null,
-    "description": "You can change your Buttondown username in Settings.",
-    "references": []
-  },
-  {
-    "title": "How do I change my login method?",
-    "url": "change-login-method",
-    "section": "reference",
-    "schema": null,
-    "description": "Contact our support team and we can help you change your login method.",
-    "references": []
-  },
-  {
-    "title": "Pausing your subscription",
-    "url": "paused-billing",
-    "section": "reference",
-    "schema": null,
-    "description": "Take advantage of Buttondown's flexible billing to pause your subscription when you need to.",
-    "references": [
-      "billing",
-      "dormancy"
-    ]
   },
   {
     "title": "Customizing your emails",
@@ -1525,67 +1521,6 @@
     "description": "Reference guide for Buttondown's gift subscription emails",
     "references": [
       "transactional-emails"
-    ]
-  },
-  {
-    "title": "API request data exports",
-    "url": "data-exports-api",
-    "section": "reference",
-    "schema": null,
-    "description": "Buttondown allows you to export all your API request data as a csv file.",
-    "references": [
-      "data-exports"
-    ]
-  },
-  {
-    "title": "Comment data exports",
-    "url": "data-exports-comments",
-    "section": "reference",
-    "schema": null,
-    "description": "Buttondown allows you to easily export all your comment data as a csv file.",
-    "references": [
-      "data-exports"
-    ]
-  },
-  {
-    "title": "Email data exports",
-    "url": "data-exports-email",
-    "section": "reference",
-    "schema": null,
-    "description": "Buttondown allows you to easily export all your email data as a csv file.",
-    "references": [
-      "data-exports",
-      "editor-modes"
-    ]
-  },
-  {
-    "title": "Email event data exports",
-    "url": "data-exports-event",
-    "section": "reference",
-    "schema": null,
-    "description": "Buttondown allows you to easily export all your event data as a csv file.",
-    "references": [
-      "data-exports"
-    ]
-  },
-  {
-    "title": "Subscriber data exports",
-    "url": "data-exports-subscriber",
-    "section": "reference",
-    "schema": null,
-    "description": "Buttondown allows you to easily export all your subscriber data as a csv file.",
-    "references": [
-      "data-exports"
-    ]
-  },
-  {
-    "title": "Survey data exports",
-    "url": "data-exports-survey",
-    "section": "reference",
-    "schema": null,
-    "description": "Buttondown allows you to easily export all your survey data as a csv file.",
-    "references": [
-      "data-exports"
     ]
   },
   {
