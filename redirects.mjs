@@ -843,7 +843,7 @@ const REDIRECTS = [
   },
   {
     source: "/paused-billing",
-    destination: "/account#pausing-your-subscription",
+    destination: "/account",
     permanent: true,
   },
   {
