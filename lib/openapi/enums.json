@@ -35,6 +35,11 @@
       "name": "Create LinkedIn post",
       "variant": "info"
     },
+    "create_mastodon_post": {
+      "description": "Create a Mastodon post. See our [Mastodon integration docs](https://docs.buttondown.com/mastodon) for more details.",
+      "name": "Create Mastodon post",
+      "variant": "info"
+    },
     "create_subscriber": {
       "description": "Create a new subscriber.",
       "name": "Create subscriber",

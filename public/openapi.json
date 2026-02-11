@@ -5682,8 +5682,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -5739,8 +5738,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -5806,8 +5804,7 @@
             "name": "id",
             "schema": {
               "title": "Id",
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "required": true
           }
@@ -12243,11 +12240,12 @@
           "shopify_create_customer",
           "send_notification",
           "forward_reply",
-          "create_linkedin_post",
-          "create_twitter_post",
-          "create_tumblr_post",
-          "create_bluesky_post",
           "create_arena_post",
+          "create_bluesky_post",
+          "create_linkedin_post",
+          "create_mastodon_post",
+          "create_tumblr_post",
+          "create_twitter_post",
           "create_export",
           "send_post_request",
           "send_confirmation_reminder"
@@ -13200,13 +13198,12 @@
         "properties": {
           "id": {
             "title": "Id",
-            "description": "A unique UUID associated with the object.",
-            "type": "string",
-            "format": "uuid"
+            "description": "A unique TypeID associated with the object.",
+            "type": "string"
           },
           "creation_date": {
             "title": "Creation Date",
-            "description": "The date and time at which the object was created.",
+            "description": "The date and time at which the object was first created.",
             "type": "string",
             "format": "date-time"
           },
