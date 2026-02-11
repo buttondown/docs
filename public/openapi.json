@@ -11010,6 +11010,15 @@
               "type": "string"
             }
           },
+          "email_theme_configuration": {
+            "title": "Email Theme Configuration",
+            "description": "A dictionary of CSS token overrides for the email theme.",
+            "default": {},
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
           "custom_churn_email_body": {
             "title": "Custom Churn Email Body",
             "description": "Custom body content for the email sent when a paid subscriber cancels. Supports template tags like `{{ subscriber.email }}` and `{{ newsletter.name }}`.",
@@ -11237,6 +11246,18 @@
               "type": "string"
             }
           },
+          "email_theme_configuration": {
+            "title": "Email Theme Configuration",
+            "description": "A dictionary of CSS token overrides for the email theme.",
+            "default": {},
+            "example": {
+              "primary-color": "#0069FF"
+            },
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
           "custom_email_template": {
             "title": "Custom Email Template",
             "description": "The identifier for a custom email template. See [email templates](https://docs.buttondown.com/customizing-email-design#buttondowns-default-templates) for available options.",
@@ -11388,6 +11409,17 @@
           "theme_configuration": {
             "title": "Theme Configuration",
             "description": "Custom theme configuration (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
+            "example": {
+              "primary-color": "#0069FF"
+            },
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "email_theme_configuration": {
+            "title": "Email Theme Configuration",
+            "description": "A dictionary of CSS token overrides for the email theme.",
             "example": {
               "primary-color": "#0069FF"
             },
