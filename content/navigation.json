@@ -565,82 +565,12 @@
       ]
     },
     {
-      "name": "Dashboard",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "home"
-        },
-
-        {
-          "discriminant": "page",
-          "value": "privacy-and-security"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Columns"
-        },
-
-        {
-          "discriminant": "page",
-          "value": "customizing-subscriber-list-view"
-        },
-        {
-          "discriminant": "page",
-          "value": "customizing-request-list-view"
-        }
-      ]
-    },
-
-    {
-      "name": "Customization",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "customizing-email-design"
-        },
-        {
-          "discriminant": "page",
-          "value": "localization"
-        },
-        {
-          "discriminant": "page",
-          "value": "customizing-transactional-emails"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-
-        {
-          "discriminant": "page",
-          "value": "can-i-use-a-custom-font"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-link-two-related-emails"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-exclude-an-email-from-archive"
-        },
-        {
-          "discriminant": "page",
-          "value": "modern-template-hide-top"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-center-my-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-customize-my-gmail-icon"
-        }
-      ]
-    },
-    {
       "name": "Integrations",
       "items": [
+        {
+          "discriminant": "page",
+          "value": "alpinejs"
+        },
         {
           "discriminant": "page",
           "value": "arena"
@@ -659,7 +589,15 @@
         },
         {
           "discriminant": "page",
+          "value": "daisyui"
+        },
+        {
+          "discriminant": "page",
           "value": "discord"
+        },
+        {
+          "discriminant": "page",
+          "value": "duda"
         },
         {
           "discriminant": "page",
@@ -675,7 +613,23 @@
         },
         {
           "discriminant": "page",
+          "value": "linktree"
+        },
+        {
+          "discriminant": "page",
+          "value": "mantine"
+        },
+        {
+          "discriminant": "page",
           "value": "plausible"
+        },
+        {
+          "discriminant": "page",
+          "value": "shadcn-ui"
+        },
+        {
+          "discriminant": "page",
+          "value": "shopify"
         },
         {
           "discriminant": "page",
@@ -704,6 +658,76 @@
         {
           "discriminant": "page",
           "value": "wordpress"
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "home"
+        },
+        {
+          "discriminant": "page",
+          "value": "privacy-and-security"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Columns"
+        },
+        {
+          "discriminant": "page",
+          "value": "customizing-subscriber-list-view"
+        },
+        {
+          "discriminant": "page",
+          "value": "customizing-request-list-view"
+        }
+      ]
+    },
+    {
+      "name": "Customization",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "customizing-email-design"
+        },
+        {
+          "discriminant": "page",
+          "value": "localization"
+        },
+        {
+          "discriminant": "page",
+          "value": "customizing-transactional-emails"
+        },
+        {
+          "discriminant": "divider",
+          "value": "FAQ"
+        },
+        {
+          "discriminant": "page",
+          "value": "can-i-use-a-custom-font"
+        },
+        {
+          "discriminant": "page",
+          "value": "can-i-link-two-related-emails"
+        },
+        {
+          "discriminant": "page",
+          "value": "can-i-exclude-an-email-from-archive"
+        },
+        {
+          "discriminant": "page",
+          "value": "modern-template-hide-top"
+        },
+        {
+          "discriminant": "page",
+          "value": "can-i-center-my-email"
+        },
+        {
+          "discriminant": "page",
+          "value": "can-i-customize-my-gmail-icon"
         }
       ]
     },

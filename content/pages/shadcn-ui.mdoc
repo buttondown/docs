@@ -1,0 +1,30 @@
+---
+title: Integrating shadcn/ui
+navigationTitle: shadcn/ui
+
+---
+
+## Overview
+
+shadcn/ui is a collection of re-usable components that you can copy and paste into your apps. You can install different shadcn/ui components and use them to create a subscription component for your newsletter.
+
+## Getting started
+
+To use the examples below, you'll need to install the Card, Button, Input, and Label components:
+
+```bash
+npx shadcn-ui@latest add button card input label
+```
+
+You may notice that we do not install the [`Form` component](https://ui.shadcn.com/docs/components/form). That's intentional; shadcn's form boilerplate pulls in React Hook Form and Zod, both of which are great libraries
+but overkill for simple subscription forms. If you've already installed them and want to use them, you can, but use the URL shown in the examples below for the `action` prop of `Form`.
+
+## Basic example
+
+{% liveCodeBlock
+   filename="https://raw.githubusercontent.com/buttondown/examples/refs/heads/main/shadcn/basic.html" /%}
+
+## With dropdown
+
+{% liveCodeBlock
+   filename="https://raw.githubusercontent.com/buttondown/examples/refs/heads/main/shadcn/dropdown.html" /%}

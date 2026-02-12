@@ -363,6 +363,7 @@ const CAPITALIZATION_EXCEPTIONS = [
   "CSS",
   "CSV",
   "CTA",
+  "daisyUI",
   "DKIM",
   "DMARC",
   "DNS",

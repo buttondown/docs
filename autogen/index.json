@@ -108,6 +108,7 @@
     "description": "Buttondown makes it easy to segment your readers by using tags.",
     "references": [
       "account",
+      "alpinejs",
       "api-changelog-2026-01-22",
       "api-tags-analytics",
       "api-tags-create",
@@ -118,7 +119,9 @@
       "building-your-subscriber-base",
       "constant-contact",
       "customizing-subscriber-list-view",
+      "duda",
       "importing-your-data",
+      "linktree",
       "portal",
       "quickstart",
       "segmenting-your-audience",
@@ -413,11 +416,14 @@
     "schema": null,
     "description": "Buttondown allows you to collect subscriber names, and create a more personalized email for your readers.",
     "references": [
+      "alpinejs",
       "api-notes-create",
       "building-your-subscriber-base",
       "constant-contact",
       "customizing-subscriber-list-view",
+      "duda",
       "importing-your-data",
+      "linktree",
       "segmenting-your-audience",
       "subscriber-dashboard",
       "surveys",
@@ -538,6 +544,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "alpinejs",
       "beehiiv",
       "importing-your-data",
       "podia",
@@ -828,6 +835,7 @@
       "arena",
       "bsky",
       "building-your-subscriber-base",
+      "duda",
       "linkedin",
       "portal",
       "replies",
@@ -897,7 +905,9 @@
       "api-emails-status",
       "data-exports-event",
       "discord",
-      "glossary-webhook"
+      "duda",
+      "glossary-webhook",
+      "linktree"
     ]
   },
   {
@@ -1287,6 +1297,236 @@
     ]
   },
   {
+    "title": "Building a newsletter subscription form with Alpine.js",
+    "url": "alpinejs",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "alpinejs"
+    ]
+  },
+  {
+    "title": "Are.na",
+    "url": "arena",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown makes it easy to connect your Are.na and automatically share your newsletters.",
+    "references": []
+  },
+  {
+    "title": "Blogger",
+    "url": "blogger",
+    "section": "reference",
+    "schema": null,
+    "description": "Blogger's \"gadgets\" make it easy to connect your blog and your Buttondown newsletter.",
+    "references": []
+  },
+  {
+    "title": "Bluesky",
+    "url": "bsky",
+    "section": "reference",
+    "schema": null,
+    "description": "Our Bluesky integration makes it easy to automatically post your latest Buttondown email.",
+    "references": [
+      "bsky"
+    ]
+  },
+  {
+    "title": "Carrd",
+    "url": "carrd",
+    "section": "reference",
+    "schema": null,
+    "description": "You can connect your Carrd site and Buttondown newsletter to collect subscribers.",
+    "references": [
+      "carrd"
+    ]
+  },
+  {
+    "title": "Integrating daisyUI",
+    "url": "daisyui",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "daisyui"
+    ]
+  },
+  {
+    "title": "Discord",
+    "url": "discord",
+    "section": "reference",
+    "schema": null,
+    "description": "You can send notifications about new Buttondown newsletter emails, new subscribers, or other events to your Discord server.",
+    "references": []
+  },
+  {
+    "title": "Duda",
+    "url": "duda",
+    "section": "reference",
+    "schema": null,
+    "description": "Duda and Buttondown integrate seamlessly so you can easily collect new newsletter subscribers.",
+    "references": [
+      "duda"
+    ]
+  },
+  {
+    "title": "Fathom",
+    "url": "fathom",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "fathom"
+    ]
+  },
+  {
+    "title": "Framer",
+    "url": "framer",
+    "section": "reference",
+    "schema": null,
+    "description": "Framer is a great no-code form tool that integrates with Buttondown.",
+    "references": [
+      "framer"
+    ]
+  },
+  {
+    "title": "LinkedIn",
+    "url": "linkedin",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "linkedin"
+    ]
+  },
+  {
+    "title": "Linktree",
+    "url": "linktree",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "linktree"
+    ]
+  },
+  {
+    "title": "Integrating Mantine with Buttondown",
+    "url": "mantine",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "mantine"
+    ]
+  },
+  {
+    "title": "Plausible",
+    "url": "plausible",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "external-scripts",
+      "plausible"
+    ]
+  },
+  {
+    "title": "Integrating shadcn/ui",
+    "url": "shadcn-ui",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Shopify",
+    "url": "shopify",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "SimpleAnalytics",
+    "url": "simple-analytics",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Integrating with Stripe",
+    "url": "stripe",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "api-notes-create",
+      "api-subscribers-stripe-subscriptions",
+      "benchmark",
+      "convertkit",
+      "customizing-subscriber-list-view",
+      "mailchimp",
+      "paid-subscriptions",
+      "premium-teaser",
+      "sponsorships",
+      "stripe",
+      "subscriber-dashboard",
+      "subscriber-data",
+      "substack"
+    ]
+  },
+  {
+    "title": "Twitter",
+    "url": "twitter",
+    "section": "reference",
+    "schema": null,
+    "description": "Automatically share your newsletters to your Twitter profile to promote your newsletter.",
+    "references": [
+      "sending-your-first-email-advanced",
+      "using-markdown"
+    ]
+  },
+  {
+    "title": "Tumblr",
+    "url": "tumblr",
+    "section": "reference",
+    "schema": null,
+    "description": "Automatically share your newsletters to your Tumblr blog to promote your newsletter.",
+    "references": []
+  },
+  {
+    "title": "Umami",
+    "url": "umami",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "umami"
+    ]
+  },
+  {
+    "title": "Webflow",
+    "url": "webflow",
+    "section": "reference",
+    "schema": null,
+    "description": "Is your site on Webflow and your newsletter on Buttondown? It's easy to connect them!",
+    "references": [
+      "webflow"
+    ]
+  },
+  {
+    "title": "WordPress",
+    "url": "wordpress",
+    "section": "reference",
+    "schema": null,
+    "description": "Using custom HTML blocks you can easily add your Buttondown subscriber form to your WordPress site.",
+    "references": [
+      "wordpress"
+    ]
+  },
+  {
     "title": "Home",
     "url": "home",
     "section": "reference",
@@ -1406,170 +1646,6 @@
     "schema": null,
     "description": "Customizing the Gmail icon is outside of Buttondown's control.",
     "references": []
-  },
-  {
-    "title": "Are.na",
-    "url": "arena",
-    "section": "reference",
-    "schema": null,
-    "description": "Buttondown makes it easy to connect your Are.na and automatically share your newsletters.",
-    "references": []
-  },
-  {
-    "title": "Blogger",
-    "url": "blogger",
-    "section": "reference",
-    "schema": null,
-    "description": "Blogger's \"gadgets\" make it easy to connect your blog and your Buttondown newsletter.",
-    "references": []
-  },
-  {
-    "title": "Bluesky",
-    "url": "bsky",
-    "section": "reference",
-    "schema": null,
-    "description": "Our Bluesky integration makes it easy to automatically post your latest Buttondown email.",
-    "references": [
-      "bsky"
-    ]
-  },
-  {
-    "title": "Carrd",
-    "url": "carrd",
-    "section": "reference",
-    "schema": null,
-    "description": "You can connect your Carrd site and Buttondown newsletter to collect subscribers.",
-    "references": [
-      "carrd"
-    ]
-  },
-  {
-    "title": "Discord",
-    "url": "discord",
-    "section": "reference",
-    "schema": null,
-    "description": "You can send notifications about new Buttondown newsletter emails, new subscribers, or other events to your Discord server.",
-    "references": []
-  },
-  {
-    "title": "Fathom",
-    "url": "fathom",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "fathom"
-    ]
-  },
-  {
-    "title": "Framer",
-    "url": "framer",
-    "section": "reference",
-    "schema": null,
-    "description": "Framer is a great no-code form tool that integrates with Buttondown.",
-    "references": [
-      "framer"
-    ]
-  },
-  {
-    "title": "LinkedIn",
-    "url": "linkedin",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "linkedin"
-    ]
-  },
-  {
-    "title": "Plausible",
-    "url": "plausible",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "external-scripts",
-      "plausible"
-    ]
-  },
-  {
-    "title": "SimpleAnalytics",
-    "url": "simple-analytics",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
-    "title": "Integrating with Stripe",
-    "url": "stripe",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "api-notes-create",
-      "api-subscribers-stripe-subscriptions",
-      "benchmark",
-      "convertkit",
-      "customizing-subscriber-list-view",
-      "mailchimp",
-      "paid-subscriptions",
-      "premium-teaser",
-      "sponsorships",
-      "stripe",
-      "subscriber-dashboard",
-      "subscriber-data",
-      "substack"
-    ]
-  },
-  {
-    "title": "Twitter",
-    "url": "twitter",
-    "section": "reference",
-    "schema": null,
-    "description": "Automatically share your newsletters to your Twitter profile to promote your newsletter.",
-    "references": [
-      "sending-your-first-email-advanced",
-      "using-markdown"
-    ]
-  },
-  {
-    "title": "Tumblr",
-    "url": "tumblr",
-    "section": "reference",
-    "schema": null,
-    "description": "Automatically share your newsletters to your Tumblr blog to promote your newsletter.",
-    "references": []
-  },
-  {
-    "title": "Umami",
-    "url": "umami",
-    "section": "reference",
-    "schema": null,
-    "description": null,
-    "references": [
-      "umami"
-    ]
-  },
-  {
-    "title": "Webflow",
-    "url": "webflow",
-    "section": "reference",
-    "schema": null,
-    "description": "Is your site on Webflow and your newsletter on Buttondown? It's easy to connect them!",
-    "references": [
-      "webflow"
-    ]
-  },
-  {
-    "title": "WordPress",
-    "url": "wordpress",
-    "section": "reference",
-    "schema": null,
-    "description": "Using custom HTML blocks you can easily add your Buttondown subscriber form to your WordPress site.",
-    "references": [
-      "wordpress"
-    ]
   },
   {
     "title": "What data does Buttondown store?",
