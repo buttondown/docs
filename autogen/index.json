@@ -57,16 +57,6 @@
     ]
   },
   {
-    "title": "Test mode",
-    "url": "test-mode",
-    "section": "guides",
-    "schema": null,
-    "description": "Send test emails to yourself to preview how they'll look to subscribers",
-    "references": [
-      "paid-subscriptions"
-    ]
-  },
-  {
     "title": "Building your subscriber base",
     "url": "building-your-subscriber-base",
     "section": "guides",
@@ -341,7 +331,9 @@
     "section": "guides",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "hidden-settings"
+    ]
   },
   {
     "title": "How can I write accessible emails?",
@@ -382,6 +374,7 @@
     "schema": null,
     "description": null,
     "references": [
+      "hidden-settings",
       "replies"
     ]
   },
@@ -394,192 +387,12 @@
     "references": []
   },
   {
-    "title": "RSS-to-email",
-    "url": "rss-to-email",
-    "section": "guides",
-    "schema": null,
-    "description": "With Buttondown's RSS automation, you can automatically send a new email every time you publish a new blog post.",
-    "references": [
-      "glossary-headless-mode",
-      "glossary-posse",
-      "glossary-rss",
-      "hosting-domain",
-      "quickstart",
-      "sending-your-first-email-advanced"
-    ]
-  },
-  {
-    "title": "Are.na",
-    "url": "arena",
-    "section": "guides",
-    "schema": null,
-    "description": "Buttondown makes it easy to connect your Are.na and automatically share your newsletters.",
-    "references": []
-  },
-  {
-    "title": "Blogger",
-    "url": "blogger",
-    "section": "guides",
-    "schema": null,
-    "description": "Blogger's \"gadgets\" make it easy to connect your blog and your Buttondown newsletter.",
-    "references": []
-  },
-  {
-    "title": "Bluesky",
-    "url": "bsky",
-    "section": "guides",
-    "schema": null,
-    "description": "Our Bluesky integration makes it easy to automatically post your latest Buttondown email.",
-    "references": [
-      "bsky"
-    ]
-  },
-  {
-    "title": "Carrd",
-    "url": "carrd",
-    "section": "guides",
-    "schema": null,
-    "description": "You can connect your Carrd site and Buttondown newsletter to collect subscribers.",
-    "references": [
-      "carrd"
-    ]
-  },
-  {
-    "title": "Discord",
-    "url": "discord",
-    "section": "guides",
-    "schema": null,
-    "description": "You can send notifications about new Buttondown newsletter emails, new subscribers, or other events to your Discord server.",
-    "references": []
-  },
-  {
-    "title": "Fathom",
-    "url": "fathom",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": [
-      "fathom"
-    ]
-  },
-  {
-    "title": "Framer",
-    "url": "framer",
-    "section": "guides",
-    "schema": null,
-    "description": "Framer is a great no-code form tool that integrates with Buttondown.",
-    "references": [
-      "framer"
-    ]
-  },
-  {
-    "title": "LinkedIn",
-    "url": "linkedin",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": [
-      "linkedin"
-    ]
-  },
-  {
-    "title": "Plausible",
-    "url": "plausible",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": [
-      "external-scripts",
-      "plausible"
-    ]
-  },
-  {
-    "title": "SimpleAnalytics",
-    "url": "simple-analytics",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": []
-  },
-  {
-    "title": "Integrating with Stripe",
-    "url": "stripe",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": [
-      "api-notes-create",
-      "api-subscribers-stripe-subscriptions",
-      "benchmark",
-      "convertkit",
-      "customizing-subscriber-list-view",
-      "mailchimp",
-      "paid-subscriptions",
-      "premium-teaser",
-      "sponsorships",
-      "stripe",
-      "subscriber-dashboard",
-      "subscriber-data",
-      "substack"
-    ]
-  },
-  {
-    "title": "Twitter",
-    "url": "twitter",
-    "section": "guides",
-    "schema": null,
-    "description": "Automatically share your newsletters to your Twitter profile to promote your newsletter.",
-    "references": [
-      "sending-your-first-email-advanced",
-      "using-markdown"
-    ]
-  },
-  {
-    "title": "Tumblr",
-    "url": "tumblr",
-    "section": "guides",
-    "schema": null,
-    "description": "Automatically share your newsletters to your Tumblr blog to promote your newsletter.",
-    "references": []
-  },
-  {
-    "title": "Umami",
-    "url": "umami",
-    "section": "guides",
-    "schema": null,
-    "description": null,
-    "references": [
-      "umami"
-    ]
-  },
-  {
-    "title": "Webflow",
-    "url": "webflow",
-    "section": "guides",
-    "schema": null,
-    "description": "Is your site on Webflow and your newsletter on Buttondown? It's easy to connect them!",
-    "references": [
-      "webflow"
-    ]
-  },
-  {
-    "title": "WordPress",
-    "url": "wordpress",
-    "section": "guides",
-    "schema": null,
-    "description": "Using custom HTML blocks you can easily add your Buttondown subscriber form to your WordPress site.",
-    "references": [
-      "wordpress"
-    ]
-  },
-  {
     "title": "Pricing",
     "url": "billing",
     "section": "guides",
     "schema": null,
     "description": "Pricing information for Buttondown's paid plans.",
     "references": [
-      "account",
       "buttondown-data",
       "quickstart",
       "sending-your-first-email-advanced"
@@ -804,7 +617,6 @@
     "description": null,
     "references": [
       "arena",
-      "does-buttondown-offer-a-b-testing",
       "linkedin",
       "portal",
       "rss-to-email",
@@ -1342,6 +1154,139 @@
     "references": []
   },
   {
+    "title": "Test mode",
+    "url": "test-mode",
+    "section": "reference",
+    "schema": null,
+    "description": "Send test emails to yourself to preview how they'll look to subscribers",
+    "references": [
+      "paid-subscriptions"
+    ]
+  },
+  {
+    "title": "Dedicated IP",
+    "url": "dedicated-ip",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown is happy to offer dedicated IP addresses to customers who need them.",
+    "references": []
+  },
+  {
+    "title": "Firewall",
+    "url": "firewall",
+    "section": "reference",
+    "schema": null,
+    "description": "Buttondown's \"Firewall\" is an opt-in feature that audits all incoming subscribers to confirm that they're legitimate people.",
+    "references": [
+      "api-subscribers-create",
+      "subscriber-cleanup"
+    ]
+  },
+  {
+    "title": "Social media monitoring",
+    "url": "social-media-monitoring",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": []
+  },
+  {
+    "title": "Hidden features and settings",
+    "url": "hidden-settings",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "subscriber-cleanup"
+    ]
+  },
+  {
+    "title": "Buttondown CLI",
+    "url": "buttondown-cli",
+    "section": "reference",
+    "schema": null,
+    "description": "The Buttondown CLI allows you to write your newsletter from the comfort of your favorite code editor.",
+    "references": [
+      "introduction"
+    ]
+  },
+  {
+    "title": "RSS-to-email",
+    "url": "rss-to-email",
+    "section": "reference",
+    "schema": null,
+    "description": "With Buttondown's RSS automation, you can automatically send a new email every time you publish a new blog post.",
+    "references": [
+      "glossary-headless-mode",
+      "glossary-posse",
+      "glossary-rss",
+      "hosting-domain",
+      "quickstart",
+      "sending-your-first-email-advanced"
+    ]
+  },
+  {
+    "title": "Transactional emails",
+    "url": "transactional-emails",
+    "section": "reference",
+    "schema": null,
+    "description": "Reference guide for all transactional emails in Buttondown",
+    "references": [
+      "customizing-transactional-emails",
+      "transactional-emails"
+    ]
+  },
+  {
+    "title": "Confirmation email",
+    "url": "transactional-emails-confirmation",
+    "section": "reference",
+    "schema": null,
+    "description": "Reference guide for Buttondown's confirmation emails",
+    "references": [
+      "transactional-emails"
+    ]
+  },
+  {
+    "title": "Reminder email",
+    "url": "transactional-emails-reminder",
+    "section": "reference",
+    "schema": null,
+    "description": "Reference guide for Buttondown's subscription reminder emails",
+    "references": [
+      "transactional-emails"
+    ]
+  },
+  {
+    "title": "Welcome email",
+    "url": "transactional-emails-welcome",
+    "section": "reference",
+    "schema": null,
+    "description": "Reference guide for Buttondown's welcome emails",
+    "references": [
+      "transactional-emails"
+    ]
+  },
+  {
+    "title": "Premium welcome email",
+    "url": "transactional-emails-premium-welcome",
+    "section": "reference",
+    "schema": null,
+    "description": "Reference guide for Buttondown's premium welcome emails",
+    "references": [
+      "transactional-emails"
+    ]
+  },
+  {
+    "title": "Gift email",
+    "url": "transactional-emails-gift",
+    "section": "reference",
+    "schema": null,
+    "description": "Reference guide for Buttondown's gift subscription emails",
+    "references": [
+      "transactional-emails"
+    ]
+  },
+  {
     "title": "Home",
     "url": "home",
     "section": "reference",
@@ -1463,144 +1408,168 @@
     "references": []
   },
   {
-    "title": "Transactional emails",
-    "url": "transactional-emails",
+    "title": "Are.na",
+    "url": "arena",
     "section": "reference",
     "schema": null,
-    "description": "Reference guide for all transactional emails in Buttondown",
-    "references": [
-      "customizing-transactional-emails",
-      "transactional-emails"
-    ]
-  },
-  {
-    "title": "Confirmation email",
-    "url": "transactional-emails-confirmation",
-    "section": "reference",
-    "schema": null,
-    "description": "Reference guide for Buttondown's confirmation emails",
-    "references": [
-      "transactional-emails"
-    ]
-  },
-  {
-    "title": "Reminder email",
-    "url": "transactional-emails-reminder",
-    "section": "reference",
-    "schema": null,
-    "description": "Reference guide for Buttondown's subscription reminder emails",
-    "references": [
-      "transactional-emails"
-    ]
-  },
-  {
-    "title": "Welcome email",
-    "url": "transactional-emails-welcome",
-    "section": "reference",
-    "schema": null,
-    "description": "Reference guide for Buttondown's welcome emails",
-    "references": [
-      "transactional-emails"
-    ]
-  },
-  {
-    "title": "Premium welcome email",
-    "url": "transactional-emails-premium-welcome",
-    "section": "reference",
-    "schema": null,
-    "description": "Reference guide for Buttondown's premium welcome emails",
-    "references": [
-      "transactional-emails"
-    ]
-  },
-  {
-    "title": "Gift email",
-    "url": "transactional-emails-gift",
-    "section": "reference",
-    "schema": null,
-    "description": "Reference guide for Buttondown's gift subscription emails",
-    "references": [
-      "transactional-emails"
-    ]
-  },
-  {
-    "title": "Dedicated IP",
-    "url": "dedicated-ip",
-    "section": "reference",
-    "schema": null,
-    "description": "Buttondown is happy to offer dedicated IP addresses to customers who need them.",
+    "description": "Buttondown makes it easy to connect your Are.na and automatically share your newsletters.",
     "references": []
   },
   {
-    "title": "Firewall",
-    "url": "firewall",
+    "title": "Blogger",
+    "url": "blogger",
     "section": "reference",
     "schema": null,
-    "description": "Buttondown's \"Firewall\" is an opt-in feature that audits all incoming subscribers to confirm that they're legitimate people.",
+    "description": "Blogger's \"gadgets\" make it easy to connect your blog and your Buttondown newsletter.",
+    "references": []
+  },
+  {
+    "title": "Bluesky",
+    "url": "bsky",
+    "section": "reference",
+    "schema": null,
+    "description": "Our Bluesky integration makes it easy to automatically post your latest Buttondown email.",
     "references": [
-      "api-subscribers-create",
-      "subscriber-cleanup"
+      "bsky"
     ]
   },
   {
-    "title": "Social media monitoring",
-    "url": "social-media-monitoring",
+    "title": "Carrd",
+    "url": "carrd",
+    "section": "reference",
+    "schema": null,
+    "description": "You can connect your Carrd site and Buttondown newsletter to collect subscribers.",
+    "references": [
+      "carrd"
+    ]
+  },
+  {
+    "title": "Discord",
+    "url": "discord",
+    "section": "reference",
+    "schema": null,
+    "description": "You can send notifications about new Buttondown newsletter emails, new subscribers, or other events to your Discord server.",
+    "references": []
+  },
+  {
+    "title": "Fathom",
+    "url": "fathom",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "fathom"
+    ]
+  },
+  {
+    "title": "Framer",
+    "url": "framer",
+    "section": "reference",
+    "schema": null,
+    "description": "Framer is a great no-code form tool that integrates with Buttondown.",
+    "references": [
+      "framer"
+    ]
+  },
+  {
+    "title": "LinkedIn",
+    "url": "linkedin",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "linkedin"
+    ]
+  },
+  {
+    "title": "Plausible",
+    "url": "plausible",
+    "section": "reference",
+    "schema": null,
+    "description": null,
+    "references": [
+      "external-scripts",
+      "plausible"
+    ]
+  },
+  {
+    "title": "SimpleAnalytics",
+    "url": "simple-analytics",
     "section": "reference",
     "schema": null,
     "description": null,
     "references": []
   },
   {
-    "title": "Hidden features and settings",
-    "url": "hidden-settings",
+    "title": "Integrating with Stripe",
+    "url": "stripe",
     "section": "reference",
     "schema": null,
     "description": null,
     "references": [
-      "subscriber-cleanup"
+      "api-notes-create",
+      "api-subscribers-stripe-subscriptions",
+      "benchmark",
+      "convertkit",
+      "customizing-subscriber-list-view",
+      "mailchimp",
+      "paid-subscriptions",
+      "premium-teaser",
+      "sponsorships",
+      "stripe",
+      "subscriber-dashboard",
+      "subscriber-data",
+      "substack"
     ]
   },
   {
-    "title": "Buttondown CLI",
-    "url": "buttondown-cli",
+    "title": "Twitter",
+    "url": "twitter",
     "section": "reference",
     "schema": null,
-    "description": "The Buttondown CLI allows you to write your newsletter from the comfort of your favorite code editor.",
+    "description": "Automatically share your newsletters to your Twitter profile to promote your newsletter.",
     "references": [
-      "introduction"
+      "sending-your-first-email-advanced",
+      "using-markdown"
     ]
   },
   {
-    "title": "Does Buttondown offer A/B testing?",
-    "url": "does-buttondown-offer-a-b-testing",
+    "title": "Tumblr",
+    "url": "tumblr",
     "section": "reference",
     "schema": null,
-    "description": "Buttondown does not formally offer A/B testing, but we have some options to achieve something similar.",
+    "description": "Automatically share your newsletters to your Tumblr blog to promote your newsletter.",
     "references": []
   },
   {
-    "title": "Does Buttondown offer podcast hosting?",
-    "url": "podcasts",
+    "title": "Umami",
+    "url": "umami",
     "section": "reference",
     "schema": null,
     "description": null,
-    "references": []
+    "references": [
+      "umami"
+    ]
   },
   {
-    "title": "RSS-to-email audience",
-    "url": "rss-audience",
+    "title": "Webflow",
+    "url": "webflow",
     "section": "reference",
     "schema": null,
-    "description": null,
-    "references": []
+    "description": "Is your site on Webflow and your newsletter on Buttondown? It's easy to connect them!",
+    "references": [
+      "webflow"
+    ]
   },
   {
-    "title": "Sending RSS-to-email emails on scheduled cadences",
-    "url": "rss-cadence",
+    "title": "WordPress",
+    "url": "wordpress",
     "section": "reference",
     "schema": null,
-    "description": null,
-    "references": []
+    "description": "Using custom HTML blocks you can easily add your Buttondown subscriber form to your WordPress site.",
+    "references": [
+      "wordpress"
+    ]
   },
   {
     "title": "What data does Buttondown store?",
@@ -2697,8 +2666,7 @@
       "api-changelog-2025-03-31",
       "api-error-codes",
       "api-formatting",
-      "api-rate-limits",
-      "firewall"
+      "api-rate-limits"
     ]
   },
   {

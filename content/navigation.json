@@ -18,10 +18,6 @@
         {
           "discriminant": "page",
           "value": "sending-your-first-email-advanced"
-        },
-        {
-          "discriminant": "page",
-          "value": "test-mode"
         }
       ]
     },
@@ -183,84 +179,6 @@
         {
           "discriminant": "page",
           "value": "sending-from-dreamhost"
-        }
-      ]
-    },
-    {
-      "name": "Automating your newsletter",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "rss-to-email"
-        }
-      ]
-    },
-    {
-      "name": "Integrations",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "arena"
-        },
-        {
-          "discriminant": "page",
-          "value": "blogger"
-        },
-        {
-          "discriminant": "page",
-          "value": "bsky"
-        },
-        {
-          "discriminant": "page",
-          "value": "carrd"
-        },
-        {
-          "discriminant": "page",
-          "value": "discord"
-        },
-        {
-          "discriminant": "page",
-          "value": "fathom"
-        },
-        {
-          "discriminant": "page",
-          "value": "framer"
-        },
-        {
-          "discriminant": "page",
-          "value": "linkedin"
-        },
-        {
-          "discriminant": "page",
-          "value": "plausible"
-        },
-        {
-          "discriminant": "page",
-          "value": "simple-analytics"
-        },
-        {
-          "discriminant": "page",
-          "value": "stripe"
-        },
-        {
-          "discriminant": "page",
-          "value": "twitter"
-        },
-        {
-          "discriminant": "page",
-          "value": "tumblr"
-        },
-        {
-          "discriminant": "page",
-          "value": "umami"
-        },
-        {
-          "discriminant": "page",
-          "value": "webflow"
-        },
-        {
-          "discriminant": "page",
-          "value": "wordpress"
         }
       ]
     },
@@ -585,6 +503,68 @@
       ]
     },
     {
+      "name": "Advanced features",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "test-mode"
+        },
+        {
+          "discriminant": "page",
+          "value": "dedicated-ip"
+        },
+        {
+          "discriminant": "page",
+          "value": "firewall"
+        },
+        {
+          "discriminant": "page",
+          "value": "social-media-monitoring"
+        },
+        {
+          "discriminant": "page",
+          "value": "hidden-settings"
+        },
+        {
+          "discriminant": "page",
+          "value": "buttondown-cli"
+        },
+        {
+          "discriminant": "page",
+          "value": "rss-to-email"
+        }
+      ]
+    },
+    {
+      "name": "Transactional emails",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "transactional-emails"
+        },
+        {
+          "discriminant": "page",
+          "value": "transactional-emails-confirmation"
+        },
+        {
+          "discriminant": "page",
+          "value": "transactional-emails-reminder"
+        },
+        {
+          "discriminant": "page",
+          "value": "transactional-emails-welcome"
+        },
+        {
+          "discriminant": "page",
+          "value": "transactional-emails-premium-welcome"
+        },
+        {
+          "discriminant": "page",
+          "value": "transactional-emails-gift"
+        }
+      ]
+    },
+    {
       "name": "Dashboard",
       "items": [
         {
@@ -659,81 +639,71 @@
       ]
     },
     {
-      "name": "Transactional emails",
+      "name": "Integrations",
       "items": [
         {
           "discriminant": "page",
-          "value": "transactional-emails"
+          "value": "arena"
         },
         {
           "discriminant": "page",
-          "value": "transactional-emails-confirmation"
+          "value": "blogger"
         },
         {
           "discriminant": "page",
-          "value": "transactional-emails-reminder"
+          "value": "bsky"
         },
         {
           "discriminant": "page",
-          "value": "transactional-emails-welcome"
+          "value": "carrd"
         },
         {
           "discriminant": "page",
-          "value": "transactional-emails-premium-welcome"
+          "value": "discord"
         },
         {
           "discriminant": "page",
-          "value": "transactional-emails-gift"
-        }
-      ]
-    },
-    {
-      "name": "Advanced features",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "dedicated-ip"
+          "value": "fathom"
         },
         {
           "discriminant": "page",
-          "value": "firewall"
+          "value": "framer"
         },
         {
           "discriminant": "page",
-          "value": "social-media-monitoring"
+          "value": "linkedin"
         },
         {
           "discriminant": "page",
-          "value": "hidden-settings"
+          "value": "plausible"
         },
         {
           "discriminant": "page",
-          "value": "buttondown-cli"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
+          "value": "simple-analytics"
         },
         {
           "discriminant": "page",
-          "value": "does-buttondown-offer-a-b-testing"
+          "value": "stripe"
         },
         {
           "discriminant": "page",
-          "value": "podcasts"
-        }
-      ]
-    },
-    {
-      "name": "RSS-to-email",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "rss-audience"
+          "value": "twitter"
         },
         {
           "discriminant": "page",
-          "value": "rss-cadence"
+          "value": "tumblr"
+        },
+        {
+          "discriminant": "page",
+          "value": "umami"
+        },
+        {
+          "discriminant": "page",
+          "value": "webflow"
+        },
+        {
+          "discriminant": "page",
+          "value": "wordpress"
         }
       ]
     },

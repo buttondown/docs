@@ -861,6 +861,26 @@ const REDIRECTS = [
     destination: "/data-exports-email",
     permanent: true,
   },
+  {
+    source: "/rss-audience",
+    destination: "/rss-to-email",
+    permanent: true,
+  },
+  {
+    source: "/rss-cadence",
+    destination: "/rss-to-email",
+    permanent: true,
+  },
+  {
+    source: "/does-buttondown-offer-a-b-testing",
+    destination: "/templating#random_number",
+    permanent: true,
+  },
+  {
+    source: "/podcasts",
+    destination: "/introduction",
+    permanent: true,
+  },
 ];
 
 export default REDIRECTS;

@@ -9,10 +9,6 @@ faqItems: >
     {
       "question": "I have firewall disabled but some subscribers are still being blocked!",
       "answer": "Even with the firewall disabled, Buttondown blocks subscribers using disposable email addresses. Disposable email domains (like mailinator.com, tempmail.com, and thousands of others) are temporary inboxes often used for spam or to game free trials. We maintain a blocklist sourced from an [open-source community project](https://github.com/disposable-email-domains/disposable-email-domains) that updates daily. This behavior is intentional and separate from the firewall: sending emails to disposable addresses is almost always a waste of resources and can harm your sender reputation, since these addresses are frequently abandoned or never checked. There's no way to disable this check."
-    },
-    {
-      "question": "Can I bypass the firewall for specific API requests?",
-      "answer": "Yes! If you're creating subscribers from a trusted source via the API (such as a cloud function processing purchases), you can bypass the firewall on a per-request basis by providing a `X-Buttondown-Bypass-Firewall` header with a value of `true`. This is subject to aggressive rate limiting (five requests per hour per newsletter) to prevent abuse. See the [creating a subscriber](/api-subscribers-create#bypassing-the-firewall) documentation for details."
     }
   ]
 ---
