@@ -25,7 +25,6 @@
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-tabs": "^1.1.12",
-    "@sentry/nextjs": "^10.25.0",
     "@tailwindcss/postcss": "^4.1.10",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "20.6.3",
@@ -55,7 +54,6 @@
   },
   "trustedDependencies": [
     "@biomejs/biome",
-    "@sentry/cli",
     "@tailwindcss/oxide",
     "oxc-resolver",
     "unrs-resolver"

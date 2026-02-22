@@ -1,0 +1,145 @@
+---
+title: Designing your email
+relatedPages:
+  - customizing-web-design
+  - glossary-writing-emails
+description: >-
+  Using CSS and templates you can customize the look and feel of your Buttondown emails.
+faqItems: >
+  [
+    {
+      "question": "Why is my email purple?",
+      "answer": "If you're previewing multiple drafts of an email in Gmail, you might notice that the text is all purple! This isn't a Buttondown problem. This happens when Gmail decides that multiple emails sent in the same day with the same subject are responses to one another. When this happens, it displays the thread of emails in a \"conversation view.\"\n\nThe purple coloration is a display-only feature that only exists in the display where it is being seen. It is not sent in any messages. The color is applied to text that is repeated from a previous message in the current conversation."
+    },
+    {
+      "question": "Why does my email look different on some clients?",
+      "answer": "This is a common and unfortunate problem. The short answer is: email is weird, email inboxes are weird, and there's nothing you or I or anyone can do about it.\n\nButtondown's Markdown preview is meant to closely resemble an email inbox from a content perspective. Text formatting from Markdown and HTML tags, links, and images all appear as they would to someone opening your newsletter email in their email client. But they will never be able to accurately resemble your subscriber's email inbox from a _stylistic_ perspective.\n\nSome additional notes:\n\n- Fastmail does not really support CSS variables. You'll want to add fallback values for your CSS variables.\n- Outlook (especially on Android) does not respect `word-break` or `overflow-wrap` CSS properties."
+    },
+    {
+      "question": "How can I write accessible emails?",
+      "answer": "Here are a few tips to keep in mind:\n\n- **Make sure images have descriptive alt text.** For every image you upload, include [alt text](/glossary-writing-emails#alt-text) describing the contents.\n- **Write meaningful text for links.** Instead of something like \"Click here\", use the page title. Don't leave the raw URL in the body.\n- **Limit the use of gifs.** Gifs can cause ill effect for readers with motion sensitivity. If you must use a gif, make sure that it does not loop, flash, or strobe.\n\nButtondown's [preflight](/preflight) feature automatically checks for common accessibility issues."
+    },
+    {
+      "question": "How do I set sender information?",
+      "answer": "Sender information consists of three main parts:\n\n- **From address**: The email address that appears in the \"From\" field\n- **From name**: The display name that appears before the email address\n- **Reply-to address**: The email address where replies are sent\n\nYou can customize these in [Settings > General](https://buttondown.com/settings/general). For reply-to addresses, see [Replies](/replies)."
+    },
+    {
+      "question": "How do I format dates in an email?",
+      "answer": "By default, Buttondown formats dates like `Feb. 4, 2003, 4 p.m.`. To customize this format, you can use the `date` filter in Django. For example, to format the date as `2024-01-09`, use: `{{ email.publish_date|date:'Y-m-d' }}`."
+    },
+    {
+      "question": "How can I hide the top of the Modern template?",
+      "answer": "Buttondown's Modern email template comes with a section at the top that has the newsletter's name and icon, and the email's subject and publication date. To hide this, go to your [email Design settings](https://buttondown.com/settings/email) and add the following CSS:\n\n```css\n.newsletter-icon, .newsletter-masthead, .email-preamble {\n    display: none !important;\n}\n```"
+    },
+    {
+      "question": "Can I center my email?",
+      "answer": "Yes! This applies to the Classic email design only. Just apply the following rule in your [design settings](https://buttondown.com/settings/email):\n\n```css\np, div, ul, li {\n  margin: 0 auto 0 auto;\n}\n```"
+    },
+    {
+      "question": "Can I link to a related email?",
+      "answer": "Yes, you can link up to two related emails. These will appear at the bottom of your email and your web archives.\n\nTo link a related email:\n1. Click the \"Publish\" or \"Details\" button at the top right corner\n2. Open the Details accordion\n3. Select up to two emails from the dropdowns"
+    },
+    {
+      "question": "Can I use a custom font?",
+      "answer": "You can definitely use a web font to customize the experience of your web archives! For your email design, many clients do not support web fonts. Using a custom webfont could cause your readers to have very different experiences based on their client.\n\nYou can customize the web CSS in [Buttondown's design settings](https://buttondown.com/settings/archives) to use a custom font for your newsletter archives."
+    },
+    {
+      "question": "Can I customize the Gmail icon?",
+      "answer": "Unfortunately, no. This is outside of Buttondown's control. The avatar or icon that shows up in an email in Gmail is based on whether or not that email address is registered in Google's various systems.\n\nGoogle is exploring support for [BIMI](/glossary-email-infrastructure#bimi), a protocol that allows services like Buttondown to provide icons. We're monitoring these developments."
+    },
+    {
+      "question": "What about localization?",
+      "answer": "You can change your newsletter's primary language by visiting the [Settings page](https://buttondown.com/settings/general) and scrolling down to \"Language\". Buttondown supports localization for Czech, German, English, Spanish, French, Dutch, Polish, Portuguese (Brazil), Russian, Swedish, and Turkish. We localize any part of Buttondown that a subscriber might see, including transactional emails, hosted archive pages, and copy within the email itself."
+    },
+    {
+      "question": "Can I customize transactional emails?",
+      "answer": "Yes! Buttondown's [transactional emails](/glossary-managing-your-list#transactional-email) can be customized using the same email CSS settings as regular emails. You can also change the wording by editing [the email templates](/transactional-emails#customizing-transactional-emails).\n\nTo hide the default transactional email header, add this CSS:\n\n```css\n.transactional-email-header {\n    display: none;\n}\n```"
+    },
+    {
+      "question": "Do you have a CSS tutorial?",
+      "answer": "While we don't have a full CSS tutorial, there are many excellent resources online for learning CSS. We recommend [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/CSS) as a starting point. Keep in mind that email CSS is more limited than web CSS -- most email clients work with CSS standards from around 2005."
+    }
+  ]
+---
+
+{% paidFeature feature="css" /%}
+
+Buttondown is fairly opinionated about the best emails being plain-text friendly and minimal, but it offers you a variety of ways to customize your email through HTML and CSS.
+
+
+## What to avoid
+
+Most email clients don't support the wide variety of HTML and content that you can see on the web.
+
+Things like `<iframe>` elements, embedded videos, or custom layouts and fonts are hard if not impossible to replicate in the limited confines of your average inbox. This isn't a Buttondown limitation; it's a Gmail (or whomever) one.
+
+A brief (and inexhaustive) list of things that emails won't be able to handle:
+
+### JavaScript or other run-time scripts
+JavaScript is a programming language that makes web content interactive. It's common in websites, but the vast majority of email clients block scripts since they can hide malicious content. Avoid all JavaScript.
+
+### iframes
+An `<iframe>` (inline frame) is an HTML element that embeds content from one website into another. Inline frames are often used to insert advertisements, video, audio, or forms in other websites. Iframes often contain scripts, so most email clients block them.
+
+### Embedded audio or video
+Autoplay and click-to-play media won't play in an inbox unless your subscriber's email client supports HTML5 `<video>` and `<audio>` tags. Only one major email client, Apple Mail, supports these tags, so it's best to avoid embedded media.
+
+Instead, we recommend using one of our [integrations](https://buttondown.com/features/integrations) to host your audio and video! We have integrations with Youtube, Vimeo, Soundcloud and Bandcamp that make it easy to share with your readers.
+
+### SVGs (Scalable Vector Graphics)
+
+While SVGs are great for sharp, scalable images on the web, most email clients don't fully support them. Some will fail to render the image entirely, while others may strip or alter it for security reasons. For best results, use standard image formats like PNG or JPEG instead.
+
+
+### Custom forms
+Forms and interactive content is impossible in email.
+
+### CSS3
+Unfortunately, the CSS standard that Gmail and other clients are working off of is fairly old. You'll want to extensively test any custom CSS you are using to make sure it plays nice with many browsers; when in doubt, default to CSS that worked in, say, 2005.
+
+{% noticeInfo text="All HTML is technically valid Markdown, so if you ever want to just completely override Buttondown's styles and provide your own email template, you're welcome to do so!" /%}
+
+## Buttondown's default templates
+Buttondown comes with two default templates: Classic and Modern.
+
+### Classic template
+The Classic template is simple, functional, and minimalist. Did we mention that it's in plain text? This template puts the emphasis on your content.
+
+Here's how the Classic template looks:
+
+![Preview of the Classic template](/customizing-design/classic-theme.png)
+
+You can review the CSS for the Classic template [here](/subscriber_facing_styles/email-classic.css).
+
+| Class | Description |
+|-----|---------------|
+| newsletter-footer | The footer of the email, if you've added one in [the Settings page](https://buttondown.com/settings/email) |
+| newsletter-header | The header of the email, if you've added one in [the Settings page](https://buttondown.com/settings/email) |
+| newsletter-colophon | The end-matter of the email (containing CTAs and unsubscribe links)
+| newsletter-body | The main content of the email |
+
+
+### Modern template
+The Modern theme is still clean and accessible, but does more to emphasize your newsletter's branding.
+
+Here's how the Modern template looks:
+
+![Preview of the Modern template](/customizing-design/modern-theme.png)
+
+You can review the CSS for the Modern template [here](/subscriber_facing_styles/email-modern.css), and below are some common classes and targets you might want to style:
+
+
+| Class | Description |
+|-----|---------------|
+| subject | The subject line of the email |
+| description | The [description of the email](/sending-emails) |
+| colophon | The small subhead containing the newsletter name and date |
+| email-preamble | The introductory text of the email ("Did someone forward you this?") |
+| newsletter-masthead | The top section of the email containing the newsletter's name and icon, and the email's subject and publication date |
+| newsletter-icon | The icon of the newsletter |
+| newsletter-footer | The footer of the email, if you've added one in [the Settings page](https://buttondown.com/settings/email) |
+| newsletter-header | The header of the email, if you've added one in [the Settings page](https://buttondown.com/settings/email) |
+
+## FAQs
+
+{% faq /%}

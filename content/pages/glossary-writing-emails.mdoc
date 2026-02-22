@@ -1,0 +1,84 @@
+---
+title: Writing emails
+---
+
+This section covers key terms and concepts related to writing and formatting your newsletter emails, from editor features to content strategies.
+
+## Alt text
+
+Alt text is a short description of an image that is read by screen readers. It is important for accessibility and SEO. Alt text should be descriptive and concise, providing information about the content and purpose of the image.
+
+To add alt text to an image in HTML, use the `alt` attribute within the `<img>` tag:
+
+```html
+<img src="image.jpg" alt="Description of the image">
+```
+
+To add alt text to an image in Markdown, use the following syntax:
+
+```markdown
+![Description of the image](image.jpg)
+```
+
+## Drip sequence
+
+Also known as a "welcome sequence" or "automation", a drip sequence is a series of emails automatically sent to a new subscriber over a period of time. For example, you might send a welcome email to a new subscriber, followed by a series of emails that introduce them to your content (one after a day, one after a week, etc.).
+
+## Gravatar
+
+Gravatar is a service for providing globally unique avatars. It is used by many websites to display user avatars. Gravatar is a portmanteau of "globally recognized avatar", and is responsible for the images you see next to people's names in the Subscriber detail page.
+
+## LaTeX
+
+LaTeX is a typesetting system commonly used for scientific and mathematical documents due to its ability to render complex equations. It is widely used in academia and research — unlike many of the other terms or acronyms defined in this glossary, if you don't already know what LaTeX is then it's likely an "ignorance is bliss" situation (unless you suddenly find yourself needing to write a paper with lots of equations, in which case you'll be glad you know about it).
+
+Under the hood, we use [KaTeX](https://katex.org/) to render LaTeX equations within [the Buttondown editor](/editor-modes), and we use [MathJax](https://www.mathjax.org/) to actually render the equations in outgoing emails. (Why the two separate packages for the same thing? Because the vast majority of email clients don't support the styling and layout that `KaTeX` provides, so we use `MathJax` to render the equations in a more universally compatible way — PNGs.)
+
+## Slug
+
+A slug is a short, human-readable identifier for a page or post. It is usually derived from the title of the page or post, and is used in the URL to identify the page or post.
+
+For instance, the URL of this very page is `https://docs.buttondown.com/glossary-writing-emails`. The "slug" part of the URL is `glossary-writing-emails`.
+
+By default, Buttondown creates a slug for each of your emails based on the subject. If you send an email with the subject of "Hello, world!", the slug will be `hello-world` — meaning that it'll be available at `https://buttondown.com/username/archives/hello-world`.
+
+If you ever want to customize the slug of an email, you can do so in two ways:
+
+1. **In the editor**: When you're composing an email, you can click on the "Web archive" tab and customize the slug there.
+2. **Via the API**: When you're creating an email via the API, you can specify the `slug` field to customize the slug. (More about this [here](/api-emails-introduction#slug).)
+
+Notably, slugs in Buttondown are unique _within_ a newsletter but not _across_ newsletters. This means that you can have two emails with the same slug in two different newsletters, but you can't have two emails with the same slug in the same newsletter.
+
+## UGC
+
+UGC (or "user-generated content") is content that is created by users of a platform, rather than by the platform itself. It's often used in the context of discussing SEO (search engine optimization) and content marketing; from Buttondown's perspective, author's emails and [comments from subscribers](/comments) are UGC.
+
+Back in 2019, Google recommended platforms (such as Buttondown) to [start marking links as UGC](https://ahrefs.com/blog/nofollow-ugc-sponsored/) to help them understand the semantic meaning of their content.
+
+This means some of your links might have a bit of extra markup around them, like this:
+
+```html
+<a href="https://example.com" rel="ugc">
+  Here's a link to my favorite website.
+</a>
+```
+
+## Whitelabeling
+
+Whitelabeling is a term for when you remove all of a products branding, in favor of the brand of the customer.
+
+At Buttondown, we have have several different options for whitelabeling your newsletters and archives.
+
+- With _any paid plan_ we allow full customization of [email](/designing-your-email) and [archive](/customizing-web-design) styling.
+- With a **Standard plan** or higher, we allow you to to send and host newsletters from [your own custom domain](/hosting-domain).
+- With a **Professional** plan we allow you to remove all mention of Buttondown. This includes our name in the email footer.
+
+In addition to being included in the plans outlined above, custom domains and whitelabeling can also be purchased as **paid add-ons** to any paid plan. You can learn more on our [pricing page](https://buttondown.com/pricing).
+
+Not sure what plan is best for you? Send an email to [concierge@buttondown.com](mailto:concierge@buttondown.com) and let's chat!
+
+## WYSIWYG
+
+WYSIWYG stands for "What You See Is What You Get". It is a type of editor that allows you to see the final result of your content as you are editing it. This is in contrast to plain text editors, where you only see the raw text and have to use special syntax to format it.
+
+Buttondown's editor allows you to _choose_ between a WYSIWYG editor and a plain text editor. You can toggle between the two by clicking the "Options" button in the top right corner of the editor.

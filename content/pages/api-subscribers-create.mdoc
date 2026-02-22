@@ -5,11 +5,11 @@ method: post
 
 ---
 {% noticeInfo
-   text="This endpoint is for creating a new subscriber via the API. If you're looking to just do this via the UI, [this doc](/manually-adding-subscribers) is for you." /%}
+   text="This endpoint is for creating a new subscriber via the API. If you're looking to just do this via the UI, [this doc](/building-your-subscriber-base) is for you." /%}
 
 ### Double opt-in
 
-By default, newly created subscribers are subject to [double opt-in](/glossary-double-optin) — they will receive an email asking them to confirm their subscription, and have a state of [`unactivated`](/api-subscribers-type#unactivated) until they do so.
+By default, newly created subscribers are subject to [double opt-in](/glossary-email-regulations#double-opt-in) — they will receive an email asking them to confirm their subscription, and have a state of [`unactivated`](/api-subscribers-type#unactivated) until they do so.
 
 You can't disable this behavior globally, but you *can* disable it on a per-subscriber basis by providing a `type` of `regular` in the request body.
 

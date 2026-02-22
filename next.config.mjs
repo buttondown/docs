@@ -1,4 +1,3 @@
-import { withSentryConfig } from "@sentry/nextjs";
 import REDIRECTS from "./redirects.mjs";
 
 const nextConfig = {
@@ -11,37 +10,9 @@ const nextConfig = {
   redirects: async () => {
     return REDIRECTS;
   },
+  outputFileTracingIncludes: {
+    "/[slug]": ["./public/code/**/*"],
+  },
 };
 
-export default process.env.NODE_ENV === "production"
-  ? withSentryConfig(
-      nextConfig,
-      {
-        // Suppresses source map uploading logs during build
-        silent: true,
-        org: "buttondown-email",
-        project: "docs",
-      },
-      {
-        // For all available options, see:
-        // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
-
-        // Upload a larger set of source maps for prettier stack traces (increases build time)
-        widenClientFileUpload: true,
-
-        // Transpiles SDK to be compatible with IE11 (increases bundle size)
-        transpileClientSDK: true,
-
-        // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers. (increases server load)
-        // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
-        // side errors will fail.
-        tunnelRoute: "/monitoring",
-
-        // Hides source maps from generated client bundles
-        hideSourceMaps: true,
-
-        // Automatically tree-shake Sentry logger statements to reduce bundle size
-        disableLogger: true,
-      },
-    )
-  : nextConfig;
+export default nextConfig;

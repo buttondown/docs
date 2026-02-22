@@ -1,7 +1,0 @@
----
-title: LaTeX
----
-
-LaTeX is a typesetting system commonly used for scientific and mathematical documents due to its ability to render complex equations. It is widely used in academia and research — unlike many of the other terms or acronyms defined in this glossary, if you don't already know what LaTeX is then it's likely an "ignorance is bliss" situation (unless you suddenly find yourself needing to write a paper with lots of equations, in which case you'll be glad you know about it).
-
-Under the hood, we use [KaTeX](https://katex.org/) to render LaTeX equations within [the Buttondown editor](/editor-modes), and we use [MathJax](https://www.mathjax.org/) to actually render the equations in outgoing emails. (Why the two separate packages for the same thing? Because the vast majority of email clients don't support the styling and layout that `KaTeX` provides, so we use `MathJax` to render the equations in a more universally compatible way — PNGs.)

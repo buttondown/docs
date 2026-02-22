@@ -1,16 +1,5 @@
-import { collection, config, fields, singleton } from "@keystatic/core";
-import { automation } from "@/components/keystatic/automation";
-import { faq } from "@/components/keystatic/faq";
-import { fileExplorer } from "@/components/keystatic/fileExplorer";
-import { generatedMultilanguageSnippets } from "@/components/keystatic/generatedMultilanguageSnippets";
-import { iframe } from "@/components/keystatic/iframe";
-import { liveCodeBlock } from "@/components/keystatic/liveCodeBlock";
-import { noticeInfo } from "@/components/keystatic/noticeInfo";
-import { noticeWarn } from "@/components/keystatic/noticeWarn";
-import { paidFeature } from "@/components/keystatic/paidFeature";
-import { playgroundEmbed } from "@/components/keystatic/playgroundEmbed";
-import { supportSnippet } from "@/components/keystatic/supportSnippet";
-import { video } from "@/components/keystatic/video";
+import { collection, component, config, fields, singleton, type ObjectField, type PreviewProps } from "@keystatic/core";
+import PRICES from "@/autogen/prices-v2.json";
 import {
   NAVIGATION_GROUP_LABELS,
   NAVIGATION_GROUPS,
@@ -63,6 +52,280 @@ export const localBaseURL = IN_PRODUCTION ? "../" : "./";
 const generatePath = (path: string) => {
   return `${APPLICATION_DIRECTORY}/${path}`;
 };
+
+const automationSchema = {
+  url: fields.url({ label: "URL" }),
+  name: fields.text({ label: "Name" }),
+  description: fields.text({ label: "Description" }),
+  trigger: fields.text({ label: "Trigger" }),
+  action: fields.text({ label: "Action" }),
+};
+
+const automation = component({
+  label: "Automation",
+  schema: automationSchema,
+  preview: (props: PreviewProps<ObjectField<typeof automationSchema>>) => (
+    <div>
+      <h2>{props.fields.name.value}</h2>
+      <p>{props.fields.description.value}</p>
+      <p>
+        Trigger: {props.fields.trigger.value} - Action:{" "}
+        {props.fields.action.value}
+      </p>
+    </div>
+  ),
+});
+
+const faq = component({
+  label: "FAQ Section",
+  schema: { text: fields.text({ label: "Placeholder" }) },
+  preview: () => (
+    <div>FAQ section will be rendered automatically from page frontmatter</div>
+  ),
+});
+
+const fileExplorerSchema = {
+  title: fields.text({
+    label: "Title",
+    defaultValue: "Directory Structure",
+  }),
+  structure: fields.select({
+    label: "Structure Type",
+    options: [
+      {
+        label: "Buttondown CLI Structure",
+        value: "buttondown-cli",
+      },
+      { label: "Custom Structure", value: "custom" },
+    ],
+    defaultValue: "buttondown-cli",
+  }),
+  customData: fields.text({
+    label: "Custom Structure (JSON)",
+    description:
+      "JSON array of file/folder structure when using custom structure",
+    multiline: true,
+    validation: { isRequired: false },
+  }),
+};
+
+const fileExplorer = component({
+  label: "File Explorer",
+  schema: fileExplorerSchema,
+  preview: (props: PreviewProps<ObjectField<typeof fileExplorerSchema>>) => (
+    <div className="border border-gray-200 p-4 rounded-lg bg-white shadow-xs">
+      <div className="flex items-center mb-3">
+        <div className="w-5 h-5 bg-blue-100 rounded-sm flex items-center justify-center mr-2">
+          📁
+        </div>
+        <div className="text-sm font-medium text-gray-900">
+          {props.fields.title.value || "Directory Structure"}
+        </div>
+      </div>
+      <div className="text-xs text-gray-500 space-y-1">
+        <div>
+          Type:{" "}
+          {props.fields.structure.value === "buttondown-cli"
+            ? "Buttondown CLI Structure"
+            : "Custom Structure"}
+        </div>
+        {props.fields.structure.value === "custom" &&
+          props.fields.customData.value && (
+            <div className="text-gray-400">Custom JSON provided</div>
+          )}
+      </div>
+    </div>
+  ),
+});
+
+const generatedMultilanguageSnippetsSchema = {
+  method: fields.text({ label: "HTTP Method" }),
+  endpoint: fields.text({ label: "HTTP endpoint" }),
+  body: fields.text({
+    label: "JSON body",
+    validation: { isRequired: false },
+  }),
+  headers: fields.text({
+    label: "Headers (as JSON object)",
+    validation: { isRequired: false },
+  }),
+  query: fields.text({
+    label: "Query parameters (as JSON object)",
+    validation: { isRequired: false },
+  }),
+};
+
+const generatedMultilanguageSnippets = component({
+  label: "Generated API Multilanguage Code Snippets",
+  schema: generatedMultilanguageSnippetsSchema,
+  preview: (props: PreviewProps<ObjectField<typeof generatedMultilanguageSnippetsSchema>>) => (
+    <code>{`We can't generate code snippets inside Keystatic, but imagine example code for ${props.fields.method.value.toUpperCase()} ${props.fields.endpoint.value} here.`}</code>
+  ),
+});
+
+const iframeSchema = {
+  src: fields.url({ label: "URL" }),
+  height: fields.number({ label: "Height", defaultValue: 300 }),
+  variant: fields.select({
+    label: "Variant",
+    defaultValue: "page",
+    options: [
+      { label: "Page", value: "page" },
+      { label: "Email", value: "email" },
+      { label: "Subscriber", value: "subscriber" },
+    ],
+  }),
+};
+
+const iframe = component({
+  label: "iframe",
+  schema: iframeSchema,
+  preview: (props: PreviewProps<ObjectField<typeof iframeSchema>>) => {
+    const src = props.fields.src.value;
+    if (!src) return null;
+    const height = props.fields.height.value;
+    return (
+      <iframe
+        src={src}
+        style={{
+          height: height ?? 300,
+          width: ((height ?? 300) * 16) / 9,
+        }}
+      ></iframe>
+    );
+  },
+});
+
+const liveCodeBlock = component({
+  label: "Live Code Block",
+  schema: {
+    filename: fields.pathReference({
+      label: "Filename",
+      pattern: generatePath("public/**/*.html"),
+      validation: { isRequired: false },
+    }),
+  },
+  preview: (props) => (
+    <div>
+      <pre>{props.fields.filename.value}</pre>
+    </div>
+  ),
+});
+
+const noticeInfoSchema = {
+  text: fields.text({ label: "Notice Text", multiline: true }),
+};
+
+const noticeInfo = component({
+  label: "Notice Info",
+  schema: noticeInfoSchema,
+  preview: (props: PreviewProps<ObjectField<typeof noticeInfoSchema>>) => {
+    const text = props.fields.text.value;
+    if (!text) return null;
+    return <div>{text}</div>;
+  },
+});
+
+const noticeWarnSchema = {
+  text: fields.text({ label: "Notice Warning", multiline: true }),
+};
+
+const noticeWarn = component({
+  label: "Notice Warning",
+  schema: noticeWarnSchema,
+  preview: (props: PreviewProps<ObjectField<typeof noticeWarnSchema>>) => {
+    const text = props.fields.text.value;
+    if (!text) return null;
+    return <div>{text}</div>;
+  },
+});
+
+const paidFeature = component({
+  label: "Paid feature",
+  schema: {
+    feature: fields.select({
+      label: "Feature",
+      description: "The feature that this snippet is about.",
+      options: PRICES[4].features.map((feature) => {
+        return { value: feature, label: feature };
+      }),
+      defaultValue: "scheduling",
+    }),
+  },
+  preview: () => <div>This is a paid feature.</div>,
+});
+
+const playgroundEmbedSchema = {
+  initialContent: fields.text({
+    label: "Initial Content",
+    description: "Optional initial markdown content to load in the editor",
+    multiline: true,
+    validation: { isRequired: false },
+  }),
+  height: fields.text({
+    label: "Height",
+    description: "Height of the embedded playground (e.g., '600px', '80vh')",
+    defaultValue: "600px",
+  }),
+  title: fields.text({
+    label: "Title",
+    description: "Title to display above the playground",
+    defaultValue: "Buttondown Playground",
+  }),
+  editorMode: fields.select({
+    label: "Editor Mode",
+    description: "Mode of the editor",
+    options: [
+      { label: "Plaintext", value: "plaintext" },
+      { label: "Fancy", value: "fancy" },
+    ],
+    defaultValue: "fancy",
+  }),
+};
+
+const playgroundEmbed = component({
+  label: "Playground Embed",
+  schema: playgroundEmbedSchema,
+  preview: (props: PreviewProps<ObjectField<typeof playgroundEmbedSchema>>) => (
+    <div className="border p-4 rounded-sm">
+      <div className="text-sm text-gray-600 mb-2">
+        Playground Embed: {props.fields.title.value}
+      </div>
+      <div className="text-xs text-gray-500">
+        Height: {props.fields.height.value}
+      </div>
+    </div>
+  ),
+});
+
+const supportSnippet = component({
+  label: "Need Support",
+  schema: {},
+  preview: () => (
+    <div>
+      As always, we are happy to answer any questions you may have via
+      support@buttondown.com.
+    </div>
+  ),
+});
+
+const videoSchema = {
+  file: fields.file({
+    label: "File",
+    directory: generatePath("public"),
+    publicPath: "/",
+  }),
+};
+
+const video = component({
+  label: "Video",
+  schema: videoSchema,
+  preview: (props: PreviewProps<ObjectField<typeof videoSchema>>) => {
+    const file = props.fields.file.value;
+    if (!file) return null;
+    return <p>{file.filename}</p>;
+  },
+});
 
 export default config({
   storage: IN_PRODUCTION

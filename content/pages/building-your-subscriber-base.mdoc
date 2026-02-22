@@ -5,6 +5,25 @@ relatedPages:
   - portal
 description:  >-
   Now that your Buttondown newsletter is ready, it's time to add more subscribers and drive engagement.
+faqItems: >
+  [
+    {
+      "question": "How do I manually add subscribers?",
+      "answer": "Sometimes you want to add a couple ad-hoc subscribers: a friend that mentioned they're interested in reading, or a couple of colleagues that you'd like to invite. For these use cases, an import is not necessary.\n\nGo to the [Subscribers page](https://buttondown.com/subscribers/new) and click the \"Add\" button: a pop-up will appear that lets you enter an email address (plus some optional notes and metadata) and add new subscribers manually!"
+    },
+    {
+      "question": "Why won't my embedded form submit?",
+      "answer": "Our embedded subscription form should work on any site! But if you're seeing that the form isn't submitting, this is likely an issue with security settings at the server level.\n\nTo mitigate security threats (clickjacking, phishing sites), site providers configure their servers to block requests from other domain names. The ability to bypass these policies may also be a \"paid only\" option depending on your host.\n\nThe most common security policies are: [CORS (Cross Origin Support)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS) or [CSP (Content Security Policy)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP).\n\nIf you're having trouble submitting your subscription form, please contact your site provider and request more information about their CORS/CSP configuration."
+    },
+    {
+      "question": "Does Buttondown support one-click unsubscribe?",
+      "answer": "We sure do!\n\nWe use one-click unsubscribe headers (also known as `List-Unsubscribe` headers) in every email we send to make it easy for clients like Gmail to automatically detect and display an unsubscribe link in the email header.\n\nIf you're analyzing the headers of a _preview_ or draft email, you won't see the `List-Unsubscribe` header. This is because the header is only added when the email is sent out to your subscribers. Previews are technically [transactional](/glossary-managing-your-list#transactional-email) and don't get all the same headers appended to them as a regular newsletter email."
+    },
+    {
+      "question": "I added a new metadata key but it's not showing up in the dashboard. What's going on?",
+      "answer": "Metadata keys are cached for up to one hour. If you've just added a new metadata key (for example, by adding a custom field in your [subscribing settings](https://buttondown.com/settings/subscribing) or via the API), it may take up to an hour before it appears in places like automation filters and the subscriber detail page.\n\nIf it's been longer than an hour and you're still not seeing your metadata key, please [contact us](mailto:support@buttondown.com) and we'll be happy to help."
+    }
+  ]
 ---
 Now that you've got a newsletter up and running, you can think about how to add more subscribers so more people can read and engage with what you write. You might spread the word about your newsletter through social media, other publications, or simple word of mouth. However you start, potential subscribers need a place to go where they can find your newsletter and subscribe.
 
@@ -26,7 +45,7 @@ https://buttondown.com/username?tag=sandwich
 
 ## Embedding an HTML form
 
-Buttondown exposes a URL endpoint that you can point any `<form>` tag at to get an HTML-friendly form. This is great for platforms like Wordpress or Cargo that are very HTML-friendly, as well as static site generators or [JAMStack sites](/glossary-jamstack). Additionally, you can style this form to your heart's content.
+Buttondown exposes a URL endpoint that you can point any `<form>` tag at to get an HTML-friendly form. This is great for platforms like Wordpress or Cargo that are very HTML-friendly, as well as static site generators or [JAMStack sites](/glossary-developers#jamstack). Additionally, you can style this form to your heart's content.
 
 Below is an example of a basic form that uses this endpoint:
 
@@ -74,7 +93,7 @@ In the example below, the `value` associated with the tag being passed is the *n
 {% liveCodeBlock
    filename="public/code/building-your-subscriber-base/3.html" /%}
 
-You can read our docs to learn more about [tags](/tags).
+You can read our docs to learn more about [tags](/segmenting-your-audience#tags).
 
 **Using the API**
 
@@ -168,4 +187,8 @@ If you need to change a subscriber's address, you can go into the Notes screen f
 
 ### Medium
 
-To embed your subscription widget in Medium, all you need to do is post [your newsletter's URL](#sharing-your-buttondown-url) in Medium. It should automatically embed, thanks to the powers of [oEmbed](/glossary-oembed).
+To embed your subscription widget in Medium, all you need to do is post [your newsletter's URL](#sharing-your-buttondown-url) in Medium. It should automatically embed, thanks to the powers of [oEmbed](/glossary-developers#oembed).
+
+## FAQs
+
+{% faq /%}

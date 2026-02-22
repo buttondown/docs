@@ -1,0 +1,16 @@
+---
+title: "2026-02-16"
+navigationTitle: "2026-02-16"
+---
+
+The [`POST /v1/emails`](/api-emails-create) and [`PATCH /v1/emails/{id}`](/api-emails-update) endpoints now reject bodies that start with YAML frontmatter (a `---` delimiter followed by key-value pairs). This is almost always a sign of a bug in your integration rather than intentional email content, so the API now returns a `400` with the code `body_contains_frontmatter`.
+
+If you need to bypass this restriction, pass the `X-Buttondown-Live-Dangerously` header:
+
+```bash
+curl -X POST "https://api.buttondown.com/v1/emails" \
+  -H "Authorization: Token YOUR_API_KEY" \
+  -H "X-Buttondown-Live-Dangerously: true" \
+  -H "Content-Type: application/json" \
+  -d '{"subject": "My email", "body": "---\nstatus: sent\n---\nBody"}'
+```

@@ -1636,6 +1636,7 @@
         "identifier": "footer",
         "name": "Footer",
         "content": "Thanks for reading!",
+        "mode": "fancy",
         "reference_count": 0
       }
     }

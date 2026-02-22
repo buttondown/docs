@@ -1,0 +1,77 @@
+---
+title: Email regulations
+---
+
+This section covers key terms and concepts related to email compliance, privacy regulations, and best practices for responsible email sending.
+
+## CAN-SPAM act
+
+The CAN-SPAM Act is a law that regulates commercial email. It's a federal law, and it's enforced by the Federal Trade Commission. Buttondown is compliant with the CAN-SPAM Act.
+
+## CAPTCHA
+
+Captcha is a genre of tools that are used to differentiate between human and machine input. This is done by presenting a challenge that is easy for humans to solve, but difficult for machines. The most common form of captcha is the image-based captcha, where the user is presented with an image containing some text, and is asked to type the text into a text box. The idea is that a human can easily read the text in the image, but a machine would have a hard time doing so.
+
+(This is also known, more colloquially, as "the thing that makes you type in a bunch of squiggly letters to prove you're not a robot.")
+
+For more information, see [this lecture by John Mulaney](https://www.youtube.com/watch?v=YQbjdaHIZ_k).
+
+## CFBL
+
+A CFBL (or sometimes referred to as a CFL) is an acronym for "complaint feedback loop." It's a process by which recipients of an email can provide feedback to both their email provider _and_ the sender of a given email that they think the email they received was spam.
+
+If you're building out your own email platform from scratch, or using a close-to-the-metal piece of infrastructure like AWS or Sendgrid, you'll want to make sure that you have a way to ingest CFBL feedback and take action on it. Failure to do so can result in your being blacklisted by their email providers.
+
+If you're using Buttondown — no need to worry at all. Buttondown automatically takes care of this for you by listening for CFBL feedback from all of your subscribers and automatically taking action on it, marking relevant subscribers as [Complained](/api-subscribers-type#complained).
+
+Fun fact: [RFC 9477](https://www.rfc-editor.org/rfc/rfc9477.html) is a proposal to standardize this process and bake it into [SMTP](/glossary-developers#smtp) as a worldwide standard.
+
+## COI
+
+COI stands for Confirmed Opt-In, which is another term for [double opt-in](#double-opt-in). It refers to the process of requiring subscribers to confirm their email address before they start receiving your newsletter.
+
+The confirmation step typically involves:
+
+1. A subscriber enters their email address on your signup form
+2. They receive a confirmation email with a link to verify their subscription
+3. Only after clicking the link do they become an active subscriber
+
+COI is considered a best practice for email marketing because it ensures that subscribers genuinely want to receive your emails, reduces spam complaints, and helps maintain a healthy sender reputation. It's also required for compliance with regulations like [GDPR](#gdpr) in many jurisdictions.
+
+## Cold email
+
+Cold email is slang for an email that is sent to an email address that has _not_ opted in to receive emails from you. "Cold email" is a phrase generally used in a pejorative sense, since response rates (and engagement overall) are much worse for cold emails than for regular emails. (Think about it from the perspective of someone emailing you: are you more likely to open an email from a business that you signed up to learn more about, or from someone you've never heard of?)
+
+In general, Buttondown does not support cold email. We require all subscribers to [double opt into](#double-opt-in) their newsletter, and we reserve the right to offboard newsletters which appear to be skirting our terms of service in order to send cold emails. Additionally, the [CAN-SPAM act](#can-spam-act) prohibits many forms of cold email.
+
+If you're interested in sharing more about your use case and checking to see whether or not Buttondown supports it, please [contact us](https://buttondown.com/support).
+
+## CORS
+
+CORS stands for Cross-Origin Resource Sharing. It's a security feature that allows your browser to make requests to a different domain than the one that served the original page, but if you're on this page it means you're probably running into a CORS _issue_.
+
+If you're trying to use the `fetch` API to make a request to Buttondown and getting back a CORS error, you've got one of two options:
+
+1. Use a [proxy](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#submitting_requests_with_fetch)
+2. Use a [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) to bypass the CORS restriction
+3. Set the mode to `no-cors` when making the request. (This is unsafe and will break things like cookies, so don't do it unless you have a really good reason.)
+
+## Double opt-in
+
+Double opt-in is a process that requires a subscriber to confirm their subscription before they can receive emails from you. It's a way to ensure that subscribers are actually interested in your content.
+
+Single opt-in, conversely, does _not_ require subscribers to confirm their subscription before they can receive emails from you. Single opt-in is allowed in certain use cases on Buttondown (for instance, if your subscribers are confirming their subscription on another platform such as Shopify or Stripe), but [cold emails](#cold-email) are not.
+
+### Can I disable double opt-in?
+
+Buttondown does not allow you to disable double opt-in by default. This is for a few different reasons:
+
+- It helps prevent spam and other nefarious activity, keeping your inbox clean and your subscribers happy.
+- It helps ensure that subscribers are actually interested in your content.
+- It helps us maintain compliance with [GDPR](#gdpr) and other privacy regulations.
+
+If you have a special use case that requires you to disable double opt-in, you can do so by [contacting us](https://buttondown.com/support).
+
+## GDPR
+
+The General Data Protection Regulation (or GDPR) is a set of laws that govern how companies can collect, store, and use personal data. Buttondown is GDPR-compliant.

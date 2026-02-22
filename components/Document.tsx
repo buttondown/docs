@@ -1,18 +1,88 @@
 import { DocumentRenderer } from "@keystatic/core/renderer";
+import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import { marked } from "marked";
+import type { JSX } from "react";
 import { GeneratedCodeSnippets } from "@/app/[slug]/CodeSnippets";
 import PRICES from "@/autogen/prices-v2.json";
 import Code from "@/components/code";
-import Notice from "@/components/Notice";
 import type { Page } from "@/lib/types";
 import FAQ from "./faq";
 import { BUTTONDOWN_CLI_STRUCTURE, FileExplorer } from "./file-explorer";
-import Heading from "./heading";
 import Iframe from "./iframe";
 import ImageWithLightbox from "./image-with-lightbox";
 import LiveCodeBlock from "./live-code-block";
 import PlaygroundEmbed from "./playground-embed";
-import Video from "./video";
+
+function slugify(text: string): string {
+  return (text || "")
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "")
+    .replace(/--+/g, "-")
+    .replace(/^-+/, "")
+    .replace(/-+$/, "");
+}
+
+function Heading({
+  level,
+  children,
+}: {
+  level: 1 | 2 | 3 | 4 | 5 | 6;
+  children: React.ReactNode;
+}) {
+  const Component = `h${level}` as keyof JSX.IntrinsicElements;
+
+  // @ts-expect-error - children array access for slug generation
+  const slug = slugify(children[0].props.node.text);
+
+  return (
+    <a href={`#${slug}`} className="no-underline">
+      <Component
+        id={slug}
+        className="scroll-mt-20 md:scroll-mt-16 target:bg-amber-200 max-w-max"
+      >
+        {children}
+      </Component>
+    </a>
+  );
+}
+
+function Video({ src }: { src: string }) {
+  // biome-ignore lint/a11y/useMediaCaption: No captions
+  return <video src={src} controls className="bg-gray-100 rounded-lg" />;
+}
+
+const noticeContainer = cva("p-4 border rounded-lg text-sm max-w-prose mb-6", {
+  variants: {
+    variant: {
+      info: "bg-green-50 border-green-300 text-green-600 **:text-green-600",
+      warning:
+        "bg-yellow-50 border-yellow-300 text-yellow-600 **:text-yellow-600",
+      danger: "bg-red-50 border-red-300 text-red-600 **:text-red-600",
+    },
+  },
+});
+
+const Notice = ({
+  children,
+  type,
+}: {
+  children: React.ReactNode;
+  type: VariantProps<typeof noticeContainer>["variant"];
+}) => {
+  return (
+    <div className={noticeContainer({ variant: type })}>
+      <div className="lg:mx-auto flex items-start">
+        <div className="text-sm">
+          <div className="uppercase text-xs font-semibold mb-1">{type}</div>
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 type Props = {
   page: Page;
@@ -223,7 +293,6 @@ const Document = async ({ page }: Props) => {
               data = JSON.parse(props.customData);
             } catch (error) {
               console.error("Failed to parse custom file structure:", error);
-              // Fallback to default structure
             }
           }
 
@@ -236,7 +305,6 @@ const Document = async ({ page }: Props) => {
           );
         },
         faq: () => {
-          // FAQ items come from page frontmatter
           if (faqItems.length === 0) {
             return null;
           }

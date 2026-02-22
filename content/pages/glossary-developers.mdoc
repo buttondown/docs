@@ -1,0 +1,135 @@
+---
+title: Developers
+navigationTitle: Developers
+---
+
+This section covers key terms and concepts relevant to developers working with Buttondown's API, integrations, and technical features.
+
+## API
+
+API stands for "application programming interface". It's a way for software to talk to other software. Buttondown has an [API](/api-introduction) that allows you to programmatically send emails, manage subscribers, and more.
+
+## Headless mode
+
+"Headless mode" is not an explicit feature offered by Buttondown; instead, it's a term that describes the ability to use Buttondown as more of a content management + subscriber management system than a traditional email marketing platform.
+
+Because Buttondown offers a very [robust API](/api-introduction) and strong integration ecosystem, you can use Buttondown to bolt subscriptions and memberships onto your existing site or app without having to use Buttondown's interface. Instead of logging in and sending emails through the Buttondown
+interface, you can use the API to send emails, manage subscribers, and more.
+
+Headless mode works best when you:
+
+1. Have an existing CMS, app, or static site where you're already managing content, and you just want to cross-publish that content to an email list.
+2. Want to manage your subscribers and email list through your own interface.
+
+In such a case, you'd want to do three things:
+
+1. Turn off archives.
+2. [Start ingesting subscribers](/building-your-subscriber-base), whether through the API or through a form on your site.
+3. Start ingesting content, whether through the API or through an [RSS feed](/rss-to-email).
+
+## JAMStack
+
+JAMStack is an acronym short for:
+
+- **JavaScript**: A programming language that runs in the browser.
+- **API**: A way of exposing functionality to the client-side code.
+- **Markup**: A way of describing the structure of a document.
+
+It's a way of building websites that roughly reduces down to the following principles:
+
+1. Create static files (HTML, CSS, and images) that can be efficiently served by a CDN, generally using a tool like [Netlify](https://buttondown.com/blog/netlify) or a static site generator such as Jekyll or Hugo.
+2. For any non-static parts of the site, expose [API](#api) endpoints that can be called by the client-side code.
+3. Bridge the gap between the client-side code and the API by using JavaScript to make API calls and update the DOM.
+
+JAMStack is a popular approach to building websites because it's simple, fast, and easy to deploy.
+
+JAMStack sites play well with Buttondown; it's easy to [build your subscriber base on a JAMstack site using Buttondown's API and form endpoints](/building-your-subscriber-base), and our [RESTful API](/api-introduction) makes it easy to query Buttondown using JavaScript.
+
+## JSON-LD
+
+JSON-LD stands for "JavaScript Object Notation for Linked Data". It's a way to structure data in a way that is easy to read for both humans and machines.
+
+Here's an example of a JSON-LD object representing a publication, for instance:
+
+```json
+{
+  "@context": "http://schema.org",
+  "@type": "Publication",
+  "name": "My Publication",
+  "author": {
+    "@type": "Person",
+    "name": "John Doe"
+  }
+}
+```
+
+You can read more about JSON-LD on [schema.org](http://schema.org/), and test it using the [Google Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool).
+
+In particular, Buttondown sets up JSON-LD for your newsletters automatically. We create structured data for the following things:
+
+- Your newsletter itself (with the `@type` of `Publication`)
+- The author of the newsletter (with the `@type` of `Person`)
+- The issues of your newsletter (with the `@type` of `PublicationIssue`)
+- Comments on your newsletter (with the `@type` of `Comment`)
+
+## oEmbed
+
+oEmbed is a format for allowing an embedded representation of a URL on third party sites. The simple API allows a website to display embedded content (such as photos or videos) when a user posts a link to that resource, without having to parse the resource directly. (You can read more about the spec [here](https://oembed.com/).)
+
+Buttondown leverages `oEmbed` in two ways:
+
+1. We're a [valid and registered provider](https://oembed.com/providers.json) of `oEmbed` content. This means that if you paste a Buttondown link into a service that supports `oEmbed`, it should automatically expand into a preview of the content — whether that's a subscribe form or an archive of your newsletters.
+2. We detect and parse `oEmbed` links in your newsletters. If you paste a link to a YouTube video, for example, we'll automatically expand that into a preview of the video.
+
+If all of this sounds like gibberish, don't worry! It's a pretty technical concept that you don't need to worry about unless you're building a service that needs to support `oEmbed` links. If you're a traditional author, everything should "just work" without you needing to worry about it.
+
+## OpenAPI
+
+OpenAPI is a JSON-based specification for building APIs. It sounds an awful lot like OpenAI (the very popular company behind GPT-3 and ChatGPT and all that stuff), but it is completely unrelated.
+
+Many publicly-facing APIs offer a public "OpenAPI spec" that describes the API's endpoints, request and response formats, and other details. This spec can be used to generate client libraries, documentation, and other tools.
+
+You can find Buttondown's [here](/openapi.json).
+
+## Preheader
+
+A preheader is a short summary text that follows the subject line when an email is viewed in the inbox. It is not visible in the email body itself. The preheader is a great opportunity to provide additional context or information to entice the recipient to open the email.
+
+Here's what it looks like on desktop Gmail:
+
+![Preheader in Gmail](/preheader-desktop.webp)
+
+And here's what it looks like on mobile:
+
+![Preheader in mobile Gmail](/preheader-mobile.png)
+
+Buttondown generates a preheader by default based on the first few lines of your email, but you can also customize it by adding a description to your email.
+
+## REST
+
+REST stands for **Representational State Transfer**. It is a software architectural style that defines a set of constraints to be used for creating Web services. Web services that conform to the REST architectural style, or RESTful web services, provide interoperability between computer systems on the Internet. RESTful web services allow the requesting systems to access and manipulate textual representations of web resources by using a uniform and predefined set of stateless operations.
+
+That's a lot of fancy stuff to say the following: Buttondown's API is "RESTful", meaning that it looks like the nice APIs that you're used to dealing with. Objects (like [Subscribers](/api-emails-introduction) or [Emails](/api-subscribers-introduction)) are namespaced and ergonomic, and you can interact with them using the standard HTTP verbs:
+
+- GET to list them or retrieve a specific object,
+- POST to create a new one,
+- PATCH to modify one,
+- DELETE to delete objects.
+
+## SMTP
+
+SMTP stands for "Simple Mail Transfer Protocol." It's the protocol used to send email over the Internet; when you send someone an email via Gmail (or your provider of choice), chances are it's going over SMTP.
+
+## Webhooks
+
+A webhook is a generic term used for an abstraction that lets you send data from one application to another, generally concomitant with some sort of event (like a new email being sent or a premium subscription getting canceled). In the context of Buttondown, a webhook is a way to send data from Buttondown to another application or codebase.
+
+The sky's the limit when it comes to using webhooks to automate Buttondown workflows. Whether you're looking to sync your subscribers or contents with Notion, grow your subscriber base through Linktree, or create a community for your subscribers on Slack, webhooks are an incredibly useful way to connect Buttondown with your other favorite apps or your own codebase.
+
+Want to learn more about webhooks? Check out our [introduction to webhooks](/events-and-webhooks-introduction).
+
+## Webmentions
+
+Webmentions are a way for websites to notify each other when they link to each other. They're a way to let people know that you've linked to them, and they're a way to let people know that they've linked to you.
+
+Buttondown supports webmentions, and you can read more about them [here](https://webmention.io/).

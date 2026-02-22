@@ -1,8 +1,6 @@
 import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
-import index from "@/autogen/index.json";
-
-export const runtime = "edge";
+import { buildContentArray } from "@/lib/search/server";
 
 export const size = {
   width: 1200,
@@ -27,7 +25,8 @@ export default async function OpenGraphImage({
     new URL("../../fonts/hex-franklin/hex-franklin-bold.otf", import.meta.url),
   ).then((res) => res.arrayBuffer());
 
-  const page = index.find((page) => page.url === params.slug);
+  const contentArray = buildContentArray();
+  const page = contentArray.find((page) => page.slug === params.slug);
 
   if (!page) {
     return notFound();

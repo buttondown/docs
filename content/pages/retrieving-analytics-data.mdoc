@@ -5,8 +5,7 @@ relatedPages:
 - api-emails-analytics
 - api-emails-list
 - api-emails-events
-- glossary-temporary-failure
-- glossary-permanent-failure
+- glossary-email-infrastructure
 ---
 
 {% noticeInfo text="This guide assumes a familiarity with REST APIs" /%}
@@ -73,7 +72,7 @@ _Note: The name in the Analytics response differs from the Event Type name._
 | temporary_failures |  bounced | The recipient's address is invalid, or misconfigured. |
 | permanent_failures |  rejected | The email could not be delivered. |
 | unsubscriptions | unsubscribed  | The recipient has unsubscribed from the email. |
-| complaints |  complained | The recipient [marked the email as spam](/glossary-cfl). |
+| complaints |  complained | The recipient [marked the email as spam](/glossary-email-regulations#cfbl). |
 | replies | replied | The recipient replied to your email. |
 
 For example, if you wanted to learn more about your subscribers who received your newsletter, you could make the following request:

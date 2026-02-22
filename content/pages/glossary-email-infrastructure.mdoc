@@ -1,0 +1,135 @@
+---
+title: Email infrastructure
+---
+
+This section covers key terms and concepts related to the technical infrastructure that powers email delivery, from authentication protocols to DNS configuration.
+
+## BIMI
+
+BIMI (Brand Indicators for Message Identification) is way for an email client to verify the authenticity of a message. This works by checking your message, then adding a verified logo to your message. This allows your readers to know that your message is legitimate, and sent by your company.
+
+To use BIMI, your logo must be trademarked (like, _literally_, with the USPTO), and you must have a [DMARC](#dmarc) policy of `quarantine` or `reject`. You must also have a valid DKIM signature on your message.
+
+You can learn more [here](https://support.google.com/a/answer/10911320?hl=en).
+
+## DKIM
+
+DomainKeys Identified Mail, or DKIM, is a technology used to authenticate email by verifying the sending domain and ensuring that the message has not been tampered with in transit. DKIM is also used to protect against spam by verifying that the message was sent from an authorized email server.
+
+## DMARC
+
+DMARC stands for Domain-based Message Authentication, Reporting, and Conformance (wow, that's a mouthful!) It's another tool available to combat spam, phishing and spoofing of your organization's email.
+
+DMARC works with [SPF](#spf) and [DKIM](#dkim) to check the authenticity of a message. If a message fails those authentication checks, DMARC allows you to tell the mails server what to do with those messages (this is called _a receiver policy_).
+
+There are three different receiver policy options you can set with DMARC:
+1. `none`: Take no action
+2. `quarantine`: Mark as spam
+3. `reject`: Do not deliver to recipients.
+
+## DNS
+
+DNS stands for Domain Name System. It is a system that translates domain names to IP addresses. It is like a phone book for the internet. When you type a domain name in your browser, the browser looks up the IP address of the domain name using DNS.
+
+If you're _really_ interested in learning more about how DNS works, I highly recommend [mess with dns](https://messwithdns.net/), a lovely interactive tutorial that explains how DNS works.
+
+If you're more just interested in how _we_ use DNS, I suggest our guides on [sending from a custom domain](/sending-from-a-custom-domain) and [hosting on a custom domain](/hosting-domain).
+
+If you're thinking to yourself: "I have a URL for my name, but I don't know about any of this DNS stuff, and the possibility of logging into GoDaddy is frightening" — don't worry, we're here to help! Check out our [concierge migration service](https://buttondown.com/features/concierge-migration); we can handle setting up DNS records for you, free of charge.
+
+## ESP
+
+ESP stands for "Email Service Provider". This term, in of itself, is somewhat vague and tells us little else besides "it handles emails!"
+
+There are three main ways people use the term ESP:
+
+- **to refer to marketing and email companies that handle list management, deliverability, and other email marketing services**. These companies are often used by businesses to send out marketing emails, newsletters, and other email campaigns. Examples include Mailchimp, Sendgrid, Constant Contact, and — of course — Buttondown.
+- **to refer to the companies that provide email services to individuals**. Think Gmail, Yahoo, Outlook, and the like.
+- **to refer to infrastructure companies that provide email services to other companies**. These companies are often used by businesses to send out transactional emails, password resets, and other emails that are not marketing-related.
+
+Notably — and what trips up a lot of people — is that a company in the _first two_ categories is _not_ a company in the _third_ category. Most email marketing companies do not own the infrastructure that sends out emails; they rent it from vendors in the third category.
+
+In these docs, we generally use the term "ESP" to refer to that third category of companies: the ones that provide email infrastructure to other companies. (We've written about the ones we like [here](https://buttondown.com/comparison-guides/esps)). These companies are also sometimes referred to as "MTAs" (Mail Transfer Agents) or "[SMTP](/glossary-developers#smtp) providers".
+
+## Hosting domain
+
+A "hosting domain" (as opposed to ["sending domain"](/glossary-managing-your-list#sending-domain)) is a custom domain (like yourname.com) which you use to host your Buttondown subscribe pages and/or archives.
+
+Looking to figure out how to set up a hosting domain? Check out our [guide](/hosting-domain).
+
+## Permanent failure
+
+A permanent failure (also called a "hard bounce") is when delivery cannot be completed.
+
+This happens when an email address is invalid, or when the mail server can't find the recipient's inbox (e.g. When an employee leaves a company, and their email has been disabled.)
+
+## Reverse DNS
+
+Reverse DNS lookup is the process of resolving an IP address back to a domain name. This is the opposite of the more common forward [DNS](#dns) lookup, where a domain name is resolved to an IP address (usually via the `A` tag.)
+
+How this happens practically is that that the IP address is placed in the `in-addr.arpa` domain, and a PTR record is created for the IP address. This PTR record is then queried to get the domain name. Using something like `dig`, you can query the PTR record for an IP address like so:
+
+```bash
+$ dig -x 172.217.13.174
+```
+
+This is equivalent to the following query:
+
+```bash
+$ dig ptr 174.13.217.172.in-addr.arpa.
+```
+
+Reverse DNS isn't magic; it's just a very widely adopted convention. Most cloud providers (e.g. [AWS](https://aws.amazon.com/blogs/aws/reverse-dns-for-ec2s-elastic-ip-addresses/)) will let you set up reverse DNS for your IP addresses.
+
+### Why do I care about any of this?
+
+This is important for email deliverability, as many email servers will check the reverse DNS of the sending IP address to see if it matches the domain in the `From` header of the email.
+
+A reverse DNS (or `rDNS`) lookup that _doesn't_ match the domain in the `From` header is a red flag for spam, and can cause your email to be marked as spam or rejected outright.
+
+### How do I set up reverse DNS?
+
+You don't need to! We handle this all for you.
+
+### Even if I have a custom domain?
+
+Yup. Technical explanation ahead for the morbidly curious: when you set up a custom domain, one of the records we have you set is a `CNAME` record on one of your subdomains that points to a `proxy` subdomain on our domain. This means that the IP address of the email server that sends your email is actually our IP address, so the reverse DNS lookup will resolve to our domain.
+
+## SpamAssassin
+
+SpamAssassin (technically [Apache SpamAssassin](https://spamassassin.apache.org/)) is an open-source project that helps identify and filter spam emails. It uses a variety of techniques to analyze email content and headers, assigning a score to each message based on the likelihood that it is spam. Users can configure SpamAssassin to automatically filter out messages that exceed a certain score threshold.
+
+[Postmark has a great online tool for testing SpamAssassin](https://spamcheck.postmarkapp.com/), which can help you understand how SpamAssassin might score your emails.
+
+It's good to note a couple things about SpamAssassin:
+
+1. SpamAssassin is not perfect. It can sometimes incorrectly flag legitimate emails as spam, and it can sometimes miss actual spam messages. Testing your email against SpamAssassin is a good way to get a sense of how it might be scored, but it's not a guarantee of how it will be treated by a recipient's SpamAssassin installation.
+2. The number of inboxes that use SpamAssassin is relatively small compared to the number of inboxes that use other spam filters. The vast majority of your recipients are using tools like Gmail, Yahoo, and Outlook — closed-source inboxes like these rely on their own proprietary spam filters, which are generally more sophisticated than SpamAssassin.
+
+## SPF
+
+SPF (Sender Policy Framework) is a type of email authentication that verifies the sender of an email. It does this by checking the sending server's SPF record to see if it matches the domain name in the "From" header of the message. If it doesn't match, then the email is likely fake and can be filtered out. SPF is also used to prevent unauthorized senders from using your domain name in their messages.
+
+## Temporary failure
+
+A temporary failure (also called a "soft bounce") is when delivery is temporarily unavailable.
+
+ There are a number of different reasons that you may see a temporary failure: a mail server going down briefly, a subscriber's inbox being full, or a message has been blocked by spam filters. We've listed a couple of the more esoteric ones below:
+
+| Reason | Description |
+| --- | --- |
+| Message delayed | The message was delayed because the recipient's mail server or _our_ mail server was busy. |
+| Soft bounce | The recipient's mail server could not accept the message at the moment, but it may accept it later. |
+| ISP block | The recipient's email provider (such as Gmail or Apple mail) has blocked this specific message from being delivered. |
+
+In general, Buttondown will retry messages that have temporarily failed; you don't need to do anything.
+
+### What happens if a subscriber keeps on getting temporary failures?
+
+If Buttondown receives three consecutive temporary failures from a subscriber without any successful deliveries, we will mark them as undeliverable.
+
+Similarly, if Buttondown receives four distinct temporary failures from a subscriber without any successful deliveries in the past thirty days, we will mark them as undeliverable.
+
+### Is there anything I should do to remediate this?
+
+In general, no. Some temporary failures are due to things that are in your control, and Buttondown will proactively reach out when that's the case. The vast majority of the time, though, you can actually make matters worse by attempting to resend to those subscribers because Buttondown will automatically resend in the best way possible to maximize the likelihood that we reach those subscribers.

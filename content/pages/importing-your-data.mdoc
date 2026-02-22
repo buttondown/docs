@@ -1,9 +1,22 @@
 ---
 title: Importing your newsletter data
 relatedPages:
-- import-limitations
-description:  >-
+  - kit
+  - mailchimp
+  - substack
+description: >-
   Buttondown makes it easy to migrate your posts, and subscribers from another service. We'll even do the import for you!
+faqItems: >
+  [
+    {
+      "question": "Are there limitations on imports?",
+      "answer": "In short, there are no limits on what you can import to your new Buttondown account!\n\n**Archives & posts**: Buttondown can import all the archives and posts you have on your existing newsletter tool. In addition, we pull in your draft posts (if you have any), and respect any paywalled posts.\n\n**Paid subscriptions**: Buttondown can import as many plans and subscription types as you have in your Stripe account, including historical plans, comped subscriptions, and one-off subscriptions.\n\nNeed help? Our [support team](https://buttondown.com/support) is here to help!"
+    },
+    {
+      "question": "Do imported subscribers have to re-confirm their subscription?",
+      "answer": "In general, imported subscribers do not have to re-confirm their subscription. By default, Buttondown does _not_ automatically email them to either confirm their subscription or inform them that they've been imported.\n\nHowever, if you're importing subscribers from a service that doesn't have a clear opt-in process (for example, from a CRM), we _may_ require you to send a confirmation email to ensure subscribers are aware of the change in service. If this needs to happen, we will not send this email without confirming it with you beforehand.\n\n**Maintaining GDPR compliance**: If you've already obtained consent from your subscribers in a manner that is compliant with [GDPR](/glossary-email-regulations#gdpr), you are permitted to import those subscribers into Buttondown without re-confirming their subscription."
+    }
+  ]
 ---
 
 Moving your data (much like moving homes) can be incredibly stressful. Buttondown can make moving your newsletter from an existing platform a little easier by seamlessly importing your subscribers, tags, metadata, archives, and more.
@@ -16,10 +29,10 @@ Before you import existing newsletter data, get your Buttondown account set up a
 
 Make sure you've completed the following steps:
 
-- [Confirm your Buttondown account](/registration-and-setup#confirm-your-account)
-- Fill out your [general newsletter details](/registration-and-setup#crafting-your-newsletters-look-and-feel), including your newsletter’s name, author, and description
-- Customize your newsletter's [CSS](/registration-and-setup#build-out-your-newsletters-scaffolding)
-- Create your newsletter’s [branding](/registration-and-setup#establish-your-newsletters-branding), including your preferred color palette and logo
+- [Confirm your Buttondown account](/welcome-to-buttondown#confirm-your-account)
+- Fill out your [general newsletter details](/configuration-and-branding#general-newsletter-details), including your newsletter's name, author, and description
+- Customize your newsletter's [CSS](/configuration-and-branding#email-header-and-footer)
+- Create your newsletter's [branding](/configuration-and-branding#branding), including your preferred color palette and logo
 
 ### Preparing your existing subscribers
 
@@ -34,13 +47,13 @@ After you've customized your newsletter and prepared your subscribers to move to
 
 ## Compiling your data
 
-The simplest way to import your subscriber data is by uploading a comma-separated values (CSV) file to Buttondown. Buttondown recognizes columns in CSVs from common import sources like [ConvertKit](/convertkit), [MailChimp](/mailchimp), or [Substack](/substack). When Buttondown recognizes a column, it automatically maps the data in that column to corresponding fields in Buttondown.
+The simplest way to import your subscriber data is by uploading a comma-separated values (CSV) file to Buttondown. Buttondown recognizes columns in CSVs from common import sources like [Kit](/kit), [MailChimp](/mailchimp), or [Substack](/substack). When Buttondown recognizes a column, it automatically maps the data in that column to corresponding fields in Buttondown.
 
 If Buttondown doesn't recognize a column, you receive a prompt to map columns to Buttondown fields manually. Buttondown prompts you to choose which columns correspond to certain pieces of data, which lets you import subscribers while keeping their existing tags, join dates, and metadata.
 
 ### Create your CSV file
 
-In order to import your data to Buttondown, you have to format it in a [CSV file](/glossary-csv).
+In order to import your data to Buttondown, you have to format it in a [CSV file](/glossary-managing-your-list#csv).
 
 Here’s an example of what a CSV file might look like, either as a table or as a raw file.
 
@@ -61,11 +74,11 @@ odysseus@buttondown.email,1/2/23,"Sports, Politics",Odysseus,Ithaca,Stuck at sea
 helen@buttondown.email,1/3/23,"World News, Politics", Helen,Troy,Face that launched a thousand ships
 ```
 
-Common newsletter email services like [ConvertKit](/convertkit), [MailChimp](/mailchimp), or [Substack](/substack) let you export your subscriber data as a CSV file. After you upload the CSV file to Buttondown, it can automatically import the following values for each of your subscribers:
+Common newsletter email services like [Kit](/kit), [MailChimp](/mailchimp), or [Substack](/substack) let you export your subscriber data as a CSV file. After you upload the CSV file to Buttondown, it can automatically import the following values for each of your subscribers:
 
 - Email address
 - The date they subscribed to your newsletter
-- Any assigned [tags](/tags), which you can use to group your subscribers together or send tailored content
+- Any assigned [tags](/segmenting-your-audience#tags), which you can use to group your subscribers together or send tailored content
 - Any assigned [metadata](/subscriber-data), such as the subscriber’s [name](/subscriber-data), location, or other structured-key values
 - Any free-form notes you may have made for your personal reference
 
@@ -115,7 +128,7 @@ If you import a very large quantity of subscribers, we may temporarily deactivat
 
 You can review your subscriber data in Buttondown at any time. The easiest place to look is the “[Subscribers](https://buttondown.com/subscribers)” tab of your Buttondown dashboard.
 
-From the "Subscribers" tab, you can [customize your subscriber list view](/customizing-subscriber-list-view) to include tags, metadata, and other useful information. To customize the view, click the **plus (+)** button in the upper right hand corner. You can also click any subscriber’s email address to view your notes or edit that subscriber's data.
+From the "Subscribers" tab, you can customize your subscriber list view to include tags, metadata, and other useful information. To customize the view, click the **plus (+)** button in the upper right hand corner. You can also click any subscriber’s email address to view your notes or edit that subscriber's data.
 
 {% video file="/importing-your-data/importing-your-data_tags-metadata-notes.mp4" /%}
 
@@ -153,4 +166,8 @@ Now that you’ve successfully imported your data, there’s no better way to ce
 
 ### Build your subscriber base
 
-The more the merrier! Learn how to grow your newsletter’s following by [sharing your Buttondown URL](/building-your-subscriber-base#sharing-your-buttondown-url), [embedding an HTML form](/building-your-subscriber-base#embedding-an-html-form), or [embedding an iFrame](/building-your-subscriber-base#embedding-an-iframe).
+The more the merrier! Learn how to grow your newsletter's following by [sharing your Buttondown URL](/building-your-subscriber-base#sharing-your-buttondown-url), [embedding an HTML form](/building-your-subscriber-base#embedding-an-html-form), or [embedding an iFrame](/building-your-subscriber-base#embedding-an-iframe).
+
+## FAQs
+
+{% faq /%}

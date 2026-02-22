@@ -1,0 +1,96 @@
+---
+title: Managing your list
+---
+
+This section covers key terms and concepts related to managing your newsletter subscriber list in Buttondown, from importing data to configuring how your emails are sent and received.
+
+## CSV
+
+CSV stands for "comma-separated values." Buttondown and other tools will often refer to "CSV files," which are files that ends in .csv and contain data separated by commas.
+
+Popular apps like Google Sheets and Excel have an option to export data as a CSV file.
+
+## CTA
+
+CTA stands for 'call to action'. It is a marketing term used to describe a prompt that encourages a user to take a specific action. A CTA can be a button, a banner, a link, or any other type of graphic or text element that prompts a user to take a specific action.
+
+As you might imagine, many newsletters are _rife_ with CTAs! The two big genres of CTA are:
+
+- **subscription CTA**: a prompt to sign up for a newsletter. This is often a button or a form that asks for an email address within the web version of the newsletter, or perhaps on a dedicated page.
+- **upgrade CTA**: a prompt to upgrade to a paid plan. This is often a button or a banner that encourages users to upgrade to a paid plan, or to purchase a product or service.
+
+You might also be interested in our [long essay on 'lead magnets'](https://buttondown.com/blog/lead-magnets), which are a specific type of CTA that offers a free resource in exchange for an email address.
+
+## Paywall
+
+A paywall is a method of restricting access to content via a paid subscription, such that free subscribers can only see a small subset (or "teaser", if you really want to get jargon-heavy) of the content. This is a common method of monetizing content on the web, and is used by many newspapers and magazines.
+
+Buttondown, of course, supports using a paywall as part of our [paid subscriptions](/paid-subscriptions) functionality.
+
+## POSSE
+
+POSSE stands for Publish (on your) Own Site, Syndicate Elsewhere. It's a content publishing model that starts with posting content on your own domain first, then syndicating out copies to third-party services (Twitter, Instagram, etc). POSSE is the inverse of the "silos" model, where you post content directly to third-party silos (like Facebook, Twitter, etc).
+
+Buttondown is a big believer in POSSE; we think that you should own your content and your audience, and that third-party services should be used to amplify your message, not to own it. We've invested a lot in features like [RSS-to-email](/rss-to-email) to make it easy to syndicate your content over email without giving up control of your own content.
+
+## Precedence: Bulk
+
+If you've been digging around the source code of the emails Buttondown sends on your behalf — or if you've been scouring the web for information about how to send emails in bulk — you might have come across the term "precedence: bulk."
+
+This is a bit of metadata that tools like Buttondown can add to the emails they send on your behalf. It's a way of telling the email client that the email is part of a bulk send, and that it should be treated as such.
+
+But what does that mean, exactly? And why does it matter?
+
+Depending on what you read, you might come across some folks claiming that setting precedence: bulk will help your emails avoid the spam folder — or might bias clients towards throwing you in the Promotions tab — or might do any number of things.
+
+In reality — and as with many things in the world of email deliverability — the truth is a bit more nuanced. The precedence: bulk header is a bit of a relic from the early days of email, and it's not something that most email clients pay much attention to these days, with _one_ exception:
+
+**If you set precedence: bulk, clients like Outlook and Gmail will not send you automatic replies like out-of-office messages.** This is _really_ nice: it means that you won't get a flood of auto-replies when you send out a newsletter to a large list.
+
+(And, yes — Buttondown automatically sets precedence: bulk on all emails it sends on your behalf.)
+
+(Still morbidly curious? Check out [RFC 3834](https://datatracker.ietf.org/doc/html/rfc3834#section-3.1.8), which is the standard that defines the precedence header.)
+
+## Rate sheet
+
+A rate sheet is a document that outlines the advertising rates and sponsorship options available for a newsletter. It typically includes:
+
+- Different ad placement options (e.g. banner ads, sponsored content, dedicated emails)
+- Pricing for each ad type and placement
+- Audience demographics and reach statistics
+- Any minimum booking requirements or volume discounts
+- Technical specifications for ad creative
+
+Rate sheets help newsletter publishers standardize their advertising offerings and make it easier for potential advertisers to understand available options and costs. They're an important tool for newsletters that want to monetize through advertising or sponsorships.
+
+When creating a rate sheet, publishers should consider:
+
+1. Their audience size and engagement metrics
+2. Industry standard rates for similar newsletters
+3. The value proposition they offer advertisers
+4. Different pricing tiers to accommodate various advertiser budgets
+5. Clear terms and conditions
+
+A well-structured rate sheet can streamline the advertising sales process and help set clear expectations with potential sponsors.
+
+## RSS
+
+RSS stands for "Really Simple Syndication". It is a way to easily distribute a list of headlines, update notices, and sometimes content to a wide number of people.
+
+Buttondown offers two great RSS integrations:
+
+1. Want to send emails automatically based on the contents of an existing RSS feed? That's our [RSS-to-email feature](/rss-to-email), making it easy for you to write your blog on your CMS or format of choice and have it automatically sent to your subscribers.
+2. Interested in getting an RSS feed of your Buttondown emails? That's our [RSS feed feature](/rss-subscribers), which allows you to get a feed of your emails for use in other services.
+
+## Sending domain
+
+A "sending domain" (as opposed to ["hosting domain"](/glossary-email-infrastructure#hosting-domain)) is a domain that you own and use to send emails. We've got a [useful guide on how to set up a sending domain](/sending-from-a-custom-domain), too.
+
+## Transactional email
+
+A transactional email is an email that is sent to a subscriber in response to an action they've taken. For example, if a subscriber signs up to your list, you might send them a welcome email. That's a transactional email. If you send an email to your subscribers every week, that's not a transactional email.
+
+It can be tricky to determine what is or isn't a transactional email — for instance, you could squint and say that a weekly product update email is a transactional email since it's triggered by a subscriber's action and an automated event (the passage of time). Here are two characteristics of transactional emails that distinguish them from marketing emails:
+
+1. **Specificity**: Transactional emails are almost always specific to the subscriber (like, say, a password reset.)
+2. **Response**: Transactional emails are almost always a response to an event initiated by the subscriber.

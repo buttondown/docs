@@ -26,3 +26,17 @@ or
 ```
 <!-- buttondown-editor-mode: fancy -->Your **Markdown** or <em>HTML</em> content here...
 ```
+
+## Frontmatter detection
+
+If your email body starts with a YAML frontmatter block (a line of `---` followed by key-value pairs), the API will reject it with a `400` error and the code `body_contains_frontmatter`. This is because frontmatter is almost always a sign of a bug in your integration rather than intentional email content.
+
+If you need to send an email whose body genuinely starts with `---`, you can bypass this restriction with the `X-Buttondown-Live-Dangerously` header:
+
+```bash
+curl -X POST "https://api.buttondown.com/v1/emails" \
+  -H "Authorization: Token YOUR_API_KEY" \
+  -H "X-Buttondown-Live-Dangerously: true" \
+  -H "Content-Type: application/json" \
+  -d '{"subject": "My email", "body": "---\ncustom: content\n---\nBody"}'
+```

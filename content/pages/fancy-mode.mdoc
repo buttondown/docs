@@ -2,10 +2,10 @@
 title: Fancy mode
 navigationTitle: Fancy mode
 relatedPages:
-  - glossary-wysiwyg
+  - glossary-writing-emails
 ---
 
-Buttondown has a built-in [WYSIWYG](/glossary-wysiwyg) editor (in addition to the [markdown editor](/using-markdown)) that allows you to view and edit your emails in a way that resembles how they will be formatted when they are sent.
+Buttondown has a built-in [WYSIWYG](/glossary-writing-emails#wysiwyg) editor (in addition to the [markdown editor](/using-markdown)) that allows you to view and edit your emails in a way that resembles how they will be formatted when they are sent.
 
 ## Built-in components
 
@@ -136,7 +136,7 @@ Adding a footnote will add 2 things in the editor:
 
 ### LaTeX block
 
-A [LaTeX](/glossary-latex) block allows you to write & render LaTeX content inside the editor. (Note that as of now, LaTeX is only renderable as a "block", and not inline with text.)
+A [LaTeX](/glossary-writing-emails#latex) block allows you to write & render LaTeX content inside the editor. (Note that as of now, LaTeX is only renderable as a "block", and not inline with text.)
 
 **Shortcut**: add a LaTeX block by typing your expression inside two dollar signs ($$) and pressing space/enter.
 
@@ -170,8 +170,6 @@ Buttondown has a built-in Unsplash integration, allowing you to search & embed h
 
 To search for images on Unsplash, click `Find image on Unsplash` using the slash menu and a modal will pop up. Search for the image that you want and click on it for it to be added to your email.
 
-{% video file="/images/emails/unsplash_image_upload.mp4" /%}
-
 ### Uploading Images
 
 To upload an image, you can drag and drop the image into the editor, or type `/image` on a new line to attach the image file.
@@ -188,7 +186,7 @@ You have the option to make your image into a link. To do this, click the "Add l
 
 #### Updating alt text
 
-[Alt text](/glossary-alt-text) is an important tool for visually impaired users to be able to access the content of your page, and also for search engine bots to index your archives. This text should be set on every image, by clicking the "Edit" button at the bottom of the image.
+[Alt text](/glossary-writing-emails#alt-text) is an important tool for visually impaired users to be able to access the content of your page, and also for search engine bots to index your archives. This text should be set on every image, by clicking the "Edit" button at the bottom of the image.
 
 You can ask Buttondown to generate this text, or write your own. (Or maybe do a mix of both!)
 
@@ -198,7 +196,7 @@ The best alt text describes exactly what's happening in the image. Instead of "A
 
 ### Set class name
 
-If you're using [custom CSS](/customizing-email-design) you can set a class name for the image to make it easier to style.
+If you're using [custom CSS](/designing-your-email) you can set a class name for the image to make it easier to style.
 
 ### Compression
 
@@ -258,7 +256,7 @@ Add a subscription form to allow your readers to easily subscribe to your newsle
 
 ### Subscription button
 
-A subscription button is a [CTA button](/glossary-cta) that links to your [newsletter's URL](/building-your-subscriber-base#sharing-your-buttondown-url), allowing people to subscribe to your newsletter there.
+A subscription button is a [CTA button](/glossary-managing-your-list#cta) that links to your [newsletter's URL](/building-your-subscriber-base#sharing-your-buttondown-url), allowing people to subscribe to your newsletter there.
 
 ![A subscription button in fancy mode](/images/subscription-button.png)
 
@@ -310,3 +308,60 @@ Buttondown doesn't support native audio uploading like we do with images, nor do
 - [Vimeo](https://buttondown.com/features/integrations/vimeo)
 
 Your best bet at the moment is to upload your audio to one of those platforms and then add it to your newsletter.
+
+## Attachments
+
+Buttondown allows you to add file attachments to your emails, making it easy to share documents, images, and other files with your subscribers. Whether you're sending a PDF report, sharing a calendar invite, or distributing a resource, attachments make your emails more versatile.
+
+### Supported attachment types
+
+Buttondown supports the following file types for attachments:
+
+| File type | Supported formats |
+| --- | --- |
+| Documents | PDF, DOC, DOCX, TXT, MD |
+| Images | JPG, JPEG, PNG, GIF, WEBP |
+| Archives | ZIP |
+| Audio | MP3 |
+| Video | MP4 |
+| Spreadsheets | CSV |
+| E-books | EPUB |
+| Calendar files | ICS |
+
+### Limitations
+
+Each attachment is limited to a maximum size of 2 MB. This limit helps ensure reliable delivery across email providers. If you need to share larger files with your subscribers, consider uploading them to a file sharing service (like Dropbox, Google Drive, or AWS S3) and including a link in your email instead.
+
+### Adding attachments
+
+- In **Fancy mode**, type `/attachments` and select the file.
+- In **Markdown mode**, drag and drop the file from your computer to the editor.
+
+### Attachment delivery
+
+When you send an email with attachments:
+
+1. Buttondown automatically includes the attachments in the outgoing emails.
+2. Recipients will see the attachments displayed according to their email client's conventions.
+3. For web archive views, attachments are available for download.
+
+### Attachments as a premium feature
+
+Adding attachments to emails is a premium feature in Buttondown. If you have a free account, you'll need to upgrade to a paid plan to use this functionality. You can check the current pricing and upgrade options on the Buttondown pricing page.
+
+### Best practices for attachments
+
+Attachments can be tricky to get right without impacting deliverability. Here are some best practices:
+
+- Keep sizes small: even though the limit is 2 MB, smaller attachments (under 1 MB) will deliver more reliably.
+- Use descriptive filenames so your subscribers know what the file contains.
+- Limit the number of attachments per email.
+- Test before sending to confirm they appear correctly.
+
+### What's the maximum size of a file that I can attach?
+
+Two megabytes. (If you *really* need more than that, email us and we might be able to figure something out for you.)
+
+### How many files can I attach to a single email?
+
+You can only attach up to 3 files in a single email. If you need to attach more, [please contact us](https://buttondown.com/support).

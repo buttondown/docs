@@ -1,8 +1,208 @@
 const REDIRECTS = [
   {
     source: "/",
-    destination: "/introduction",
+    destination: "/welcome-to-buttondown",
     permanent: false,
+  },
+  {
+    source: "/introduction",
+    destination: "/welcome-to-buttondown",
+    permanent: true,
+  },
+  {
+    source: "/quickstart",
+    destination: "/welcome-to-buttondown",
+    permanent: true,
+  },
+  {
+    source: "/registration-and-setup",
+    destination: "/welcome-to-buttondown",
+    permanent: true,
+  },
+  {
+    source: "/customizing-email-design",
+    destination: "/designing-your-email",
+    permanent: true,
+  },
+  {
+    source: "/manually-adding-subscribers",
+    destination: "/building-your-subscriber-base#faqs",
+    permanent: true,
+  },
+  {
+    source: "/embed-form-cors-csp",
+    destination: "/building-your-subscriber-base#faqs",
+    permanent: true,
+  },
+  {
+    source: "/one-click-unsubscribe",
+    destination: "/building-your-subscriber-base#faqs",
+    permanent: true,
+  },
+  {
+    source: "/why-some-email-clients-look-different",
+    destination: "/designing-your-email#faqs",
+    permanent: true,
+  },
+  {
+    source: "/how-to-write-accessible-emails",
+    destination: "/designing-your-email#faqs",
+    permanent: true,
+  },
+  {
+    source: "/how-do-i-set-sender-information",
+    destination: "/designing-your-email#faqs",
+    permanent: true,
+  },
+  {
+    source: "/how-do-i-format-dates",
+    destination: "/designing-your-email#faqs",
+    permanent: true,
+  },
+  {
+    source: "/localization",
+    destination: "/designing-your-email#faqs",
+    permanent: true,
+  },
+  {
+    source: "/customizing-transactional-emails",
+    destination: "/designing-your-email#faqs",
+    permanent: true,
+  },
+  {
+    source: "/modern-template-hide-top",
+    destination: "/designing-your-email#faqs",
+    permanent: true,
+  },
+  {
+    source: "/can-i-center-my-email",
+    destination: "/designing-your-email#faqs",
+    permanent: true,
+  },
+  {
+    source: "/can-i-link-two-related-emails",
+    destination: "/designing-your-email#faqs",
+    permanent: true,
+  },
+  {
+    source: "/can-i-use-a-custom-font",
+    destination: "/designing-your-email#faqs",
+    permanent: true,
+  },
+  {
+    source: "/can-i-customize-my-gmail-icon",
+    destination: "/designing-your-email#faqs",
+    permanent: true,
+  },
+  {
+    source: "/import-limitations",
+    destination: "/importing-your-data#faqs",
+    permanent: true,
+  },
+  {
+    source: "/do-imported-subscribers-have-to-re-confirm-their-subscription",
+    destination: "/importing-your-data#faqs",
+    permanent: true,
+  },
+  {
+    source: "/convertkit",
+    destination: "/kit",
+    permanent: true,
+  },
+  {
+    source: "/sending-your-first-email-advanced",
+    destination: "/publishing-your-first-email",
+    permanent: true,
+  },
+  {
+    source: "/beehiiv",
+    destination: "/importing-your-data",
+    permanent: true,
+  },
+  {
+    source: "/benchmark",
+    destination: "/importing-your-data",
+    permanent: true,
+  },
+  {
+    source: "/campaign-monitor",
+    destination: "/importing-your-data",
+    permanent: true,
+  },
+  {
+    source: "/constant-contact",
+    destination: "/importing-your-data",
+    permanent: true,
+  },
+  {
+    source: "/emailoctopus",
+    destination: "/importing-your-data",
+    permanent: true,
+  },
+  {
+    source: "/feedblitz",
+    destination: "/importing-your-data",
+    permanent: true,
+  },
+  {
+    source: "/mailcoach",
+    destination: "/importing-your-data",
+    permanent: true,
+  },
+  {
+    source: "/mailerlite",
+    destination: "/importing-your-data",
+    permanent: true,
+  },
+  {
+    source: "/podia",
+    destination: "/importing-your-data",
+    permanent: true,
+  },
+  {
+    source: "/can-i-exclude-an-email-from-archive",
+    destination: "/email-archives#excluding-emails-from-your-archives",
+    permanent: true,
+  },
+  {
+    source: "/tags",
+    destination: "/segmenting-your-audience#tags",
+    permanent: true,
+  },
+  {
+    source: "/using-attachments",
+    destination: "/fancy-mode#attachments",
+    permanent: true,
+  },
+  {
+    source: "/uploading-images",
+    destination: "/fancy-mode#images",
+    permanent: true,
+  },
+  {
+    source: "/draft-send",
+    destination: "/sending-emails#previewing-and-sending-drafts",
+    permanent: true,
+  },
+  {
+    source: "/how-do-i-include-audio-in-my-newsletter",
+    destination: "/fancy-mode#including-audio",
+    permanent: true,
+  },
+  {
+    source: "/support-amp-for-email",
+    destination: "/welcome-to-buttondown",
+    permanent: true,
+  },
+  {
+    source: "/sending-from-dreamhost",
+    destination: "/hosting-domain",
+    permanent: true,
+  },
+  {
+    source: "/billing",
+    destination: "https://buttondown.com/pricing",
+    permanent: true,
   },
   {
     source: "/does-buttondown-automatically-index-my-web-archives",
@@ -43,7 +243,7 @@ const REDIRECTS = [
   {
     source: "/advanced-features/css",
     permanent: false,
-    destination: "/customizing-email-design",
+    destination: "/designing-your-email",
   },
   {
     source: "/advanced-features/customizing-your-web-presence",
@@ -103,7 +303,7 @@ const REDIRECTS = [
   {
     source: "/advanced-features/tags",
     permanent: false,
-    destination: "/tags",
+    destination: "/segmenting-your-audience#tags",
   },
   {
     source: "/advanced-features/teams",
@@ -233,7 +433,7 @@ const REDIRECTS = [
   {
     source: "/getting-started/billing",
     permanent: false,
-    destination: "/billing",
+    destination: "https://buttondown.com/pricing",
   },
   {
     source: "/getting-started/building-your-subscriber-base",
@@ -258,12 +458,12 @@ const REDIRECTS = [
   {
     source: "/getting-started/quickstart",
     permanent: false,
-    destination: "/quickstart",
+    destination: "/welcome-to-buttondown",
   },
   {
     source: "/getting-started/registration-and-setup",
     permanent: false,
-    destination: "/registration-and-setup",
+    destination: "/welcome-to-buttondown",
   },
   {
     source: "/getting-started/scheduling-an-email",
@@ -333,32 +533,32 @@ const REDIRECTS = [
   {
     source: "/migration-guides/benchmark",
     permanent: false,
-    destination: "/benchmark",
+    destination: "/importing-your-data",
   },
   {
     source: "/migration-guides/campaign-monitor",
     permanent: false,
-    destination: "/campaign-monitor",
+    destination: "/importing-your-data",
   },
   {
     source: "/migration-guides/constant-contact",
     permanent: false,
-    destination: "/constant-contact",
+    destination: "/importing-your-data",
   },
   {
     source: "/migration-guides/convertkit",
     permanent: false,
-    destination: "/convertkit",
+    destination: "/kit",
   },
   {
     source: "/migration-guides/emailoctopus",
     permanent: false,
-    destination: "/emailoctopus",
+    destination: "/importing-your-data",
   },
   {
     source: "/migration-guides/feedblitz",
     permanent: false,
-    destination: "/feedblitz",
+    destination: "/importing-your-data",
   },
   {
     source: "/migration-guides/mailchimp",
@@ -368,12 +568,12 @@ const REDIRECTS = [
   {
     source: "/migration-guides/mailcoach",
     permanent: false,
-    destination: "/mailcoach",
+    destination: "/importing-your-data",
   },
   {
     source: "/migration-guides/mailerlite",
     permanent: false,
-    destination: "/mailerlite",
+    destination: "/importing-your-data",
   },
   {
     source: "/migration-guides/moosend",
@@ -408,7 +608,7 @@ const REDIRECTS = [
   {
     source: "/need-more-help",
     permanent: false,
-    destination: "/introduction",
+    destination: "/welcome-to-buttondown",
   },
   {
     source: "/odds-and-ends/automations-reference",
@@ -423,7 +623,7 @@ const REDIRECTS = [
   {
     source: "/odds-and-ends/glossary",
     permanent: false,
-    destination: "/introduction",
+    destination: "/welcome-to-buttondown",
   },
   {
     source: "/odds-and-ends/offboarding",
@@ -433,16 +633,16 @@ const REDIRECTS = [
   {
     source: "/odds-and-ends/privacy-and-security",
     permanent: false,
-    destination: "/privacy-and-security",
+    destination: "/account",
   },
   {
     source: "/odds-and-ends/screen-reader",
     permanent: false,
-    destination: "/how-to-write-accessible-emails",
+    destination: "/designing-your-email#faqs",
   },
   {
     source: "/using-a-screen-reader",
-    destination: "/how-to-write-accessible-emails",
+    destination: "/designing-your-email#faqs",
     permanent: false,
   },
   {
@@ -463,7 +663,7 @@ const REDIRECTS = [
   {
     source: "/sending-domains/sending-from-dreamhost",
     permanent: false,
-    destination: "/sending-from-dreamhost",
+    destination: "/hosting-domain",
   },
   {
     source: "/tutorials/customizing-list-views",
@@ -647,7 +847,7 @@ const REDIRECTS = [
   },
   {
     source: "/bookmarklet",
-    destination: "/introduction",
+    destination: "/welcome-to-buttondown",
     permanent: true,
   },
   {
@@ -687,7 +887,7 @@ const REDIRECTS = [
   },
   {
     source: "/what-s-a-good-tutorial-for-learning-css",
-    destination: "/customizing-email-design",
+    destination: "/designing-your-email",
     permanent: true,
   },
   {
@@ -712,7 +912,7 @@ const REDIRECTS = [
   },
   {
     source: "/late-payments",
-    destination: "/billing",
+    destination: "https://buttondown.com/pricing",
     permanent: false,
   },
   {
@@ -722,7 +922,7 @@ const REDIRECTS = [
   },
   {
     source: "/can-i-set-a-custom-unsubscribe-link",
-    destination: "/subscriber-cleanup#custom-unsubscribe-redirect",
+    destination: "/subscriber-cleanup",
     permanent: true,
   },
   {
@@ -878,7 +1078,353 @@ const REDIRECTS = [
   },
   {
     source: "/podcasts",
-    destination: "/introduction",
+    destination: "/welcome-to-buttondown",
+    permanent: true,
+  },
+
+  {
+    source: "/glossary-csv",
+    destination: "/glossary-managing-your-list#csv",
+    permanent: true,
+  },
+  {
+    source: "/glossary-cta",
+    destination: "/glossary-managing-your-list#cta",
+    permanent: true,
+  },
+  {
+    source: "/glossary-paywall",
+    destination: "/glossary-managing-your-list#paywall",
+    permanent: true,
+  },
+  {
+    source: "/glossary-posse",
+    destination: "/glossary-managing-your-list#posse",
+    permanent: true,
+  },
+  {
+    source: "/glossary-precedence-bulk",
+    destination: "/glossary-managing-your-list#precedence-bulk",
+    permanent: true,
+  },
+  {
+    source: "/glossary-rate-sheet",
+    destination: "/glossary-managing-your-list#rate-sheet",
+    permanent: true,
+  },
+  {
+    source: "/glossary-rss",
+    destination: "/glossary-managing-your-list#rss",
+    permanent: true,
+  },
+  {
+    source: "/glossary-sending-domain",
+    destination: "/glossary-managing-your-list#sending-domain",
+    permanent: true,
+  },
+  {
+    source: "/glossary-transactional-email",
+    destination: "/glossary-managing-your-list#transactional-email",
+    permanent: true,
+  },
+
+  {
+    source: "/glossary-alt-text",
+    destination: "/glossary-writing-emails#alt-text",
+    permanent: true,
+  },
+  {
+    source: "/glossary-drip-sequence",
+    destination: "/glossary-writing-emails#drip-sequence",
+    permanent: true,
+  },
+  {
+    source: "/glossary-gravatar",
+    destination: "/glossary-writing-emails#gravatar",
+    permanent: true,
+  },
+  {
+    source: "/glossary-latex",
+    destination: "/glossary-writing-emails#latex",
+    permanent: true,
+  },
+  {
+    source: "/glossary-slug",
+    destination: "/glossary-writing-emails#slug",
+    permanent: true,
+  },
+  {
+    source: "/glossary-ugc",
+    destination: "/glossary-writing-emails#ugc",
+    permanent: true,
+  },
+  {
+    source: "/glossary-whitelabeling",
+    destination: "/glossary-writing-emails#whitelabeling",
+    permanent: true,
+  },
+  {
+    source: "/glossary-wysiwyg",
+    destination: "/glossary-writing-emails#wysiwyg",
+    permanent: true,
+  },
+
+  {
+    source: "/glossary-amp",
+    destination: "/glossary-analytics#amp",
+    permanent: true,
+  },
+  {
+    source: "/glossary-cac",
+    destination: "/glossary-analytics#cac",
+    permanent: true,
+  },
+  {
+    source: "/glossary-cpm",
+    destination: "/glossary-analytics#cpm",
+    permanent: true,
+  },
+  {
+    source: "/glossary-omnichannel",
+    destination: "/glossary-analytics#omnichannel",
+    permanent: true,
+  },
+
+  {
+    source: "/glossary-bimi",
+    destination: "/glossary-email-infrastructure#bimi",
+    permanent: true,
+  },
+  {
+    source: "/glossary-dkim",
+    destination: "/glossary-email-infrastructure#dkim",
+    permanent: true,
+  },
+  {
+    source: "/glossary-dmarc",
+    destination: "/glossary-email-infrastructure#dmarc",
+    permanent: true,
+  },
+  {
+    source: "/glossary-dns",
+    destination: "/glossary-email-infrastructure#dns",
+    permanent: true,
+  },
+  {
+    source: "/glossary-esp",
+    destination: "/glossary-email-infrastructure#esp",
+    permanent: true,
+  },
+  {
+    source: "/glossary-hosting-domain",
+    destination: "/glossary-email-infrastructure#hosting-domain",
+    permanent: true,
+  },
+  {
+    source: "/glossary-permanent-failure",
+    destination: "/glossary-email-infrastructure#permanent-failure",
+    permanent: true,
+  },
+  {
+    source: "/glossary-reverse-dns",
+    destination: "/glossary-email-infrastructure#reverse-dns",
+    permanent: true,
+  },
+  {
+    source: "/glossary-spamassassin",
+    destination: "/glossary-email-infrastructure#spamassassin",
+    permanent: true,
+  },
+  {
+    source: "/glossary-spf",
+    destination: "/glossary-email-infrastructure#spf",
+    permanent: true,
+  },
+  {
+    source: "/glossary-temporary-failure",
+    destination: "/glossary-email-infrastructure#temporary-failure",
+    permanent: true,
+  },
+
+  {
+    source: "/glossary-api",
+    destination: "/glossary-developers#api",
+    permanent: true,
+  },
+  {
+    source: "/glossary-headless-mode",
+    destination: "/glossary-developers#headless-mode",
+    permanent: true,
+  },
+  {
+    source: "/glossary-jamstack",
+    destination: "/glossary-developers#jamstack",
+    permanent: true,
+  },
+  {
+    source: "/glossary-json-ld",
+    destination: "/glossary-developers#json-ld",
+    permanent: true,
+  },
+  {
+    source: "/glossary-oembed",
+    destination: "/glossary-developers#oembed",
+    permanent: true,
+  },
+  {
+    source: "/glossary-openapi",
+    destination: "/glossary-developers#openapi",
+    permanent: true,
+  },
+  {
+    source: "/glossary-preheader",
+    destination: "/glossary-developers#preheader",
+    permanent: true,
+  },
+  {
+    source: "/glossary-rest",
+    destination: "/glossary-developers#rest",
+    permanent: true,
+  },
+  {
+    source: "/glossary-smtp",
+    destination: "/glossary-developers#smtp",
+    permanent: true,
+  },
+  {
+    source: "/glossary-webhook",
+    destination: "/glossary-developers#webhooks",
+    permanent: true,
+  },
+  {
+    source: "/glossary-webmentions",
+    destination: "/glossary-developers#webmentions",
+    permanent: true,
+  },
+
+  {
+    source: "/glossary-can-spam",
+    destination: "/glossary-email-regulations#can-spam-act",
+    permanent: true,
+  },
+  {
+    source: "/glossary-captcha",
+    destination: "/glossary-email-regulations#captcha",
+    permanent: true,
+  },
+  {
+    source: "/glossary-cfl",
+    destination: "/glossary-email-regulations#cfbl",
+    permanent: true,
+  },
+  {
+    source: "/glossary-coi",
+    destination: "/glossary-email-regulations#coi",
+    permanent: true,
+  },
+  {
+    source: "/glossary-cold-email",
+    destination: "/glossary-email-regulations#cold-email",
+    permanent: true,
+  },
+  {
+    source: "/glossary-cors",
+    destination: "/glossary-email-regulations#cors",
+    permanent: true,
+  },
+  {
+    source: "/glossary-double-optin",
+    destination: "/glossary-email-regulations#double-opt-in",
+    permanent: true,
+  },
+  {
+    source: "/glossary-gdpr",
+    destination: "/glossary-email-regulations#gdpr",
+    permanent: true,
+  },
+  {
+    source: "/ab-test-introduction",
+    destination: "https://buttondown.com/blog?category=ab-tests",
+    permanent: true,
+  },
+  {
+    source: "/ab-test-0001",
+    destination: "https://buttondown.com/blog/ab-test-0001",
+    permanent: true,
+  },
+  {
+    source: "/ab-test-0002",
+    destination: "https://buttondown.com/blog/ab-test-0002",
+    permanent: true,
+  },
+  {
+    source: "/ab-test-0003",
+    destination: "https://buttondown.com/blog/ab-test-0003",
+    permanent: true,
+  },
+  {
+    source: "/ab-test-0004",
+    destination: "https://buttondown.com/blog/ab-test-0004",
+    permanent: true,
+  },
+  {
+    source: "/ab-test-0005",
+    destination: "https://buttondown.com/blog/ab-test-0005",
+    permanent: true,
+  },
+  {
+    source: "/ab-test-0006",
+    destination: "https://buttondown.com/blog/ab-test-0006",
+    permanent: true,
+  },
+  {
+    source: "/ab-test-0007",
+    destination: "https://buttondown.com/blog/ab-test-0007",
+    permanent: true,
+  },
+  {
+    source: "/ab-test-0008",
+    destination: "https://buttondown.com/blog/ab-test-0008",
+    permanent: true,
+  },
+  {
+    source: "/ab-test-0009",
+    destination: "https://buttondown.com/blog/ab-test-0009",
+    permanent: true,
+  },
+  {
+    source: "/ab-test-0010",
+    destination: "https://buttondown.com/blog/ab-test-0010",
+    permanent: true,
+  },
+  {
+    source: "/ab-test-0011",
+    destination: "https://buttondown.com/blog/ab-test-0011",
+    permanent: true,
+  },
+  {
+    source: "/ab-test-0012",
+    destination: "https://buttondown.com/blog/ab-test-0012",
+    permanent: true,
+  },
+  {
+    source: "/home",
+    destination: "/welcome-to-buttondown",
+    permanent: true,
+  },
+  {
+    source: "/privacy-and-security",
+    destination: "/account",
+    permanent: true,
+  },
+  {
+    source: "/customizing-subscriber-list-view",
+    destination: "/subscriber-dashboard",
+    permanent: true,
+  },
+  {
+    source: "/customizing-request-list-view",
+    destination: "/api-introduction",
     permanent: true,
   },
 ];

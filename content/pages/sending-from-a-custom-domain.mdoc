@@ -2,12 +2,10 @@
 title: Sending from a custom domain
 navigationTitle: Sending domain
 relatedPages:
-  - sending-from-dreamhost
-  - glossary-reverse-dns
+  - glossary-email-infrastructure
   - monitoring-your-domain
-  - glossary-sending-domain
-  - glossary-permanent-failure
-  - glossary-cfl
+  - glossary-managing-your-list
+  - glossary-email-regulations
 description: >-
   Buttondown allows all newsletters to send from a custom domain. This helps you build a recognizable brand and improves deliverability.
 faqItems: >
@@ -30,14 +28,14 @@ faqItems: >
     },
     {
       "question": "Why am I getting 'softfails' due to SPF?",
-      "answer": "SPF softfails can cause your newsletter emails to be marked as spam. A softfail SPF means the email client is suspicious of the email sender's IP address. You can help prevent this by making sure your [SPF entry](/glossary-spf) is configured correctly.\n\nDepending on your newsletter configuration, you might have been asked to set up an SPF entry for your custom domain. A SPF entry is a DNS record that begins with the string:\n\n```\nv=spf1\n```\n\nHowever, you can only use this record once in a single domain. If you're using the same custom email domain for Buttondown and for an inbox provider, such as GSuite, you need to take an extra step to combine the two records.\n\nInstead of having two separate records, like:\n\n```\nv=spf1 include:_spf.google.com\n```\n\nand\n\n```\nv=spf1 include:mailgun.org\n```\n\nEdit the existing record to reference both domains, as shown below:\n\n```\nv=spf1 include:_spf.google.com include:mailgun.org ~all\n```\n\nIf you don't combine the two records, some mailboxes may read the first SPF entry (the GSuite one) and ignore the second (the one sent by Buttondown), which can cause a softfail and lower your newsletter email's deliverability."
+      "answer": "SPF softfails can cause your newsletter emails to be marked as spam. A softfail SPF means the email client is suspicious of the email sender's IP address. You can help prevent this by making sure your [SPF entry](/glossary-email-infrastructure#spf) is configured correctly.\n\nDepending on your newsletter configuration, you might have been asked to set up an SPF entry for your custom domain. A SPF entry is a DNS record that begins with the string:\n\n```\nv=spf1\n```\n\nHowever, you can only use this record once in a single domain. If you're using the same custom email domain for Buttondown and for an inbox provider, such as GSuite, you need to take an extra step to combine the two records.\n\nInstead of having two separate records, like:\n\n```\nv=spf1 include:_spf.google.com\n```\n\nand\n\n```\nv=spf1 include:mailgun.org\n```\n\nEdit the existing record to reference both domains, as shown below:\n\n```\nv=spf1 include:_spf.google.com include:mailgun.org ~all\n```\n\nIf you don't combine the two records, some mailboxes may read the first SPF entry (the GSuite one) and ignore the second (the one sent by Buttondown), which can cause a softfail and lower your newsletter email's deliverability."
     }
   ]
 ---
 
 Unlike hosting your newsletter on a [custom domain](/hosting-domain), which is largely a cosmetic feature, there are significant benefits to sending your emails from a custom domain.
 
-By default, Buttondown sends your emails from its own domain and webserver. This is a good thing because it lets you focus on writing, editing, and growing your subscriber base, instead of dealing with arcane [DNS issues](/glossary-dns).
+By default, Buttondown sends your emails from its own domain and webserver. This is a good thing because it lets you focus on writing, editing, and growing your subscriber base, instead of dealing with arcane [DNS issues](/glossary-email-infrastructure#dns).
 
 However, as your newsletter matures, it might be a good idea to think about sending directly from your domain instead. This has a number of benefits:
 
@@ -60,7 +58,7 @@ A custom **hosting domain** requires you to sign up for either [Standard or Prof
 
 Buttondown automatically throttles and monitors the performance of new senders to maintain our reputation and your deliverability. We cap the number of emails a newsletter can send in a given hour until you've reached a baseline level of engagement and reputation for your content.
 
-If we detect issues during this process, such as a high number of unsubscribes, [complaints](/glossary-cfl), or [hard bounces](/glossary-permanent-failure), we will temporarily disable your sending capability and reach out to help resolve the issue.
+If we detect issues during this process, such as a high number of unsubscribes, [complaints](/glossary-email-regulations#cfbl), or [hard bounces](/glossary-email-infrastructure#permanent-failure), we will temporarily disable your sending capability and reach out to help resolve the issue.
 
 ### Best practices for warming up
 

@@ -3,5 +3,4 @@
 #MISE sources=["docs/**/*.{ts,tsx,mdoc,css}"]
 #MISE outputs={auto=true}
 MISE_EXPERIMENTAL=true mise run //docs:lint
-MISE_EXPERIMENTAL=true mise run //docs:build-index
 bun build

@@ -5,54 +5,32 @@
       "items": [
         {
           "discriminant": "page",
-          "value": "introduction"
+          "value": "welcome-to-buttondown"
         },
         {
           "discriminant": "page",
-          "value": "quickstart"
+          "value": "configuration-and-branding"
         },
-        {
-          "discriminant": "page",
-          "value": "registration-and-setup"
-        },
-        {
-          "discriminant": "page",
-          "value": "sending-your-first-email-advanced"
-        }
-      ]
-    },
-    {
-      "name": "Collecting subscribers",
-      "items": [
         {
           "discriminant": "page",
           "value": "building-your-subscriber-base"
         },
         {
-          "discriminant": "divider",
-          "value": "FAQ"
+          "discriminant": "page",
+          "value": "designing-your-email"
         },
         {
           "discriminant": "page",
-          "value": "manually-adding-subscribers"
+          "value": "publishing-your-first-email"
         },
         {
           "discriminant": "page",
-          "value": "embed-form-cors-csp"
+          "value": "sharing-your-newsletter"
         }
       ]
     },
     {
-      "name": "Enriching subscribers",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "tags"
-        }
-      ]
-    },
-    {
-      "name": "Importing from elsewhere",
+      "name": "Migrating to Buttondown",
       "items": [
         {
           "discriminant": "page",
@@ -60,31 +38,7 @@
         },
         {
           "discriminant": "page",
-          "value": "beehiiv"
-        },
-        {
-          "discriminant": "page",
-          "value": "benchmark"
-        },
-        {
-          "discriminant": "page",
-          "value": "campaign-monitor"
-        },
-        {
-          "discriminant": "page",
-          "value": "constant-contact"
-        },
-        {
-          "discriminant": "page",
-          "value": "convertkit"
-        },
-        {
-          "discriminant": "page",
-          "value": "emailoctopus"
-        },
-        {
-          "discriminant": "page",
-          "value": "feedblitz"
+          "value": "kit"
         },
         {
           "discriminant": "page",
@@ -92,102 +46,15 @@
         },
         {
           "discriminant": "page",
-          "value": "mailcoach"
-        },
-        {
-          "discriminant": "page",
-          "value": "mailerlite"
-        },
-        {
-          "discriminant": "page",
-          "value": "podia"
+          "value": "patreon"
         },
         {
           "discriminant": "page",
           "value": "substack"
         },
         {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
           "discriminant": "page",
-          "value": "do-imported-subscribers-have-to-re-confirm-their-subscription"
-        },
-        {
-          "discriminant": "page",
-          "value": "import-limitations"
-        }
-      ]
-    },
-    {
-      "name": "Writing and sending",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "using-attachments"
-        },
-        {
-          "discriminant": "page",
-          "value": "uploading-images"
-        },
-        {
-          "discriminant": "page",
-          "value": "draft-send"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "why-some-email-clients-look-different"
-        },
-        {
-          "discriminant": "page",
-          "value": "one-click-unsubscribe"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-to-write-accessible-emails"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-do-i-format-dates"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-do-i-include-audio-in-my-newsletter"
-        },
-        {
-          "discriminant": "page",
-          "value": "support-amp-for-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "how-do-i-set-sender-information"
-        }
-      ]
-    },
-    {
-      "name": "Custom domains",
-      "items": [
-        {
-          "discriminant": "divider",
-          "value": "Registrars"
-        },
-        {
-          "discriminant": "page",
-          "value": "sending-from-dreamhost"
-        }
-      ]
-    },
-    {
-      "name": "About Buttondown",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "billing"
+          "value": "warming-up-your-list"
         }
       ]
     }
@@ -662,72 +529,31 @@
       ]
     },
     {
-      "name": "Dashboard",
+      "name": "Glossary",
       "items": [
         {
           "discriminant": "page",
-          "value": "home"
+          "value": "glossary-managing-your-list"
         },
         {
           "discriminant": "page",
-          "value": "privacy-and-security"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Columns"
+          "value": "glossary-writing-emails"
         },
         {
           "discriminant": "page",
-          "value": "customizing-subscriber-list-view"
+          "value": "glossary-analytics"
         },
         {
           "discriminant": "page",
-          "value": "customizing-request-list-view"
-        }
-      ]
-    },
-    {
-      "name": "Customization",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "customizing-email-design"
+          "value": "glossary-email-infrastructure"
         },
         {
           "discriminant": "page",
-          "value": "localization"
+          "value": "glossary-developers"
         },
         {
           "discriminant": "page",
-          "value": "customizing-transactional-emails"
-        },
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-use-a-custom-font"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-link-two-related-emails"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-exclude-an-email-from-archive"
-        },
-        {
-          "discriminant": "page",
-          "value": "modern-template-hide-top"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-center-my-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "can-i-customize-my-gmail-icon"
+          "value": "glossary-email-regulations"
         }
       ]
     },
@@ -745,272 +571,6 @@
         {
           "discriminant": "page",
           "value": "does-buttondown-offer-stipends"
-        }
-      ]
-    },
-    {
-      "name": "A/B testing",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "ab-test-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0001"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0002"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0003"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0004"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0005"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0006"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0007"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0008"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0009"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0010"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0011"
-        },
-        {
-          "discriminant": "page",
-          "value": "ab-test-0012"
-        }
-      ]
-    },
-    {
-      "name": "Glossary",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "glossary-alt-text"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-amp"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-api"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-bimi"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-cac"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-can-spam"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-captcha"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-cfl"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-coi"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-cold-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-cors"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-cpm"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-csv"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-cta"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-dkim"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-dmarc"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-dns"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-double-optin"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-drip-sequence"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-esp"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-gdpr"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-gravatar"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-headless-mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-hosting-domain"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-jamstack"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-json-ld"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-latex"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-oembed"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-omnichannel"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-openapi"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-paywall"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-permanent-failure"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-posse"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-precedence-bulk"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-preheader"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-rate-sheet"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-rest"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-reverse-dns"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-rss"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-sending-domain"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-slug"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-smtp"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-spamassassin"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-spf"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-temporary-failure"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-transactional-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-ugc"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-webhook"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-webmentions"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-whitelabeling"
-        },
-        {
-          "discriminant": "page",
-          "value": "glossary-wysiwyg"
         }
       ]
     }
@@ -1918,6 +1478,10 @@
         {
           "discriminant": "page",
           "value": "api-changelog"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2026-02-16"
         },
         {
           "discriminant": "page",

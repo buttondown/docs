@@ -2,7 +2,6 @@ import { createReader } from "@keystatic/core/reader";
 import { marked } from "marked";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import SEARCH from "@/autogen/index.json";
 import Code from "@/components/code";
 import Document from "@/components/Document";
 import Layout from "@/components/layout";
@@ -14,6 +13,7 @@ import ObjectDescription, {
 import Parameter from "@/components/Parameter";
 import keystaticConfig, { localBaseURL } from "@/keystatic.config";
 import { DESCRIPTION, TITLE } from "@/lib/constants";
+import { buildContentArray } from "@/lib/search/server";
 import { generateJSONLDMetadata } from "@/lib/jsonld";
 import {
   default as ErrorCodeEnums,
@@ -369,7 +369,8 @@ export default async function DocsPage(props: Props) {
   if (page.enum) {
     const pageEnum = page.enum as keyof typeof OpenAPIEnums;
 
-    const metadata = SEARCH.find((s) => s.url === slug);
+    const contentArray = buildContentArray();
+    const metadata = contentArray.find((s) => s.slug === slug);
     const hasReferences =
       metadata?.references && metadata?.references.length > 0;
 
@@ -410,15 +411,18 @@ export default async function DocsPage(props: Props) {
         {hasReferences && (
           <>
             <h3>Referenced by</h3>
-            {SEARCH.find((s) => s.url === slug)?.references.map((reference) => (
-              <Link
-                key={reference}
-                href={SEARCH.find((s) => s.url === reference)?.url || ""}
-                className="block"
-              >
-                {SEARCH.find((s) => s.url === reference)?.title}
-              </Link>
-            ))}
+            {metadata?.references.map((reference) => {
+              const refPage = contentArray.find((s) => s.slug === reference);
+              return (
+                <Link
+                  key={reference}
+                  href={refPage?.slug || ""}
+                  className="block"
+                >
+                  {refPage?.title}
+                </Link>
+              );
+            })}
           </>
         )}
       </Layout>

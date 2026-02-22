@@ -3956,6 +3956,7 @@
             "description": "Conflict"
           }
         },
+        "description": "Create a new external feed",
         "requestBody": {
           "content": {
             "application/json": {
@@ -4001,6 +4002,7 @@
             "description": "Conflict"
           }
         },
+        "description": "List all external feeds",
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -9430,6 +9432,7 @@
           "publish_date_invalid",
           "publish_date_missing",
           "status_invalid",
+          "body_contains_frontmatter",
           "slug_invalid",
           "canonical_url_invalid",
           "tag_invalid"
@@ -11774,42 +11777,69 @@
           },
           "last_checked_date": {
             "title": "Last Checked Date",
+            "description": "The most recent date and time this feed was checked for new items.",
             "type": "string",
             "format": "date-time"
           },
           "status": {
-            "$ref": "#/components/schemas/ExternalFeedAutomationStatus"
+            "description": "The current status of the external feed automation.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ExternalFeedAutomationStatus"
+              }
+            ]
           },
           "behavior": {
-            "$ref": "#/components/schemas/ExternalFeedAutomationBehavior"
+            "description": "Whether feed items are sent immediately or drafted for manual review.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ExternalFeedAutomationBehavior"
+              }
+            ]
           },
           "cadence": {
-            "$ref": "#/components/schemas/ExternalFeedAutomationCadence"
+            "description": "How frequently this feed should create or draft emails.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ExternalFeedAutomationCadence"
+              }
+            ]
           },
           "cadence_metadata": {
             "title": "Cadence Metadata",
+            "description": "Additional scheduling details for the selected cadence, such as weekday or time.",
             "type": "object",
             "additionalProperties": {
               "type": "string"
             }
           },
           "filters": {
-            "$ref": "#/components/schemas/FilterGroup"
+            "title": "Filters",
+            "description": "Tag-based filtering rules used to decide which subscribers receive feed-generated emails.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterGroup"
+              }
+            ]
           },
           "url": {
             "title": "Url",
+            "description": "The URL of the RSS feed to poll for new items.",
             "type": "string"
           },
           "subject": {
             "title": "Subject",
+            "description": "The subject line template for emails generated from this feed.",
             "type": "string"
           },
           "body": {
             "title": "Body",
+            "description": "The body template for emails generated from this feed.",
             "type": "string"
           },
           "label": {
             "title": "Label",
+            "description": "An optional internal label for this feed.",
             "type": "string"
           },
           "metadata": {
@@ -11862,6 +11892,7 @@
             ]
           },
           "cadence": {
+            "description": "How frequently this feed should create or draft emails.",
             "example": "daily",
             "allOf": [
               {
@@ -11871,25 +11902,35 @@
           },
           "cadence_metadata": {
             "title": "Cadence Metadata",
+            "description": "Additional scheduling details for the selected cadence, such as weekday or time.",
             "type": "object",
             "additionalProperties": {
               "type": "string"
             }
           },
           "filters": {
-            "$ref": "#/components/schemas/FilterGroup"
+            "title": "Filters",
+            "description": "Tag-based filtering rules used to decide which subscribers receive feed-generated emails.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterGroup"
+              }
+            ]
           },
           "subject": {
             "title": "Subject",
+            "description": "The subject line template for emails generated from this feed.",
             "maxLength": 255,
             "type": "string"
           },
           "body": {
             "title": "Body",
+            "description": "The body template for emails generated from this feed.",
             "type": "string"
           },
           "label": {
             "title": "Label",
+            "description": "An optional internal label for this feed.",
             "default": "",
             "maxLength": 255,
             "type": "string"
@@ -11953,6 +11994,7 @@
         "type": "object",
         "properties": {
           "behavior": {
+            "description": "The [behavior](https://docs.buttondown.com/api-external-feed-behavior) of the external feed.",
             "example": "draft",
             "allOf": [
               {
@@ -11961,6 +12003,7 @@
             ]
           },
           "cadence": {
+            "description": "How frequently this feed should create or draft emails.",
             "example": "daily",
             "allOf": [
               {
@@ -11970,30 +12013,45 @@
           },
           "cadence_metadata": {
             "title": "Cadence Metadata",
+            "description": "Additional scheduling details for the selected cadence, such as weekday or time.",
             "type": "object",
             "additionalProperties": {
               "type": "string"
             }
           },
           "filters": {
-            "$ref": "#/components/schemas/FilterGroup"
+            "title": "Filters",
+            "description": "Tag-based filtering rules used to decide which subscribers receive feed-generated emails.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterGroup"
+              }
+            ]
           },
           "subject": {
             "title": "Subject",
+            "description": "The subject line template for emails generated from this feed.",
             "maxLength": 255,
             "type": "string"
           },
           "body": {
             "title": "Body",
+            "description": "The body template for emails generated from this feed.",
             "type": "string"
           },
           "label": {
             "title": "Label",
+            "description": "An optional internal label for this feed.",
             "maxLength": 255,
             "type": "string"
           },
           "status": {
-            "$ref": "#/components/schemas/ExternalFeedAutomationStatus"
+            "description": "The current status of the external feed automation.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ExternalFeedAutomationStatus"
+              }
+            ]
           },
           "metadata": {
             "title": "Metadata",
@@ -12040,39 +12098,57 @@
             "format": "date-time"
           },
           "status": {
-            "$ref": "#/components/schemas/ExternalFeedItemStatus"
+            "description": "The processing status of this feed item.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ExternalFeedItemStatus"
+              }
+            ]
           },
           "url": {
             "title": "Url",
+            "description": "The canonical URL of the feed item.",
             "type": "string"
           },
           "publish_date": {
             "title": "Publish Date",
+            "description": "The publication date parsed from the feed item.",
             "type": "string",
             "format": "date-time"
           },
           "title": {
             "title": "Title",
+            "description": "The title of the feed item.",
             "type": "string"
           },
           "description": {
             "title": "Description",
+            "description": "The description excerpt parsed from the feed item.",
             "type": "string"
           },
           "content": {
             "title": "Content",
+            "description": "The full content parsed from the feed item.",
             "type": "string"
           },
           "author": {
             "title": "Author",
+            "description": "The author name parsed from the feed item.",
             "type": "string"
           },
           "email_id": {
             "title": "Email Id",
+            "description": "The ID of the generated email for this feed item, if one exists.",
             "type": "string"
           },
           "email": {
-            "$ref": "#/components/schemas/Email"
+            "title": "Email",
+            "description": "If expanded, the email generated from this feed item.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Email"
+              }
+            ]
           }
         },
         "required": [
@@ -12399,6 +12475,7 @@
           "filter_invalid__tag",
           "filter_invalid",
           "action_invalid",
+          "filter_invalid__field",
           "invalid_newsletter_id",
           "action_invalid__missing_body_or_subject"
         ],
@@ -14856,6 +14933,16 @@
           "count"
         ]
       },
+      "SnippetMode": {
+        "title": "Mode",
+        "description": "An enumeration.",
+        "enum": [
+          "fancy",
+          "naked",
+          "plaintext"
+        ],
+        "type": "string"
+      },
       "Snippet": {
         "title": "Snippet",
         "type": "object",
@@ -14883,6 +14970,9 @@
             "title": "Content",
             "type": "string"
           },
+          "mode": {
+            "$ref": "#/components/schemas/SnippetMode"
+          },
           "reference_count": {
             "title": "Reference Count",
             "default": 0,
@@ -14894,7 +14984,8 @@
           "creation_date",
           "identifier",
           "name",
-          "content"
+          "content",
+          "mode"
         ]
       },
       "SnippetInput": {
@@ -14918,6 +15009,15 @@
             "default": "",
             "example": "Thanks for reading!",
             "type": "string"
+          },
+          "mode": {
+            "description": "The editor mode for the snippet.",
+            "default": "fancy",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SnippetMode"
+              }
+            ]
           }
         },
         "required": [
@@ -14974,6 +15074,9 @@
             "title": "Content",
             "example": "Thanks for reading!",
             "type": "string"
+          },
+          "mode": {
+            "$ref": "#/components/schemas/SnippetMode"
           }
         }
       },

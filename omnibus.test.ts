@@ -65,26 +65,6 @@ const VALID_APPLICATION_ROUTES = [
   "features/markdown",
 ];
 
-// Glossary pages that are linked less than 2x in the docs.
-// First try and find pages that could benefit from having a link to the page. But don't force it if it seems unnatural.
-// If you've checked through docs, and you're _really_ sure it can't be linked, add to this list.
-const KNOWN_GLOSSARY_PAGES_WITHOUT_INTERNAL_LINKS = [
-  "glossary-amp.mdoc",
-  "glossary-cac.mdoc",
-  "glossary-cpm.mdoc",
-  "glossary-drip-sequence.mdoc",
-  "glossary-gravatar.mdoc",
-  "glossary-can-spam.mdoc",
-  "glossary-posse.mdoc",
-  "glossary-spamassassin.mdoc",
-  "glossary-transactional-email.mdoc",
-  "glossary-webmentions.mdoc",
-  "glossary-latex.mdoc",
-  "glossary-omnichannel.mdoc",
-  "glossary-cors.mdoc",
-  "glossary-rate-sheet.mdoc",
-  "glossary-captcha.mdoc",
-];
 
 const CHANGELOG_FILE = `api-changelog.mdoc`;
 
@@ -308,20 +288,6 @@ Object.entries(FILENAME_TO_INTERNAL_LINKS).forEach(
         expect(content.trim().length).toBeGreaterThan(0);
       });
     });
-    // Make sure that all glossary terms (which begin with `/glossary-`) are linked to at least twice.
-    const isGlossaryTerm = filename.startsWith("glossary-");
-    if (
-      isGlossaryTerm &&
-      !KNOWN_GLOSSARY_PAGES_WITHOUT_INTERNAL_LINKS.includes(filename)
-    ) {
-      test(filename + " is linked to at least twice", () => {
-        const references = Object.entries(FILENAME_TO_INTERNAL_LINKS).filter(
-          ([_, links]) => links.includes("/" + filename.replace(".mdoc", "")),
-        );
-        expect(references.length).toBeGreaterThanOrEqual(2);
-      });
-    }
-
     // Make sure that all changelog posts (which begin with `/api-changelog-`) are linked in the main changelog file
     const isChangelogPage = filename.startsWith("api-changelog-");
     if (isChangelogPage) {
@@ -507,7 +473,7 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
         `Reference to ${
           // @ts-ignore
           (ref as OpenAPIProperty).$ref
-        } in ${filename} does not have a URL in the schema. Maybe try running \`MISE_EXPERIMENTAL=true mise run //docs:build-index\`?`,
+        } in ${filename} does not have a URL in the schema.`,
       ).toBeTruthy();
     });
   });
@@ -545,14 +511,6 @@ Object.values(NAVIGATION).forEach((section) => {
   });
 });
 
-test("Glossary is sorted correctly", () => {
-  const glossary = NAVIGATION.reference.find(
-    (section) => section.name === "Glossary",
-  );
-  const glossaryItems = glossary?.items.map((item) => item.value) || [];
-  const sortedGlossaryItems = [...glossaryItems].sort();
-  expect(glossaryItems).toEqual(sortedGlossaryItems);
-});
 
 const IMAGE_SUFFIXES = [
   ".png",

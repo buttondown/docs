@@ -4,30 +4,98 @@ description:
   Does your newsletter have sponsors? Learn how Buttondown can help you manage your sponsorships.
 ---
 
-{% noticeInfo text="Sponsorships are currently in closed beta." /%}
+{% paidFeature feature="sponsorships" /%}
+
+Sponsorships let you sell ad slots in your newsletter. Sponsors purchase slots via Stripe, submit their content for your review, and approved content is automatically included when you send.
+
+## Setup
+
+To get started with sponsorships, you'll need to:
+
+1. Connect your [Stripe](/stripe) account in [Settings](https://demo.buttondown.com/settings/general).
+2. Go to [Sponsorships](https://demo.buttondown.com/sponsorships) and create your first advertising slot.
+3. Share your sponsorship page with potential sponsors.
+
+{% iframe src="https://demo.buttondown.com/sponsorships?newsletter=jenna" height=600 /%}
+
+## Creating advertising slots
+
+An advertising slot (or "SKU") represents a type of sponsorship you offer — for example, a banner ad, a classified listing, or a dedicated email. Each slot has:
+
+- **Title**: A short name for the sponsorship type (e.g. "Banner ad").
+- **Description**: Details about what the sponsor gets, including placement, format, and any restrictions.
+
+When you create a slot, Buttondown generates individual time-based slots that sponsors can purchase. You can start with one of the built-in templates (banner ad, classified, or dedicated email) or create your own from scratch.
 
 ## Sponsorship behavior
 
-When you set up a sponsorship slot on your newsletter, you can choose between one of two "behaviors" for that sponsorship:
+You can choose between two modes for each sponsorship:
 
-1. **Managed by Buttondown**: In this mode, Buttondown handles the entire sponsorship process, from finding sponsors to invoicing them to paying you out. This is the simplest way to get started with sponsorships, and is the recommended option for most users.
-2. **Managed by you**: In this mode, you'll be responsible for the entire sponsorship process, from invoicing and pricing, to content review, to payment. This is the most flexible option, but requires more work on your end; it's recommended for users who have experience with sponsorships and/or who want to have more control over the process.
+1. **Managed by Buttondown**: Buttondown handles the entire process — sponsors purchase slots via Stripe, submit content, and you review it before it's included in your newsletter. This is the recommended option for most users.
+2. **Managed by you**: You handle invoicing, pricing, and payment outside of Buttondown. Buttondown manages content submission, review, and metrics. This is best for users who already have established sponsorship relationships.
+
+## Managing slots
+
+Each slot goes through a lifecycle:
+
+```mermaid
+flowchart LR
+  open e1@--> sold
+  sold e2@--> submitted[Content submitted]
+  submitted e3@--> approved[Content approved]
+  submitted e4@--> rejected[Content rejected]
+  rejected e5@--> submitted
+  e1@{ animate: true }
+  e2@{ animate: true }
+  e3@{ animate: true }
+  e4@{ animate: true }
+  e5@{ animate: true }
+```
+
+You can view and manage all your slots from the [Sponsorships](https://demo.buttondown.com/sponsorships) page. Click on any advertising slot to see its individual slots, then click on a slot to review submitted content.
+
+## Reviewing content
+
+When a sponsor submits content for a slot, you'll receive an email notification. To review:
+
+1. Go to [Sponsorships](https://demo.buttondown.com/sponsorships) and click on the relevant advertising slot.
+2. Click on the slot with submitted content.
+3. Review the sponsor's submission and either approve or reject it.
+
+Approved content is automatically included in your newsletter when you send. If you reject content, the sponsor can revise and resubmit.
 
 ## Pricing
 
-If you choose to have Buttondown manage your sponsorships, you can set a price per slot. This price is the amount that sponsors will pay you for a single slot in your newsletter and is set in US dollars. This payment process is handled by [Stripe](/stripe), which takes a 3% fee on all transactions. The remaining 97% is paid out to you. Buttondown does not take a cut of your sponsorship revenue.
+If you choose to have Buttondown manage your sponsorships, you can set a price per slot in US dollars. Payment is handled by [Stripe](/stripe), which takes a 3% fee on all transactions. The remaining 97% is paid out to you. Buttondown does not take a cut of your sponsorship revenue.
 
-If you choose to manage your own sponsorships, Buttondown does not have visibility into the pricing model of your sponsorships. All Buttondown manages is surfacing metrics to sponsors and keeping track of your availability.
+If you manage your own sponsorships, Buttondown does not have visibility into your pricing. All Buttondown manages is content submission and metrics.
+
+## Including sponsorship content in emails
+
+To include sponsorship content in your emails, use the `{{ ad }}` template variable. When you send an email, Buttondown replaces this variable with the approved content from any sold slots scheduled for that send.
+
+If no sponsorship content is available for a given email, the variable renders as empty.
 
 ## Metrics
 
-Under your [sponsorships settings](https://buttondown.com/settings/sponsorships), you can choose as many of the following metrics as you'd like to share with potential sponsors:
+Under your [sponsorship settings](https://demo.buttondown.com/sponsorships/settings), you can choose which metrics to share with potential sponsors:
 
 | Metric | Description |
-|-----|---------------|
-| Subscribers | The number of subscribers to your newsletter |
-| Open rate | The percentage of subscribers who open your newsletter |
+|--------|-------------|
 | Click rate | The percentage of subscribers who click on a link in your newsletter |
+| Open rate | The percentage of subscribers who open your newsletter |
 | RSS subscribers | The number of subscribers to your newsletter's RSS feed |
+| Subscribers | The number of subscribers to your newsletter |
 
-These metrics refresh every 24 hours. There may be a delay between you enabling a metric and it appearing in your sponsorship kit.
+These metrics refresh every 24 hours. There may be a delay between enabling a metric and it appearing in your sponsorship kit.
+
+## Email notifications
+
+Buttondown sends email notifications to keep both you and your sponsors informed:
+
+| Notification | Recipient | When |
+|---|---|---|
+| Deadline approaching | Sponsor | Content submission deadline is coming up |
+| Content submitted | You | A sponsor submits content for review |
+| Content approved | Sponsor | You approve their submission |
+| Content rejected | Sponsor | You reject their submission |

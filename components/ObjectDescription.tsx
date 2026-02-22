@@ -1,5 +1,6 @@
-import SEARCH from "../autogen/index.json";
+import { marked } from "marked";
 import Code from "../components/code";
+import { buildContentArray } from "../lib/search/server";
 import type OpenAPIEnums from "../lib/openapi/enums.json";
 import OpenAPIFixtures from "../lib/openapi/fixtures.json";
 import type {
@@ -10,8 +11,12 @@ import type {
   Route,
 } from "../lib/openapi/types";
 import OpenAPI from "../public/openapi.json";
-import Markdown from "./Markdown";
 import Parameter, { type TypeProp } from "./Parameter";
+
+function Markdown({ children }: { children: string }) {
+  // biome-ignore lint/security/noDangerouslySetInnerHtml: trust me bro
+  return <div dangerouslySetInnerHTML={{ __html: marked(children || "") }} />;
+}
 
 export type OpenAPIProperty = {
   title: string;
@@ -27,7 +32,8 @@ export type OpenAPIProperty = {
 export const urlForSchema = (fullyQualifiedSchema: string) => {
   if (!fullyQualifiedSchema) return undefined;
   const schema = fullyQualifiedSchema.split("/").pop();
-  return SEARCH.find((s) => s.title === schema || s.schema === schema);
+  const contentArray = buildContentArray();
+  return contentArray.find((s) => s.title === schema || s.schema === schema);
 };
 
 export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
@@ -74,7 +80,7 @@ export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
         const type: TypeProp = $ref
           ? {
               type: "ref",
-              url: urlForSchema($ref)?.url || "",
+              url: urlForSchema($ref)?.slug || "",
               name: urlForSchema($ref)?.schema || "",
             }
           : {
@@ -251,7 +257,7 @@ export const extractParameters = <R extends Route>(
         parameter.schema.items?.$ref
           ? {
               type: "ref[]",
-              url: urlForSchema(parameter.schema.items.$ref)?.url || "",
+              url: urlForSchema(parameter.schema.items.$ref)?.slug || "",
               name: urlForSchema(parameter.schema.items.$ref)?.schema || "",
             }
           : {
@@ -326,7 +332,7 @@ const parametersForRef = (
             "$ref" in qualifiedParameter.items
             ? {
                 type: "ref[]",
-                url: urlForSchema(qualifiedParameter.items.$ref)?.url || "",
+                url: urlForSchema(qualifiedParameter.items.$ref)?.slug || "",
                 name: urlForSchema(qualifiedParameter.items.$ref)?.schema || "",
               }
             : {
@@ -336,7 +342,7 @@ const parametersForRef = (
           : "allOf" in qualifiedParameter
             ? {
                 type: "ref",
-                url: urlForSchema(qualifiedParameter.allOf[0].$ref)?.url || "",
+                url: urlForSchema(qualifiedParameter.allOf[0].$ref)?.slug || "",
                 name:
                   urlForSchema(qualifiedParameter.allOf[0].$ref)?.schema || "",
               }
@@ -344,7 +350,7 @@ const parametersForRef = (
               ? {
                   type: "ref",
                   url:
-                    urlForSchema(qualifiedParameter.anyOf[0].$ref)?.url || "",
+                    urlForSchema(qualifiedParameter.anyOf[0].$ref)?.slug || "",
                   name:
                     urlForSchema(qualifiedParameter.anyOf[0].$ref)?.schema ||
                     "",
@@ -352,7 +358,7 @@ const parametersForRef = (
               : {
                   type: "ref",
                   url:
-                    urlForSchema(qualifiedParameter.$ref as string)?.url || "",
+                    urlForSchema(qualifiedParameter.$ref as string)?.slug || "",
                   name:
                     urlForSchema(qualifiedParameter.$ref as string)?.schema ||
                     "",

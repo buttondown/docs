@@ -1,4 +1,5 @@
 import { promises as fs } from "node:fs";
+import nodePath from "node:path";
 import React from "react";
 import Code from "@/components/code";
 import ExpandableCodeBlock from "./expandable-code-block";
@@ -18,8 +19,10 @@ export default async function LiveCodeBlock({ path }: { path: string }) {
     html = await response.text();
     code = html;
   } else {
-    // For local files, read from filesystem
-    code = await fs.readFile(path, "utf-8");
+    // For local files, resolve relative to the project root so this works
+    // both at build time and at runtime on Vercel preview deployments
+    const absolutePath = nodePath.join(process.cwd(), path);
+    code = await fs.readFile(absolutePath, "utf-8");
     html = code;
   }
 
