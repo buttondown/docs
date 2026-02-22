@@ -7,7 +7,7 @@ import { GeneratedCodeSnippets } from "@/app/[slug]/CodeSnippets";
 import PRICES from "@/autogen/prices-v2.json";
 import Code from "@/components/code";
 import type { Page } from "@/lib/types";
-import FAQ from "./faq";
+import FAQ, { type FAQItem } from "./faq";
 import { BUTTONDOWN_CLI_STRUCTURE, FileExplorer } from "./file-explorer";
 import Iframe from "./iframe";
 import ImageWithLightbox from "./image-with-lightbox";
@@ -90,14 +90,9 @@ type Props = {
 
 const Document = async ({ page }: Props) => {
   // Parse FAQ items from page frontmatter
-  let faqItems: Array<{ question: string; answer: string }> = [];
-  if (page.faqItems) {
-    try {
-      faqItems = JSON.parse(page.faqItems);
-    } catch (error) {
-      console.error("Failed to parse FAQ items:", error);
-    }
-  }
+  const faqItems: FAQItem[] = page.faqItems
+    ? JSON.parse(page.faqItems)
+    : [];
 
   return (
     <DocumentRenderer

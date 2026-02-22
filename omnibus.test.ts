@@ -9,7 +9,7 @@ import {
   urlForSchema,
 } from "./components/ObjectDescription";
 import NAVIGATION from "./content/navigation.json";
-import matter from "./lib/gray-matter";
+import matter from "gray-matter";
 import OpenAPI from "./public/openapi.json";
 import REDIRECTS from "./redirects.mjs";
 

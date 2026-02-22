@@ -4,7 +4,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import * as Accordion from "@radix-ui/react-accordion";
 import { marked } from "marked";
 
-type FAQItem = {
+export type FAQItem = {
   question: string;
   answer: string;
 };

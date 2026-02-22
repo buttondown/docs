@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import matter from "../gray-matter";
+import matter from "gray-matter";
+import type { FAQItem } from "../../components/faq";
 import { removeMarkdown } from "../remove-markdown";
 
 export type ContentItem = {
@@ -166,9 +167,18 @@ export const buildContentArray = (): ContentArray => {
       ? "Reference"
       : slugToSection.get(slug) ?? "guides";
 
+    let body = removeMarkdown(content);
+    if (data.faqItems) {
+      const faqs: FAQItem[] = JSON.parse(data.faqItems as string);
+      const faqText = faqs
+        .map((faq) => `${faq.question} ${faq.answer}`)
+        .join(" ");
+      body = `${body} ${faqText}`;
+    }
+
     return {
       title: data.title as string,
-      body: removeMarkdown(content),
+      body,
       slug,
       categories,
       description: (data.description as string) ?? null,
