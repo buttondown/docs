@@ -556,23 +556,6 @@
           "value": "glossary-email-regulations"
         }
       ]
-    },
-    {
-      "name": "Legal stuff",
-      "items": [
-        {
-          "discriminant": "divider",
-          "value": "FAQ"
-        },
-        {
-          "discriminant": "page",
-          "value": "buttondown-data"
-        },
-        {
-          "discriminant": "page",
-          "value": "does-buttondown-offer-stipends"
-        }
-      ]
     }
   ],
   "api": [

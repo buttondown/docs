@@ -1408,6 +1408,16 @@ const REDIRECTS = [
     permanent: true,
   },
   {
+    source: "/buttondown-data",
+    destination: "https://buttondown.com/legal/gdpr-eu-compliance",
+    permanent: true,
+  },
+  {
+    source: "/does-buttondown-offer-stipends",
+    destination: "/welcome-to-buttondown",
+    permanent: true,
+  },
+  {
     source: "/home",
     destination: "/welcome-to-buttondown",
     permanent: true,
