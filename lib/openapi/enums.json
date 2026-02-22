@@ -248,6 +248,16 @@
       "name": "Gift subscribers",
       "variant": "info"
     },
+    "mark_comments_as_active": {
+      "description": "Mark multiple comments as active.",
+      "name": "Mark comments as active",
+      "variant": "info"
+    },
+    "mark_comments_as_spammy": {
+      "description": "Mark multiple comments as spam.",
+      "name": "Mark comments as spammy",
+      "variant": "info"
+    },
     "mark_inbox_items_read": {
       "description": "Mark multiple inbox items as read.",
       "name": "Mark inbox items as read",

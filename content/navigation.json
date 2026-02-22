@@ -1157,6 +1157,10 @@
           "value": "api-comments-type"
         },
         {
+          "discriminant": "page",
+          "value": "api-comments-status"
+        },
+        {
           "discriminant": "divider",
           "value": "Routes"
         },
@@ -1171,6 +1175,10 @@
         {
           "discriminant": "page",
           "value": "api-comments-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-comments-update"
         },
         {
           "discriminant": "page",

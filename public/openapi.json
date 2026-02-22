@@ -7041,6 +7041,22 @@
               ]
             },
             "required": false
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "title": "Status",
+              "description": "An enumeration.",
+              "enum": [
+                "pending",
+                "active",
+                "spammy"
+              ],
+              "type": "string"
+            },
+            "required": false,
+            "description": "An enumeration."
           }
         ],
         "responses": {
@@ -7129,6 +7145,69 @@
           }
         },
         "description": "Retrieve a specific comment by its ID",
+        "security": [
+          {
+            "PermissionAuthenticationRequirement": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "update_comment",
+        "summary": "Update Comment",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comment"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Update a comment's status. Only the newsletter owner can call this.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentUpdateInput"
+              }
+            }
+          },
+          "required": true
+        },
         "security": [
           {
             "PermissionAuthenticationRequirement": []
@@ -8854,6 +8933,12 @@
             "title": "Isbn",
             "description": "The ISBN of the book.",
             "type": "string"
+          },
+          "shared": {
+            "title": "Shared",
+            "description": "Whether the book is displayed publicly on the archive.",
+            "default": true,
+            "type": "boolean"
           }
         },
         "required": [
@@ -8895,6 +8980,12 @@
             "title": "Isbn",
             "description": "The ISBN of the book.",
             "type": "string"
+          },
+          "shared": {
+            "title": "Shared",
+            "description": "Whether the book is displayed publicly on the archive.",
+            "default": true,
+            "type": "boolean"
           }
         },
         "required": [
@@ -8963,6 +9054,11 @@
             "title": "Isbn",
             "description": "The ISBN of the book.",
             "type": "string"
+          },
+          "shared": {
+            "title": "Shared",
+            "description": "Whether the book is displayed publicly on the archive.",
+            "type": "boolean"
           }
         }
       },
@@ -10242,6 +10338,12 @@
             "type": "string",
             "format": "date-time"
           },
+          "commenting_disabled": {
+            "title": "Commenting Disabled",
+            "description": "Whether this subscriber is prevented from commenting.",
+            "default": false,
+            "type": "boolean"
+          },
           "email_address": {
             "title": "Email Address",
             "description": "The email address of the subscriber.",
@@ -10677,6 +10779,11 @@
         "title": "SubscriberUpdateInput",
         "type": "object",
         "properties": {
+          "commenting_disabled": {
+            "title": "Commenting Disabled",
+            "description": "Whether this subscriber is prevented from commenting.",
+            "type": "boolean"
+          },
           "email_address": {
             "title": "Email Address",
             "description": "The email address of the subscriber.",
@@ -10953,6 +11060,30 @@
           "count"
         ]
       },
+      "NewsletterAnnouncementBarVisibility": {
+        "title": "AnnouncementBarVisibility",
+        "description": "An enumeration.",
+        "enum": [
+          "disabled",
+          "everyone",
+          "free_only",
+          "logged_out_only",
+          "paid_only"
+        ],
+        "type": "string"
+      },
+      "NewsletterArchiveTheme": {
+        "title": "ArchiveTheme",
+        "description": "An enumeration.",
+        "enum": [
+          "classic",
+          "modern",
+          "arbus",
+          "lovelace",
+          "myrna"
+        ],
+        "type": "string"
+      },
       "NewsletterAuditingMode": {
         "title": "AuditingMode",
         "description": "An enumeration.",
@@ -10960,6 +11091,27 @@
           "disabled",
           "enabled",
           "aggressive"
+        ],
+        "type": "string"
+      },
+      "NewsletterLocale": {
+        "title": "Locale",
+        "description": "An enumeration.",
+        "enum": [
+          "cs-CZ",
+          "nl-NL",
+          "en-AU",
+          "en-CA",
+          "en-GB",
+          "en",
+          "fr",
+          "de",
+          "pl-PL",
+          "pt-BR",
+          "ru",
+          "es",
+          "tr",
+          "sv-SE"
         ],
         "type": "string"
       },
@@ -10979,11 +11131,55 @@
             "type": "string",
             "format": "date-time"
           },
+          "announcement_bar_background_color": {
+            "title": "Announcement Bar Background Color",
+            "description": "The background color for the announcement bar on your archive page. Must be a valid hex color code.",
+            "default": "",
+            "type": "string"
+          },
+          "announcement_bar_text": {
+            "title": "Announcement Bar Text",
+            "description": "Text displayed in the announcement bar on your archive page. Useful for promotions, updates, or calls to action.",
+            "default": "",
+            "type": "string"
+          },
+          "announcement_bar_visibility": {
+            "description": "Controls who sees the announcement bar on your archive page.",
+            "default": "disabled",
+            "enum": [
+              "disabled",
+              "everyone",
+              "free_only",
+              "logged_out_only",
+              "paid_only"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterAnnouncementBarVisibility"
+              }
+            ]
+          },
           "api_key": {
             "title": "Api Key",
             "description": "The API key for this newsletter, used for authenticating API requests.",
             "type": "string",
             "format": "uuid"
+          },
+          "archive_theme": {
+            "description": "The visual theme for your newsletter's archive page. See [archive themes](https://docs.buttondown.com/customizing-web-design) for previews.",
+            "default": "modern",
+            "enum": [
+              "classic",
+              "modern",
+              "arbus",
+              "lovelace",
+              "myrna"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterArchiveTheme"
+              }
+            ]
           },
           "auditing_mode": {
             "description": "The auditing mode for your newsletter, which controls spam and abuse protection. See [the Firewall](https://docs.buttondown.com/firewall) for more information.",
@@ -11003,24 +11199,6 @@
             "description": "Custom CSS styling applied to your newsletter emails. See [CSS customization](https://docs.buttondown.com/customizing-email-design#adding-custom-css) for more information.",
             "default": "",
             "type": "string"
-          },
-          "theme_configuration": {
-            "title": "Theme Configuration",
-            "description": "Custom theme configuration (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
-            "default": {},
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "email_theme_configuration": {
-            "title": "Email Theme Configuration",
-            "description": "A dictionary of CSS token overrides for the email theme.",
-            "default": {},
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
           },
           "custom_churn_email_body": {
             "title": "Custom Churn Email Body",
@@ -11042,6 +11220,115 @@
           "custom_email_template": {
             "title": "Custom Email Template",
             "description": "The identifier for a custom email template. See [email templates](https://docs.buttondown.com/customizing-email-design#buttondowns-default-templates) for available options.",
+            "type": "string"
+          },
+          "custom_expired_trial_notification_body": {
+            "title": "Custom Expired Trial Notification Body",
+            "description": "Custom body content for the email sent when a subscriber's free trial expires. Supports template tags.",
+            "default": "",
+            "type": "string"
+          },
+          "custom_expired_trial_notification_subject": {
+            "title": "Custom Expired Trial Notification Subject",
+            "description": "Custom subject line for the email sent when a subscriber's free trial expires. Supports template tags.",
+            "default": "",
+            "type": "string"
+          },
+          "custom_expired_trial_notification_template": {
+            "title": "Custom Expired Trial Notification Template",
+            "description": "The email template to use for expired trial notification emails. If not set, uses the newsletter's default template.",
+            "type": "string"
+          },
+          "custom_gift_subscription_email_body": {
+            "title": "Custom Gift Subscription Email Body",
+            "description": "Custom body content for the email sent when someone receives a gift subscription. Supports template tags.",
+            "default": "",
+            "type": "string"
+          },
+          "custom_gift_subscription_email_subject": {
+            "title": "Custom Gift Subscription Email Subject",
+            "description": "Custom subject line for the email sent when someone receives a gift subscription. Supports template tags.",
+            "default": "",
+            "type": "string"
+          },
+          "custom_gift_subscription_email_template": {
+            "title": "Custom Gift Subscription Email Template",
+            "description": "The email template to use for gift subscription emails. If not set, uses the newsletter's default template.",
+            "type": "string"
+          },
+          "custom_gift_unsubscription_email_body": {
+            "title": "Custom Gift Unsubscription Email Body",
+            "description": "Custom body content for the email sent when a gift subscription ends. Supports template tags.",
+            "default": "",
+            "type": "string"
+          },
+          "custom_gift_unsubscription_email_subject": {
+            "title": "Custom Gift Unsubscription Email Subject",
+            "description": "Custom subject line for the email sent when a gift subscription ends. Supports template tags.",
+            "default": "",
+            "type": "string"
+          },
+          "custom_gift_unsubscription_email_template": {
+            "title": "Custom Gift Unsubscription Email Template",
+            "description": "The email template to use for gift unsubscription emails. If not set, uses the newsletter's default template.",
+            "type": "string"
+          },
+          "custom_premium_confirmation_email_body": {
+            "title": "Custom Premium Confirmation Email Body",
+            "description": "Custom body content for the email sent when a subscriber upgrades to a paid plan. Supports template tags.",
+            "default": "",
+            "type": "string"
+          },
+          "custom_premium_confirmation_email_subject": {
+            "title": "Custom Premium Confirmation Email Subject",
+            "description": "Custom subject line for the email sent when a subscriber upgrades to a paid plan. Supports template tags.",
+            "default": "",
+            "type": "string"
+          },
+          "custom_premium_confirmation_email_template": {
+            "title": "Custom Premium Confirmation Email Template",
+            "description": "The email template to use for premium confirmation emails. If not set, uses the newsletter's default template.",
+            "type": "string"
+          },
+          "custom_subscription_confirmation_email_subject": {
+            "title": "Custom Subscription Confirmation Email Subject",
+            "description": "Custom subject line for the double opt-in confirmation email sent to new subscribers. Supports template tags.",
+            "default": "",
+            "type": "string"
+          },
+          "custom_subscription_confirmation_email_template": {
+            "title": "Custom Subscription Confirmation Email Template",
+            "description": "The email template to use for subscription confirmation emails. If not set, uses the newsletter's default template.",
+            "type": "string"
+          },
+          "custom_subscription_confirmation_email_text": {
+            "title": "Custom Subscription Confirmation Email Text",
+            "description": "Custom body content for the double opt-in confirmation email. Must contain `{{ confirmation_url }}` as an HTML or Markdown link.",
+            "default": "",
+            "type": "string"
+          },
+          "custom_subscription_confirmation_reminder_email_subject": {
+            "title": "Custom Subscription Confirmation Reminder Email Subject",
+            "description": "Custom subject line for the reminder email sent to subscribers who haven't confirmed. Supports template tags.",
+            "default": "",
+            "type": "string"
+          },
+          "custom_subscription_confirmation_reminder_email_text": {
+            "title": "Custom Subscription Confirmation Reminder Email Text",
+            "description": "Custom body content for the reminder email sent to subscribers who haven't confirmed. Supports template tags.",
+            "default": "",
+            "type": "string"
+          },
+          "custom_subscription_confirmed_email_subject": {
+            "title": "Custom Subscription Confirmed Email Subject",
+            "description": "Custom subject line for the email sent after a subscriber confirms their subscription. Supports template tags.",
+            "default": "",
+            "type": "string"
+          },
+          "custom_subscription_confirmed_email_text": {
+            "title": "Custom Subscription Confirmed Email Text",
+            "description": "Custom body content for the email sent after a subscriber confirms their subscription. Supports template tags.",
+            "default": "",
             "type": "string"
           },
           "description": {
@@ -11066,6 +11353,15 @@
             "description": "The custom domain from which your newsletter emails are sent (e.g., 'mail.example.com'). See [sending domains](https://docs.buttondown.com/sending-from-a-custom-domain) for setup instructions.",
             "default": "",
             "type": "string"
+          },
+          "email_theme_configuration": {
+            "title": "Email Theme Configuration",
+            "description": "A dictionary of CSS token overrides for the email theme.",
+            "default": {},
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "enabled_features": {
             "title": "Enabled Features",
@@ -11104,6 +11400,15 @@
             "description": "URL to your newsletter's header or branding image, displayed on archive pages and in social previews.",
             "type": "string"
           },
+          "locale": {
+            "description": "The language/locale for your newsletter's UI elements (confirmation emails, unsubscribe pages, etc.). See [localization](https://docs.buttondown.com/localization) for supported locales.",
+            "default": "en",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterLocale"
+              }
+            ]
+          },
           "metadata": {
             "title": "Metadata",
             "description": "A structured key-value blob that you can use to store arbitrary data on the object. Metadata can be nested \u2014 you can store objects and arrays within your metadata. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
@@ -11115,17 +11420,77 @@
             "description": "The display name of your newsletter, shown to subscribers and on your archive page.",
             "type": "string"
           },
+          "reply_to_address": {
+            "title": "Reply To Address",
+            "description": "An alternative email address that receives replies to your newsletter emails, instead of the sending address.",
+            "default": "",
+            "type": "string"
+          },
+          "sharing_networks": {
+            "title": "Sharing Networks",
+            "description": "A list of social networks to show share buttons for on your archive pages.",
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "socials": {
+            "title": "Socials",
+            "description": "A list of social media accounts linked to your newsletter, displayed on your archive page. Each entry has a `type`, `url`, and optional `label`.",
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
           "sort": {
             "title": "Sort",
             "description": "The default sorting method for listing subscribers or messages. Example values: 'creation_date', '-creation_date', 'email_address'.",
             "default": "creation_date",
             "type": "string"
           },
+          "subscription_confirmation_redirect_url": {
+            "title": "Subscription Confirmation Redirect Url",
+            "description": "A URL to redirect subscribers to after they confirm their subscription via double opt-in.",
+            "default": "",
+            "type": "string"
+          },
+          "subscription_redirect_url": {
+            "title": "Subscription Redirect Url",
+            "description": "A URL to redirect subscribers to immediately after they submit the subscription form (before confirmation).",
+            "default": "",
+            "type": "string"
+          },
+          "template": {
+            "description": "The default email template for your newsletter. See [email templates](https://docs.buttondown.com/customizing-email-design#buttondowns-default-templates) for available options.",
+            "default": "modern",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterEmailTemplate"
+              }
+            ]
+          },
           "test_mode": {
             "title": "Test Mode",
             "description": "Whether test mode is enabled. When enabled, emails are not actually sent to subscribers, useful for testing automations and workflows.",
             "default": false,
             "type": "boolean"
+          },
+          "theme_configuration": {
+            "title": "Theme Configuration",
+            "description": "Custom theme configuration (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
+            "default": {},
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "timezone": {
+            "title": "Timezone",
+            "description": "The timezone used for scheduling and displaying dates in your newsletter (e.g., 'America/New_York', 'Europe/London').",
+            "default": "Etc/UTC",
+            "type": "string"
           },
           "tint_color": {
             "title": "Tint Color",
@@ -11221,6 +11586,41 @@
         "title": "NewsletterInput",
         "type": "object",
         "properties": {
+          "announcement_bar_background_color": {
+            "title": "Announcement Bar Background Color",
+            "description": "The background color for the announcement bar on your archive page. Must be a valid hex color code.",
+            "default": "",
+            "maxLength": 7,
+            "example": "#FF6600",
+            "type": "string"
+          },
+          "announcement_bar_text": {
+            "title": "Announcement Bar Text",
+            "description": "Text displayed in the announcement bar on your archive page. Useful for promotions, updates, or calls to action.",
+            "default": "",
+            "example": "Subscribe to get 20% off your first order!",
+            "type": "string"
+          },
+          "announcement_bar_visibility": {
+            "description": "Controls who sees the announcement bar on your archive page.",
+            "default": "disabled",
+            "example": "everyone",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterAnnouncementBarVisibility"
+              }
+            ]
+          },
+          "archive_theme": {
+            "description": "The visual theme for your newsletter's archive page. See [archive themes](https://docs.buttondown.com/customizing-web-design) for previews.",
+            "default": "modern",
+            "example": "modern",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterArchiveTheme"
+              }
+            ]
+          },
           "auditing_mode": {
             "description": "The auditing mode for your newsletter, which controls spam and abuse protection. See [the Firewall](https://docs.buttondown.com/firewall) for more information.",
             "example": "enabled",
@@ -11236,30 +11636,6 @@
             "default": "",
             "example": ".header { color: #000; }",
             "type": "string"
-          },
-          "theme_configuration": {
-            "title": "Theme Configuration",
-            "description": "Custom theme configuration (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
-            "default": {},
-            "example": {
-              "primary-color": "#0069FF"
-            },
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "email_theme_configuration": {
-            "title": "Email Theme Configuration",
-            "description": "A dictionary of CSS token overrides for the email theme.",
-            "default": {},
-            "example": {
-              "primary-color": "#0069FF"
-            },
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
           },
           "custom_email_template": {
             "title": "Custom Email Template",
@@ -11295,6 +11671,18 @@
             "maxLength": 500,
             "example": "mail.sheinhardt.com",
             "type": "string"
+          },
+          "email_theme_configuration": {
+            "title": "Email Theme Configuration",
+            "description": "A dictionary of CSS token overrides for the email theme.",
+            "default": {},
+            "example": {
+              "primary-color": "#0069FF"
+            },
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "enabled_features": {
             "title": "Enabled Features",
@@ -11345,6 +11733,16 @@
             "example": "https://example.com/header.jpg",
             "type": "string"
           },
+          "locale": {
+            "description": "The language/locale for your newsletter's UI elements (confirmation emails, unsubscribe pages, etc.). See [localization](https://docs.buttondown.com/localization) for supported locales.",
+            "default": "en",
+            "example": "en",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterLocale"
+              }
+            ]
+          },
           "metadata": {
             "title": "Metadata",
             "description": "A structured key-value blob that you can use to store arbitrary data on the object. Metadata can be nested \u2014 you can store objects and arrays within your metadata. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
@@ -11357,10 +11755,90 @@
             "example": "Sheinhardt Wig Company",
             "type": "string"
           },
+          "reply_to_address": {
+            "title": "Reply To Address",
+            "description": "An alternative email address that receives replies to your newsletter emails, instead of the sending address.",
+            "pattern": "^[a-zA-Z0-9.'_%+\\-!]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$",
+            "example": "newsletter@sheinhardt.com",
+            "type": "string"
+          },
+          "sharing_networks": {
+            "title": "Sharing Networks",
+            "description": "A list of social networks to show share buttons for on your archive pages.",
+            "default": [],
+            "example": [
+              "twitter",
+              "facebook",
+              "linkedin"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "socials": {
+            "title": "Socials",
+            "description": "A list of social media accounts linked to your newsletter, displayed on your archive page. Each entry has a `type`, `url`, and optional `label`.",
+            "default": [],
+            "example": [
+              {
+                "type": "twitter",
+                "url": "https://x.com/sheinhardt",
+                "label": null
+              }
+            ],
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "subscription_confirmation_redirect_url": {
+            "title": "Subscription Confirmation Redirect Url",
+            "description": "A URL to redirect subscribers to after they confirm their subscription via double opt-in.",
+            "default": "",
+            "example": "https://example.com/confirmed",
+            "type": "string"
+          },
+          "subscription_redirect_url": {
+            "title": "Subscription Redirect Url",
+            "description": "A URL to redirect subscribers to immediately after they submit the subscription form (before confirmation).",
+            "default": "",
+            "example": "https://example.com/thanks",
+            "type": "string"
+          },
+          "template": {
+            "description": "The default email template for your newsletter. See [email templates](https://docs.buttondown.com/customizing-email-design#buttondowns-default-templates) for available options.",
+            "default": "modern",
+            "example": "modern",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterEmailTemplate"
+              }
+            ]
+          },
           "test_mode": {
             "title": "Test Mode",
             "description": "Whether test mode is enabled. When enabled, emails are not actually sent to subscribers, useful for testing automations and workflows.",
             "type": "boolean"
+          },
+          "theme_configuration": {
+            "title": "Theme Configuration",
+            "description": "Custom theme configuration (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
+            "default": {},
+            "example": {
+              "primary-color": "#0069FF"
+            },
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "timezone": {
+            "title": "Timezone",
+            "description": "The timezone used for scheduling and displaying dates in your newsletter (e.g., 'America/New_York', 'Europe/London').",
+            "default": "Etc/UTC",
+            "example": "America/New_York",
+            "type": "string"
           },
           "tint_color": {
             "title": "Tint Color",
@@ -11394,6 +11872,37 @@
         "title": "NewsletterUpdateInput",
         "type": "object",
         "properties": {
+          "announcement_bar_background_color": {
+            "title": "Announcement Bar Background Color",
+            "description": "The background color for the announcement bar on your archive page. Must be a valid hex color code.",
+            "maxLength": 7,
+            "example": "#FF6600",
+            "type": "string"
+          },
+          "announcement_bar_text": {
+            "title": "Announcement Bar Text",
+            "description": "Text displayed in the announcement bar on your archive page. Useful for promotions, updates, or calls to action.",
+            "example": "Subscribe to get 20% off your first order!",
+            "type": "string"
+          },
+          "announcement_bar_visibility": {
+            "description": "Controls who sees the announcement bar on your archive page.",
+            "example": "everyone",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterAnnouncementBarVisibility"
+              }
+            ]
+          },
+          "archive_theme": {
+            "description": "The visual theme for your newsletter's archive page. See [archive themes](https://docs.buttondown.com/customizing-web-design) for previews.",
+            "example": "modern",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterArchiveTheme"
+              }
+            ]
+          },
           "auditing_mode": {
             "description": "The auditing mode for your newsletter, which controls spam and abuse protection. See [the Firewall](https://docs.buttondown.com/firewall) for more information.",
             "example": "enabled",
@@ -11408,28 +11917,6 @@
             "description": "Custom CSS styling applied to your newsletter emails. See [CSS customization](https://docs.buttondown.com/customizing-email-design#adding-custom-css) for more information.",
             "example": ".header { color: #000; }",
             "type": "string"
-          },
-          "theme_configuration": {
-            "title": "Theme Configuration",
-            "description": "Custom theme configuration (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
-            "example": {
-              "primary-color": "#0069FF"
-            },
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "email_theme_configuration": {
-            "title": "Email Theme Configuration",
-            "description": "A dictionary of CSS token overrides for the email theme.",
-            "example": {
-              "primary-color": "#0069FF"
-            },
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
           },
           "custom_churn_email_body": {
             "title": "Custom Churn Email Body",
@@ -11453,6 +11940,106 @@
             "title": "Custom Email Template",
             "description": "The identifier for a custom email template. See [email templates](https://docs.buttondown.com/customizing-email-design#buttondowns-default-templates) for available options.",
             "example": "modern",
+            "type": "string"
+          },
+          "custom_expired_trial_notification_body": {
+            "title": "Custom Expired Trial Notification Body",
+            "description": "Custom body content for the email sent when a subscriber's free trial expires. Supports template tags.",
+            "type": "string"
+          },
+          "custom_expired_trial_notification_subject": {
+            "title": "Custom Expired Trial Notification Subject",
+            "description": "Custom subject line for the email sent when a subscriber's free trial expires. Supports template tags.",
+            "type": "string"
+          },
+          "custom_expired_trial_notification_template": {
+            "title": "Custom Expired Trial Notification Template",
+            "description": "The email template to use for expired trial notification emails. If not set, uses the newsletter's default template.",
+            "example": "modern",
+            "type": "string"
+          },
+          "custom_gift_subscription_email_body": {
+            "title": "Custom Gift Subscription Email Body",
+            "description": "Custom body content for the email sent when someone receives a gift subscription. Supports template tags.",
+            "type": "string"
+          },
+          "custom_gift_subscription_email_subject": {
+            "title": "Custom Gift Subscription Email Subject",
+            "description": "Custom subject line for the email sent when someone receives a gift subscription. Supports template tags.",
+            "type": "string"
+          },
+          "custom_gift_subscription_email_template": {
+            "title": "Custom Gift Subscription Email Template",
+            "description": "The email template to use for gift subscription emails. If not set, uses the newsletter's default template.",
+            "example": "modern",
+            "type": "string"
+          },
+          "custom_gift_unsubscription_email_body": {
+            "title": "Custom Gift Unsubscription Email Body",
+            "description": "Custom body content for the email sent when a gift subscription ends. Supports template tags.",
+            "type": "string"
+          },
+          "custom_gift_unsubscription_email_subject": {
+            "title": "Custom Gift Unsubscription Email Subject",
+            "description": "Custom subject line for the email sent when a gift subscription ends. Supports template tags.",
+            "type": "string"
+          },
+          "custom_gift_unsubscription_email_template": {
+            "title": "Custom Gift Unsubscription Email Template",
+            "description": "The email template to use for gift unsubscription emails. If not set, uses the newsletter's default template.",
+            "example": "modern",
+            "type": "string"
+          },
+          "custom_premium_confirmation_email_body": {
+            "title": "Custom Premium Confirmation Email Body",
+            "description": "Custom body content for the email sent when a subscriber upgrades to a paid plan. Supports template tags.",
+            "type": "string"
+          },
+          "custom_premium_confirmation_email_subject": {
+            "title": "Custom Premium Confirmation Email Subject",
+            "description": "Custom subject line for the email sent when a subscriber upgrades to a paid plan. Supports template tags.",
+            "type": "string"
+          },
+          "custom_premium_confirmation_email_template": {
+            "title": "Custom Premium Confirmation Email Template",
+            "description": "The email template to use for premium confirmation emails. If not set, uses the newsletter's default template.",
+            "example": "modern",
+            "type": "string"
+          },
+          "custom_subscription_confirmation_email_subject": {
+            "title": "Custom Subscription Confirmation Email Subject",
+            "description": "Custom subject line for the double opt-in confirmation email sent to new subscribers. Supports template tags.",
+            "type": "string"
+          },
+          "custom_subscription_confirmation_email_text": {
+            "title": "Custom Subscription Confirmation Email Text",
+            "description": "Custom body content for the double opt-in confirmation email. Must contain `{{ confirmation_url }}` as an HTML or Markdown link.",
+            "type": "string"
+          },
+          "custom_subscription_confirmation_email_template": {
+            "title": "Custom Subscription Confirmation Email Template",
+            "description": "The email template to use for subscription confirmation emails. If not set, uses the newsletter's default template.",
+            "example": "modern",
+            "type": "string"
+          },
+          "custom_subscription_confirmation_reminder_email_subject": {
+            "title": "Custom Subscription Confirmation Reminder Email Subject",
+            "description": "Custom subject line for the reminder email sent to subscribers who haven't confirmed. Supports template tags.",
+            "type": "string"
+          },
+          "custom_subscription_confirmation_reminder_email_text": {
+            "title": "Custom Subscription Confirmation Reminder Email Text",
+            "description": "Custom body content for the reminder email sent to subscribers who haven't confirmed. Supports template tags.",
+            "type": "string"
+          },
+          "custom_subscription_confirmed_email_subject": {
+            "title": "Custom Subscription Confirmed Email Subject",
+            "description": "Custom subject line for the email sent after a subscriber confirms their subscription. Supports template tags.",
+            "type": "string"
+          },
+          "custom_subscription_confirmed_email_text": {
+            "title": "Custom Subscription Confirmed Email Text",
+            "description": "Custom body content for the email sent after a subscriber confirms their subscription. Supports template tags.",
             "type": "string"
           },
           "description": {
@@ -11482,6 +12069,17 @@
             "maxLength": 500,
             "example": "mail.sheinhardt.com",
             "type": "string"
+          },
+          "email_theme_configuration": {
+            "title": "Email Theme Configuration",
+            "description": "A dictionary of CSS token overrides for the email theme.",
+            "example": {
+              "primary-color": "#0069FF"
+            },
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "enabled_features": {
             "title": "Enabled Features",
@@ -11526,6 +12124,15 @@
             "example": "https://example.com/header.jpg",
             "type": "string"
           },
+          "locale": {
+            "description": "The language/locale for your newsletter's UI elements (confirmation emails, unsubscribe pages, etc.). See [localization](https://docs.buttondown.com/localization) for supported locales.",
+            "example": "en",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterLocale"
+              }
+            ]
+          },
           "metadata": {
             "title": "Metadata",
             "description": "A structured key-value blob that you can use to store arbitrary data on the object. Metadata can be nested \u2014 you can store objects and arrays within your metadata. (You can [read more about metadata.](https://docs.buttondown.com/metadata))",
@@ -11541,10 +12148,83 @@
             "example": "Sheinhardt Wig Company",
             "type": "string"
           },
+          "reply_to_address": {
+            "title": "Reply To Address",
+            "description": "An alternative email address that receives replies to your newsletter emails, instead of the sending address.",
+            "pattern": "^[a-zA-Z0-9.'_%+\\-!]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$",
+            "example": "newsletter@sheinhardt.com",
+            "type": "string"
+          },
+          "sharing_networks": {
+            "title": "Sharing Networks",
+            "description": "A list of social networks to show share buttons for on your archive pages.",
+            "example": [
+              "twitter",
+              "facebook",
+              "linkedin"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "socials": {
+            "title": "Socials",
+            "description": "A list of social media accounts linked to your newsletter, displayed on your archive page. Each entry has a `type`, `url`, and optional `label`.",
+            "example": [
+              {
+                "type": "twitter",
+                "url": "https://x.com/sheinhardt",
+                "label": null
+              }
+            ],
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "subscription_confirmation_redirect_url": {
+            "title": "Subscription Confirmation Redirect Url",
+            "description": "A URL to redirect subscribers to after they confirm their subscription via double opt-in.",
+            "example": "https://example.com/confirmed",
+            "type": "string"
+          },
+          "subscription_redirect_url": {
+            "title": "Subscription Redirect Url",
+            "description": "A URL to redirect subscribers to immediately after they submit the subscription form (before confirmation).",
+            "example": "https://example.com/thanks",
+            "type": "string"
+          },
+          "template": {
+            "description": "The default email template for your newsletter. See [email templates](https://docs.buttondown.com/customizing-email-design#buttondowns-default-templates) for available options.",
+            "example": "modern",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NewsletterEmailTemplate"
+              }
+            ]
+          },
           "test_mode": {
             "title": "Test Mode",
             "description": "Whether test mode is enabled. When enabled, emails are not actually sent to subscribers, useful for testing automations and workflows.",
             "type": "boolean"
+          },
+          "theme_configuration": {
+            "title": "Theme Configuration",
+            "description": "Custom theme configuration (variables) for your newsletter. These can be referenced in your CSS and templates to maintain consistent styling.",
+            "example": {
+              "primary-color": "#0069FF"
+            },
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "timezone": {
+            "title": "Timezone",
+            "description": "The timezone used for scheduling and displaying dates in your newsletter (e.g., 'America/New_York', 'Europe/London').",
+            "example": "America/New_York",
+            "type": "string"
           },
           "tint_color": {
             "title": "Tint Color",
@@ -11592,12 +12272,14 @@
           "update_commenting_modes",
           "mark_inbox_items_read",
           "delete_inbox_items",
-          "delete_tags",
           "change_tags_colors",
+          "delete_comments",
           "delete_surveys",
           "delete_survey_responses",
+          "delete_tags",
+          "mark_comments_as_active",
+          "mark_comments_as_spammy",
           "replay_events",
-          "delete_comments",
           "update_survey_statuses",
           "modify_stripe_subscriptions"
         ],
@@ -13967,6 +14649,29 @@
           "price": {
             "title": "Price",
             "type": "integer"
+          },
+          "allows_html": {
+            "title": "Allows Html",
+            "description": "Whether the advertising unit accepts HTML content.",
+            "default": false,
+            "type": "boolean"
+          },
+          "allows_image": {
+            "title": "Allows Image",
+            "description": "Whether the advertising unit accepts an image.",
+            "default": false,
+            "type": "boolean"
+          },
+          "max_characters": {
+            "title": "Max Characters",
+            "description": "Maximum number of characters allowed for the ad content.",
+            "type": "integer"
+          },
+          "submission_deadline_days": {
+            "title": "Submission Deadline Days",
+            "description": "Number of days before the slot date that content must be submitted.",
+            "default": 3,
+            "type": "integer"
           }
         }
       },
@@ -14328,6 +15033,16 @@
           "count"
         ]
       },
+      "CommentStatus": {
+        "title": "Status",
+        "description": "An enumeration.",
+        "enum": [
+          "pending",
+          "active",
+          "spammy"
+        ],
+        "type": "string"
+      },
       "CommentType": {
         "title": "Type",
         "description": "An enumeration.",
@@ -14370,6 +15085,9 @@
             "title": "Text",
             "type": "string"
           },
+          "status": {
+            "$ref": "#/components/schemas/CommentStatus"
+          },
           "comment_type": {
             "$ref": "#/components/schemas/CommentType"
           },
@@ -14389,6 +15107,7 @@
           "creation_date",
           "email_id",
           "text",
+          "status",
           "comment_type"
         ]
       },
@@ -14448,6 +15167,24 @@
         "required": [
           "results",
           "count"
+        ]
+      },
+      "CommentUpdateInput": {
+        "title": "CommentUpdateInput",
+        "type": "object",
+        "properties": {
+          "status": {
+            "title": "Status",
+            "description": "The new status for the comment. Use 'active' to approve or 'spammy' to mark as spam.",
+            "enum": [
+              "active",
+              "spammy"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
         ]
       },
       "Response": {
