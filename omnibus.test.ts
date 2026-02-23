@@ -19,7 +19,7 @@ const MARKDOC_DIRECTORY = "content/pages";
 
 const VALID_APPLICATION_ROUTES = [
   ...JSON.parse(
-    // If this file is out of date, run `just autogen`!
+    // If this file is out of date, run `mise run //app:generate-files`!
     fs.readFileSync("./autogen/author_facing_routes.json", "utf-8"),
   ),
 
@@ -64,7 +64,6 @@ const VALID_APPLICATION_ROUTES = [
   // Weird edge cases.
   "features/markdown",
 ];
-
 
 const CHANGELOG_FILE = `api-changelog.mdoc`;
 
@@ -510,7 +509,6 @@ Object.values(NAVIGATION).forEach((section) => {
     });
   });
 });
-
 
 const IMAGE_SUFFIXES = [
   ".png",

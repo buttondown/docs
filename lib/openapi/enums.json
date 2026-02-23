@@ -368,6 +368,23 @@
       "variant": "error"
     }
   },
+  "CommentStatus": {
+    "active": {
+      "description": "The comment has been approved and is visible.",
+      "name": "Active",
+      "variant": "success"
+    },
+    "pending": {
+      "description": "The comment is awaiting moderation.",
+      "name": "Pending",
+      "variant": "info"
+    },
+    "spammy": {
+      "description": "The comment has been marked as spam.",
+      "name": "Spam",
+      "variant": "error"
+    }
+  },
   "CommentType": {
     "reviewer": {
       "description": "A comment from a newsletter author or reviewer.",
