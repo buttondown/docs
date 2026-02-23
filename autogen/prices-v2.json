@@ -76,6 +76,7 @@
       "firewall",
       "integrations",
       "custom_transactional_emails",
+      "sponsorships",
       "subscriber_cleanup"
     ]
   },
@@ -115,6 +116,7 @@
       "firewall",
       "integrations",
       "custom_transactional_emails",
+      "sponsorships",
       "subscriber_cleanup"
     ]
   },
@@ -154,6 +156,7 @@
       "firewall",
       "integrations",
       "custom_transactional_emails",
+      "sponsorships",
       "subscriber_cleanup"
     ]
   },
@@ -193,6 +196,7 @@
       "firewall",
       "integrations",
       "custom_transactional_emails",
+      "sponsorships",
       "subscriber_cleanup"
     ]
   }
