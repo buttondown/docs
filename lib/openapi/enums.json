@@ -1527,6 +1527,60 @@
       "variant": "info"
     }
   },
+  "NewsletterAnnouncementBarVisibility": {
+    "disabled": {
+      "description": "The announcement bar is hidden for all visitors.",
+      "name": "Disabled",
+      "variant": "info"
+    },
+    "everyone": {
+      "description": "The announcement bar is visible to all visitors.",
+      "name": "Everyone",
+      "variant": "info"
+    },
+    "free_only": {
+      "description": "The announcement bar is visible only to free (non-paying) subscribers.",
+      "name": "Free subscribers only",
+      "variant": "info"
+    },
+    "logged_out_only": {
+      "description": "The announcement bar is visible only to visitors who are not logged in.",
+      "name": "Logged out only",
+      "variant": "info"
+    },
+    "paid_only": {
+      "description": "The announcement bar is visible only to paid subscribers.",
+      "name": "Paid subscribers only",
+      "variant": "info"
+    }
+  },
+  "NewsletterArchiveTheme": {
+    "classic": {
+      "description": "A traditional newsletter layout with emphasis on readability.",
+      "name": "Classic",
+      "variant": "info"
+    },
+    "modern": {
+      "description": "The default theme with a clean, contemporary design.",
+      "name": "Modern",
+      "variant": "info"
+    },
+    "arbus": {
+      "description": "An Instagram-inspired grid theme with a three-column layout, ideal for image-heavy newsletters.",
+      "name": "Arbus",
+      "variant": "info"
+    },
+    "lovelace": {
+      "description": "A minimal, brutalist theme with monospace typography and browser-default styling.",
+      "name": "Lovelace",
+      "variant": "info"
+    },
+    "myrna": {
+      "description": "A theme optimized for long-form reading.",
+      "name": "Myrna",
+      "variant": "info"
+    }
+  },
   "NewsletterAuditingMode": {
     "disabled": {
       "description": "No IP auditing.",
@@ -1542,6 +1596,122 @@
       "description": "IP auditing before a subscriber is even created. This mode is admin-only.",
       "name": "Aggressive",
       "variant": "warning"
+    }
+  },
+  "NewsletterLocale": {
+    "cs-CZ": {
+      "description": "Czech (Czech Republic).",
+      "name": "Czech",
+      "variant": "info"
+    },
+    "nl-NL": {
+      "description": "Dutch (Netherlands).",
+      "name": "Dutch",
+      "variant": "info"
+    },
+    "en-AU": {
+      "description": "English (Australia).",
+      "name": "English (Australia)",
+      "variant": "info"
+    },
+    "en-CA": {
+      "description": "English (Canada).",
+      "name": "English (Canada)",
+      "variant": "info"
+    },
+    "en-GB": {
+      "description": "English (United Kingdom).",
+      "name": "English (UK)",
+      "variant": "info"
+    },
+    "en": {
+      "description": "English (United States).",
+      "name": "English (US)",
+      "variant": "info"
+    },
+    "fr": {
+      "description": "French.",
+      "name": "French",
+      "variant": "info"
+    },
+    "de": {
+      "description": "German.",
+      "name": "German",
+      "variant": "info"
+    },
+    "pl-PL": {
+      "description": "Polish (Poland).",
+      "name": "Polish",
+      "variant": "info"
+    },
+    "pt-BR": {
+      "description": "Portuguese (Brazil).",
+      "name": "Portuguese (Brazil)",
+      "variant": "info"
+    },
+    "ru": {
+      "description": "Russian.",
+      "name": "Russian",
+      "variant": "info"
+    },
+    "es": {
+      "description": "Spanish.",
+      "name": "Spanish",
+      "variant": "info"
+    },
+    "tr": {
+      "description": "Turkish.",
+      "name": "Turkish",
+      "variant": "info"
+    },
+    "sv-SE": {
+      "description": "Swedish (Sweden).",
+      "name": "Swedish",
+      "variant": "info"
+    }
+  },
+  "AdvertisingSlotStatus": {
+    "expired": {
+      "description": "The slot date has passed and the opportunity is no longer available.",
+      "name": "Expired",
+      "variant": "warning"
+    },
+    "executed": {
+      "description": "The advertisement has been sent to subscribers.",
+      "name": "Executed",
+      "variant": "success"
+    },
+    "finalized": {
+      "description": "The sponsor's content has been approved and the slot is ready to run.",
+      "name": "Finalized",
+      "variant": "info"
+    },
+    "open": {
+      "description": "The slot is available for purchase.",
+      "name": "Open",
+      "variant": "info"
+    },
+    "sold": {
+      "description": "The slot has been purchased by a sponsor.",
+      "name": "Sold",
+      "variant": "success"
+    }
+  },
+  "SnippetMode": {
+    "fancy": {
+      "description": "Rich content mode with Markdown and HTML support.",
+      "name": "Fancy",
+      "variant": "info"
+    },
+    "naked": {
+      "description": "Raw HTML mode with no extra scaffolding or wrapping.",
+      "name": "Naked",
+      "variant": "warning"
+    },
+    "plaintext": {
+      "description": "Plain text mode with no HTML formatting.",
+      "name": "Plaintext",
+      "variant": "info"
     }
   }
 }

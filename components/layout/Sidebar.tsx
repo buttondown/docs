@@ -82,50 +82,58 @@ const Sidebar = ({
         key={currentFolderName}
         className="space-y-1"
       >
-        {nav[currentNavigationGroup].map((folder) => (
-          <Accordion.Item key={folder.name} value={folder.name}>
-            <Accordion.Header>
-              <Accordion.Trigger className="group text-left">
-                <div className="flex items-center gap-x-1.5">
-                  <ChevronRightIcon className="block h-4 w-4 text-gray-400 group-data-[state=open]:rotate-90 transition-transform" />
-                  <p className="text-gray-800 font-medium">{folder.name}</p>
-                </div>
-              </Accordion.Trigger>
-            </Accordion.Header>
-            <Accordion.Content className="pb-3 pt-1 space-y-1">
-              {folder.items.map((item) => {
-                if (item.type === "hidden_page") {
-                  return null;
-                }
+        {nav[currentNavigationGroup].map((folder) =>
+          folder.items.length === 0 ? (
+            <div className="pt-1.5 not-first:mt-8">
+              <p className="ml-[1.2rem] text-xs uppercase text-gray-500 w-max  px-1 py-0.5 rounded-md">
+                {folder.name}
+              </p>
+            </div>
+          ) : (
+            <Accordion.Item key={folder.name} value={folder.name}>
+              <Accordion.Header>
+                <Accordion.Trigger className="group text-left">
+                  <div className="flex items-center gap-x-1.5">
+                    <ChevronRightIcon className="block h-4 w-4 text-gray-400 group-data-[state=open]:rotate-90 transition-transform" />
+                    <p className="text-gray-800 font-medium">{folder.name}</p>
+                  </div>
+                </Accordion.Trigger>
+              </Accordion.Header>
+              <Accordion.Content className="pb-3 pt-1 space-y-1 pl-4">
+                {folder.items.map((item) => {
+                  if (item.type === "hidden_page") {
+                    return null;
+                  }
 
-                if (item.type === "divider") {
+                  if (item.type === "divider") {
+                    return (
+                      <div key={item.title} className="pt-1.5">
+                        <p className="ml-[1.2rem] text-xs text-gray-500 w-max bg-gray-200 px-1 py-0.5 rounded-md">
+                          {item.title}
+                        </p>
+                      </div>
+                    );
+                  }
+
                   return (
-                    <div key={item.title} className="pt-1.5">
-                      <p className="ml-[1.2rem] text-xs text-gray-500 w-max bg-gray-200 px-1 py-0.5 rounded-md">
-                        {item.title}
-                      </p>
-                    </div>
+                    <ShimmerLink
+                      key={item.slug}
+                      href={`/${item.slug}`}
+                      className={clsx(
+                        "block ml-[1.4rem] tabular-nums",
+                        item.slug === slug
+                          ? "text-blue-600"
+                          : "text-gray-500 hover:text-gray-800 transition-colors",
+                      )}
+                    >
+                      {item.navigationTitle || item.title}
+                    </ShimmerLink>
                   );
-                }
-
-                return (
-                  <ShimmerLink
-                    key={item.slug}
-                    href={`/${item.slug}`}
-                    className={clsx(
-                      "block ml-[1.4rem] text-sm tabular-nums",
-                      item.slug === slug
-                        ? "text-blue-600"
-                        : "text-gray-500 hover:text-gray-800 transition-colors",
-                    )}
-                  >
-                    {item.navigationTitle || item.title}
-                  </ShimmerLink>
-                );
-              })}
-            </Accordion.Content>
-          </Accordion.Item>
-        ))}
+                })}
+              </Accordion.Content>
+            </Accordion.Item>
+          ),
+        )}
       </Accordion.Root>
     </div>
   );

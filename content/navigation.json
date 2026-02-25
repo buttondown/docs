@@ -560,7 +560,11 @@
   ],
   "api": [
     {
-      "name": "Introduction",
+      "name": "Get started",
+      "items": []
+    },
+    {
+      "name": "Core concepts",
       "items": [
         {
           "discriminant": "page",
@@ -613,7 +617,7 @@
       ]
     },
     {
-      "name": "API recipes",
+      "name": "Common workflows",
       "items": [
         {
           "discriminant": "page",
@@ -634,832 +638,6 @@
         {
           "discriminant": "page",
           "value": "retrieving-analytics-data"
-        }
-      ]
-    },
-    {
-      "name": "Emails",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-emails-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-source"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-type"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-analytic"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-template"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-commenting-mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-suppression-reason"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Audience filters"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-filters"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-filter"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-operator"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-delete"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-analytics"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-send-draft"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-events"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-history-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-history-body-retrieve"
-        }
-      ]
-    },
-    {
-      "name": "Subscribers",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-type"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-source"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-undeliverability-reason"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-delete"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-reminder"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-send-email"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-retrieve-responses"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-referrals"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-magic-link"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-automations"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-automations-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-stripe-subscriptions"
-        }
-      ]
-    },
-    {
-      "name": "Tags",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-tags-introduction"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-tags-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-tags-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-tags-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-tags-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-tags-delete"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-tags-analytics"
-        }
-      ]
-    },
-    {
-      "name": "Images",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-images-introduction"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-images-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-images-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-images-delete"
-        }
-      ]
-    },
-    {
-      "name": "Advertising slots",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-advertising-slots-introduction"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-advertising-slots-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-advertising-slots-update"
-        }
-      ]
-    },
-    {
-      "name": "Attachments",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-attachments-introduction"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-attachments-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-attachments-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-attachments-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-attachments-delete"
-        }
-      ]
-    },
-    {
-      "name": "Newsletters",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-auditing-mode"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-delete"
-        }
-      ]
-    },
-    {
-      "name": "Exports",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-exports-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-exports-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-exports-collections"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-exports-format"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-exports-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-exports-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-exports-list"
-        }
-      ]
-    },
-    {
-      "name": "Bulk actions",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-bulk-actions-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-bulk-action-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-bulk-action-type"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-bulk-actions-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-bulk-actions-retrieve"
-        }
-      ]
-    },
-    {
-      "name": "RSS feeds",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-cadence"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-behavior"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-item-status"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-delete"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-items-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-items-create"
-        }
-      ]
-    },
-    {
-      "name": "Webhooks",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-event-types"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhook-status"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-delete"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-test"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-attempts-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhooks-retrieve"
-        }
-      ]
-    },
-    {
-      "name": "Comments",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-comments-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-comments-type"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-comments-status"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-comments-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-comment-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-comments-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-comments-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-comments-delete"
-        }
-      ]
-    },
-    {
-      "name": "Surveys",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-surveys-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-cadence"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-input-type"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-survey-responses"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-delete"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-list-responses"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-survey-responses-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-survey-responses-update"
-        }
-      ]
-    },
-    {
-      "name": "Coupons",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-coupons-introduction"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-coupons-list"
-        }
-      ]
-    },
-    {
-      "name": "Automations",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-automation-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automation-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automation-timing"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automation-delay"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automations-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automations-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automations-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automations-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automations-delete"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automations-invoke"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automations-analytics"
-        }
-      ]
-    },
-    {
-      "name": "Accounts",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-accounts-me"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-user-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-invitation-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-permissions"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-permissions-access-level"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-users-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-users-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-users-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-users-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-users-delete"
-        }
-      ]
-    },
-    {
-      "name": "Notes",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-notes-introduction"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-notes-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-notes-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-notes-delete"
-        }
-      ]
-    },
-    {
-      "name": "Snippets",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-snippets-introduction"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-snippets-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-snippets-create"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-snippets-retrieve"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-snippets-update"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-snippets-delete"
-        }
-      ]
-    },
-    {
-      "name": "Prices",
-      "items": [
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-prices-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-prices-create"
-        }
-      ]
-    },
-    {
-      "name": "API Requests",
-      "items": [
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-api-requests-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-api-requests-retrieve"
-        }
-      ]
-    },
-    {
-      "name": "Events",
-      "items": [
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-events-retrieve"
-        }
-      ]
-    },
-    {
-      "name": "Ping",
-      "items": [
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-ping"
         }
       ]
     },
@@ -1681,6 +859,856 @@
         {
           "discriminant": "page",
           "value": "api-changelog-2020-12-09"
+        }
+      ]
+    },
+    {
+      "name": "Routes",
+      "items": []
+    },
+    {
+      "name": "Accounts",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-accounts-me"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-user-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-invitation-status"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-permissions"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-permissions-access-level"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-users-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-users-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-users-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-users-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-users-delete"
+        }
+      ]
+    },
+    {
+      "name": "Advertising slots",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-advertising-slots-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-advertising-slots-status"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-advertising-slots-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-advertising-slots-update"
+        }
+      ]
+    },
+    {
+      "name": "API Requests",
+      "items": [
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-api-requests-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-api-requests-retrieve"
+        }
+      ]
+    },
+    {
+      "name": "Attachments",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-attachments-introduction"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-attachments-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-attachments-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-attachments-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-attachments-delete"
+        }
+      ]
+    },
+    {
+      "name": "Automations",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-automation-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automation-status"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automation-timing"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automation-delay"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automations-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automations-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automations-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automations-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automations-delete"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automations-invoke"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-automations-analytics"
+        }
+      ]
+    },
+    {
+      "name": "Bulk actions",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-bulk-actions-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-bulk-action-status"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-bulk-action-type"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-bulk-actions-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-bulk-actions-retrieve"
+        }
+      ]
+    },
+    {
+      "name": "Comments",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-comments-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-comments-type"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-comments-status"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-comments-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-comment-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-comments-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-comments-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-comments-delete"
+        }
+      ]
+    },
+    {
+      "name": "Coupons",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-coupons-introduction"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-coupons-list"
+        }
+      ]
+    },
+    {
+      "name": "Emails",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-emails-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-status"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-source"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-type"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-analytic"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-template"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-commenting-mode"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-suppression-reason"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Audience filters"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-filters"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-filter"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-operator"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-delete"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-analytics"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-send-draft"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-events"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-history-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-emails-history-body-retrieve"
+        }
+      ]
+    },
+    {
+      "name": "Events",
+      "items": [
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-events-retrieve"
+        }
+      ]
+    },
+    {
+      "name": "Exports",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-exports-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-exports-status"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-exports-collections"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-exports-format"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-exports-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-exports-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-exports-list"
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-images-introduction"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-images-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-images-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-images-delete"
+        }
+      ]
+    },
+    {
+      "name": "Newsletters",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-newsletters-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-newsletters-announcement-bar-visibility"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-newsletters-archive-theme"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-newsletters-auditing-mode"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-newsletters-locale"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-newsletters-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-newsletters-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-newsletters-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-newsletters-delete"
+        }
+      ]
+    },
+    {
+      "name": "Notes",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-notes-introduction"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-notes-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-notes-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-notes-delete"
+        }
+      ]
+    },
+    {
+      "name": "Ping",
+      "items": [
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-ping"
+        }
+      ]
+    },
+    {
+      "name": "Prices",
+      "items": [
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-prices-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-prices-create"
+        }
+      ]
+    },
+    {
+      "name": "RSS feeds",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-status"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-cadence"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-behavior"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-item-status"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-delete"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-items-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-items-create"
+        }
+      ]
+    },
+    {
+      "name": "Snippets",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-snippets-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-snippets-mode"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-snippets-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-snippets-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-snippets-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-snippets-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-snippets-delete"
+        }
+      ]
+    },
+    {
+      "name": "Subscribers",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-type"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-source"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-undeliverability-reason"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-delete"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-reminder"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-send-email"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-retrieve-responses"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-referrals"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-magic-link"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-automations"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-automations-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-subscribers-stripe-subscriptions"
+        }
+      ]
+    },
+    {
+      "name": "Surveys",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-surveys-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-surveys-status"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-surveys-cadence"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-surveys-input-type"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-survey-responses"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-surveys-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-surveys-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-surveys-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-surveys-delete"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-surveys-list-responses"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-surveys-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-survey-responses-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-survey-responses-update"
+        }
+      ]
+    },
+    {
+      "name": "Tags",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-tags-introduction"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-tags-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-tags-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-tags-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-tags-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-tags-delete"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-tags-analytics"
+        }
+      ]
+    },
+    {
+      "name": "Webhooks",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-webhooks-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-webhooks-event-types"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-webhook-status"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-webhooks-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-webhooks-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-webhooks-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-webhooks-delete"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-webhooks-test"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-webhooks-attempts-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-webhooks-retrieve"
         }
       ]
     }
