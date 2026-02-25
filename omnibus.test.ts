@@ -216,6 +216,43 @@ function getHeadingSlugsFromMdoc(filePath: string): string[] {
   return slugs;
 }
 
+function getHeadingsFromMdoc(content: string): Array<{
+  level: number;
+  text: string;
+  lineNumber: number;
+}> {
+  const lines = content.split("\n");
+  const headings: Array<{ level: number; text: string; lineNumber: number }> = [];
+  let inCodeFence = false;
+
+  for (let index = 0; index < lines.length; index++) {
+    const line = lines[index];
+    const trimmedLine = line.trim();
+
+    if (trimmedLine.startsWith("```")) {
+      inCodeFence = !inCodeFence;
+      continue;
+    }
+
+    if (inCodeFence) {
+      continue;
+    }
+
+    const match = line.match(/^(#{1,6})\s+(.+)$/);
+    if (!match) {
+      continue;
+    }
+
+    headings.push({
+      level: match[1].length,
+      text: match[2].trim(),
+      lineNumber: index + 1,
+    });
+  }
+
+  return headings;
+}
+
 const isInternalURLValid = (url: string) => {
   if (VALID_INTERNAL_LINKS_THAT_ARE_NOT_BACKED_BY_MDOC.includes(url)) {
     return true;
@@ -248,6 +285,33 @@ REDIRECTS.forEach(({ source, destination }) => {
       isInternalURLValid(destination),
       `Redirect from "${source}" to "${destination}" does not exist.`,
     ).toBeTruthy();
+  });
+});
+
+Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
+  test(`${filename} has valid heading hierarchy`, () => {
+    const headings = getHeadingsFromMdoc(content);
+
+    if (headings.length === 0) {
+      return;
+    }
+
+    const firstHeading = headings[0];
+    expect(
+      firstHeading.level,
+      `${filename} should start headings at H2, but found H${firstHeading.level} ("${firstHeading.text}") on line ${firstHeading.lineNumber}`,
+    ).toBe(2);
+
+    for (let i = 1; i < headings.length; i++) {
+      const previous = headings[i - 1];
+      const current = headings[i];
+      const isInvalidJump = current.level > previous.level + 1;
+
+      expect(
+        isInvalidJump,
+        `${filename} has an invalid heading jump from H${previous.level} ("${previous.text}", line ${previous.lineNumber}) to H${current.level} ("${current.text}", line ${current.lineNumber}).`,
+      ).toBe(false);
+    }
   });
 });
 

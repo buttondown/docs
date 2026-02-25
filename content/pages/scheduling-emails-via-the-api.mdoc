@@ -13,11 +13,11 @@ It only takes two extra lines of code to specify your email’s “Status” and
    body="{\"subject\": \"My scheduled email\", \"body\": \"Hello, future!\", \"status\": \"scheduled\", \"publish_date\": \"2024-12-31T12:00:00Z\"}" /%}
 
 
-### Parameters
+## Parameters
 
 Scheduled emails follow a similar set of [parameters](/api-emails-create) as non-scheduled emails —that is, except for the “Publish Date” and “Status.” In this case, “Publish Date” should be a date and time in the future, and “[Status](/api-emails-status)” should be “Scheduled.”
 
-### Results
+## Results
 
 So you’ve submitted your request to the Buttondown API. How do you know if it worked? There are three ways to check:
 - Visit the [API reference](https://buttondown.com/requests) tab in your Buttondown dashboard.
