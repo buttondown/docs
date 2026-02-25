@@ -15,7 +15,7 @@ const SearchIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
     fill="currentColor"
-    className="h-4 w-4"
+    className="h-4 w-4 text-gray-400 shrink-0"
   >
     <title>Search icon</title>
     <path
@@ -33,24 +33,25 @@ const highlighter = new Highlight({
 export default function Search({
   contentArray,
   defaultCategory = "general",
-  // We render multiple versions of <Search /> for desktop and mobile,
-  // so this prop prevents multiple modals from showing up on cmd+k.
   enableKeyboardShortcut = true,
+  variant = "modal",
 }: {
   contentArray: ContentArray;
   defaultCategory?: "general" | "api";
   enableKeyboardShortcut?: boolean;
+  variant?: "inline" | "modal";
 }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<"general" | "api">(defaultCategory);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
   const [selectionSource, setSelectionSource] = useState<"keyboard" | "mouse">(
     "keyboard",
   );
   const index = useMemo(() => buildSearchIndex(contentArray), [contentArray]);
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const modalContentRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setCategory(defaultCategory);
@@ -58,7 +59,8 @@ export default function Search({
 
   useEffect(() => {
     if (open) {
-      setSelectedIndex(0);
+      setQuery("");
+      setSelectedIndex(-1);
       setSelectionSource("keyboard");
     }
   }, [open]);
@@ -69,13 +71,20 @@ export default function Search({
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        setOpen(true);
+        setOpen((prev) => !prev);
       }
     };
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [setOpen, enableKeyboardShortcut]);
+  }, [enableKeyboardShortcut]);
+
+  // Auto-focus input on open (inline variant)
+  useEffect(() => {
+    if (open && variant === "inline") {
+      requestAnimationFrame(() => searchInputRef.current?.focus());
+    }
+  }, [open, variant]);
 
   const results = useMemo(() => {
     if (!index) return [];
@@ -88,14 +97,13 @@ export default function Search({
     });
   }, [query, index, category]);
 
-  const resultsCount = "hits" in results ? results.hits.length : 0;
+  const hitsCount = "hits" in results ? results.hits.length : 0;
+  const noResults = hitsCount === 0 && query.trim().length > 0;
+  const resultsCount = noResults ? 1 : hitsCount;
 
-  // Slightly convoluted way of moving the currently selected index when hover state changes.
-  // We do it this way, because using onMouseEnter requires the cursor to enter a box, which
-  // isn't always the case: [Cursor on top of A] -> [Key down to B] -> [Shake cursor inside A].
-  // This implementation watches any mouse movement at all, which is more robust.
+  // Mouse hover tracking for result selection
   useEffect(() => {
-    if (!open || !modalContentRef.current) return;
+    if (!open || !panelRef.current) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       const elementUnderCursor = document.elementFromPoint(
@@ -104,15 +112,14 @@ export default function Search({
       );
       if (!elementUnderCursor) return;
 
-      // Traverse up the DOM tree to find the hovered result row
       let currentElement: Element | null = elementUnderCursor;
-      while (currentElement && currentElement !== modalContentRef.current) {
+      while (currentElement && currentElement !== panelRef.current) {
         const dataIndex = currentElement.getAttribute("data-result-index");
         if (dataIndex !== null) {
-          const index = parseInt(dataIndex);
-          if (!isNaN(index) && index >= 0 && index < resultsCount) {
+          const idx = parseInt(dataIndex);
+          if (!isNaN(idx) && idx >= 0 && idx < resultsCount) {
             setSelectionSource("mouse");
-            setSelectedIndex(index);
+            setSelectedIndex(idx);
             return;
           }
         }
@@ -120,15 +127,24 @@ export default function Search({
       }
     };
 
-    const modalElement = modalContentRef.current;
-    modalElement.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      modalElement.removeEventListener("mousemove", handleMouseMove);
-    };
+    const el = panelRef.current;
+    el.addEventListener("mousemove", handleMouseMove);
+    return () => el.removeEventListener("mousemove", handleMouseMove);
   }, [open, resultsCount]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      setOpen(false);
+      return;
+    }
+    if (e.key === "Tab") {
+      e.preventDefault();
+      setCategory((prev) => (prev === "general" ? "api" : "general"));
+      setSelectedIndex(0);
+      setSelectionSource("keyboard");
+      return;
+    }
     if (e.key === "ArrowDown") {
       e.preventDefault();
       setSelectionSource("keyboard");
@@ -137,91 +153,142 @@ export default function Search({
       e.preventDefault();
       setSelectionSource("keyboard");
       setSelectedIndex((prev) => Math.max(prev - 1, 0));
-    } else if (e.key === "Enter" && resultsCount > 0) {
+    } else if (e.key === "Enter" && selectedIndex >= 0 && resultsCount > 0) {
       e.preventDefault();
-      const selectedHit = "hits" in results && results.hits[selectedIndex];
-      if (selectedHit) {
-        (
-          document.querySelector(`[data-result-index="${selectedIndex}"]`) as
-            | HTMLAnchorElement
-            | undefined
-        )?.click();
-        setOpen(false);
-      }
+      (
+        document.querySelector(`[data-result-index="${selectedIndex}"]`) as
+          | HTMLAnchorElement
+          | undefined
+      )?.click();
+      setOpen(false);
     }
   };
 
+  const searchPanel = (
+    <>
+      <div className={clsx("sticky top-0 space-x-1 bg-white px-4 py-3 flex items-center", query.trim() && "border-b border-gray-200")}>
+        <SearchIcon />
+        <input
+          ref={searchInputRef}
+          type="text"
+          placeholder="Search&hellip;"
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            setSelectedIndex(-1);
+            setSelectionSource("keyboard");
+          }}
+          onKeyDown={handleKeyDown}
+          className="w-full focus:outline-none ml-2 placeholder:text-gray-400 flex-1 bg-transparent"
+        />
+        <CategoryButton
+          label="General"
+          isActive={category === "general"}
+          onClick={() => setCategory("general")}
+        />
+        <CategoryButton
+          label="API"
+          isActive={category === "api"}
+          onClick={() => setCategory("api")}
+        />
+      </div>
+
+      <div className="divide-y divide-gray-200">
+        {"hits" in results &&
+          results.hits.map((hit, hitIndex) => {
+            return (
+              <SearchResultRow
+                key={hit.id}
+                title={hit.document.title}
+                body={hit.document.body}
+                href={`/${hit.document.slug}`}
+                query={query}
+                isSelected={hitIndex === selectedIndex}
+                resultIndex={hitIndex}
+                selectionSource={selectionSource}
+                onClick={() => setOpen(false)}
+              />
+            );
+          })}
+
+        {noResults && (
+          <>
+            <div className="py-3 px-4 text-sm text-gray-400">
+              No results found
+            </div>
+            <SearchResultRow
+              title="Email support@buttondown.com"
+              href="mailto:support@buttondown.com"
+              query=""
+              isSelected={selectedIndex === 0}
+              resultIndex={0}
+              selectionSource={selectionSource}
+              onClick={() => setOpen(false)}
+            />
+          </>
+        )}
+      </div>
+    </>
+  );
+
+  if (variant === "inline") {
+    return (
+      <Dialog.Root open={open} onOpenChange={setOpen}>
+        <div className="relative" ref={containerRef}>
+          <button
+            onClick={() => setOpen(!open)}
+            type="button"
+            className={clsx(
+              "bg-gray-100 hover:bg-gray-200 transition-colors rounded-full pl-3 pr-4 xl:pr-12 py-1 flex items-center gap-x-1.5",
+              open && "bg-gray-200",
+            )}
+          >
+            <MagnifyingGlassIcon className="size-4 text-gray-500" />
+            <span className="text-sm">Search</span>
+          </button>
+
+          <Dialog.Portal>
+            <Dialog.Overlay className="fixed inset-0 bg-black/10 z-50 data-[state=open]:animate-overlay-in data-[state=closed]:animate-overlay-out" />
+            <Dialog.Content
+              ref={panelRef}
+              onOpenAutoFocus={(e) => e.preventDefault()}
+              className="w-[420px] rounded-lg border border-gray-200 bg-white shadow-lg overflow-hidden z-[51] data-[state=open]:animate-dropdown-in data-[state=closed]:animate-dropdown-out"
+              style={{
+                position: "fixed",
+                top: containerRef.current
+                  ? containerRef.current.getBoundingClientRect().bottom + 4
+                  : 0,
+                right: containerRef.current
+                  ? window.innerWidth -
+                    containerRef.current.getBoundingClientRect().right
+                  : 0,
+              }}
+            >
+              <Dialog.Title asChild><span className="sr-only">Search</span></Dialog.Title>
+              <div className="max-h-[50vh] overflow-y-auto">
+                {searchPanel}
+              </div>
+            </Dialog.Content>
+          </Dialog.Portal>
+        </div>
+      </Dialog.Root>
+    );
+  }
+
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <button
-        onClick={() => setOpen(true)}
-        type="button"
-        className="max-lg:hidden bg-gray-100 hover:bg-gray-200 transition-colors rounded-full pl-3 pr-4 xl:pr-12 py-1 flex items-center gap-x-1.5"
-      >
-        <MagnifyingGlassIcon className="size-4 text-gray-500" />
-        <span className="text-sm">Search</span>
-      </button>
-
-      <button onClick={() => setOpen(true)} type="button" className="lg:hidden">
+      <button onClick={() => setOpen(true)} type="button">
         <MagnifyingGlassIcon className="size-5" />
       </button>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/50 z-50 grid sm:place-items-center p-2">
+        <Dialog.Overlay className="fixed inset-0 bg-black/50 z-50 grid sm:place-items-center p-2 data-[state=open]:animate-overlay-in data-[state=closed]:animate-overlay-out">
           <Dialog.Content
-            ref={modalContentRef}
-            className="max-w-xl w-full rounded-md border bg-gray-50 h-96 overflow-scroll"
+            ref={panelRef}
+            className="max-w-xl w-full rounded-md border bg-white h-96 overflow-scroll data-[state=open]:animate-modal-in data-[state=closed]:animate-modal-out"
           >
-            <Dialog.Title className="sr-only">Search</Dialog.Title>
-
-            <div className="sticky top-0 space-x-1 bg-gray-50 px-4 py-3 border-b border-gray-200 flex items-center">
-              <SearchIcon />
-              <input
-                ref={searchInputRef}
-                type="text"
-                placeholder="Search&hellip;"
-                value={query}
-                onChange={(e) => {
-                  setQuery(e.target.value);
-                  setSelectedIndex(0);
-                  setSelectionSource("keyboard");
-                }}
-                onKeyDown={handleKeyDown}
-                className="w-full focus:outline-none ml-2 placeholder:text-gray-400 flex-1"
-              />
-              <CategoryButton
-                label="General"
-                isActive={category === "general"}
-                onClick={() => setCategory("general")}
-              />
-              <CategoryButton
-                label="API"
-                isActive={category === "api"}
-                onClick={() => setCategory("api")}
-              />
-            </div>
-
-            <div className="divide-y divide-gray-200">
-              {"hits" in results &&
-                results.hits.map((hit, index) => {
-                  return (
-                    <SearchResultRow
-                      key={hit.id}
-                      title={hit.document.title}
-                      body={hit.document.body}
-                      href={`/${hit.document.slug}`}
-                      query={query}
-                      isSelected={index === selectedIndex}
-                      resultIndex={index}
-                      selectionSource={selectionSource}
-                    />
-                  );
-                })}
-
-              {"hits" in results &&
-                results.hits.length === 0 &&
-                query.trim().length !== 0 && <NoResultsFound />}
-            </div>
+            <Dialog.Title asChild><span className="sr-only">Search</span></Dialog.Title>
+            {searchPanel}
           </Dialog.Content>
         </Dialog.Overlay>
       </Dialog.Portal>
@@ -237,6 +304,7 @@ function SearchResultRow({
   isSelected = false,
   resultIndex,
   selectionSource,
+  onClick,
 }: {
   title: string;
   body?: string;
@@ -245,6 +313,7 @@ function SearchResultRow({
   isSelected?: boolean;
   resultIndex?: number;
   selectionSource?: "keyboard" | "mouse";
+  onClick?: () => void;
 }) {
   const LinkComponent = href.startsWith("/") ? Link : "a";
   const rowRef = useRef<HTMLAnchorElement>(null);
@@ -264,6 +333,7 @@ function SearchResultRow({
       href={href}
       data-result-index={resultIndex}
       className={clsx("block py-2.5 px-4", isSelected && "bg-gray-200")}
+      onClick={onClick}
     >
       <p
         dangerouslySetInnerHTML={{
@@ -308,17 +378,4 @@ function CategoryButton({
   );
 }
 
-function NoResultsFound() {
-  return (
-    <>
-      <div className="pt-2 pb-2.5 px-4 text-sm text-gray-400">
-        No results found
-      </div>
-      <SearchResultRow
-        title="Email support@buttondown.com"
-        href="mailto:support@buttondown.com"
-        query=""
-      />
-    </>
-  );
-}
+

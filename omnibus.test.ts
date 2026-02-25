@@ -10,6 +10,7 @@ import {
 } from "./components/ObjectDescription";
 import NAVIGATION from "./content/navigation.json";
 import matter from "gray-matter";
+import OpenAPIEnums from "./lib/openapi/enums.json";
 import OpenAPI from "./public/openapi.json";
 import REDIRECTS from "./redirects.mjs";
 
@@ -202,17 +203,46 @@ function slugify(text: string): string {
     .replace(/-+$/, "");
 }
 
-function getHeadingSlugsFromMdoc(filePath: string): string[] {
+function getAnchorsFromMdoc(filePath: string): string[] {
   if (!fs.existsSync(filePath)) {
     return [];
   }
   const content = fs.readFileSync(filePath, "utf-8");
-  const headingRegex = /^#{1,6}\s+(.+)$/gm;
+  const frontmatter = matter(content).data;
   const slugs: string[] = [];
+
+  // Markdown headings.
+  const headingRegex = /^#{1,6}\s+(.+)$/gm;
   let match;
   while ((match = headingRegex.exec(content)) !== null) {
     slugs.push(slugify(match[1]));
   }
+
+  // Enum values (e.g. SubscriberType, AutomationActionType).
+  if (frontmatter.enum) {
+    const enumData =
+      OpenAPIEnums[frontmatter.enum as keyof typeof OpenAPIEnums];
+    if (enumData) {
+      slugs.push(...Object.keys(enumData));
+    }
+  }
+
+  // Schema property names (e.g. Email schema has "slug", "subject", etc.).
+  if (frontmatter.schema) {
+    const schema =
+      OpenAPI.components.schemas[
+        frontmatter.schema as keyof typeof OpenAPI.components.schemas
+      ];
+    if (schema && "properties" in schema) {
+      slugs.push(...Object.keys(schema.properties));
+    }
+  }
+
+  // Endpoint pages get a dynamic "Error codes" section.
+  if (frontmatter.endpoint && frontmatter.method) {
+    slugs.push("error-codes");
+  }
+
   return slugs;
 }
 
@@ -268,7 +298,7 @@ const isInternalURLValid = (url: string) => {
   }
 
   if (fragment && fragment !== "faqs") {
-    const validSlugs = getHeadingSlugsFromMdoc(filePath);
+    const validSlugs = getAnchorsFromMdoc(filePath);
     return validSlugs.includes(fragment);
   }
 
@@ -329,10 +359,7 @@ Object.entries(FILENAME_TO_INTERNAL_LINKS).forEach(
     internalLinks.forEach((outboundPath) => {
       test(`Internal link from "${filename}" to "${outboundPath}" is valid`, () => {
         expect(
-          isInternalURLValid(
-            // Remove any hashes, transforming /foo#bar to /foo.
-            outboundPath.replace(/#.*$/, ""),
-          ),
+          isInternalURLValid(outboundPath),
           `Internal link from "${filename}" to "${outboundPath}" does not exist.`,
         ).toBeTruthy();
       });
@@ -458,6 +485,10 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
 
   test(filename + " does not contain 'Missing image' text", () => {
     expect(content).not.toContain("Missing image");
+  });
+
+  test(filename + " does not link to docs.buttondown.com", () => {
+    expect(content).not.toContain("(https://docs.buttondown.com/");
   });
 
   test(filename + " has a sentence-case title", () => {

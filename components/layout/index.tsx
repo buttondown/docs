@@ -159,7 +159,7 @@ const Nav = ({
       </div>
 
       <div className="flex items-center gap-x-3">
-        <Search contentArray={contentArray} defaultCategory="general" />
+        <Search contentArray={contentArray} defaultCategory="general" variant="inline" />
         <AccountButtons />
       </div>
     </nav>

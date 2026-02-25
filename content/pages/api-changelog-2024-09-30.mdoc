@@ -10,4 +10,4 @@ This change was implemented to align the API behavior with common REST conventio
 - Deleting a subscriber removes all their data from your list permanently.
 - Unsubscribing a subscriber keeps their data but prevents them from receiving future emails.
 
-You can still unsubscribe users by calling [`PATCH /subscribers/{id_or_email}`](https://docs.buttondown.com/api-subscribers-update) and setting the `type` field to `unsubscribed`. This method is preferable if you want to retain subscriber data while respecting their wish not to receive emails.
+You can still unsubscribe users by calling [`PATCH /subscribers/{id_or_email}`](/api-subscribers-update) and setting the `type` field to `unsubscribed`. This method is preferable if you want to retain subscriber data while respecting their wish not to receive emails.
