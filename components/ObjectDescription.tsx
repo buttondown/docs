@@ -62,7 +62,7 @@ export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
         />
       </div>
 
-      <h2>Fields</h2>
+      <h2 id="fields">Fields</h2>
       {Object.entries(schema.properties).map(([property, _info]) => {
         const info = _info as OpenAPIProperty;
         const name = property;

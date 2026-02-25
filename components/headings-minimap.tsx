@@ -22,7 +22,8 @@ export default function HeadingsMinimap() {
 
   useEffect(() => {
     const extractHeadings = () => {
-      const elements = document.querySelectorAll("h2[id], h3[id], h4[id]");
+      // We removed h4s because there are _dozens_ of them in the API docs.
+      const elements = document.querySelectorAll("h2[id], h3[id]");
       const items: HeadingItem[] = [];
 
       elements.forEach((el) => {
@@ -135,7 +136,8 @@ export default function HeadingsMinimap() {
     }
 
     const firstVisibleId = headings[highlightIndices[0]].id;
-    const lastVisibleId = headings[highlightIndices[highlightIndices.length - 1]].id;
+    const lastVisibleId =
+      headings[highlightIndices[highlightIndices.length - 1]].id;
 
     const firstEl = itemRefs.current.get(firstVisibleId);
     const lastEl = itemRefs.current.get(lastVisibleId);
