@@ -1,8 +1,6 @@
 "use client";
 
-import elk from "@mermaid-js/layout-elk";
 import * as Tabs from "@radix-ui/react-tabs";
-import mermaid from "mermaid";
 import { useEffect } from "react";
 import useButtondownCookie, {
   USERNAME_COOKIE,
@@ -32,9 +30,15 @@ export default function CodeInteractive({
 
   const username = useButtondownCookie(USERNAME_COOKIE);
 
-  // Initialize mermaid when the component mounts
+  // Initialize mermaid when the component mounts (dynamic import avoids vendor-chunk path issues)
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(async () => {
+      const [mermaidModule, elkModule] = await Promise.all([
+        import("mermaid"),
+        import("@mermaid-js/layout-elk"),
+      ]);
+      const mermaid = mermaidModule.default;
+      const elk = elkModule.default;
       mermaid.registerLayoutLoaders(elk);
       mermaid.initialize({
         startOnLoad: true,
@@ -46,6 +50,7 @@ export default function CodeInteractive({
       });
       mermaid.run();
     }, 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (

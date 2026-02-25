@@ -19,7 +19,6 @@ export function middleware(request: NextRequest) {
         "favicon.ico",
         "robots.txt",
         "sitemap.xml",
-        "keystatic",
       ];
       if (!excludedPaths.includes(slug)) {
         // Rewrite to the markdown API route
@@ -37,6 +36,6 @@ export const config = {
   // Only run middleware on paths that could be doc pages
   // Exclude static files, api routes, and other known paths
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|api/|rss/|keystatic).*)",
+    "/((?!_next/static|_next/image|favicon.ico|api/|rss/).*)",
   ],
 };

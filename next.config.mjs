@@ -11,7 +11,7 @@ const nextConfig = {
     return REDIRECTS;
   },
   outputFileTracingIncludes: {
-    "/[slug]": ["./public/code/**/*"],
+    "/[slug]": ["./public/code/**/*", "./content/**/*"],
   },
 };
 

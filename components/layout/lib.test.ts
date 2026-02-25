@@ -37,16 +37,8 @@ test("assembleNavData", async () => {
       [
         {
           slug: "a",
-          entry: {
-            content: () => {},
-            title: "A",
-            navigationTitle: "AA",
-            schema: "",
-            enum: "",
-            endpoint: "",
-            method: "",
-            relatedPages: [],
-          },
+          title: "A",
+          navigationTitle: "AA",
         },
       ],
     ),

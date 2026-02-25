@@ -17,8 +17,8 @@
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.2.7",
     "@heroicons/react": "^2.2.0",
-    "@keystatic/core": "^0.5.47",
-    "@keystatic/next": "^5.0.4",
+    "@markdoc/markdoc": "^0.4.0",
+    "yaml": "^2.7.0",
     "@mermaid-js/layout-elk": "^0.1.8",
     "@orama/highlight": "^0.1.9",
     "@orama/orama": "^3.1.16",
@@ -31,7 +31,6 @@
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
     "class-variance-authority": "^0.7.1",
-    "cmdk": "^1.1.1",
     "dotenv": "^16.5.0",
     "gray-matter": "^4.0.3",
     "marked": "^9.1.6",

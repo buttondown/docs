@@ -13,9 +13,7 @@ export default function useButtondownCookie(cookie: CookieName) {
 
   useEffect(() => {
     // We're not using `cookies` from next/headers because its usage opts
-    // the route into on-demand server-side rendering, which is not compatible
-    // with Keystatic's `reader` - Keystatic can't find any files when run
-    // in server-side (non-static) rendering, which manifests as every page 404ing.
+    // the route into on-demand server-side rendering.
     const username = document.cookie
       .split(";")
       .find((segment) => segment.includes(`${cookie}=`))

@@ -1,10 +1,16 @@
-import type { Entry } from "@keystatic/core/reader";
-import type keystaticConfig from "@/keystatic.config";
+import type React from "react";
 
-export type Page = Omit<
-  Entry<(typeof keystaticConfig)["collections"]["pages"]>,
-  "relatedPages"
-> & {
+export type Page = {
   slug: string;
-  relatedPages: Array<{ slug: string; title: string | null }>;
+  title: string;
+  navigationTitle?: string;
+  description?: string;
+  content: React.ReactNode;
+  schema?: string;
+  enum?: string;
+  endpoint?: string;
+  method?: string;
+  date?: string;
+  faqItems?: string;
+  relatedPages?: Array<{ slug: string; title: string | null }>;
 };

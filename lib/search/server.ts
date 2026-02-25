@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import matter from "gray-matter";
 import type { FAQItem } from "../../components/faq";
@@ -22,8 +22,20 @@ type Navigation = Record<
   { name: string; items: { discriminant: string; value: string }[] }[]
 >;
 
+// Path resolution: Vercel may use .next as cwd; monorepo may use repo root
+const resolvePath = (relative: string) => {
+  const cwd = process.cwd();
+  const candidates = [
+    join(cwd, relative),
+    join(cwd, "..", relative),
+    join(cwd, "docs", relative),
+  ];
+  const resolved = candidates.find((p) => existsSync(p));
+  return resolved ?? join(cwd, relative);
+};
+
 const readNavigation = (): Navigation => {
-  const navigationPath = join(process.cwd(), "content", "navigation.json");
+  const navigationPath = resolvePath("content/navigation.json");
   return JSON.parse(readFileSync(navigationPath, "utf-8"));
 };
 
@@ -76,7 +88,7 @@ const buildReferences = (
   slugToContent: Map<string, string>,
   slugToEnum: Map<string, string>,
 ): Map<string, string[]> => {
-  const openapiPath = join(process.cwd(), "public", "openapi.json");
+  const openapiPath = resolvePath("public/openapi.json");
   const openapi = JSON.parse(readFileSync(openapiPath, "utf-8"));
   const schemas = openapi.components?.schemas ?? {};
 
@@ -128,7 +140,7 @@ let cachedContentArray: ContentArray | null = null;
 
 export const buildContentArray = (): ContentArray => {
   if (cachedContentArray) return cachedContentArray;
-  const pagesDir = join(process.cwd(), "content", "pages");
+  const pagesDir = resolvePath("content/pages");
   const files = readdirSync(pagesDir).filter((file) => file.endsWith(".mdoc"));
   const navigation = readNavigation();
   const { apiSlugs, generalSlugs, slugToSection } =

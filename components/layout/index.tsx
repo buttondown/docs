@@ -3,17 +3,15 @@ import {
   CodeBracketIcon,
   PlayCircleIcon,
 } from "@heroicons/react/24/outline";
-import { createReader } from "@keystatic/core/reader";
 import HeadingsMinimap from "@/components/headings-minimap";
-import keystaticConfig, { localBaseURL } from "@/keystatic.config";
 import { buildContentArray } from "@/lib/search/server";
+import cms from "@/lib/cms";
 import { clsx } from "@/lib/utils";
 import AccountButtons from "./account-buttons";
 import {
   assembleNavData,
   getFirstPageSlug,
   type KeystaticNavigationFile,
-  type KeystaticPage,
   type NavData,
 } from "./lib";
 import MobileNav from "./mobile-nav";
@@ -30,17 +28,22 @@ export default async function Layout({
   title: string;
   children: React.ReactNode;
 }) {
-  const reader = createReader(localBaseURL, keystaticConfig);
-  const navigation = await reader.singletons.navigation.read();
-  const pages = await reader.collections.pages.all();
+  const navigation = cms.readNavigation();
+  const slugs = cms.list();
+  const rawPages = cms.getManyRaw(slugs);
+  const pages = rawPages.map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    navigationTitle: p.navigationTitle,
+  }));
 
   if (!navigation) {
-    throw new Error("Navigation couldn't be loaded from Keystatic");
+    throw new Error("Navigation couldn't be loaded");
   }
 
   const nav = assembleNavData(
     navigation as KeystaticNavigationFile,
-    pages as KeystaticPage[],
+    pages,
   );
 
   if ("errors" in nav) {

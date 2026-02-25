@@ -39,18 +39,10 @@ export type KeystaticNavigationFile = Record<
   }[]
 >;
 
-export type KeystaticPage = {
+export type PageMetadata = {
   slug: string;
-  entry: {
-    title: string;
-    navigationTitle: string;
-    content: () => void;
-    schema: string;
-    enum: string;
-    endpoint: string;
-    method: string;
-    relatedPages: readonly (string | null)[];
-  };
+  title: string;
+  navigationTitle?: string;
 };
 
 export const getFirstPageSlug = (
@@ -74,7 +66,7 @@ export const getFirstPageSlug = (
 
 export const assembleNavData = (
   navigation: KeystaticNavigationFile,
-  pages: KeystaticPage[],
+  pages: PageMetadata[],
 ): NavData | { errors: string[] } => {
   const data = {} as NavData;
   const errors = [];
@@ -99,14 +91,14 @@ export const assembleNavData = (
           const page = pages.find((p) => p.slug === slug);
 
           if (!page) {
-            errors.push(`Page not found in Keystatic: ${slug}`);
+            errors.push(`Page not found: ${slug}`);
             continue;
           }
 
           newFolder.items.push({
             type: item.discriminant,
-            title: page.entry.title,
-            navigationTitle: page.entry.navigationTitle,
+            title: page.title,
+            navigationTitle: page.navigationTitle ?? page.title,
             slug,
           });
         } else if (item.discriminant === "divider") {

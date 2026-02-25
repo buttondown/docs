@@ -1,4 +1,3 @@
-import { createReader } from "@keystatic/core/reader";
 import { marked } from "marked";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -11,7 +10,7 @@ import ObjectDescription, {
   fixtureForRef,
 } from "@/components/ObjectDescription";
 import Parameter from "@/components/Parameter";
-import keystaticConfig, { localBaseURL } from "@/keystatic.config";
+import cms from "@/lib/cms";
 import { DESCRIPTION, TITLE } from "@/lib/constants";
 import { buildContentArray } from "@/lib/search/server";
 import { generateJSONLDMetadata } from "@/lib/jsonld";
@@ -35,33 +34,23 @@ type Props = {
 };
 
 async function pageFromSlug(slug: string) {
-  const reader = createReader(localBaseURL, keystaticConfig);
-  const page = await reader.collections.pages.read(slug);
-  const relatedPages =
-    page === null
-      ? []
-      : await Promise.all(
-          page.relatedPages.map(async (s: string | null) => {
-            if (!s) {
-              return null;
-            }
-            return {
-              slug: s,
-              title: (await reader.collections.pages.read(s))?.title,
-            };
-          }),
-        );
+  const page = await cms.get(slug);
 
   if (!page) {
     notFound();
   }
 
+  const relatedPages = (page.relatedPages ?? []).map((s) => {
+    const related = cms.getRaw(s);
+    return {
+      slug: s,
+      title: related?.title ?? null,
+    };
+  });
+
   return {
     ...page,
-    relatedPages: relatedPages.filter((p) => p !== null) as Array<{
-      slug: string;
-      title: string | null;
-    }>,
+    relatedPages,
   };
 }
 
@@ -494,14 +483,9 @@ export default async function DocsPage(props: Props) {
 }
 
 export async function generateStaticParams() {
-  // Skip prerendering on preview deployments to speed up builds.
-  // Pages will be rendered on-demand instead.
-  if (process.env.VERCEL_ENV !== "production") {
-    return [];
-  }
-
-  const reader = createReader(localBaseURL, keystaticConfig);
-  const slugs = await reader.collections.pages.list();
+  // Prerender all pages so content is read at build time (when paths are correct).
+  // Skipping prerender caused 500s on preview deployments due to path resolution at runtime.
+  const slugs = cms.list();
 
   return slugs.map((slug) => ({ slug }));
 }

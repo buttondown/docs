@@ -1,7 +1,18 @@
 import fs from "fs";
+import path from "path";
 import { NextResponse } from "next/server";
 
-const MARKDOC_DIRECTORY = "content/pages";
+// Path resolution: Vercel may use .next as cwd; monorepo may use repo root
+function resolvePagesDir() {
+  const cwd = process.cwd();
+  const candidates = [
+    path.join(cwd, "content", "pages"),
+    path.join(cwd, "..", "content", "pages"),
+    path.join(cwd, "docs", "content", "pages"),
+  ];
+  const dir = candidates.find((d) => fs.existsSync(d));
+  return dir ?? path.join(cwd, "content", "pages");
+}
 
 type Params = {
   params: Promise<{
@@ -11,8 +22,8 @@ type Params = {
 
 export async function GET(_request: Request, { params }: Params) {
   const { slug } = await params;
-
-  const filePath = `${MARKDOC_DIRECTORY}/${slug}.mdoc`;
+  const pagesDir = resolvePagesDir();
+  const filePath = path.join(pagesDir, `${slug}.mdoc`);
 
   if (!fs.existsSync(filePath)) {
     return NextResponse.json({ error: "Page not found" }, { status: 404 });
@@ -28,7 +39,8 @@ export async function GET(_request: Request, { params }: Params) {
 }
 
 export async function generateStaticParams() {
-  const files = fs.readdirSync(MARKDOC_DIRECTORY);
+  const pagesDir = resolvePagesDir();
+  const files = fs.readdirSync(pagesDir);
   return files
     .filter((f) => f.endsWith(".mdoc"))
     .map((f) => ({ slug: f.replace(".mdoc", "") }));

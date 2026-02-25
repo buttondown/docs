@@ -1,9 +1,5 @@
-import { createReader } from "@keystatic/core/reader";
-import fs from "fs";
 import { marked } from "marked";
-import config, { localBaseURL } from "../../../keystatic.config";
-
-const reader = createReader(localBaseURL, config);
+import cms from "@/lib/cms";
 
 export const dynamic = "force-static";
 
@@ -13,28 +9,26 @@ const CHANNEL_METADATA = {
   link: "https://docs.buttondown.com/api-changelog",
 };
 
-const MARKDOC_DIRECTORY = "content/pages";
-
 export async function GET() {
-  const slugs = (await reader.collections.pages.list()).filter((slug) =>
-    slug.startsWith("api-changelog-"),
-  );
+  const slugs = cms.list().filter((slug) => slug.startsWith("api-changelog-"));
 
-  const rawPostData = await Promise.all(
-    slugs.map(async (slug) => {
-      const response = await reader.collections.pages.read(slug, {
-        resolveLinkedFiles: true,
-      });
+  const rawPostData = slugs
+    .map((slug) => {
+      const raw = cms.getRaw(slug);
+      if (!raw) return null;
       return {
         slug,
-        ...response,
-        rawContent: fs.readFileSync(
-          `${MARKDOC_DIRECTORY}/${slug}.mdoc`,
-          "utf-8",
-        ),
+        title: raw.title,
+        description: raw.description,
+        bodyText: raw.bodyText,
       };
-    }),
-  );
+    })
+    .filter(Boolean) as Array<{
+    slug: string;
+    title: string;
+    description?: string;
+    bodyText: string;
+  }>;
 
   const sortedPostData = rawPostData.sort((a, b) => {
     const coercedADate = new Date(a.title || "");
@@ -46,7 +40,7 @@ export async function GET() {
     description: post.description,
     link: `https://docs.buttondown.com/${post.slug}`,
     pubDate: new Date(post.title || "").toUTCString(),
-    content: marked(post.rawContent.split("---\n")[2]),
+    content: marked(post.bodyText),
   }));
   const rssFeed = `<rss version="2.0">
         <channel>

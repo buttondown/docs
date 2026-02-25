@@ -1,15 +1,13 @@
-import { createReader } from "@keystatic/core/reader";
 import type { MetadataRoute } from "next";
-import keystaticConfig, { localBaseURL } from "@/keystatic.config";
+import cms from "@/lib/cms";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const reader = createReader(localBaseURL, keystaticConfig);
-  const slugs = await reader.collections.pages.list();
+  const slugs = cms.list();
 
   return slugs.map((slug) => ({
     url: `https://docs.buttondown.com/${slug}`,
     lastModified: new Date(),
-    changeFrequency: "daily",
+    changeFrequency: "daily" as const,
     priority: 0.5,
   }));
 }
