@@ -11,7 +11,7 @@ import AccountButtons from "./account-buttons";
 import {
   assembleNavData,
   getFirstPageSlug,
-  type KeystaticNavigationFile,
+  type NavigationFile,
   type NavData,
 } from "./lib";
 import MobileNav from "./mobile-nav";
@@ -42,7 +42,7 @@ export default async function Layout({
   }
 
   const nav = assembleNavData(
-    navigation as KeystaticNavigationFile,
+    navigation as NavigationFile,
     pages,
   );
 

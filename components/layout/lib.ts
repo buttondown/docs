@@ -28,7 +28,7 @@ export type NavData = Record<
   }[]
 >;
 
-export type KeystaticNavigationFile = Record<
+export type NavigationFile = Record<
   string,
   {
     name: string;
@@ -65,7 +65,7 @@ export const getFirstPageSlug = (
 };
 
 export const assembleNavData = (
-  navigation: KeystaticNavigationFile,
+  navigation: NavigationFile,
   pages: PageMetadata[],
 ): NavData | { errors: string[] } => {
   const data = {} as NavData;
