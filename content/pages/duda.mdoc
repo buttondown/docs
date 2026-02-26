@@ -26,8 +26,6 @@ To connect Duda and Buttondown, you will create a form in Duda and use a webhook
 
 The Zapier webhook will take the information submitted in your Duda contact form and use that information to create a new subscriber in Buttondown.
 
-![Visualization of webhook connecting Duda and Buttondown](/images/visualizations/duda_webhook-visualization.png)
-
 ### Create a contact form
 
 First, you must create a contact form in Duda.
@@ -36,7 +34,7 @@ First, you must create a contact form in Duda.
 1. Choose **Widgets** in the side panel.
 1. Choose **Contact Form.**
 
-{% video file="/duda/duda_widgets-menu-in-duda.mp4" /%}
+{% video file="/images/duda/duda_widgets-menu-in-duda.mp4" /%}
 
 This video shows how to add a contact form in Duda.
 
@@ -49,7 +47,7 @@ Next, you'll configure your Duda contact form to use a Zapier webhook. Here's ho
 1. In Duda, click the contact form. A toolbar appears. 
 1. Choose **Content** to open options to customize your form's fields, including adding a [Zapier](https://zapier.com/) integration.
 
-{% video file="/duda/duda_menu-to-edit-contact-form-content.mp4" /%}
+{% video file="/images/duda/duda_menu-to-edit-contact-form-content.mp4" /%}
 
 This video shows how to edit the appearance of your contact form and add a Zapier integration.
 
@@ -60,13 +58,13 @@ After you've added a Zapier integration to your Duda contact form, a menu of pre
 1. Scroll past the Zap templates and click **See More**. A landing page opens.
 2. Search for "Buttondown" to find the Buttondown Zap.
 
- {% video file="/duda/duda_menu-to-add-zapier-template.mp4" /%}
+ {% video file="/images/duda/duda_menu-to-add-zapier-template.mp4" /%}
 
  This video shows how to find the Buttondown Zap.
 
 3. Choose a "Trigger" and an "Action" for your Zap. The "Trigger" should be when a member is created in Duda, and the "Action" should be to create a subscriber in Buttondown.
 
- {% video file="/duda/duda_create-zap.mp4" /%}
+ {% video file="/images/duda/duda_create-zap.mp4" /%}
  
  This video shows how to configure the Zap to perform the actions you want.
 
@@ -78,7 +76,7 @@ When you're ready, it's time to test your Zap. Here's how:
 
 1. In Zapier, click **Test Trigger**. If you don't have any existing members in Duda just yet, Duda uses test data to make sure that your "Trigger" works smoothly.
 
- {% video file="/duda/duda_trigger-test-results.mp4" /%}
+ {% video file="/images/duda/duda_trigger-test-results.mp4" /%}
 
  This video shows the successful output of a test in Zapier.
 
@@ -88,7 +86,7 @@ When you're ready, it's time to test your Zap. Here's how:
 
 You can add metadata values (e.g. "John," or "Smith") in the field on the right, but you can also use the field on the left to create keys for those values. You can use these keys to access your metadata in Buttondown later on, so you'll want them to be both memorable and syntax-friendly. Because we're asking for our new subscribers' first names and last names, we'll use `first_name` and `last_name` as our keys.
 
-{% video file="/duda/duda_action-menu.mp4" /%}
+{% video file="/images/duda/duda_action-menu.mp4" /%}
 
 This video shows how to configure Zapier to add information about a new Buttondown subscriber.
 
@@ -98,13 +96,13 @@ Now it's time to verify that your Zap works in Buttondown.
 
 In this final test, Zapier will send our test data to Buttondown to create a new subscriber. Successful test results might look something like this in Zapier:
 
-{% video file="/duda/duda_action-test-results.mp4" /%}
+{% video file="/images/duda/duda_action-test-results.mp4" /%}
 
 This video shows the Zapier Zap displaying data from a successful test event.
 
 However, we'll see the real results in [Buttondown](https://buttondown.com/login). Navigate to the "Subscribers" tab and look for the test subscriber from Duda.
 
-{% video file="/duda/duda_buttondown-subscriber-tab.mp4" /%}>
+{% video file="/images/duda/duda_buttondown-subscriber-tab.mp4" /%}>
 
 This video shows a new subscriber in Buttondown whose information matches the test event sent to Zapier.
 

@@ -4,6 +4,7 @@
 import { expect, test } from "bun:test";
 import dotenv from "dotenv";
 import fs from "fs";
+
 import {
   type OpenAPIProperty,
   urlForSchema,
@@ -140,6 +141,19 @@ const extractApplicationLinks = (content: string): string[] => {
   return links;
 };
 
+const extractLocalMarkdownImageLinks = (content: string): string[] => {
+  return [...content.matchAll(/!\[[^\]]*\]\(([^)]+)\)/g)]
+    .map((match) => match[1].trim().split(/\s+"/)[0])
+    .filter((url) => {
+      return (
+        url.startsWith("/") &&
+        !url.startsWith("//") &&
+        !url.startsWith("/http")
+      );
+    })
+    .map((url) => url.replace(/[?#].*$/, ""));
+};
+
 const FILENAME_TO_RAW_CONTENT = fs.readdirSync(MARKDOC_DIRECTORY).reduce(
   (acc, filename) => {
     const fullyQualifiedFilename = `${MARKDOC_DIRECTORY}/${filename}`;
@@ -168,6 +182,7 @@ const FILENAME_TO_APPLICATION_LINKS = Object.entries(
   },
   {} as { [filename: string]: string[] },
 );
+
 
 Object.entries(FILENAME_TO_APPLICATION_LINKS).forEach(([filename, routes]) => {
   if (routes.length === 0) {
@@ -640,6 +655,20 @@ ALL_IMAGES.forEach((filename) => {
       ([_, content]) => content.includes(filename),
     );
     expect(references.length).toBeGreaterThan(0);
+  });
+});
+
+Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
+  test(`${filename} has valid local markdown image paths`, () => {
+    const imageLinks = extractLocalMarkdownImageLinks(content);
+
+    imageLinks.forEach((imagePath) => {
+      const relativePath = imagePath.replace(/^\/images\//, "");
+      expect(
+        ALL_IMAGES,
+        `Missing image file: ${imagePath} (referenced by ${filename})`,
+      ).toContain(relativePath);
+    });
   });
 });
 
