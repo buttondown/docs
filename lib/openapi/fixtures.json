@@ -213,8 +213,6 @@
         "parent_id": null,
         "text": "This is a test comment",
         "status": "active",
-        "comment_type": "subscriber",
-        "annotation_data": {},
         "subscriber": null,
         "email": null
       }

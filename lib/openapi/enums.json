@@ -385,18 +385,6 @@
       "variant": "error"
     }
   },
-  "CommentType": {
-    "reviewer": {
-      "description": "A comment from a newsletter author or reviewer.",
-      "name": "Reviewer",
-      "variant": "info"
-    },
-    "subscriber": {
-      "description": "A comment from a subscriber.",
-      "name": "Subscriber",
-      "variant": "info"
-    }
-  },
   "EmailCommentingMode": {
     "disabled": {
       "description": "Commenting is disabled for this email.",

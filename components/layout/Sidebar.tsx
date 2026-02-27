@@ -84,7 +84,7 @@ const Sidebar = ({
       >
         {nav[currentNavigationGroup].map((folder) =>
           folder.items.length === 0 ? (
-            <div className="pt-1.5 not-first:mt-8">
+            <div key={folder.name} className="pt-1.5 not-first:mt-8">
               <p className="ml-[1.2rem] text-xs uppercase text-gray-500 w-max  px-1 py-0.5 rounded-md">
                 {folder.name}
               </p>

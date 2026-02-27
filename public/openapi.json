@@ -6950,26 +6950,6 @@
         "parameters": [
           {
             "in": "query",
-            "name": "comment_type",
-            "schema": {
-              "description": "If provided, only return comments of the given type.",
-              "allOf": [
-                {
-                  "title": "Type",
-                  "description": "An enumeration.",
-                  "enum": [
-                    "reviewer",
-                    "subscriber"
-                  ],
-                  "type": "string"
-                }
-              ]
-            },
-            "required": true,
-            "description": "If provided, only return comments of the given type."
-          },
-          {
-            "in": "query",
             "name": "email_id",
             "schema": {
               "title": "Email Id",
@@ -15041,15 +15021,6 @@
         ],
         "type": "string"
       },
-      "CommentType": {
-        "title": "Type",
-        "description": "An enumeration.",
-        "enum": [
-          "reviewer",
-          "subscriber"
-        ],
-        "type": "string"
-      },
       "Comment": {
         "title": "Comment",
         "description": "Comments are a way for subscribers to interact with newsletters. They're a way to\nprovide feedback, ask questions, and generally engage with the content of an email.\nComments exist in a tree structure; comments that reply to other comments are\nconsidered \"children\" of the parent comment.",
@@ -15086,13 +15057,6 @@
           "status": {
             "$ref": "#/components/schemas/CommentStatus"
           },
-          "comment_type": {
-            "$ref": "#/components/schemas/CommentType"
-          },
-          "annotation_data": {
-            "title": "Annotation Data",
-            "type": "object"
-          },
           "subscriber": {
             "$ref": "#/components/schemas/Subscriber"
           },
@@ -15105,8 +15069,7 @@
           "creation_date",
           "email_id",
           "text",
-          "status",
-          "comment_type"
+          "status"
         ]
       },
       "CommentInput": {
