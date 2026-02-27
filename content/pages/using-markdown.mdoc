@@ -67,6 +67,24 @@ If you'd like to turn the image into a link you can with Markdown! To do this, y
   editorMode="plaintext"
 /%}
 
+### LaTeX block
+
+Markdown also supports [LaTeX](/glossary-writing-emails#latex) blocks. To add a LaTeX block in the editor, wrap your LaTeX expression inside a `<div>` tag with the class `buttondown-block-math`. For example, `[ a^2 + b^2 = c^2 ]` would be written as:
+
+```markdown
+<div class='buttondown-block-math'>[ a^2 + b^2 = c^2 ]</div>
+```
+
+{% playgroundEmbed
+  title="LaTeX block"
+  height="400px"
+  initialContent="<div class='buttondown-block-math'>[ a^2 + b^2 = c^2 ]</div>"
+/%}
+
+You can also switch between Markdown and [Fancy Mode](/fancy-mode) without losing your LaTeX block. 
+
+(Note that as of now, LaTeX is only renderable as a "block", and not inline with text.)
+
 ## Extensions
 
 In addition, Buttondown uses a handful of extensions:
