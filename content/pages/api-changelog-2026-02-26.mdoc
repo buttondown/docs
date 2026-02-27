@@ -1,0 +1,28 @@
+---
+title: "2026-02-26"
+navigationTitle: "2026-02-26"
+---
+
+Each action inside an [automation](/api-automation-introduction) now carries its own timing, paving the way for multi-step sequences in a single automation. Previously, timing was a top-level field on the automation; starting with [API version `2026-04-01`](/api-versioning), it lives inside each action as a **step**.
+
+Here's what a multi-step automation looks like in the new format:
+
+```json
+{
+  "trigger": "subscriber.confirmed",
+  "actions": [
+    {
+      "type": "send_email",
+      "metadata": { "email_id": "welcome-email-id" },
+      "timing": { "time": "immediate" }
+    },
+    {
+      "type": "send_email",
+      "metadata": { "email_id": "followup-email-id" },
+      "timing": { "time": "delay", "delay": { "unit": "days", "value": "3" } }
+    }
+  ]
+}
+```
+
+If you're on an older API version, the top-level `timing` field still works exactly as before — the translation is handled behind the scenes.
