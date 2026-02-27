@@ -1310,7 +1310,7 @@
           },
           {
             "in": "query",
-            "name": "negative_status",
+            "name": "-status",
             "schema": {
               "description": "If provided, only return emails without the given status.",
               "type": "array",
@@ -10225,6 +10225,8 @@
           "email_address_contains_prohibited_string",
           "email_address_esp_suppression",
           "email_address_extant_subscriber_count",
+          "email_address_gmail_word_numbers",
+          "email_address_has_gravatar",
           "email_address_is_honeypot",
           "email_address_is_pwned",
           "email_address_length",
@@ -10234,6 +10236,7 @@
           "email_address_noreply_local_part",
           "email_address_null_characters",
           "email_address_peaceful_domain",
+          "email_address_plus_single_number",
           "email_address_previous_evaluation",
           "email_address_prohibited_via_domain",
           "email_address_regex",
@@ -12956,6 +12959,39 @@
         ],
         "type": "string"
       },
+      "AutomationActionType": {
+        "title": "ActionType",
+        "description": "The action that is triggered when the automation is successfully run.",
+        "enum": [
+          "add_tags",
+          "remove_tags",
+          "send_email",
+          "add_metadata",
+          "change_email_address",
+          "gift_premium_subscription",
+          "ungift_premium_subscription",
+          "send_discord_invitation",
+          "send_github_invitation",
+          "create_subscriber",
+          "unsubscribe_subscriber",
+          "shopify_unsubscribe",
+          "shopify_resubscribe",
+          "shopify_set_tags",
+          "shopify_create_customer",
+          "send_notification",
+          "forward_reply",
+          "create_arena_post",
+          "create_bluesky_post",
+          "create_linkedin_post",
+          "create_mastodon_post",
+          "create_tumblr_post",
+          "create_twitter_post",
+          "create_export",
+          "send_post_request",
+          "send_confirmation_reminder"
+        ],
+        "type": "string"
+      },
       "Delay": {
         "title": "Delay",
         "type": "object",
@@ -13009,39 +13045,6 @@
           "time"
         ]
       },
-      "AutomationActionType": {
-        "title": "ActionType",
-        "description": "The action that is triggered when the automation is successfully run.",
-        "enum": [
-          "add_tags",
-          "remove_tags",
-          "send_email",
-          "add_metadata",
-          "change_email_address",
-          "gift_premium_subscription",
-          "ungift_premium_subscription",
-          "send_discord_invitation",
-          "send_github_invitation",
-          "create_subscriber",
-          "unsubscribe_subscriber",
-          "shopify_unsubscribe",
-          "shopify_resubscribe",
-          "shopify_set_tags",
-          "shopify_create_customer",
-          "send_notification",
-          "forward_reply",
-          "create_arena_post",
-          "create_bluesky_post",
-          "create_linkedin_post",
-          "create_mastodon_post",
-          "create_tumblr_post",
-          "create_twitter_post",
-          "create_export",
-          "send_post_request",
-          "send_confirmation_reminder"
-        ],
-        "type": "string"
-      },
       "Action": {
         "title": "Action",
         "type": "object",
@@ -13052,6 +13055,9 @@
           "metadata": {
             "title": "Metadata",
             "type": "object"
+          },
+          "timing": {
+            "$ref": "#/components/schemas/Timing"
           }
         },
         "required": [
@@ -13084,9 +13090,6 @@
           "trigger": {
             "$ref": "#/components/schemas/ExternalEventType"
           },
-          "timing": {
-            "$ref": "#/components/schemas/Timing"
-          },
           "actions": {
             "title": "Actions",
             "type": "array",
@@ -13113,7 +13116,6 @@
           "name",
           "status",
           "trigger",
-          "timing",
           "actions",
           "filters",
           "metadata",
@@ -13200,9 +13202,6 @@
           "trigger": {
             "$ref": "#/components/schemas/ExternalEventType"
           },
-          "timing": {
-            "$ref": "#/components/schemas/Timing"
-          },
           "actions": {
             "title": "Actions",
             "type": "array",
@@ -13231,7 +13230,6 @@
         "required": [
           "name",
           "trigger",
-          "timing",
           "actions",
           "filters"
         ]
