@@ -13142,6 +13142,7 @@
           "action_invalid",
           "filter_invalid__field",
           "invalid_newsletter_id",
+          "trigger_action_invalid",
           "action_invalid__missing_body_or_subject"
         ],
         "type": "string"
