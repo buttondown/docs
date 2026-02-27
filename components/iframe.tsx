@@ -173,7 +173,8 @@ export default function Iframe({
   height?: number;
   variant?: Variant;
 }) {
-  const mungedSrc = src.replace("demo.buttondown.com", EXTERNAL_DOMAIN);
+  const mungedSrc =
+    src.replace("demo.buttondown.com", EXTERNAL_DOMAIN) + "&loginas=sheinhardt";
 
   return (
     <div>
