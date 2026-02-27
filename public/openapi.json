@@ -10592,6 +10592,7 @@
             "title": "Notes",
             "description": "Any notes you want to attach to the subscriber. These are not publicly visible.",
             "default": "",
+            "example": "One of our first subscribers!",
             "type": "string"
           },
           "metadata": {
