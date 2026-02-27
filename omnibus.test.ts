@@ -627,7 +627,6 @@ const IMAGE_SUFFIXES = [
   ".gif",
   ".svg",
   ".webp",
-  ".mp4",
 ];
 const IMAGE_DIRECTORY = "public/images";
 
@@ -642,10 +641,6 @@ const ALL_IMAGES = fs
 
 ALL_IMAGES.forEach((filename) => {
   test(filename + " is under 1MB", () => {
-    // Skip the test if it's an `mp4`.
-    if (filename.endsWith(".mp4")) {
-      return;
-    }
     const image = fs.readFileSync(`${IMAGE_DIRECTORY}/${filename}`);
     expect(image.length).toBeLessThan(1024 * 1024);
   });
