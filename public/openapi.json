@@ -14414,6 +14414,7 @@
         "enum": [
           "invalid_amount",
           "maximum_amount_too_high",
+          "minimum_amount_not_less_than_maximum",
           "paid_subscriptions_uninitialized",
           "product_deleted",
           "suggested_amount_out_of_range"
