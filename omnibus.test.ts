@@ -198,6 +198,58 @@ Object.entries(FILENAME_TO_APPLICATION_LINKS).forEach(([filename, routes]) => {
   });
 });
 
+const extractDemoIframePaths = (content: string): string[] => {
+  return [...content.matchAll(/{% iframe src="https:\/\/demo\.buttondown\.com\/([^"?]*)/g)]
+    .map((m) => m[1].replace(/\/$/, ""));
+};
+
+const routeToRegex = (route: string): RegExp => {
+  const pattern = route
+    .replace(/<str:[^>]+>/g, "[^/]+")
+    .replace(/<uuid:[^>]+>/g, "[^/]+")
+    .replace(/<int:[^>]+>/g, "\\d+");
+  return new RegExp(`^${pattern}$`);
+};
+
+const APPLICATION_ROUTE_REGEXES = VALID_APPLICATION_ROUTES.map(routeToRegex);
+
+const DEMO_NEWSLETTER_USERNAMES = JSON.parse(
+  fs.readFileSync("./autogen/demo_newsletter_usernames.json", "utf-8"),
+) as string[];
+
+const isValidDemoIframePath = (path: string): boolean => {
+  const firstSegment = path.split("/")[0];
+  if (DEMO_NEWSLETTER_USERNAMES.includes(firstSegment)) {
+    return true;
+  }
+  return APPLICATION_ROUTE_REGEXES.some((regex) => regex.test(path));
+};
+
+const FILENAME_TO_DEMO_IFRAME_PATHS = Object.entries(
+  FILENAME_TO_RAW_CONTENT,
+).reduce(
+  (acc, [filename, content]) => {
+    acc[filename] = extractDemoIframePaths(content);
+    return acc;
+  },
+  {} as { [filename: string]: string[] },
+);
+
+Object.entries(FILENAME_TO_DEMO_IFRAME_PATHS).forEach(([filename, paths]) => {
+  if (paths.length === 0) {
+    return;
+  }
+
+  test(filename + " only has valid demo iframe paths", () => {
+    paths.forEach((path) => {
+      expect(
+        isValidDemoIframePath(path),
+        `Invalid demo iframe path "${path}" in ${filename}. If this is a subscriber-facing page, add the username to the demo bootstrap data. Otherwise, check that the route exists.`,
+      ).toBeTruthy();
+    });
+  });
+});
+
 const VALID_INTERNAL_LINKS_THAT_ARE_NOT_BACKED_BY_MDOC = [
   "/rss/api-changelog",
   "$THREAD_1_LINK",
