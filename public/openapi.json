@@ -2428,6 +2428,72 @@
             },
             "required": false,
             "description": "If provided, only return emails that reference the given snippets."
+          },
+          {
+            "in": "query",
+            "name": "deliveries__start",
+            "schema": {
+              "title": "Deliveries  Start",
+              "description": "If provided, only return emails with at least this many deliveries.",
+              "type": "integer"
+            },
+            "required": false,
+            "description": "If provided, only return emails with at least this many deliveries."
+          },
+          {
+            "in": "query",
+            "name": "deliveries__end",
+            "schema": {
+              "title": "Deliveries  End",
+              "description": "If provided, only return emails with at most this many deliveries.",
+              "type": "integer"
+            },
+            "required": false,
+            "description": "If provided, only return emails with at most this many deliveries."
+          },
+          {
+            "in": "query",
+            "name": "click_rate__start",
+            "schema": {
+              "title": "Click Rate  Start",
+              "description": "If provided, only return emails with a click rate greater than or equal to the given value.",
+              "type": "number"
+            },
+            "required": false,
+            "description": "If provided, only return emails with a click rate greater than or equal to the given value."
+          },
+          {
+            "in": "query",
+            "name": "click_rate__end",
+            "schema": {
+              "title": "Click Rate  End",
+              "description": "If provided, only return emails with a click rate less than or equal to the given value.",
+              "type": "number"
+            },
+            "required": false,
+            "description": "If provided, only return emails with a click rate less than or equal to the given value."
+          },
+          {
+            "in": "query",
+            "name": "open_rate__start",
+            "schema": {
+              "title": "Open Rate  Start",
+              "description": "If provided, only return emails with an open rate greater than or equal to the given value.",
+              "type": "number"
+            },
+            "required": false,
+            "description": "If provided, only return emails with an open rate greater than or equal to the given value."
+          },
+          {
+            "in": "query",
+            "name": "open_rate__end",
+            "schema": {
+              "title": "Open Rate  End",
+              "description": "If provided, only return emails with an open rate less than or equal to the given value.",
+              "type": "number"
+            },
+            "required": false,
+            "description": "If provided, only return emails with an open rate less than or equal to the given value."
           }
         ],
         "responses": {
