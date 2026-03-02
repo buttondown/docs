@@ -1001,7 +1001,8 @@
               "email_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3"
             },
             "timing": {
-              "time": "immediate"
+              "time": "immediate",
+              "delay": null
             }
           }
         ],

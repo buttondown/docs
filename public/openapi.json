@@ -9781,7 +9781,7 @@
             "title": "Actions",
             "type": "array",
             "items": {
-              "type": "object"
+              "$ref": "#/components/schemas/Action"
             }
           },
           "filters": {
@@ -9831,7 +9831,7 @@
             "title": "Actions",
             "type": "array",
             "items": {
-              "type": "object"
+              "$ref": "#/components/schemas/Action"
             }
           },
           "filters": {
