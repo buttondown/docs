@@ -9,7 +9,7 @@
         "status": "open",
         "invoice_url": null,
         "sku_id": "adsku_0k28edc3fw896bp4mrhc535z5k",
-        "submission_url": "http://127.0.0.1:8000/example/sponsorships/submit/11111111-1111-1111-1111-111111111111/",
+        "submission_url": "/example/sponsorships/submit/11111111-1111-1111-1111-111111111111/",
         "sponsor_company": "",
         "sponsor_email": "",
         "sponsor_name": "",
@@ -31,7 +31,7 @@
         "status": "sold",
         "invoice_url": null,
         "sku_id": "adsku_0k28edc3fw896bp4mrhc535z5k",
-        "submission_url": "http://127.0.0.1:8000/example/sponsorships/submit/22222222-2222-2222-2222-222222222222/",
+        "submission_url": "/example/sponsorships/submit/22222222-2222-2222-2222-222222222222/",
         "sponsor_company": "Acme Corp",
         "sponsor_email": "sponsor@acme.com",
         "sponsor_name": "John Doe",
@@ -70,7 +70,7 @@
       "description": "Basic webhook",
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
-        "creation_date": "2020-09-29T00:00:00+00:00",
+        "creation_date": "2020-09-29T00:00:00Z",
         "status": "enabled",
         "event_types": [
           "subscriber.created"
@@ -554,7 +554,7 @@
       "object": {
         "id": "em_29fxqcmrkp969vzttksexvmvr8",
         "creation_date": "2000-01-01T00:00:00+00:00",
-        "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
+        "absolute_url": "/sheinhardt/archive/welcome-to-the-newsletter/",
         "analytics": null,
         "attachments": [],
         "body": "I hope you really enjoy it!",
@@ -588,7 +588,7 @@
       "object": {
         "id": "em_29fxqcmrkp969vzttksexvmvr8",
         "creation_date": "2000-01-01T00:00:00+00:00",
-        "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
+        "absolute_url": "/sheinhardt/archive/welcome-to-the-newsletter/",
         "analytics": null,
         "attachments": [],
         "body": "I hope you really enjoy it!",
@@ -622,7 +622,7 @@
       "object": {
         "id": "em_29fxqcmrkp969vzttksexvmvr8",
         "creation_date": "2000-01-01T00:00:00+00:00",
-        "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
+        "absolute_url": "/sheinhardt/archive/welcome-to-the-newsletter/",
         "analytics": null,
         "attachments": [],
         "body": "I hope you really enjoy it!",
@@ -1063,7 +1063,7 @@
       "description": "Basic webhook attempt",
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
-        "creation_date": "2020-09-29T00:00:00+00:00",
+        "creation_date": "2020-09-29T00:00:00Z",
         "status": "successful"
       }
     },
@@ -1071,7 +1071,7 @@
       "description": "Failed webhook attempt",
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb4",
-        "creation_date": "2020-09-29T00:00:00+00:00",
+        "creation_date": "2020-09-29T00:00:00Z",
         "status": "failed"
       }
     },
@@ -1079,7 +1079,7 @@
       "description": "Unattempted webhook attempt",
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb5",
-        "creation_date": "2020-09-29T00:00:00+00:00",
+        "creation_date": "2020-09-29T00:00:00Z",
         "status": "unattempted"
       }
     }
