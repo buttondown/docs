@@ -702,6 +702,22 @@
       "description": "Whenever an automation is manually invoked (e.g. by a webhook or API call).",
       "name": "automation.invoked"
     },
+    "bigcommerce.customer.created": {
+      "description": "Whenever a new customer is synced from BigCommerce.",
+      "name": "bigcommerce.customer.created"
+    },
+    "bigcommerce.customer.updated": {
+      "description": "Whenever a customer's data is updated in BigCommerce.",
+      "name": "bigcommerce.customer.updated"
+    },
+    "bigcommerce.order.created": {
+      "description": "Whenever a new order is synced from BigCommerce.",
+      "name": "bigcommerce.order.created"
+    },
+    "bigcommerce.order.updated": {
+      "description": "Whenever an order's data is updated in BigCommerce.",
+      "name": "bigcommerce.order.updated"
+    },
     "date.day.started": {
       "description": "Whenever a new day starts. This event is fired at midnight UTC.",
       "name": "date.day.started"
