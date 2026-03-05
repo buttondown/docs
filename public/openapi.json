@@ -10094,6 +10094,15 @@
           "commenting_mode": {
             "$ref": "#/components/schemas/EmailCommentingMode"
           },
+          "review_mode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ReviewMode"
+              }
+            ],
+            "default": "disabled",
+            "description": "The draft review mode for the email. Use `unlisted` to allow draft comments via link, or `disabled` to turn draft comments off."
+          },
           "description": {
             "description": "A human-readable description of the email, used for archives and SEO.",
             "title": "Description",
@@ -10302,6 +10311,15 @@
         "title": "FirewallReasonCode",
         "type": "string",
         "description": "An enumeration."
+      },
+      "ReviewMode": {
+        "description": "Represents the review mode of an email.",
+        "enum": [
+          "disabled",
+          "unlisted"
+        ],
+        "title": "ReviewMode",
+        "type": "string"
       },
       "StripeCoupon": {
         "properties": {
@@ -10948,6 +10966,15 @@
           },
           "commenting_mode": {
             "$ref": "#/components/schemas/EmailCommentingMode"
+          },
+          "review_mode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ReviewMode"
+              }
+            ],
+            "default": "disabled",
+            "description": "The draft review mode for the email. Use `unlisted` to allow draft comments via link, or `disabled` to turn draft comments off."
           },
           "related_email_ids": {
             "title": "Related Email Ids",
