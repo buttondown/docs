@@ -6,6 +6,13 @@ relatedPages:
 - gift-subscriptions
 description:  >-
   Buttondown offers a variety of ways to offer paid subscriptions – and you'll keep all of the money you make.
+faqItems: >
+  [
+    {
+      "question": "Can I use the same Stripe account for multiple newsletters?",
+      "answer": "No. Each newsletter requires its own separate Stripe account. A single Stripe account can only be connected to a single newsletter at a time."
+    }
+  ]
 ---
 
 {% paidFeature feature="paid_subscriptions" /%}
@@ -115,3 +122,7 @@ In the "Paid subscriptions" page, you can choose to prohibit free subscriptions.
 Stripe automatically reports and collects taxes for your paid newsletter. You can learn more about this on our [Stripe setup page](/stripe), or by reading [Stripe's documentation](https://stripe.com/docs/tax/set-up).
 
 You may also need to register your paid newsletter with your local tax authority. Stripe has a tool to help you determine if you need to do this. You can use this tool in the "Monitoring" tab of your tax "Overview" page. If Stripe advises you to register with your local tax authority, Stripe's [Registration](https://stripe.com/docs/tax/registering#add-a-registration) guide explains the process of adding, editing, and checking the status of your registration. To learn more, read [Stripe's tax monitoring documentation](https://stripe.com/docs/tax/monitoring).
+
+## FAQs
+
+{% faq /%}
