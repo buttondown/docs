@@ -1,0 +1,32 @@
+---
+title: "2026-01-01"
+navigationTitle: "2026-01-01"
+description: "TypeIDs are now the default identifier format"
+---
+
+Every ID in Buttondown's API is a UUID (e.g., `550e8400-e29b-41d4-a716-446655440000`) with no indication of what it represents. UUIDs are great for databases, but they're not human-friendly.
+
+Starting with API version `2026-01-01`, we're introducing TypeIDs in Buttondown.
+
+A TypeID is a UUID with a readable type prefix. Prefixes like `sub_`, `em_`, and `tag_` make it immediately clear what kind of object an ID represents. such as `sub_` for subscribers, `em_` for emails, and `tag_` for tags.
+
+Here's what changes in the response:
+
+```
+  Old response (< 2026-01-01)          New response (>= 2026-01-01)
+  ───────────────────────────          ────────────────────────────
+  {                                    {
+    "id": "550e8400-e29b-41d4-...",      "id": "sub_550e8400e29b41d4...",
+    "email_id": "7c9e6679-7425-..."      "email_id": "em_7c9e6679-7425..."
+  }                                    }
+```
+
+No breaking changes to how you send requests. The API accepts both TypeIDs and UUIDs as input, but responses are version-aware. Send a request with `X-API-Version: 2026-01-01` and you'll always get TypeIDs back, regardless of what format you sent in.
+
+```bash
+curl "https://api.buttondown.com/v1/subscribers" \
+  -H "Authorization: Token YOUR_API_KEY" \
+  -H "X-API-Version: 2026-01-01"
+```
+
+This is now the default version for every new API key. If you are using an older API version (`< 2026-01-01`), nothing changes, your API responses still continue to contain UUIDs exactly as they are. But if you want to use our latest TypeID system, migrate through the dashboard or pass `X-API-Version: 2026-01-01` in your request headers.
