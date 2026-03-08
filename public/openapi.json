@@ -9104,28 +9104,6 @@
         "title": "APIRequestDetail",
         "type": "object"
       },
-      "ListFilter": {
-        "properties": {
-          "ids": {
-            "description": "If provided, only return tags matching the given IDs.",
-            "title": "Ids",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "page_size": {
-            "default": 100,
-            "description": "The number of results per page.",
-            "title": "Page Size",
-            "maximum": 1000,
-            "minimum": 1,
-            "type": "integer"
-          }
-        },
-        "title": "ListFilter",
-        "type": "object"
-      },
       "APIRequest": {
         "description": "Represents a request to the API (api.buttondown.com).",
         "properties": {
@@ -9257,28 +9235,6 @@
           "size"
         ],
         "title": "Attachment",
-        "type": "object"
-      },
-      "AttachmentListFilter": {
-        "properties": {
-          "ids": {
-            "description": "If provided, only return attachments matching the given IDs.",
-            "title": "Ids",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "page_size": {
-            "default": 100,
-            "description": "The number of results per page.",
-            "title": "Page Size",
-            "maximum": 1000,
-            "minimum": 1,
-            "type": "integer"
-          }
-        },
-        "title": "AttachmentListFilter",
         "type": "object"
       },
       "Action": {
@@ -10627,23 +10583,6 @@
         "title": "CommentInput",
         "type": "object"
       },
-      "Ordering": {
-        "enum": [
-          "creation_date",
-          "-creation_date",
-          "question",
-          "-question",
-          "identifier",
-          "-identifier",
-          "status",
-          "-status",
-          "response_count",
-          "-response_count"
-        ],
-        "title": "Ordering",
-        "type": "string",
-        "description": "An enumeration."
-      },
       "CommentUpdateInput": {
         "properties": {
           "status": {
@@ -10997,56 +10936,6 @@
         "title": "EmailUpdateInput",
         "type": "object"
       },
-      "EmailHistoryFilter": {
-        "properties": {
-          "expand": {
-            "description": "If provided, expand the given field.",
-            "items": {
-              "const": "user",
-              "type": "string"
-            },
-            "title": "Expand",
-            "type": "array"
-          },
-          "field": {
-            "description": "The field to retrieve history for.",
-            "title": "Field",
-            "type": "string"
-          },
-          "page": {
-            "description": "The page number of the paginated response.",
-            "example": 1,
-            "title": "Page",
-            "type": "integer"
-          },
-          "ordering": {
-            "default": "creation_date",
-            "description": "The ordering to apply to the results.",
-            "enum": [
-              "creation_date",
-              "-creation_date"
-            ],
-            "title": "Ordering",
-            "type": "string"
-          },
-          "query": {
-            "description": "If provided, only return history entries matching the given query.",
-            "title": "Query",
-            "type": "string"
-          },
-          "page_size": {
-            "default": 100,
-            "description": "The number of results per page.",
-            "title": "Page Size",
-            "type": "integer"
-          }
-        },
-        "required": [
-          "field"
-        ],
-        "title": "EmailHistoryFilter",
-        "type": "object"
-      },
       "AccessLevel": {
         "enum": [
           "none",
@@ -11208,39 +11097,6 @@
         "title": "User",
         "type": "object"
       },
-      "EmailExpandFilter": {
-        "properties": {
-          "expand": {
-            "description": "If provided, expand the given field.",
-            "items": {
-              "const": "user",
-              "type": "string"
-            },
-            "title": "Expand",
-            "type": "array"
-          }
-        },
-        "title": "EmailExpandFilter",
-        "type": "object"
-      },
-      "RenderTarget": {
-        "properties": {
-          "target": {
-            "description": "The target format for the rendered HTML. Use 'email' for rendered_html_for_email or 'html' for rendered_html_for_web.",
-            "enum": [
-              "email",
-              "html"
-            ],
-            "title": "Target",
-            "type": "string"
-          }
-        },
-        "required": [
-          "target"
-        ],
-        "title": "RenderTarget",
-        "type": "object"
-      },
       "Render": {
         "properties": {
           "content": {
@@ -11282,57 +11138,6 @@
           }
         },
         "title": "SendDraftInput",
-        "type": "object"
-      },
-      "EmailEventFilter": {
-        "properties": {
-          "event_type": {
-            "$ref": "#/components/schemas/EmailEventType"
-          },
-          "ordering": {
-            "allOf": [
-              {
-                "enum": [
-                  "creation_date",
-                  "-creation_date"
-                ],
-                "title": "Ordering",
-                "type": "string"
-              }
-            ],
-            "default": "-creation_date",
-            "description": "The ordering to apply to the results."
-          },
-          "expand": {
-            "description": "If provided, expand the given field. (Only supported field: 'subscriber').",
-            "items": {
-              "enum": [
-                "automation",
-                "subscriber",
-                "email"
-              ],
-              "type": "string"
-            },
-            "title": "Expand",
-            "type": "array"
-          },
-          "email_id": {
-            "description": "If provided, only return events for the given email.",
-            "title": "Email Id",
-            "type": "string"
-          },
-          "automation_id": {
-            "description": "If provided, only return events for the given automation.",
-            "title": "Automation Id",
-            "type": "string"
-          },
-          "subscriber_id": {
-            "description": "If provided, only return events for the given subscriber.",
-            "title": "Subscriber Id",
-            "type": "string"
-          }
-        },
-        "title": "EmailEventFilter",
         "type": "object"
       },
       "EmailEventType": {
@@ -11426,25 +11231,6 @@
           "event_type"
         ],
         "title": "EmailEvent",
-        "type": "object"
-      },
-      "EmailEventRetrieveFilter": {
-        "properties": {
-          "expand": {
-            "description": "If provided, expand the given field. (Only supported field: 'subscriber').",
-            "items": {
-              "enum": [
-                "automation",
-                "subscriber",
-                "email"
-              ],
-              "type": "string"
-            },
-            "title": "Expand",
-            "type": "array"
-          }
-        },
-        "title": "EmailEventRetrieveFilter",
         "type": "object"
       },
       "Export": {
@@ -11835,21 +11621,6 @@
       "Empty": {
         "properties": {},
         "title": "Empty",
-        "type": "object"
-      },
-      "ItemFilter": {
-        "properties": {
-          "expand": {
-            "description": "If provided, expand the given field.",
-            "items": {
-              "const": "email",
-              "type": "string"
-            },
-            "title": "Expand",
-            "type": "array"
-          }
-        },
-        "title": "ItemFilter",
         "type": "object"
       },
       "ExternalFeedItem": {
@@ -13372,21 +13143,6 @@
         "title": "NoteInput",
         "type": "object"
       },
-      "PriceListFilter": {
-        "properties": {
-          "expand": {
-            "description": "If provided, expand the given field.",
-            "items": {
-              "const": "product",
-              "type": "string"
-            },
-            "title": "Expand",
-            "type": "array"
-          }
-        },
-        "title": "PriceListFilter",
-        "type": "object"
-      },
       "Price": {
         "properties": {
           "amount": {
@@ -13652,23 +13408,6 @@
           "style"
         ],
         "title": "PriceInput",
-        "type": "object"
-      },
-      "PublicEmailListFilters": {
-        "properties": {
-          "q": {
-            "description": "If provided, only return emails matching the given query.",
-            "title": "Q",
-            "type": "string"
-          },
-          "page": {
-            "default": 1,
-            "description": "The page number to return.",
-            "title": "Page",
-            "type": "integer"
-          }
-        },
-        "title": "PublicEmailListFilters",
         "type": "object"
       },
       "PublicEmail": {
@@ -16375,57 +16114,6 @@
         "title": "APIRequestSource",
         "description": "An enumeration."
       },
-      "ArchiveImportSource": {
-        "type": "string",
-        "enum": [
-          "active_campaign",
-          "aweber_zip",
-          "beehiiv",
-          "blogger",
-          "buttondown",
-          "convertkit",
-          "convertkit_api",
-          "convertkit_v3",
-          "doc_zip",
-          "drip",
-          "ghost",
-          "google",
-          "html_zip",
-          "hey",
-          "jekyll_zip",
-          "mailchimp",
-          "mailchimp_v2",
-          "mailchimp_v3",
-          "mailerlite",
-          "medium",
-          "other",
-          "outlook",
-          "revue",
-          "rss",
-          "sandpaper",
-          "substack",
-          "substack_zip",
-          "tinyletter",
-          "tinyletter_csv",
-          "typepad",
-          "wordpress",
-          "write_as"
-        ],
-        "title": "ArchiveImportSource",
-        "description": "An enumeration."
-      },
-      "ArchiveImportStatus": {
-        "type": "string",
-        "enum": [
-          "failed",
-          "in_progress",
-          "not_started",
-          "succeeded",
-          "succeeded_with_errors"
-        ],
-        "title": "ArchiveImportStatus",
-        "description": "An enumeration."
-      },
       "AutomationAttemptStatus": {
         "type": "string",
         "enum": [
@@ -16487,17 +16175,6 @@
         "title": "BulkActionType",
         "description": "\n        Represents the action being performed on a bulk of objects.\n\n        (Not to be coy, but these names should be self-explanatory.)\n        "
       },
-      "ConversationStatus": {
-        "type": "string",
-        "enum": [
-          "active",
-          "archived",
-          "spammy",
-          "starred"
-        ],
-        "title": "ConversationStatus",
-        "description": "An enumeration."
-      },
       "ExportStatus": {
         "type": "string",
         "enum": [
@@ -16508,16 +16185,6 @@
         ],
         "title": "ExportStatus",
         "description": "\n        Represents the status of an export.\n\n        No action is required to move from one state or another; Buttondown\n        internally handles the transitions, and exposing the status is for\n        observability purposes only.\n        "
-      },
-      "ExternalEventStatus": {
-        "type": "string",
-        "enum": [
-          "pending",
-          "processed",
-          "failed"
-        ],
-        "title": "ExternalEventStatus",
-        "description": "Note that these statuses are _independent_ of the statuses of various actions (automations, webhooks) triggered by the external event.\n\n        An ExternalEvent may be marked as 'processed' even if the action triggered by the event fails or has yet to be processed.\n        "
       },
       "ExternalFeedAutomationStatus": {
         "type": "string",
@@ -16539,15 +16206,6 @@
         "title": "FormStatus",
         "description": "An enumeration."
       },
-      "InboxItemStatus": {
-        "type": "string",
-        "enum": [
-          "unread",
-          "read"
-        ],
-        "title": "InboxItemStatus",
-        "description": "An enumeration."
-      },
       "InvitationStatus": {
         "type": "string",
         "enum": [
@@ -16558,60 +16216,6 @@
           "owner"
         ],
         "title": "InvitationStatus",
-        "description": "An enumeration."
-      },
-      "NewsletterStatus": {
-        "type": "string",
-        "enum": [
-          "active",
-          "deleting",
-          "disabled",
-          "unconfirmed",
-          "permanently_active",
-          "super_permanently_active",
-          "permanently_disabled",
-          "undeliverable",
-          "staging",
-          "prospective",
-          "dormant"
-        ],
-        "title": "NewsletterStatus",
-        "description": "An enumeration."
-      },
-      "SubscriberImportSource": {
-        "type": "string",
-        "enum": [
-          "substack",
-          "tinyletter",
-          "mailchimp",
-          "buttondown",
-          "sender_dot_net",
-          "sendy",
-          "shopify",
-          "flodesk",
-          "squarespace",
-          "ghost",
-          "memberful",
-          "sparkloop",
-          "google",
-          "mailerlite",
-          "bare",
-          "custom",
-          "standard"
-        ],
-        "title": "SubscriberImportSource",
-        "description": "An enumeration."
-      },
-      "SubscriberImportStatus": {
-        "type": "string",
-        "enum": [
-          "not_started",
-          "in_progress",
-          "validating",
-          "failed",
-          "succeeded"
-        ],
-        "title": "SubscriberImportStatus",
         "description": "An enumeration."
       },
       "WebhookAttemptStatus": {
