@@ -22,6 +22,10 @@ faqItems: >
     {
       "question": "I added a new metadata key but it's not showing up in the dashboard. What's going on?",
       "answer": "Metadata keys are cached for up to one hour. If you've just added a new metadata key (for example, by adding a custom field in your [subscribing settings](https://buttondown.com/settings/subscribing) or via the API), it may take up to an hour before it appears in places like automation filters and the subscriber detail page.\n\nIf it's been longer than an hour and you're still not seeing your metadata key, please [contact us](mailto:support@buttondown.com) and we'll be happy to help."
+    },
+    {
+      "question": "Why doesn't Buttondown capture the full referrer URL when someone subscribes via an embedded form?",
+      "answer": "This is a limitation of how browsers handle HTML `<form>` submissions. Unlike elements like `<a>`, `<img>`, and `<iframe>`, the `<form>` element does not support the `referrerpolicy` attribute — it's simply [not part of the HTML spec](https://github.com/whatwg/html/issues/4320). Because of this, browsers only send the origin (e.g. `https://example.com`) rather than the full page URL (e.g. `https://example.com/blog/my-post`) when a form is submitted.\n\nIf you need full referrer URL tracking, consider using Buttondown's [iframe embed](#embedding-an-iframe) or the [web component embed](https://buttondown.com/settings/embedding), both of which can capture the full page URL."
     }
   ]
 ---
