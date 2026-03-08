@@ -467,57 +467,165 @@
             "name": "api_key_id",
             "schema": {
               "default": [],
+              "description": "If provided, only return requests made with the given [API key](https://docs.buttondown.com/api-authentication) ID(s).",
               "items": {
                 "type": "string"
               },
               "title": "Api Key Id",
               "type": "array"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return requests made with the given [API key](https://docs.buttondown.com/api-authentication) ID(s)."
           },
           {
             "in": "query",
-            "name": "status_code",
+            "name": "creation_date__gt",
             "schema": {
-              "default": [],
-              "items": {
-                "type": "string"
-              },
-              "title": "Status Code",
-              "type": "array"
+              "description": "If provided, only return requests created after the given datetime.",
+              "example": "2024-01-01T00:00:00Z",
+              "title": "Creation Date  Gt",
+              "format": "date-time",
+              "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return requests created after the given datetime.",
+            "example": "2024-01-01T00:00:00Z"
+          },
+          {
+            "in": "query",
+            "name": "creation_date__lt",
+            "schema": {
+              "description": "If provided, only return requests created before the given datetime.",
+              "example": "2024-12-31T23:59:59Z",
+              "title": "Creation Date  Lt",
+              "format": "date-time",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return requests created before the given datetime.",
+            "example": "2024-12-31T23:59:59Z"
+          },
+          {
+            "in": "query",
+            "name": "date__end",
+            "schema": {
+              "description": "If provided, only return requests created on or before the given date.",
+              "title": "Date  End",
+              "format": "date",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return requests created on or before the given date."
+          },
+          {
+            "in": "query",
+            "name": "date__start",
+            "schema": {
+              "description": "If provided, only return requests created on or after the given date.",
+              "title": "Date  Start",
+              "format": "date",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return requests created on or after the given date."
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "description": "The maximum number of results to return per page.",
+              "example": 100,
+              "title": "Limit",
+              "type": "integer"
+            },
+            "required": false,
+            "description": "The maximum number of results to return per page.",
+            "example": 100
           },
           {
             "in": "query",
             "name": "method",
             "schema": {
-              "default": [],
+              "description": "If provided, only return requests with the given HTTP method(s).",
+              "example": [
+                "GET",
+                "POST"
+              ],
               "items": {
                 "type": "string"
               },
               "title": "Method",
               "type": "array"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return requests with the given HTTP method(s).",
+            "example": [
+              "GET",
+              "POST"
+            ]
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "schema": {
+              "default": [],
+              "description": "If provided, only return requests matching the given API path(s).",
+              "items": {
+                "type": "string"
+              },
+              "title": "Path",
+              "type": "array"
+            },
+            "required": false,
+            "description": "If provided, only return requests matching the given API path(s)."
           },
           {
             "in": "query",
             "name": "source",
             "schema": {
-              "default": [],
+              "description": "If provided, only return requests from the given source(s).",
+              "example": [
+                "api"
+              ],
               "items": {
                 "$ref": "#/components/schemas/APIRequestSource"
               },
               "title": "Source",
               "type": "array"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return requests from the given source(s).",
+            "example": [
+              "api"
+            ]
+          },
+          {
+            "in": "query",
+            "name": "status_code",
+            "schema": {
+              "description": "If provided, only return requests with the given HTTP status code(s).",
+              "example": [
+                "200",
+                "404"
+              ],
+              "items": {
+                "type": "string"
+              },
+              "title": "Status Code",
+              "type": "array"
+            },
+            "required": false,
+            "description": "If provided, only return requests with the given HTTP status code(s).",
+            "example": [
+              "200",
+              "404"
+            ]
           },
           {
             "in": "query",
             "name": "version",
             "schema": {
+              "description": "If provided, only return requests made with the given [API version](https://docs.buttondown.com/api-versioning)(s).",
               "title": "Version",
               "items": {
                 "enum": [
@@ -535,69 +643,8 @@
               },
               "type": "array"
             },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "date__start",
-            "schema": {
-              "title": "Date  Start",
-              "format": "date",
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "date__end",
-            "schema": {
-              "title": "Date  End",
-              "format": "date",
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "creation_date__lt",
-            "schema": {
-              "title": "Creation Date  Lt",
-              "format": "date-time",
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "creation_date__gt",
-            "schema": {
-              "title": "Creation Date  Gt",
-              "format": "date-time",
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "path",
-            "schema": {
-              "default": [],
-              "items": {
-                "type": "string"
-              },
-              "title": "Path",
-              "type": "array"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "title": "Limit",
-              "type": "integer"
-            },
-            "required": false
+            "required": false,
+            "description": "If provided, only return requests made with the given [API version](https://docs.buttondown.com/api-versioning)(s)."
           }
         ],
         "responses": {
@@ -1792,34 +1839,40 @@
             "in": "query",
             "name": "email_id",
             "schema": {
-              "description": "If provided, only return comments for the given email.",
+              "description": "If provided, only return comments for the given [email](https://docs.buttondown.com/api-emails-introduction).",
+              "example": "email_abc123",
               "title": "Email Id",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return comments for the given email."
+            "description": "If provided, only return comments for the given [email](https://docs.buttondown.com/api-emails-introduction).",
+            "example": "email_abc123"
           },
           {
             "in": "query",
             "name": "subscriber_id",
             "schema": {
-              "description": "If provided, only return comments for the given subscriber.",
+              "description": "If provided, only return comments for the given [subscriber](https://docs.buttondown.com/api-subscribers-introduction).",
+              "example": "sub_abc123",
               "title": "Subscriber Id",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return comments for the given subscriber."
+            "description": "If provided, only return comments for the given [subscriber](https://docs.buttondown.com/api-subscribers-introduction).",
+            "example": "sub_abc123"
           },
           {
             "in": "query",
             "name": "parent_id",
             "schema": {
               "description": "If provided, only return comments that are replies to the given parent comment.",
+              "example": "comment_abc123",
               "title": "Parent Id",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return comments that are replies to the given parent comment."
+            "description": "If provided, only return comments that are replies to the given parent comment.",
+            "example": "comment_abc123"
           },
           {
             "in": "query",
@@ -1857,9 +1910,13 @@
                   "type": "string"
                 }
               ],
-              "default": "-creation_date"
+              "default": "-creation_date",
+              "description": "The ordering to apply to the results.",
+              "example": "-creation_date"
             },
-            "required": false
+            "required": false,
+            "description": "The ordering to apply to the results.",
+            "example": "-creation_date"
           },
           {
             "in": "query",
@@ -2201,7 +2258,7 @@
             "in": "query",
             "name": "status",
             "schema": {
-              "description": "If provided, only return emails with the given status.",
+              "description": "If provided, only return [emails](https://docs.buttondown.com/api-emails-introduction) with the given status.",
               "items": {
                 "$ref": "#/components/schemas/EmailStatus"
               },
@@ -2209,13 +2266,16 @@
               "type": "array"
             },
             "required": false,
-            "description": "If provided, only return emails with the given status."
+            "description": "If provided, only return [emails](https://docs.buttondown.com/api-emails-introduction) with the given status."
           },
           {
             "in": "query",
             "name": "-status",
             "schema": {
-              "description": "If provided, only return emails without the given status.",
+              "description": "If provided, only return [emails](https://docs.buttondown.com/api-emails-introduction) without the given status.",
+              "example": [
+                "draft"
+              ],
               "items": {
                 "$ref": "#/components/schemas/EmailStatus"
               },
@@ -2223,13 +2283,16 @@
               "type": "array"
             },
             "required": false,
-            "description": "If provided, only return emails without the given status."
+            "description": "If provided, only return [emails](https://docs.buttondown.com/api-emails-introduction) without the given status.",
+            "example": [
+              "draft"
+            ]
           },
           {
             "in": "query",
             "name": "ids",
             "schema": {
-              "description": "If provided, only return emails with the given ids.",
+              "description": "If provided, only return emails with the given IDs.",
               "items": {
                 "type": "string"
               },
@@ -2237,7 +2300,7 @@
               "type": "array"
             },
             "required": false,
-            "description": "If provided, only return emails with the given ids."
+            "description": "If provided, only return emails with the given IDs."
           },
           {
             "in": "query",
@@ -2295,9 +2358,13 @@
                   "type": "string"
                 }
               ],
-              "default": "creation_date"
+              "default": "creation_date",
+              "description": "The ordering to apply to the results.",
+              "example": "-publish_date"
             },
-            "required": false
+            "required": false,
+            "description": "The ordering to apply to the results.",
+            "example": "-publish_date"
           },
           {
             "in": "query",
@@ -2351,27 +2418,41 @@
             "in": "query",
             "name": "excluded_fields",
             "schema": {
-              "default": [],
+              "description": "If provided, exclude the given field(s) from the response. This can improve performance for large responses.",
+              "example": [
+                "body"
+              ],
               "items": {
                 "$ref": "#/components/schemas/EmailExcludableField"
               },
               "title": "Excluded Fields",
               "type": "array"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, exclude the given field(s) from the response. This can improve performance for large responses.",
+            "example": [
+              "body"
+            ]
           },
           {
             "in": "query",
             "name": "source",
             "schema": {
-              "default": [],
+              "description": "If provided, only return emails from the given source(s).",
+              "example": [
+                "api"
+              ],
               "items": {
                 "$ref": "#/components/schemas/EmailSource"
               },
               "title": "Source",
               "type": "array"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return emails from the given source(s).",
+            "example": [
+              "api"
+            ]
           },
           {
             "in": "query",
@@ -2418,7 +2499,7 @@
             "in": "query",
             "name": "snippet_id",
             "schema": {
-              "description": "If provided, only return emails that reference the given snippets.",
+              "description": "If provided, only return emails that reference the given [snippets](https://docs.buttondown.com/api-snippets-introduction).",
               "items": {
                 "type": "string"
               },
@@ -2426,73 +2507,85 @@
               "type": "array"
             },
             "required": false,
-            "description": "If provided, only return emails that reference the given snippets."
+            "description": "If provided, only return emails that reference the given [snippets](https://docs.buttondown.com/api-snippets-introduction)."
           },
           {
             "in": "query",
             "name": "deliveries__start",
             "schema": {
               "description": "If provided, only return emails with at least this many deliveries.",
+              "example": 100,
               "title": "Deliveries  Start",
               "type": "integer"
             },
             "required": false,
-            "description": "If provided, only return emails with at least this many deliveries."
+            "description": "If provided, only return emails with at least this many deliveries.",
+            "example": 100
           },
           {
             "in": "query",
             "name": "deliveries__end",
             "schema": {
               "description": "If provided, only return emails with at most this many deliveries.",
+              "example": 1000,
               "title": "Deliveries  End",
               "type": "integer"
             },
             "required": false,
-            "description": "If provided, only return emails with at most this many deliveries."
+            "description": "If provided, only return emails with at most this many deliveries.",
+            "example": 1000
           },
           {
             "in": "query",
             "name": "click_rate__start",
             "schema": {
               "description": "If provided, only return emails with a click rate greater than or equal to the given value.",
+              "example": 0.1,
               "title": "Click Rate  Start",
               "type": "number"
             },
             "required": false,
-            "description": "If provided, only return emails with a click rate greater than or equal to the given value."
+            "description": "If provided, only return emails with a click rate greater than or equal to the given value.",
+            "example": 0.1
           },
           {
             "in": "query",
             "name": "click_rate__end",
             "schema": {
               "description": "If provided, only return emails with a click rate less than or equal to the given value.",
+              "example": 0.5,
               "title": "Click Rate  End",
               "type": "number"
             },
             "required": false,
-            "description": "If provided, only return emails with a click rate less than or equal to the given value."
+            "description": "If provided, only return emails with a click rate less than or equal to the given value.",
+            "example": 0.5
           },
           {
             "in": "query",
             "name": "open_rate__start",
             "schema": {
               "description": "If provided, only return emails with an open rate greater than or equal to the given value.",
+              "example": 0.2,
               "title": "Open Rate  Start",
               "type": "number"
             },
             "required": false,
-            "description": "If provided, only return emails with an open rate greater than or equal to the given value."
+            "description": "If provided, only return emails with an open rate greater than or equal to the given value.",
+            "example": 0.2
           },
           {
             "in": "query",
             "name": "open_rate__end",
             "schema": {
               "description": "If provided, only return emails with an open rate less than or equal to the given value.",
+              "example": 0.8,
               "title": "Open Rate  End",
               "type": "number"
             },
             "required": false,
-            "description": "If provided, only return emails with an open rate less than or equal to the given value."
+            "description": "If provided, only return emails with an open rate less than or equal to the given value.",
+            "example": 0.8
           }
         ],
         "responses": {
@@ -4067,6 +4160,9 @@
             "name": "status",
             "schema": {
               "description": "If provided, only return forms with the given status.",
+              "example": [
+                "active"
+              ],
               "items": {
                 "$ref": "#/components/schemas/FormStatus"
               },
@@ -4074,13 +4170,19 @@
               "type": "array"
             },
             "required": false,
-            "description": "If provided, only return forms with the given status."
+            "description": "If provided, only return forms with the given status.",
+            "example": [
+              "active"
+            ]
           },
           {
             "in": "query",
             "name": "-status",
             "schema": {
               "description": "If provided, only return forms without the given status.",
+              "example": [
+                "disabled"
+              ],
               "items": {
                 "$ref": "#/components/schemas/FormStatus"
               },
@@ -4088,7 +4190,10 @@
               "type": "array"
             },
             "required": false,
-            "description": "If provided, only return forms without the given status."
+            "description": "If provided, only return forms without the given status.",
+            "example": [
+              "disabled"
+            ]
           },
           {
             "in": "query",
@@ -4121,9 +4226,13 @@
                   "type": "string"
                 }
               ],
-              "default": "-creation_date"
+              "default": "-creation_date",
+              "description": "The ordering to apply to the results.",
+              "example": "-creation_date"
             },
-            "required": false
+            "required": false,
+            "description": "The ordering to apply to the results.",
+            "example": "-creation_date"
           }
         ],
         "responses": {
@@ -5556,25 +5665,25 @@
             "in": "query",
             "name": "churn_date__end",
             "schema": {
-              "description": "If provided, only return subscribers with the given churn date(s).",
+              "description": "If provided, only return subscribers who churned on or before the given date.",
               "title": "Churn Date  End",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given churn date(s)."
+            "description": "If provided, only return subscribers who churned on or before the given date."
           },
           {
             "in": "query",
             "name": "churn_date__start",
             "schema": {
-              "description": "If provided, only return subscribers with the given churn date(s).",
+              "description": "If provided, only return subscribers who churned on or after the given date.",
               "title": "Churn Date  Start",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given churn date(s)."
+            "description": "If provided, only return subscribers who churned on or after the given date."
           },
           {
             "in": "query",
@@ -5688,7 +5797,10 @@
             "in": "query",
             "name": "form",
             "schema": {
-              "description": "If provided, only return subscribers that came through the given form(s).",
+              "description": "If provided, only return subscribers that came through the given [form(s)](https://docs.buttondown.com/registration-forms).",
+              "example": [
+                "form_abc123"
+              ],
               "title": "Form",
               "items": {
                 "type": "string"
@@ -5696,7 +5808,10 @@
               "type": "array"
             },
             "required": false,
-            "description": "If provided, only return subscribers that came through the given form(s)."
+            "description": "If provided, only return subscribers that came through the given [form(s)](https://docs.buttondown.com/registration-forms).",
+            "example": [
+              "form_abc123"
+            ]
           },
           {
             "in": "query",
@@ -5730,49 +5845,49 @@
             "in": "query",
             "name": "last_click_date__end",
             "schema": {
-              "description": "If provided, only return subscribers with the given last click date(s).",
+              "description": "If provided, only return subscribers whose last click was on or before the given date.",
               "title": "Last Click Date  End",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given last click date(s)."
+            "description": "If provided, only return subscribers whose last click was on or before the given date."
           },
           {
             "in": "query",
             "name": "last_click_date__start",
             "schema": {
-              "description": "If provided, only return subscribers with the given last click date(s).",
+              "description": "If provided, only return subscribers whose last click was on or after the given date.",
               "title": "Last Click Date  Start",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given last click date(s)."
+            "description": "If provided, only return subscribers whose last click was on or after the given date."
           },
           {
             "in": "query",
             "name": "last_open_date__end",
             "schema": {
-              "description": "If provided, only return subscribers with the given last open date(s).",
+              "description": "If provided, only return subscribers whose last open was on or before the given date.",
               "title": "Last Open Date  End",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given last open date(s)."
+            "description": "If provided, only return subscribers whose last open was on or before the given date."
           },
           {
             "in": "query",
             "name": "last_open_date__start",
             "schema": {
-              "description": "If provided, only return subscribers with the given last open date(s).",
+              "description": "If provided, only return subscribers whose last open was on or after the given date.",
               "title": "Last Open Date  Start",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given last open date(s)."
+            "description": "If provided, only return subscribers whose last open was on or after the given date."
           },
           {
             "in": "query",
@@ -5798,10 +5913,14 @@
             "in": "query",
             "name": "-tag",
             "schema": {
+              "description": "If provided, only return subscribers without the given [tag](https://docs.buttondown.com/api-tags-introduction).",
+              "example": "vip",
               "title": "-Tag",
               "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return subscribers without the given [tag](https://docs.buttondown.com/api-tags-introduction).",
+            "example": "vip"
           },
           {
             "in": "query",
@@ -5822,10 +5941,14 @@
             "name": "ordering",
             "schema": {
               "default": "-creation_date",
+              "description": "The ordering to apply to the results.",
+              "example": "-creation_date",
               "title": "Ordering",
               "type": "string"
             },
-            "required": false
+            "required": false,
+            "description": "The ordering to apply to the results.",
+            "example": "-creation_date"
           },
           {
             "in": "query",
@@ -5917,23 +6040,23 @@
             "in": "query",
             "name": "risk_score__end",
             "schema": {
-              "description": "If provided, only return subscribers with a risk score less than or equal to the given value.",
+              "description": "If provided, only return subscribers with a [risk score](https://docs.buttondown.com/firewall) less than or equal to the given value.",
               "title": "Risk Score  End",
               "type": "number"
             },
             "required": false,
-            "description": "If provided, only return subscribers with a risk score less than or equal to the given value."
+            "description": "If provided, only return subscribers with a [risk score](https://docs.buttondown.com/firewall) less than or equal to the given value."
           },
           {
             "in": "query",
             "name": "risk_score__start",
             "schema": {
-              "description": "If provided, only return subscribers with a risk score greater than or equal to the given value.",
+              "description": "If provided, only return subscribers with a [risk score](https://docs.buttondown.com/firewall) greater than or equal to the given value.",
               "title": "Risk Score  Start",
               "type": "number"
             },
             "required": false,
-            "description": "If provided, only return subscribers with a risk score greater than or equal to the given value."
+            "description": "If provided, only return subscribers with a [risk score](https://docs.buttondown.com/firewall) greater than or equal to the given value."
           },
           {
             "in": "query",
@@ -5960,6 +6083,9 @@
             "name": "subscriber_import",
             "schema": {
               "description": "If provided, only return subscribers that were imported by the given subscriber import.",
+              "example": [
+                "import_abc123"
+              ],
               "title": "Subscriber Import",
               "items": {
                 "type": "string"
@@ -5967,19 +6093,24 @@
               "type": "array"
             },
             "required": false,
-            "description": "If provided, only return subscribers that were imported by the given subscriber import."
+            "description": "If provided, only return subscribers that were imported by the given subscriber import.",
+            "example": [
+              "import_abc123"
+            ]
           },
           {
             "in": "query",
             "name": "tag",
             "schema": {
+              "description": "If provided, only return subscribers with the given [tag(s)](https://docs.buttondown.com/api-tags-introduction).",
               "title": "Tag",
               "items": {
                 "type": "string"
               },
               "type": "array"
             },
-            "required": false
+            "required": false,
+            "description": "If provided, only return subscribers with the given [tag(s)](https://docs.buttondown.com/api-tags-introduction)."
           },
           {
             "in": "query",
@@ -6005,25 +6136,25 @@
             "in": "query",
             "name": "undeliverability_date__end",
             "schema": {
-              "description": "If provided, only return subscribers with the given undeliverability date(s).",
+              "description": "If provided, only return subscribers who became undeliverable on or before the given date.",
               "title": "Undeliverability Date  End",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given undeliverability date(s)."
+            "description": "If provided, only return subscribers who became undeliverable on or before the given date."
           },
           {
             "in": "query",
             "name": "undeliverability_date__start",
             "schema": {
-              "description": "If provided, only return subscribers with the given undeliverability date(s).",
+              "description": "If provided, only return subscribers who became undeliverable on or after the given date.",
               "title": "Undeliverability Date  Start",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given undeliverability date(s)."
+            "description": "If provided, only return subscribers who became undeliverable on or after the given date."
           },
           {
             "in": "query",
@@ -6043,31 +6174,34 @@
             "in": "query",
             "name": "unsubscription_date__end",
             "schema": {
-              "description": "If provided, only return subscribers with the given unsubscription date(s).",
+              "description": "If provided, only return subscribers who unsubscribed on or before the given date.",
               "title": "Unsubscription Date  End",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given unsubscription date(s)."
+            "description": "If provided, only return subscribers who unsubscribed on or before the given date."
           },
           {
             "in": "query",
             "name": "unsubscription_date__start",
             "schema": {
-              "description": "If provided, only return subscribers with the given unsubscription date(s).",
+              "description": "If provided, only return subscribers who unsubscribed on or after the given date.",
               "title": "Unsubscription Date  Start",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given unsubscription date(s)."
+            "description": "If provided, only return subscribers who unsubscribed on or after the given date."
           },
           {
             "in": "query",
             "name": "unsubscription_reason",
             "schema": {
               "description": "If provided, only return subscribers with the given unsubscription reason(s).",
+              "example": [
+                "no longer interested"
+              ],
               "title": "Unsubscription Reason",
               "items": {
                 "type": "string"
@@ -6075,31 +6209,34 @@
               "type": "array"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given unsubscription reason(s)."
+            "description": "If provided, only return subscribers with the given unsubscription reason(s).",
+            "example": [
+              "no longer interested"
+            ]
           },
           {
             "in": "query",
             "name": "upgrade_date__end",
             "schema": {
-              "description": "If provided, only return subscribers with the given upgrade date(s).",
+              "description": "If provided, only return subscribers who upgraded on or before the given date.",
               "title": "Upgrade Date  End",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given upgrade date(s)."
+            "description": "If provided, only return subscribers who upgraded on or before the given date."
           },
           {
             "in": "query",
             "name": "upgrade_date__start",
             "schema": {
-              "description": "If provided, only return subscribers with the given upgrade date(s).",
+              "description": "If provided, only return subscribers who upgraded on or after the given date.",
               "title": "Upgrade Date  Start",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return subscribers with the given upgrade date(s)."
+            "description": "If provided, only return subscribers who upgraded on or after the given date."
           },
           {
             "in": "query",
@@ -6904,29 +7041,36 @@
             "in": "query",
             "name": "email_id",
             "schema": {
-              "description": "If provided, only return responses made to the given email.",
+              "description": "If provided, only return responses made to the given [email](https://docs.buttondown.com/api-emails-introduction).",
+              "example": "email_abc123",
               "title": "Email Id",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return responses made to the given email."
+            "description": "If provided, only return responses made to the given [email](https://docs.buttondown.com/api-emails-introduction).",
+            "example": "email_abc123"
           },
           {
             "in": "query",
             "name": "subscriber_id",
             "schema": {
-              "description": "If provided, only return responses made by the given subscriber.",
+              "description": "If provided, only return responses made by the given [subscriber](https://docs.buttondown.com/api-subscribers-introduction).",
+              "example": "sub_abc123",
               "title": "Subscriber Id",
               "type": "string"
             },
             "required": false,
-            "description": "If provided, only return responses made by the given subscriber."
+            "description": "If provided, only return responses made by the given [subscriber](https://docs.buttondown.com/api-subscribers-introduction).",
+            "example": "sub_abc123"
           },
           {
             "in": "query",
             "name": "survey",
             "schema": {
-              "description": "If provided, only return responses made to the given survey(s).",
+              "description": "If provided, only return responses made to the given [survey(s)](https://docs.buttondown.com/api-surveys-introduction).",
+              "example": [
+                "survey_abc123"
+              ],
               "title": "Survey",
               "items": {
                 "type": "string"
@@ -6934,7 +7078,10 @@
               "type": "array"
             },
             "required": false,
-            "description": "If provided, only return responses made to the given survey(s)."
+            "description": "If provided, only return responses made to the given [survey(s)](https://docs.buttondown.com/api-surveys-introduction).",
+            "example": [
+              "survey_abc123"
+            ]
           },
           {
             "in": "query",
@@ -7233,6 +7380,9 @@
             "name": "status",
             "schema": {
               "description": "If provided, only return surveys with the given status.",
+              "example": [
+                "active"
+              ],
               "items": {
                 "$ref": "#/components/schemas/SurveyStatus"
               },
@@ -7240,13 +7390,19 @@
               "type": "array"
             },
             "required": false,
-            "description": "If provided, only return surveys with the given status."
+            "description": "If provided, only return surveys with the given status.",
+            "example": [
+              "active"
+            ]
           },
           {
             "in": "query",
             "name": "-status",
             "schema": {
               "description": "If provided, only return surveys without the given status.",
+              "example": [
+                "disabled"
+              ],
               "items": {
                 "$ref": "#/components/schemas/SurveyStatus"
               },
@@ -7254,7 +7410,10 @@
               "type": "array"
             },
             "required": false,
-            "description": "If provided, only return surveys without the given status."
+            "description": "If provided, only return surveys without the given status.",
+            "example": [
+              "disabled"
+            ]
           },
           {
             "in": "query",
@@ -7278,9 +7437,13 @@
                   "type": "string"
                 }
               ],
-              "default": "-creation_date"
+              "default": "-creation_date",
+              "description": "The ordering to apply to the results.",
+              "example": "-creation_date"
             },
-            "required": false
+            "required": false,
+            "description": "The ordering to apply to the results.",
+            "example": "-creation_date"
           }
         ],
         "responses": {
@@ -7590,6 +7753,9 @@
             "name": "ids",
             "schema": {
               "description": "If provided, only return tags matching the given IDs.",
+              "example": [
+                "tag_abc123"
+              ],
               "title": "Ids",
               "items": {
                 "type": "string"
@@ -7597,7 +7763,10 @@
               "type": "array"
             },
             "required": false,
-            "description": "If provided, only return tags matching the given IDs."
+            "description": "If provided, only return tags matching the given IDs.",
+            "example": [
+              "tag_abc123"
+            ]
           },
           {
             "in": "query",
