@@ -50,8 +50,9 @@ const UUID_SENTINEL = "<id>";
 type Variant = "email" | "page" | "subscriber";
 
 const BrowserBar = ({ path }: { path: string }) => {
+  const url = new URL(path);
   // Grab the path from the src, and then replace all UUIDs with a placeholder.
-  const mungedPath = new URL(path).pathname.replace(UUID_REGEX, UUID_SENTINEL);
+  const mungedPath = url.pathname.replace(UUID_REGEX, UUID_SENTINEL);
 
   return (
     <div className="rounded-t-lg bg-gray-200 dark:bg-zinc-800 px-4 py-1 flex items-center border-b border-gray-300 dark:border-white/10 relative max-w-full">
@@ -69,10 +70,7 @@ const BrowserBar = ({ path }: { path: string }) => {
         </div>
       </div>
       <a
-        href={`https://${EXTERNAL_DOMAIN}${mungedPath.replace(
-          `/${UUID_SENTINEL}`,
-          "",
-        )}`}
+        href={`https://${EXTERNAL_DOMAIN}${url.pathname}`}
         className="-mr-2 ml-2 block flex-0 rounded-md px-2 no-underline transition hover:bg-gray-200 dark:hover:bg-zinc-500 dark:text-white"
       >
         ↗
@@ -206,10 +204,7 @@ export default function Iframe({
             </span>
           ) : (
             <a
-              href={mungedSrc.replace(
-                "/demo.buttondown.com",
-                "/buttondown.com",
-              )}
+              href={`https://buttondown.com${new URL(src).pathname.replace(UUID_REGEX, "").replace(/\/+$/, "")}`}
               target="_blank"
             >
               view this page on your account, too.
