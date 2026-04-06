@@ -7,47 +7,84 @@ relatedPages:
   - api-automation-timing
   - automation-actions
   - welcome-sequence
+  - crossposting
 description:  >-
   Automations are shortcuts that facilitate your perfect Buttondown workflow.
+faqItems: >
+  [
+    {
+      "question": "What happens if I change an email used by an automation?",
+      "answer": "The updated email will be sent to all future subscribers, including those currently waiting on a delayed action. For example, if a subscriber triggered your automation and is waiting for a \"send email after 7 days\" action to fire, they'll receive the updated version when the delay completes."
+    },
+    {
+      "question": "What happens if I add or remove actions from an automation?",
+      "answer": "Changes to actions only apply to subscribers who trigger the automation after the change. Subscribers already partway through a sequence will continue with the actions that were in place when they triggered it."
+    }
+  ]
 ---
 {% paidFeature feature="automations" /%}
 
-Automations are various processes that automatically perform actions based on criteria that you set. That's vague, so to get clearer, you might want to:
+Automations are processes that automatically perform actions based on criteria that you set. You might want to:
 
-- Provide newcomers with a welcome sequence
-- Automatically send an email to someone after they've been tagged
-- Tag subscribers based on actions they perform
+- Send new subscribers a welcome sequence of emails over their first few weeks
+- Automatically tag subscribers based on actions they perform
 - Send automatic replies to subscribers when they write in
+- Cross-post new emails to social media
 - Send weekly, monthly, or annual reminders
 - Treat paid subscribers differently from free
 
-In each of these cases, an automation might be useful.
+In each of these cases, an automation can help.
 
-For example, if you want to send a specific sort of welcome email to new subscribers from the European Union:
+For example, if you want to send a welcome sequence to new subscribers from the European Union:
 
 ```mermaid
 flowchart
-  trigger["When a subscriber is created"] e1@--> |If the subscriber is from the EU| timing[Wait one day]
-  timing e3@--> |then| action[Send welcome email]
+  trigger["When a subscriber confirms"] e1@--> |If the subscriber is from the EU| action1[Send welcome email immediately]
+  action1 e2@--> action2[Send follow-up email after 1 week]
+  action2 e3@--> action3[Send CTA email after 3 weeks]
   e1@{ animate: true }
+  e2@{ animate: true }
   e3@{ animate: true }
 ```
 
 ## How to create an automation
 
-First, go to [Automations](https://buttondown.com/automations), then hit `+ New` at the top right.
+Go to [Automations](https://buttondown.com/automations) and click **New** at the top right.
 
-Each automation consists of four parts:
+Each automation consists of three parts:
 
-- *A [trigger](/automation-triggers)*, which is the event or circumstance that causes the automation to run.
-- *A [filter](/automation-filters)*, which determines whether the automation should run for the given trigger.
-- *A timing*, which determines when the automation should run.
-- *An [action](/automation-actions)*, which is what the automation actually does. In most cases, you're sending an email.
+- *A [trigger](/automation-triggers)*, which is the event that causes the automation to run.
+- *A [filter](/automation-filters)*, which narrows down whether the automation should run for a given trigger event.
+- *One or more [actions](/automation-actions)*, which are what the automation actually does. Each action has its own timing (immediately, or after a delay).
 
-Take a look at our lists of [triggers](/event-types) & [actions](/automation-actions), and determine what kind of automations you wish to build.
+### Choosing a trigger
 
-Want a place to start? Our most common automation is the [welcome sequence](/welcome-sequence), where you welcome new subscribers with a custom series of emails. It's a good place to start!
+Pick the event that should kick off your automation. For example, "When a subscriber confirms their subscription" is the most common trigger for welcome sequences. See our full list of [triggers](/automation-triggers) for all the options.
 
-## What happens if I change an automation?
+### Adding filters
 
-If you change an email in your automation, it will be updated for all pending subscribers, even if the automation was triggered before the change you made.
+Filters let you narrow down which events should actually run your automation. For instance, you might only want to send a welcome email to subscribers with a specific tag, or only to paid subscribers. Filters are optional.
+
+### Adding actions
+
+Actions are the steps your automation performs. Each action has two parts:
+
+1. **What to do** --- send an email, add a tag, send a webhook, etc.
+2. **When to do it** --- immediately when the trigger fires, or after a delay (minutes, hours, days, or weeks).
+
+You can add multiple actions to a single automation. For example, a welcome sequence might send an email immediately, another email after one week, and a third after three weeks --- all within one automation. Actions are automatically sorted by their timing, so you can add them in any order.
+
+To add an action, click the action picker in the Actions section and choose from the available action types. Some actions depend on integrations being connected (like posting to Bluesky or sending Discord invitations); if an integration isn't set up yet, you'll be prompted to configure it.
+
+### Saving and status
+
+After configuring your automation, click **Save changes**. If there are any issues --- like a missing email body or an unconfigured integration --- you'll see warnings that explain what needs to be fixed before the automation can run.
+
+Automations can be **active** or **paused**. A paused automation won't fire for any new trigger events. You can pause and unpause automations from the [Automations](https://buttondown.com/automations) list.
+
+{% faq /%}
+
+## Examples
+
+- [Welcome sequences](/welcome-sequence) --- [Create one now](https://buttondown.com/automations/new?trigger=subscriber.confirmed&name=Welcome+sequence), or read the guide to send a series of onboarding emails to new subscribers.
+- [Cross-posting to social media](/crossposting) --- [Create one now](https://buttondown.com/automations/new?trigger=email.sent&name=Cross-post+to+social), or read the guide to automatically share your emails on Bluesky, LinkedIn, Twitter, and more.

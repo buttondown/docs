@@ -93,6 +93,17 @@ height="600px"
 title="Fallback for missing metadata"
 editorMode="plaintext" /%}
 
+## Renaming metadata keys
+
+Made a typo in a metadata key, or want to standardize your naming convention? You can rename metadata keys in bulk using the "Rename metadata" [bulk action](/api-bulk-actions-create). This lets you change the key name (e.g. from `name` to `first_name`) across all of your subscribers at once, without losing any values.
+
+To rename metadata keys:
+
+1. Navigate to ["Subscribers"](https://buttondown.com/subscribers) and select the subscribers whose metadata you want to update (or select all).
+1. In the popup tray that appears at the bottom of the screen, click the three dots at the far right and then choose "Rename metadata".
+1. Enter the old key name and the new key name. You can add pairs of old and new key names to rename multiple keys at once.
+1. Click **Rename Metadata** to apply the changes.
+
 ## Update metadata through Buttondown’s API
 
 Want to add metadata to an existing subscriber using our [API](/api-subscribers-introduction)? Copy the code below and plug in your subscriber ID (which you can find in the subscriber’s “Notes”), as well as your personal API key (which you can find in the “API” section of your Buttondown [settings](https://buttondown.com/requests)). Then add your input key and its corresponding value.

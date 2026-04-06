@@ -31,7 +31,7 @@ Run `MISE_EXPERIMENTAL=true mise run //docs:clear-cache` to reset Next.js
 
 ## Content
 
-Each Doc is it's own individual Markdown file in `/content/pages`.
+Each Doc is its own individual Markdown file in `/content/pages`.
 
 The pages are organized in `navigation.json`
 
@@ -65,7 +65,7 @@ This data is structured like so:
 
 - There are three top level nav items: Guides, Reference, API
 - Within each of those 3 is an array of subtopics (e.g. Getting Started, Collecting Subscribers)
-- Each subtopic has it's own array of articles (`page`)
+- Each subtopic has its own array of articles (`page`)
 
 In addition to `page`s and item might also be a `divider`. This can be used to break up the content, for example separating FAQs.
 
@@ -146,12 +146,6 @@ Here's more info on this:
 
 - [Markdoc issue](https://github.com/markdoc/markdoc/issues/72)
 
-## FAQs
-
-### Why do we have three `tsconfig` files?
-
-The core tsconfig.json file contains an `incremental: true` flag which does not work in the context of tests or stand-alone files.
-
 ## How do the IFrames work?
 
 You'll notice on pages like https://docs.buttondown.com/portal and https://docs.buttondown.com/subscriber-cleanup we show _iframes_ of the actual app, rather than screenshots or videos. This [has many nice benefits](https://jmduke.com/posts/post/iframe-docs/).
@@ -159,4 +153,5 @@ You'll notice on pages like https://docs.buttondown.com/portal and https://docs.
 Architecturally, it's less magical than it looks. We point directly to `demo.buttondown.com` (which, being a demo site, is always logged in and has no sensitive data, thus solving lots of security and authentication concerns) and have built within the app itself a lightweight DSL for changing the app's state:
 
 | DSL | Description | Example |
+| --- | --- | --- |
 | emphasis | Highlights any DOM nodes with `data-emphasis-identifier` set to the value of the emphasis. | demo.buttondown.com/settings/general?emphasis=name |

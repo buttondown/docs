@@ -6,7 +6,10 @@ import yaml from "yaml";
 import PRICES from "@/autogen/prices-v2.json";
 import Code from "@/components/code";
 import FAQ, { type FAQItem } from "@/components/faq";
-import { BUTTONDOWN_CLI_STRUCTURE, FileExplorer } from "@/components/file-explorer";
+import {
+  BUTTONDOWN_CLI_STRUCTURE,
+  FileExplorer,
+} from "@/components/file-explorer";
 import IframeComponent from "@/components/iframe";
 import ImageWithLightbox from "@/components/image-with-lightbox";
 import LiveCodeBlock from "@/components/live-code-block";
@@ -86,18 +89,25 @@ function slugify(text: string): string {
     .replace(/-+$/, "");
 }
 
-function Heading({ level, children }: { level: number; children: React.ReactNode }) {
+function extractText(node: React.ReactNode): string {
+  if (typeof node === "string") return node;
+  if (typeof node === "number") return String(node);
+  if (!node) return "";
+  if (Array.isArray(node)) return node.map(extractText).join("");
+  if (React.isValidElement(node))
+    return extractText((node.props as { children?: React.ReactNode }).children);
+  return "";
+}
+
+function Heading({
+  level,
+  children,
+}: {
+  level: number;
+  children: React.ReactNode;
+}) {
   const Component = `h${level}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  const childText =
-    typeof children === "string"
-      ? children
-      : String(
-          React.Children.toArray(children).find(
-            (c): c is React.ReactElement =>
-              React.isValidElement(c) && "props" in (c as object),
-          ) ?? "",
-        );
-  const slug = slugify(childText);
+  const slug = slugify(extractText(children));
 
   return (
     <a href={`#${slug}`} className="no-underline">
@@ -249,7 +259,12 @@ function CodeBlock({
 const components: Record<string, React.ComponentType<any>> = {
   CodeBlock,
   Video: (props: { file: string }) => <Video src={props.file} />,
-  Iframe: (props: { src: string; height?: number; variant?: string; width?: string }) => (
+  Iframe: (props: {
+    src: string;
+    height?: number;
+    variant?: string;
+    width?: string;
+  }) => (
     <IframeComponent
       src={props.src}
       height={props.height}
@@ -277,7 +292,7 @@ const components: Record<string, React.ComponentType<any>> = {
   PaidFeature: (props: { feature: string }) => {
     const price = PRICES.find((p) => p.features.includes(props.feature));
     return (
-      <div className="text-sm text-green-700 -mt-6 bg-green-100 p-2 px-3 rounded-md flex items-center gap-1 w-fit">
+      <div className="text-sm text-green-600 -mt-3 flex items-center gap-1 w-fit">
         Available on the
         <a
           href={`https://buttondown.com/pricing?plan=${price?.id}`}
@@ -308,10 +323,7 @@ const components: Record<string, React.ComponentType<any>> = {
     trigger: string;
     action: string;
   }) => (
-    <a
-      href={props.url}
-      className="text-inherit no-underline after:hidden!"
-    >
+    <a href={props.url} className="text-inherit no-underline after:hidden!">
       <div className="border border-gray-300 bg-gray-50 p-4 px-8 text-center hover:scale-105 transition-all cursor-pointer relative overflow-hidden hover:border-green-600 hover:bg-green-100">
         <div className="absolute right-0 top-0 h-12 w-12">
           <div className="absolute transform rotate-45 bg-linear-to-tr from-green-500 to-green-600 text-center text-white font-semibold py-1 right-[-50px] top-[25px] w-[170px] text-xs uppercase">
@@ -349,9 +361,7 @@ const components: Record<string, React.ComponentType<any>> = {
       initialContent={props.initialContent}
       height={props.height}
       title={props.title}
-      editorMode={
-        props.editorMode as "plaintext" | "fancy" | undefined
-      }
+      editorMode={props.editorMode as "plaintext" | "fancy" | undefined}
     />
   ),
   GeneratedMultilanguageSnippets: (props: {
@@ -446,7 +456,11 @@ function extractTextFromAst(node: ReturnType<typeof Markdoc.parse>): string {
       texts.push(n);
       return;
     }
-    const node = n as { type?: string; attributes?: { content?: string }; children?: unknown[] };
+    const node = n as {
+      type?: string;
+      attributes?: { content?: string };
+      children?: unknown[];
+    };
     if (node?.type === "text" && node?.attributes?.content) {
       texts.push(node.attributes.content);
     }
@@ -559,11 +573,4 @@ export default {
   readNavigation,
 };
 
-export {
-  get,
-  getMany,
-  getRaw,
-  getManyRaw,
-  list,
-  readNavigation,
-};
+export { get, getMany, getRaw, getManyRaw, list, readNavigation };

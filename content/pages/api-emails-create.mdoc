@@ -6,25 +6,29 @@ method: post
 
 ## Body format detection
 
-When you create an email via the API, Buttondown automatically detects whether your content is plain text or formatted (HTML/Markdown) and handles it appropriately.
+When you create an email via the API, Buttondown automatically detects whether your content is Markdown or rich HTML and handles it appropriately.
 
-**Plain text** content is sent as-is, without any Markdown processing. This is ideal for simple, conversational emails.
+**Markdown mode** (`plaintext`) is the default. Your content is treated as Markdown and rendered to HTML. This is ideal for most use cases — write in Markdown and Buttondown handles the formatting.
 
-**Formatted content** (HTML or Markdown) is processed and rendered. Buttondown detects formatted content by looking for:
+**Fancy mode** (`fancy`) treats your content as rich HTML, like the WYSIWYG editor in the web app.
+
+Buttondown auto-detects the mode by looking for:
 
 - HTML tags (e.g., `<div>`, `<p>`, `</h1>`)
 - Markdown syntax (e.g., `# headings`, `**bold**`, `[links](url)`, lists)
 
+If none of these are found, the content is treated as Markdown mode (no rendering is applied since there's no markup to process).
+
 If you want to explicitly control the format, prepend your body with an editor mode comment:
 
 ```
-<!-- buttondown-editor-mode: plaintext -->Your plain text content here...
+<!-- buttondown-editor-mode: plaintext -->Your **Markdown** content here...
 ```
 
 or
 
 ```
-<!-- buttondown-editor-mode: fancy -->Your **Markdown** or <em>HTML</em> content here...
+<!-- buttondown-editor-mode: fancy --><p>Your <em>HTML</em> content here...</p>
 ```
 
 ## Frontmatter detection

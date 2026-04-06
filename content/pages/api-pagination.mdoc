@@ -26,7 +26,19 @@ Additionally, responses that can be paginated always include a `next` field that
   }
 ```
 
-This means that you can easily paginate through results by following the `next` field until it's `null`. Here's an example in JavaScript:
+## Link headers
+
+In addition to the `next` and `previous` fields in the response body, Buttondown also returns [RFC 5988](https://tools.ietf.org/html/rfc5988) `Link` headers on paginated responses. This makes it easy to navigate pages using standard HTTP tooling:
+
+```
+Link: <https://api.buttondown.com/v1/subscribers?page=3>; rel="next", <https://api.buttondown.com/v1/subscribers?page=1>; rel="prev"
+```
+
+The `Link` header will only include `rel="next"` and `rel="prev"` links when the corresponding pages exist — so the first page won't have a `rel="prev"` link, and the last page won't have a `rel="next"` link.
+
+## Iterating through pages
+
+You can easily paginate through results by following the `next` field until it's `null`. Here's an example in JavaScript:
 
 ```javascript
 const fetchSubscribers = async () => {

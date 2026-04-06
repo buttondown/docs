@@ -2,6 +2,21 @@
 title: Creating an image
 endpoint: /images
 method: post
+faqItems: >
+  [
+    {
+      "question": "What happens if I upload the same image twice?",
+      "answer": "Each upload creates a new image record with a new ID, even if the file content is identical. Buttondown does not deduplicate uploads automatically. If you want to avoid duplicates, use the `metadata` field to store a source path or hash when uploading, then check the list endpoint before uploading again."
+    },
+    {
+      "question": "What is the metadata field for?",
+      "answer": "The `metadata` field lets you store arbitrary key-value data on an image — for example, the original filename, a content hash, or alt text. Pass it as a JSON string in the `metadata` form field when uploading. It's returned in list and detail responses, so you can use it to track provenance or implement client-side deduplication."
+    },
+    {
+      "question": "Does Buttondown clean up unused images automatically?",
+      "answer": "No. Images persist until you explicitly delete them via the API. If you want to find unreferenced images, you can compare the list of uploaded images against image URLs in your emails."
+    }
+  ]
 ---
 
 ## Supported formats
@@ -26,3 +41,5 @@ curl -X POST "https://api.buttondown.com/v1/images" \
   -H "X-Buttondown-Live-Dangerously: true" \
   -F "image=@logo.svg"
 ```
+
+{% faq /%}

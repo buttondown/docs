@@ -1,4 +1,21 @@
 {
+  "ArchivalMode": {
+    "disabled": {
+      "description": "This email is not visible in the archive.",
+      "name": "Disabled",
+      "variant": "info"
+    },
+    "enabled": {
+      "description": "This email is visible in the archive to everyone.",
+      "name": "Enabled",
+      "variant": "info"
+    },
+    "enabled_for_paid_subscribers": {
+      "description": "This email is visible in the archive to paid subscribers only.",
+      "name": "Enabled for paid subscribers",
+      "variant": "info"
+    }
+  },
   "AutomationActionType": {
     "add_metadata": {
       "description": "Add metadata to a subscriber.",
@@ -28,6 +45,11 @@
     "create_export": {
       "description": "Create an export.",
       "name": "Create export",
+      "variant": "info"
+    },
+    "create_gift_subscriber": {
+      "description": "Create a gift subscriber based on metadata from the triggering event.",
+      "name": "Create gift subscriber",
       "variant": "info"
     },
     "create_linkedin_post": {
@@ -129,6 +151,11 @@
       "description": "Unsubscribe a subscriber from your newsletter.",
       "name": "Unsubscribe from Buttondown",
       "variant": "info"
+    },
+    "update_email_type": {
+      "description": "Update the visibility of an email.",
+      "name": "Update email visibility",
+      "variant": "info"
     }
   },
   "AccessLevel": {
@@ -203,6 +230,11 @@
       "name": "Ban subscribers",
       "variant": "info"
     },
+    "cancel_stripe_subscriptions": {
+      "description": "Cancel the Stripe subscriptions for multiple subscribers in bulk.",
+      "name": "Cancel Stripe subscriptions",
+      "variant": "info"
+    },
     "change_tags_colors": {
       "description": "Change the color of multiple tags in bulk.",
       "name": "Change tags colors",
@@ -271,6 +303,11 @@
     "modify_stripe_subscriptions": {
       "description": "Modify the Stripe subscriptions for multiple subscribers in bulk.",
       "name": "Modify Stripe subscriptions",
+      "variant": "info"
+    },
+    "pause_stripe_subscriptions": {
+      "description": "Pause or unpause the Stripe subscriptions for multiple subscribers in bulk.",
+      "name": "Pause Stripe subscriptions",
       "variant": "info"
     },
     "reactivate_subscribers": {
@@ -436,6 +473,11 @@
     "publish_date_missing": {
       "description": "A publish date is required but was not provided.",
       "name": "Publish date missing",
+      "variant": "error"
+    },
+    "sending_requires_confirmation": {
+      "description": "Creating an email with status 'about_to_send' on API version 2026-04-01 or later requires the X-Buttondown-Live-Dangerously header on first use per API key.",
+      "name": "Sending requires confirmation",
       "variant": "error"
     },
     "slug_invalid": {
@@ -1217,6 +1259,11 @@
       "name": "Memberful",
       "variant": "info"
     },
+    "netlify": {
+      "description": "This subscriber joined via Netlify.",
+      "name": "Netlify",
+      "variant": "info"
+    },
     "patreon": {
       "description": "This subscriber joined via Patreon.",
       "name": "Patreon",
@@ -1641,6 +1688,11 @@
     "de": {
       "description": "German.",
       "name": "German",
+      "variant": "info"
+    },
+    "ne": {
+      "description": "Nepali.",
+      "name": "Nepali",
       "variant": "info"
     },
     "pl-PL": {

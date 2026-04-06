@@ -161,6 +161,11 @@ pre.mermaid[data-processed] {
   background-color: #1e1e1e;
 }
 
+/* Prevent inline code from wrapping when it's the sole content of a table cell (e.g. version strings, field names). */
+td > code:only-child {
+  white-space: nowrap;
+}
+
 /* Accordion animations */
 @keyframes accordion-down {
   from {

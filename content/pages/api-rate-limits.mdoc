@@ -4,30 +4,43 @@ navigationTitle: Rate limits
 description: General information about rate limits in the Buttondown API.
 ---
 
-Buttondown does not have blanket rate limits on the API, but we do have some specific ones:
+Buttondown enforces two types of rate limits:
 
 | Endpoint | Rate limit |
 |----------|-----------|
+| All API endpoints | 600 requests per minute |
 | [`POST /v1/subscribers`](/api-subscribers-create) | 100 requests per day |
 
 {% noticeInfo text="Newsletters on paid plans with permanently active status are exempt from these rate limits." /%}
 
 ## Rate limit headers
 
-When you create a subscriber via the API, Buttondown returns rate limit information in the response headers:
+Buttondown returns rate limit information in the response headers on every API request:
 
 | Header | Description |
 |--------|-------------|
-| `X-RateLimit-Limit` | The maximum number of subscribers you can create per day |
-| `X-RateLimit-Remaining` | The number of subscriber creations remaining for the current day |
-| `X-RateLimit-Reset` | Unix timestamp (in seconds) when the rate limit resets (midnight UTC) |
+| `X-RateLimit-Limit` | The maximum number of requests allowed in the current window |
+| `X-RateLimit-Remaining` | The number of requests remaining in the current window |
+| `X-RateLimit-Reset` | Unix timestamp (in seconds) when the rate limit window resets |
 
 Here's an example of the headers you might see:
 
 ```
-X-RateLimit-Limit: 100
-X-RateLimit-Remaining: 95
-X-RateLimit-Reset: 1735776000
+X-RateLimit-Limit: 600
+X-RateLimit-Remaining: 595
+X-RateLimit-Reset: 1735776060
 ```
 
-You can use these headers to track your API usage and avoid hitting rate limits. If you exceed the rate limit, the API will return a `400` status code with an error indicating that you've hit the daily limit.
+## Exceeding the rate limit
+
+If you exceed the rate limit, the API will return a `429` status code with a `Retry-After` header indicating how many seconds to wait before retrying:
+
+```
+HTTP/1.1 429 Too Many Requests
+Retry-After: 45
+X-RateLimit-Limit: 600
+X-RateLimit-Remaining: 0
+X-RateLimit-Reset: 1735776060
+```
+
+You can use these headers to implement backoff logic in your client code.

@@ -172,10 +172,11 @@ export default function Iframe({
   variant?: Variant;
 }) {
   const mungedSrc =
-    src.replace("demo.buttondown.com", EXTERNAL_DOMAIN) + "&loginas=sheinhardt";
+    src.replace("demo.buttondown.com", EXTERNAL_DOMAIN) +
+    (src.includes("?") ? "&loginas=sheinhardt" : "?loginas=sheinhardt");
 
   return (
-    <div>
+    <div className="z-10">
       <div className={iframeVariants({ variant })}>
         <div className={containerVariants({ variant })}>
           {variant !== "email" && <BrowserBar path={src} />}

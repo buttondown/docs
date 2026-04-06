@@ -11,6 +11,10 @@ faqItems: >
     {
       "question": "Can I use the same Stripe account for multiple newsletters?",
       "answer": "No. Each newsletter requires its own separate Stripe account. A single Stripe account can only be connected to a single newsletter at a time."
+    },
+    {
+      "question": "Why don't some of my paying subscribers show up as paid subscribers?",
+      "answer": "This is usually caused by Stripe's [guest customers](https://docs.stripe.com/payments/checkout/guest-customers) feature. Buttondown's built-in checkout handles this correctly, but if you've created your own Stripe Payment Links to collect payments, the default `customer_creation` setting is `if_required`, which means one-time payments create 'guest customers' instead of full Stripe Customer objects. Since Buttondown links paid subscribers via Stripe Customer records, these guest payments won't be reflected in your subscriber list. To fix this, edit your Payment Link in Stripe and set the `customer_creation` option to `always`."
     }
   ]
 ---
@@ -30,7 +34,7 @@ In this guide, you'll learn how to get set up with paid subscribers, collect you
 
 First, go to [Stripe](https://stripe.com) and register for a new account.
 
-Then, go to [Settings → Basics](https://demo.buttondown.com/settings/general). Under "Features", you'll see "Paid subscriptions". Tap "Connect to Stripe" at right. You'll be sent to Stripe to log in & connect your account to your newsletter.
+Then, go to [Settings → General](https://demo.buttondown.com/settings/general). Under "Features", you'll see "Paid subscriptions". Tap "Connect to Stripe" at right. You'll be sent to Stripe to log in & connect your account to your newsletter.
 
 ### A note on Stripe's test mode
 
@@ -83,7 +87,7 @@ Once new visitors subscribe, they'll be brought to a page that allows them to up
 
 Emails to unpaid subscribers will also have a link at the bottom of the email where they can upgrade.
 
-Finally, Buttondown exposes a URL (`https://buttondown.com/your-username/buy`) where readers can upgrade their subscription. To find your user name, go to [Settings → Basics](https://buttondown.com/settings/general). You can share that URL with your audience anywhere you'd like. Joining through that link automatically subscribes people to your full newsletter as well.
+Finally, Buttondown exposes a URL (`https://buttondown.com/your-username/buy`) where readers can upgrade their subscription. To find your user name, go to [Settings → General](https://buttondown.com/settings/general). You can share that URL with your audience anywhere you'd like. Joining through that link automatically subscribes people to your full newsletter as well.
 
 ### Notes on paid subscribers
 

@@ -225,10 +225,6 @@
         },
         {
           "discriminant": "page",
-          "value": "welcome-sequence"
-        },
-        {
-          "discriminant": "page",
           "value": "automation-triggers"
         },
         {
@@ -246,6 +242,18 @@
         {
           "discriminant": "page",
           "value": "event-types"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Examples"
+        },
+        {
+          "discriminant": "page",
+          "value": "welcome-sequence"
+        },
+        {
+          "discriminant": "page",
+          "value": "crossposting"
         }
       ]
     },
@@ -279,6 +287,10 @@
         {
           "discriminant": "page",
           "value": "permanent-failure-rate"
+        },
+        {
+          "discriminant": "page",
+          "value": "referrals-analytics"
         },
         {
           "discriminant": "page",
@@ -1155,6 +1167,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-emails-archival-mode"
+        },
+        {
+          "discriminant": "page",
           "value": "api-emails-commenting-mode"
         },
         {
@@ -1291,6 +1307,10 @@
         {
           "discriminant": "page",
           "value": "api-images-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-images-update"
         },
         {
           "discriminant": "page",

@@ -15,6 +15,14 @@ faqItems: >
     {
       "question": "Does Buttondown automatically set canonical URLs for RSS-to-email?",
       "answer": "Yes! If you're using RSS-to-email with one email per RSS item, Buttondown automatically sets the canonical URL to the post's URL from your RSS feed. This helps with SEO by ensuring search engines index your original post rather than Buttondown's archived version. No configuration needed—it just works. You can read more about [canonical URLs](/hosting-domain) if you'd like."
+    },
+    {
+      "question": "Buttondown says it can't reach my RSS feed, but I can access it just fine in the browser.",
+      "answer": "If Buttondown has trouble reaching your RSS feed (and you don't), the likely culprit is a firewall or proxy that's blocking access to the feed. In that case, please try allowlisting our IP addresses from your firewall or proxy settings: `54.221.205.107`, `5.78.40.235`, `5.78.179.70`. It's also possible that you might have a `robots.txt` file that's blocking access to your feed. Buttondown uses the `User-Agent: Buttondown RSS-Feed-Parser/1.0 (https://buttondown.com)` user agent to access your feed, so you can add a `Allow:` line to your `robots.txt` file to allow Buttondown's feed parser to access your feed."
+    },
+    {
+      "question": "Why is an item in my feed labeled as \"irrelevant\" in Buttondown?",
+      "answer": "Items in an RSS feed may be marked as irrelevant for two reasons: they do not have a publish date associated with them, or the publish date came before the RSS feed itself was connected to Buttondown."
     }
   ]
 ---
@@ -162,21 +170,6 @@ We're the first to admit that there's a _lot_ of esoteric features and functiona
 
 - Buttondown supports the `xml:base` attribute, which allows you to specify a base URL for relative links in your RSS feed.
 - Buttondown doesn't support base-64 encoded images in RSS feeds; those images won't be displayed in most email clients.
-
-## Troubleshooting
-
-### Buttondown says it can't reach my RSS feed, but I can access it just fine in the browser.
-
-If Buttondown has trouble reaching your RSS feed (and you don't), the likely culprit is a firewall or proxy that's blocking access to the feed. In particular, Cloudflare's bot blocker is known to mistakenly block access to Buttondown's feed parser.
-
-To fix this, add a [custom WAF rule to your Cloudflare account](https://developers.cloudflare.com/waf/custom-rules/) to allow requests from the IP address `54.221.205.107`.
-
-It's also possible that you might have a `robots.txt` file that's blocking access to your feed. Buttondown uses the `User-Agent: Buttondown RSS-Feed-Parser/1.0 (https://buttondown.com)` user agent to access your feed, so you can add a `Allow:` line to your `robots.txt` file to allow Buttondown's feed parser to access your feed.
-
-### Why is an item in my feed labeled as "irrelevant" in Buttondown?
-Items in an RSS feed my be marked as irrelevant for two reasons:
-1. They do not have a publish date associated with them 
-1. The publish date came before the RSS feed itself was connected to Buttondown
 
 ## FAQs
 

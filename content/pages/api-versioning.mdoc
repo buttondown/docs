@@ -2,7 +2,7 @@
 title: Versioning
 ---
 
-Whenever we make a backwards-incompatible change to the API, we release a new version of the API. (The current version is `2025-06-01`.)
+Whenever we make a backwards-incompatible change to the API, we release a new version of the API. (The current version is `2026-04-01`.)
 
 Buttondown determines the API version associated with a request in two ways:
 
@@ -19,3 +19,22 @@ We consider a backwards-incompatible change to be any change that could potentia
 - Changing the type of a field
 - Changing whether or not a field is required
 - Changing logic within an endpoint
+
+## API versions
+
+| Version | Changes |
+| --- | --- |
+| `2026-04-01` | Automation `timing` moved from top-level field into per-action `timing` within the `actions` array. |
+| | Email creation defaults to `draft` status instead of `about_to_send`. |
+| | Sending an email via POST requires a one-time `X-Buttondown-Live-Dangerously` confirmation header. |
+| `2026-01-01` | All object IDs converted from TypeIDs (e.g. `comment_xxx`) to plain UUIDs. |
+| `2025-06-01` | Date range filters split into start/end pairs (e.g. `date` became `date__start` and `date__end`). |
+| | Default email status filtering added when no explicit filter is provided. |
+| `2025-05-19` | Bulk action metadata uses `tag_id` instead of `tag`. |
+| `2025-01-02` | `is_comments_disabled` replaced with `commenting_mode`. |
+| `2024-12-30` | `DELETE /v1/subscribers` changed from soft-delete to hard delete. |
+| `2024-09-30` | No breaking changes. |
+| `2024-08-15` | `included_tags` and `excluded_tags` removed from emails in favor of filters. |
+| `2024-08-01` | Subscribers: `subscriber_type` renamed to `type`. |
+| | Subscribers: `email` renamed to `email_address`. |
+| `2024-07-01` | Initial API version. |

@@ -1,0 +1,45 @@
+---
+title: Cross-posting to social media
+navigationTitle: Cross-posting
+description:  >-
+  Automatically share your newsletter emails on social media using automations.
+---
+
+You can use Buttondown's [automations](/automations-introduction) to automatically cross-post your emails to social media platforms like Bluesky, LinkedIn, Twitter/X, Mastodon, Tumblr, and Arena.
+
+## Setting up a cross-posting automation
+
+[Create a cross-posting automation](https://buttondown.com/automations/new?trigger=email.sent&name=Cross-post+to+social) to get started --- this will set the trigger and name for you. Click **Save changes** to create the automation, then open its settings page to add actions.
+
+### Adding social media actions
+
+In the Actions section, click the action picker. You'll see the available social media platforms listed under their respective groups. Add one or more:
+
+- **Create a Bluesky post** --- Requires Bluesky credentials in your [newsletter settings](https://buttondown.com/settings/integrations/bluesky).
+- **Create a LinkedIn post** --- Requires a [connected LinkedIn account](https://buttondown.com/settings/integrations/linkedin).
+- **Create a Twitter post** --- Requires a [connected Twitter/X account](https://buttondown.com/settings/integrations/twitter).
+- **Create a Mastodon post** --- Requires Mastodon credentials in your [newsletter settings](https://buttondown.com/settings/integrations/mastodon).
+- **Create a Tumblr post** --- Requires a [connected Tumblr account](https://buttondown.com/settings/integrations/tumblr).
+- **Create an Arena post** --- Requires a [connected Arena account](https://buttondown.com/settings/integrations/arena) and a channel slug.
+
+If a platform isn't connected yet, the action will appear disabled in the picker. Connect the integration from your settings, then return to the automation to add the action.
+
+### Customizing the post content
+
+Each social media action supports [template variables](/templating) for dynamic content. You can use:
+
+- `{{ email.subject }}` --- The email's subject line.
+- `{{ email.absolute_url }}` --- A link to the web version of the email.
+- `{{ email }}` --- The full email object and its sub-variables.
+
+If you leave the message field blank, Buttondown will use a sensible default based on the email's subject and URL.
+
+### Timing
+
+You can set each action to post **immediately** when the email is sent, or add a delay. For example, you might post to Twitter right away but delay the LinkedIn post by an hour.
+
+Click **Save changes** when you're done.
+
+## Posting to multiple platforms
+
+Since each automation supports multiple actions, you can cross-post to all your platforms from a single automation. Add one action per platform, each with its own timing and message content. There's no need to create separate automations for each platform.

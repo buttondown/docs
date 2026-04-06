@@ -70,12 +70,7 @@ const Sidebar = ({
   }, [slug]);
 
   return (
-    <div
-      className={clsx(
-        "h-full border-r border-gray-200 bg-gray-50 overflow-y-auto",
-        className,
-      )}
-    >
+    <div className={clsx("h-full overflow-y-auto w-[320px]", className)}>
       <Accordion.Root
         type="multiple"
         defaultValue={currentFolderName ? [currentFolderName] : []}
@@ -85,21 +80,23 @@ const Sidebar = ({
         {nav[currentNavigationGroup].map((folder) =>
           folder.items.length === 0 ? (
             <div key={folder.name} className="pt-1.5 not-first:mt-8">
-              <p className="ml-[1.2rem] text-xs uppercase text-gray-500 w-max  px-1 py-0.5 rounded-md">
+              <p className="text-xs uppercase text-gray-500 w-max py-0.5 rounded-md">
                 {folder.name}
               </p>
             </div>
           ) : (
             <Accordion.Item key={folder.name} value={folder.name}>
               <Accordion.Header>
-                <Accordion.Trigger className="group text-left">
-                  <div className="flex items-center gap-x-1.5">
+                <Accordion.Trigger className="group text-left w-full">
+                  <div className="flex items-center gap-x-1.5 w-full">
+                    <p className="text-gray-800 font-medium flex-1">
+                      {folder.name}
+                    </p>{" "}
                     <ChevronRightIcon className="block h-4 w-4 text-gray-400 group-data-[state=open]:rotate-90 transition-transform" />
-                    <p className="text-gray-800 font-medium">{folder.name}</p>
                   </div>
                 </Accordion.Trigger>
               </Accordion.Header>
-              <Accordion.Content className="pb-3 pt-1 space-y-1 pl-4">
+              <Accordion.Content className="space-y-1 border-l border-gray-200 pl-4 my-2">
                 {folder.items.map((item) => {
                   if (item.type === "hidden_page") {
                     return null;
@@ -108,7 +105,7 @@ const Sidebar = ({
                   if (item.type === "divider") {
                     return (
                       <div key={item.title} className="pt-1.5">
-                        <p className="ml-[1.2rem] text-xs text-gray-500 w-max bg-gray-200 px-1 py-0.5 rounded-md">
+                        <p className="text-xs text-gray-500 w-max bg-gray-200 py-0.5 rounded-md">
                           {item.title}
                         </p>
                       </div>
@@ -120,7 +117,7 @@ const Sidebar = ({
                       key={item.slug}
                       href={`/${item.slug}`}
                       className={clsx(
-                        "block ml-[1.4rem] tabular-nums",
+                        "block tabular-nums",
                         item.slug === slug
                           ? "text-blue-600"
                           : "text-gray-500 hover:text-gray-800 transition-colors",

@@ -24,6 +24,10 @@ faqItems: >
       "answer": "Metadata keys are cached for up to one hour. If you've just added a new metadata key (for example, by adding a custom field in your [subscribing settings](https://buttondown.com/settings/subscribing) or via the API), it may take up to an hour before it appears in places like automation filters and the subscriber detail page.\n\nIf it's been longer than an hour and you're still not seeing your metadata key, please [contact us](mailto:support@buttondown.com) and we'll be happy to help."
     },
     {
+      "question": "How do I automatically send an email to new subscribers?",
+      "answer": "You can set up an automation to send a welcome email to new subscribers. Read [Automations](/automations-introduction) to learn how."
+    },
+    {
       "question": "Why doesn't Buttondown capture the full referrer URL when someone subscribes via an embedded form?",
       "answer": "This is a limitation of how browsers handle HTML `<form>` submissions. Unlike elements like `<a>`, `<img>`, and `<iframe>`, the `<form>` element does not support the `referrerpolicy` attribute — it's simply [not part of the HTML spec](https://github.com/whatwg/html/issues/4320). Because of this, browsers only send the origin (e.g. `https://example.com`) rather than the full page URL (e.g. `https://example.com/blog/my-post`) when a form is submitted.\n\nIf you need full referrer URL tracking, consider using Buttondown's [iframe embed](#embedding-an-iframe) or the [web component embed](https://buttondown.com/settings/embedding), both of which can capture the full page URL."
     }
@@ -103,35 +107,13 @@ You can read our docs to learn more about [tags](/segmenting-your-audience#tags)
 
 {% noticeInfo text="First time using the Buttondown API? Make sure this feature is enabled in Settings." /%}
 
-If you're feeling clever, you can [update the tags](/api-subscribers-update) of your subscribers using Buttondown's API.
+You can [update the tags](/api-subscribers-update) of your subscribers programmatically using Buttondown's API. For example, to add a tag to a subscriber, you'd make a `PATCH` request to the subscriber endpoint with the desired tags.
 
-The API also enables you to automatically tag users by setting up an [automation](/api-automation-introduction).
+Check out the [examples repo](https://github.com/buttondown/examples) for ready-to-use code samples.
 
-For example, if you wanted to immediately apply a tag to any reader who clicked a link in a certain email, the automation might look like this:
+**Using automations**
 
-```js
-{
-    "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb4",
-    "creation_date": "2000-01-01T00:00:00+00:00",
-    "name": "Very important newsletter",
-    "status": "active",
-    "trigger": "subscriber.clicked",
-    "timing": {
-        "time": "immediate",
-        "delay": null
-    },
-    "actions": [
-        {
-            "type": "apply_tags",
-            "metadata": {
-                "tag_id": "fg6817b9-427a-ge61-0d2f-43f318712cb3",
-                "action": "add"
-            }
-        }
-    ]
-}
-```
-In the example above, we use the bulk action of `apply_tags` to tag the users. That requires two pieces of information to be passed as metadata: The ID of the desired tag, and the action we'd like to take (`add` or `remove`)
+You can also automatically tag subscribers by setting up an [automation](/api-automation-introduction). For example, you could automatically apply a tag to any reader who clicks a link in a certain email using the `subscriber.clicked` trigger with an `apply_tags` action.
 
 Here are some resources for creating your own tagging automation:
 - [Introduction to automations](/api-automation-introduction)
@@ -179,13 +161,9 @@ Another example is below:
 
 You can read our docs to learn more about [metadata](/subscriber-data).
 
-## Automatically sending an email to new subscribers
-
-To learn how to create an automated email to send to new subscribers, read [Automations](/automations-introduction).
-
 ## Changing an existing subscriber's email address
 
-If you need to change a subscriber's address, you can go into the Notes screen for that subscriber and tap their address to change it. To learn more, watch this [video](https://www.loom.com/share/6ff952d18f0a40288bec93843fbd1024).
+If you need to change a subscriber's address, you can go into the Notes screen for that subscriber and tap their address to change it.
 
 ## Integrating with other tools
 

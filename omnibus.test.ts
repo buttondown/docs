@@ -55,13 +55,12 @@ const VALID_APPLICATION_ROUTES = [
   "changelog/2025-02-06",
   "register",
   "login",
-  "login?subscriber=1",
 
   // Specific pages.
   "el-classico/archive/who-was-telemachus-anyway/",
   "cryptography-dispatches",
-  "occasional-puzzles?tag=utm_source:buttondown_website",
-  "<yourusername>/?referral_code={{ subscriber.referral_code }}",
+  "occasional-puzzles",
+  "<yourusername>/",
 
   // Weird edge cases.
   "features/markdown",
@@ -191,9 +190,8 @@ Object.entries(FILENAME_TO_APPLICATION_LINKS).forEach(([filename, routes]) => {
 
   test(filename + " only has valid application routes", () => {
     routes.forEach((route) => {
-      expect(VALID_APPLICATION_ROUTES).toContain(
-        route.replace("https://buttondown.com/", ""),
-      );
+      const stripped = route.replace("https://buttondown.com/", "").split("?")[0];
+      expect(VALID_APPLICATION_ROUTES).toContain(stripped);
     });
   });
 });

@@ -311,6 +311,11 @@ const REDIRECTS = [
     destination: "/teams",
   },
   {
+    source: "/api",
+    permanent: false,
+    destination: "/api-introduction",
+  },
+  {
     source: "/api-reference/authentication",
     permanent: false,
     destination: "/api-authentication",
@@ -331,11 +336,6 @@ const REDIRECTS = [
     destination: "/api-introduction",
   },
   {
-    source: "/api-reference/authentication",
-    permanent: false,
-    destination: "/api-authentication",
-  },
-  {
     source: "/api-reference/automations",
     permanent: false,
     destination: "/api-external-feed-introduction",
@@ -344,11 +344,6 @@ const REDIRECTS = [
     source: "/api-reference/bulk-actions",
     permanent: false,
     destination: "/api-bulk-actions-introduction",
-  },
-  {
-    source: "/api-reference/changelog",
-    permanent: false,
-    destination: "/api-changelog",
   },
   {
     source: "/api-reference/comments",
@@ -364,11 +359,6 @@ const REDIRECTS = [
     source: "/api-reference/images",
     permanent: false,
     destination: "/api-images-introduction",
-  },
-  {
-    source: "/api-reference/introduction",
-    permanent: false,
-    destination: "/api-introduction",
   },
   {
     source: "/api-reference/newsletters",
@@ -898,11 +888,6 @@ const REDIRECTS = [
   {
     source: "/price-changes",
     destination: "/paid-subscriptions#faqs",
-    permanent: false,
-  },
-  {
-    source: "/rate-limiting",
-    destination: "/hosting-domain",
     permanent: false,
   },
   {

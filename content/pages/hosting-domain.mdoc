@@ -8,7 +8,7 @@ relatedPages:
 
 {% paidFeature feature="custom_domain" /%}
 
-By default, your archives reside at `buttondown.com/username`, corresponding to the username you selected upon registering. You can view and change that username at [Settings → Basics](https://buttondown.com/settings/general).
+By default, your archives reside at `buttondown.com/username`, corresponding to the username you selected upon registering. You can view and change that username at [Settings → General](https://buttondown.com/settings/general).
 
 That archive URL always works, even if you set up a custom domain name for your archives. Put another way, if you change your archives to `newsletter.example.com`, visitors to `buttondown.com/username` will be forwarded to `newsletter.example.com`.
 
@@ -16,12 +16,12 @@ That archive URL always works, even if you set up a custom domain name for your 
 
 A [hosting domain](/glossary-email-infrastructure#hosting-domain) lets you serve your newsletter archives from your own domain, such as `newsletter.janedoe.com`, instead of `buttondown.com/username`.
 
-1. If you're not signed up for either the **Standard** or **Professional** plan, [upgrade your account](https://buttondown.com/settings).
-2. Go to the [Domains](https://buttondown.com/settings/domains) page.
+1. If you're not on a [paid plan](https://buttondown.com/pricing), [upgrade your account](https://buttondown.com/settings).
+2. Go to the [Domains](https://buttondown.com/settings/domains/hosting) page.
 3. Specify your domain name in the "Hosting domain" field.
 4. Click **Save changes**.
 
-{% iframe src="https://demo.buttondown.com/settings/domains?emphasis=hosting-domain" /%}
+{% iframe src="https://demo.buttondown.com/settings/domains/hosting" /%}
 
 After you save, Buttondown prompts you to add a `CNAME` record pointing to `custom-domains.buttondown.com`. Add this record with your DNS provider, and your custom archive URL will be live once the DNS propagates.
 

@@ -41,10 +41,7 @@ export default async function Layout({
     throw new Error("Navigation couldn't be loaded");
   }
 
-  const nav = assembleNavData(
-    navigation as NavigationFile,
-    pages,
-  );
+  const nav = assembleNavData(navigation as NavigationFile, pages);
 
   if ("errors" in nav) {
     throw new Error(nav.errors.join("\n"));
@@ -66,13 +63,55 @@ export default async function Layout({
 
   const contentArray = buildContentArray();
 
+  const guidesHref = `/${getFirstPageSlug(nav, "guides")}`;
+  const referenceHref = `/${getFirstPageSlug(nav, "reference")}`;
+  const apiHref = `/${getFirstPageSlug(nav, "api")}`;
+
   return (
     <>
       {/* Desktop sidebar */}
-      <div className="max-lg:hidden fixed top-0 left-0 w-[320px] h-screen grid grid-rows-[max-content_1fr]">
-        <DesktopLogo />
-        <div className="overflow-scroll no-scrollbar">
-          <Sidebar slug={slug} nav={nav} className="px-5 py-4" />
+      <div className="hidden lg:block z-50 bg-white">
+        <div className="px-5 border-r border-b h-[50px] right-0 hidden lg:flex items-center fixed z-50 top-0 left-0 bg-white">
+          <a href="https://buttondown.com">
+            <img src="/icon.svg" alt="Buttondown logo" className="size-6" />
+          </a>
+          <nav
+            className={clsx(
+              "max-lg:hidden pl-4 sticky top-0 bg-white z-50",
+              "flex items-center justify-between w-full",
+            )}
+          >
+            <div className="flex items-center gap-x-6">
+              <NavItem
+                label="Getting started"
+                href={guidesHref}
+                icon={PlayCircleIcon}
+                isActive={currentNavigationGroup === "guides"}
+              />
+              <NavItem
+                label="Reference"
+                href={referenceHref}
+                icon={BookOpenIcon}
+                isActive={currentNavigationGroup === "reference"}
+              />
+              <NavItem
+                label="API"
+                href={apiHref}
+                icon={CodeBracketIcon}
+                isActive={currentNavigationGroup === "api"}
+              />
+            </div>
+            <div className="flex-1" />
+
+            <div className="flex items-center gap-x-3">
+              <Search
+                contentArray={contentArray}
+                defaultCategory="general"
+                variant="inline"
+              />
+              <AccountButtons />
+            </div>
+          </nav>
         </div>
       </div>
 
@@ -84,87 +123,64 @@ export default async function Layout({
         activeGroup={currentNavigationGroup}
       />
 
-      <div className="lg:ml-[320px]">
+      <div className="lg:grid lg:grid-cols-[320px_1fr] pt-12">
         {/* Desktop nav header */}
-        <Nav activeGroup={currentNavigationGroup} nav={nav} />
+        <div className="overflow-scroll no-scrollbar w-[320px] h-screen hidden lg:flex">
+          <Sidebar
+            slug={slug}
+            nav={nav}
+            className="px-5 py-4 fixed top-12 left-0 bottom-0"
+          />
+        </div>
 
-        <div className="max-w-[650px] p-4 pb-16 lg:p-8 lg:pb-24 lg:mx-0 mx-auto">
-          <h1 className="text-3xl font-extrabold text-gray-800 mb-8">
+        <div className="max-w-full lg:max-w-4xl p-4 pb-16 lg:p-8 lg:pb-24 mx-auto">
+          <h1 className="text-3xl font-extrabold text-gray-800 mb-0">
             {title}
           </h1>
-          <Prose>{children}</Prose>
-        </div>
+          <div className="flex">
+            <div>
+              <Prose>{children}</Prose>
+              <footer className="flex bg-white z-50">
+                <p className="text-gray-400 text-sm">
+                  <div>
+                    &copy; 2016–{new Date().getFullYear()} Buttondown LLC.
+                  </div>
+                  <a
+                    href="https://buttondown.com/blog"
+                    target="_blank"
+                    className="underline"
+                  >
+                    Blog
+                  </a>
+                  <span> &middot; </span>
+                  <a
+                    href="https://buttondown.com/changelog"
+                    target="_blank"
+                    className="underline"
+                  >
+                    Changelog
+                  </a>
+                  <span> &middot; </span>
+                  <a
+                    href="https://buttondown.com"
+                    target="_blank"
+                    className="underline"
+                  >
+                    Home
+                  </a>
+                </p>
+              </footer>
+            </div>
 
-        <div className="max-xl:hidden">
-          <HeadingsMinimap />
-        </div>
-
-        <div className="lg:sticky lg:bottom-0">
-          <Footer />
+            <div className="max-xl:hidden z-10">
+              <HeadingsMinimap />
+            </div>
+          </div>
         </div>
       </div>
     </>
   );
 }
-
-const DesktopLogo = () => {
-  return (
-    <div className="px-5 border-r border-b h-[50px] flex items-center">
-      <a href="https://buttondown.com">
-        <img src="/icon.svg" alt="Buttondown logo" className="h-8" />
-      </a>
-    </div>
-  );
-};
-
-const Nav = ({
-  activeGroup,
-  nav,
-}: {
-  activeGroup: string | null;
-  nav: NavData;
-}) => {
-  const contentArray = buildContentArray();
-
-  const guidesHref = `/${getFirstPageSlug(nav, "guides")}`;
-  const referenceHref = `/${getFirstPageSlug(nav, "reference")}`;
-  const apiHref = `/${getFirstPageSlug(nav, "api")}`;
-
-  return (
-    <nav
-      className={clsx(
-        "max-lg:hidden border-b px-5 h-[50px] sticky top-0 bg-white z-50",
-        "flex items-center justify-between",
-      )}
-    >
-      <div className="flex items-center gap-x-6">
-        <NavItem
-          label="Getting started"
-          href={guidesHref}
-          icon={PlayCircleIcon}
-          isActive={activeGroup === "guides"}
-        />
-        <NavItem
-          label="Reference"
-          href={referenceHref}
-          icon={BookOpenIcon}
-          isActive={activeGroup === "reference"}
-        />
-        <NavItem
-          label="API"
-          href={apiHref}
-          icon={CodeBracketIcon}
-          isActive={activeGroup === "api"}
-        />
-      </div>
-
-      <div className="flex items-center gap-x-3">
-        <Search contentArray={contentArray} defaultCategory="general" variant="inline" />
-        <AccountButtons />
-      </div>
-    </nav>
-  );
-};
 
 const NavItem = ({
   label,
@@ -188,38 +204,6 @@ const NavItem = ({
       <Icon className="size-5 flex-shrink-0" />
       <span className="font-medium">{label}</span>
     </ShimmerLink>
-  );
-};
-
-const Footer = () => {
-  return (
-    <footer className="flex items-center justify-center bg-white z-50 border-t pb-3 pt-2.5 px-4">
-      <p className="text-gray-400 text-sm max-lg:text-center">
-        <span>&copy; 2016–{new Date().getFullYear()} Buttondown LLC.</span>
-
-        <span className="max-lg:hidden inline-block w-3" />
-        <br className="lg:hidden" />
-        <a
-          href="https://buttondown.com/blog"
-          target="_blank"
-          className="underline"
-        >
-          Blog
-        </a>
-        <span> &middot; </span>
-        <a
-          href="https://buttondown.com/changelog"
-          target="_blank"
-          className="underline"
-        >
-          Changelog
-        </a>
-        <span> &middot; </span>
-        <a href="https://buttondown.com" target="_blank" className="underline">
-          Home
-        </a>
-      </p>
-    </footer>
   );
 };
 

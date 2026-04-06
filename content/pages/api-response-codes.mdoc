@@ -13,4 +13,5 @@ Buttondown uses a variety of response codes to indicate the status of a request.
 | 401  | The request does not have any [authentication](/api-authentication) associated with it                   |
 | 403  | The request does have authentication associated with it, but insufficient permissions.     |
 | 422  | The request was well-formed but had semantic errors.                              |
-| 429  | The user has sent [too many requests](/api-rate-limits) in a given amount of time                 |
+| 400  | The user has exceeded the daily rate limit for creating subscribers (see [rate limits](/api-rate-limits))                |
+| 429  | The user has exceeded other rate limits (e.g., firewall bypass requests) in a given amount of time                 |

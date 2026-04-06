@@ -4,9 +4,8 @@ relatedPages:
 - rss-to-email
 - subscriber-data
 ---
-Buttondown uses a templating language to mix programming code into plain old HTML. By adding logic and variables to your email you can customize your content per-subscriber, or to repeat structures in your email without having to hand code them multiple times.
 
-{% noticeInfo text="Buttondown's templating language is built on top of Django." /%}
+Buttondown uses a templating language (Django's, technically) to mix programming code into plain old HTML. By adding logic and variables to your email you can customize your content per-subscriber, or to repeat structures in your email without having to hand code them multiple times.
 
 ## Variables
 Variables allow you to programmatically add text to your email. You may have previously worked with variables in the form of "mail merges".
@@ -31,7 +30,7 @@ For example, if you wanted to make sure your email subject line was always capit
 {{ email.subject|capfirst }}
 ```
 
-As Buttondown's templating language is built on Django you can use any of their [available filters](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#ref-templates-builtins-filters).
+As Buttondown's templating language is built on Django you can use any of their [available filters](https://docs.djangoproject.com/en/stable/ref/templates/builtins/#ref-templates-builtins-filters).
 
 ## Tags
 Tags are bits of code that are added to your HTML content that can do all sorts of things, including logic!
@@ -86,7 +85,7 @@ You could also use `elif` (else if) tags to send different messages to your prem
 {% endif %}.
 ```
 
-Have a situation that needs something more than a `for` or `if else` loop? Fear not! There are lots of other pre-built tags on the [Django site](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#ref-templates-builtins-tags).
+Have a situation that needs something more than a `for` or `if else` loop? Fear not! There are lots of other pre-built tags on the [Django site](https://docs.djangoproject.com/en/stable/ref/templates/builtins/#ref-templates-builtins-tags).
 
 ## Template variables
 

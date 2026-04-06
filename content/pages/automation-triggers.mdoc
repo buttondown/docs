@@ -7,12 +7,23 @@ description:  >-
   Triggers are the events that cause a Buttondown Automation to fire.
 ---
 
-Triggers are what kick off automations! They're the inciting event that causes an automation to run.
+Triggers are what kick off automations. They're the inciting event that causes an automation to run.
 
 Let's run through a couple examples:
 
-1. You want to send a series of three [welcome emails](/glossary-writing-emails#drip-sequence) to new users when they sign up for your app. The trigger would be a [subscriber.created](/event-types#subscriber.created) event.
+1. You want to send a series of three [welcome emails](/welcome-sequence) to new users when they sign up. The trigger would be a [subscriber.confirmed](/event-types#subscriber.confirmed) event, and you'd add multiple "send email" actions with different delays.
 2. You want to automatically invite all paying subscribers to a private Discord server. The trigger would be a [subscription.paid](/event-types#subscriber.paid) event.
 3. You want to send a follow-up email to folks who have churned from your paid subscription after sixty days, letting them know about new content you've added. The trigger would be a [subscription.churned](/event-types#subscriber.churned) event.
 
 You can see that each of these triggers is a different _event type_. There are many different event types that you can use as triggers for your automations. We've cataloged them all [in our list of event types](/event-types).
+
+## Trigger and action compatibility
+
+Certain triggers restrict which actions are available. For example:
+
+- **When an email is sent** --- Unlocks social media cross-posting actions (Bluesky, LinkedIn, Mastodon, Tumblr, Twitter, Arena) but doesn't include subscriber-level actions like tagging.
+- **When a subscriber replies** --- Adds the "Forward the reply" action alongside the standard actions.
+- **Calendar triggers** (new day/week/month/year) --- Limited to notifications and exports, since there's no specific subscriber involved.
+- **Stripe/Memberful/Patreon triggers** --- Offer a focused set of actions relevant to payment events (like creating subscribers or updating email addresses).
+
+The action picker in the automation settings page automatically shows only the actions that are compatible with your selected trigger.

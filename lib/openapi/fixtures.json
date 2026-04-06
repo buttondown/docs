@@ -562,6 +562,7 @@
         "commenting_mode": "enabled",
         "review_mode": "disabled",
         "description": "",
+        "archival_mode": "enabled",
         "email_type": "public",
         "featured": false,
         "filters": {
@@ -597,6 +598,7 @@
         "commenting_mode": "enabled",
         "review_mode": "disabled",
         "description": "",
+        "archival_mode": "enabled",
         "email_type": "public",
         "featured": false,
         "filters": {
@@ -632,6 +634,7 @@
         "commenting_mode": "enabled",
         "review_mode": "disabled",
         "description": "",
+        "archival_mode": "enabled",
         "email_type": "public",
         "featured": false,
         "filters": {

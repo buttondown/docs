@@ -1,5 +1,65 @@
 ---
 title: Types of automation actions
 navigationTitle: Actions
-enum: AutomationActionType
+description:  >-
+  Actions are the things that automations actually do --- send emails, add tags, post to social media, and more.
 ---
+
+Actions are the steps your automation performs when it fires. Each action has its own timing (immediate or delayed), and you can add multiple actions to a single automation.
+
+## Available actions
+
+### Email
+
+- **Send an email** --- Send a custom email to the subscriber. You can write a new email or choose an existing one.
+- **Send a notification** --- Send a notification email to a specific recipient (like yourself).
+- **Send a confirmation reminder** --- Resend a subscription confirmation email to subscribers who haven't confirmed yet.
+- **Forward the reply** --- Forward a subscriber's reply to a specific email address. Only available with the "When a subscriber replies" trigger.
+
+### Tags and metadata
+
+- **Add tag(s)** --- Add one or more tags to the subscriber.
+- **Remove tag(s)** --- Remove one or more tags from the subscriber.
+- **Add metadata** --- Add key-value metadata to the subscriber.
+
+### Subscriber management
+
+- **Gift a premium subscription** --- Give the subscriber a free paid subscription.
+- **Ungift a premium subscription** --- Remove a gifted paid subscription.
+- **Unsubscribe a subscriber** --- Unsubscribe the subscriber from your newsletter.
+- **Create a subscriber** --- Add the subscriber to another newsletter you manage.
+- **Update the subscriber's email address** --- Update the subscriber's email to match an external source (for Memberful/Stripe triggers).
+
+### Integrations
+
+- **Send webhook request** --- Send a POST request to a URL of your choice with a custom payload.
+- **Send a Discord invitation** --- Invite the subscriber to your Discord server. Requires Discord integration.
+- **Send a GitHub invitation** --- Invite the subscriber to your GitHub organization. Requires GitHub integration.
+- **Unsubscribe from Shopify** --- Remove the subscriber from your Shopify store. Requires Shopify integration.
+- **Export your subscribers** --- Create an export of your subscriber or email data.
+
+### Social media (email.sent trigger only)
+
+These actions are available when the trigger is "When an email is sent" and let you cross-post to social platforms:
+
+- **Create an Arena post** --- Requires a connected Arena account.
+- **Create a Bluesky post** --- Requires Bluesky credentials in your newsletter settings.
+- **Create a LinkedIn post** --- Requires a connected LinkedIn account.
+- **Create a Mastodon post** --- Requires Mastodon credentials in your newsletter settings.
+- **Create a Tumblr post** --- Requires a connected Tumblr account.
+- **Create a Twitter post** --- Requires a connected Twitter/X account.
+
+## Integration-dependent actions
+
+Some actions require an integration to be connected before they can be used. If the integration isn't set up, the action will appear disabled in the action picker. You can connect integrations from your newsletter settings without leaving the automation configuration page.
+
+## Trigger compatibility
+
+Not all actions are available with every trigger. For example, social media posting actions only appear when the trigger is "When an email is sent," and "Forward the reply" only appears when the trigger is "When a subscriber replies." The action picker automatically shows only the actions compatible with your chosen trigger.
+
+## Per-action timing
+
+Each action in an automation has its own timing setting:
+
+- **Immediately** --- The action runs as soon as the trigger fires.
+- **After a delay** --- The action runs after a specified delay (minutes, hours, days, or weeks). For delays measured in days or weeks, you can optionally choose a time of day.

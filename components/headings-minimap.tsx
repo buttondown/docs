@@ -171,7 +171,7 @@ export default function HeadingsMinimap() {
 
   return (
     <nav
-      className="fixed right-8 top-[90px] w-[180px] max-h-[calc(100vh-150px)] overflow-y-auto no-scrollbar"
+      className="sticky pl-4 top-16 w-[180px] max-h-[calc(100vh-150px)] overflow-y-auto no-scrollbar"
       aria-label="Table of contents"
     >
       <div className="relative">
