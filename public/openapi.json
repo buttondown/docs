@@ -10668,7 +10668,8 @@
         "enum": [
           "disabled",
           "enabled",
-          "enabled_for_paid_subscribers"
+          "enabled_for_paid_subscribers",
+          "enabled_for_subscribers"
         ],
         "title": "ArchivalMode",
         "type": "string"
