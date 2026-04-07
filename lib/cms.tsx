@@ -401,8 +401,8 @@ const components: Record<string, React.ComponentType<any>> = {
     );
   },
   Table: ({ children }: { children?: React.ReactNode }) => (
-    <div className="overflow-x-auto my-6">
-      <table className="min-w-full border border-gray-300">
+    <div className="overflow-x-auto">
+      <table className="min-w-full !my-0">
         <tbody>{children}</tbody>
       </table>
     </div>
