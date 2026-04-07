@@ -8,12 +8,11 @@ This endpoint sends a magic login link to a subscriber, allowing them to authent
 
 This is useful for authors and integrations that need to trigger subscriber login flows programmatically, such as when you want to let subscribers manage their subscriptions from within your own application.
 
-## Example
+## The email
 
-```bash
-curl -X POST "https://api.buttondown.com/v1/subscribers/{id_or_email}/send-magic-link" \
-  -H "Authorization: Token YOUR_API_KEY"
-```
+When you call this endpoint, the subscriber receives an email like the one below:
+
+{% iframe src="/stories/magic-link.html" variant="email" /%}
 
 ## Notes
 
