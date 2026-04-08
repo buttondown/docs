@@ -340,6 +340,10 @@
         },
         {
           "discriminant": "page",
+          "value": "account-review"
+        },
+        {
+          "discriminant": "page",
           "value": "teams"
         },
         {
