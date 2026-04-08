@@ -28,6 +28,10 @@ faqItems: >
       "answer": "You can set up an automation to send a welcome email to new subscribers. Read [Automations](/automations-introduction) to learn how."
     },
     {
+      "question": "How do I embed my subscription widget in Medium?",
+      "answer": "All you need to do is post [your newsletter's URL](#sharing-your-buttondown-url) in Medium. It should automatically embed, thanks to the powers of [oEmbed](/glossary-developers#oembed)."
+    },
+    {
       "question": "Why doesn't Buttondown capture the full referrer URL when someone subscribes via an embedded form?",
       "answer": "This is a limitation of how browsers handle HTML `<form>` submissions. Unlike elements like `<a>`, `<img>`, and `<iframe>`, the `<form>` element does not support the `referrerpolicy` attribute — it's simply [not part of the HTML spec](https://github.com/whatwg/html/issues/4320). Because of this, browsers only send the origin (e.g. `https://example.com`) rather than the full page URL (e.g. `https://example.com/blog/my-post`) when a form is submitted.\n\nIf you need full referrer URL tracking, consider using Buttondown's [iframe embed](#embedding-an-iframe) or the [web component embed](https://buttondown.com/settings/embedding), both of which can capture the full page URL."
     }
@@ -164,12 +168,6 @@ You can read our docs to learn more about [metadata](/subscriber-data).
 ## Changing an existing subscriber's email address
 
 If you need to change a subscriber's address, you can go into the Notes screen for that subscriber and tap their address to change it.
-
-## Integrating with other tools
-
-### Medium
-
-To embed your subscription widget in Medium, all you need to do is post [your newsletter's URL](#sharing-your-buttondown-url) in Medium. It should automatically embed, thanks to the powers of [oEmbed](/glossary-developers#oembed).
 
 ## FAQs
 
