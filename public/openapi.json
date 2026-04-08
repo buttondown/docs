@@ -9741,12 +9741,15 @@
         "type": "object"
       },
       "Action": {
+        "description": "An action to perform when the automation's trigger fires.",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/AutomationActionType"
+            "$ref": "#/components/schemas/AutomationActionType",
+            "description": "The type of action to perform."
           },
           "metadata": {
             "additionalProperties": true,
+            "description": "Configuration specific to the action type.",
             "title": "Metadata",
             "type": "object"
           },
@@ -9758,7 +9761,8 @@
               {
                 "type": "null"
               }
-            ]
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
           }
         },
         "required": [
@@ -9769,6 +9773,7 @@
         "type": "object"
       },
       "Automation": {
+        "description": "A rule that automatically performs actions in response to events.",
         "properties": {
           "id": {
             "description": "A unique TypeID associated with the object.",
@@ -9782,16 +9787,20 @@
             "type": "string"
           },
           "name": {
+            "description": "The name of the automation.",
             "title": "Name",
             "type": "string"
           },
           "status": {
-            "$ref": "#/components/schemas/AutomationStatus"
+            "$ref": "#/components/schemas/AutomationStatus",
+            "description": "Whether the automation is enabled or disabled."
           },
           "trigger": {
-            "$ref": "#/components/schemas/ExternalEventType"
+            "$ref": "#/components/schemas/ExternalEventType",
+            "description": "The event that causes this automation to run."
           },
           "actions": {
+            "description": "The actions to perform when the trigger fires.",
             "items": {
               "$ref": "#/components/schemas/Action"
             },
@@ -9799,10 +9808,12 @@
             "type": "array"
           },
           "filters": {
-            "$ref": "#/components/schemas/FilterGroup"
+            "$ref": "#/components/schemas/FilterGroup",
+            "description": "Conditions that must be met for the automation to run."
           },
           "metadata": {
             "additionalProperties": true,
+            "description": "Additional metadata for the automation.",
             "title": "Metadata",
             "type": "object"
           },
@@ -9827,12 +9838,15 @@
         "type": "object"
       },
       "Delay": {
+        "description": "Configuration for how long to wait before executing the automation's action.",
         "properties": {
           "value": {
+            "description": "The number of time units to delay.",
             "title": "Value",
             "type": "string"
           },
           "unit": {
+            "description": "The unit of time for the delay.",
             "enum": [
               "minutes",
               "hours",
@@ -9856,6 +9870,7 @@
                 "type": "null"
               }
             ],
+            "description": "If set, the action will be executed at this time of day after the delay has passed.",
             "title": "Time Of Day"
           }
         },
@@ -9942,8 +9957,10 @@
         "description": "An enumeration."
       },
       "Timing": {
+        "description": "Controls when an automation's action executes after the trigger fires.",
         "properties": {
           "time": {
+            "description": "Whether the action should execute immediately or after a delay.",
             "enum": [
               "immediate",
               "delay"
@@ -9959,7 +9976,8 @@
               {
                 "type": "null"
               }
-            ]
+            ],
+            "description": "The delay configuration. Required when `time` is `delay`; null when `time` is `immediate`."
           }
         },
         "required": [
@@ -10015,14 +10033,17 @@
       "AutomationInput": {
         "properties": {
           "name": {
+            "description": "The name of the automation.",
             "maxLength": 100,
             "title": "Name",
             "type": "string"
           },
           "trigger": {
-            "$ref": "#/components/schemas/ExternalEventType"
+            "$ref": "#/components/schemas/ExternalEventType",
+            "description": "The event that causes this automation to run."
           },
           "actions": {
+            "description": "The actions to perform when the trigger fires.",
             "items": {
               "$ref": "#/components/schemas/Action"
             },
@@ -10030,13 +10051,15 @@
             "type": "array"
           },
           "filters": {
-            "$ref": "#/components/schemas/FilterGroup"
+            "$ref": "#/components/schemas/FilterGroup",
+            "description": "Conditions that must be met for the automation to run."
           },
           "metadata": {
             "additionalProperties": {
               "type": "string"
             },
             "default": {},
+            "description": "Additional metadata for the automation.",
             "title": "Metadata",
             "type": "object"
           },
@@ -10068,6 +10091,7 @@
                 "type": "null"
               }
             ],
+            "description": "The name of the automation.",
             "title": "Name"
           },
           "status": {
@@ -10078,7 +10102,8 @@
               {
                 "type": "null"
               }
-            ]
+            ],
+            "description": "Whether the automation is enabled or disabled."
           },
           "trigger": {
             "anyOf": [
@@ -10088,7 +10113,8 @@
               {
                 "type": "null"
               }
-            ]
+            ],
+            "description": "The event that causes this automation to run."
           },
           "timing": {
             "anyOf": [
@@ -10098,7 +10124,8 @@
               {
                 "type": "null"
               }
-            ]
+            ],
+            "description": "When to execute the automation's actions."
           },
           "actions": {
             "anyOf": [
@@ -10112,6 +10139,7 @@
                 "type": "null"
               }
             ],
+            "description": "The actions to perform when the trigger fires.",
             "title": "Actions"
           },
           "filters": {
@@ -10122,7 +10150,8 @@
               {
                 "type": "null"
               }
-            ]
+            ],
+            "description": "Conditions that must be met for the automation to run."
           },
           "metadata": {
             "anyOf": [
@@ -10134,6 +10163,7 @@
                 "type": "null"
               }
             ],
+            "description": "Additional metadata for the automation.",
             "title": "Metadata"
           },
           "should_evaluate_filter_after_delay": {
