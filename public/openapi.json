@@ -9942,8 +9942,10 @@
         "description": "An enumeration."
       },
       "Timing": {
+        "description": "Controls when an automation's action is executed after the trigger fires.",
         "properties": {
           "time": {
+            "description": "Whether the automation should execute immediately when triggered or after a delay. Set to `immediate` to run right away, or `delay` to wait for a specified duration.",
             "enum": [
               "immediate",
               "delay"
@@ -9952,6 +9954,7 @@
             "type": "string"
           },
           "delay": {
+            "description": "The delay configuration for the automation. Required when `time` is set to `delay`, and should be `null` when `time` is `immediate`.",
             "anyOf": [
               {
                 "$ref": "#/components/schemas/Delay"
