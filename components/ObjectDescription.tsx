@@ -74,8 +74,20 @@ export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
         } else if ("allOf" in info) {
           $ref = (info.allOf as { $ref: string }[])[0].$ref;
         } else if ("anyOf" in info) {
-          $ref = (info.anyOf as { $ref: string }[])[0].$ref;
+          const firstItem = (info.anyOf as Record<string, unknown>[])[0];
+          if ("$ref" in firstItem) {
+            $ref = firstItem.$ref as string;
+          }
         }
+
+        const anyOfType =
+          "anyOf" in info && !$ref
+            ? (
+                (info.anyOf as Record<string, unknown>[]).find(
+                  (item) => item.type !== "null",
+                ) as Record<string, unknown> | undefined
+              )?.type
+            : undefined;
 
         const type: TypeProp = $ref
           ? {
@@ -85,7 +97,7 @@ export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
             }
           : {
               type: "string",
-              value: info.type,
+              value: (anyOfType as string) || info.type,
             };
 
         return (
@@ -320,7 +332,7 @@ const parametersForRef = (
               $ref: undefined;
             }
           | {
-              anyOf: [{ $ref: string }];
+              anyOf: Record<string, unknown>[];
               description: undefined;
               type: undefined;
               example?: object;
@@ -346,23 +358,37 @@ const parametersForRef = (
                 name:
                   urlForSchema(qualifiedParameter.allOf[0].$ref)?.schema || "",
               }
-            : "anyOf" in qualifiedParameter
+            : "anyOf" in qualifiedParameter &&
+                "$ref" in qualifiedParameter.anyOf[0]
               ? {
                   type: "ref",
                   url:
-                    urlForSchema(qualifiedParameter.anyOf[0].$ref)?.slug || "",
+                    urlForSchema(
+                      qualifiedParameter.anyOf[0].$ref as string,
+                    )?.slug || "",
                   name:
-                    urlForSchema(qualifiedParameter.anyOf[0].$ref)?.schema ||
-                    "",
+                    urlForSchema(
+                      qualifiedParameter.anyOf[0].$ref as string,
+                    )?.schema || "",
                 }
-              : {
-                  type: "ref",
-                  url:
-                    urlForSchema(qualifiedParameter.$ref as string)?.slug || "",
-                  name:
-                    urlForSchema(qualifiedParameter.$ref as string)?.schema ||
-                    "",
-                };
+              : "anyOf" in qualifiedParameter
+                ? {
+                    type: "string",
+                    value:
+                      (qualifiedParameter.anyOf.find(
+                        (item: Record<string, unknown>) =>
+                          item.type !== "null",
+                      )?.type as string) || "string",
+                  }
+                : {
+                    type: "ref",
+                    url:
+                      urlForSchema(qualifiedParameter.$ref as string)?.slug ||
+                      "",
+                    name:
+                      urlForSchema(qualifiedParameter.$ref as string)?.schema ||
+                      "",
+                  };
 
         return {
           parameter,
