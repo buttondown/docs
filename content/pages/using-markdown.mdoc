@@ -85,6 +85,18 @@ You can also switch between Markdown and [Fancy Mode](/fancy-mode) without losin
 
 (Note that as of now, LaTeX is only renderable as a "block", and not inline with text.)
 
+## Converting content to Markdown
+
+If you have existing content in other formats like HTML, Word documents, or Google Docs, you can convert it to Markdown before pasting it into Buttondown. Here are some tools that can help:
+
+- [Pandoc](https://pandoc.org/) is a free, open-source command-line tool that converts between dozens of formats. It's the gold standard for document conversion. For example, to convert an HTML file to Markdown: `pandoc -f html -t markdown input.html -o output.md`
+- [Word to Markdown Converter](https://word2md.com/) converts `.docx` files to Markdown directly in your browser.
+- [Paste to Markdown](https://euangoddard.github.io/clipboard2markdown/) lets you paste HTML or rich text and get Markdown back — handy for converting content from Google Docs, Notion, or web pages.
+- [Turndown](https://mixmark-io.github.io/turndown/) is an HTML-to-Markdown converter you can try in your browser.
+
+{% noticeInfo
+   text="If you're migrating a large number of posts from another newsletter platform, you may not need to convert them yourself — Buttondown's [import tools](/importing-your-data) handle most common formats automatically." /%}
+
 ## Extensions
 
 In addition, Buttondown uses a handful of extensions:
