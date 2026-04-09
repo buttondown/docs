@@ -431,15 +431,15 @@
         },
         {
           "discriminant": "page",
-          "value": "transactional-emails-reminder"
-        },
-        {
-          "discriminant": "page",
           "value": "transactional-emails-welcome"
         },
         {
           "discriminant": "page",
           "value": "transactional-emails-premium-welcome"
+        },
+        {
+          "discriminant": "page",
+          "value": "transactional-emails-reminder"
         },
         {
           "discriminant": "page",

@@ -22,15 +22,14 @@ To enable or disable reminder emails, go to [Settings > Subscribing](https://but
 
 ## Available template variables
 
-The following template variables are available for use in reminder emails:
+Reminder emails have access to the full [template variable context](/templating), including `subscriber`, `newsletter`, `unsubscribe_url`, `manage_subscription_url`, and more.
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `confirmation_url` | The URL the subscriber must click to confirm their subscription | **Yes** |
-| `newsletter.name` | The name of your newsletter | No |
-| `newsletter.description` | The description of your newsletter | No |
-| `newsletter.absolute_url` | A link to your newsletter's homepage | No |
-| `subscriber.email` | The email address of the subscriber | No |
+The following additional variables are specific to reminder emails:
+
+| Variable | Description |
+|----------|-------------|
+| `confirmation_url` | The URL the subscriber must click to confirm their subscription |
+| `newsletter_link` | A direct link to your newsletter's page |
 
 ## Default template
 

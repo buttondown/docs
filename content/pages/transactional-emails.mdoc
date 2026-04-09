@@ -11,13 +11,13 @@ Buttondown sends several types of transactional emails to your subscribers durin
 
 ## Available transactional emails
 
-| Email Type | Description |
+| Email type | Description |
 |------------|-------------|
-| [Confirmation Email](/transactional-emails-confirmation) | Sent to confirm a subscriber's email address |
-| [Reminder Email](/transactional-emails-reminder) | Sent to remind subscribers who haven't confirmed their subscription |
-| [Welcome Email](/transactional-emails-welcome) | Sent when a subscriber confirms their subscription |
-| [Premium Welcome Email](/transactional-emails-premium-welcome) | Sent when a subscriber upgrades to a premium subscription |
-| [Gift Email](/transactional-emails-gift) | Sent when someone gifts a subscription |
+| [Confirmation email](/transactional-emails-confirmation) | Sent to confirm a subscriber's email address |
+| [Welcome email](/transactional-emails-welcome) | Sent when a subscriber confirms their subscription |
+| [Premium welcome email](/transactional-emails-premium-welcome) | Sent when a subscriber upgrades to a premium subscription |
+| [Reminder email](/transactional-emails-reminder) | Sent to remind subscribers who haven't confirmed their subscription |
+| [Gift email](/transactional-emails-gift) | Sent when someone gifts a subscription |
 
 ## Customizing transactional emails
 
@@ -27,4 +27,4 @@ If you're interested in customizing the design of these emails, see [Designing y
 
 ## Template variables
 
-Transactional emails support many of the same template variables as regular emails, and also have some additional variables specific to the type of email. For a complete list of available variables, see the [Templating](/templating) documentation and the documentation for each email type. 
+All transactional emails have access to the full [template variable context](/templating), including `subscriber`, `newsletter`, `unsubscribe_url`, `manage_subscription_url`, `upgrade_url`, and more. Each email type also has additional variables specific to its purpose — see the documentation for each email type for details.

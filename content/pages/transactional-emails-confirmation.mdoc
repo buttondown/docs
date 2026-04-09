@@ -20,15 +20,14 @@ You can customize this email by navigating to [Settings > Subscribing > Confirma
 
 ## Available template variables
 
-The following template variables are available for use in confirmation emails:
+Confirmation emails have access to the full [template variable context](/templating), including `subscriber`, `newsletter`, `unsubscribe_url`, `manage_subscription_url`, and more.
+
+The following additional variables are specific to confirmation emails:
 
 | Variable | Description |
 |----------|-------------|
 | `confirmation_url` | The URL the subscriber must click to confirm their subscription |
-| `newsletter.name` | The name of your newsletter |
-| `newsletter.description` | The description of your newsletter |
-| `newsletter.absolute_url` | A link to your newsletter's homepage |
-| `subscriber.email` | The email address of the subscriber |
+| `newsletter_link` | A direct link to your newsletter's page |
 
 ## Default template
 
