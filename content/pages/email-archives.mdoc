@@ -17,6 +17,15 @@ Buttondown automatically indexes the following content of yours in Bing and Goog
 
 Buttondown respects **canonical URLs**; if your emails are being created through an [RSS feed](/glossary-managing-your-list#rss), for instance, we'll point Google (or whoever) to the original URL of your content to make sure the SEO gods are checking in the right place.
 
+## Gating archives behind a subscription
+
+If you want archive visitors to subscribe before they can read the full post, you have two options:
+
+1. **Subscription wall**: Insert a [subscription wall](/fancy-mode#subscription-wall) in your email. Everything below it will be gated for non-subscribers, while anyone who's subscribed (free or paid) can see the full post.
+2. **Archival mode**: Set the email's [archival mode](/api-emails-archival-mode) to "Shown to subscribers" in the finalization drawer to gate the entire post.
+
+This is different from a [paywall](/fancy-mode#paywall), which requires [paid subscriptions](/paid-subscriptions). A subscription wall works with any newsletter — no Stripe setup needed.
+
 ## Excluding emails from your archives
 
 If you've got archives turned on for your newsletter, you still might want to 'hide' certain emails from the archive. This could be for a variety of reasons, such as:
