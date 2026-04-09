@@ -1685,6 +1685,11 @@
       "name": "English (US)",
       "variant": "info"
     },
+    "et": {
+      "description": "Estonian.",
+      "name": "Estonian",
+      "variant": "info"
+    },
     "fr": {
       "description": "French.",
       "name": "French",
