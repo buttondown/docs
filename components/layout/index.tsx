@@ -137,8 +137,8 @@ export default async function Layout({
           <h1 className="text-3xl font-extrabold text-gray-800 mb-0">
             {title}
           </h1>
-          <div className="flex">
-            <div>
+          <div className="flex min-w-0">
+            <div className="min-w-0">
               <Prose>{children}</Prose>
               <footer className="flex bg-white z-50">
                 <p className="text-gray-400 text-sm">
