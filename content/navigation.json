@@ -1323,6 +1323,47 @@
       ]
     },
     {
+      "name": "Imports",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-imports-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-imports-type"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-imports-status"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-imports-source"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-imports-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-imports-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-imports-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-imports-delete"
+        }
+      ]
+    },
+    {
       "name": "Newsletters",
       "items": [
         {

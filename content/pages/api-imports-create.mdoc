@@ -1,0 +1,11 @@
+---
+title: Creating an import
+endpoint: /imports
+method: post
+---
+
+Upload a CSV file to create a new import.
+
+This endpoint expects a multipart form data request with:
+- `file` (required): The CSV file to import.
+- `metadata` (optional): A JSON string with column mappings. If omitted, Buttondown will auto-detect the source and map columns automatically.

@@ -4709,6 +4709,242 @@
         ]
       }
     },
+    "/imports": {
+      "get": {
+        "operationId": "list_imports",
+        "summary": "List Imports",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImportPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "List all imports",
+        "tags": [
+          "Imports"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
+      "post": {
+        "operationId": "create_import",
+        "summary": "Create Import",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Import"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage_CreateImportErrorCode_"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Create a new import by uploading a file",
+        "tags": [
+          "Imports"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "properties": {
+                  "file": {
+                    "format": "binary",
+                    "title": "File",
+                    "type": "string"
+                  },
+                  "metadata": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Metadata"
+                  }
+                },
+                "required": [
+                  "file"
+                ],
+                "title": "MultiPartBodyParams",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/imports/{id}": {
+      "get": {
+        "operationId": "retrieve_import",
+        "summary": "Retrieve Import",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Import"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve a specific import by its ID",
+        "tags": [
+          "Imports"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "delete_import",
+        "summary": "Delete Import",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Delete an import",
+        "tags": [
+          "Imports"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/newsletters": {
       "get": {
         "operationId": "list_newsletters",
@@ -9136,6 +9372,7 @@
             "title": "Code"
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -9144,6 +9381,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -10012,6 +10250,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -10020,6 +10259,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -11677,6 +11917,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -11685,6 +11926,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -11880,6 +12122,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -11888,6 +12131,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -12649,6 +12893,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -12657,6 +12902,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -13240,6 +13486,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -13248,6 +13495,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -13466,6 +13714,222 @@
           }
         },
         "title": "ImageUpdateInput",
+        "type": "object"
+      },
+      "Import": {
+        "description": "Imports let you bring data into Buttondown in bulk by uploading a file.\nCurrently, subscriber imports are supported.",
+        "properties": {
+          "id": {
+            "description": "A unique TypeID associated with the object.",
+            "title": "Id",
+            "type": "string"
+          },
+          "creation_date": {
+            "description": "The date and time at which the object was first created.",
+            "format": "date-time",
+            "title": "Creation Date",
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ImportType",
+            "description": "The type of import."
+          },
+          "status": {
+            "$ref": "#/components/schemas/ImportStatus",
+            "description": "The current status of the import."
+          },
+          "source": {
+            "$ref": "#/components/schemas/ImportSource",
+            "description": "The detected source of the import file."
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An optional label for the import.",
+            "title": "Label"
+          },
+          "metadata": {
+            "additionalProperties": true,
+            "description": "Metadata about the import, such as detected column mappings.",
+            "title": "Metadata",
+            "type": "object"
+          },
+          "results": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImportResult"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The results of the import, available after completion."
+          }
+        },
+        "required": [
+          "id",
+          "creation_date",
+          "type",
+          "status",
+          "source"
+        ],
+        "title": "Import",
+        "type": "object"
+      },
+      "ImportResult": {
+        "properties": {
+          "new_subscribers": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The number of new subscribers created by the import.",
+            "title": "New Subscribers"
+          },
+          "updated_subscribers": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The number of existing subscribers updated by the import.",
+            "title": "Updated Subscribers"
+          },
+          "existing_subscribers": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The number of subscribers that already existed and were skipped.",
+            "title": "Existing Subscribers"
+          },
+          "reason_to_bad_subscribers": {
+            "additionalProperties": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "description": "A mapping of error reasons to the list of email addresses that failed for that reason.",
+            "title": "Reason To Bad Subscribers",
+            "type": "object"
+          },
+          "new_tags": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The number of new tags created by the import.",
+            "title": "New Tags"
+          }
+        },
+        "title": "ImportResult",
+        "type": "object"
+      },
+      "ImportSource": {
+        "enum": [
+          "bare",
+          "buttondown",
+          "custom",
+          "flodesk",
+          "ghost",
+          "google",
+          "mailchimp",
+          "mailerlite",
+          "memberful",
+          "sender_dot_net",
+          "sendy",
+          "shopify",
+          "sparkloop",
+          "squarespace",
+          "standard",
+          "substack",
+          "tinyletter"
+        ],
+        "title": "ImportSource",
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "ImportStatus": {
+        "enum": [
+          "not_started",
+          "in_progress",
+          "validating",
+          "failed",
+          "succeeded"
+        ],
+        "title": "ImportStatus",
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "ImportType": {
+        "enum": [
+          "subscriber_import"
+        ],
+        "title": "ImportType",
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "CreateImportErrorCode": {
+        "enum": [
+          "import_failure",
+          "invalid_file_type",
+          "malformed_csv"
+        ],
+        "title": "CreateImportErrorCode",
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "ErrorMessage_CreateImportErrorCode_": {
+        "properties": {
+          "code": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CreateImportErrorCode"
+              }
+            ],
+            "description": "The error code."
+          },
+          "detail": {
+            "description": "A human-readable description of the error.",
+            "title": "Detail",
+            "type": "string"
+          },
+          "metadata": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "default": {},
+            "description": "Additional context about the error.",
+            "title": "Metadata",
+            "type": "object"
+          }
+        },
+        "required": [
+          "detail"
+        ],
+        "title": "ErrorMessage[CreateImportErrorCode]",
         "type": "object"
       },
       "Newsletter": {
@@ -14013,6 +14477,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -14021,6 +14486,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -15399,6 +15865,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -15407,6 +15874,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -15449,6 +15917,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -15457,6 +15926,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -15795,6 +16265,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -15803,6 +16274,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -15923,6 +16395,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -15931,6 +16404,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -15962,6 +16436,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -15970,6 +16445,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -16164,6 +16640,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -16172,6 +16649,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -16448,6 +16926,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -16456,6 +16935,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -16548,6 +17028,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -16556,6 +17037,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -16808,6 +17290,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -16816,6 +17299,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -16957,6 +17441,7 @@
             "description": "The error code."
           },
           "detail": {
+            "description": "A human-readable description of the error.",
             "title": "Detail",
             "type": "string"
           },
@@ -16965,6 +17450,7 @@
               "type": "string"
             },
             "default": {},
+            "description": "Additional context about the error.",
             "title": "Metadata",
             "type": "object"
           }
@@ -17672,6 +18158,7 @@
       "AdvertisingUnitPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/AdvertisingUnit"
             },
@@ -17687,6 +18174,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -17698,9 +18186,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -17715,6 +18205,7 @@
       "AdvertisingSlotPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/AdvertisingSlot"
             },
@@ -17730,6 +18221,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -17741,9 +18233,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -17758,6 +18252,7 @@
       "AttachmentPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Attachment"
             },
@@ -17773,6 +18268,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -17784,9 +18280,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -17801,6 +18299,7 @@
       "AutomationPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Automation"
             },
@@ -17816,6 +18315,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -17827,9 +18327,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -17844,6 +18346,7 @@
       "BookPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Book"
             },
@@ -17859,6 +18362,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -17870,9 +18374,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -17887,6 +18393,7 @@
       "CommentPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Comment"
             },
@@ -17902,6 +18409,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -17913,9 +18421,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -17930,6 +18440,7 @@
       "StripeCouponPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/StripeCoupon"
             },
@@ -17945,6 +18456,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -17956,9 +18468,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -17973,6 +18487,7 @@
       "EmailPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Email"
             },
@@ -17988,6 +18503,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -17999,9 +18515,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18016,6 +18534,7 @@
       "HistoryPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/History"
             },
@@ -18031,6 +18550,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18042,9 +18562,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18059,6 +18581,7 @@
       "EmailEventPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/EmailEvent"
             },
@@ -18074,6 +18597,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18085,9 +18609,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18102,6 +18628,7 @@
       "ExportPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Export"
             },
@@ -18117,6 +18644,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18128,9 +18656,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18145,6 +18675,7 @@
       "ExternalFeedPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/ExternalFeed"
             },
@@ -18160,6 +18691,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18171,9 +18703,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18188,6 +18722,7 @@
       "ExternalFeedItemPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/ExternalFeedItem"
             },
@@ -18203,6 +18738,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18214,9 +18750,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18231,6 +18769,7 @@
       "FormPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Form"
             },
@@ -18246,6 +18785,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18257,9 +18797,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18274,6 +18816,7 @@
       "ImagePage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Image"
             },
@@ -18289,6 +18832,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18300,9 +18844,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18314,9 +18860,57 @@
         "title": "Page[Image]",
         "type": "object"
       },
+      "ImportPage": {
+        "properties": {
+          "results": {
+            "description": "The list of results for this page.",
+            "items": {
+              "$ref": "#/components/schemas/Import"
+            },
+            "title": "Results",
+            "type": "array"
+          },
+          "next": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The URL to the next page of results, if any.",
+            "title": "Next"
+          },
+          "previous": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The URL to the previous page of results, if any.",
+            "title": "Previous"
+          },
+          "count": {
+            "description": "The total number of results across all pages.",
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ],
+        "title": "Page[Import]",
+        "type": "object"
+      },
       "NewsletterPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Newsletter"
             },
@@ -18332,6 +18926,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18343,9 +18938,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18360,6 +18957,7 @@
       "NotePage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Note"
             },
@@ -18375,6 +18973,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18386,9 +18985,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18403,6 +19004,7 @@
       "PricePage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Price"
             },
@@ -18418,6 +19020,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18429,9 +19032,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18446,6 +19051,7 @@
       "PublicEmailPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/PublicEmail"
             },
@@ -18461,6 +19067,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18472,9 +19079,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18489,6 +19098,7 @@
       "SnippetPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Snippet"
             },
@@ -18504,6 +19114,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18515,9 +19126,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18532,6 +19145,7 @@
       "SubscriberPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Subscriber"
             },
@@ -18547,6 +19161,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18558,9 +19173,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18575,6 +19192,7 @@
       "AutomationForSubscriberPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/AutomationForSubscriber"
             },
@@ -18590,6 +19208,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18601,9 +19220,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18618,6 +19239,7 @@
       "StripeSubscriptionPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/StripeSubscription"
             },
@@ -18633,6 +19255,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18644,9 +19267,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18661,6 +19286,7 @@
       "ResponsePage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Response"
             },
@@ -18676,6 +19302,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18687,9 +19314,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18704,6 +19333,7 @@
       "SurveyPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Survey"
             },
@@ -18719,6 +19349,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18730,9 +19361,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18747,6 +19380,7 @@
       "TagPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Tag"
             },
@@ -18762,6 +19396,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18773,9 +19408,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18790,6 +19427,7 @@
       "UserPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/User"
             },
@@ -18805,6 +19443,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18816,9 +19455,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18833,6 +19474,7 @@
       "WebhookPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/Webhook"
             },
@@ -18848,6 +19490,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18859,9 +19502,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }
@@ -18876,6 +19521,7 @@
       "WebhookAttemptOutputPage": {
         "properties": {
           "results": {
+            "description": "The list of results for this page.",
             "items": {
               "$ref": "#/components/schemas/WebhookAttemptOutput"
             },
@@ -18891,6 +19537,7 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the next page of results, if any.",
             "title": "Next"
           },
           "previous": {
@@ -18902,9 +19549,11 @@
                 "type": "null"
               }
             ],
+            "description": "The URL to the previous page of results, if any.",
             "title": "Previous"
           },
           "count": {
+            "description": "The total number of results across all pages.",
             "title": "Count",
             "type": "integer"
           }

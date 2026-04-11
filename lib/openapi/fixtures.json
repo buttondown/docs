@@ -1649,5 +1649,57 @@
         "reference_count": 0
       }
     }
+  ],
+  "Import": [
+    {
+      "description": "Completed import",
+      "object": {
+        "id": "sub_imp_0k28edc3fw896bp4mrhc535z5k",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "type": "subscriber_import",
+        "status": "succeeded",
+        "source": "substack",
+        "label": "subscribers.csv",
+        "metadata": {
+          "email_column": 0,
+          "metadata_columns": {}
+        },
+        "results": {
+          "new_subscribers": 100,
+          "updated_subscribers": null,
+          "existing_subscribers": 20,
+          "reason_to_bad_subscribers": {
+            "That email address is invalid.": [
+              "email@examplecom"
+            ]
+          },
+          "new_tags": 2
+        }
+      }
+    },
+    {
+      "description": "Not started import",
+      "object": {
+        "id": "sub_imp_3bmyw117dd278r1d00r17x8c68",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "type": "subscriber_import",
+        "status": "not_started",
+        "source": "custom",
+        "label": "import.csv",
+        "metadata": {
+          "email_column": 0,
+          "metadata_columns": {
+            "name": 1
+          }
+        },
+        "results": {
+          "new_subscribers": null,
+          "updated_subscribers": null,
+          "existing_subscribers": null,
+          "reason_to_bad_subscribers": {},
+          "new_tags": null
+        }
+      }
+    }
   ]
 }

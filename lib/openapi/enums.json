@@ -740,6 +740,127 @@
       "variant": "success"
     }
   },
+  "ImportSource": {
+    "bare": {
+      "description": "A single-column CSV containing only email addresses.",
+      "name": "Bare",
+      "variant": "info"
+    },
+    "buttondown": {
+      "description": "A CSV exported from Buttondown.",
+      "name": "Buttondown",
+      "variant": "info"
+    },
+    "custom": {
+      "description": "A CSV that requires manual column mapping.",
+      "name": "Custom",
+      "variant": "info"
+    },
+    "flodesk": {
+      "description": "A CSV exported from Flodesk.",
+      "name": "Flodesk",
+      "variant": "info"
+    },
+    "ghost": {
+      "description": "A CSV exported from Ghost.",
+      "name": "Ghost",
+      "variant": "info"
+    },
+    "google": {
+      "description": "A CSV exported from Google.",
+      "name": "Google",
+      "variant": "info"
+    },
+    "mailchimp": {
+      "description": "A CSV exported from Mailchimp.",
+      "name": "Mailchimp",
+      "variant": "info"
+    },
+    "mailerlite": {
+      "description": "A CSV exported from MailerLite.",
+      "name": "MailerLite",
+      "variant": "info"
+    },
+    "memberful": {
+      "description": "A CSV exported from Memberful.",
+      "name": "Memberful",
+      "variant": "info"
+    },
+    "sender_dot_net": {
+      "description": "A CSV exported from Sender.net.",
+      "name": "Sender.net",
+      "variant": "info"
+    },
+    "sendy": {
+      "description": "A CSV exported from Sendy.",
+      "name": "Sendy",
+      "variant": "info"
+    },
+    "shopify": {
+      "description": "A CSV exported from Shopify.",
+      "name": "Shopify",
+      "variant": "info"
+    },
+    "sparkloop": {
+      "description": "A CSV exported from SparkLoop.",
+      "name": "SparkLoop",
+      "variant": "info"
+    },
+    "squarespace": {
+      "description": "A CSV exported from Squarespace.",
+      "name": "Squarespace",
+      "variant": "info"
+    },
+    "standard": {
+      "description": "A CSV with standard column names that was auto-mapped.",
+      "name": "Standard",
+      "variant": "info"
+    },
+    "substack": {
+      "description": "A CSV exported from Substack.",
+      "name": "Substack",
+      "variant": "info"
+    },
+    "tinyletter": {
+      "description": "A CSV exported from TinyLetter.",
+      "name": "TinyLetter",
+      "variant": "info"
+    }
+  },
+  "ImportStatus": {
+    "failed": {
+      "description": "The import encountered an error and could not be completed.",
+      "name": "Failed",
+      "variant": "error"
+    },
+    "in_progress": {
+      "description": "The import is currently being processed.",
+      "name": "In progress",
+      "variant": "info"
+    },
+    "not_started": {
+      "description": "The import has been created but processing has not yet begun.",
+      "name": "Not started",
+      "variant": "info"
+    },
+    "succeeded": {
+      "description": "The import completed successfully.",
+      "name": "Succeeded",
+      "variant": "success"
+    },
+    "validating": {
+      "description": "The import is being validated before processing.",
+      "name": "Validating",
+      "variant": "info"
+    }
+  },
+  "ImportType": {
+    "subscriber_import": {
+      "description": "An import of subscribers from a CSV file.",
+      "name": "Subscriber import",
+      "variant": "info"
+    }
+  },
   "ExternalEventType": {
     "advertising_slot.purchased": {
       "description": "Whenever an advertising slot in your newsletter is purchased.",

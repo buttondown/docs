@@ -1,0 +1,51 @@
+---
+title: Imports
+schema: Import
+---
+
+Imports let you bring data into Buttondown in bulk by uploading a file. Currently, subscriber imports (via CSV) are supported.
+
+## How it works
+
+1. Upload a CSV file to the create endpoint.
+2. Buttondown auto-detects the source (Substack, Mailchimp, etc.) and maps columns accordingly.
+3. If the source can't be detected, you can provide a `metadata` field with explicit column mappings.
+4. The import processes asynchronously — poll the retrieve endpoint to check its status.
+
+## Supported sources
+
+Buttondown can auto-detect CSVs exported from the following services:
+
+- Buttondown
+- Flodesk
+- Ghost
+- Google
+- Mailchimp
+- Mailerlite
+- Memberful
+- Sender.net
+- Sendy
+- Shopify
+- Sparkloop
+- Squarespace
+- Substack
+- Tinyletter
+
+If your CSV doesn't match a known source, Buttondown will attempt to map standard column names (like `email`, `name`, `tags`) automatically. You can also pass explicit column mappings via the `metadata` field.
+
+## Metadata format
+
+When providing metadata, use the following structure:
+
+```json
+{
+  "email_column": 0,
+  "metadata_columns": {
+    "name": 1,
+    "company": 2
+  }
+}
+```
+
+- `email_column`: The zero-based index of the column containing email addresses.
+- `metadata_columns`: A mapping of field names to their zero-based column indices.
