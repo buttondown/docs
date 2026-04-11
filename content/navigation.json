@@ -1359,6 +1359,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-imports-update"
+        },
+        {
+          "discriminant": "page",
           "value": "api-imports-delete"
         }
       ]

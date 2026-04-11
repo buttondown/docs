@@ -4895,6 +4895,85 @@
           }
         ]
       },
+      "patch": {
+        "operationId": "update_import",
+        "summary": "Update Import",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Import"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        },
+        "description": "Update an import's properties",
+        "tags": [
+          "Imports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateImportInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
       "delete": {
         "operationId": "delete_import",
         "summary": "Delete Import",
@@ -13930,6 +14009,48 @@
           "detail"
         ],
         "title": "ErrorMessage[CreateImportErrorCode]",
+        "type": "object"
+      },
+      "UpdateImportInput": {
+        "properties": {
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An optional label for the import.",
+            "title": "Label"
+          },
+          "metadata": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Metadata about the import, such as detected column mappings.",
+            "title": "Metadata"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImportStatus"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The status of the import. Set to 'in_progress' to begin executing the import."
+          }
+        },
+        "title": "UpdateImportInput",
         "type": "object"
       },
       "Newsletter": {
