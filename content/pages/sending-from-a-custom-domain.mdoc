@@ -94,6 +94,10 @@ Since the "managed" setup takes over a subdomain, it requires a subdomain that y
 
 If you want to send from your root domain (`example.com`), you're very welcome to. You will not see the "managed" DNS option in settings; instead, you'll only see the "manual" records.
 
+### What if my domain registrar won't allow me to add `NS` records?
+
+Our "managed" setup does require setting `NS` records. If your domain host does not support `NS` we'd recommend signing up for DNS management service. Cloudflare is a popular choice, and we also recommend deSEC as a provider based in the EU. 
+
 ### What if I want to use a subdomain without the "managed" setup?
 
 You're welcome to do so! Just add your sending domain in Settings and, when presented with the list of DNS records to add, switch to the "manual" version of the records.
