@@ -9324,6 +9324,11 @@
             ],
             "description": "When the ad content was submitted for review.",
             "title": "Content Submitted At"
+          },
+          "inquiry_message": {
+            "description": "Optional message from the sponsor inquiry.",
+            "title": "Inquiry Message",
+            "type": "string"
           }
         },
         "required": [
@@ -9338,7 +9343,8 @@
           "sponsor_name",
           "content",
           "content_url",
-          "content_rejection_reason"
+          "content_rejection_reason",
+          "inquiry_message"
         ],
         "title": "AdvertisingSlot",
         "type": "object"
@@ -9784,6 +9790,8 @@
               {
                 "enum": [
                   "approve",
+                  "hold_accept",
+                  "hold_decline",
                   "reject"
                 ],
                 "type": "string"
@@ -9792,7 +9800,7 @@
                 "type": "null"
               }
             ],
-            "description": "Set to 'approve' or 'reject' to update the content review status.",
+            "description": "Set to 'approve', 'reject', 'hold_accept', or 'hold_decline' to update the slot status.",
             "title": "Status"
           }
         },
@@ -17833,6 +17841,7 @@
           "expired",
           "executed",
           "finalized",
+          "held",
           "open",
           "sold"
         ],
@@ -17951,6 +17960,7 @@
       "ExternalEventType": {
         "description": "Various types of events that are recorded by Buttondown, both in terms of exogenous systems\nlike Stripe and Memberful, and endogenous ones like email opens and clicks. (In general, if anything\nimportant ever happens that could be relevant to your newsletter, we have an event type for it!)\n\nThese event types power lots of things within Buttondown. They're used to trigger automations, webhooks,\nand analytics.\n\n(Note that Buttondown also has a different thing we call \"events\"; those are `EmailEvents` and are used\nfor tracking aggregate details about an email. Alas, we shouldn't have used the term \"event\" for two different\nthings, but it's too late to go back now!)\n\nIn general, our event namespacing tries to hew to the following pattern:\n\n`<source>.<object>.<action>`\n\nWhen wondering which object we are referring to, default to the _more granular_ object.\n\nFor instance, an email being sent to a subscriber is `subscriber.delivered`, not `email.sent`.",
         "enum": [
+          "advertising_slot.inquiry",
           "advertising_slot.purchased",
           "automation.invoked",
           "date.day.started",

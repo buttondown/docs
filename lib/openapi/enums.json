@@ -862,6 +862,10 @@
     }
   },
   "ExternalEventType": {
+    "advertising_slot.inquiry": {
+      "description": "Whenever a sponsor submits an inquiry for an advertising slot.",
+      "name": "advertising_slot.inquiry"
+    },
     "advertising_slot.purchased": {
       "description": "Whenever an advertising slot in your newsletter is purchased.",
       "name": "advertising_slot.purchased"
@@ -1872,6 +1876,11 @@
       "description": "The sponsor's content has been approved and the slot is ready to run.",
       "name": "Finalized",
       "variant": "info"
+    },
+    "held": {
+      "description": "A sponsor has expressed interest and the slot is being held pending confirmation.",
+      "name": "Held",
+      "variant": "warning"
     },
     "open": {
       "description": "The slot is available for purchase.",
