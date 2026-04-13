@@ -45,9 +45,16 @@ Common examples include:
 
 In all of these cases, the key principle is the same: the subscriber has already meaningfully consented to receive your emails somewhere else. We're not removing the requirement for consent — we're recognizing that it already happened.
 
+If you are managing the double opt-in process elsewhere, you could also make your newsletter [private](/private-mode) and then import your subscribers from a different source (either through the UI or [API](/api-subscribers-create)). This lets you handle verification on your end while still ensuring that only confirmed subscribers receive your emails.
+
 ## How to request an exception
 
-If your use case requires disabling double opt-in and isn't covered by the API's per-subscriber `type` parameter, [contact us](https://buttondown.com/support) and describe your workflow. We'll review your request and, if appropriate, enable the `should_require_double_optin` [hidden setting](/hidden-settings) on your newsletter.
+If your use case requires disabling double opt-in and isn't covered by the API's per-subscriber `type` parameter, [contact us](https://buttondown.com/support) and describe your workflow. Include details on how you're:
+
+- Documenting proof of consent for signups
+- Managing automated or bot signups (e.g. CAPTCHA, Cloudflare Turnstile, etc.)
+
+We'll review your request and, if appropriate, enable the `should_require_double_optin` [hidden setting](/hidden-settings) on your newsletter.
 
 We won't disable double opt-in for newsletters that are collecting email addresses through standard signup forms without any upstream verification. If you're unsure whether your use case qualifies, reach out — we're happy to talk through it.
 
