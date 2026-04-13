@@ -1,0 +1,61 @@
+---
+title: Double opt-in
+navigationTitle: Double opt-in
+description: Why Buttondown mandates double opt-in and when exceptions apply.
+relatedPages:
+  - glossary-email-regulations
+  - building-your-subscriber-base
+  - api-subscribers-create
+  - permanent-failure-rate
+---
+
+Double opt-in is a process that requires a subscriber to confirm their subscription before they can receive emails from you. When someone enters their email address on your signup form, they receive a confirmation email with a link to verify — and only after clicking that link do they become an active subscriber.
+
+This is sometimes called Confirmed Opt-In (COI) or Closed Loop Confirmed Opt-In. Regardless of the name, the principle is the same: you only email people who have explicitly confirmed they want to hear from you.
+
+## Why Buttondown mandates double opt-in
+
+Buttondown requires double opt-in for all newsletters by default. This isn't a setting we take lightly — it's a core part of how we keep the platform healthy for everyone.
+
+### It protects your subscribers
+
+Without confirmation, anyone can enter someone else's email address into a signup form. Double opt-in ensures that the person who signed up is actually the person who owns the email address, preventing unwanted subscriptions and potential abuse.
+
+### It protects your reputation
+
+Sending to unverified addresses leads to higher [permanent failure rates](/permanent-failure-rate) and [complaint rates](/complaint-rate), both of which damage your sending reputation. A damaged reputation means more of your emails land in spam — not just for you, but potentially for other Buttondown senders sharing the same infrastructure.
+
+### It's required by law in many jurisdictions
+
+Regulations like [GDPR](/glossary-email-regulations#gdpr) require demonstrable proof of consent. A confirmed opt-in is the strongest evidence that a subscriber genuinely agreed to receive your emails. While the [CAN-SPAM Act](/glossary-email-regulations#can-spam-act) doesn't strictly require double opt-in, it's widely considered a best practice for compliance.
+
+### It keeps our platform clean
+
+Double opt-in is one of our most effective defenses against spam signups, bot traffic, and list abuse. It helps us maintain the deliverability infrastructure that all Buttondown newsletters depend on.
+
+## When exceptions apply
+
+We understand that double opt-in doesn't fit every workflow. In certain cases, we can disable it — but only when subscribers have already confirmed their intent through another channel.
+
+Common examples include:
+
+- **Integrations with other platforms**: If subscribers are opting in through Shopify, Stripe, Memberful, or another platform that already collects verified consent, requiring a second confirmation creates unnecessary friction.
+- **API-driven subscriber creation**: If you're [creating subscribers via the API](/api-subscribers-create) and can vouch for the legitimacy of the email address (for example, from a purchase or account creation flow), you can set the subscriber's `type` to `regular` to bypass confirmation on a per-subscriber basis.
+- **Migrations from other email platforms**: If you're importing an existing, confirmed subscriber list from another provider, those subscribers have already opted in and don't need to reconfirm.
+
+In all of these cases, the key principle is the same: the subscriber has already meaningfully consented to receive your emails somewhere else. We're not removing the requirement for consent — we're recognizing that it already happened.
+
+## How to request an exception
+
+If your use case requires disabling double opt-in and isn't covered by the API's per-subscriber `type` parameter, [contact us](https://buttondown.com/support) and describe your workflow. We'll review your request and, if appropriate, enable the `should_require_double_optin` [hidden setting](/hidden-settings) on your newsletter.
+
+We won't disable double opt-in for newsletters that are collecting email addresses through standard signup forms without any upstream verification. If you're unsure whether your use case qualifies, reach out — we're happy to talk through it.
+
+## What happens during double opt-in
+
+Here's what the process looks like from your subscriber's perspective:
+
+1. They enter their email address on your signup form
+2. They receive a confirmation email from Buttondown with a verification link
+3. Until they click that link, they have a status of [unactivated](/api-subscribers-type#unactivated)
+4. After clicking the link, their status changes to [regular](/api-subscribers-type#regular) and they begin receiving your emails

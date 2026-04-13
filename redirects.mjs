@@ -1319,7 +1319,7 @@ const REDIRECTS = [
   },
   {
     source: "/glossary-double-optin",
-    destination: "/glossary-email-regulations#double-opt-in",
+    destination: "/double-opt-in",
     permanent: true,
   },
   {

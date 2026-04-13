@@ -328,6 +328,10 @@
         {
           "discriminant": "page",
           "value": "gmail-images-hidden"
+        },
+        {
+          "discriminant": "page",
+          "value": "double-opt-in"
         }
       ]
     },
