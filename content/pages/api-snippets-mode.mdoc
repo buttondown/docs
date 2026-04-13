@@ -3,3 +3,19 @@ title: Snippet mode
 navigationTitle: Modes
 enum: SnippetMode
 ---
+
+## Editor mode sigil
+
+Just like [emails](/api-emails-create#body-format-detection), you can explicitly control how a snippet's content is rendered by prepending an editor mode comment to the body:
+
+```
+<!-- buttondown-editor-mode: plaintext -->Your **Markdown** content here...
+```
+
+or
+
+```
+<!-- buttondown-editor-mode: fancy --><p>Your <em>HTML</em> content here...</p>
+```
+
+Without this sigil, Buttondown auto-detects the mode based on the content. Adding the comment is useful when you want to ensure a snippet is always rendered in a specific mode regardless of its content.
