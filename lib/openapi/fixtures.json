@@ -19,7 +19,8 @@
         "content_approved_at": null,
         "content_rejected_at": null,
         "content_rejection_reason": "",
-        "content_submitted_at": null
+        "content_submitted_at": null,
+        "inquiry_message": ""
       }
     },
     {
@@ -41,7 +42,8 @@
         "content_approved_at": "2024-11-10T00:00:00+00:00",
         "content_rejected_at": null,
         "content_rejection_reason": "",
-        "content_submitted_at": "2024-11-08T00:00:00+00:00"
+        "content_submitted_at": "2024-11-08T00:00:00+00:00",
+        "inquiry_message": ""
       }
     }
   ],
@@ -166,7 +168,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "color",
         "question": "What's your favorite color?",
-        "response_count": 11,
+        "response_count": 0,
         "answers": [
           "Red",
           "Green",
@@ -187,7 +189,7 @@
         "creation_date": "2020-09-29T00:00:00+00:00",
         "identifier": "feedback",
         "question": "How can we improve?",
-        "response_count": 11,
+        "response_count": 0,
         "answers": [
           "More content",
           "Better content",
@@ -1120,7 +1122,7 @@
             "That email address is invalid.": [
               "email@examplecom"
             ],
-            "There is no MX record associated with example.biz": [
+            "No MX record found for domain": [
               "email@example.biz",
               "helen@example.biz"
             ]
@@ -1167,7 +1169,7 @@
             "That email address is invalid.": [
               "email@examplecom"
             ],
-            "There is no MX record associated with example.biz": [
+            "No MX record found for domain": [
               "email@example.biz",
               "helen@example.biz"
             ]
@@ -1291,8 +1293,8 @@
       "object": {
         "subscription_id": "sub_whatever",
         "url": "https://dashboard.stripe.com/subscriptions/sub_whatever",
-        "creation_date": "2023-01-01T00:00:00",
-        "ending_date": "2023-01-01T00:00:00",
+        "creation_date": "2023-01-01T06:00:00",
+        "ending_date": "2023-01-01T06:00:00",
         "amount": 1000,
         "currency": "usd",
         "cadence": "month",

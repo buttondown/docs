@@ -104,6 +104,20 @@
                   "$ref": "#/components/schemas/AdvertisingUnit"
                 }
               }
+            },
+            "links": {
+              "update_advertising_unit": {
+                "operationId": "update_advertising_unit",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_advertising_unit": {
+                "operationId": "delete_advertising_unit",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "400": {
@@ -173,6 +187,14 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AdvertisingUnit"
+                }
+              }
+            },
+            "links": {
+              "delete_advertising_unit": {
+                "operationId": "delete_advertising_unit",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -349,7 +371,8 @@
                   "$ref": "#/components/schemas/AdvertisingSlot"
                 }
               }
-            }
+            },
+            "links": {}
           },
           "400": {
             "description": "Bad Request",
@@ -420,7 +443,8 @@
                   "$ref": "#/components/schemas/APIRequestDetail"
                 }
               }
-            }
+            },
+            "links": {}
           },
           "403": {
             "description": "Forbidden",
@@ -718,6 +742,20 @@
                   "$ref": "#/components/schemas/Attachment"
                 }
               }
+            },
+            "links": {
+              "retrieve_attachment": {
+                "operationId": "retrieve_attachment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_attachment": {
+                "operationId": "delete_attachment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "403": {
@@ -863,6 +901,14 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Attachment"
+                }
+              }
+            },
+            "links": {
+              "delete_attachment": {
+                "operationId": "delete_attachment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -1014,6 +1060,26 @@
                   "$ref": "#/components/schemas/Automation"
                 }
               }
+            },
+            "links": {
+              "retrieve_automation": {
+                "operationId": "retrieve_automation",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "update_automation": {
+                "operationId": "update_automation",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_automation": {
+                "operationId": "delete_automation",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "400": {
@@ -1085,6 +1151,20 @@
                   "$ref": "#/components/schemas/Automation"
                 }
               }
+            },
+            "links": {
+              "update_automation": {
+                "operationId": "update_automation",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_automation": {
+                "operationId": "delete_automation",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "403": {
@@ -1142,6 +1222,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Automation"
+                }
+              }
+            },
+            "links": {
+              "retrieve_automation": {
+                "operationId": "retrieve_automation",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_automation": {
+                "operationId": "delete_automation",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -1382,6 +1476,26 @@
                   "$ref": "#/components/schemas/Book"
                 }
               }
+            },
+            "links": {
+              "retrieve_book": {
+                "operationId": "retrieve_book",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "update_book": {
+                "operationId": "update_book",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_book": {
+                "operationId": "delete_book",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "400": {
@@ -1492,6 +1606,20 @@
                   "$ref": "#/components/schemas/Book"
                 }
               }
+            },
+            "links": {
+              "update_book": {
+                "operationId": "update_book",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_book": {
+                "operationId": "delete_book",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "403": {
@@ -1549,6 +1677,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Book"
+                }
+              }
+            },
+            "links": {
+              "retrieve_book": {
+                "operationId": "retrieve_book",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_book": {
+                "operationId": "delete_book",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -1664,6 +1806,14 @@
                   "$ref": "#/components/schemas/BulkAction"
                 }
               }
+            },
+            "links": {
+              "retrieve_bulk_action": {
+                "operationId": "retrieve_bulk_action",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "400": {
@@ -1735,7 +1885,8 @@
                   "$ref": "#/components/schemas/BulkAction"
                 }
               }
-            }
+            },
+            "links": {}
           },
           "403": {
             "description": "Forbidden",
@@ -1784,6 +1935,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Comment"
+                }
+              }
+            },
+            "links": {
+              "retrieve_comment": {
+                "operationId": "retrieve_comment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "update_comment": {
+                "operationId": "update_comment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_comment": {
+                "operationId": "delete_comment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -1998,6 +2169,20 @@
                   "$ref": "#/components/schemas/Comment"
                 }
               }
+            },
+            "links": {
+              "update_comment": {
+                "operationId": "update_comment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_comment": {
+                "operationId": "delete_comment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "403": {
@@ -2055,6 +2240,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Comment"
+                }
+              }
+            },
+            "links": {
+              "retrieve_comment": {
+                "operationId": "retrieve_comment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_comment": {
+                "operationId": "delete_comment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -2213,6 +2412,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Email"
+                }
+              }
+            },
+            "links": {
+              "retrieve_email": {
+                "operationId": "retrieve_email",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "update_email": {
+                "operationId": "update_email",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_email": {
+                "operationId": "delete_email",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -2686,6 +2905,20 @@
                   "$ref": "#/components/schemas/Email"
                 }
               }
+            },
+            "links": {
+              "retrieve_email": {
+                "operationId": "retrieve_email",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_email": {
+                "operationId": "delete_email",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "400": {
@@ -2763,6 +2996,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Email"
+                }
+              }
+            },
+            "links": {
+              "update_email": {
+                "operationId": "update_email",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_email": {
+                "operationId": "delete_email",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -3474,7 +3721,8 @@
                   "$ref": "#/components/schemas/EmailEvent"
                 }
               }
-            }
+            },
+            "links": {}
           },
           "403": {
             "description": "Forbidden",
@@ -3520,6 +3768,14 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Export"
+                }
+              }
+            },
+            "links": {
+              "retrieve_export": {
+                "operationId": "retrieve_export",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -3642,7 +3898,8 @@
                   "$ref": "#/components/schemas/Export"
                 }
               }
-            }
+            },
+            "links": {}
           },
           "403": {
             "description": "Forbidden",
@@ -3691,6 +3948,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ExternalFeed"
+                }
+              }
+            },
+            "links": {
+              "retrieve_external_feed": {
+                "operationId": "retrieve_external_feed",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "update_external_feed": {
+                "operationId": "update_external_feed",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_external_feed": {
+                "operationId": "delete_external_feed",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -3801,6 +4078,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ExternalFeed"
+                }
+              }
+            },
+            "links": {
+              "retrieve_external_feed": {
+                "operationId": "retrieve_external_feed",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_external_feed": {
+                "operationId": "delete_external_feed",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -3932,6 +4223,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ExternalFeed"
+                }
+              }
+            },
+            "links": {
+              "update_external_feed": {
+                "operationId": "update_external_feed",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_external_feed": {
+                "operationId": "delete_external_feed",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -4130,6 +4435,26 @@
                   "$ref": "#/components/schemas/Form"
                 }
               }
+            },
+            "links": {
+              "retrieve_form": {
+                "operationId": "retrieve_form",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "update_form": {
+                "operationId": "update_form",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_form": {
+                "operationId": "delete_form",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "400": {
@@ -4320,6 +4645,20 @@
                   "$ref": "#/components/schemas/Form"
                 }
               }
+            },
+            "links": {
+              "update_form": {
+                "operationId": "update_form",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_form": {
+                "operationId": "delete_form",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "403": {
@@ -4377,6 +4716,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Form"
+                }
+              }
+            },
+            "links": {
+              "retrieve_form": {
+                "operationId": "retrieve_form",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_form": {
+                "operationId": "delete_form",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -4490,6 +4843,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Image"
+                }
+              }
+            },
+            "links": {
+              "update_image": {
+                "operationId": "update_image",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_image": {
+                "operationId": "delete_image",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -4608,6 +4975,14 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Image"
+                }
+              }
+            },
+            "links": {
+              "delete_image": {
+                "operationId": "delete_image",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -4772,6 +5147,26 @@
                   "$ref": "#/components/schemas/Import"
                 }
               }
+            },
+            "links": {
+              "retrieve_import": {
+                "operationId": "retrieve_import",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "update_import": {
+                "operationId": "update_import",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_import": {
+                "operationId": "delete_import",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "400": {
@@ -4862,6 +5257,20 @@
                   "$ref": "#/components/schemas/Import"
                 }
               }
+            },
+            "links": {
+              "update_import": {
+                "operationId": "update_import",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_import": {
+                "operationId": "delete_import",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "403": {
@@ -4916,6 +5325,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Import"
+                }
+              }
+            },
+            "links": {
+              "retrieve_import": {
+                "operationId": "retrieve_import",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_import": {
+                "operationId": "delete_import",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -5087,6 +5510,20 @@
                   "$ref": "#/components/schemas/Newsletter"
                 }
               }
+            },
+            "links": {
+              "update_newsletter": {
+                "operationId": "update_newsletter",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_newsletter": {
+                "operationId": "delete_newsletter",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "400": {
@@ -5156,6 +5593,14 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Newsletter"
+                }
+              }
+            },
+            "links": {
+              "delete_newsletter": {
+                "operationId": "delete_newsletter",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -5279,6 +5724,14 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Note"
+                }
+              }
+            },
+            "links": {
+              "delete_note_endpoint": {
+                "operationId": "delete_note_endpoint",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -5694,6 +6147,26 @@
                   "$ref": "#/components/schemas/Snippet"
                 }
               }
+            },
+            "links": {
+              "retrieve_snippet": {
+                "operationId": "retrieve_snippet",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "update_snippet": {
+                "operationId": "update_snippet",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_snippet": {
+                "operationId": "delete_snippet",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "400": {
@@ -5804,6 +6277,20 @@
                   "$ref": "#/components/schemas/Snippet"
                 }
               }
+            },
+            "links": {
+              "update_snippet": {
+                "operationId": "update_snippet",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_snippet": {
+                "operationId": "delete_snippet",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "400": {
@@ -5871,6 +6358,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Snippet"
+                }
+              }
+            },
+            "links": {
+              "retrieve_snippet": {
+                "operationId": "retrieve_snippet",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_snippet": {
+                "operationId": "delete_snippet",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -7585,6 +8086,14 @@
                   "$ref": "#/components/schemas/Response"
                 }
               }
+            },
+            "links": {
+              "update_survey_response": {
+                "operationId": "update_survey_response",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "400": {
@@ -7666,7 +8175,8 @@
                   "$ref": "#/components/schemas/Response"
                 }
               }
-            }
+            },
+            "links": {}
           },
           "400": {
             "description": "Bad Request",
@@ -7732,6 +8242,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Survey"
+                }
+              }
+            },
+            "links": {
+              "retrieve_survey": {
+                "operationId": "retrieve_survey",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "update_survey": {
+                "operationId": "update_survey",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_survey": {
+                "operationId": "delete_survey",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -7915,6 +8445,20 @@
                   "$ref": "#/components/schemas/Survey"
                 }
               }
+            },
+            "links": {
+              "update_survey": {
+                "operationId": "update_survey",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_survey": {
+                "operationId": "delete_survey",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "400": {
@@ -7982,6 +8526,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Survey"
+                }
+              }
+            },
+            "links": {
+              "retrieve_survey": {
+                "operationId": "retrieve_survey",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_survey": {
+                "operationId": "delete_survey",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -8105,6 +8663,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Tag"
+                }
+              }
+            },
+            "links": {
+              "retrieve_tag": {
+                "operationId": "retrieve_tag",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "update_tag": {
+                "operationId": "update_tag",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_tag": {
+                "operationId": "delete_tag",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -8252,6 +8830,20 @@
                   "$ref": "#/components/schemas/Tag"
                 }
               }
+            },
+            "links": {
+              "update_tag": {
+                "operationId": "update_tag",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_tag": {
+                "operationId": "delete_tag",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "403": {
@@ -8309,6 +8901,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Tag"
+                }
+              }
+            },
+            "links": {
+              "retrieve_tag": {
+                "operationId": "retrieve_tag",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_tag": {
+                "operationId": "delete_tag",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -8485,6 +9091,26 @@
                   "$ref": "#/components/schemas/User"
                 }
               }
+            },
+            "links": {
+              "retrieve_user": {
+                "operationId": "retrieve_user",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "update_user": {
+                "operationId": "update_user",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_user": {
+                "operationId": "delete_user",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "400": {
@@ -8605,6 +9231,20 @@
                   "$ref": "#/components/schemas/User"
                 }
               }
+            },
+            "links": {
+              "update_user": {
+                "operationId": "update_user",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_user": {
+                "operationId": "delete_user",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "403": {
@@ -8716,6 +9356,20 @@
                   "$ref": "#/components/schemas/User"
                 }
               }
+            },
+            "links": {
+              "retrieve_user": {
+                "operationId": "retrieve_user",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_user": {
+                "operationId": "delete_user",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "400": {
@@ -8785,6 +9439,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Webhook"
+                }
+              }
+            },
+            "links": {
+              "retrieve_webhook": {
+                "operationId": "retrieve_webhook",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "update_webhook": {
+                "operationId": "update_webhook",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_webhook": {
+                "operationId": "delete_webhook",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -8897,6 +9571,20 @@
                   "$ref": "#/components/schemas/Webhook"
                 }
               }
+            },
+            "links": {
+              "update_webhook": {
+                "operationId": "update_webhook",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_webhook": {
+                "operationId": "delete_webhook",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
             }
           },
           "403": {
@@ -8954,6 +9642,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Webhook"
+                }
+              }
+            },
+            "links": {
+              "retrieve_webhook": {
+                "operationId": "retrieve_webhook",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_webhook": {
+                "operationId": "delete_webhook",
+                "parameters": {
+                  "path.id": "$response.body#/id"
                 }
               }
             }
@@ -9454,7 +10156,8 @@
         "properties": {
           "code": {
             "description": "The error code.",
-            "title": "Code"
+            "title": "Code",
+            "type": "string"
           },
           "detail": {
             "description": "A human-readable description of the error.",
