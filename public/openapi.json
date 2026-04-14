@@ -18509,9 +18509,10 @@
             "type": "string"
           },
           "status": {
-            "$ref": "#/components/schemas/WebhookAttemptStatus",
             "description": "The status of the webhook attempt.",
-            "example": "successful"
+            "example": "successful",
+            "title": "Status",
+            "type": "string"
           }
         },
         "required": [
@@ -20634,16 +20635,6 @@
           "owner"
         ],
         "title": "InvitationStatus",
-        "description": "An enumeration."
-      },
-      "WebhookAttemptStatus": {
-        "type": "string",
-        "enum": [
-          "unattempted",
-          "successful",
-          "failed"
-        ],
-        "title": "WebhookAttemptStatus",
         "description": "An enumeration."
       }
     },
