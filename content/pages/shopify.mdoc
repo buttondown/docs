@@ -1,14 +1,48 @@
 ---
-title: Shopify
-
+title: Integrating with Shopify
+navigationTitle: Shopify
+relatedPages:
+- automations-introduction
 ---
+
 {% paidFeature feature="automations" /%}
 
-```mermaid
+Buttondown integrates with Shopify to sync customer data between your store and your newsletter. You can use automations to create customers in Shopify when someone subscribes, update tags, and manage email marketing consent.
 
-flowchart
-    A{{Shopify}} -->|new subscriber| B{{Buttondown}}
-    B -->|updated preferences| A
-```
+## Getting your Shopify API key
 
-(This page is a work in progress, but at a high level, you can use Buttondown to manage your Shopify subscribers.)
+To connect Buttondown to your Shopify store, you'll need to create a custom app in Shopify:
+
+1. In your Shopify admin, go to **Settings** → **Apps and sales channels** → **Develop apps**.
+2. Click **Create an app** and give it a name (e.g. "Buttondown").
+3. Click **Configure Admin API scopes** and enable the following scopes:
+   - `read_customers`
+   - `write_customers`
+4. Click **Save**, then go to the **API credentials** tab and click **Install app**.
+5. Copy the **Admin API access token**. This is the value you'll paste into Buttondown.
+
+These are the only two scopes Buttondown needs. The integration only interacts with the Shopify Customers API — it does not access orders, products, or any other data.
+
+## Connecting Shopify to Buttondown
+
+1. In Buttondown, go to **Settings** → **Integrations** → **Shopify**.
+2. Enter your **Shopify URL** (e.g. `your-store.myshopify.com`).
+3. Enter the **Admin API access token** you copied from Shopify.
+4. Click **Save**.
+
+## What you can do
+
+Once connected, you can set up [automations](/automations-introduction) that trigger Shopify actions when events happen in Buttondown:
+
+- **Create a customer** in Shopify when someone subscribes to your newsletter
+- **Set tags** on a Shopify customer (e.g. to segment them based on newsletter activity)
+- **Subscribe or unsubscribe** a customer from Shopify email marketing
+
+You can also trigger Buttondown automations from Shopify events:
+
+- **Customer created** in Shopify → trigger a Buttondown automation
+- **Customer updated** in Shopify → trigger a Buttondown automation
+
+## Importing subscribers from Shopify
+
+Buttondown supports importing subscribers from a Shopify customer CSV export. Go to **Subscribers** → **Import** and upload your Shopify CSV file.

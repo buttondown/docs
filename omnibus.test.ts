@@ -520,6 +520,7 @@ const CAPITALIZATION_EXCEPTIONS = [
   "REST",
   "RSS",
   "SEO",
+  "Shopify",
   "SimpleAnalytics",
   "SMTP",
   "SpamAssassin",
