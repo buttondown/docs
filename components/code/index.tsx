@@ -58,7 +58,7 @@ export default async function Code({
   );
 
   return (
-    <div className="not-prose">
+    <div className="not-prose my-6">
       <CodeInteractive
         blocks={processedBlocks}
         apiKeyReplacements={{

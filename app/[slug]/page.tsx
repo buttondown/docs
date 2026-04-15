@@ -459,10 +459,14 @@ export default async function DocsPage(props: Props) {
             You can subscribe to this changelog via{" "}
             <a href={`/rss/api-changelog`} target="_blank" rel="noopener">
               RSS
-            </a>{" "}
-            or{" "}
+            </a>
+            ,{" "}
             <Link href="/api-changelog">
               browse the full list of API changes
+            </Link>
+            , or{" "}
+            <Link href="/api-introduction">
+              read the API reference
             </Link>
             .
           </p>

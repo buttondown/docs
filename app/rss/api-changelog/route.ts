@@ -9,6 +9,15 @@ const CHANNEL_METADATA = {
   link: "https://docs.buttondown.com/api-changelog",
 };
 
+const escapeXml = (str: string): string => {
+  return str
+    .replace(/&(?!amp;|lt;|gt;|quot;|apos;|#\d+;|#x[\da-f]+;)/gi, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+};
+
 export async function GET() {
   const slugs = cms.list().filter((slug) => slug.startsWith("api-changelog-"));
 
@@ -35,23 +44,25 @@ export async function GET() {
     const coercedBDate = new Date(b.title || "");
     return coercedBDate.getTime() - coercedADate.getTime();
   });
-  const items = sortedPostData.map((post) => ({
-    title: post.title,
-    description: post.description,
-    link: `https://docs.buttondown.com/${post.slug}`,
-    pubDate: new Date(post.title || "").toUTCString(),
-    content: marked(post.bodyText),
-  }));
+  const items = sortedPostData.map((post) => {
+    const content = marked(post.bodyText) as string;
+    return {
+      title: post.title,
+      content,
+      link: `https://docs.buttondown.com/${post.slug}`,
+      pubDate: new Date(post.title || "").toUTCString(),
+    };
+  });
   const rssFeed = `<rss version="2.0">
         <channel>
-            <title>${CHANNEL_METADATA.title}</title>
-            <description>${CHANNEL_METADATA.description}</description>
+            <title>${escapeXml(CHANNEL_METADATA.title)}</title>
+            <description>${escapeXml(CHANNEL_METADATA.description)}</description>
             <link>${CHANNEL_METADATA.link}</link>
             ${items
               .map(
                 (item) => `<item>
-                <title>${item.title}</title>
-                <description>${item.description}</description>
+                <title>${escapeXml(item.title)}</title>
+                <description><![CDATA[${item.content}]]></description>
                 <link>${item.link}</link>
                 <pubDate>${item.pubDate}</pubDate>
                 <content type="html"><![CDATA[${item.content}]]></content>
