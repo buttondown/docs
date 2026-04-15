@@ -858,7 +858,25 @@
       "description": "Basic error",
       "object": {
         "code": "something_went_wrong",
-        "detail": "Your call is very important to us."
+        "detail": "Your call is very important to us.",
+        "metadata": {}
+      }
+    }
+  ],
+  "ValidationErrorMessage": [
+    {
+      "description": "Basic validation error",
+      "object": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "email"
+            ],
+            "msg": "Field required"
+          }
+        ]
       }
     }
   ],
