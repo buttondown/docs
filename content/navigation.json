@@ -254,6 +254,22 @@
         {
           "discriminant": "page",
           "value": "crossposting"
+        },
+        {
+          "discriminant": "page",
+          "value": "automation-conditional-reminders"
+        },
+        {
+          "discriminant": "page",
+          "value": "automation-dynamic-content"
+        },
+        {
+          "discriminant": "page",
+          "value": "automation-metadata-sequences"
+        },
+        {
+          "discriminant": "page",
+          "value": "automation-tag-triggers"
         }
       ]
     },

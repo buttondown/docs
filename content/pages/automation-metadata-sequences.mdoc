@@ -1,0 +1,34 @@
+---
+title: Metadata-driven email sequences
+navigationTitle: Metadata-driven sequences
+relatedPages:
+  - automations-introduction
+  - automation-triggers
+  - automation-filters
+  - automation-conditional-reminders
+  - automation-tag-triggers
+description: >-
+  Trigger specific email sequences for subscribers based on metadata values collected at signup or via the API.
+---
+
+If you collect data about subscribers through a form (via Zapier, the API, or any integration), you can trigger specific automation sequences based on metadata values at the moment of creation.
+
+For example, say you run a 30 Rock fan newsletter and use Zapier to pass data from a Google Form into subscriber metadata — fields like `fan_tier: superfan` or `attended_upfronts: true`. You can create an automation that sends a specific email sequence only to subscribers matching certain metadata values.
+
+{% automation
+   name="Metadata-driven email sequence"
+   description="Send a tailored email sequence to subscribers matching a specific metadata value"
+   trigger="When a subscriber is created"
+   filter="fan_tier equals superfan"
+   url="https://buttondown.com/automations/new?trigger=subscriber.created&name=Metadata-driven+sequence"
+   actions="[{\"delay\": \"immediately\", \"action\": \"Send welcome email\"},{\"delay\": \"after 3 days\", \"action\": \"Send behind-the-scenes email\"},{\"delay\": \"after 1 week\", \"action\": \"Send merch offer\"}]" /%}
+
+**Setup:**
+
+1. [Create a new automation](https://buttondown.com/automations/new?trigger=subscriber.created) with the trigger set to "When a subscriber is created." This fires at the moment the subscriber is created, including when created via the API or Zapier.
+2. Add a filter for the metadata key and value you care about (e.g., `fan_tier` equals `superfan`).
+3. Add one or more "Send an email" actions with appropriate delays for your sequence.
+
+If you need to react to metadata changes on *existing* subscribers (not just new ones), use the "When a subscriber is updated" (`subscriber.updated`) trigger instead — this fires whenever a subscriber's metadata or notes change.
+
+You can create separate automations for each metadata value you want to act on (e.g., one for `fan_tier: superfan`, another for `attended_upfronts: true`).

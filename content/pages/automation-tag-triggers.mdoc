@@ -1,0 +1,30 @@
+---
+title: Tag-based triggers
+navigationTitle: Tag-based triggers
+relatedPages:
+  - automations-introduction
+  - automation-triggers
+  - automation-filters
+  - automation-metadata-sequences
+  - automation-conditional-reminders
+description: >-
+  Start automations when a subscriber's tags change — useful for reacting to external events via the API or Zapier.
+---
+
+You can trigger automations whenever a subscriber's tags change — including when tags are added to an *existing* subscriber via the API or Zapier. This is useful for reacting to real-world events that happen outside of Buttondown, like an announcement or a new show segment going live.
+
+For example, say you tag subscribers by city and want to start a "Tracy Jordan Tour" automation when you add a "Tour City" tag via Zapier (whenever a new tour stop is announced):
+
+{% automation
+   name="Tag-based trigger"
+   description="Send content when a specific tag is added to a subscriber"
+   trigger="When a subscriber's tags change"
+   filter="Tag equals Tour City"
+   url="https://buttondown.com/automations/new?trigger=subscriber.tags.changed&name=Tag-based+trigger"
+   action="Send an email" /%}
+
+1. [Create a new automation](https://buttondown.com/automations/new?trigger=subscriber.tags.changed) with the trigger set to "When a subscriber's tags change."
+2. Add a filter for the tag "Tour City."
+3. Add a "Send an email" action with the tour details and ticket link.
+
+This works for both new and existing subscribers — any tag change on a matching subscriber will trigger it, whether that tag is added manually, via the API, or via Zapier. You can create tags in advance from the [Tags](https://buttondown.com/tags) page, or they'll be auto-created when first applied via the API.

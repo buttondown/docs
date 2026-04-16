@@ -188,7 +188,9 @@ const tags: Config["tags"] = {
       name: { type: String, required: true },
       description: { type: String, required: true },
       trigger: { type: String, required: true },
-      action: { type: String, required: true },
+      filter: { type: String },
+      action: { type: String },
+      actions: { type: String },
     },
   },
   liveCodeBlock: {
@@ -321,33 +323,69 @@ const components: Record<string, React.ComponentType<any>> = {
     name: string;
     description: string;
     trigger: string;
-    action: string;
-  }) => (
-    <a href={props.url} className="text-inherit no-underline after:hidden!">
-      <div className="border border-gray-300 bg-gray-50 p-4 px-8 text-center hover:scale-105 transition-all cursor-pointer relative overflow-hidden hover:border-green-600 hover:bg-green-100">
-        <div className="absolute right-0 top-0 h-12 w-12">
-          <div className="absolute transform rotate-45 bg-linear-to-tr from-green-500 to-green-600 text-center text-white font-semibold py-1 right-[-50px] top-[25px] w-[170px] text-xs uppercase">
-            Click to use
+    filter?: string;
+    action?: string;
+    actions?: string;
+  }) => {
+    let steps: { delay?: string; action: string }[] = [];
+    if (props.actions) {
+      try {
+        steps = JSON.parse(props.actions);
+      } catch (error) {
+        console.error("Failed to parse automation actions:", error);
+      }
+    } else if (props.action) {
+      steps = [{ action: props.action }];
+    }
+    const Connector = () => (
+      <div
+        aria-hidden
+        className="w-px h-4 bg-gray-300 mx-auto"
+      />
+    );
+    return (
+      <a href={props.url} className="text-inherit no-underline after:hidden!">
+        <div className="border border-gray-300 bg-gray-50 p-4 px-8 text-center hover:scale-105 transition-all cursor-pointer relative overflow-hidden hover:border-green-600 hover:bg-green-100">
+          <div className="absolute right-0 top-0 h-12 w-12">
+            <div className="absolute transform rotate-45 bg-linear-to-tr from-green-500 to-green-600 text-center text-white font-semibold py-1 right-[-50px] top-[25px] w-[170px] text-xs uppercase">
+              Click to use
+            </div>
+          </div>
+          <div className="font-bold">{props.name}</div>
+          <div className="text-sm">{props.description}</div>
+          <div className="flex flex-col items-stretch mt-6 text-sm">
+            <div className="bg-gray-700 text-white px-5 py-1 rounded-full mx-auto">
+              {props.trigger}
+            </div>
+            {props.filter && (
+              <>
+                <Connector />
+                <div className="bg-amber-500 text-white px-5 py-1 rounded-full mx-auto">
+                  {props.filter}
+                </div>
+              </>
+            )}
+            {steps.map((step, i) => (
+              <React.Fragment key={i}>
+                <Connector />
+                {step.delay && (
+                  <>
+                    <div className="bg-gray-300 text-xs rounded-full px-2 py-1 uppercase mx-auto">
+                      {step.delay}
+                    </div>
+                    <Connector />
+                  </>
+                )}
+                <div className="bg-blue-600 text-white px-5 py-1 rounded-full mx-auto">
+                  {step.action}
+                </div>
+              </React.Fragment>
+            ))}
           </div>
         </div>
-        <div className="font-bold">{props.name}</div>
-        <div className="text-sm">{props.description}</div>
-        <div className="flex mt-8 items-center text-sm">
-          <div className="bg-gray-700 text-white px-5 py-1 rounded-full">
-            {props.trigger}
-          </div>
-          <div className="border-t border-t-gray-300 flex-1" />
-          <div className="bg-gray-300 text-xs rounded-full px-2 py-1 uppercase -mx-2">
-            then
-          </div>
-          <div className="border-t border-t-gray-300 flex-1" />
-          <div className="bg-blue-600 text-white px-5 py-1 rounded-full">
-            {props.action}
-          </div>
-        </div>
-      </div>
-    </a>
-  ),
+      </a>
+    );
+  },
   LiveCodeBlock: (props: { filename: string }) => (
     <LiveCodeBlock path={props.filename} />
   ),

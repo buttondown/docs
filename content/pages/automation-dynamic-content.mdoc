@@ -1,0 +1,31 @@
+---
+title: Dynamic content with template conditionals
+navigationTitle: Dynamic content
+relatedPages:
+  - templating
+  - automations-introduction
+  - automation-metadata-sequences
+  - automation-tag-triggers
+description: >-
+  Use Jinja conditionals in subject lines and email bodies to personalize content per-subscriber based on metadata.
+---
+
+Buttondown's [templating language](/templating) supports conditional logic in both subject lines and email bodies. This lets you personalize content per-subscriber based on their metadata — for example, sending different copy to cast members vs. regular viewers.
+
+For example, if you need different subject lines based on a metadata flag:
+
+**Subject line:**
+```jinja {% process=false %}
+{% if subscriber.metadata.cast_member %}This week's call sheet{% else %}What to watch on TGS this week{% endif %}
+```
+
+**Email body:**
+```jinja {% process=false %}
+{% if subscriber.metadata.cast_member %}
+  <p>Call time is 6am sharp. Kenneth will have coffee ready.</p>
+{% else %}
+  <p>New episode drops Thursday at 8/7c. Here's a sneak peek...</p>
+{% endif %}
+```
+
+This is evaluated per-subscriber at send time, so each recipient sees the version that matches their metadata. You can use any metadata key in these conditions, and you can nest multiple conditions for more complex logic. This works in both regular emails and automation emails.

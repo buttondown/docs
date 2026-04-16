@@ -1,0 +1,42 @@
+---
+title: Conditional reminders with delayed checks
+navigationTitle: Conditional reminders
+relatedPages:
+  - automations-introduction
+  - automation-triggers
+  - automation-filters
+  - automation-metadata-sequences
+  - api-automations-invoke
+description: >-
+  Use two automations to "wait then check" — send reminders or follow-ups based on whether a condition is met after a delay.
+---
+
+A common pattern is "wait some amount of time, then check a condition before sending." For example, if you run an NBC Page program application funnel, you might want to send a 24-hour reminder only to applicants who haven't yet finished their orientation paperwork.
+
+Buttondown's automation filters are evaluated once, at the time the trigger fires — they don't re-evaluate mid-sequence. This means a single automation can't do "wait 24 hours, then check metadata." But you can achieve the same result with two automations working in parallel.
+
+**Automation 1 — Reminder for incomplete applications:**
+
+{% automation
+   name="Reminder for incomplete applications"
+   description="Send a follow-up email to subscribers who haven't completed orientation after 24 hours"
+   trigger="When a subscriber is created"
+   filter="orientation_complete is not set"
+   url="https://buttondown.com/automations/new?trigger=subscriber.created&name=Reminder+for+incomplete+applications"
+   actions="[{\"delay\": \"after 24 hours\", \"action\": \"Send reminder email\"}]" /%}
+
+**Automation 2 — Welcome for completed applications:**
+
+{% automation
+   name="Welcome for completed applications"
+   description="Send the welcome sequence once a subscriber completes orientation"
+   trigger="When a subscriber is updated"
+   filter="orientation_complete equals true"
+   url="https://buttondown.com/automations/new?trigger=subscriber.updated&name=Welcome+for+completed+applications"
+   actions="[{\"delay\": \"immediately\", \"action\": \"Send welcome email\"},{\"delay\": \"after 3 days\", \"action\": \"Send follow-up email\"}]" /%}
+
+When a subscriber is created without the `orientation_complete` flag, Automation 1 queues the reminder. If they finish orientation later, Automation 2 fires and sends the welcome content.
+
+## Using the API for precise timing
+
+For even more control, you can skip the timed automation entirely and have your external tool (Zapier, a script, etc.) check the condition after the delay and then [invoke an automation via the API](/api-automations-invoke) only if the condition is met.
