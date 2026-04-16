@@ -52,6 +52,18 @@ You can set a canonical URL in a number of ways:
 - If you're using the API, you can [set the Email.canonical_url](/api-emails-introduction) field.
 - If you're sending emails using the user interface, you can set the canonical URL in the "metadata" section when finalizing your email.
 
+## Blocking bots and crawlers
+
+If you're using a custom hosting domain, you can block specific bots and crawlers from accessing your archives and subscribing to your newsletter. Go to [Settings → Domains → Hosting](https://buttondown.com/settings/domains/hosting) and add user agent strings to the "Blocked user agents" field, one per line. Partial matches are supported — for example, adding `GPTBot` will match any user agent string containing "GPTBot".
+
+Blocked user agents are enforced in three ways:
+
+1. **robots.txt** — Your custom domain's `robots.txt` will include `Disallow: /` rules for each blocked user agent, instructing compliant crawlers not to access your archives.
+2. **Meta tags** — Each page on your custom domain will include `<meta name="{agent}" content="noindex, nofollow" />` tags for each blocked user agent, instructing crawlers that do visit the page not to index it or follow its links.
+3. **Subscription blocking** — Any subscription attempt with a matching user agent will be automatically blocked.
+
+{% noticeInfo text="The robots.txt standard and meta tags are advisory — well-behaved crawlers will respect them, but they cannot prevent a determined bot from accessing your content." /%}
+
 ## Moving away from Buttondown
 
 Sometimes our users find a newsletter platform that better meets their needs. No hard feelings! But if you're moving away from Buttondown, you want to make sure old links to your Buttondown account don't suddenly break.

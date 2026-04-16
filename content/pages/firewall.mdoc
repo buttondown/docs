@@ -81,6 +81,10 @@ Setting a firewall mode of "aggressive" will proactively block _risky_ and _very
 
 If you use a [custom domain](/hosting-domain) for your newsletter, please note that CAPTCHA challenges are not available on custom domains. This means that if the firewall flags a subscriber on your custom domain, they will be blocked outright rather than being given a chance to complete a CAPTCHA challenge. The firewall still runs all of its other checks (IP reputation, email validation, etc.) on custom domain traffic.
 
+## Blocking bots by user agent
+
+If you want to block specific bots or crawlers from subscribing to your newsletter, you can do so from the [hosting domain settings](/hosting-domain#blocking-bots-and-crawlers). This feature also generates `robots.txt` rules and meta tags for your custom domain.
+
 ## Testing the firewall
 
 You can test how your firewall configuration responds to different risk scores using sandbox test addresses. These special email addresses allow you to simulate specific risk scores to verify your firewall threshold settings.
