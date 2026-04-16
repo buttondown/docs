@@ -141,7 +141,7 @@ export default async function Layout({
             <div className="min-w-0">
               <Prose>{children}</Prose>
               <footer className="flex bg-white z-50">
-                <p className="text-gray-400 text-sm">
+                <div className="text-gray-400 text-sm">
                   <div>
                     &copy; 2016–{new Date().getFullYear()} Buttondown LLC.
                   </div>
@@ -168,7 +168,7 @@ export default async function Layout({
                   >
                     Home
                   </a>
-                </p>
+                </div>
               </footer>
             </div>
 
