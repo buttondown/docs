@@ -77,6 +77,15 @@ Buttondown's firewall ultimately buckets the spectrum of all risk scores into fo
 
 Setting a firewall mode of "aggressive" will proactively block _risky_ and _very risky_ subscribers; a firewall mode of "enabled" only blocks _very risky_ subscribers.
 
+## Attack mode
+
+If Buttondown detects that your newsletter has accumulated an unusually high proportion of unactivated subscribers — a pattern that often indicates a bot or spam attack on your subscription form — we'll automatically turn on **attack mode** on your behalf. Specifically, we'll:
+
+- Set your firewall's auditing mode to **aggressive**, so incoming subscribers are more strictly scrutinized.
+- Enable **IP address auditing**, which checks the reputation of each subscriber's IP address before letting them through.
+
+You'll get an email whenever this happens. If you'd prefer that Buttondown didn't take these actions automatically, you can disable attack mode from your newsletter's firewall settings.
+
 ## Custom domains
 
 If you use a [custom domain](/hosting-domain) for your newsletter, please note that CAPTCHA challenges are not available on custom domains. This means that if the firewall flags a subscriber on your custom domain, they will be blocked outright rather than being given a chance to complete a CAPTCHA challenge. The firewall still runs all of its other checks (IP reputation, email validation, etc.) on custom domain traffic.
