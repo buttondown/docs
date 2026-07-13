@@ -16,13 +16,13 @@ Want to ask your subscribers a question – and personalize future emails based
 
 All of your newsletter’s surveys live under the [Surveys](https://buttondown.com/surveys) tab. First, tap “+ Add” at top right. You’ll encounter a pop-up that will guide you through the process of creating your survey.
 
-{% iframe src="https://demo.buttondown.com/surveys/new?newsletter=jenna" width="wide" height=900 /%}
+{% iframe src="https://demo.buttondown.com/surveys/new?newsletter=basic-newsletter" width="wide" height=900 /%}
 
 Each survey has room for one question and one question only. If you want to ask multiple questions in a row, you can create an additional survey for each one.
 
 ### Assign a code to your survey
 
-{% iframe src="https://demo.buttondown.com/surveys/new?newsletter=jenna&emphasis=code" height=500 /%}
+{% iframe src="https://demo.buttondown.com/surveys/new?newsletter=basic-newsletter&emphasis=code" height=500 /%}
 
 Then, enter an identifier for your survey in the "Code" field using letters (A–Z) and numbers (0–9). Your subscribers won't see this code, but we recommend making it identifiable so you can retrieve and render your survey more easily.
 
@@ -60,6 +60,8 @@ Now, we’ll embed your survey in an email.
 
 Here’s where that code you copied from the "Usage" section will come in handy. Simply paste the code where you’d like your survey to appear:
 
+If you’re writing in [fancy mode](/fancy-mode), you don’t need to copy the code at all — type `/` where you’d like the survey to go and search for it by its code or question, and Buttondown will drop the tag in for you.
+
 ### Preview your survey
 
 Your writing interface won't render your survey in its entirety, so we recommend [sending a draft of your email](/publishing-your-first-email#previewing-your-email) to yourself in order to check everything.
@@ -77,11 +79,15 @@ You can also customize the look and feel of your survey by modifying Buttondown�
 
 ---
 
-{% noticeInfo text="Buttondown automatically assigns a \"survey\" div class to your code, so if you’re having trouble finding your survey in your CSS, all you have to do is search for the \"survey\" wrapping div.” /%}
+{% noticeInfo text="Buttondown automatically assigns a \"survey\" div class to your code, so if you’re having trouble finding your survey in your CSS, all you have to do is search for the \"survey\" wrapping div." /%}
 
 ### Send your survey
 
 Once the rest of your email is all set, [send it to your subscribers](/sending-emails)! Here’s an example of what your subscribers will see when they engage with your survey:
+
+### Surveys in transactional emails
+
+Surveys aren’t limited to your regular emails. You can add one to a transactional email — like your welcome email — the same way, and Buttondown will render it and record responses from the subscribers who receive it. This is handy for surveying new subscribers the moment they confirm.
 
 ## Analyzing your survey
 
@@ -96,13 +102,13 @@ We put these measures in place to ensure that your survey responses are an accur
 
 Go to the [Surveys](https://buttondown.com/surveys) tab of your newsletter and click on the three dots (`…`) to the far right of your survey’s ID, and then select "Answers" to view a breakdown of your survey’s responses to date:
 
-{% iframe src="https://demo.buttondown.com/surveys/13121cd6-0dfc-424c-bb12-988b0a32fcb3?newsletter=jenna" height=600 /%}
+{% iframe src="https://demo.buttondown.com/surveys/13121cd6-0dfc-424c-bb12-988b0a32fcb3?newsletter=basic-newsletter" height=600 /%}
 
 ### Export your survey's responses
 
 Want to analyze your survey’s responses in more detail? You can export your survey’s data by tapping the check box next to it and then tapping “Export” at the bottom:
 
-{% iframe src="https://demo.buttondown.com/surveys?newsletter=jenna&emphasis=export" /%}
+{% iframe src="https://demo.buttondown.com/surveys?newsletter=basic-newsletter&emphasis=export" /%}
 
 ## Going above and beyond
 
@@ -110,7 +116,7 @@ Now that you’ve surveyed your audience, you might want to act on what they’r
 
 ### Tag your survey responses
 
-You can tag your audience based on how they responded to a survey. Check out our guides on [tags](/segmenting-your-audience#tags) & [metadata](/subscriber-data) to learn more.
+You can tag your audience based on how they responded to a survey. Check out our guides on [tags](/tags) & [metadata](/subscriber-metadata) to learn more.
 
 ### Personalize your emails
 

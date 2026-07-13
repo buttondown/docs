@@ -70,7 +70,7 @@ const Sidebar = ({
   }, [slug]);
 
   return (
-    <div className={clsx("h-full overflow-y-auto w-[320px]", className)}>
+    <div className={clsx("overflow-y-auto w-[320px]", className)}>
       <Accordion.Root
         type="multiple"
         defaultValue={currentFolderName ? [currentFolderName] : []}
@@ -104,8 +104,8 @@ const Sidebar = ({
 
                   if (item.type === "divider") {
                     return (
-                      <div key={item.title} className="pt-1.5">
-                        <p className="text-xs text-gray-500 w-max bg-gray-200 py-0.5 rounded-md">
+                      <div key={item.title} className="pt-2 pb-0.5">
+                        <p className="text-xs text-gray-400 uppercase w-max rounded-md">
                           {item.title}
                         </p>
                       </div>

@@ -8,7 +8,7 @@ In this guide, we'll show you everything you need to do to keep your account wel
 
 {% paidFeature feature="multiple_newsletters" /%}
 
-Buttondown makes it easy to manage multiple types or segments of subscribers using [tags](/segmenting-your-audience#tags), but sometimes your best bet is to set up separate newsletters entirely.
+Buttondown makes it easy to manage multiple types or segments of subscribers using [tags](/tags), but sometimes your best bet is to set up separate newsletters entirely.
 
 To add another newsletter to your account:
 
@@ -56,22 +56,83 @@ We recommend generating **backup codes** after setting up MFA so you can regain 
 
 Did you create your account with a third-party login method like Google, but would like to switch to logging in with your username & password? Please [contact us](https://buttondown.com/support) directly and we'll be happy to take care of this for you!
 
-## Marking your newsletter as dormant
+## Email notifications
 
-{% iframe src="https://demo.buttondown.com/u2" variant="subscriber" /%}
+Buttondown sends email notifications about activity on your newsletters. You can turn individual notifications on or off from [Settings → Notifications](https://buttondown.com/settings/notifications).
 
-Dormancy is a status that allows you to mark a newsletter as inactive and turns off most major pieces of functionality without having to actually delete your data or change any major configurations. You can wake your newsletter back up with a single click.
+{% iframe src="https://demo.buttondown.com/settings/notifications" /%}
 
-{% iframe src="https://demo.buttondown.com/settings/danger-zone?emphasis=mark-as-dormant" /%}
+Some notifications only appear if your account uses the related feature. For example, RSS notifications require [RSS-to-email](/rss-to-email) to be enabled, and premium subscriber notifications require [paid subscriptions](/paid-subscriptions).
 
-Go to [Settings → Danger Zone](https://buttondown.com/settings/danger-zone), and click "Mark as dormant".
+### General
 
-There are a few reasons you might want to mark your newsletter as dormant:
+| Notification | When we email you |
+| --- | --- |
+| Complaints | A subscriber complains about your newsletter |
+| Incidents | Buttondown is experiencing issues that may impact your newsletter |
+| New subscribers | Someone subscribes to your newsletter |
+| New unsubscribers | Someone unsubscribes from your newsletter |
+| Premium subscribers | Someone becomes a paid subscriber |
+| Premium unsubscribers | Someone cancels a paid subscription |
+| Referrals | Someone signs up using your [referral link](/affiliate-program) |
+| Rejections | A subscriber (or their email provider) rejects an email from your newsletter |
+| Scheduled emails | A scheduled email is sent |
+| Subscriber cleanup | Buttondown cleans up your [subscriber list](/subscriber-cleanup) |
+| Tips & tricks | Congratulations, tips, and suggested improvements |
+
+### Analytics
+
+| Notification | When we email you |
+| --- | --- |
+| Daily reports | A daily summary of your newsletter's performance and growth |
+| Monthly reports | A monthly summary of your newsletter's performance and growth |
+| Social mentions | Someone mentions you on social media |
+| Webmentions | Another publication mentions you |
+| Weekly reports | A weekly summary of your newsletter's performance and growth |
+
+See [Social media monitoring](/social-media-monitoring) for more on social mention notifications.
+
+### Comments
+
+| Notification | When we email you |
+| --- | --- |
+| Comments | Someone comments on your email |
+
+### Feeds
+
+| Notification | When we email you |
+| --- | --- |
+| RSS errors | Buttondown cannot access your RSS feed |
+| RSS-generated emails | An RSS-generated email is sent |
+
+### Inbox
+
+| Notification | When we email you |
+| --- | --- |
+| Replies | Someone replies to an email you send |
+
+### Surveys
+
+| Notification | When we email you |
+| --- | --- |
+| Survey responses | A subscriber responds to a survey |
+
+## Snoozing your newsletter
+
+{% iframe src="https://demo.buttondown.com/chicago-forager" variant="subscriber" /%}
+
+Snoozing is a status that allows you to mark a newsletter as inactive and turns off most major pieces of functionality without having to actually delete your data or change any major configurations. You can wake your newsletter back up with a single click.
+
+{% iframe src="https://demo.buttondown.com/settings/danger-zone?emphasis=snooze-newsletter" /%}
+
+Go to [Settings → Danger Zone](https://buttondown.com/settings/danger-zone), and click "Snooze newsletter".
+
+There are a few reasons you might want to snooze your newsletter:
 
 - You're taking a break from your newsletter and want it to be "offline", but you don't want to delete it or change any major configurations.
 - Your newsletter is meant to be a pop-up or temporary newsletter only available for a specific time period.
 
-Notably, dormant newsletters do _not_ keep their archives accessible, nor can new subscribers join.
+Notably, snoozed newsletters do _not_ keep their archives accessible, nor can new subscribers join.
 
 ## Deleting your Buttondown account
 

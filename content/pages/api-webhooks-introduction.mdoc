@@ -1,4 +1,70 @@
 ---
 title: Introduction
 schema: Webhook
+faqItems: >
+  [
+    {
+      "question": "How do I route webhook events to the right customer in a multi-tenant app?",
+      "answer": "Webhook payloads include an event `id`, an `event_type`, and a `data` object. When an account has more than one newsletter, the `data` object also includes a `newsletter` ID, along with event-specific resource IDs (such as a `subscriber` or `email` ID).\n\nIf your application serves many Buttondown customers through a single endpoint, read `data.newsletter` to route each event to the right customer. You can also use per-customer webhook URLs or signing keys as a belt-and-suspenders check.\n\n[API keys](/api-introduction) are scoped to a single newsletter, so re-fetching a resource after a webhook notification requires knowing which customer's key to use — `data.newsletter` tells you that."
+    }
+  ]
 ---
+Events are Buttondown's way of telling you that something interesting has happened to your newsletter, and [webhooks](/glossary-developers#webhooks) are Buttondown's way of letting you react to various incoming events. For example, when a new subscriber signs up for your newsletter, Buttondown creates and emits a `subscriber.created` event; when that subscriber unsubscribes, Buttondown creates a `subscriber.unsubscribed` event. If you wanted to, say, create a Slack notification or run some application code whenever something in Buttondown happens, you'd create a webhook for the concomitant event and point it towards your application.
+
+The payload of most events is fairly simple, and looks something like this:
+
+```json
+{
+  "event_type": "subscriber.confirmed",
+  "data": {
+    "newsletter": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+    "subscriber": "ac79483b-cd28-49c1-982e-8a88e846d7e7"
+  }
+}
+```
+
+For the full list of event types, see [Event types](/event-types). For instructions on creating a webhook in the Buttondown UI, see [Events & webhooks](/events-and-webhooks-introduction).
+
+{% faq /%}
+
+## Webhook security with HMAC signing
+
+For additional security, you can enable HMAC signing on your webhooks to verify that requests are genuinely coming from Buttondown. When you set a signing key on a webhook, Buttondown will include an `X-Buttondown-Signature` header with each request.
+
+### Setting up HMAC signing
+
+To enable HMAC signing for a webhook:
+
+1. Go to your webhook settings
+2. Add a signing key in the "Signing key" field
+3. Save the webhook
+
+The signing key can be any string you choose—make it long and random for best security.
+
+### Verifying the signature
+
+When Buttondown sends a webhook with a signing key enabled, it includes an `X-Buttondown-Signature` header in the format:
+
+```
+X-Buttondown-Signature: sha256=<signature>
+```
+
+To verify the signature on your end:
+
+{% generatedMultilanguageSnippets file="lib/snippets/webhook-hmac-verification.json" /%}
+
+The signature is computed using HMAC-SHA256 over the raw request body (before JSON parsing), so make sure to verify the signature using the original bytes you received.
+
+### Using signing keys in automation actions
+
+You can also use signing keys when sending post requests via automation actions. Simply add a `signing_key` field to your action's metadata:
+
+```json
+{
+  "type": "send_post_request",
+  "metadata": {
+    "url": "https://your-api.com/webhook",
+    "signing_key": "your-secret-key-here"
+  }
+}
+```

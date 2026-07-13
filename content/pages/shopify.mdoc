@@ -7,7 +7,9 @@ relatedPages:
 
 {% paidFeature feature="automations" /%}
 
-Buttondown integrates with Shopify to sync customer data between your store and your newsletter. You can use automations to create customers in Shopify when someone subscribes, update tags, and manage email marketing consent.
+Buttondown integrates with Shopify so your [automations](/automations-introduction) can read and update the customers in your store: looking a customer up by email and then creating them, updating their tags, or changing their email marketing consent.
+
+Every one of these is **triggered by an event in Buttondown** (such as someone subscribing) — Buttondown does not receive events from Shopify, so a change on the Shopify side won't automatically trigger anything in Buttondown. To bring existing Shopify customers into Buttondown, use the CSV import described below (or a tool like Zapier).
 
 ## Getting your Shopify API key
 
@@ -38,10 +40,7 @@ Once connected, you can set up [automations](/automations-introduction) that tri
 - **Set tags** on a Shopify customer (e.g. to segment them based on newsletter activity)
 - **Subscribe or unsubscribe** a customer from Shopify email marketing
 
-You can also trigger Buttondown automations from Shopify events:
-
-- **Customer created** in Shopify → trigger a Buttondown automation
-- **Customer updated** in Shopify → trigger a Buttondown automation
+These actions all run in one direction: a Buttondown event (such as a new subscriber) triggers an action in Shopify. Buttondown does not currently listen for events coming *from* Shopify, so a new customer in Shopify won't automatically start a Buttondown automation on its own.
 
 ## Importing subscribers from Shopify
 

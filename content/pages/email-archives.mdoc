@@ -17,37 +17,50 @@ Buttondown automatically indexes the following content of yours in Bing and Goog
 
 Buttondown respects **canonical URLs**; if your emails are being created through an [RSS feed](/glossary-managing-your-list#rss), for instance, we'll point Google (or whoever) to the original URL of your content to make sure the SEO gods are checking in the right place.
 
-## Gating archives behind a subscription
+## Default archive visibility setting
 
-If you want archive visitors to subscribe before they can read the full post, you have two options:
+Depending on who you want to share the web version of your emails after sending them, you can choose 4 different default options in your [Archive settings](https://buttondown.com/settings/archives):
 
-1. **Subscription wall**: Insert a [subscription wall](/fancy-mode#subscription-wall) in your email. Everything below it will be gated for non-subscribers, while anyone who's subscribed (free or paid) can see the full post.
-2. **Archival mode**: Set the email's [archival mode](/api-emails-archival-mode) to "Shown to subscribers" in the finalization drawer to gate the entire post.
+1. **Disabled** — by default, your archive and web version of your emails is hidden. No one can access it.
+2. **Subscribers only** — only your subscribers can access your archive, and they need to log in to do it.
+3. **Paid subscribers only** — only your paid subscribers can access your archive, and they need to log in to do it.
+4. **Public** — anyone can access your web archives.
 
-This is different from a [paywall](/fancy-mode#paywall), which requires [paid subscriptions](/paid-subscriptions). A subscription wall works with any newsletter — no Stripe setup needed.
+This setting will be applied by default to all new emails you send, but you can still override it on the email level and on the content level.
 
-## Excluding emails from your archives
+## Archived visibility setting on individual emails
 
-If you've got archives turned on for your newsletter, you still might want to 'hide' certain emails from the archive. This could be for a variety of reasons, such as:
+You can choose web archive visibility in the Publish modal of each email (or Details, if the email has already been sent).
+
+You can also edit visibility in bulk from the [Emails page](https://buttondown.com/emails) by selecting emails and then choosing "Change visibility".
+
+We also added a column called **Archive visibility** so you can quickly skim through web visibility for your existing emails.
+
+### Example use case
+
+If you've got archives turned on for your newsletter, you still might want to hide certain emails from the archive. This could be for a variety of reasons, such as:
 
 - You're sending a one-off email that's not part of your regular newsletter
 - You're sending a time-sensitive email that you don't want to be visible after a certain date
 - You're sending an email to a certain tag that you don't want to be visible to the public
 
-Whatever the reason, you can exclude emails from the archive both _as_ you send the email and _after_ you've sent it, by setting the email as [private](/api-emails-type#private). Private emails:
+Whatever the reason, you can exclude emails from the archive both as you send the email and after you've sent it, by setting the email to **Disabled**. Disabled emails:
 
 - Are not visible on your public archive page
 - Are not included in your RSS feed
 - Cannot be accessed by anybody but you
 
-## Sending an email that doesn't show up in your archives
+## Gating parts of the email content
 
-When you're sending an email, you can set it as private by opening the "Recipients" modal and choosing "Private":
+For even finer tuning of content visibility, you can block parts of content within a post with:
 
-![Setting an email as private](/images/email-interface/sending-as-private.png)
+- [Paywalls](fancy-mode#paywall) (visible to [paid subscribers](https://buttondown.com/settings/paid-subscriptions) only; requires paid subscriptions enabled and Stripe setup to work)
+- [Subscription wall](https://buttondown.com/blog/2026-04-09-subscription-wall) (visible to subscribers only; does not require Stripe)
 
-## Making an email private after it's been sent
+You can set both through [Fancy mode](fancy-mode) in our editor by typing `/` and picking the function you want.
 
-If you've already sent an email and you want to make it private, you can do so by going into the [Emails list page](https://buttondown.com/emails), clicking the dropdown menu, and selecting "Change visibility":
+### Example use case
 
-![Changing email visibility](/images/email-interface/marking-as-private.png)
+You want to show content teasers to entice visitors of your archive to subscribe (be it a paid or free subscription).
+
+For example, you have a newsletter on crocheting, and you want to show one pattern in the email for free, and paywall the rest of the email so only your paid subscribers can see it.

@@ -8,12 +8,13 @@ import ObjectDescription, {
   extractParameters,
   extractSchemaFromContent,
   fixtureForRef,
+  type ParameterType,
 } from "@/components/ObjectDescription";
 import Parameter from "@/components/Parameter";
 import cms from "@/lib/cms";
 import { DESCRIPTION, TITLE } from "@/lib/constants";
 import { buildContentArray } from "@/lib/search/server";
-import { generateJSONLDMetadata } from "@/lib/jsonld";
+import { generateBreadcrumbJSONLD, generateJSONLDMetadata } from "@/lib/jsonld";
 import {
   default as ErrorCodeEnums,
   default as OpenAPIEnums,
@@ -31,6 +32,101 @@ type Props = {
   params: Promise<{
     slug: string;
   }>;
+};
+
+const DATE_RANGE_PARAMETER_PATTERN =
+  /^(.*_date|date)__(gt|lt|gte|lte|start|end)$/;
+
+const dateRangeBaseName = (parameter: ParameterType): string | null => {
+  const match = parameter.parameter.match(DATE_RANGE_PARAMETER_PATTERN);
+  return match?.[1] ?? null;
+};
+
+type ParameterRow =
+  | { kind: "single"; parameter: ParameterType }
+  | { kind: "date-range"; baseName: string; parameters: ParameterType[] };
+
+const groupDateRangeParameters = (
+  parameters: ParameterType[],
+): ParameterRow[] => {
+  const groupsByBase = new Map<string, ParameterType[]>();
+  for (const parameter of parameters) {
+    const baseName = dateRangeBaseName(parameter);
+    if (baseName) {
+      const existing = groupsByBase.get(baseName) ?? [];
+      existing.push(parameter);
+      groupsByBase.set(baseName, existing);
+    }
+  }
+
+  const rows: ParameterRow[] = [];
+  const insertedBases = new Set<string>();
+  for (const parameter of parameters) {
+    const baseName = dateRangeBaseName(parameter);
+    if (!baseName) {
+      rows.push({ kind: "single", parameter });
+      continue;
+    }
+    if (insertedBases.has(baseName)) continue;
+    insertedBases.add(baseName);
+    const group = groupsByBase.get(baseName) ?? [];
+    if (group.length > 1) {
+      rows.push({ kind: "date-range", baseName, parameters: group });
+    } else {
+      rows.push({ kind: "single", parameter: group[0] });
+    }
+  }
+  return rows;
+};
+
+const SUFFIX_TO_BOUND: Record<string, string> = {
+  gt: "after (exclusive)",
+  lt: "before (exclusive)",
+  gte: "on or after (inclusive)",
+  lte: "on or before (inclusive)",
+  start: "on or after (inclusive)",
+  end: "on or before (inclusive)",
+};
+
+const dateRangeDescription = (parameters: ParameterType[]) => {
+  const lines = parameters.map((parameter) => {
+    const match = parameter.parameter.match(DATE_RANGE_PARAMETER_PATTERN);
+    const suffix = match?.[2] ?? "";
+    const bound = SUFFIX_TO_BOUND[suffix] ?? "";
+    const formatLabel =
+      parameter.format === "date-time" ? "datetime" : "date";
+    const example =
+      typeof parameter.example === "string"
+        ? ` Example: \`${parameter.example}\`.`
+        : "";
+    return `- \`${parameter.parameter}\` (${formatLabel}, ${bound}): ${parameter.description}${example}`;
+  });
+  return [
+    "Filter results by date range. Provide one or more of the following query parameters:",
+    "",
+    ...lines,
+  ].join("\n");
+};
+
+const DateRangeParameter = ({
+  baseName,
+  parameters,
+}: {
+  baseName: string;
+  parameters: ParameterType[];
+}) => {
+  const formats = new Set(
+    parameters.map((p) => (p.format === "date-time" ? "datetime" : "date")),
+  );
+  const typeValue = Array.from(formats).sort().join(" / ");
+  return (
+    <Parameter
+      id={`${baseName}-range`}
+      name={baseName}
+      type={{ type: "string", value: typeValue }}
+      description={dateRangeDescription(parameters)}
+    />
+  );
 };
 
 async function pageFromSlug(slug: string) {
@@ -269,16 +365,24 @@ export default async function DocsPage(props: Props) {
               <Link href="/api-filtering">Filtering documentation</Link> for
               more information on how to filter and sort your requests.
             </p>
-            {extractParameters(operation).map((parameter) => (
-              <Parameter
-                key={parameter.parameter}
-                type={parameter.type}
-                name={parameter.parameter}
-                description={parameter.description}
-                required={parameter.optional === false}
-                values={parameter.values}
-              />
-            ))}
+            {groupDateRangeParameters(extractParameters(operation)).map((row) =>
+              row.kind === "date-range" ? (
+                <DateRangeParameter
+                  key={`date-range-${row.baseName}`}
+                  baseName={row.baseName}
+                  parameters={row.parameters}
+                />
+              ) : (
+                <Parameter
+                  key={row.parameter.parameter}
+                  type={row.parameter.type}
+                  name={row.parameter.parameter}
+                  description={row.parameter.description}
+                  required={row.parameter.optional === false}
+                  values={row.parameter.values}
+                />
+              ),
+            )}
           </>
         )}
 
@@ -287,17 +391,25 @@ export default async function DocsPage(props: Props) {
             <hr />
             <h2 className="mb-1" id="body-parameters">Body parameters</h2>
             <p>All parameters are optional unless explicitly specified.</p>
-            {extractParameters(operation).map((parameter) => (
-              <Parameter
-                key={parameter.parameter}
-                type={parameter.type}
-                name={parameter.parameter}
-                description={parameter.description}
-                required={parameter.optional === false}
-                example={parameter.example}
-                values={parameter.values}
-              />
-            ))}
+            {groupDateRangeParameters(extractParameters(operation)).map((row) =>
+              row.kind === "date-range" ? (
+                <DateRangeParameter
+                  key={`date-range-${row.baseName}`}
+                  baseName={row.baseName}
+                  parameters={row.parameters}
+                />
+              ) : (
+                <Parameter
+                  key={row.parameter.parameter}
+                  type={row.parameter.type}
+                  name={row.parameter.parameter}
+                  description={row.parameter.description}
+                  required={row.parameter.optional === false}
+                  example={row.parameter.example}
+                  values={row.parameter.values}
+                />
+              ),
+            )}
           </>
         )}
 
@@ -481,6 +593,15 @@ export default async function DocsPage(props: Props) {
               ...page,
               slug,
             }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: It's fine
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbJSONLD({ ...page, slug }, cms.readNavigation()),
           ),
         }}
       />

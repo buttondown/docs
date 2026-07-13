@@ -1,0 +1,22 @@
+---
+title: External feed cadence metadata
+navigationTitle: Cadence metadata
+schema: CadenceMetadata
+---
+
+`cadence_metadata` controls when Buttondown generates emails from a feed. The required fields depend on the feed's [cadence](/api-external-feed-cadence):
+
+| Cadence    | Required fields       |
+| ---------- | --------------------- |
+| `every`    | none                  |
+| `daily`    | `time`                |
+| `weekly`   | `time`, `weekday`     |
+| `monthly`  | `time`, `monthday`    |
+
+## Allowed values
+
+- **`time`** — an hour of the day in 24-hour format as a string, from `"0"` through `"23"` (e.g. `"9"`, `"09"`, or `"18"`). Times with minutes are not accepted (`"10"`, not `"10:00"`).
+- **`weekday`** — one of `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+- **`monthday`** — a weekday name (interpreted as the first such day of the month), `firstday`, or `lastday`.
+
+Requests with values outside these ranges are rejected with a `422` validation error. Missing required fields for the selected cadence return a `400` with `code: "cadence_metadata_invalid"`.

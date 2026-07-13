@@ -11,7 +11,10 @@ Buttondown enforces two types of rate limits:
 | All API endpoints | 600 requests per minute |
 | [`POST /v1/subscribers`](/api-subscribers-create) | 100 requests per day |
 
-{% noticeInfo text="Newsletters on paid plans with permanently active status are exempt from these rate limits." /%}
+If you find yourself running into the limit of 100 subscribers a day, it's likely due to one of two things:
+
+1. You are onboarding and performing an import one subscriber at a time. We'd encourage you to use the [import path](/api-imports-create) instead to upload multiple subscribers in bulk.
+2. You have a particularly high volume list which is growing rapidly. If this rate limit is causing problems, please reach out to support so we can form an audit on your account and lift the limit.
 
 ## Rate limit headers
 
@@ -25,22 +28,29 @@ Buttondown returns rate limit information in the response headers on every API r
 
 Here's an example of the headers you might see:
 
-```
+{% generatedMultilanguageSnippets method="GET" endpoint="/subscribers" %}
+```http {% highlight="2-4" %}
+HTTP/1.1 200 OK
 X-RateLimit-Limit: 600
 X-RateLimit-Remaining: 595
 X-RateLimit-Reset: 1735776060
 ```
+{% /generatedMultilanguageSnippets %}
 
 ## Exceeding the rate limit
 
 If you exceed the rate limit, the API will return a `429` status code with a `Retry-After` header indicating how many seconds to wait before retrying:
 
-```
+{% generatedMultilanguageSnippets method="GET" endpoint="/subscribers" %}
+```http {% highlight="1-2" %}
 HTTP/1.1 429 Too Many Requests
 Retry-After: 45
 X-RateLimit-Limit: 600
 X-RateLimit-Remaining: 0
 X-RateLimit-Reset: 1735776060
 ```
+{% /generatedMultilanguageSnippets %}
 
 You can use these headers to implement backoff logic in your client code.
+
+The daily subscriber-creation limit behaves differently: instead of a `429`, it returns a `400` whose body points you to [`POST /v1/imports`](/api-imports-create) as the supported way to add subscribers in bulk.

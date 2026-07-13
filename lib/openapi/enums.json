@@ -245,6 +245,11 @@
       "name": "Change tags colors",
       "variant": "info"
     },
+    "delete_attachments": {
+      "description": "Delete multiple uploaded attachments in bulk.",
+      "name": "Delete attachments",
+      "variant": "info"
+    },
     "delete_comments": {
       "description": "Delete multiple comments in bulk.",
       "name": "Delete comments",
@@ -253,6 +258,11 @@
     "delete_emails": {
       "description": "Delete multiple emails in bulk.",
       "name": "Delete emails",
+      "variant": "info"
+    },
+    "delete_images": {
+      "description": "Delete multiple uploaded images in bulk.",
+      "name": "Delete images",
       "variant": "info"
     },
     "delete_inbox_items": {
@@ -399,6 +409,56 @@
     }
   },
   "CreateNewsletterErrorCode": {
+    "domain_incorrect": {
+      "description": "The domain is incorrect.",
+      "name": "Domain incorrect",
+      "variant": "error"
+    },
+    "domain_path": {
+      "description": "The domain must not include a path.",
+      "name": "Domain includes path",
+      "variant": "error"
+    },
+    "domain_protocol": {
+      "description": "The domain must not include a protocol.",
+      "name": "Domain includes protocol",
+      "variant": "error"
+    },
+    "email_domain_conflicts_with_hosting_domain": {
+      "description": "The email domain conflicts with the hosting domain.",
+      "name": "Email domain conflicts with hosting domain",
+      "variant": "error"
+    },
+    "email_domain_contains_at": {
+      "description": "The email domain must not contain an at-sign.",
+      "name": "Email domain contains at-sign",
+      "variant": "error"
+    },
+    "email_domain_incorrect": {
+      "description": "The email domain is incorrect.",
+      "name": "Email domain incorrect",
+      "variant": "error"
+    },
+    "email_domain_path": {
+      "description": "The email domain must not include a path.",
+      "name": "Email domain includes path",
+      "variant": "error"
+    },
+    "email_domain_protocol": {
+      "description": "The email domain must not include a protocol.",
+      "name": "Email domain includes protocol",
+      "variant": "error"
+    },
+    "email_domain_used_by_other_account": {
+      "description": "The email domain is already used by another account.",
+      "name": "Email domain already in use",
+      "variant": "error"
+    },
+    "invalid_metadata": {
+      "description": "The metadata contains invalid values.",
+      "name": "Invalid metadata",
+      "variant": "error"
+    },
     "username_already_exists": {
       "description": "A newsletter already exists with that username.",
       "name": "Username already exists",
@@ -407,6 +467,16 @@
     "username_malformed": {
       "description": "The username is malformed.",
       "name": "Username malformed",
+      "variant": "error"
+    },
+    "username_reserved": {
+      "description": "The username is reserved.",
+      "name": "Username reserved",
+      "variant": "error"
+    },
+    "username_too_short": {
+      "description": "The username is too short.",
+      "name": "Username too short",
       "variant": "error"
     }
   },
@@ -465,9 +535,24 @@
       "name": "Duplicate email",
       "variant": "error"
     },
+    "email_not_confirmed": {
+      "description": "The newsletter has not yet confirmed its email address. Drafts cannot be created until the confirmation link in the welcome email is clicked.",
+      "name": "Email not confirmed",
+      "variant": "error"
+    },
     "email_invalid": {
       "description": "The email is invalid.",
       "name": "Invalid email",
+      "variant": "error"
+    },
+    "email_not_confirmed": {
+      "description": "The newsletter owner must confirm their email address before creating emails via the API.",
+      "name": "Email not confirmed",
+      "variant": "error"
+    },
+    "pay_per_email_billing_locked": {
+      "description": "Pay-per-email billing cannot be changed after an email has begun sending.",
+      "name": "Pay-per-email billing locked",
       "variant": "error"
     },
     "publish_date_invalid": {
@@ -746,6 +831,11 @@
       "name": "Bare",
       "variant": "info"
     },
+    "beehiiv": {
+      "description": "A CSV exported from Beehiiv.",
+      "name": "Beehiiv",
+      "variant": "info"
+    },
     "buttondown": {
       "description": "A CSV exported from Buttondown.",
       "name": "Buttondown",
@@ -784,6 +874,11 @@
     "memberful": {
       "description": "A CSV exported from Memberful.",
       "name": "Memberful",
+      "variant": "info"
+    },
+    "pencilbooth": {
+      "description": "A CSV exported from Pencilbooth.",
+      "name": "Pencilbooth",
       "variant": "info"
     },
     "sender_dot_net": {
@@ -1002,6 +1097,10 @@
       "description": "Whenever a customer changes their email address in Stripe.",
       "name": "stripe.customer.updated"
     },
+    "stripe.invoice.upcoming": {
+      "description": "When a paid subscriber's subscription is approaching its renewal date, mapped from Stripe's `invoice.upcoming` webhook. Lets you message subscribers before they're charged again.",
+      "name": "stripe.invoice.upcoming"
+    },
     "stripe.subscription.activated": {
       "description": "Whenever a subscription is activated in Stripe.",
       "name": "stripe.subscription.activated"
@@ -1013,6 +1112,34 @@
     "stripe.subscription.deactivated": {
       "description": "Whenever a subscription is deactivated in Stripe.",
       "name": "stripe.subscription.deactivated"
+    },
+    "subscriber.activation_bounced": {
+      "description": "When a subscriber's confirmation (opt-in) email bounced.",
+      "name": "subscriber.activation_bounced"
+    },
+    "subscriber.activation_clicked": {
+      "description": "When a subscriber clicked a link in their confirmation (opt-in) email.",
+      "name": "subscriber.activation_clicked"
+    },
+    "subscriber.activation_complained": {
+      "description": "When a subscriber marked their confirmation (opt-in) email as spam.",
+      "name": "subscriber.activation_complained"
+    },
+    "subscriber.activation_deferred": {
+      "description": "When a subscriber's confirmation (opt-in) email was deferred (a transient delivery failure the provider will retry).",
+      "name": "subscriber.activation_deferred"
+    },
+    "subscriber.activation_delivered": {
+      "description": "When a subscriber's confirmation (opt-in) email was successfully delivered.",
+      "name": "subscriber.activation_delivered"
+    },
+    "subscriber.activation_opened": {
+      "description": "When a subscriber opened their confirmation (opt-in) email.",
+      "name": "subscriber.activation_opened"
+    },
+    "subscriber.activation_rejected": {
+      "description": "When a subscriber's confirmation (opt-in) email was rejected (a permanent delivery failure).",
+      "name": "subscriber.activation_rejected"
     },
     "subscriber.bounced": {
       "description": "Whenever a subscriber's email is bounced.",
@@ -1045,6 +1172,10 @@
     "subscriber.created": {
       "description": "Whenever a new subscriber is created.",
       "name": "subscriber.created"
+    },
+    "subscriber.deferred": {
+      "description": "When a subscriber's email was deferred (a transient delivery failure the email provider will retry).",
+      "name": "subscriber.deferred"
     },
     "subscriber.deleted": {
       "description": "When a subscriber has been deleted from your newsletter.",
@@ -1089,6 +1220,10 @@
     "subscriber.resumed": {
       "description": "When a subscriber has resumed their subscription after pausing it.",
       "name": "subscriber.resumed"
+    },
+    "subscriber.sent": {
+      "description": "Whenever an email has been sent to a subscriber.",
+      "name": "subscriber.sent"
     },
     "subscriber.tags.changed": {
       "description": "When a subscriber's tags have been modified.",
@@ -1215,12 +1350,12 @@
       "variant": "warning"
     },
     "processed": {
-      "description": "An email has been created for this item.",
+      "description": "Items in an RSS feed are marked as processed once Buttondown has created an email for them. Depending on the feed's behavior, the email is either saved as a draft for the author to edit or scheduled to send automatically.",
       "name": "Processed",
       "variant": "success"
     },
     "queued": {
-      "description": "Queued.",
+      "description": "Items in an RSS feed are marked as queued once Buttondown has discovered them and determined they should be turned into an email. Queued items will be converted into an email on the next scheduled run for the feed's cadence.",
       "name": "Queued",
       "variant": "info"
     },
@@ -1284,6 +1419,11 @@
       "description": "A plaintext template that puts emphasis on your content.",
       "name": "Classic",
       "variant": "info"
+    },
+    "custom": {
+      "description": "Your own HTML template, wrapped around every email's content.",
+      "name": "Custom",
+      "variant": "warning"
     },
     "modern": {
       "description": "The default email template.",
@@ -1397,6 +1537,11 @@
     "patreon": {
       "description": "This subscriber joined via Patreon.",
       "name": "Patreon",
+      "variant": "info"
+    },
+    "shopify": {
+      "description": "This subscriber joined via Shopify.",
+      "name": "Shopify",
       "variant": "info"
     },
     "stripe": {
@@ -1661,6 +1806,11 @@
       "name": "Firewall blocked",
       "variant": "error"
     },
+    "metadata_invalid": {
+      "description": "The metadata provided is invalid.",
+      "name": "Metadata invalid",
+      "variant": "error"
+    },
     "subscriber_type_invalid": {
       "description": "The subscriber type provided is not valid.",
       "name": "Subscriber type invalid",
@@ -1672,14 +1822,29 @@
       "variant": "error"
     }
   },
-  "UpdateTagErrorCode": {
+  "TagErrorCode": {
+    "feature_disabled": {
+      "description": "Tags require a Basic plan or higher - please upgrade your account.",
+      "name": "Feature disabled",
+      "variant": "error"
+    },
     "name_already_exists": {
       "description": "The name of the tag already exists.",
       "name": "Name already exists",
       "variant": "error"
     },
+    "name_blank": {
+      "description": "Tags cannot be blank.",
+      "name": "Name blank",
+      "variant": "error"
+    },
+    "name_invalid": {
+      "description": "Tags must contain at least one letter or number.",
+      "name": "Name invalid",
+      "variant": "error"
+    },
     "name_too_long": {
-      "description": "The name of the tag is too long.",
+      "description": "Tags cannot be longer than 100 characters.",
       "name": "Name too long",
       "variant": "error"
     }
@@ -1815,9 +1980,19 @@
       "name": "Estonian",
       "variant": "info"
     },
+    "fi-FI": {
+      "description": "Finnish (Finland).",
+      "name": "Finnish",
+      "variant": "info"
+    },
     "fr": {
       "description": "French.",
       "name": "French",
+      "variant": "info"
+    },
+    "ja-JP": {
+      "description": "Japanese (Japan).",
+      "name": "Japanese",
       "variant": "info"
     },
     "de": {
@@ -1830,6 +2005,11 @@
       "name": "Nepali",
       "variant": "info"
     },
+    "nb-NO": {
+      "description": "Norwegian.",
+      "name": "Norwegian",
+      "variant": "info"
+    },
     "pl-PL": {
       "description": "Polish (Poland).",
       "name": "Polish",
@@ -1838,6 +2018,11 @@
     "pt-BR": {
       "description": "Portuguese (Brazil).",
       "name": "Portuguese (Brazil)",
+      "variant": "info"
+    },
+    "pt-PT": {
+      "description": "Portuguese (Portugal).",
+      "name": "Portuguese (Portugal)",
       "variant": "info"
     },
     "ru": {

@@ -15,6 +15,22 @@ faqItems: >
     {
       "question": "Do imported subscribers have to re-confirm their subscription?",
       "answer": "In general, imported subscribers do not have to re-confirm their subscription. By default, Buttondown does _not_ automatically email them to either confirm their subscription or inform them that they've been imported.\n\nHowever, if you're importing subscribers from a service that doesn't have a clear opt-in process (for example, from a CRM), we _may_ require you to send a confirmation email to ensure subscribers are aware of the change in service. If this needs to happen, we will not send this email without confirming it with you beforehand.\n\n**Maintaining GDPR compliance**: If you've already obtained consent from your subscribers in a manner that is compliant with [GDPR](/glossary-email-regulations#gdpr), you are permitted to import those subscribers into Buttondown without re-confirming their subscription."
+    },
+    {
+      "question": "What if my platform isn't on the list of supported import sources?",
+      "answer": "You can still bring your archive over by packaging your posts as a ZIP of Markdown files with frontmatter — see _Importing from an unsupported platform_ above. This format is what Jekyll, Hugo, and most static site generators emit, so if you already publish as a static blog, your existing posts directory will usually work as-is."
+    },
+    {
+      "question": "What happens to posts in the generic import that don't have a title or date?",
+      "answer": "Posts without a `title` (or `subject`) field in the frontmatter are skipped silently — make sure every file has a title if you want it imported. Posts without a `date` (or `publish_date`) default to the time of the import; we recommend always including a date so your archive preserves its original publishing order, since Buttondown sorts imported posts by publish date."
+    },
+    {
+      "question": "Can I import drafts via the generic Markdown format?",
+      "answer": "Not directly — the generic importer treats every file as a published archive entry. If you need to import drafts, use one of the platform-specific importers that supports draft status (Substack, Ghost, Buttondown) or upload drafts manually after the import."
+    },
+    {
+      "question": "What about images and attachments in the generic import?",
+      "answer": "Images referenced in the Markdown body by URL are left as-is — Buttondown does not pull image binaries out of the ZIP. If you want images hosted on Buttondown's CDN, upload them separately and replace the URLs in your Markdown before zipping, or edit the imported emails after the fact."
     }
   ]
 ---
@@ -47,7 +63,7 @@ After you've customized your newsletter and prepared your subscribers to move to
 
 ## Compiling your data
 
-The simplest way to import your subscriber data is by uploading a comma-separated values (CSV) file to Buttondown. Buttondown recognizes columns in CSVs from common import sources like [Kit](/kit), [MailChimp](/mailchimp), or [Substack](/substack). When Buttondown recognizes a column, it automatically maps the data in that column to corresponding fields in Buttondown.
+The simplest way to import your subscriber data is by uploading a comma-separated values (CSV) file to Buttondown. Buttondown recognizes columns in CSVs from common import sources like [Kit](/kit), [Mailchimp](/mailchimp), or [Substack](/substack). When Buttondown recognizes a column, it automatically maps the data in that column to corresponding fields in Buttondown.
 
 If Buttondown doesn't recognize a column, you receive a prompt to map columns to Buttondown fields manually. Buttondown prompts you to choose which columns correspond to certain pieces of data, which lets you import subscribers while keeping their existing tags, join dates, and metadata.
 
@@ -74,12 +90,12 @@ odysseus@buttondown.email,1/2/23,"Sports, Politics",Odysseus,Ithaca,Stuck at sea
 helen@buttondown.email,1/3/23,"World News, Politics", Helen,Troy,Face that launched a thousand ships
 ```
 
-Common newsletter email services like [Kit](/kit), [MailChimp](/mailchimp), or [Substack](/substack) let you export your subscriber data as a CSV file. After you upload the CSV file to Buttondown, it can automatically import the following values for each of your subscribers:
+Common newsletter email services like [Kit](/kit), [Mailchimp](/mailchimp), or [Substack](/substack) let you export your subscriber data as a CSV file. After you upload the CSV file to Buttondown, it can automatically import the following values for each of your subscribers:
 
 - Email address
 - The date they subscribed to your newsletter
-- Any assigned [tags](/segmenting-your-audience#tags), which you can use to group your subscribers together or send tailored content
-- Any assigned [metadata](/subscriber-data), such as the subscriber’s [name](/subscriber-data), location, or other structured-key values
+- Any assigned [tags](/tags), which you can use to group your subscribers together or send tailored content
+- Any assigned [metadata](/subscriber-metadata), such as the subscriber’s [name](/subscriber-metadata), location, or other structured-key values
 - Any free-form notes you may have made for your personal reference
 
 The only required field is your subscriber's email address. All the above values are optional and don’t have to be included in your CSV file. You can also add details like tags, metadata, and notes to subscribers after you import them to Buttondown.
@@ -135,6 +151,34 @@ Here's how to import your newsletter archive to Buttondown:
 5. Drag and drop your ZIP file over the **Choose a ZIP** button.
 
 That's it! After a moment or two, your archives should appear in the “Emails” tab of your Buttondown dashboard.
+
+### Importing from an unsupported platform
+
+If we don't have a first-class importer for your previous platform, you can still bring your archive over by packaging it as a ZIP of Markdown files with frontmatter — the same format used by Jekyll, Hugo, and most static site generators. If you already publish as a static blog, your existing posts directory will usually work as-is.
+
+Each post is a single file with the extension `.md`, `.markdown`, or `.txt`. The frontmatter is delimited by `---` lines and uses a simple `key: value` format:
+
+```
+---
+title: Hello, world
+date: 2024-01-15
+---
+
+This is the body of the post in Markdown.
+```
+
+Buttondown reads the following frontmatter fields:
+
+| Field          | Required | Notes                                                                                                              |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| `title`        | Yes      | The email's subject line. Falls back to `subject` if `title` isn't present. Posts with no title are skipped.        |
+| `subject`      | No       | Alias for `title`.                                                                                                  |
+| `date`         | No       | The publish date. Parsed permissively — `2024-01-15`, `January 15, 2024`, and ISO-8601 timestamps all work. Defaults to the time of import. |
+| `publish_date` | No       | Alias for `date`.                                                                                                   |
+
+Filenames, directory structure inside the ZIP, and unrecognized frontmatter keys (e.g. Jekyll's `layout`, `tags`, `categories`) are all ignored — leave them in place. Anything after the closing `---` is treated as the Markdown body. Jekyll-specific block-level and inline attribute syntax (`{: ...}`) is stripped during import, so you don't have to clean those out manually.
+
+To import, follow the steps above and choose **Jekyll** as the source. The option covers any Markdown-with-frontmatter ZIP, not just Jekyll-generated archives.
 
 ## Going above and beyond
 

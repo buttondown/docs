@@ -3,3 +3,31 @@ title: Creating a tag
 endpoint: /tags
 method: post
 ---
+
+## Handling collisions and upserts
+
+Tag names are unique within a newsletter. By default, creating a tag whose `name` already exists returns a `400` status code with a `name_already_exists` code; the existing tag's id is included in the response `metadata` so you can reuse it:
+
+```json
+{
+  "code": "name_already_exists",
+  "detail": "A tag named 'VIP' already exists (id sub_tag_...). To update it instead, retry with the header 'X-Buttondown-Collision-Behavior: overwrite', or use that id directly.",
+  "metadata": {
+    "tag_id": "sub_tag_...",
+    "remedy_header": "X-Buttondown-Collision-Behavior: overwrite",
+    "documentation_url": "https://docs.buttondown.com/api-tags-create"
+  }
+}
+```
+
+If you'd rather treat the request as an upsert — "make sure this tag exists, and give it back to me" — provide a `X-Buttondown-Collision-Behavior` header of `overwrite`. When a tag with that name already exists, Buttondown updates it with the supplied values and returns it with a `200` status code instead of erroring:
+
+```shell
+curl -X POST https://api.buttondown.com/v1/tags \
+  -H "X-Buttondown-Collision-Behavior: overwrite" \
+  -H "Authorization: Token $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"name": "VIP", "color": "#FFD700"}'
+```
+
+If no tag with that name exists, the request creates one as usual and returns a `201`.

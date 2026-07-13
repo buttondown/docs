@@ -1,0 +1,11 @@
+---
+title: Publishing an email
+endpoint: /emails/{id}/publish
+method: post
+---
+
+Publishes and sends an email.
+
+If you provide a `publish_date`, the email becomes scheduled to publish and send at that time. If you omit the `publish_date`, the email is set to publish immediately.
+
+This endpoint accepts the same payload as [updating an email](/api-emails-update), so any other fields you include are applied before the email is published.

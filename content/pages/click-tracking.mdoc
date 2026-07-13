@@ -4,6 +4,10 @@ description: A guide to click tracking, and how to use it in Buttondown.
 faqItems: >
   [
     {
+      "question": "My older emails show 0 clicks. Is that a glitch?",
+      "answer": "Almost always, no. Click tracking is opt-in, and it only applies to emails sent *after* you turn it on. If an email was sent before you enabled tracking — or while it was disabled — Buttondown never rewrote its links, so there's nothing to count and it will show 0 clicks forever. This is expected, and there's no way to retroactively add tracking to an email that's already been sent."
+    },
+    {
       "question": "Why am I seeing a different number of Clicks in the Analytics modal, and the Click list?",
       "answer": "We will hide rows in Clicks that are \"duplicates\". When a reader clicks on the same link two or three times within the span of 5 minutes, that will only show up as one click on the click list. However, the overall click count in the Analytics modal is not affected by this which might result in some discrepancy."
     },
@@ -48,6 +52,11 @@ When you enable click tracking, Buttondown will rewrite all links in your email 
 ```
 
 When a subscriber clicks on the link, they will immediately be redirected to the original URL, but we will record that they clicked on the link.
+
+If you disable click tracking later, Buttondown will stop rewriting links in
+future emails and archive renders. Emails that were already delivered with
+tracking links will keep redirecting normally, and clicks on those existing
+tracking links will still be recorded.
 
 ## Frequently asked questions
 

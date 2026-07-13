@@ -224,13 +224,14 @@ export const fixtureForRef = (ref: string) => {
   return OpenAPIFixtures[fixtureInformation.value][0].object;
 };
 
-type ParameterType = {
+export type ParameterType = {
   parameter: string;
   type: TypeProp;
   description: string;
   optional: boolean;
   values?: string[];
   example?: string | string[] | object;
+  format?: string;
 };
 
 type BackingFixture =
@@ -277,13 +278,21 @@ export const extractParameters = <R extends Route>(
               value: type || "string",
             };
 
+      const schemaWithExtras = parameter.schema as {
+        format?: string;
+        allOf?: { enum?: string[] }[];
+      };
+      const parameterWithExtras = parameter as {
+        example?: string | string[] | object;
+      };
       return {
         parameter: parameter.name,
         type: typeProp,
         description: parameter.description || "",
-        // @ts-expect-error - parameter.schema may not have allOf property
-        values: parameter.schema.allOf?.[0]?.enum || [],
+        values: schemaWithExtras.allOf?.[0]?.enum || [],
         optional: !parameter.required,
+        format: schemaWithExtras.format,
+        example: parameterWithExtras.example,
       };
     });
   const parameters = extractRef(operation);

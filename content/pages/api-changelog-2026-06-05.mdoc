@@ -1,0 +1,50 @@
+---
+title: "2026-06-05"
+navigationTitle: "2026-06-05"
+---
+
+## Errors now tell you how to fix them
+
+Many `4xx` responses now carry a `metadata.documentation_url` and a `detail` that names the remedy directly:
+
+- Creating a subscriber who already exists tells you to retry with the `X-Buttondown-Collision-Behavior: overwrite` header, and returns the existing `subscriber_id` in `metadata`.
+- Creating a tag that already exists returns the existing `tag_id` and tells you to use it directly rather than re-creating it.
+- Hitting the subscriber-creation rate limit points you to [`POST /v1/imports`](/api-imports-create) for bulk additions.
+- Invalid automation payloads name the exact field — for example, that `send_email` configuration belongs inside `metadata` (e.g. `metadata.email_id`), and an unrecognized `trigger` suggests the closest valid value.
+
+## Stricter validation on automations, survey responses, and notes
+
+We've tightened input validation on a few write endpoints. Requests that send unexpected fields, malformed identifiers, or oversized values now return a `422` instead of being silently accepted or coerced. If you only send the fields documented in the API reference with reasonable values, nothing changes for you.
+
+**[Automations](/api-automations-create)** ([create](/api-automations-create), [update](/api-automations-update)):
+
+- `name` must be printable ASCII containing at least one letter or number. (The 100-character limit is unchanged.) Names with emoji or non-Latin characters are now rejected.
+- `timing.delay.value` must be 1–16 characters.
+- `actions` is capped at 25 entries.
+- `metadata` is capped at 100 keys, each key at most 100 characters. Lone Unicode surrogates in metadata values are stripped before saving.
+
+**[Survey responses](/api-survey-responses-create)** ([create](/api-survey-responses-create), [update](/api-survey-responses-update)):
+
+- `answer` is capped at 500 characters.
+- The source string is 1–100 characters; subscriber and survey IDs must be valid identifiers.
+
+**[Notes](/api-notes-create)**:
+
+- `model_id` and `model_type` are capped at 50 characters and must be valid identifiers.
+- Note text must contain at least one non-whitespace character.
+
+All of these endpoints now reject unknown top-level fields rather than ignoring them. See [error codes](/api-error-codes) for the shape of validation errors.
+
+## `filters` is now optional on automations
+
+[`POST /v1/automations`](/api-automations-create) previously required a `filters` object. You can now omit it — or pass `null` — to mean "no filter", equivalent to an empty filter group.
+
+## Authentication errors distinguish missing vs. invalid credentials
+
+A `401` response now uses the code `authentication_missing` when no `Authorization` header was sent, and `authentication_invalid` when a token was provided but rejected. Previously both returned `missing_authentication_header`. This is the one change that could affect an existing integration: if you branch on this `code`, update it accordingly.
+
+## Additions
+
+- Subscribers now expose a `country` field on [retrieve](/api-subscribers-retrieve) and list — the ISO 3166-1 alpha-2 country code inferred from the subscriber's IP address at signup, if available.
+- Surveys can now be embedded in transactional emails.
+- Sending `email` instead of `email_address` on subscriber writes now returns an actionable `field_renamed` error rather than a generic "field required."

@@ -1,0 +1,96 @@
+---
+title: Tagging your subscribers
+navigationTitle: Tags
+description: >-
+  Group your subscribers with tags so you can target them with specific emails,
+  trigger automations, and segment your audience.
+relatedPages:
+  - segmenting-your-audience
+  - subscriber-metadata
+  - portal
+---
+
+{% paidFeature feature="tags" /%}
+
+Tags are a lightweight way to group subscribers together so you can send them tailored content, trigger automations, or just keep your audience organized. A subscriber can have any number of tags, and tags can be applied automatically (via your subscribe forms or automations) or by hand.
+
+To get started with tags, go to [Settings → General](https://buttondown.com/settings/general) and click on "Tags" in the Features section.
+
+## Adding tags to subscribers
+
+There are five ways to attach tags to a subscriber:
+
+1. Adding a `tag` query parameter to your newsletter's subscribe URL
+2. Adding hidden `tag` inputs to an embedded form
+3. Manually tagging subscribers in the Buttondown dashboard
+4. Programmatically via the [API](/api-tags-introduction)
+5. Automatically via [automations](/automations-introduction)
+
+### Using query parameters
+
+If you're using the subscribe page available at [your newsletter's URL](/building-your-subscriber-base#sharing-your-buttondown-url), you can automatically add tags to new subscribers by adding a `tag` query parameter to the URL. The example below tags everyone who subscribes through this link with `python`:
+
+```html
+https://buttondown.com/jmduke?tag=python
+```
+
+To apply multiple tags at once, add multiple `tag` parameters:
+
+```html
+https://buttondown.com/jmduke?tag=python&tag=vue
+```
+
+### Using an embedded HTML form
+
+If you're embedding a subscribe form on your own site, augment it with one or more `input` elements named `tag`. You can use the *name* of an existing tag or its *ID* — Buttondown will do the right thing, including auto-creating a tag with the given name if no such tag exists yet.
+
+```html
+<input type="hidden" name="tag" value="ebook-download" />
+```
+
+{% liveCodeBlock
+   filename="public/code/building-your-subscriber-base/3.html" /%}
+
+When a returning subscriber submits the form again, Buttondown *appends* the new tags to whatever tags the subscriber already has — it doesn't replace them. This way, embedding a tagged form on a landing page (e.g. an ebook download tagged `ebook-download`) won't wipe out tags the subscriber picked up from other forms or automations.
+
+### Manually in the dashboard
+
+You can also tag subscribers by hand. To create a new tag, go to [Tags](https://buttondown.com/tags) and click the "New" button in the top right. Then go to [your subscribers](https://buttondown.com/subscribers), select the records you want to tag, and click "Add tags" in the bottom-right action bar.
+
+{% noticeWarn text="Not seeing Tags for your subscribers? Make sure this feature is enabled in Settings." /%}
+
+### Using the API
+
+{% noticeInfo text="First time using the Buttondown API? Make sure this feature is enabled in Settings." /%}
+
+You can [update the tags](/api-subscribers-update) of your subscribers programmatically using Buttondown's API. To add a tag to an existing subscriber, send a `PATCH` to the subscriber endpoint with the desired tags.
+
+By default, the API *replaces* the subscriber's tags with the ones you send. If you want to *append* instead, include the `X-Buttondown-Collision-Behavior: add` header — see [the subscriber create reference](/api-subscribers-create) for details.
+
+Check out the [examples repo](https://github.com/buttondown/examples) for ready-to-use code samples, and the [tags API reference](/api-tags-introduction) for full route documentation.
+
+### Using automations
+
+You can also automatically tag subscribers using an [automation](/automations-introduction). For example, you could apply a tag to anyone who clicks a link in a specific email by combining a `subscriber.clicked` trigger with an `apply_tags` action.
+
+Here are some resources for building tagging automations:
+
+- [Introduction to automations](/automations-introduction)
+- [Bulk action types](/api-bulk-action-type)
+- [Listing tags](/api-tags-list)
+
+## Sending an email to a tag
+
+Once your subscribers are tagged, you can send a newsletter to only the people with a particular tag. When sending your email, click the "Custom…" link in the audience section, choose "Tag", and pick the tag you want to target.
+
+{% iframe src="https://demo.buttondown.com/emails/fa7bd3bb-ee24-409d-8e95-2ddd0cad5de6/details?newsletter=basic-newsletter&emphasis=audience" height=400 /%}
+
+For a fuller walkthrough of the audience picker, see [Segmenting your audience](/segmenting-your-audience).
+
+## Letting subscribers manage their own tags
+
+If you'd like subscribers to be able to add or remove tags themselves, send them to [Portal](/portal). When creating or editing a tag, enable the "Subscriber editable" option to make it appear as a checkbox in the Portal.
+
+## How many tags can I have?
+
+There's no limit. Tag names are de-duplicated within a newsletter, but you can have as many distinct tags as you'd like.

@@ -3,3 +3,100 @@ title: Creating a bulk action
 endpoint: /bulk_actions
 method: post
 ---
+
+The `metadata` field’s shape depends on the bulk action’s `type`. Most types accept an `ids` list of the objects to act on; some require additional fields, documented below.
+
+## Selecting which objects to act on
+
+The `ids` field accepts a few different forms:
+
+- **Specific objects** — a list of object IDs, e.g. `["sub_abc123", "sub_def456"]`.
+- **Everything** — `["all"]` selects every object of the relevant type in your newsletter. You can narrow this with a `parameters` field that mirrors the filters on the matching list endpoint (for example, `{"status": ["draft"]}` when acting on emails).
+- **Everything except** — prefix each ID with `-` (e.g. `["-sub_abc123"]`) to act on all objects _except_ those listed. Don’t mix negative and positive IDs in the same request.
+
+A few rules apply across all types:
+
+- You can act on at most **200** explicitly-listed IDs per request; more returns a `400` with the code `max_bulk_actions_exceeded`. (The `["all"]` form has no such limit.)
+- An invalid or malformed ID returns a `400` with the code `bulk_action_invalid_ids`.
+- For most types, omitting `ids` (or sending an empty list) acts on **every** object of the relevant type — it’s equivalent to `["all"]`. Because that makes an accidental delete-everything easy, `delete_emails` and `delete_subscribers` _require_ a non-empty `ids`; a missing or empty list returns a `400` with the code `bulk_action_invalid_ids`. To delete everything intentionally, pass `["all"]` explicitly.
+- `send_emails` and `send_reminders` require an active newsletter; calling them while your newsletter is disabled returns a `403` with the code `forbidden`.
+
+## `add_notes`
+
+Attaches a [note](/api-notes-introduction) to subscribers in bulk. The `metadata` field takes:
+
+- `body` — the note’s text. Required; omitting it, or passing an empty/whitespace-only or non-string value, returns a `400` with the code `bulk_action_invalid_metadata`.
+- `metadata` — optional key-value pairs to attach to each note.
+- `ids` — the subscribers to act on.
+
+{% generatedMultilanguageSnippets
+   method="POST"
+   endpoint="/bulk_actions"
+   body="{\"type\": \"add_notes\", \"metadata\": {\"body\": \"Reached out via support\", \"ids\": [\"sub_abc123\", \"sub_def456\"]}}" /%}
+
+## `apply_metadata`
+
+Adds, sets, or removes [subscriber metadata](/subscriber-metadata) in bulk. The `metadata` field takes three pieces:
+
+- `action` — one of `set`, `add`, or `remove`:
+  - `set` _replaces_ each subscriber’s entire metadata object with the payload.
+  - `add` _merges_ the payload into each subscriber’s existing metadata, overwriting only the keys you provide.
+  - `remove` _deletes_ the keys you provide (here, the inner `metadata` is a list of key names rather than an object).
+- `metadata` — the key-value pairs to apply (or, for `remove`, the list of keys to delete).
+- `ids` — the subscribers to act on.
+
+Note the two nested `metadata` keys: the outer one is the bulk action’s parameters, and the inner one is the data being applied. Omitting `action` or the inner `metadata`, or passing an `action` other than `set`/`add`/`remove`, returns a `400` with the code `bulk_action_invalid_metadata`.
+
+{% generatedMultilanguageSnippets
+   method="POST"
+   endpoint="/bulk_actions"
+   body="{\"type\": \"apply_metadata\", \"metadata\": {\"action\": \"add\", \"metadata\": {\"first_name\": \"John\"}, \"ids\": [\"sub_abc123\", \"sub_def456\"]}}" /%}
+
+## `apply_tags`
+
+Adds or removes [tags](/tags) on subscribers. The `metadata` field takes:
+
+- `tag_ids` (a list) or `tag_id` (a single ID) — the tags to apply. One of the two is required; omitting both returns a `400` with the code `bulk_action_invalid_ids`.
+- `action` — `add` or `remove`. Optional; defaults to `add`.
+- `ids` — the subscribers to act on.
+
+{% generatedMultilanguageSnippets
+   method="POST"
+   endpoint="/bulk_actions"
+   body="{\"type\": \"apply_tags\", \"metadata\": {\"action\": \"add\", \"tag_ids\": [\"tag_abc123\"], \"ids\": [\"sub_abc123\", \"sub_def456\"]}}" /%}
+
+## `change_tags_colors`
+
+Changes the display color of tags. The `metadata` field takes:
+
+- `color` — the new color, as a hex string. Required; omitting it returns a `400` with the code `bulk_action_invalid_ids`.
+- `ids` — the tags to recolor.
+
+{% generatedMultilanguageSnippets
+   method="POST"
+   endpoint="/bulk_actions"
+   body="{\"type\": \"change_tags_colors\", \"metadata\": {\"color\": \"#ff0000\", \"ids\": [\"tag_abc123\"]}}" /%}
+
+## `modify_stripe_subscriptions`
+
+Moves paid subscribers onto a different [Stripe](/stripe) price. The `metadata` field takes:
+
+- `price_id` — the target Stripe price. It must exist on your connected Stripe account and reference a _recurring_ price; a missing, unrecognized, or one-time price returns a `400` with the code `bulk_action_invalid_price`.
+- `ids` — the subscribers to act on.
+
+{% generatedMultilanguageSnippets
+   method="POST"
+   endpoint="/bulk_actions"
+   body="{\"type\": \"modify_stripe_subscriptions\", \"metadata\": {\"price_id\": \"price_abc123\", \"ids\": [\"sub_abc123\"]}}" /%}
+
+## `rename_metadata`
+
+Renames [subscriber metadata](/subscriber-metadata) keys without touching their values. The `metadata` field takes:
+
+- `rename_mapping` — an object mapping old key names to new ones, e.g. `{"name": "first_name"}`. Required; omitting it returns a `400` with the code `bulk_action_missing_rename_mapping`.
+- `ids` — the subscribers to act on.
+
+{% generatedMultilanguageSnippets
+   method="POST"
+   endpoint="/bulk_actions"
+   body="{\"type\": \"rename_metadata\", \"metadata\": {\"rename_mapping\": {\"name\": \"first_name\"}, \"ids\": [\"all\"]}}" /%}

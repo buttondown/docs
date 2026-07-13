@@ -30,67 +30,15 @@ In this guide, we teach you how to use each possible option to get the most out 
 
 {% paidFeature feature="tags" /%}
 
-Tags are an easy way to segment users into different groups. You can send emails including or excluding certain tags, making it easy to tailor your newsletter's content to specific subsets of your audience.
-
-To get started with tags, go to [Settings → General](https://buttondown.com/settings/general) and click on "Tags" in the Features section.
-
-### Adding tags to users
-
-There are three different ways to add tags to users:
-
-1. Automatically via your subscription form
-2. Manually tagging subscribers in Buttondown
-3. Adding them via [the API](/api-tags-introduction)
-
-#### Via your subscription form
-
-You may want to create a special form that tags new subscribers based on where they came from or what they signed up for. Then, you can send specific emails to them based on their inbound behavior.
-
-You can automatically tag subscribers by adding a `GET` parameter of `tag` to your newsletter's URL. For example, to add the tag `sandwich` to all subscribers, you'd use the URL:
-
-`https://buttondown.com/username?tag=sandwich`
-
-Where `username` corresponds to your Buttondown username. You can find this at [Settings → General](https://buttondown.com/settings/general).
-
-#### Via your embedded form
-
-To tag new readers who sign up with a specific embedded form, add the following code before your form's submit button:
-
-```html
-<input type="hidden" name="tag" value="sandwich" />
-```
-
-[*Note:* Learn more about tagging new subscribers in our guide to [building your subscriber base](/building-your-subscriber-base#adding-tags-to-your-subscribers).]
-
-#### Manually in Buttondown
-
-You can also *manually* tag users in Buttondown.
-
-To create a new tag, go to [Tags](https://buttondown.com/tags) and click the "New" button in the top right of the screen.
-
-Next, update [your subscribers](https://buttondown.com/subscribers) by selecting their records, then clicking the "Add tags" button in the bottom right corner.
-
-{% noticeWarn text="Not seeing Tags for your subscribers? Make sure this feature is enabled in Settings." /%}
-
-### Can a reader tag themselves?
-
-If you're interested in allowing subscribers to manage their tags, send them to [Portal](/portal), which allows subscribers to manage their tags and subscription preferences.
-
-### How many different tags can I have?
-
-There's no limit to the number of tags you can have in Buttondown.
-
-### Send an email using tags
-
-Now that you have your readers tagged, you can send a newsletter to only people with a specific tag. When sending your email, you'll see a "Custom…" link to support a tag:
+Tags are an easy way to segment users into different groups. Once your subscribers are tagged, you can send a newsletter to only the people with a particular tag — when sending your email, click the "Custom…" link in the audience section, choose "Tag", and pick the tag you want to target.
 
 {% iframe src="https://demo.buttondown.com/emails/fa7bd3bb-ee24-409d-8e95-2ddd0cad5de6/details?newsletter=basic-newsletter&emphasis=audience" height=400 /%}
 
-Select "Tag", and then the tag you wish to target with your email.
+For everything you can do with tags — adding them via subscribe forms, the API, or automations; letting subscribers manage their own — see the [tags](/tags) reference.
 
 ## Targeting subscriber metadata
 
-You can also target specific [metadata](/subscriber-data) properties that your subscribers happen to have. For more on how to add metadata, see [Building your subscriber base](/building-your-subscriber-base#adding-metadata-to-your-subscribers).
+You can also target specific [metadata](/subscriber-metadata) properties that your subscribers happen to have. For more on how to add metadata, see [Building your subscriber base](/building-your-subscriber-base#adding-metadata-to-your-subscribers).
 
 When sending your email, you'll see a "Custom…" link to support metadata. Select "Metadata" and the property you wish your subscribers to have.
 

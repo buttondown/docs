@@ -1,5 +1,8 @@
 import { promises as fs } from "node:fs";
-import { transformerNotationDiff } from "@shikijs/transformers";
+import {
+  transformerMetaHighlight,
+  transformerNotationDiff,
+} from "@shikijs/transformers";
 import { createHighlighter } from "shiki";
 import CodeInteractive from "./client";
 import {
@@ -8,6 +11,7 @@ import {
   type ProcessedBlock,
   PYTHON_API_KEY_CODE,
   PYTHON_API_KEY_CODE_REPLACEMENT,
+  type ResponseBlock,
   type SingletonLanguageBlockList,
   shikiWithoutWrapper,
 } from "./lib";
@@ -16,13 +20,15 @@ const THEME = "dark-plus";
 
 const HIGHLIGHTER = createHighlighter({
   themes: [THEME],
-  langs: ["python", "json", "html", "ruby", "jinja", "markdown"],
+  langs: ["html", "http", "jinja", "json", "markdown", "python", "ruby"],
 });
 
 export default async function Code({
   blocks,
+  response,
 }: {
   blocks: HandwrittenBlock[] | SingletonLanguageBlockList;
+  response?: ResponseBlock;
 }) {
   const intermediateProcessedBlocks: IntermediateBlock[] = blocks;
   const highlighter = await HIGHLIGHTER;
@@ -42,7 +48,8 @@ export default async function Code({
     const html = highlighter.codeToHtml(block.code, {
       lang: block.language,
       theme: THEME,
-      transformers: [transformerNotationDiff()],
+      transformers: [transformerNotationDiff(), transformerMetaHighlight()],
+      meta: block.highlight ? { __raw: `{${block.highlight}}` } : undefined,
       cssVariablePrefix: "--shiki-",
     });
 
@@ -57,10 +64,23 @@ export default async function Code({
     }),
   );
 
+  const responseHtml = response
+    ? highlighter.codeToHtml(response.code, {
+        lang: response.language,
+        theme: THEME,
+        transformers: [transformerMetaHighlight()],
+        meta: response.highlight
+          ? { __raw: `{${response.highlight}}` }
+          : undefined,
+        cssVariablePrefix: "--shiki-",
+      })
+    : undefined;
+
   return (
     <div className="not-prose my-6">
       <CodeInteractive
         blocks={processedBlocks}
+        responseHtml={responseHtml}
         apiKeyReplacements={{
           python: {
             from: shikiWithoutWrapper(

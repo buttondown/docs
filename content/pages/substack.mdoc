@@ -7,6 +7,22 @@ description: >-
 faqItems: >
   [
     {
+      "question": "How long does migrating from Substack actually take?",
+      "answer": "If you use our [concierge service](mailto:concierge@buttondown.com), we typically finish in under 24 hours and you don't need to do anything other than send us your Substack URL.\n\nIf you're migrating yourself, expect **15–30 minutes of active work**: a few minutes to request the export from Substack (which Substack itself may take a few minutes to generate), and then a few minutes each to upload the archive and subscriber files to Buttondown. After that, the actual import runs in the background — a few seconds for small lists, up to a few hours for very large ones."
+    },
+    {
+      "question": "What if something goes wrong with the migration?",
+      "answer": "Migrating to Buttondown is non-destructive: nothing on your Substack account is changed by importing into Buttondown, and you can re-run the import as many times as you'd like. Duplicate subscribers are deduplicated automatically, and you can delete imported archives if you want to start over.\n\nIf anything looks off after an import, just contact our [support team](https://buttondown.com/support) — we can re-run the import, clean up partial state, or walk through what happened with you directly."
+    },
+    {
+      "question": "Will I lose my audience or discoverability when I leave Substack?",
+      "answer": "This is the most common concern we hear, and there are a few things worth knowing:\n\n- **Your subscribers come with you.** They are *your* subscribers, not Substack's. Buttondown imports them directly and they don't need to re-confirm or re-subscribe.\n- **Your archive URLs keep working.** If you used a custom domain on Substack, we automatically redirect your old URLs to your new Buttondown archive — so existing links from other sites, search engines, and social posts continue to work.\n- **Buttondown has its own discovery surface.** Newsletters on Buttondown can opt into cross-recommendations with other Buttondown newsletters — similar in spirit to Substack's recommendations, but without the platform lock-in.\n- **You can keep your Substack account as a funnel.** If you're worried about losing inbound traffic from Substack's network, you can leave your Substack account live (with posts deleted to avoid SEO duplication) and periodically migrate any new subscribers."
+    },
+    {
+      "question": "Can I get my data out of Buttondown if I ever want to leave?",
+      "answer": "Yes, and we think this matters a lot. One of the most common frustrations writers describe about Substack is how hard it is to get a complete, usable export of their own work and audience.\n\nButtondown gives you a one-click export of everything: every email, every subscriber (with metadata and tags), every paid subscription, every analytics event. There's no waiting period, no support ticket required, and no proprietary format — exports are standard CSV and JSON. You own your data, and we want it to be trivial for you to take it elsewhere if you ever decide to."
+    },
+    {
       "question": "Substack is taking 10% of my revenue. What should I do?",
       "answer": "We recommend reaching out to Substack's [support team](https://substack.com/support) and making the following request: \"I need to disconnect Stripe from my publication as I'm migrating to a new tool. Please remove the 10% application fee, without cancelling or refunding any existing subscriptions.\"\n\nThey'll be able to programmatically remove the 10% cut from your revenue!\n\n## I've already disconnected Stripe from Substack\n\nIf you've already disconnected your Substack account from Stripe, and you're still seeing Substack take a 10% cut of your revenue, we can fix this on our side. Just send our [support team](https://buttondown.com/support) a message, and we'll take a look.\n\nWe also have an ad-hoc script we _can_ run to remove the application fees from your Substack subscriptions, but it does require some extra steps on your part. That's why we always recommend contacting Substack's support first."
     },
@@ -37,7 +53,11 @@ faqItems: >
 
 Welcome to Buttondown! After you've read through our "[Welcome to Buttondown!](/welcome-to-buttondown)" guide, we're here to help you with your next step: transferring your subscribers and archives from Substack to Buttondown.
 
-Here's an overview of the migration process:
+### The short version: we'll do it for you
+
+Most Substack migrations take us **less than 24 hours**, and we don't charge for them. If you'd rather not think about any of this, just email [concierge@buttondown.com](mailto:concierge@buttondown.com) with your Substack URL and we'll handle the export, the archive import, the subscriber import, and the paid subscriptions — start to finish.
+
+If you'd rather do it yourself, the rest of this page walks through it step-by-step. Here's an overview:
 
 1. Export your data from Substack
 2. Import your archives to Buttondown
@@ -46,7 +66,7 @@ Here's an overview of the migration process:
 5. Contact Substack to remove the 10% application fee (optional)
 6. Delete your Substack account
 
-{% noticeInfo text="Need help migrating to Buttondown? Just contact our [support team](mailto:concierge@buttondown.email) and we'll take care of it for you!" /%}
+A self-serve migration usually takes **15–30 minutes of active work** for a typical newsletter, plus some background import time for larger subscriber lists.
 
 ## Exporting your data from Substack
 

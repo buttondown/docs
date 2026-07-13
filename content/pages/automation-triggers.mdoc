@@ -14,6 +14,7 @@ Let's run through a couple examples:
 1. You want to send a series of three [welcome emails](/welcome-sequence) to new users when they sign up. The trigger would be a [subscriber.confirmed](/event-types#subscriber.confirmed) event, and you'd add multiple "send email" actions with different delays.
 2. You want to automatically invite all paying subscribers to a private Discord server. The trigger would be a [subscription.paid](/event-types#subscriber.paid) event.
 3. You want to send a follow-up email to folks who have churned from your paid subscription after sixty days, letting them know about new content you've added. The trigger would be a [subscription.churned](/event-types#subscriber.churned) event.
+4. You want to give paid subscribers a heads-up before they're charged for another year. The trigger would be a [stripe.invoice.upcoming](/event-types#stripe.invoice.upcoming) event, which fires ahead of a subscription's renewal (mapped from Stripe's `invoice.upcoming` notification).
 
 You can see that each of these triggers is a different _event type_. There are many different event types that you can use as triggers for your automations. We've cataloged them all [in our list of event types](/event-types).
 

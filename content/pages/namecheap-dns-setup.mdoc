@@ -1,0 +1,64 @@
+---
+title: Setting up DNS with Namecheap
+navigationTitle: Namecheap DNS
+relatedPages:
+  - sending-from-a-custom-domain
+  - hosting-domain
+  - cloudflare-dns-setup
+  - glossary-email-infrastructure
+description: >-
+  A step-by-step guide to adding the DNS records Buttondown needs when Namecheap manages your domain — for both sending and hosting domains.
+---
+
+Namecheap is one of the most common DNS providers we see among Buttondown newsletters, so this guide walks through exactly where to add the records Buttondown asks for. If you're new to DNS in general, the [email infrastructure glossary](/glossary-email-infrastructure) is a good companion.
+
+{% noticeInfo text="This guide assumes Namecheap is managing your DNS — that is, your domain is set to **Namecheap BasicDNS**. If you've pointed your domain at another provider's nameservers (for example, Cloudflare), add your records there instead." /%}
+
+## Finding your DNS records
+
+1. Log in to Namecheap and open your [Domain List](https://ap.www.namecheap.com/domains/list/).
+2. Click **Manage** next to the domain you're setting up.
+3. Open the **Advanced DNS** tab.
+
+This is where you'll add every record Buttondown shows you in [Settings → Domains](https://buttondown.com/settings/domains/sending).
+
+## Two Namecheap gotchas
+
+**The Host field doesn't take your full domain.** Namecheap appends your domain automatically, so enter only the subdomain label — `mail`, `newsletter`, and so on — or `@` for your root domain. Entering `mail.example.com` would actually create `mail.example.com.example.com`.
+
+**Remove the default parking records.** New Namecheap domains ship with a default `CNAME Record` for `www` (pointing at `parkingpage.namecheap.com`) and a `URL Redirect Record` on `@`. These can conflict with the records Buttondown needs — delete any default record whose Host collides with one you're adding.
+
+## Sending domain
+
+Follow the records shown on your [sending domain settings](https://buttondown.com/settings/domains/sending). Buttondown offers two paths; see [Sending from a custom domain](/sending-from-a-custom-domain) for the difference.
+
+### Managed setup (recommended)
+
+The [managed setup](/sending-from-a-custom-domain#managed-sending-domain-setup) delegates a subdomain (like `mail.example.com`) to Buttondown using two `NS` records. Namecheap supports this in Advanced DNS:
+
+1. Under **Host Records**, click **Add New Record**.
+2. Set the type to **NS Record**.
+3. In **Host**, enter just the subdomain label Buttondown gave you (for example, `mail`).
+4. In **Value / Nameserver**, paste the first value from Buttondown.
+5. Save, then repeat for the second `NS` record.
+
+### Manual setup
+
+If you're using the manual records instead, add each `CNAME Record` and `TXT Record` exactly as shown, remembering that the **Host** field takes only the subdomain label.
+
+## Hosting domain
+
+To serve your archives from your own domain (see [URLs & domains for archives](/hosting-domain)), add the record Buttondown shows you:
+
+- **On a subdomain** (recommended, for example `newsletter.example.com`): add a **CNAME Record** with **Host** set to the subdomain label (`newsletter`) and **Value** set to the value from Buttondown (typically `custom-domains.buttondown.com`).
+- **On your root domain** (`example.com`): standard `CNAME` records aren't allowed at the root, so use an **ALIAS Record** with **Host** set to `@`. Namecheap [supports ALIAS records](https://www.namecheap.com/blog/alias-next-generation-host-record/) for exactly this case.
+
+{% noticeWarn text="You can't use the same subdomain for both sending (managed `NS` records) and hosting (a `CNAME` or `ALIAS`). DNS doesn't allow `NS` and `CNAME`-type records to coexist at the same name. Use two subdomains — for example, `mail.example.com` for sending and `newsletter.example.com` for hosting." /%}
+
+Leave **TTL** set to **Automatic** unless Buttondown tells you otherwise.
+
+## After you add the records
+
+Namecheap usually applies changes within about half an hour. Head back to [Settings → Domains](https://buttondown.com/settings/domains/sending) and click **Check records**. If it's been a few hours and records still aren't validating, double-check that the **Host** field contains only the subdomain label (not the full domain) and that no leftover parking record is conflicting — and if you're still stuck, [email us](mailto:support@buttondown.com) and we'll take a look.
+
+For more on Namecheap's record types, see [Namecheap's DNS documentation](https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-set-up-an-a-address-record-for-my-domain/).

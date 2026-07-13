@@ -13,33 +13,101 @@ Buttondown adheres to fairly strict [REST](/glossary-developers#rest) principles
 
 The simplest way to filter is by a single field. For example, if you want to find all emails that have a status of "draft", you can do so by adding a `status` query parameter to your request:
 
+{% generatedMultilanguageSnippets method="GET" endpoint="/emails" query="{\"status\": \"draft\"}" %}
+```http {% highlight="9" %}
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "count": 2,
+  "results": [
+    {
+      "subject": "My first draft",
+      "status": "draft",
+      ...
+    },
+    ...
+  ]
+}
 ```
-https://api.buttondown.com/v1/emails?status=draft
-```
+{% /generatedMultilanguageSnippets %}
 
 ## Filtering by multiple fields
 
 If you want to filter by multiple fields, you can do so by adding multiple query parameters. For example, if you want to find all emails that have a status of "draft" and a source of "api", you can do so by adding both `status` and `source` query parameters to your request:
 
+{% generatedMultilanguageSnippets method="GET" endpoint="/emails" query="{\"status\": \"draft\", \"source\": \"api\"}" %}
+```http {% highlight="9-10" %}
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "count": 1,
+  "results": [
+    {
+      "subject": "Sent in from the API",
+      "status": "draft",
+      "source": "api",
+      ...
+    }
+  ]
+}
 ```
-https://api.buttondown.com/v1/emails?status=draft&source=api
-```
+{% /generatedMultilanguageSnippets %}
 
 ## Filtering by multiple values on a single field
 
 If you want to filter by multiple values on a single field, you can do so by adding the same query parameter multiple times. For example, if you want to find all emails that have a status of "draft" or "scheduled", you can do so by adding the `status` query parameter twice:
 
+{% generatedMultilanguageSnippets method="GET" endpoint="/emails" query="{\"status\": [\"draft\", \"scheduled\"]}" %}
+```http {% highlight="9,14" %}
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "count": 2,
+  "results": [
+    {
+      "subject": "My first draft",
+      "status": "draft",
+      ...
+    },
+    {
+      "subject": "Scheduled for tomorrow",
+      "status": "scheduled",
+      ...
+    }
+  ]
+}
 ```
-https://api.buttondown.com/v1/emails?status=draft&status=scheduled
-```
+{% /generatedMultilanguageSnippets %}
 
 ## Negative filtering
 
 If you want to filter by values that are _not_ in a given list, you can do so by prefixing the query parameter with a `-`. For example, if you want to find all emails that are not "draft", you can do so by adding a `-status` query parameter:
 
+{% generatedMultilanguageSnippets method="GET" endpoint="/emails" query="{\"-status\": \"draft\"}" %}
+```http {% highlight="9,14" %}
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "count": 2,
+  "results": [
+    {
+      "subject": "Already sent",
+      "status": "sent",
+      ...
+    },
+    {
+      "subject": "Scheduled for tomorrow",
+      "status": "scheduled",
+      ...
+    }
+  ]
+}
 ```
-https://api.buttondown.com/v1/emails?-status=draft
-```
+{% /generatedMultilanguageSnippets %}
 
 This is not supported for all endpoints; be sure to check the documentation for the endpoint you're interested in to confirm that it supports negative filtering.
 
@@ -49,23 +117,69 @@ OpenAPI's spec cannot actually _surface_ this, but some specific endpoints in Bu
 
 To filter by `metadata`, you can use the following query parameter:
 
+{% generatedMultilanguageSnippets method="GET" endpoint="/subscribers" query="{\"metadata['foo']\": \"bar\"}" %}
+```http {% highlight="9-11" %}
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "count": 1,
+  "results": [
+    {
+      "email_address": "telemachus@buttondown.email",
+      "metadata": {
+        "foo": "bar"
+      },
+      ...
+    }
+  ]
+}
 ```
-https://api.buttondown.com/v1/subscribers?metadata['foo']=bar
-```
+{% /generatedMultilanguageSnippets %}
 
 The above query would return all subscribers where `metadata` contains the key `foo` with the value `bar`.
 
 You can also filter by `-metadata`, which will return all subscribers where `metadata` does not contain the key `foo`:
 
+{% generatedMultilanguageSnippets method="GET" endpoint="/subscribers" query="{\"-metadata['foo']\": \"bar\"}" %}
+```http {% highlight="9-11" %}
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "count": 1,
+  "results": [
+    {
+      "email_address": "calypso@buttondown.email",
+      "metadata": {
+        "foo": "baz"
+      },
+      ...
+    }
+  ]
+}
 ```
-https://api.buttondown.com/v1/subscribers?-metadata['foo']=bar
-```
+{% /generatedMultilanguageSnippets %}
 
 And you can also filter by `-metadata` with a null value:
 
+{% generatedMultilanguageSnippets method="GET" endpoint="/subscribers" query="{\"metadata['foo']\": \"null\"}" %}
+```http {% highlight="9" %}
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "count": 1,
+  "results": [
+    {
+      "email_address": "penelope@buttondown.email",
+      "metadata": {},
+      ...
+    }
+  ]
+}
 ```
-https://api.buttondown.com/v1/subscribers?metadata['foo']=null
-```
+{% /generatedMultilanguageSnippets %}
 
 As of right now, this behavior only exists in the `/v1/subscribers` endpoint, but support for filtering by `metadata` will be added to other endpoints in the future.
 

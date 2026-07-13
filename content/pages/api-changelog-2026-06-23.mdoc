@@ -1,0 +1,16 @@
+---
+title: "2026-06-23"
+navigationTitle: "2026-06-23"
+---
+
+We've moved the [events API](/api-emails-events) onto Buttondown's unified event store — the same source of truth that powers [webhooks](/events-and-webhooks-introduction) and our other event sources. An event you read from `GET /v1/events` is now the *same* record you can cross-reference everywhere else events appear, instead of a parallel copy maintained in a separate, older store that we're retiring.
+
+This is a **backwards-incompatible** change to [`GET /v1/events`](/api-emails-events) and [`GET /v1/events/{id}`](/api-events-retrieve), and we've deliberately chosen not to preserve the old behavior: keeping a second event store alive purely for compatibility would defeat the point of having a single source of truth. It does **not** introduce a new API version.
+
+- **Event IDs now use the `ext_evt_` prefix** (previously `em_evt_`). IDs returned before this date are no longer retrievable via [`GET /v1/events/{id}`](/api-events-retrieve) — refetch from the list endpoint to obtain current IDs. If you deduplicate events by ID, expect to see each event once more around the cutover.
+
+- **The `event_type` filter now accepts a narrower set of values**: `bounced`, `clicked`, `complained`, `delivered`, `opened`, `rejected`, `replied`, and `unsubscribed`. Internal-only types the filter previously accepted (`sent`, `attempted`, `deferred`, and the `activation_*` / `subscription_confirmed_*` transactional types) now return a `422` and no longer appear in the unfiltered feed.
+
+- **Event `metadata` is normalized** to a consistent set of keys — `code`, `url`, `ip_address`, `os`, and `browser`, plus `from`, `subject`, `html`, and `text` on `replied` events. Other incidental keys are no longer returned.
+
+If this breaks an integration you rely on, please [reach out](mailto:support@buttondown.com) — we'd like to help you migrate.

@@ -5,16 +5,23 @@ relatedPages:
  - glossary-developers
  - sending-emails
 description:  >-
-  Private Mode makes it easy to limit who can see you Buttondown newsletter.
+  Private Mode makes it easy to limit who can see your Buttondown newsletter.
 ---
 
-By default, Buttondown newsletters allow public subscriptions. Anyone can sign up for your newsletter by visiting your newsletter's public page and completing the subscription form. To learn more about adding subscribers, read [Building your subscriber base](/building-your-subscriber-base).
+Buttondown gives you two independent controls for keeping a newsletter private:
+
+1. **Private mode** controls who can *subscribe* to your newsletter.
+2. **Archive visibility** controls who can *read* your published issues on the web.
+
+They're independent — you can turn either one on without touching the other, and they cover different use cases. The rest of this page walks through each in turn.
+
+## Private mode
+
+By default, Buttondown newsletters allow public subscriptions. Anyone can sign up by visiting your newsletter's public page and completing the subscription form. To learn more about adding subscribers, read [Building your subscriber base](/building-your-subscriber-base).
 
 However, you may wish to keep your newsletter private. For example, if you're sending a newsletter to a small group of friends or colleagues, or if you're using Buttondown to send internal updates to your team at work, you probably don't want just anyone to be able to subscribe to it.
 
-## Enabling private mode
-
-To do that, head over to  and enable the "Private mode" setting.
+### Enabling private mode
 
 1. Navigate to the [Subscribing settings page](https://buttondown.com/settings/subscribing).
 2. Click to enable the "Private mode" toggle. A warning appears.
@@ -22,11 +29,26 @@ To do that, head over to  and enable the "Private mode" setting.
 
 When private mode is enabled, your newsletter will not allow public subscriptions, even from a `form` endpoint. Instead, only subscribers you have added from the Buttondown dashboard or the API will receive your newsletter.
 
-## Private mode and newsletter archives
+Private mode **only affects subscription signups**. Your web archive stays publicly visible unless you also change the archive visibility setting described below.
 
-Private mode is different from disabling your newsletter's archives. The archive collects all the newsletter emails you sent in the past. You can enable or disable the archives by toggling the "Archives" setting on the [Archives settings page](https://buttondown.com/settings/archives).
+## Archive visibility
 
-Here's how private mode interacts with your newsletter's archives:
+The archive visibility setting lives on the [Archives settings page](https://buttondown.com/settings/archives) and controls who can read your published issues on the web. It has four options:
 
-- If you turn **off** your archives, your archives will not be accessible. This is useful if you're hosting the archives elsewhere (for example, on your own website) or just don't want people to be able to read them. This is true whether your newsletter is public, meaning anyone can subscribe to it, or private.
-- If you turn **on** your archives **and** enable Private mode, your newsletter will be private, and your archives will be accessible to the public.
+- **Public** — anyone on the web can browse your archive. This is the default for new newsletters.
+- **Subscribers only** — only confirmed subscribers can see your archive. Non-subscribers visiting an archive URL see a sign-in gate; they enter their email address and we send a magic link if their address is on your subscriber list.
+- **Paid subscribers only** — only paid subscribers can see your archive.
+- **Disabled** — the archive is turned off entirely. Visiting an archive URL returns 404.
+
+Individual emails can override this newsletter-level setting on a per-email basis, so you can publish a single public issue from an otherwise subscriber-only archive (or vice versa).
+
+Archive visibility **only affects web reading**. It has no effect on who can subscribe — that's what private mode is for.
+
+## Combining the two
+
+Because private mode and archive visibility are independent, you can pick the combination that fits your use case:
+
+- **Closed community** — private mode on, archive visibility "Subscribers only." Only invited subscribers can join, and only subscribers can read past issues.
+- **Invite-only audience, public back catalog** — private mode on, archive visibility "Public." Existing content is browsable on the web (useful for sharing and SEO), but new subscribers have to be added by you.
+- **Open signups, gated back catalog** — private mode off, archive visibility "Subscribers only." Anyone can subscribe, but only subscribers can read past issues.
+- **Fully public** — private mode off, archive visibility "Public." The default for new newsletters.

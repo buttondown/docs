@@ -51,10 +51,6 @@ Every newsletter has a unique URL. When someone loads that URL, a page with the 
 
 Your newsletter's URL is `https://buttondown.com/username`, where "username" is replaced with the username of your Buttondown account. You can use this link anywhere on the internet, like in emails or blog posts, to give folks a place to go when they want to subscribe or read your past emails.
 
-Fun fact: if you use tags, you can automatically tag subscribers by adding a `GET` parameter of `tag` to this URL! For instance, to add the tag `sandwich` to all subscribers, you'd use the URL:
-
-https://buttondown.com/username?tag=sandwich
-
 ## Embedding an HTML form
 
 Buttondown exposes a URL endpoint that you can point any `<form>` tag at to get an HTML-friendly form. This is great for platforms like Wordpress or Cargo that are very HTML-friendly, as well as static site generators or [JAMStack sites](/glossary-developers#jamstack). Additionally, you can style this form to your heart's content.
@@ -63,12 +59,6 @@ Below is an example of a basic form that uses this endpoint:
 
 {% liveCodeBlock
    filename="public/code/building-your-subscriber-base/1.html" /%}
-
-You can also specify one or more tags to automatically apply to new subscribers by using the `tag` value in your form. The following example tags a new subscriber with `foo`:
-
-```html
-<input type="hidden" name="tag" value="foo" />
-```
 
 ## Embedding an iFrame
 
@@ -79,50 +69,7 @@ If you want a seamless, pre-styled way to include a subscription option on your 
 
 ## Adding tags to your subscribers
 
-{% noticeInfo text="Not seeing Tags for your subscribers? Make sure this feature is enabled in Settings." /%}
-
-
-**Using query parameters**
-
-If you're using the subscribe page available at [your newsletter's URL](#sharing-your-buttondown-url), you can automatically add new tags to new subscribers by adding a **query parameter** to the URL. The example below automatically gives people who subscribe through the link a tag called `python`:
-
-```html
-https://buttondown.com/jmduke?tag=python
-```
-
-If you want to apply multiple tags at once, you can add multiple such query parameters. Here's an example:
-
-```html
-https://buttondown.com/jmduke?tag=python&tag=vue
-```
-
-**Using HTML**
-
-If you'd prefer to use HTML, augment your form to add an `input` tag with a name of `tag`. If you want to, you can supply multiple `input`s. Buttondown will apply *all* tags.
-
-In the example below, the `value` associated with the tag being passed is the *name* of the tag, not the *ID*. You can in fact use either the *name* or the *ID* and Buttondown will do the right thing (including automatically creating a tag with the given name, if no such tag exists yet).
-
-{% liveCodeBlock
-   filename="public/code/building-your-subscriber-base/3.html" /%}
-
-You can read our docs to learn more about [tags](/segmenting-your-audience#tags).
-
-**Using the API**
-
-{% noticeInfo text="First time using the Buttondown API? Make sure this feature is enabled in Settings." /%}
-
-You can [update the tags](/api-subscribers-update) of your subscribers programmatically using Buttondown's API. For example, to add a tag to a subscriber, you'd make a `PATCH` request to the subscriber endpoint with the desired tags.
-
-Check out the [examples repo](https://github.com/buttondown/examples) for ready-to-use code samples.
-
-**Using automations**
-
-You can also automatically tag subscribers by setting up an [automation](/api-automation-introduction). For example, you could automatically apply a tag to any reader who clicks a link in a certain email using the `subscriber.clicked` trigger with an `apply_tags` action.
-
-Here are some resources for creating your own tagging automation:
-- [Introduction to automations](/api-automation-introduction)
-- [Bulk action types](/api-bulk-action-type)
-- [Listing tags](/api-tags-list)
+You can attach [tags](/tags) to subscribers as they sign up — either by adding a `tag` query parameter to your newsletter's URL or by including hidden `<input name="tag">` elements in your embedded form. See the [tags](/tags) reference for the full set of options (subscribe forms, the API, automations, and letting subscribers manage their own tags via Portal).
 
 ## Adding metadata to your subscribers
 
@@ -163,7 +110,7 @@ Another example is below:
 {% liveCodeBlock
    filename="public/code/building-your-subscriber-base/4.html" /%}
 
-You can read our docs to learn more about [metadata](/subscriber-data).
+You can read our docs to learn more about [metadata](/subscriber-metadata).
 
 ## Changing an existing subscriber's email address
 

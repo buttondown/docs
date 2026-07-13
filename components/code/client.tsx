@@ -17,6 +17,7 @@ import type { ProcessedBlock } from "./lib";
 export default function CodeInteractive({
   blocks,
   apiKeyReplacements,
+  responseHtml,
 }: {
   blocks: ProcessedBlock[];
   apiKeyReplacements?: {
@@ -25,6 +26,7 @@ export default function CodeInteractive({
       to: string;
     };
   };
+  responseHtml?: string;
 }) {
   const hideTabs = blocks.length === 1 && blocks[0].name === undefined;
 
@@ -105,7 +107,9 @@ export default function CodeInteractive({
                 "[&_pre::-webkit-scrollbar]:hidden [&_pre]:[-ms-overflow-style:none] [&_pre]:[scrollbar-width:none]",
                 "[&_pre]:px-4 [&_pre]:py-3 [&_pre]:overflow-x-scroll",
                 "[&_pre]:text-[0.9rem]",
-                hideTabs ? "[&_pre]:rounded-xl" : "[&_pre]:rounded-b-xl",
+                hideTabs && !responseHtml && "[&_pre]:rounded-xl",
+                hideTabs && responseHtml && "[&_pre]:rounded-t-xl",
+                !hideTabs && !responseHtml && "[&_pre]:rounded-b-xl",
               )}
               // biome-ignore lint/security/noDangerouslySetInnerHtml: trusted content
               dangerouslySetInnerHTML={{
@@ -115,6 +119,26 @@ export default function CodeInteractive({
           </Tabs.Content>
         );
       })}
+
+      {responseHtml && (
+        <div>
+          <div className="bg-[hsl(0,0%,10%)] border-y border-[hsl(0,0%,5%)] text-white/70 text-xs font-medium uppercase tracking-wide py-2 px-4">
+            Response
+          </div>
+          <div
+            className={clsx(
+              "[&_pre::-webkit-scrollbar]:hidden [&_pre]:[-ms-overflow-style:none] [&_pre]:[scrollbar-width:none]",
+              "[&_pre]:px-4 [&_pre]:py-3 [&_pre]:overflow-x-scroll",
+              "[&_pre]:text-[0.9rem]",
+              "[&_pre]:rounded-b-xl",
+            )}
+            // biome-ignore lint/security/noDangerouslySetInnerHtml: trusted content
+            dangerouslySetInnerHTML={{
+              __html: responseHtml,
+            }}
+          />
+        </div>
+      )}
     </Tabs.Root>
   );
 }

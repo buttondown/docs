@@ -69,7 +69,11 @@
         },
         {
           "discriminant": "page",
-          "value": "subscriber-data"
+          "value": "subscriber-metadata"
+        },
+        {
+          "discriminant": "page",
+          "value": "tags"
         },
         {
           "discriminant": "page",
@@ -123,6 +127,14 @@
         {
           "discriminant": "page",
           "value": "sending-from-a-custom-domain"
+        },
+        {
+          "discriminant": "page",
+          "value": "cloudflare-dns-setup"
+        },
+        {
+          "discriminant": "page",
+          "value": "namecheap-dns-setup"
         },
         {
           "discriminant": "page",
@@ -180,6 +192,22 @@
         {
           "discriminant": "page",
           "value": "seo"
+        },
+        {
+          "discriminant": "page",
+          "value": "theme-arbus"
+        },
+        {
+          "discriminant": "page",
+          "value": "theme-classic"
+        },
+        {
+          "discriminant": "page",
+          "value": "theme-lovelace"
+        },
+        {
+          "discriminant": "page",
+          "value": "theme-modern"
         }
       ]
     },
@@ -193,10 +221,6 @@
         {
           "discriminant": "page",
           "value": "premium-teaser"
-        },
-        {
-          "discriminant": "page",
-          "value": "premium-content"
         },
         {
           "discriminant": "page",
@@ -234,14 +258,6 @@
         {
           "discriminant": "page",
           "value": "automation-actions"
-        },
-        {
-          "discriminant": "page",
-          "value": "events-and-webhooks-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "event-types"
         },
         {
           "discriminant": "divider",
@@ -520,10 +536,6 @@
         },
         {
           "discriminant": "page",
-          "value": "mantine"
-        },
-        {
-          "discriminant": "page",
           "value": "plausible"
         },
         {
@@ -683,6 +695,26 @@
         {
           "discriminant": "page",
           "value": "api-changelog"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2026-06-30"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2026-06-23"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2026-06-05"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2026-05-04"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-changelog-2026-04-22"
         },
         {
           "discriminant": "page",
@@ -952,31 +984,6 @@
         {
           "discriminant": "page",
           "value": "api-users-delete"
-        }
-      ]
-    },
-    {
-      "name": "Advertising slots",
-      "items": [
-        {
-          "discriminant": "page",
-          "value": "api-advertising-slots-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-advertising-slots-status"
-        },
-        {
-          "discriminant": "divider",
-          "value": "Routes"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-advertising-slots-list"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-advertising-slots-update"
         }
       ]
     },
@@ -1251,6 +1258,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-emails-publish"
+        },
+        {
+          "discriminant": "page",
           "value": "api-emails-events"
         },
         {
@@ -1484,6 +1495,10 @@
         {
           "discriminant": "page",
           "value": "api-prices-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-prices-delete"
         }
       ]
     },
@@ -1501,6 +1516,10 @@
         {
           "discriminant": "page",
           "value": "api-external-feed-cadence"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-external-feed-cadence-metadata"
         },
         {
           "discriminant": "page",
@@ -1578,6 +1597,55 @@
         {
           "discriminant": "page",
           "value": "api-snippets-delete"
+        }
+      ]
+    },
+    {
+      "name": "Sponsorships",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-advertising-units-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-advertising-slots-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-advertising-slots-status"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Advertising units"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-advertising-units-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-advertising-units-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-advertising-units-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-advertising-units-delete"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Advertising slots"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-advertising-slots-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-advertising-slots-update"
         }
       ]
     },
@@ -1765,7 +1833,11 @@
         },
         {
           "discriminant": "page",
-          "value": "api-webhooks-event-types"
+          "value": "events-and-webhooks-introduction"
+        },
+        {
+          "discriminant": "page",
+          "value": "event-types"
         },
         {
           "discriminant": "page",

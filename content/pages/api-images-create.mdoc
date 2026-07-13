@@ -6,11 +6,11 @@ faqItems: >
   [
     {
       "question": "What happens if I upload the same image twice?",
-      "answer": "Each upload creates a new image record with a new ID, even if the file content is identical. Buttondown does not deduplicate uploads automatically. If you want to avoid duplicates, use the `metadata` field to store a source path or hash when uploading, then check the list endpoint before uploading again."
+      "answer": "Re-uploading byte-identical content to the same newsletter returns the existing image record instead of creating a new one — the response is still a `201` with the original `id` and `image` URL. Uploads with different bytes, or the same bytes in a different newsletter, create new records as usual. The `metadata` you pass on the duplicate upload is ignored; the original record's metadata is preserved."
     },
     {
       "question": "What is the metadata field for?",
-      "answer": "The `metadata` field lets you store arbitrary key-value data on an image — for example, the original filename, a content hash, or alt text. Pass it as a JSON string in the `metadata` form field when uploading. It's returned in list and detail responses, so you can use it to track provenance or implement client-side deduplication."
+      "answer": "The `metadata` field lets you store arbitrary key-value data on an image — for example, the original filename or alt text. Pass it as a JSON string in the `metadata` form field when uploading. It's returned in list and detail responses, so you can use it to track provenance."
     },
     {
       "question": "Does Buttondown clean up unused images automatically?",
@@ -21,19 +21,25 @@ faqItems: >
 
 ## Supported formats
 
-Buttondown accepts PNG, JPG, and GIF images. SVG files are rejected by default because most email clients don't render them reliably — your subscribers would see a broken image instead.
+Buttondown accepts PNG, JPG, GIF, and WebP images. Other formats are rejected by default because email clients and social preview crawlers do not render them reliably.
 
-If you upload an SVG, the API will return a `400` with:
+If you upload an unsupported image, the API will return a `422` with:
 
 ```json
 {
-  "detail": "SVG files are not supported. Please upload a PNG, JPG, or GIF."
+  "detail": [
+    {
+      "type": "value_error.file_extension",
+      "loc": ["file", "image"],
+      "msg": "Unsupported image type. Please upload a PNG, JPG, GIF, or WebP image."
+    }
+  ]
 }
 ```
 
-### Bypassing SVG validation
+### Bypassing format validation
 
-If you know what you're doing (e.g. your SVGs are only used on the web archive, not in emails), you can bypass this restriction by providing a `X-Buttondown-Live-Dangerously` header with a value of `true`:
+If you know what you're doing (e.g. your file is only used on the web archive, not in emails or link previews), you can bypass this restriction by providing a `X-Buttondown-Live-Dangerously` header with a value of `true`:
 
 ```bash
 curl -X POST "https://api.buttondown.com/v1/images" \

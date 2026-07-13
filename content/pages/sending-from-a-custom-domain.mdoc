@@ -4,6 +4,8 @@ navigationTitle: Sending domain
 relatedPages:
   - glossary-email-infrastructure
   - monitoring-your-domain
+  - cloudflare-dns-setup
+  - namecheap-dns-setup
   - glossary-managing-your-list
   - glossary-email-regulations
 description: >-
@@ -12,7 +14,7 @@ faqItems: >
   [
     {
       "question": "Can I use the same domain for hosting and sending?",
-      "answer": "Unfortunately, some DNS providers do not let you set up the exact same domain or subdomain for both sending emails and as your newsletter archive. For these DNSes, we recommend setting up completely separate subdomains. Try something like this:\n\n- `newsletter.janedoe.com` for your custom newsletter domain, where readers view archives and subscribe to your newsletter\n- `mail.janedoe.com` for your custom sending domain, where outgoing emails come from\n\nThis is the best option to preserve the deliverability of your newsletter."
+      "answer": "Not on the same subdomain, if you're using the [managed sending setup](#managed-sending-domain-setup). Managed sending requires `NS` records that delegate the subdomain to Buttondown, and DNS does not allow `NS` and `CNAME` records to coexist at the same name — so you can't also add the `CNAME` that a [hosting domain](/hosting-domain) needs on that subdomain. This is a rule of the DNS protocol, not a quirk of any particular provider.\n\nThe fix is to use two separate subdomains. For example:\n\n- `newsletter.janedoe.com` for your custom newsletter domain, where readers view archives and subscribe to your newsletter\n- `mail.janedoe.com` for your custom sending domain, where outgoing emails come from\n\nThis is the best option to preserve the deliverability of your newsletter."
     },
     {
       "question": "Can I use multiple sending domains for multiple newsletters?",
@@ -88,6 +90,8 @@ If you don't use the "managed" DNS setup (also known as the "manual" setup), eve
 1. Add your custom domain in Settings as a sending domain.
 2. Add the two `NS` type records that are shown to you in Settings.
 
+If your domain is on one of the two most common DNS providers, we have step-by-step guides for where to click: [Cloudflare](/cloudflare-dns-setup) and [Namecheap](/namecheap-dns-setup).
+
 ### What if I want to send from my root domain (`example.com`) rather than a subdomain (`newsletter.example.com`)?
 
 Since the "managed" setup takes over a subdomain, it requires a subdomain that you can dedicate to Buttondown — whether that's `newsletter.example.com`, `buttondown.example.com`, `bd.example.com`, or otherwise.
@@ -101,6 +105,14 @@ Our "managed" setup does require setting `NS` records. If your domain host does 
 ### What if I want to use a subdomain without the "managed" setup?
 
 You're welcome to do so! Just add your sending domain in Settings and, when presented with the list of DNS records to add, switch to the "manual" version of the records.
+
+## Reply tracking and your sending domain
+
+Your sending domain setup determines how [replies](/replies) behave:
+
+- **Buttondown's shared domain** (no custom sending domain): replies are tracked, and you can't set a custom reply-to.
+- **Managed custom domain**: replies are tracked. You can also set a custom reply-to address yourself under **Settings → Sending domain → Add-ons** — though doing so sends replies straight to that inbox and [bypasses tracking](/replies#custom-reply-to-addresses).
+- **Manual custom domain**: because you manage your own DNS (including MX records), reply tracking is off by default and replies go straight to your own inbox. If you'd rather have Buttondown track and forward them, turn reply tracking on under **Settings → Sending domain → Add-ons**. Manual setups are currently supported on Postmark only.
 
 ## Frequently asked questions
 

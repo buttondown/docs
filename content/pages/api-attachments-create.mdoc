@@ -2,6 +2,13 @@
 title: Creating an attachment
 endpoint: /attachments
 method: post
+faqItems: >
+  [
+    {
+      "question": "What happens if I upload the same attachment twice?",
+      "answer": "Re-uploading byte-identical content to the same newsletter returns the existing attachment record instead of creating a new one — the response is still a `201` with the original `id` and `file` URL. Uploads with different bytes, or the same bytes in a different newsletter, create new records as usual."
+    }
+  ]
 ---
 
 Upload a new attachment to your Buttondown account.
@@ -9,3 +16,5 @@ Upload a new attachment to your Buttondown account.
 This endpoint expects a multipart form data request with:
 - `file` (required): The file to upload
 - `name` (optional): A custom name for the attachment. If not provided, the original filename will be used.
+
+{% faq /%}

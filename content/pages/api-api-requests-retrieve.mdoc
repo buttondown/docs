@@ -4,3 +4,6 @@ endpoint: /api_requests/{id}
 method: get
 ---
 
+Use the `/api_requests/{id}` endpoint to retrieve a single API request, including its stored request body, headers, and, when retained, its response body.
+
+`response_data` is retained only for requests that included an [`X-Idempotency-Key`](/api-idempotency-keys). For requests without an idempotency key, `response_data` will be `null`.

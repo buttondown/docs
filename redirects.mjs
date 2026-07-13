@@ -161,12 +161,7 @@ const REDIRECTS = [
   },
   {
     source: "/can-i-exclude-an-email-from-archive",
-    destination: "/email-archives#excluding-emails-from-your-archives",
-    permanent: true,
-  },
-  {
-    source: "/tags",
-    destination: "/segmenting-your-audience#tags",
+    destination: "/email-archives#archived-visibility-setting-on-individual-emails",
     permanent: true,
   },
   {
@@ -258,12 +253,17 @@ const REDIRECTS = [
   {
     source: "/advanced-features/metadata",
     permanent: false,
-    destination: "/subscriber-data",
+    destination: "/subscriber-metadata",
   },
   {
     source: "/metadata",
     permanent: false,
-    destination: "/subscriber-data",
+    destination: "/subscriber-metadata",
+  },
+  {
+    source: "/subscriber-data",
+    permanent: true,
+    destination: "/subscriber-metadata",
   },
   {
     source: "/advanced-features/multiple-newsletters",
@@ -303,7 +303,7 @@ const REDIRECTS = [
   {
     source: "/advanced-features/tags",
     permanent: false,
-    destination: "/segmenting-your-audience#tags",
+    destination: "/tags",
   },
   {
     source: "/advanced-features/teams",
@@ -389,6 +389,11 @@ const REDIRECTS = [
     source: "/api-reference/webhooks",
     permanent: false,
     destination: "/api-webhooks-introduction",
+  },
+  {
+    source: "/api-webhooks-event-types",
+    permanent: true,
+    destination: "/event-types",
   },
   {
     source: "/behind-the-scenes/affiliate-program",
@@ -668,12 +673,12 @@ const REDIRECTS = [
   {
     source: "/names",
     permanent: false,
-    destination: "/subscriber-data",
+    destination: "/subscriber-metadata",
   },
   {
     source: "/tutorials/names",
     permanent: false,
-    destination: "/subscriber-data",
+    destination: "/subscriber-metadata",
   },
   {
     source: "/tutorials/scheduling-emails-via-the-api",
@@ -697,7 +702,12 @@ const REDIRECTS = [
   },
   {
     source: "/tip-jar",
-    destination: "/premium-teaser#tip-jars",
+    destination: "/paid-subscriptions",
+    permanent: true,
+  },
+  {
+    source: "/premium-content",
+    destination: "/premium-teaser",
     permanent: true,
   },
   {
@@ -1038,7 +1048,7 @@ const REDIRECTS = [
   },
   {
     source: "/dormancy",
-    destination: "/account#marking-your-newsletter-as-dormant",
+    destination: "/account#snoozing-your-newsletter",
     permanent: true,
   },
   {

@@ -1,10 +1,11 @@
-import Markdoc, { type Config } from "@markdoc/markdoc";
+import Markdoc, { type Config, type RenderableTreeNode, Tag } from "@markdoc/markdoc";
 import fs from "fs";
 import path from "path";
 import React from "react";
 import yaml from "yaml";
 import PRICES from "@/autogen/prices-v2.json";
 import Code from "@/components/code";
+import type { ResponseBlock } from "@/components/code/lib";
 import FAQ, { type FAQItem } from "@/components/faq";
 import {
   BUTTONDOWN_CLI_STRUCTURE,
@@ -17,7 +18,10 @@ import PlaygroundEmbed from "@/components/playground-embed";
 import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
 import { marked } from "marked";
-import { GeneratedCodeSnippets } from "@/app/[slug]/CodeSnippets";
+import {
+  FileBasedCodeSnippets,
+  GeneratedCodeSnippets,
+} from "@/app/[slug]/CodeSnippets";
 
 function filterNullish<T>(arr: (T | null | undefined)[]): T[] {
   return arr.filter((x): x is T => x != null);
@@ -30,6 +34,7 @@ const nodes: Config["nodes"] = {
     attributes: {
       language: { type: String },
       content: { type: String },
+      highlight: { type: String },
     },
   },
   image: {
@@ -46,6 +51,7 @@ const nodes: Config["nodes"] = {
     render: "Heading",
     attributes: {
       level: { type: Number, required: true },
+      id: { type: String },
     },
   },
 };
@@ -89,36 +95,68 @@ function slugify(text: string): string {
     .replace(/-+$/, "");
 }
 
-function extractText(node: React.ReactNode): string {
-  if (typeof node === "string") return node;
-  if (typeof node === "number") return String(node);
-  if (!node) return "";
-  if (Array.isArray(node)) return node.map(extractText).join("");
-  if (React.isValidElement(node))
-    return extractText((node.props as { children?: React.ReactNode }).children);
-  return "";
-}
-
 function Heading({
   level,
+  id,
   children,
 }: {
   level: number;
+  id: string;
   children: React.ReactNode;
 }) {
   const Component = `h${level}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  const slug = slugify(extractText(children));
 
   return (
-    <a href={`#${slug}`} className="no-underline">
+    <a href={`#${id}`} className="no-underline">
       <Component
-        id={slug}
+        id={id}
         className="scroll-mt-20 md:scroll-mt-16 target:bg-amber-200 max-w-max"
       >
         {children}
       </Component>
     </a>
   );
+}
+
+function extractTextFromRenderable(node: RenderableTreeNode): string {
+  if (typeof node === "string") return node;
+  if (typeof node === "number") return String(node);
+  if (node == null || typeof node === "boolean") return "";
+  if (Array.isArray(node)) return node.map(extractTextFromRenderable).join("");
+  if (Tag.isTag(node)) {
+    return (node.children ?? []).map(extractTextFromRenderable).join("");
+  }
+  return "";
+}
+
+// Headings on the same page can share text (e.g. multiple "### Before" / "### After"
+// blocks), which would otherwise produce duplicate DOM ids and break the minimap,
+// in-page anchor jumps, and React keys. Walk the transformed tree and append numeric
+// suffixes to repeated slugs (`before`, `before-2`, ...).
+function assignHeadingIds(tree: RenderableTreeNode | RenderableTreeNode[]): void {
+  const counts = new Map<string, number>();
+
+  const walk = (node: RenderableTreeNode | RenderableTreeNode[]): void => {
+    if (Array.isArray(node)) {
+      node.forEach(walk);
+      return;
+    }
+    if (!Tag.isTag(node)) return;
+
+    if (node.name === "Heading") {
+      const text = (node.children ?? [])
+        .map(extractTextFromRenderable)
+        .join("");
+      const baseSlug = slugify(text);
+      const seen = counts.get(baseSlug) ?? 0;
+      node.attributes.id = seen === 0 ? baseSlug : `${baseSlug}-${seen + 1}`;
+      counts.set(baseSlug, seen + 1);
+    }
+
+    if (node.children) walk(node.children);
+  };
+
+  walk(tree);
 }
 
 function Video({ src }: { src: string }) {
@@ -210,15 +248,39 @@ const tags: Config["tags"] = {
       editorMode: { type: String },
     },
   },
+  // Optionally wraps a single fence, which is rendered as the response shown
+  // beneath the language tabs:
+  //
+  //   {% generatedMultilanguageSnippets method="GET" endpoint="/subscribers" %}
+  //   ```http {% highlight="2" %}
+  //   HTTP/1.1 200 OK
+  //   ...
+  //   ```
+  //   {% /generatedMultilanguageSnippets %}
   generatedMultilanguageSnippets: {
     render: "GeneratedMultilanguageSnippets",
-    selfClosing: true,
     attributes: {
-      method: { type: String, required: true },
-      endpoint: { type: String, required: true },
+      method: { type: String },
+      endpoint: { type: String },
       body: { type: String },
       headers: { type: String },
       query: { type: String },
+      file: { type: String },
+    },
+    transform(node, config) {
+      const attributes = node.transformAttributes(config);
+      const fence = node.children.find((child) => child.type === "fence");
+      const response = fence
+        ? {
+            code: String(fence.attributes.content ?? ""),
+            language: String(fence.attributes.language ?? "text"),
+            highlight: fence.attributes.highlight as string | undefined,
+          }
+        : undefined;
+      return new Tag("GeneratedMultilanguageSnippets", {
+        ...attributes,
+        response,
+      });
     },
   },
   fileExplorer: {
@@ -234,15 +296,36 @@ const tags: Config["tags"] = {
     render: "Table",
     attributes: {},
   },
+  // Pulls a theme's CHANGELOG.md from app/assets/themes/<theme>/ and renders it
+  // inline, so the docs stay in lockstep with the source of truth.
+  themeChangelog: {
+    render: "ThemeChangelog",
+    selfClosing: true,
+    attributes: {
+      theme: { type: String, required: true },
+    },
+  },
+  // Renders a theme's configurable settings table from its theme.json.
+  themeConfiguration: {
+    render: "ThemeConfiguration",
+    selfClosing: true,
+    attributes: {
+      theme: { type: String, required: true },
+    },
+  },
 };
 
-// CodeBlock component for syntax highlighting
+// CodeBlock component for syntax highlighting. `highlight` is a comma-separated
+// list of 1-indexed lines or ranges (e.g. "2,5-7"), authored in Markdoc as
+// ```http {% highlight="2,5-7" %}.
 function CodeBlock({
   language,
   content,
+  highlight,
 }: {
   language?: string;
   content: string;
+  highlight?: string;
 }) {
   return (
     <Code
@@ -250,6 +333,7 @@ function CodeBlock({
         {
           language: language ?? "text",
           code: content,
+          highlight,
         },
       ]}
     />
@@ -403,20 +487,30 @@ const components: Record<string, React.ComponentType<any>> = {
     />
   ),
   GeneratedMultilanguageSnippets: (props: {
-    method: string;
-    endpoint: string;
+    method?: string;
+    endpoint?: string;
     body?: string;
     headers?: string;
     query?: string;
-  }) => (
-    <GeneratedCodeSnippets
-      method={props.method}
-      endpoint={props.endpoint}
-      body={props.body ? JSON.parse(props.body) : undefined}
-      headers={props.headers ? JSON.parse(props.headers) : undefined}
-      query={props.query ? JSON.parse(props.query) : undefined}
-    />
-  ),
+    file?: string;
+    response?: ResponseBlock;
+  }) => {
+    if (props.file) {
+      return (
+        <FileBasedCodeSnippets file={props.file} response={props.response} />
+      );
+    }
+    return (
+      <GeneratedCodeSnippets
+        method={props.method ?? ""}
+        endpoint={props.endpoint ?? ""}
+        body={props.body ? JSON.parse(props.body) : undefined}
+        headers={props.headers ? JSON.parse(props.headers) : undefined}
+        query={props.query ? JSON.parse(props.query) : undefined}
+        response={props.response}
+      />
+    );
+  },
   FileExplorer: (props: {
     title?: string;
     structure?: string;
@@ -445,6 +539,52 @@ const components: Record<string, React.ComponentType<any>> = {
       </table>
     </div>
   ),
+  ThemeChangelog: (props: { theme: string }) => {
+    const file = path.join(resolveThemesDir(), props.theme, "CHANGELOG.md");
+    const raw = fs.readFileSync(file, "utf-8");
+    // Drop the source file's own "# … Changelog" title (the page supplies its
+    // own heading) and demote the date headings so they nest under it.
+    const body = raw
+      .replace(/^#\s+.*\n+/, "")
+      .replace(/^## /gm, "### ");
+    return (
+      <div
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: Markdown from a checked-in source file
+        dangerouslySetInnerHTML={{ __html: marked(body) }}
+      />
+    );
+  },
+  ThemeConfiguration: (props: { theme: string }) => {
+    const file = path.join(resolveThemesDir(), props.theme, "theme.json");
+    const theme = JSON.parse(fs.readFileSync(file, "utf-8")) as {
+      configuration: Record<string, ThemeConfigField>;
+    };
+    const fields = Object.values(theme.configuration);
+    return (
+      <div className="overflow-x-auto">
+        <table className="min-w-full">
+          <thead>
+            <tr>
+              <th className="text-left">Setting</th>
+              <th className="text-left">Description</th>
+              <th className="text-left">Default</th>
+            </tr>
+          </thead>
+          <tbody>
+            {fields.map((field) => (
+              <tr key={field.header}>
+                <td>{field.header}</td>
+                <td>{field.description}</td>
+                <td>
+                  <code>{formatThemeDefault(field)}</code>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  },
   ImageWithLightbox,
   Heading,
 };
@@ -485,6 +625,52 @@ function resolvePagesDir() {
 }
 
 const PAGES_DIR = resolvePagesDir();
+
+// Themes live outside the docs project, in the Django app. Resolve them
+// lazily (and only when a theme page is rendered) so a checkout missing the
+// app directory degrades to a broken theme page rather than a broken build.
+let THEMES_DIR: string | null | undefined;
+function resolveThemesDir(): string {
+  if (THEMES_DIR !== undefined) {
+    if (THEMES_DIR === null) {
+      throw new Error("Themes directory not found.");
+    }
+    return THEMES_DIR;
+  }
+  const cwd = process.cwd();
+  const candidates = [
+    path.join(cwd, "app", "assets", "themes"), // cwd is repo root
+    path.join(cwd, "..", "app", "assets", "themes"), // cwd is docs
+    path.join(cwd, "..", "..", "app", "assets", "themes"), // cwd is docs/.next
+  ];
+  THEMES_DIR = candidates.find((dir) => fs.existsSync(dir)) ?? null;
+  if (THEMES_DIR === null) {
+    throw new Error(
+      `Themes directory not found. Tried: ${candidates.join(", ")} (cwd=${cwd})`,
+    );
+  }
+  return THEMES_DIR;
+}
+
+type ThemeConfigOption = { id: string; label: string };
+type ThemeConfigField = {
+  type: string;
+  default: unknown;
+  header: string;
+  description: string;
+  options?: ThemeConfigOption[];
+};
+
+function formatThemeDefault(field: ThemeConfigField): string {
+  if (field.type === "boolean") {
+    return field.default ? "Enabled" : "Disabled";
+  }
+  if (field.type === "select" && field.options) {
+    const match = field.options.find((o) => o.id === field.default);
+    return match?.label ?? String(field.default);
+  }
+  return String(field.default);
+}
 
 function extractTextFromAst(node: ReturnType<typeof Markdoc.parse>): string {
   const texts: string[] = [];
@@ -546,6 +732,7 @@ async function get(slug: string): Promise<Page | null> {
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const parsed = Markdoc.parse(fileContent);
   const transformed = Markdoc.transform(parsed, { tags, nodes });
+  assignHeadingIds(transformed);
   const frontmatter = yaml.parse(parsed.attributes?.frontmatter || "{}");
   const faqItems: FAQItem[] = frontmatter.faqItems
     ? JSON.parse(frontmatter.faqItems)

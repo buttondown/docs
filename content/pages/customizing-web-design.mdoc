@@ -44,31 +44,12 @@ Track page views on your archive to understand how readers engage with your cont
 
 ## Themes
 
-Buttondown comes with several built-in themes you can choose from:
+Buttondown comes with several built-in themes you can choose from. Each has its own dedicated page with a live preview, its configurable settings, and a changelog:
 
-### Classic template
-
-- [Classic template preview](https://buttondown.com/el-classico/archive/who-was-telemachus-anyway/)
-- [CSS for the Classic template](https://github.com/buttondown/themes/blob/main/themes/classic/assets/styles.css)
-
-### Modern template
-
-- [Modern template preview](https://demo.buttondown.com/css-weekly/archive/css-weekly-10-css-in-js-vs-utility-first-css/)
-- [CSS for the Modern theme](https://github.com/buttondown/themes/blob/main/themes/modern/assets/styles.css)
-
-### Arbus template
-
-An Instagram-inspired grid theme that displays posts in a three-column layout, perfect for image-heavy newsletters. Named after photographer [Diane Arbus](https://en.wikipedia.org/wiki/Diane_Arbus).
-
-- [Arbus template preview](https://demo.buttondown.com/cat-photographer/archive/)
-- [CSS for the Arbus theme](https://github.com/buttondown/themes/blob/main/themes/arbus/assets/styles.css)
-
-### Lovelace template
-
-A brutalist, nearly no-CSS theme that embraces browser defaults for maximum speed and simplicity. Renders in monospace with minimal styling. Named after [Ada Lovelace](https://en.wikipedia.org/wiki/Ada_Lovelace).
-
-- [Lovelace template preview](https://demo.buttondown.com/lovelace-demo/archive/)
-- [CSS for the Lovelace theme](https://github.com/buttondown/themes/blob/main/themes/lovelace/assets/styles.css)
+- [**Arbus**](/theme-arbus) — an Instagram-inspired grid theme for image-heavy newsletters.
+- [**Classic**](/theme-classic) — a traditional, clean list layout for text-focused newsletters.
+- [**Lovelace**](/theme-lovelace) — a brutalist, nearly no-CSS theme that embraces browser defaults.
+- [**Modern**](/theme-modern) — a contemporary, card-based layout for visual newsletters.
 
 You can view all available themes and their source code in the [buttondown/themes repository](https://github.com/buttondown/themes).
 
@@ -77,6 +58,55 @@ You can view all available themes and their source code in the [buttondown/theme
 {% paidFeature feature="css" /%}
 
 You can use custom CSS to fully customize the styling of your newsletter archives.
+
+Unlike email CSS, archive CSS runs in a normal modern browser, so you can use the full modern feature set — CSS grid, custom properties, `:has()`, `color-mix()`, and so on. (The "write CSS like it's 2005" caveat on the [email design page](/designing-your-email) applies to *emails* only.)
+
+### Design tokens
+
+The Modern theme is built almost entirely on CSS custom properties (design tokens). Overriding a token is the cleanest, most upgrade-safe way to restyle your archive: change it once on `:root` and it cascades everywhere the theme uses it. Reach for these before overriding individual classes.
+
+| Token | Controls | Default |
+| ------------------------- | --------------------------------------------------------------- | ----------------------------------------- |
+| `--color-action` | Accent color: links, buttons, the announcement bar, hover tints | Your newsletter's tint color |
+| `--color-background` | Page background | Near-white (dark in dark mode) |
+| `--color-background-card` | Card and blockquote fills | Light gray |
+| `--color-background-offset`| Borders, dividers, and hover backgrounds | Gray |
+| `--color-foreground` | Body text | Dark gray |
+| `--color-foreground-offset`| Muted text such as post metadata | Medium gray |
+| `--color-foreground-offset-2`| Most-muted text: descriptions, footer | Lighter gray |
+| `--font-brand` | Headings, UI, the newsletter name | Hex Franklin, Inter, system sans-serif |
+| `--font-prose` | Body copy | Source Serif 4, serif |
+| `--font-mono` | Code | IBM Plex Mono |
+| `--width-content` | Maximum reading width | `600px` |
+| `--space` | Base spacing unit (most margins/padding derive from it) | `20px` |
+| `--text-header-alignment` | Alignment of the subject and date headers | `center` |
+| `--newsletter-icon-size` | Size of the newsletter icon | `100px` |
+| `--email-image-display` | Whether post thumbnails appear in the archive index | `none` |
+| `--corner-shape` | Corner style for inputs and buttons | `round` |
+
+For example, to brand your entire archive with a single color:
+
+```css
+:root {
+  --color-action: #5b3df5;
+}
+```
+
+#### Dark mode and tokens
+
+If you've enabled [dark mode](#dark-mode), Buttondown overrides the color tokens under a `:root.supports-dark-mode` selector when the reader prefers a dark theme. A hard-coded hex value (e.g. `background: #fff`) won't adapt, but a token override on plain `:root` applies to both modes. To set a different value per mode:
+
+```css
+:root {
+  --color-action: #5b3df5; /* light mode */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root.supports-dark-mode {
+    --color-action: #8b7cff; /* dark mode */
+  }
+}
+```
 
 ### Available CSS classes
 
@@ -92,6 +122,21 @@ You can use custom CSS to fully customize the styling of your newsletter archive
 | `newsletter`           | Container for newsletter information   |
 | `newsletter-icon`      | The newsletter icon/image              |
 | `newsletter-name`      | The newsletter name                    |
+
+#### Archive index classes
+
+These style the list of posts on your archive's home page (the landing page at your archive's root URL).
+
+| Class               | Description                                                                                   |
+| ------------------- | --------------------------------------------------------------------------------------------- |
+| `email-list`        | The list of posts on the archive home page                                                    |
+| `email-list-header` | The heading above the post list                                                               |
+| `email`             | A single post entry in the list                                                               |
+| `email-link`        | The clickable wrapper around a post entry (carries a negative margin so its hover state bleeds past the text) |
+| `email-header`      | The title-and-metadata block of a post entry (the Modern theme reverses these with `flex-direction: column-reverse`) |
+| `email-title`       | A post's title in the list                                                                    |
+| `email-metadata`    | A post's date and metadata in the list                                                        |
+| `email-image`       | A post's thumbnail in the list — **hidden by default**; show it by setting `--email-image-display: block` |
 
 #### Announcement bar classes
 
@@ -111,11 +156,18 @@ You can use custom CSS to fully customize the styling of your newsletter archive
 
 #### Button classes
 
-| Class                        | Description              |
-| ---------------------------- | ------------------------ |
-| `archive__button`            | Standard button          |
-| `archive__button--upgrade`   | Upgrade button variant   |
-| `archive__button--subscribe` | Subscribe button variant |
+There are two families of buttons, and it's a common mistake to target the wrong one. The call-to-action buttons that appear **inside your posts and pages** use the `buttondown-button` family. The buttons **inside the subscribe and payment forms** use the `archive__button` family.
+
+| Class                        | Description                                                              |
+| ---------------------------- | ------------------------------------------------------------------------ |
+| `buttondown-button`          | The primary call-to-action button in a post or page body                 |
+| `subscribe_button`           | The subscribe button                                                     |
+| `buttondown-custom-button`   | A custom button you add to your content                                  |
+| `archive__button`            | Button within the subscribe and payment forms                            |
+| `archive__button--upgrade`   | Upgrade variant, within the payment form                                 |
+| `archive__button--subscribe` | Subscribe variant, within the payment form                               |
+
+{% noticeInfo text="Buttons carry `!important` on their background, border, and text color in the base stylesheet, so a plain override may appear to do nothing. If your change isn't taking effect, add `!important` (e.g. `background-color: #5b3df5 !important;`) — or, better, set the `--color-action` token, which the buttons read from." /%}
 
 #### Social sharing classes
 
@@ -192,3 +244,15 @@ You can use custom CSS to fully customize the styling of your newsletter archive
 | `card`            | Generic card container      |
 | `card--takeover`  | Full-width takeover card    |
 | `footer`          | Footer section              |
+
+### Data attributes
+
+Some of the theme's most useful styling is already built in and toggled by data attributes rather than classes. Rather than reinventing these, you can switch them on (or restyle them) directly.
+
+| Selector                          | Description                                                                                   |
+| --------------------------------- | --------------------------------------------------------------------------------------------- |
+| `[data-blockquote-style="card"]`  | Blockquotes render as a filled card (the default)                                             |
+| `[data-blockquote-style="bar"]`   | Blockquotes render with a left accent bar and no fill                                          |
+| `[data-blockquote-style="editorial"]` | Blockquotes render large and italic with no border                                        |
+| `figure[data-full-width="true"]`  | Images that break out of the reading column to span the full viewport width                   |
+| `.buttondown-button[data-align]`  | Button alignment; `data-align="left"` or `data-align="right"` (defaults to centered)          |

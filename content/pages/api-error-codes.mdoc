@@ -8,9 +8,13 @@ When an API request fails, Buttondown returns a structured error response contai
 
 ## Error response format
 
-All API errors follow this consistent format:
+Errors tied to a specific [error code](#finding-endpoint-specific-error-codes) follow this consistent format:
 
-```json
+{% generatedMultilanguageSnippets method="POST" endpoint="/subscribers" body="{\"email_address\": \"telemachus@buttondown\"}" %}
+```http {% highlight="5" %}
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
 {
   "code": "email_invalid",
   "detail": "The email address provided is not valid.",
@@ -19,6 +23,31 @@ All API errors follow this consistent format:
   }
 }
 ```
+{% /generatedMultilanguageSnippets %}
+
+### Validation errors
+
+Requests that fail schema validation — for example, sending an unknown field, an over-long value, or a malformed identifier — instead return a `422` with a `detail` array containing one entry per invalid field:
+
+{% generatedMultilanguageSnippets method="POST" endpoint="/subscribers" body="{\"email_address\": \"telemachus@buttondown.email\", \"unexpected_field\": true}" %}
+```http {% highlight="1,7-8" %}
+HTTP/1.1 422 Unprocessable Entity
+Content-Type: application/json
+
+{
+  "detail": [
+    {
+      "type": "extra_forbidden",
+      "loc": ["body", "payload", "unexpected_field"],
+      "msg": "Extra inputs are not permitted"
+    }
+  ]
+}
+```
+{% /generatedMultilanguageSnippets %}
+
+Each entry's `type` names the validation failure (common values include `extra_forbidden`, `missing`, `string_too_long`, and `string_pattern_mismatch`) and `loc` points to the offending field. Sending only the documented fields, within their documented limits, avoids these.
+
 ## Finding endpoint-specific error codes
 
 Error codes specific to each API endpoint are now documented directly on the individual endpoint pages. When viewing an endpoint's documentation, you'll find a dedicated "Error codes" section that lists all possible error codes for that endpoint, along with their descriptions and how to fix them.

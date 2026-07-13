@@ -19,15 +19,33 @@ We've cataloged them all below, along with additional context for each. (Unless 
 
 - **Calls to action**: Buttondown will recommend interstitial calls to action for you such as [subscribe forms](/fancy-mode#subscription-form) to improve the user experience (and efficacy!) of your newsletter.
 - **Word count**: Buttondown checks the word count of your newsletter. We recommend keeping your email between 50 and 5000 words; anything shorter than 50 words is likely to be considered spam, and anything longer than 5000 words is likely to be truncated by email clients.
+- **Email size**: Buttondown checks the overall byte size of your email. Gmail truncates emails over 102kb, and most providers reject emails over 10MB outright.
 - **Problematic phrases**: Buttondown checks your newsletter for problematic phrases such as "million dollars", "free email addresses", and other spam-like phrases that might be considered spam.
 - **Copyright year**: Buttondown checks for outdated copyright year notices (e.g., "© 2025") and suggests updating them to the current year.
+- **TK placeholders**: Buttondown checks the subject and body for unresolved "TK" placeholders (a common journalistic shorthand for "to come") so you don't accidentally send a draft with unfinished sections.
+- **Dark-mode-unfriendly colors**: Buttondown checks for hard-coded black colors (e.g., `color: #000000`, `color: rgb(0, 0, 0)`) — often pasted in from Google Docs — that will be invisible to subscribers reading your email in dark mode.
 
 ## Links
 
 - **Links**: Buttondown checks all links in your newsletter for validity. (Due to firewalls and other edge cases, we can't _always_ be sure that a link is valid, but we do our best.)
+- **Spammy links**: Beyond simple reachability, Buttondown flags links pointing to destinations known to be associated with spam.
+- **Canonical URL**: If you've set a canonical URL on the email, Buttondown checks that it's reachable so subscribers who click through don't land on a 404.
+- **Relative URLs**: Buttondown flags links that use relative paths (e.g., `/blog/foo`) because they don't resolve correctly in email clients — the full URL with your domain is required.
+- **URL shorteners**: Buttondown warns about links that use common URL shorteners (bit.ly, tinyurl.com, t.co, etc.) since mailbox providers treat them as spam signals.
 - **Data URIs**: Buttondown detects and flags any data URIs in your newsletter. These are not recommended, as many email clients consider them a sign that your email is spam.
 - **Generic link text**: Buttondown checks that the text of the link is not just "click here" or "read more" but actually contains information about the link. This isn't blocking, but is good to have.
+
 ### Images
 
 - **Size**: Buttondown checks the size of all images in your newsletter. (We recommend keeping images under 1200x1200 pixels; larger images are harder to render in email clients and web clients alike, which hurt deliverability and SEO respectively.)
 - **Alt text**: Buttondown checks that all images have alt text. (This is a best practice for accessibility and SEO.)
+- **Default alt text**: Buttondown also flags alt text that looks auto-generated (e.g., `image1`, `screenshot.png`, `uploaded by ...`) and suggests replacing it with a meaningful description.
+
+## Attachments
+
+- **Missing attachments**: If your email mentions words like "attached" or "attachment" but you haven't actually attached any files, Buttondown will let you know.
+- **Too many attachments**: Buttondown warns when you attach more than one file — multiple attachments can hurt deliverability. Consider attaching a single file or linking to the rest.
+
+## Audience and paywall
+
+- **Paywall + audience conflict**: If your email has both a `role="paywall"` block and an audience filter applied, Buttondown will flag it — these two features typically don't make sense together and the combination is usually a mistake.

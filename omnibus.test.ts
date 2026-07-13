@@ -43,6 +43,8 @@ const VALID_APPLICATION_ROUTES = [
   "features/integrations/vimeo",
   "features/concierge-migration",
   "comparison-guides/esps",
+  "blog/2026-04-09-subscription-wall",
+  "blog/attachments-deliverability",
   "blog/lead-magnets",
   "blog/netlify",
   "legal/acceptable-use-policy",
@@ -410,6 +412,32 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
   });
 });
 
+// Introduction pages exist to explain a resource. The prose can live either in
+// the .mdoc body or — preferably, since it's more portable — in the `description`
+// of the page's `schema` in the OpenAPI spec, which is rendered above the
+// property table. Catch stubs that have neither.
+Object.entries(FILENAME_TO_RAW_CONTENT)
+  .filter(([filename]) => filename.endsWith("-introduction.mdoc"))
+  .forEach(([filename, content]) => {
+    const { data: frontmatter, content: body } = matter(content);
+    const schema = frontmatter.schema
+      ? OpenAPI.components.schemas[
+          frontmatter.schema as keyof typeof OpenAPI.components.schemas
+        ]
+      : undefined;
+    const schemaDescription =
+      schema && "description" in schema ? schema.description : undefined;
+
+    test(`${filename} has content (body or schema description)`, () => {
+      const hasContent =
+        body.trim().length > 0 || (schemaDescription?.trim().length ?? 0) > 0;
+      expect(
+        hasContent,
+        `${filename} is an introduction page with no content. Add a paragraph to the body, or — preferably — a docstring to its "${frontmatter.schema}" schema in the API so the description renders from the OpenAPI spec.`,
+      ).toBe(true);
+    });
+  });
+
 // Test that all CSS files in subscriber_facing_styles are not empty
 const SUBSCRIBER_FACING_STYLES_DIRECTORY = "public/subscriber_facing_styles";
 
@@ -477,6 +505,7 @@ const CAPITALIZATION_EXCEPTIONS = [
   "CAPTCHA",
   "CFBL",
   "CLI",
+  "Cloudflare",
   "ConvertKit",
   "Constant Contact",
   "CORS",
@@ -512,6 +541,7 @@ const CAPITALIZATION_EXCEPTIONS = [
   "Mantine",
   "Modern template",
   "Monthly Recurring Revenue",
+  "Namecheap",
   "oEmbed",
   "OpenAPI",
   "POSSE",
@@ -656,6 +686,24 @@ fs.readdirSync(MARKDOC_DIRECTORY).forEach((filename) => {
   });
 });
 
+// The API reference resource sections (everything after the "Routes" header)
+// are listed alphabetically; keep them that way so new sections don't drift.
+test("API reference resource sections are alphabetized", () => {
+  const routesIndex = NAVIGATION.api.findIndex(
+    (section) => section.name === "Routes",
+  );
+  expect(routesIndex).toBeGreaterThanOrEqual(0);
+
+  const resourceNames = NAVIGATION.api
+    .slice(routesIndex + 1)
+    .map((section) => section.name);
+  const sorted = [...resourceNames].sort((a, b) =>
+    a.toLowerCase().localeCompare(b.toLowerCase()),
+  );
+
+  expect(resourceNames).toEqual(sorted);
+});
+
 // Make sure that the navigation doesn't reference any pages that don't exist.
 Object.values(NAVIGATION).forEach((section) => {
   section.forEach((subsection) => {
@@ -689,6 +737,14 @@ const ALL_IMAGES = fs
   .filter((filename) =>
     IMAGE_SUFFIXES.some((suffix) => filename.endsWith(suffix)),
   );
+
+// Colon is a reserved character on Windows/NTFS, so any tracked file with `:`
+// in its name causes `git clone` to abort checkout on Windows clients and leave
+// them with an empty working tree (see AH-214).
+test("no image filenames contain a colon", () => {
+  const offenders = ALL_IMAGES.filter((filename) => filename.includes(":"));
+  expect(offenders).toEqual([]);
+});
 
 ALL_IMAGES.forEach((filename) => {
   test(filename + " is under 1MB", () => {
@@ -760,6 +816,18 @@ const UNDOCUMENTED_API_ENDPOINTS = [
   },
   {
     path: "/advertising_units/{id}",
+    operation: "delete",
+  },
+  {
+    path: "/bluesky_standard_site",
+    operation: "get",
+  },
+  {
+    path: "/bluesky_standard_site",
+    operation: "post",
+  },
+  {
+    path: "/bluesky_standard_site",
     operation: "delete",
   },
   {

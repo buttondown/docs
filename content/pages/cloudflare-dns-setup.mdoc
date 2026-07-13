@@ -1,0 +1,72 @@
+---
+title: Setting up DNS with Cloudflare
+navigationTitle: Cloudflare DNS
+relatedPages:
+  - sending-from-a-custom-domain
+  - hosting-domain
+  - namecheap-dns-setup
+  - glossary-email-infrastructure
+description: >-
+  A step-by-step guide to adding the DNS records Buttondown needs when Cloudflare manages your domain — for both sending and hosting domains.
+---
+
+Cloudflare is one of the most common DNS providers we see among Buttondown newsletters, so this guide walks through exactly where to add the records Buttondown asks for. If you're new to DNS in general, the [email infrastructure glossary](/glossary-email-infrastructure) is a good companion.
+
+{% noticeInfo text="This guide assumes Cloudflare is managing your DNS — that is, your domain is using Cloudflare's nameservers (`...ns.cloudflare.com`). If you only registered your domain elsewhere but pointed it at Cloudflare, you're in the right place. If another provider manages your DNS, see that provider's instructions instead." /%}
+
+## Finding your DNS records
+
+1. Log in to the [Cloudflare dashboard](https://dash.cloudflare.com).
+2. Select the domain you're setting up.
+3. In the sidebar, choose **DNS → Records**.
+
+This is where you'll add every record Buttondown shows you in [Settings → Domains](https://buttondown.com/settings/domains/sending).
+
+## The one Cloudflare gotcha: turn off the proxy
+
+This is the single most common reason Cloudflare setups fail to validate.
+
+When you add a `CNAME` record that points to Buttondown, Cloudflare defaults to **Proxied** (the orange cloud). A proxied record routes traffic through Cloudflare's network, which prevents Buttondown from verifying the record and stops your archives from loading.
+
+{% noticeWarn text="For every `CNAME` record pointing at Buttondown, click the cloud icon so it shows **DNS only** (grey cloud), not **Proxied** (orange cloud)." /%}
+
+`NS` and `TXT` records aren't affected — Cloudflare doesn't offer a proxy toggle for them.
+
+## Sending domain
+
+Follow the records shown on your [sending domain settings](https://buttondown.com/settings/domains/sending). Buttondown offers two paths; see [Sending from a custom domain](/sending-from-a-custom-domain) for the difference.
+
+### Managed setup (recommended)
+
+The [managed setup](/sending-from-a-custom-domain#managed-sending-domain-setup) delegates a subdomain (like `mail.example.com`) to Buttondown using two `NS` records. Cloudflare fully supports subdomain delegation:
+
+1. Click **Add record**.
+2. Set **Type** to `NS`.
+3. In **Name**, enter just the subdomain label Buttondown gave you (for example, `mail`) — Cloudflare appends the rest of your domain automatically.
+4. In **Nameserver**, paste the first value from Buttondown.
+5. Save, then repeat for the second `NS` record.
+
+### Manual setup
+
+If you're using the manual records instead, add each `CNAME` and `TXT` record exactly as shown. Remember to set every `CNAME` to **DNS only**.
+
+## Hosting domain
+
+To serve your archives from your own domain (see [URLs & domains for archives](/hosting-domain)), add the `CNAME` record Buttondown shows you:
+
+1. Click **Add record**.
+2. Set **Type** to `CNAME`.
+3. In **Name**, enter the subdomain (for example, `newsletter`), or `@` if you're using your root domain.
+4. In **Target**, paste the value from Buttondown (typically `custom-domains.buttondown.com`).
+5. **Set Proxy status to DNS only (grey cloud).**
+6. Save.
+
+If you're hosting on your **root domain** (`example.com` rather than a subdomain), Cloudflare handles this automatically through [CNAME flattening](https://developers.cloudflare.com/dns/cname-flattening/) — just add the `CNAME` at `@` and Cloudflare serves the right `A`/`AAAA` answers.
+
+{% noticeWarn text="You can't use the same subdomain for both sending (managed `NS` records) and hosting (a `CNAME`). DNS doesn't allow `NS` and `CNAME` records to coexist at the same name. Use two subdomains — for example, `mail.example.com` for sending and `newsletter.example.com` for hosting." /%}
+
+## After you add the records
+
+Cloudflare usually applies changes within a minute or two. Head back to [Settings → Domains](https://buttondown.com/settings/domains/sending) and click **Check records**. If it's been a few hours and records still aren't validating, double-check that every `CNAME` is set to **DNS only** — and if you're still stuck, [email us](mailto:support@buttondown.com) and we'll take a look.
+
+For more on Cloudflare's record types, see [Cloudflare's DNS documentation](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/).

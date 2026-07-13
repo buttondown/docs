@@ -1,0 +1,17 @@
+---
+title: Advertising units
+---
+
+Advertising units describe a sponsorship offering you sell to sponsors — the price, the format, the content rules, and the dates that are available. Each unit owns a set of [advertising slots](/api-advertising-slots-introduction), one per date.
+
+## What a unit defines
+
+- **title**, **description**, **behavior** — what the sponsorship is and how it's displayed
+- **price** — the cost in cents that a sponsor pays per slot
+- **allows_html**, **allows_image**, **max_characters** — the content rules sponsors have to follow when submitting
+- **submission_deadline_days** — how many days before a slot's date the sponsor must submit their content
+- **status** — `active` or `inactive` (inactive units don't accept new bookings)
+
+## Units and slots
+
+Creating or updating a unit's `dates` field automatically creates or removes the corresponding [slots](/api-advertising-slots-introduction). Slots are where sponsor content lives and where the booking, content submission, and approval workflow happens.

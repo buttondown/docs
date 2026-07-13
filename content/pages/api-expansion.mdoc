@@ -6,15 +6,13 @@ You can automatically expand certain fields in Buttondown's API by passing the `
 
 ## How it works
 
-By default, Buttondown's API only returns the ID of related objects. For example, when you retrieve a comment, you can make a basic API call:
+By default, Buttondown's API only returns the ID of related objects. For example, when you retrieve a comment, you'll only see the ID of the subscriber who left the comment:
 
-```sh
-curl 'https://api.buttondown.com/v1/comments/497f6eca-6276-4993-bfeb-53cbbbba6f08'
-```
+{% generatedMultilanguageSnippets method="GET" endpoint="/comments/{id}" %}
+```http {% highlight="6" %}
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-And you'll only see the ID of the subscriber who left the comment:
-
-```json
 {
     "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
     "subscriber_id": "a1b2c3d4-6276-4993-bfeb-53cbbbba6f08",
@@ -22,16 +20,15 @@ And you'll only see the ID of the subscriber who left the comment:
     // other fields...
 }
 ```
+{% /generatedMultilanguageSnippets %}
 
-If you want to see the full subscriber object, you can pass the `expand` query parameter:
+If you want to see the full subscriber object, you can pass the `expand` query parameter and you'll get the full subscriber object back alongside the ID:
 
-```sh
-curl 'https://api.buttondown.com/v1/comments/497f6eca-6276-4993-bfeb-53cbbbba6f08?expand=subscriber'
-```
+{% generatedMultilanguageSnippets method="GET" endpoint="/comments/{id}" query="{\"expand\": \"subscriber\"}" %}
+```http {% highlight="7-11" %}
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-And you'll see the full subscriber object back alongside the ID:
-
-```json
 {
     "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
     "subscriber_id": "a1b2c3d4-6276-4993-bfeb-53cbbbba6f08",
@@ -44,6 +41,7 @@ And you'll see the full subscriber object back alongside the ID:
     // other fields...
 }
 ```
+{% /generatedMultilanguageSnippets %}
 
 Some other notes about expansion:
 

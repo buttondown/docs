@@ -233,7 +233,8 @@ export type SnippetDefinition = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body?: { [key: string]: any };
   headers?: { [key: string]: string };
-  query?: { [key: string]: string };
+  // Array values produce repeated query parameters (?status=a&status=b)
+  query?: { [key: string]: string | string[] };
 };
 export function generateSnippetsWithSpecifiedBody({
   endpoint,
@@ -362,7 +363,11 @@ const url = new URL(\`${baseUrl}${patchEndpointParams(
 ${
   Object.keys(query || {}).length > 0
     ? `const params = ${stringifyObject(query || {})};
-Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+${
+  Object.values(query || {}).some(Array.isArray)
+    ? `Object.entries(params).forEach(([key, value]) => [value].flat().forEach(v => url.searchParams.append(key, v)));`
+    : `Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));`
+}
 `
     : ""
 }const options = {
@@ -401,7 +406,11 @@ fetch(url.toString(), options)
     Object.keys(query || {}).length > 0
       ? "?" +
         Object.entries(query || {})
-          .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
+          .flatMap(([k, v]) =>
+            [v].flat().map(
+              (value) => `${encodeURIComponent(k)}=${encodeURIComponent(value)}`,
+            ),
+          )
           .join("&")
       : "";
 

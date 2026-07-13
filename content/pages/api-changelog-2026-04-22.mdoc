@@ -1,0 +1,8 @@
+---
+title: "2026-04-22"
+navigationTitle: "2026-04-22"
+---
+
+API request detail records now retain `response_data` only for requests that included an `X-Idempotency-Key` header. See [idempotency keys](/api-idempotency-keys).
+
+This makes the `response_data` field on [`GET /v1/api_requests/{id}`](/api-api-requests-retrieve) nullable when no response body was retained. For requests without an idempotency key, `response_data` will be `null`.

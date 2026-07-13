@@ -11,17 +11,51 @@ By default, the API will return objects in the order they were created. However,
 
 To order by a single field, you can add the `ordering` query parameter to your request. For example, if you want to order by the `subject` field, you can do so by adding the `ordering` query parameter to your request:
 
+{% generatedMultilanguageSnippets method="GET" endpoint="/emails" query="{\"ordering\": \"subject\"}" %}
+```http {% highlight="8,12" %}
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "count": 2,
+  "results": [
+    {
+      "subject": "Anteaters: an appreciation",
+      ...
+    },
+    {
+      "subject": "Zebras: a retrospective",
+      ...
+    }
+  ]
+}
 ```
-https://api.buttondown.com/v1/emails?ordering=subject
-```
+{% /generatedMultilanguageSnippets %}
 
 ## Ordering by a single field in descending order
 
 To order by a single field in descending order, you can add a `-` prefix to the field name. For example, if you want to order by the `subject` field in descending order, you can do so by adding the `ordering` query parameter to your request:
 
+{% generatedMultilanguageSnippets method="GET" endpoint="/emails" query="{\"ordering\": \"-subject\"}" %}
+```http {% highlight="8,12" %}
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "count": 2,
+  "results": [
+    {
+      "subject": "Zebras: a retrospective",
+      ...
+    },
+    {
+      "subject": "Anteaters: an appreciation",
+      ...
+    }
+  ]
+}
 ```
-https://api.buttondown.com/v1/emails?ordering=-subject
-```
+{% /generatedMultilanguageSnippets %}
 
 ## Ordering by multiple fields
 
@@ -31,8 +65,27 @@ Sorry, this is not supported yet!
 
 Metadata is a special case. You can order by metadata by passing in a `metadata` key, followed by a colon, followed by the field you want to order by. For example, if you want to order by the `foo` field in the `metadata` field, you can do so by adding the `ordering` query parameter to your request:
 
+{% generatedMultilanguageSnippets method="GET" endpoint="/emails" query="{\"ordering\": \"metadata:foo\"}" %}
+```http {% highlight="9,14" %}
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "count": 2,
+  "results": [
+    {
+      "subject": "First in line",
+      "metadata": { "foo": "1" },
+      ...
+    },
+    {
+      "subject": "Second in line",
+      "metadata": { "foo": "2" },
+      ...
+    }
+  ]
+}
 ```
-https://api.buttondown.com/v1/emails?ordering=metadata:foo
-```
+{% /generatedMultilanguageSnippets %}
 
 (This syntax is unfortunately divergent from our metadata _filtering_ syntax, but it's the best we can do for now.)

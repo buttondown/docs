@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { DESCRIPTION, TITLE } from "@/lib/constants";
 
@@ -21,6 +21,11 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: TITLE,
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0069FF",
+  colorScheme: "light",
 };
 
 export default function RootLayout({

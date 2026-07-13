@@ -6,7 +6,10 @@ Unless otherwise noted, Buttondown's API endpoints expect and return JSON-encode
 
 If you're running into an error where you think you're formatting and supplying the data correctly but receiving a response along the lines of:
 
-```json
+```http {% highlight="4" %}
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
 {"detail":"Cannot parse request body"}
 ```
 

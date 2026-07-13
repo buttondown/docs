@@ -97,6 +97,30 @@ If you have existing content in other formats like HTML, Word documents, or Goog
 {% noticeInfo
    text="If you're migrating a large number of posts from another newsletter platform, you may not need to convert them yourself — Buttondown's [import tools](/importing-your-data) handle most common formats automatically." /%}
 
+## Inserting walls
+
+If you're drafting in Markdown and want to insert a [webwall](/fancy-mode#webwall), [emailwall](/fancy-mode#emailwall), or [paywall](/fancy-mode#paywall), you can drop in the underlying HTML directly:
+
+```html
+<div role="webwall"></div>
+<div role="emailwall"></div>
+<div role="paywall"></div>
+```
+
+### Customizing the webwall button text
+
+By default, the webwall renders as a button labeled "Read the rest" in the email. To customize the label, add a `data-text` attribute:
+
+```html
+<div role="webwall" data-text="Continue reading on the archive"></div>
+```
+
+[Template tags](/templating) work inside `data-text`, so you can include dynamic content like the [issue number](/templating#emailsecondary_id):
+
+```html
+<div role="webwall" data-text="Continue reading issue {{ email.secondary_id }} »"></div>
+```
+
 ## Extensions
 
 In addition, Buttondown uses a handful of extensions:

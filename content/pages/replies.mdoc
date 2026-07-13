@@ -13,15 +13,29 @@ The reply will still be forwarded to your account email, so you won't miss a sin
 
 Buttondown also tracks inbound emails from people who aren't yet subscribers to your newsletter. These messages will appear in your inbox alongside subscriber replies.
 
+## Replying from your Inbox
+
+You don't have to leave Buttondown to respond. Open a conversation in your Inbox and reply straight from the thread — your message sends from your newsletter just like any other reply, and the whole back-and-forth stays in one place.
+
+### Attaching files to a reply
+
+Replies can carry files, not just text. In the reply composer, click the paperclip, pick a file — a PDF, an image, your media kit — and it sends along with your message. Once the reply goes out, each file appears as a download chip in the thread, so you can always see what you sent.
+
+Reply attachments follow the same [supported file types, size limit, and plan availability](/fancy-mode#attachments) as the attachments you add to your emails.
+
+## How reply tracking depends on your sending domain
+
+Whether Buttondown tracks replies depends on how your [sending domain](/sending-from-a-custom-domain) is set up:
+
+- **Buttondown's shared domain** (the default, if you haven't added a sending domain): reply tracking is always on.
+- **A [managed custom domain](/sending-from-a-custom-domain#managed-sending-domain-setup)** (you delegate a subdomain to us): reply tracking is always on.
+- **A manual custom domain** (you manage your own DNS records, including MX): reply tracking is off by default, so replies go straight to your own inbox. You can turn it on under **Settings → Sending domain → Add-ons** if you'd rather have Buttondown track and forward them.
+
 ## Custom reply-to addresses
 
-Buttondown offers custom reply-to addresses. This setting is available for paid accounts, but it's not accessible by default in the Buttondown dashboard. Once a reply-to address is set, all replies will go to this email.
+If you're on a managed sending domain, you can set a custom reply-to address yourself from **Settings → Sending domain → Add-ons**. By default, replies route through Buttondown to your account email; a custom reply-to sends them to a different inbox instead. Because a custom reply-to only makes sense when your emails consistently come from your own domain, setting one also turns on "always send from a custom domain."
 
-By default, the reply-to email for a newsletter will be the account email address. This works for a lot of use cases, but there may be a situation where you'd like replies to go to another address.
-
-For example: If your newsletter shared product updates, you may want it to come from your design team.
-
-But if customers have feedback, bug reports, or questions, it would be more useful for your support team to receive those replies. Setting a custom reply-to would direct replies to the correct team.
+For example: if your newsletter shares product updates, you may want it to come from your design team. But if subscribers have feedback, bug reports, or questions, it would be more useful for your support team to receive those replies. Setting a custom reply-to directs replies to the correct team.
 
 The email header might look like this:
 
@@ -31,6 +45,4 @@ reply-to:	support@example.com
 subject:	Announcing our dazzling new redesign!
 ```
 
-To request a custom reply-to address, please [contact us](https://buttondown.com/support) and we'll get this set for you!
-
-{% noticeInfo text="Custom reply-to addresses take priority over the default tracked reply format." /%}
+{% noticeWarn text="A custom reply-to sends replies directly to the address you specify, so those replies **bypass Buttondown's reply tracking** — they won't appear in your inbox, won't trigger reply-based automations, and won't be forwarded to your team. Leave the reply-to blank to keep replies tracked." /%}

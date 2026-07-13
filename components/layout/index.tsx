@@ -168,6 +168,14 @@ export default async function Layout({
                   >
                     Home
                   </a>
+                  <span> &middot; </span>
+                  <a
+                    href="https://status.buttondown.com"
+                    target="_blank"
+                    className="underline"
+                  >
+                    Status
+                  </a>
                 </div>
               </footer>
             </div>

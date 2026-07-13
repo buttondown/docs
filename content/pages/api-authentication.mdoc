@@ -6,13 +6,11 @@ title: Authentication
 
 Clients should authenticate by passing the token key in the `Authorization` HTTP header, prepended with the string `Token `(note the trailing space!).
 
-For example, if your token was `401f7ac837da42b97f613d789819ff93537bee6a`, your headers may look like this.
+For example, an authenticated request to list your subscribers looks like this:
 
-```python
-headers = {
-    'Authorization': 'Token 401f7ac837da42b97f613d789819ff93537bee6a'
-}
-```
+{% generatedMultilanguageSnippets
+   method="GET"
+   endpoint="/subscribers" /%}
 
 You can manage your API keys at [API → Keys](https://buttondown.com/keys).
 
@@ -84,9 +82,7 @@ flowchart TD
 
 The platform could programmatically access each newsletter's API key and pass it through, but this is clumsy and onerous. Instead, you can pass the `Buttondown-Context` header to specify the newsletter you want to access:
 
-```python
-headers = {
-    'Authorization': 'Token api_key_111',
-    'Buttondown-Context': 'sheinhardt_pt'
-}
-```
+{% generatedMultilanguageSnippets
+   method="GET"
+   endpoint="/subscribers"
+   headers="{\"Buttondown-Context\": \"sheinhardt_pt\"}" /%}

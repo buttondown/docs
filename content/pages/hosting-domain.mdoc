@@ -3,6 +3,8 @@ title: URLs & domains for archives
 navigationTitle: Domains & URLs
 relatedPages:
   - sending-from-a-custom-domain
+  - cloudflare-dns-setup
+  - namecheap-dns-setup
   - glossary-writing-emails
 ---
 
@@ -23,7 +25,9 @@ A [hosting domain](/glossary-email-infrastructure#hosting-domain) lets you serve
 
 {% iframe src="https://demo.buttondown.com/settings/domains/hosting" /%}
 
-After you save, Buttondown prompts you to add a `CNAME` record pointing to `custom-domains.buttondown.com`. Add this record with your DNS provider, and your custom archive URL will be live once the DNS propagates.
+After you save, Buttondown prompts you to add a `CNAME` record pointing to `custom-domains.buttondown.com`. Add this record with your DNS provider, and your custom archive URL will be live once the DNS propagates. If your domain is on one of the two most common DNS providers, we have step-by-step guides for where to click: [Cloudflare](/cloudflare-dns-setup) and [Namecheap](/namecheap-dns-setup).
+
+{% noticeWarn text="If you've already delegated this subdomain to Buttondown for sending (by setting `NS` records on it as part of the [managed sending setup](/sending-from-a-custom-domain#managed-sending-domain-setup)), you cannot also add a `CNAME` on the same subdomain — DNS does not allow `NS` and `CNAME` records to coexist at the same name. Use a different subdomain for hosting (for example, `newsletter.example.com` for hosting and `mail.example.com` for sending)." /%}
 
 {% noticeInfo text="Looking to send emails from a custom domain? See [Sending from a custom domain](/sending-from-a-custom-domain) for setup instructions." /%}
 

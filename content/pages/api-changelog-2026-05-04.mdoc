@@ -1,0 +1,16 @@
+---
+title: "2026-05-04"
+navigationTitle: "2026-05-04"
+---
+
+The filters on [`GET /v1/survey_responses`](/api-surveys-list-responses) are now symmetric. All three filters accept multiple IDs, and `survey` has been renamed to `survey_id` to match the rest of the API.
+
+| Before | After |
+| --- | --- |
+| `email_id` (single) | `email_id` (list) |
+| `subscriber_id` (single) | `subscriber_id` (list) |
+| `survey` (list) | `survey_id` (list) |
+
+Existing requests passing a single value to `email_id` or `subscriber_id` continue to work. Requests using `survey=...` must be updated to `survey_id=...`.
+
+We didn't bump the API version for this — `/v1/survey_responses` is a niche endpoint and we don't expect anyone to be relying on the `survey` parameter name. If this change breaks your workflow, email us at [support@buttondown.com](mailto:support@buttondown.com) and we'll figure something out.

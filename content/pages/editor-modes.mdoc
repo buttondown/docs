@@ -19,6 +19,42 @@ When it's time to write your email, Buttondown has a few primary modes for helpi
 2. For those who primarily write and know Markdown well, we also have [Markdown Mode](/using-markdown), which lets you stick to the writing style you already know.
 3. For very special cases, [Naked Mode](/naked-mode) lets you edit the raw HTML source of your emails.
 
+## Switching between modes
+
+You can switch between modes at any time while editing, and Buttondown will automatically convert your content to match the new editor format. The conversion only becomes permanent when you edit the contents in the new mode — if you switch and don't like how something looks, switch back without editing and your original is preserved. You can also recover previous versions using the revision history.
+
+When converting from Markdown to Fancy mode, if something can't be converted properly you'll see a warning banner at the top of the editor. If you don't see this banner but things don't look right, [let us know](mailto:support@buttondown.com).
+
+### What converts safely
+
+Most common Markdown formatting converts to Fancy mode without issue:
+
+| Formatting | Details |
+| --- | --- |
+| Text formatting | Bold, italic, underline, strikethrough, subscript, and superscript |
+| Headings | All heading levels (h1 through h6) |
+| Links | Standard links |
+| Lists | Ordered and unordered lists, including nested lists |
+| Code blocks | Fenced code blocks with language specifications |
+| Blockquotes | Standard blockquotes |
+| Horizontal rules | Dividers/separators |
+| Images | Basic images |
+| Template tags | Buttondown's `{{ template_tag }}` syntax is preserved |
+
+### What doesn't convert cleanly
+
+Custom HTML is not supported when converting from Markdown to Fancy mode. While some HTML elements might convert (like using an `<img>` tag instead of Markdown image syntax), the conversion won't be 1:1 — any attributes that Fancy mode doesn't support will be lost. Elements that aren't standard Markdown formatting (like `<center>`, custom `<div>` tags, or other HTML) will usually cause an error when switching to Fancy mode. If you rely on custom HTML, stay in Markdown mode after adding it.
+
+## The Markdown paste dialog
+
+When you paste Markdown-formatted content into the Fancy mode editor, Buttondown will detect it and ask if you'd like to switch to Markdown mode instead. This helps prevent unexpected formatting when you're copying content from Markdown files or other sources.
+
+You can choose to:
+
+- **Stay in Fancy mode**: the Markdown will be converted and displayed visually.
+- **Switch to Markdown mode**: the content will be pasted as plain Markdown text.
+- **Don't ask again**: disable this prompt for future pastes (you can re-enable it in your preferences).
+
 ## Keyboard shortcuts
 
 The table below lists supported keyboard shortcuts across Buttondown. Empty cells indicate that a shortcut is not supported in that mode.

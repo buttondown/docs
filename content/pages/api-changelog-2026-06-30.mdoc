@@ -1,0 +1,30 @@
+---
+title: "2026-06-30"
+navigationTitle: "2026-06-30"
+---
+
+We've added a new [publish endpoint](/api-emails-publish), which makes it easier to send emails with the API.
+
+Previously, publishing emails required manually updating the `status` and `publish_date` with [`PATCH /v1/emails/{id}`](/api-emails-update).
+
+Now, you can set an email to publish immediately by calling `POST /v1/emails/{id}/publish` with an empty payload, or schedule it to publish by including a `publish_date`.
+
+This endpoint accepts the same payload as [`PATCH /v1/emails/{id}`](/api-emails-update), so you can adjust other fields while publishing.
+
+This change offers a new way to publish emails with the API but doesn't affect the functionality of existing endpoints.
+
+## Example
+
+```bash
+# Setting an email to publish immediately
+curl -X POST "https://api.buttondown.com/v1/emails/YOUR_EMAIL_ID/publish" \
+  -H "Authorization: Token YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{}'
+
+# Setting an email to publish at a specific time
+curl -X POST "https://api.buttondown.com/v1/emails/YOUR_EMAIL_ID/publish" \
+  -H "Authorization: Token YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"publish_date": "2026-07-01T12:00:00Z"}'
+```

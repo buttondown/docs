@@ -2,11 +2,13 @@ export type HandwrittenBlock = {
   name: string;
   code: string;
   language: string;
+  highlight?: string;
 };
 
 type SingletonBlock = {
   code: string;
   language: string;
+  highlight?: string;
 };
 
 export type SingletonLanguageBlockList = [SingletonBlock];
@@ -19,6 +21,14 @@ export type ProcessedBlock = {
   name?: string;
   html: string;
   language: string;
+};
+
+// A response shown beneath the language tabs; it's the same for every
+// language, so it lives outside the block list.
+export type ResponseBlock = {
+  code: string;
+  language: string;
+  highlight?: string;
 };
 
 export const shikiWithoutWrapper = (html: string) =>

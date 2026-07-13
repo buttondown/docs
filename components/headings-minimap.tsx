@@ -167,7 +167,7 @@ export default function HeadingsMinimap() {
     }
   }, [visibleIds, currentSectionId, headings]);
 
-  if (headings.length < 1) return null;
+  if (headings.length < 2) return null;
 
   return (
     <nav

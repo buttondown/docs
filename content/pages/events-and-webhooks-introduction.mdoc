@@ -2,118 +2,24 @@
 title: Events & webhooks
 description:  >-
   Events and webhooks allow you to monitor and react to any changes with your newsletter.
+faqItems: >
+  [
+    {
+      "question": "What happens when a webhook fails?",
+      "answer": "Buttondown retries failed deliveries up to 5 times. If the same webhook fails on 5 consecutive events, we automatically disable it and email you so you can investigate."
+    },
+    {
+      "question": "Why am I not receiving webhook events?",
+      "answer": "Check the deliveries panel on your webhook page — every attempt is logged with the response code and body. Common causes are non-2xx responses, request timeouts, or your endpoint enforcing IP allowlisting."
+    },
+    {
+      "question": "Can I replay or backfill events?",
+      "answer": "Not directly — Buttondown does not store events for replay beyond the retry window. Use the test button to send a synthetic payload, or query the relevant resource (e.g. subscribers, emails) via the API to reconstruct state."
+    }
+  ]
 ---
 
-Events are Buttondown's way of telling you that something interesting has happened to your newsletter, and [webhooks](/glossary-developers#webhooks) are Buttondown's way of letting you react to various incoming events. For example, when a new subscriber signs up for your newsletter, Buttondown creates and emits a subscriber.created event; when that subscriber unsubscribes, Buttondown creates a subscriber.unsubscribed event. If you wanted to, say, create a Slack notification or run some application code whenever something in Buttondown happens, you'd create a webhook for the concomitant event and point it towards your application.
-
-The payload of most events are fairly simple, and look something like this:
-
-```json
-{
-  "event_type": "subscriber.confirmed",
-  "data": {
-    "subscriber": "ac79483b-cd28-49c1-982e-8a88e846d7e7"
-  }
-}
-```
-
-## Webhook security with HMAC signing
-
-For additional security, you can enable HMAC signing on your webhooks to verify that requests are genuinely coming from Buttondown. When you set a signing key on a webhook, Buttondown will include an `X-Buttondown-Signature` header with each request.
-
-### Setting up HMAC signing
-
-To enable HMAC signing for a webhook:
-
-1. Go to your webhook settings
-2. Add a signing key in the "Signing key" field
-3. Save the webhook
-
-The signing key can be any string you choose—make it long and random for best security.
-
-### Verifying the signature
-
-When Buttondown sends a webhook with a signing key enabled, it includes an `X-Buttondown-Signature` header in the format:
-
-```
-X-Buttondown-Signature: sha256=<signature>
-```
-
-To verify the signature on your end:
-
-```python
-import hmac
-import hashlib
-
-def verify_signature(payload: bytes, signature_header: str, signing_key: str) -> bool:
-    """Verify the HMAC signature from Buttondown webhook."""
-    # Extract the signature from the header
-    signature = signature_header.replace("sha256=", "")
-    
-    # Create your own signature
-    mac = hmac.new(
-        signing_key.encode("utf-8"),
-        msg=payload,
-        digestmod=hashlib.sha256,
-    )
-    expected_signature = mac.hexdigest()
-    
-    # Compare using constant-time comparison to prevent timing attacks
-    return hmac.compare_digest(signature, expected_signature)
-```
-
-### Example verification in different languages
-
-**Node.js:**
-
-```javascript
-const crypto = require('crypto');
-
-function verifySignature(payload, signatureHeader, signingKey) {
-  const signature = signatureHeader.replace('sha256=', '');
-  const expectedSignature = crypto
-    .createHmac('sha256', signingKey)
-    .update(payload)
-    .digest('hex');
-  
-  return crypto.timingSafeEqual(
-    Buffer.from(signature),
-    Buffer.from(expectedSignature)
-  );
-}
-```
-
-**Ruby:**
-
-```ruby
-require 'openssl'
-
-def verify_signature(payload, signature_header, signing_key)
-  signature = signature_header.gsub('sha256=', '')
-  expected_signature = OpenSSL::HMAC.hexdigest('sha256', signing_key, payload)
-  
-  ActiveSupport::SecurityUtils.secure_compare(signature, expected_signature)
-end
-```
-
-The signature is computed using HMAC-SHA256 over the raw request body (before JSON parsing), so make sure to verify the signature using the original bytes you received.
-
-### Using signing keys in automation actions
-
-You can also use signing keys when sending post requests via automation actions. Simply add a `signing_key` field to your action's metadata:
-
-```json
-{
-  "type": "send_post_request",
-  "metadata": {
-    "url": "https://your-api.com/webhook",
-    "signing_key": "your-secret-key-here"
-  }
-}
-```
-## Retries
-
-We retry up to **3 times** if a webhook fails.
+Events are Buttondown's way of telling you that something interesting has happened to your newsletter, and webhooks let you react to those events by sending HTTP requests to a URL of your choice. For technical details on event payloads and HMAC signing, see the [API reference](/api-webhooks-introduction).
 
 ## Creating webhooks
 
@@ -138,20 +44,15 @@ Enter the URL where Buttondown should send event data. This URL is typically pro
 - Automation platforms (Zapier, Make, n8n)
 - Your own application endpoint
 
+The URL must be publicly reachable from the internet — Buttondown cannot deliver to `localhost`, private IP ranges, or endpoints behind a VPN. For local development, use a tunneling service like ngrok or Cloudflare Tunnel.
+
 #### Events to trigger
 
-Select which events should trigger your webhook. [Common event types](/api-webhooks-event-types) include:
+Select which events should trigger your webhook — common choices are `subscriber.created`, `email.sent`, and `comment.created`. You can select multiple events for a single webhook. See the [full list of event types](/event-types) for everything available.
 
-| Event Type                | Description                                      |
-|---------------------------|--------------------------------------------------|
-| **subscriber.created**    | When someone subscribes to your newsletter       |
-| **subscriber.confirmed**  | When a subscriber confirms their email           |
-| **subscriber.unsubscribed** | When someone unsubscribes                      |
-| **email.sent**            | When you send a newsletter                       |
-| **email.delivered**       | When an email is successfully delivered          |
-| **comment.created**       | When someone comments on your newsletter         |
+#### Signing key (optional but recommended)
 
-You can select multiple events for a single webhook.
+If you set a signing key, Buttondown will include an `X-Buttondown-Signature: sha256=<hmac>` header on every request, computed as HMAC-SHA256 of the raw request body using your key. Verify it on your side before trusting the payload. See the [API reference](/api-webhooks-introduction#webhook-security-with-hmac-signing) for ready-to-paste verification snippets in Python, Node.js, and Ruby.
 
 ### Step 3: Test your webhook
 
@@ -160,6 +61,33 @@ Once you've configured your webhook, it's recommended to test it:
 1. Click the **Test webhook** button
 2. Buttondown will send a test payload to your URL
 3. Verify that your receiving service gets the test data
+
+{% faq /%}
+
+## What to expect on the wire
+
+When designing your endpoint, plan for the following behavior:
+
+- **Method and content type.** Every webhook is a `POST` with `Content-Type: application/json`. The body is a single JSON object containing `event_type` and `data`.
+- **Success criteria.** Buttondown only treats a delivery as successful if your endpoint returns a `2xx` status code (200–299). Any `3xx`, `4xx`, or `5xx` response — as well as connection errors and timeouts — is treated as a failure and queued for retry.
+- **Retries.** Failed deliveries are retried up to 5 times before being abandoned. Retries are spaced out (roughly 5 minutes apart) and run independently per event, so a brief outage on your side won't drop everything in flight.
+- **Auto-disable.** If the same webhook fails on 5 consecutive events, Buttondown disables it and sends an email so you can investigate. You'll need to re-enable it from the webhook settings page once you've fixed the underlying issue.
+- **Ordering.** Events are not guaranteed to arrive in the order they happened. If ordering matters to you, treat the event payload as a notification and re-fetch the canonical resource via the API.
+- **At-least-once delivery.** Retries mean the same event may be delivered more than once. Use the event's `id` field to dedupe on your end.
+- **Payload size.** Webhook payloads are capped at 10 MB. In practice events are well under a kilobyte, but if you build a webhook that fans out into a much larger payload (e.g. via an automation action), keep this in mind.
+- **Newsletter identifier.** When an account manages more than one newsletter, the `data` object includes a `newsletter` ID. Use it to route events to the right newsletter — see the [API reference FAQ](/api-webhooks-introduction).
+- **No fixed source IP.** Buttondown does not deliver from a stable set of IPs, so don't rely on IP allowlisting for authentication. Use the signing key instead.
+
+## Best practices for webhook handlers
+
+- **Respond fast — do work later.** Acknowledge with a `2xx` immediately and do any heavy processing on a background queue. Slow endpoints get retried as failures and can trigger auto-disable.
+- **Be idempotent.** Track which event `id`s you've already processed (e.g. in a small table or cache) and short-circuit duplicates.
+- **Verify the signature on the raw body.** Don't re-serialize the JSON before computing the HMAC — bytes-in, bytes-out, or the signatures won't match.
+- **Log failures with the response body.** When a delivery fails, Buttondown stores the response status and the first portion of the response body in the deliveries panel — make sure your error responses are descriptive enough to debug from.
+
+## Inspecting deliveries
+
+Every webhook page includes a deliveries panel showing each recent attempt, the response status, and a snippet of the response body. This is the fastest way to diagnose why a webhook isn't behaving the way you expect — start here before reaching out to support.
 
 ## Keep learning
 

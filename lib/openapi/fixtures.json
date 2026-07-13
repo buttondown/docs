@@ -47,6 +47,67 @@
       }
     }
   ],
+  "AdvertisingUnit": [
+    {
+      "description": "Active advertising unit with open and sold slots",
+      "object": {
+        "id": "adsku_0k28edc3fw896bp4mrhc535z5k",
+        "creation_date": "2024-01-01T00:00:00Z",
+        "status": "active",
+        "title": "Sponsored Link",
+        "description": "A sponsored link in the newsletter",
+        "behavior": "",
+        "url": "",
+        "price": 5000,
+        "allows_html": false,
+        "allows_image": false,
+        "max_characters": 280,
+        "submission_deadline_days": 3,
+        "slots": [
+          {
+            "id": "adslot_1328edc3fw896bp4mrhc535z5k",
+            "creation_date": "2024-01-01T00:00:00+00:00",
+            "date": "2024-12-01",
+            "status": "open",
+            "invoice_url": null,
+            "sku_id": "adsku_0k28edc3fw896bp4mrhc535z5k",
+            "submission_url": "http://127.0.0.1:8000/example/sponsorships/submit/11111111-1111-1111-1111-111111111111/",
+            "sponsor_company": "",
+            "sponsor_email": "",
+            "sponsor_name": "",
+            "content": "",
+            "content_image_id": null,
+            "content_url": "",
+            "content_approved_at": null,
+            "content_rejected_at": null,
+            "content_rejection_reason": "",
+            "content_submitted_at": null,
+            "inquiry_message": ""
+          },
+          {
+            "id": "adslot_1k28edc3fw896bp4mrhc535z5k",
+            "creation_date": "2024-01-01T00:00:00+00:00",
+            "date": "2024-11-15",
+            "status": "sold",
+            "invoice_url": null,
+            "sku_id": "adsku_0k28edc3fw896bp4mrhc535z5k",
+            "submission_url": "http://127.0.0.1:8000/example/sponsorships/submit/22222222-2222-2222-2222-222222222222/",
+            "sponsor_company": "Acme Corp",
+            "sponsor_email": "sponsor@acme.com",
+            "sponsor_name": "John Doe",
+            "content": "Check out our amazing product!",
+            "content_image_id": null,
+            "content_url": "https://acme.com/product",
+            "content_approved_at": "2024-11-10T00:00:00+00:00",
+            "content_rejected_at": null,
+            "content_rejection_reason": "",
+            "content_submitted_at": "2024-11-08T00:00:00+00:00",
+            "inquiry_message": ""
+          }
+        ]
+      }
+    }
+  ],
   "AutomationForSubscriber": [
     {
       "description": "Failed automation",
@@ -110,6 +171,62 @@
             "field": "subscriber.tags",
             "operator": "contains",
             "value": "12345678-9012-3456-7890-123456789012"
+          }
+        ],
+        "groups": [],
+        "predicate": "and"
+      }
+    },
+    {
+      "description": "Excluding a tag",
+      "object": {
+        "filters": [
+          {
+            "field": "subscriber.tags",
+            "operator": "not_contains",
+            "value": "12345678-9012-3456-7890-123456789012"
+          }
+        ],
+        "groups": [],
+        "predicate": "and"
+      }
+    },
+    {
+      "description": "Filtering by subscriber status",
+      "object": {
+        "filters": [
+          {
+            "field": "subscriber.status",
+            "operator": "contains",
+            "value": "premium"
+          }
+        ],
+        "groups": [],
+        "predicate": "and"
+      }
+    },
+    {
+      "description": "Filtering by a custom metadata field",
+      "object": {
+        "filters": [
+          {
+            "field": "subscriber.metadata.favorite_color",
+            "operator": "contains",
+            "value": "blue"
+          }
+        ],
+        "groups": [],
+        "predicate": "and"
+      }
+    },
+    {
+      "description": "Filtering by subscription date",
+      "object": {
+        "filters": [
+          {
+            "field": "subscriber.subscription_date",
+            "operator": "greater_than",
+            "value": "2024-01-01"
           }
         ],
         "groups": [],
@@ -281,9 +398,13 @@
         "id": "sub_0k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "avatar_url": "",
+        "bounce_date": null,
+        "bounce_reason": null,
         "churn_date": null,
         "commenting_disabled": false,
+        "country": null,
         "email_address": "telemachus@buttondown.email",
+        "gift_subscription_end_date": null,
         "gift_subscription_message": "",
         "ip_address": null,
         "last_click_date": null,
@@ -321,7 +442,8 @@
         "utm_campaign": "",
         "utm_medium": "",
         "utm_source": "",
-        "stripe_customer": null
+        "stripe_customer": null,
+        "stripe_subscription": null
       }
     },
     {
@@ -330,9 +452,13 @@
         "id": "sub_0k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "avatar_url": "",
+        "bounce_date": null,
+        "bounce_reason": null,
         "churn_date": null,
         "commenting_disabled": false,
+        "country": null,
         "email_address": "telemachus@buttondown.email",
+        "gift_subscription_end_date": null,
         "gift_subscription_message": "",
         "ip_address": null,
         "last_click_date": null,
@@ -370,7 +496,8 @@
         "utm_campaign": "",
         "utm_medium": "",
         "utm_source": "",
-        "stripe_customer": null
+        "stripe_customer": null,
+        "stripe_subscription": null
       }
     },
     {
@@ -379,9 +506,13 @@
         "id": "sub_0k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
         "avatar_url": "",
+        "bounce_date": null,
+        "bounce_reason": null,
         "churn_date": null,
         "commenting_disabled": false,
+        "country": null,
         "email_address": "telemachus@buttondown.email",
+        "gift_subscription_end_date": null,
         "gift_subscription_message": "",
         "ip_address": null,
         "last_click_date": null,
@@ -424,7 +555,8 @@
         "utm_campaign": "",
         "utm_medium": "",
         "utm_source": "",
-        "stripe_customer": null
+        "stripe_customer": null,
+        "stripe_subscription": null
       }
     }
   ],
@@ -432,14 +564,14 @@
     {
       "description": "Basic export",
       "object": {
+        "id": "exp_29fxqcmrkp969vzttksexvmvr8",
+        "creation_date": "2019-08-24T14:15:22",
         "collections": [
           "subscribers"
         ],
         "parameters": null,
         "format": "csv",
         "columns": null,
-        "id": "exp_29fxqcmrkp969vzttksexvmvr8",
-        "creation_date": "2019-08-24T14:15:22",
         "url": "https://s3.amazonaws.com/buttondown-exports/basic-export.csv",
         "completion_date": "2019-08-24T15:15:22",
         "status": "ready"
@@ -448,6 +580,8 @@
     {
       "description": "In-progress export",
       "object": {
+        "id": "exp_3bmyw117dd278r1d00r17x8c68",
+        "creation_date": "2019-08-24T14:15:22",
         "collections": [
           "emails",
           "subscribers"
@@ -458,8 +592,6 @@
         },
         "format": "json",
         "columns": null,
-        "id": "exp_3bmyw117dd278r1d00r17x8c68",
-        "creation_date": "2019-08-24T14:15:22",
         "url": null,
         "completion_date": null,
         "status": "in_progress"
@@ -468,14 +600,14 @@
     {
       "description": "Export with error",
       "object": {
+        "id": "exp_3bmyw137dd278r1d00r17x8c68",
+        "creation_date": "2019-08-24T14:15:22",
         "collections": [
           "events"
         ],
         "parameters": null,
         "format": "csv",
         "columns": null,
-        "id": "exp_3bmyw137dd278r1d00r17x8c68",
-        "creation_date": "2019-08-24T14:15:22",
         "url": null,
         "completion_date": null,
         "status": "error"
@@ -484,6 +616,8 @@
     {
       "description": "Export with custom columns",
       "object": {
+        "id": "exp_3bmyw157dd278r1d00r17x8c68",
+        "creation_date": "2019-08-24T14:15:22",
         "collections": [
           "subscribers"
         ],
@@ -494,8 +628,6 @@
           "creation_date",
           "subscriber_type"
         ],
-        "id": "exp_3bmyw157dd278r1d00r17x8c68",
-        "creation_date": "2019-08-24T14:15:22",
         "url": "https://s3.amazonaws.com/buttondown-exports/custom-columns-export.csv",
         "completion_date": "2019-08-24T15:30:22",
         "status": "ready"
@@ -504,6 +636,8 @@
     {
       "description": "Multi-collection export",
       "object": {
+        "id": "exp_3bmyw177dd278r1d00r17x8c68",
+        "creation_date": "2019-08-24T14:15:22",
         "collections": [
           "emails",
           "subscribers",
@@ -515,8 +649,6 @@
         },
         "format": "json",
         "columns": null,
-        "id": "exp_3bmyw177dd278r1d00r17x8c68",
-        "creation_date": "2019-08-24T14:15:22",
         "url": "https://s3.amazonaws.com/buttondown-exports/multi-collection-export.json",
         "completion_date": "2019-08-24T16:45:22",
         "status": "ready"
@@ -558,11 +690,11 @@
         "creation_date": "2000-01-01T00:00:00+00:00",
         "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
         "analytics": null,
+        "callouts": [],
         "attachments": [],
         "body": "I hope you really enjoy it!",
         "canonical_url": "",
         "commenting_mode": "enabled",
-        "review_mode": "disabled",
         "description": "",
         "archival_mode": "enabled",
         "email_type": "public",
@@ -594,11 +726,11 @@
         "creation_date": "2000-01-01T00:00:00+00:00",
         "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
         "analytics": null,
+        "callouts": [],
         "attachments": [],
         "body": "I hope you really enjoy it!",
         "canonical_url": "",
         "commenting_mode": "enabled",
-        "review_mode": "disabled",
         "description": "",
         "archival_mode": "enabled",
         "email_type": "public",
@@ -630,11 +762,11 @@
         "creation_date": "2000-01-01T00:00:00+00:00",
         "absolute_url": "http://127.0.0.1:8000/sheinhardt/archive/welcome-to-the-newsletter/",
         "analytics": null,
+        "callouts": [],
         "attachments": [],
         "body": "I hope you really enjoy it!",
         "canonical_url": "",
         "commenting_mode": "enabled",
-        "review_mode": "disabled",
         "description": "",
         "archival_mode": "enabled",
         "email_type": "public",
@@ -672,6 +804,7 @@
         "subscriber_id": "sub_0k28edc3fw896bp4mrhc535z5k",
         "email_id": null,
         "automation_id": null,
+        "source": null,
         "subscriber": null,
         "survey": null,
         "email": null,
@@ -689,13 +822,18 @@
         "subscriber_id": "sub_0k28edc3fw896bp4mrhc535z5k",
         "email_id": null,
         "automation_id": null,
+        "source": null,
         "subscriber": {
           "id": "sub_0k28edc3fw896bp4mrhc535z5k",
           "creation_date": "2020-09-29T00:00:00+00:00",
           "avatar_url": "",
+          "bounce_date": null,
+          "bounce_reason": null,
           "churn_date": null,
           "commenting_disabled": false,
+          "country": null,
           "email_address": "telemachus@buttondown.email",
+          "gift_subscription_end_date": null,
           "gift_subscription_message": "",
           "ip_address": null,
           "last_click_date": null,
@@ -733,7 +871,8 @@
           "utm_campaign": "",
           "utm_medium": "",
           "utm_source": "",
-          "stripe_customer": null
+          "stripe_customer": null,
+          "stripe_subscription": null
         },
         "survey": null,
         "email": null,
@@ -789,13 +928,13 @@
     {
       "description": "Tag",
       "object": {
+        "id": "sub_tag_0k28edc3fw896bp4mrhc535z5k",
+        "creation_date": "2020-09-29T00:00:00+00:00",
         "name": "VIP",
         "color": "#FFD700",
         "description": "VIP subscribers",
         "public_description": null,
         "subscriber_editable": false,
-        "id": "sub_tag_0k28edc3fw896bp4mrhc535z5k",
-        "creation_date": "2020-09-29T00:00:00+00:00",
         "secondary_id": 1
       }
     }
@@ -1090,7 +1229,12 @@
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
         "creation_date": "2020-09-29T00:00:00Z",
-        "status": "successful"
+        "status": "successful",
+        "event_type": null,
+        "error_message": null,
+        "attempt_count": 0,
+        "completion_date": null,
+        "duration_ms": null
       }
     },
     {
@@ -1098,7 +1242,12 @@
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb4",
         "creation_date": "2020-09-29T00:00:00Z",
-        "status": "failed"
+        "status": "failed",
+        "event_type": null,
+        "error_message": null,
+        "attempt_count": 0,
+        "completion_date": null,
+        "duration_ms": null
       }
     },
     {
@@ -1106,7 +1255,12 @@
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb5",
         "creation_date": "2020-09-29T00:00:00Z",
-        "status": "unattempted"
+        "status": "unattempted",
+        "event_type": null,
+        "error_message": null,
+        "attempt_count": 0,
+        "completion_date": null,
+        "duration_ms": null
       }
     }
   ],
@@ -1135,6 +1289,7 @@
         "results": {
           "new_subscribers": 100,
           "updated_subscribers": null,
+          "updated_subscriber_emails": [],
           "existing_subscribers": 20,
           "reason_to_bad_subscribers": {
             "That email address is invalid.": [
@@ -1182,6 +1337,7 @@
         "results": {
           "new_subscribers": 100,
           "updated_subscribers": null,
+          "updated_subscriber_emails": [],
           "existing_subscribers": 20,
           "reason_to_bad_subscribers": {
             "That email address is invalid.": [
@@ -1289,7 +1445,9 @@
             "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
             "url": "https://example.com",
             "status": "successful",
-            "webhook_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3"
+            "webhook_id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+            "creation_date": "2020-09-29T00:00:00+00:00",
+            "error_message": null
           }
         ],
         "automation_attempts": [
@@ -1311,8 +1469,8 @@
       "object": {
         "subscription_id": "sub_whatever",
         "url": "https://dashboard.stripe.com/subscriptions/sub_whatever",
-        "creation_date": "2023-01-01T06:00:00",
-        "ending_date": "2023-01-01T06:00:00",
+        "creation_date": "2023-01-01T00:00:00",
+        "ending_date": "2023-01-01T00:00:00",
         "amount": 1000,
         "currency": "usd",
         "cadence": "month",
@@ -1564,7 +1722,7 @@
         "api_key_id": null,
         "api_key_label": null,
         "request_data": "{\"email\": \"test@example.com\"}",
-        "response_data": "null",
+        "response_data": null,
         "headers": {
           "X-Api-Version": "2024-08-01"
         }
@@ -1719,6 +1877,28 @@
           "reason_to_bad_subscribers": {},
           "new_tags": null
         }
+      }
+    }
+  ],
+  "CadenceMetadata": [
+    {
+      "description": "Daily at 9am",
+      "object": {
+        "time": "9"
+      }
+    },
+    {
+      "description": "Weekly on Monday at 1pm",
+      "object": {
+        "time": "13",
+        "weekday": "monday"
+      }
+    },
+    {
+      "description": "Monthly on the first day at 6pm",
+      "object": {
+        "time": "18",
+        "monthday": "firstday"
       }
     }
   ]

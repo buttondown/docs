@@ -1,9 +1,9 @@
 ---
-title: How to send a teaser email
-navigationTitle: Paywalls and teasers
+title: Offering perks for paid subscribers
+navigationTitle: Paid subscriber content
 description: >-
-  Buttondown gives you the option of sending a "teaser" version of a paid email to encourage free readers to upgrade.
-date: 2024-08-02
+  Buttondown makes it easy to share special perks and incentives with your paid readers, including paywalls and teaser emails.
+date: 2026-05-17
 relatedPages:
   - paid-subscriptions
 faqItems: >
@@ -11,13 +11,42 @@ faqItems: >
     {
       "question": "This is a Premium email, why is the audience \"Public\"?",
       "answer": "As this email contains content for *both* free and Premium readers the audience must be set as public.\n\nThe content *above* the paywall component will be visible to all readers.\n\nContent *below* the paywall will only be visible to premium readers."
-    },
-    {
-      "question": "How do I add custom teaser text?",
-      "answer": "This [feature was deprecated](https://buttondown.com/changelog/2025-02-06) in favor of paywalls.\n\nBut, you can still replicate this behavior using paywalls. To do this you'll add a \"Free-only\" block at the top of your email. Then place your paywall below that."
     }
   ]
 ---
+
+Buttondown gives you several ways to share content with paid subscribers — pick one with the flowchart below.
+
+```mermaid
+
+flowchart TD
+    teaser["Send some content to non-paying customers?"] -->|"Yes"| A
+    teaser["Send some content to non-paying customers?"] -->|"No"| audience@{ shape: stadium, label: "Use custom audience" }
+    A["Is the premium-only content at the end of the newsletter?"] -->|"Yes"| paywall@{ shape: stadium, label: "Use paywall" }
+    A["Is the premium-only content at the end of the newsletter?"] -->|"No"| blocks@{ shape: stadium, label: "Use free/premium blocks" }
+
+    click audience href "api-emails-type"
+    click paywall href "fancy-mode#paywall"
+    click blocks href "fancy-mode#freepremium-blocks"
+```
+
+At a high level, you have three options:
+
+1. Send explicitly to paid-only subscribers. By [filtering the audience of your email](/api-emails-type) to premium subscribers only, you can completely gate off a given email from non-paying subscribers. This is the simplest option and works great if your scheduling cadence is, for example, to send two emails a week: one for all subscribers and one for paid subscribers only.
+2. Use a [paywall](/glossary-managing-your-list#paywall). If you want to only block off a portion of your content for premium subscribers, you can [insert a paywall in your newsletter](/fancy-mode#paywall). All content before the paywall is visible by everyone, but only premium subscribers can see content after the paywall. This works great for authors who want to give free subscribers a little teaser of what they're missing out on.
+3. [Fully customize the content by using free and premium blocks](/fancy-mode#freepremium-blocks). All content placed inside these blocks are visible only by free or paid subscribers, respectively, giving you really fine-grained control over what your paid subscription affords. For instance, authors can use this to hide ads for paying subscribers or to include custom content in the middle of a newsletter for paid subscribers.
+
+## Sending to a paid-only audience
+
+When the entire email is for paid subscribers, the simplest path is to scope the audience itself.
+
+1. Compose your email as you normally would.
+1. In the email's sidebar, set the audience to [Premium](/api-subscribers-type#premium).
+1. Send. The email will be delivered to paid subscribers only; free subscribers won't see it at all.
+
+This is the cleanest option when you have a regular cadence of paid-only sends, and it requires no special blocks or paywalls inside the email body. See the full list of [audience types](/api-emails-type) for variations like "Premium and trialing".
+
+## Sending a teaser email with a paywall
 
 If you have a paid newsletter, you might want to send a "teaser" version of the email to your free subscribers.
 
@@ -31,15 +60,14 @@ Here's how to send a teaser email:
 1. Everything _below_ the [paywall](/glossary-managing-your-list#paywall) block will only be visible to [Premium](/api-subscribers-type#premium) subscribers. [Regular](/api-subscribers-type#regular) subscribers will see only the text _above_ the paywall, followed by a link to pay for a subscription.
 1. Send the email to a [Public](/api-emails-type#public) audience. This way, the email will be sent to both paid and unpaid subscribers—but the different types of subscribers will see different content.
 
-{% noticeWarn text="Looking for information about adding custom teaser text to a premium email? This [feature was deprecated](https://buttondown.com/changelog/2025-02-06) in favor of paywalls." /%}
+## Using free/premium blocks
 
-## Tip jars
+When premium content is interleaved with free content — rather than placed neatly at the end — use [free/premium blocks](/fancy-mode#freepremium-blocks). These give you per-section control over what each audience sees:
 
-If you're coming from a platform like [Buy Me a Coffee](https://www.buymeacoffee.com/) or [Ko-fi](https://ko-fi.com/), you may be familiar with the concept of a "tip jar", which is a way to collect donations from your readers without gating access to your writing.
+- "Free-only" blocks render for free subscribers only. Useful for ads, upgrade prompts, or alternative copy targeted at non-paying readers.
+- "Premium-only" blocks render for paid subscribers only. Useful for bonus content, links, or perks tucked in the middle of an email.
 
-You can do the same for your newsletter by using the "Pay what you want" pricing model. This model allows you to set a minimum price for your newsletter (if you want), and subscribers can pay any amount they want on either a recurring or one-time basis.
-
-To set up a tip jar for your newsletter, you'll get started by [setting up a paid newsletter](/stripe).
+You can use both block types in a single email, and combine them with a paywall if you want. Send the email to a [Public](/api-emails-type#public) audience so both groups receive it; each subscriber will only see the blocks intended for them.
 
 ## Frequently asked questions
 

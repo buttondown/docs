@@ -1,0 +1,9 @@
+---
+title: Archiving a price
+endpoint: /prices/{price_id}
+method: delete
+---
+
+This endpoint archives a price in your connected Stripe account, making it unavailable for new subscriptions. Stripe prices are immutable and can't be deleted outright, so this deactivates the price instead; existing subscriptions on it are untouched.
+
+Note that a product's default price can't be archived — set a different default price first.
