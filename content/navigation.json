@@ -228,10 +228,6 @@
         },
         {
           "discriminant": "page",
-          "value": "sponsorships"
-        },
-        {
-          "discriminant": "page",
           "value": "gift-subscriptions"
         },
         {
@@ -451,6 +447,14 @@
         {
           "discriminant": "page",
           "value": "rss-to-email"
+        },
+        {
+          "discriminant": "page",
+          "value": "sponsorships"
+        },
+        {
+          "discriminant": "page",
+          "value": "whitelabeling"
         }
       ]
     },
