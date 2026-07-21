@@ -15,12 +15,16 @@ faqItems: >
 
 Snippets are reusable content blocks you can insert into any email. Create a snippet once for content you use frequently — like your bio, a standard sign-off, or a sponsor disclaimer — and insert it wherever you need it.
 
+Snippets can be used in the [fancy editing mode](/fancy-mode) or the [markdown editing mode.](/using-markdown)
+
+Think of snippets as portable templates. With snippets, you can have different reusable text for a certain kind of email or announcement or blog post. Alternatively, you can place the snippet as the header of an outgoing email but then decide you want to change it later, so you just update that one snippet and all future emails will have the new template text or link.
+
 ## Creating a snippet
 
-Head to **Settings → General → Snippets** to create your first snippet. Each snippet has:
+Head to [**Settings → General → Snippets**](https://buttondown.com/settings/snippets) to create your first snippet. Each snippet has:
 
 - **Name**: A human-readable label (e.g., "Weekly sign-off")
-- **Identifier**: A unique ID used to insert the snippet (e.g., `weekly-signoff`)
+- **Identifier**: A unique ID used to insert the snippet (e.g., `weekly-signoff`) This is used to make your snippets work if you are writing in Markdown.
 - **Content**: The actual content that gets inserted
 
 ## Inserting snippets
@@ -29,11 +33,25 @@ Head to **Settings → General → Snippets** to create your first snippet. Each
 
 Type `/` to open the command menu and search for your snippet by name. Select it, and the content gets inserted at your cursor.
 
+If you are using the keyboard to navigate, press the down and up arrows after typing, "/" when no other text has been entered, and then you will be able to arrow through the selections. Press enter when you find the one you want.
+
 ![](/images/snippets-command-menu.png)
 
 ### In Markdown mode
 
 Use the `<buttondown-snippet>` tag with your snippet's identifier:
+
+The code looks like this.
+
+```html
+<buttondown-snippet name="weekly-signoff"></buttondown-snippet>
+```
+
+If we pretend we made a new snippet called Weekly Sign Off, we would put the identifier in the spot after the equal sign, like this.
+
+The, "Name" would not go in here because "Name" is supposed to be a human friendly name. Identifier is more for machines.
+
+Our filled in weekly sign off Snippet with the corresponding "identifier" we would use in our Markdown email would look like this.
 
 ```html
 <buttondown-snippet name="weekly-signoff"></buttondown-snippet>
