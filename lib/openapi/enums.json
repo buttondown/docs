@@ -92,6 +92,11 @@
       "name": "Gift premium subscription",
       "variant": "info"
     },
+    "remove_metadata": {
+      "description": "Remove metadata fields from a subscriber.",
+      "name": "Remove metadata",
+      "variant": "info"
+    },
     "remove_tags": {
       "description": "Remove tags from a subscriber.",
       "name": "Remove tags",

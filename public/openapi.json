@@ -27231,6 +27231,7 @@
           "remove_tags",
           "send_email",
           "add_metadata",
+          "remove_metadata",
           "change_email_address",
           "gift_premium_subscription",
           "ungift_premium_subscription",
