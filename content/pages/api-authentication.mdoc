@@ -80,9 +80,16 @@ flowchart TD
     end
 ```
 
-The platform could programmatically access each newsletter's API key and pass it through, but this is clumsy and onerous. Instead, you can pass the `Buttondown-Context` header to specify the newsletter you want to access:
+The platform could programmatically access each newsletter's API key and pass it through, but this is clumsy and onerous. Instead, you can authenticate with the platform account's own API key and pass the `Buttondown-Context` header to specify which newsletter you want to act on:
 
 {% generatedMultilanguageSnippets
    method="GET"
    endpoint="/subscribers"
-   headers="{\"Buttondown-Context\": \"sheinhardt_pt\"}" /%}
+   headers="{\"Buttondown-Context\": \"a1b2c3d4-5678-90ab-cdef-1234567890ab\"}" /%}
+
+The value of `Buttondown-Context` must be the newsletter's **ID** — a UUID, not its username. You can find a newsletter's ID by listing your newsletters at [`GET /v1/newsletters`](/api-newsletters-list). The header works with every endpoint: reads (`/subscribers`, `/emails`, `/imports`, …) return the target newsletter's data, and writes (creating a draft, inviting a user via `POST /users`) are scoped to it.
+
+Two constraints are worth calling out:
+
+- The header only takes effect when you authenticate with the **platform account's** API key and the account has access to the target newsletter. It does not let one newsletter's key reach into another.
+- If the header value isn't the ID of a newsletter you can access — an unknown ID, a malformed value, or a newsletter's username — the request fails with `401 authentication_invalid`. It never falls back to the account's primary newsletter, so a typo can't silently send a request to the wrong place.
