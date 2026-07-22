@@ -27021,7 +27021,8 @@
           "api",
           "import",
           "app",
-          "external_feed"
+          "external_feed",
+          "smtp"
         ],
         "title": "Source",
         "type": "string"

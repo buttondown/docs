@@ -628,6 +628,11 @@
       "description": "This email was imported from another service.",
       "name": "Import",
       "variant": "info"
+    },
+    "smtp": {
+      "description": "This email was created by emailing it in to Buttondown (post by email / SMTP).",
+      "name": "SMTP",
+      "variant": "info"
     }
   },
   "EmailStatus": {
