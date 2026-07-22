@@ -1901,5 +1901,57 @@
         "monthday": "firstday"
       }
     }
+  ],
+  "HostingDomainRecord": [
+    {
+      "description": "Verified hosting domain",
+      "object": {
+        "domain": "www.example.com",
+        "record_type": "CNAME",
+        "data": [
+          "custom-domains.buttondown.com"
+        ],
+        "nameservers": [],
+        "apex_alias_provider": null,
+        "status": "valid"
+      }
+    }
+  ],
+  "SendingDomainRecord": [
+    {
+      "description": "Verified sending domain",
+      "object": {
+        "id": "",
+        "domain": "mail.example.com",
+        "status": "valid",
+        "warnings": [],
+        "requirements": [
+          {
+            "record_type": "CNAME",
+            "name": "pm-bounces.mail.example.com",
+            "is_valid": true,
+            "required_value": "pm.mtasv.net",
+            "current_values": [
+              "pm.mtasv.net"
+            ],
+            "context": "manual"
+          },
+          {
+            "record_type": "TXT",
+            "name": "pm._domainkey.mail.example.com",
+            "is_valid": true,
+            "required_value": "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQ...",
+            "current_values": [
+              "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQ..."
+            ],
+            "context": "manual"
+          }
+        ],
+        "existing_mail_provider": null,
+        "detected_dns_provider": null,
+        "checked_date": "2024-01-01T00:00:00Z",
+        "is_checking": false
+      }
+    }
   ]
 }

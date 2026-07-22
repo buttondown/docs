@@ -1435,6 +1435,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-newsletters-retrieve"
+        },
+        {
+          "discriminant": "page",
           "value": "api-newsletters-create"
         },
         {
@@ -1444,6 +1448,14 @@
         {
           "discriminant": "page",
           "value": "api-newsletters-delete"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-newsletters-sending-domain"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-newsletters-hosting-domain"
         }
       ]
     },

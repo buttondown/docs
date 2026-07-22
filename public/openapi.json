@@ -9722,6 +9722,12 @@
               }
             },
             "links": {
+              "retrieve_newsletter": {
+                "operationId": "retrieve_newsletter",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
               "update_newsletter": {
                 "operationId": "update_newsletter",
                 "parameters": {
@@ -9838,6 +9844,125 @@
       }
     },
     "/newsletters/{id}": {
+      "get": {
+        "operationId": "retrieve_newsletter",
+        "summary": "Retrieve Newsletter",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Newsletter"
+                }
+              }
+            },
+            "links": {
+              "update_newsletter": {
+                "operationId": "update_newsletter",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_newsletter": {
+                "operationId": "delete_newsletter",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before retrying.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Requests permitted per minute.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Requests remaining in the current window.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Unix timestamp at which the window resets.",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve a specific newsletter by its ID",
+        "tags": [
+          "Newsletters"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
       "patch": {
         "operationId": "update_newsletter",
         "summary": "Update Newsletter",
@@ -9863,6 +9988,12 @@
               }
             },
             "links": {
+              "retrieve_newsletter": {
+                "operationId": "retrieve_newsletter",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
               "delete_newsletter": {
                 "operationId": "delete_newsletter",
                 "parameters": {
@@ -10070,6 +10201,242 @@
           }
         },
         "description": "Delete a newsletter",
+        "tags": [
+          "Newsletters"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/newsletters/{id}/sending-domain": {
+      "get": {
+        "operationId": "retrieve_sending_domain",
+        "summary": "Retrieve Sending Domain",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "default": false,
+              "description": "When true, trigger a fresh DNS re-verification instead of serving the last-known record.",
+              "title": "Force",
+              "type": "boolean"
+            },
+            "required": false,
+            "description": "When true, trigger a fresh DNS re-verification instead of serving the last-known record."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendingDomainRecord"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before retrying.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Requests permitted per minute.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Requests remaining in the current window.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Unix timestamp at which the window resets.",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve the DNS verification status and required records for a newsletter's custom sending domain. While `is_checking` is true, a background re-verification is in flight; poll until it flips to false. Pass `force=true` to trigger a re-check.",
+        "tags": [
+          "Newsletters"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/newsletters/{id}/hosting-domain": {
+      "get": {
+        "operationId": "retrieve_hosting_domain",
+        "summary": "Retrieve Hosting Domain",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HostingDomainRecord"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before retrying.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Requests permitted per minute.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Requests remaining in the current window.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Unix timestamp at which the window resets.",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve the DNS verification status for a newsletter's custom hosting domain. This synchronously re-verifies the domain's DNS records.",
         "tags": [
           "Newsletters"
         ],
@@ -22872,6 +23239,16 @@
         "title": "UpdateImportInput",
         "type": "object"
       },
+      "HostingDomainStatus": {
+        "enum": [
+          "none",
+          "invalid",
+          "valid"
+        ],
+        "title": "HostingDomainStatus",
+        "type": "string",
+        "description": "An enumeration."
+      },
       "Newsletter": {
         "description": "You will likely not need to interact with your newsletter settings\nprogrammatically, but if you do, this is the endpoint for you. You can\ncreate, update, and list newsletters via the API; this is ideal for\nintegrating with Buttondown as a headless email or newsletter provider\n(e.g. for a SaaS product.)",
         "properties": {
@@ -23191,6 +23568,15 @@
             "title": "Header",
             "type": "string"
           },
+          "hosting_domain_status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/HostingDomainStatus"
+              }
+            ],
+            "default": "none",
+            "description": "The DNS verification status of your custom hosting domain. Read-only; see `/newsletters/{id}/hosting-domain` for the underlying records."
+          },
           "icon": {
             "anyOf": [
               {
@@ -23247,6 +23633,15 @@
             "description": "An alternative email address that receives replies to your newsletter emails, instead of the sending address.",
             "title": "Reply To Address",
             "type": "string"
+          },
+          "sending_domain_status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SendingDomainStatus"
+              }
+            ],
+            "default": "none",
+            "description": "The DNS verification status of your custom sending domain. Read-only; see `/newsletters/{id}/sending-domain` for the underlying records."
           },
           "sharing_networks": {
             "default": [],
@@ -23343,6 +23738,19 @@
         ],
         "title": "Newsletter",
         "type": "object"
+      },
+      "SendingDomainStatus": {
+        "enum": [
+          "none",
+          "invalid",
+          "awaiting_ssl",
+          "failing",
+          "deliberately_cold",
+          "valid"
+        ],
+        "title": "SendingDomainStatus",
+        "type": "string",
+        "description": "An enumeration."
       },
       "SocialAccountSchema": {
         "additionalProperties": false,
@@ -24547,6 +24955,261 @@
           }
         },
         "title": "NewsletterUpdateInput",
+        "type": "object"
+      },
+      "ApexAliasProvider": {
+        "properties": {
+          "id": {
+            "description": "Stable identifier for the DNS provider (e.g. `cloudflare`).",
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "description": "Human-readable name of the DNS provider.",
+            "title": "Name",
+            "type": "string"
+          },
+          "apex_alias_support": {
+            "description": "How the provider supports pointing an apex/root domain at a CNAME target (e.g. CNAME flattening or ALIAS records).",
+            "title": "Apex Alias Support",
+            "type": "string"
+          },
+          "wording_kind": {
+            "description": "Which copy variant to show for this provider's setup instructions.",
+            "title": "Wording Kind",
+            "type": "string"
+          },
+          "nameserver_regexes": {
+            "description": "Patterns matched against a domain's nameservers to detect this provider.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Nameserver Regexes",
+            "type": "array"
+          },
+          "support_doc_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Link to the provider's own DNS documentation, when available.",
+            "title": "Support Doc Url"
+          },
+          "side_notes": {
+            "description": "Provider-specific caveats to surface alongside the setup guidance.",
+            "title": "Side Notes",
+            "type": "string"
+          },
+          "buttondown_guide_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A first-party Buttondown setup guide for this provider, when one exists.",
+            "title": "Buttondown Guide Url"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "apex_alias_support",
+          "wording_kind",
+          "nameserver_regexes",
+          "support_doc_url",
+          "side_notes"
+        ],
+        "title": "ApexAliasProvider",
+        "type": "object"
+      },
+      "RequirementRecord": {
+        "properties": {
+          "record_type": {
+            "description": "The DNS record type to create (e.g. `CNAME`, `TXT`, `MX`).",
+            "title": "Record Type",
+            "type": "string"
+          },
+          "name": {
+            "description": "The host/name the DNS record should be created at.",
+            "title": "Name",
+            "type": "string"
+          },
+          "is_valid": {
+            "description": "Whether the record is currently present and correct in DNS.",
+            "title": "Is Valid",
+            "type": "boolean"
+          },
+          "required_value": {
+            "description": "The value the DNS record must point to.",
+            "title": "Required Value",
+            "type": "string"
+          },
+          "current_values": {
+            "description": "The values currently observed at this record, if any.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Current Values",
+            "type": "array"
+          },
+          "context": {
+            "description": "`manual` if the customer must create this record themselves; `managed` if Buttondown provisions it.",
+            "enum": [
+              "managed",
+              "manual"
+            ],
+            "title": "Context",
+            "type": "string"
+          }
+        },
+        "required": [
+          "record_type",
+          "name",
+          "is_valid",
+          "required_value",
+          "current_values",
+          "context"
+        ],
+        "title": "RequirementRecord",
+        "type": "object"
+      },
+      "SendingDomainRecord": {
+        "properties": {
+          "id": {
+            "description": "The ESP-side identifier for the domain, when available.",
+            "title": "Id",
+            "type": "string"
+          },
+          "domain": {
+            "description": "The custom sending domain being verified.",
+            "title": "Domain",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/SendingDomainStatus"
+          },
+          "warnings": {
+            "description": "Human-readable warnings about the domain's DNS setup (e.g. a record left proxied through Cloudflare).",
+            "items": {},
+            "title": "Warnings",
+            "type": "array"
+          },
+          "requirements": {
+            "description": "The DNS records required for the domain, each with its current verification state.",
+            "items": {
+              "$ref": "#/components/schemas/RequirementRecord"
+            },
+            "title": "Requirements",
+            "type": "array"
+          },
+          "existing_mail_provider": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The third-party mail provider already handling this domain's inbound mail, when detected; its MX record is then omitted from `requirements`.",
+            "title": "Existing Mail Provider"
+          },
+          "detected_dns_provider": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ApexAliasProvider"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "checked_date": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When the record was last computed. Null until the first verification completes.",
+            "title": "Checked Date"
+          },
+          "is_checking": {
+            "default": false,
+            "description": "Whether a background re-verification is currently in flight. Clients poll while this is true.",
+            "title": "Is Checking",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "domain",
+          "status",
+          "warnings",
+          "requirements"
+        ],
+        "title": "SendingDomainRecord",
+        "type": "object"
+      },
+      "HostingDomainRecord": {
+        "properties": {
+          "domain": {
+            "description": "The custom hosting domain being verified.",
+            "title": "Domain",
+            "type": "string"
+          },
+          "record_type": {
+            "description": "The DNS record type the domain should use (typically `CNAME`).",
+            "title": "Record Type",
+            "type": "string"
+          },
+          "data": {
+            "description": "The record values currently observed at the domain, if any.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Data",
+            "type": "array"
+          },
+          "nameservers": {
+            "description": "The domain's nameservers, used to detect its DNS provider.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Nameservers",
+            "type": "array"
+          },
+          "apex_alias_provider": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ApexAliasProvider"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/HostingDomainStatus"
+          }
+        },
+        "required": [
+          "domain",
+          "record_type",
+          "data",
+          "status"
+        ],
+        "title": "HostingDomainRecord",
         "type": "object"
       },
       "Note": {
