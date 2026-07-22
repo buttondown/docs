@@ -14,10 +14,36 @@ export default async function LiveCodeBlock({ path }: { path: string }) {
   let html = "";
 
   if (isExternalUrl) {
-    // For external URLs, fetch the content
-    const response = await fetch(path);
-    html = await response.text();
-    code = html;
+    // Fetch the external example at build time. GitHub's raw endpoint
+    // intermittently times out (notably over IPv6 from CI), and a single
+    // failed fetch would otherwise abort the entire docs prerender/deploy.
+    // Retry a few times with a bounded timeout, and degrade to an empty
+    // render rather than crashing the build if it stays unreachable.
+    const MAX_ATTEMPTS = 3;
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+      try {
+        const response = await fetch(path, {
+          signal: AbortSignal.timeout(15_000),
+        });
+        if (!response.ok) {
+          throw new Error(`Unexpected status ${response.status}`);
+        }
+        html = await response.text();
+        code = html;
+        break;
+      } catch (error) {
+        if (attempt === MAX_ATTEMPTS) {
+          console.error(
+            `LiveCodeBlock: failed to fetch ${path} after ${MAX_ATTEMPTS} attempts; rendering an empty example.`,
+            error,
+          );
+          code = `<!-- Unable to load example from ${path} -->`;
+          html = "";
+        } else {
+          await new Promise((resolve) => setTimeout(resolve, attempt * 1_000));
+        }
+      }
+    }
   } else {
     // For local files, resolve relative to the project root so this works
     // both at build time and at runtime on Vercel preview deployments

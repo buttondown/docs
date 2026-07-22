@@ -82,6 +82,7 @@ and how it extracts them, in order:
 4. `publish_date`: Buttondown looks for the `published` field in the RSS item. If it's not found, it looks for the `updated` field.
 5. `description`: Buttondown looks for the `subtitle` field in the RSS item. If it's not found, it looks for the `summary` field.
 6. `guid`: Buttondown looks for the `guid` field (or, in Atom feeds, the `id` field).
+7. `enclosure`: Buttondown looks for an `<enclosure>` element (often used for a post's featured image). If there isn't one, it falls back to the [MediaRSS](https://www.rssboard.org/media-rss) namespace: a `<media:content>` flagged as an image, then a `<media:thumbnail>`, then any other `<media:content>`. This is available in your template as `{{ item.enclosure }}`.
 
 ### How Buttondown decides whether an item is new
 
@@ -161,10 +162,13 @@ We published the following essays this week:
 
 {% for item in items %}
     <h2>{{ item.title }}</h2>
+    {% if item.enclosure %}<img src="{{ item.enclosure }}" />{% endif %}
     <p>{{ item.description }}</p>
     <p><a href="{{ item.url }}">Read more</a></p>
 {% endfor %}
 ```
+
+Each item exposes `title`, `description`, `content`, `url`, `publish_date`, `author`, and `enclosure` (the featured image, when your feed provides one via an `<enclosure>` or a MediaRSS `<media:content>`/`<media:thumbnail>` element).
 
 Or if you chose a cadence of "every time" for your RSS feed, you'd just send information on the latest item:
 
@@ -177,6 +181,7 @@ Or if you chose a cadence of "every time" for your RSS feed, you'd just send inf
 We're the first to admit that there's a _lot_ of esoteric features and functionality when it comes to RSS. Here's a (assuredly incomplete) list of things that Buttondown either does or doesn't support:
 
 - Buttondown supports the `xml:base` attribute, which allows you to specify a base URL for relative links in your RSS feed.
+- Buttondown supports the [MediaRSS](https://www.rssboard.org/media-rss) namespace (`<media:content>` and `<media:thumbnail>`) as a source for an item's featured image, in addition to the standard `<enclosure>` element.
 - Buttondown doesn't support base-64 encoded images in RSS feeds; those images won't be displayed in most email clients.
 
 ## FAQs
