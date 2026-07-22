@@ -45,7 +45,7 @@ You can create an RSS automation in [Settings > Basic > RSS-to-email](https://bu
 
 At the moment, you can choose from three different 'cadences' for your RSS automation:
 
-- You can have trigger a new email every time a new item is published in your RSS feed. (Buttondown checks your RSS feed every thirty minutes, so it's not quite instantaneous.)
+- You can trigger a new email, drafting or immediate sending, every time a new item is published in your RSS feed. (Buttondown checks your RSS feed every thirty minutes, so it's not quite instantaneous.)
 - You can trigger a new email every week, on a day and time of your choosing.
 - You can trigger a new email every month, on a day and time of your choosing.
 
@@ -53,17 +53,16 @@ At the moment, you can choose from three different 'cadences' for your RSS autom
 
 ## Choosing a behavior
 
-You can choose from two different behaviors for your RSS automation that trigger according to the above cadence:
+You can choose from two different behaviors for your RSS automation that trigger according to the above cadences:
 
-- You can have Buttondown send a new email every time a new item is published in your RSS feed.
-- You can have Buttondown create a new draft email every time a new item is published in your RSS feed.
+- You can have Buttondown send a new email. This means that, for example, every time a new item is published in your RSS feed, Buttondown instantly sends that email. For the digest cadences, it will send the configured digest on the day and time you specify.
+- You can have Buttondown create a new draft email every time a new item is published in your RSS feed. For the digest cadences, it will create a draft for you to send later  on the day and time you specify
 
 The difference between these two behaviors is that the first will send the email immediately, while the second will create a draft email that you can edit before sending.
 
 ## Managing your RSS automation
 
-Things happen; you might have to backfill a number of blog posts and you want to exclude them from your automation or you might want to pause your newsletter
-for a few weeks while you're tweaking the feed. Buttondown supports several ways to manage your RSS automation:
+Things happen; you might have to backfill a number of blog posts and you want to exclude them from your automation or you might want to pause your newsletter for a few weeks while you're tweaking the feed. Buttondown supports several ways to manage your RSS automation:
 
 1. You can _pause_ the automation, which will prevent any new emails from being sent or drafts from being created. Any items that are detected in your RSS feed will be ignored, and will _not_ be automatically queued up for sending or drafting when you unpause the automation.
 2. You can _skip_ individual items in your RSS feed. This will prevent the automation from sending or drafting an email for that item, but will not prevent it from sending or drafting emails for any other items in the feed. This concept only applies if you've set up your automation on a weekly or monthly cadence.
@@ -73,8 +72,7 @@ for a few weeks while you're tweaking the feed. Buttondown supports several ways
 
 ## How Buttondown parses RSS feeds
 
-RSS is a fairly open-ended spec, and there are a number of implementations that are all correct in different ways. Below is a list of the important fields that Buttondown tries to extract
-and how it extracts them, in order:
+RSS is a fairly open-ended spec, and there are a number of implementations that are all correct in different ways. Below is a list of the important fields that Buttondown tries to extract and how it extracts them, in order:
 
 1. `title`: Buttondown looks for the `title` field in the RSS item. If it's not found, it looks for the `dc:title` field. If that's not found, it looks for the `description` field.
 2. `content`: Buttondown looks for the `content:encoded` field in the RSS item. If it's not found, it looks for the `summary_detail` field.
@@ -154,10 +152,34 @@ Here's a similar example, except in Atom 1.0:
 
 To populate your email with content relevant to the item in your RSS feed, you'll need to build a template. Buttondown uses [Django's template language](/templating) to render your email. This means that you can use all of the standard Django template tags and filters.
 
-For instance, if you want to send a weekly digest of blog posts, you'd start by iterating over the list of items:
+For instance, if you want to send a weekly or monthly digest of blog posts, you'd start by iterating over the list of items:
+
+Multiple examples are below. This first example displays a list of links to all new items published to the feed.
 
 ```jinja {% process=false %}
-We published the following essays this week:
+We published the following essays this week here on {{ feed.title }}:
+
+{% for item in items %}
+
+<P><a href="{{ item.url }}">[{{ item.title }}</a></P>
+
+{% endfor %}
+```
+
+To demonstrate the roundup a different way, this next example showcases a way to have the list of links be an orderd list.
+
+```jinja {% process=false %}
+We published the following essays this month here at {{ feed.title }}:
+
+<ul>
+{% for item in items %} <li><a href="{{ item.url }}">[{{ item.title }}</a></li> {% endfor %}
+</ul>
+```
+
+And finally, if you wanted to include some more detail in your digests, as an example, you would do something like this.
+
+```jinja {% process=false %}
+We published the following essays this week here at {{ feed.title }}:
 
 {% for item in items %}
     <h2>{{ item.title }}</h2>
@@ -166,11 +188,11 @@ We published the following essays this week:
 {% endfor %}
 ```
 
-Or if you chose a cadence of "every time" for your RSS feed, you'd just send information on the latest item:
+### As it happens cadence examples.
 
+If you chose a cadence of "every time" for your RSS feed, you'd just send information on the latest item:
 
-{% playgroundEmbed initialContent="I just published the following essay (read it online [here]({{ item.url }})):{{ item.content }}" /%}
-
+{% playgroundEmbed initialContent="I just published the following essay, {{ item.title }}. ([Read it online here]({{ item.url }})):{{ item.content }}" /%}
 
 ## Edge cases and esoterica
 
