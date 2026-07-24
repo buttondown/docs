@@ -702,6 +702,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-changelog-2026-07-24"
+        },
+        {
+          "discriminant": "page",
           "value": "api-changelog-2026-06-30"
         },
         {
@@ -1423,7 +1427,15 @@
         },
         {
           "discriminant": "page",
+          "value": "api-newsletters-hosting-domain-status"
+        },
+        {
+          "discriminant": "page",
           "value": "api-newsletters-locale"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-newsletters-sending-domain-status"
         },
         {
           "discriminant": "divider",

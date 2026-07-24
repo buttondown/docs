@@ -438,6 +438,56 @@ Object.entries(FILENAME_TO_RAW_CONTENT)
     });
   });
 
+// Object pages (frontmatter `schema:`) render each property's type as a pill.
+// For enum-typed properties, ObjectDescription resolves the `$ref` to its enum
+// reference page via `urlForSchema`; if no page matches, the pill renders blank
+// (empty name and URL) with no error — the failure mode that shipped in #10515,
+// where `hosting_domain_status`/`sending_domain_status` had no enum page.
+//
+// This asserts every enum referenced by a documented object resolves to a page.
+// The ref-extraction mirrors ObjectDescription.tsx exactly (direct `$ref`,
+// `allOf[0]`, or `anyOf[0]`) — arrays aren't dereferenced, so their `items.$ref`
+// renders as the literal `array` type, not a pill, and is intentionally skipped.
+const ENUM_SCHEMA_NAMES = new Set(
+  Object.entries(OpenAPI.components.schemas)
+    .filter(([, schema]) => "enum" in schema)
+    .map(([name]) => name),
+);
+
+const refForProperty = (info: OpenAPIProperty): string | null => {
+  if ("$ref" in info) return info.$ref as string;
+  if ("allOf" in info)
+    return (info.allOf as { $ref: string }[])[0]?.$ref ?? null;
+  if ("anyOf" in info) {
+    const first = (info.anyOf as { $ref?: string }[])[0];
+    if (first && "$ref" in first) return first.$ref ?? null;
+  }
+  return null;
+};
+
+Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
+  const schemaName = matter(content).data.schema as
+    | keyof typeof OpenAPI.components.schemas
+    | undefined;
+  if (!schemaName) return;
+  const schema = OpenAPI.components.schemas[schemaName];
+  if (!schema || !("properties" in schema)) return;
+
+  Object.entries(schema.properties).forEach(([property, info]) => {
+    const ref = refForProperty(info as OpenAPIProperty);
+    if (!ref) return;
+    const refName = ref.split("/").pop();
+    if (!refName || !ENUM_SCHEMA_NAMES.has(refName)) return;
+
+    test(`${schemaName}.${property} enum type resolves to a documented page`, () => {
+      expect(
+        urlForSchema(ref)?.slug,
+        `${schemaName}.${property} references enum "${refName}", but no docs page documents it, so its type renders as a blank pill. Add an enum page for "${refName}" (frontmatter \`enum: ${refName}\`), register it in navigation.json, and document its values in shared/enums.json.`,
+      ).toBeTruthy();
+    });
+  });
+});
+
 // Test that all CSS files in subscriber_facing_styles are not empty
 const SUBSCRIBER_FACING_STYLES_DIRECTORY = "public/subscriber_facing_styles";
 

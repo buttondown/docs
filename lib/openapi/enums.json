@@ -2056,6 +2056,55 @@
       "variant": "info"
     }
   },
+  "HostingDomainStatus": {
+    "none": {
+      "description": "No custom hosting domain is configured.",
+      "name": "None",
+      "variant": "info"
+    },
+    "invalid": {
+      "description": "The required DNS records are missing or misconfigured.",
+      "name": "Invalid",
+      "variant": "error"
+    },
+    "valid": {
+      "description": "The DNS records are correct and the hosting domain is verified.",
+      "name": "Valid",
+      "variant": "success"
+    }
+  },
+  "SendingDomainStatus": {
+    "none": {
+      "description": "No custom sending domain is configured.",
+      "name": "None",
+      "variant": "info"
+    },
+    "invalid": {
+      "description": "The required DNS records are missing or point somewhere incorrect.",
+      "name": "Invalid",
+      "variant": "error"
+    },
+    "awaiting_ssl": {
+      "description": "The DNS records are correct and a TLS certificate is still being issued for the tracking host. This is transient and usually resolves within a few minutes.",
+      "name": "Awaiting SSL",
+      "variant": "warning"
+    },
+    "failing": {
+      "description": "The DNS records are correct but the tracking host is not yet serving traffic over HTTPS.",
+      "name": "Failing",
+      "variant": "error"
+    },
+    "deliberately_cold": {
+      "description": "The DNS records are correct, but the tracking host has been temporarily unregistered because the newsletter has not sent recently. Sending again automatically re-verifies it.",
+      "name": "Deliberately cold",
+      "variant": "warning"
+    },
+    "valid": {
+      "description": "The DNS records are correct and the sending domain is fully verified.",
+      "name": "Valid",
+      "variant": "success"
+    }
+  },
   "AdvertisingSlotStatus": {
     "expired": {
       "description": "The slot date has passed and the opportunity is no longer available.",

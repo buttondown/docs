@@ -1,0 +1,30 @@
+---
+title: "2026-07-24"
+navigationTitle: "2026-07-24"
+---
+
+We've exposed a newsletter's custom domain verification on the public API, so you can check DNS setup programmatically instead of only in the web app.
+
+Two new read-only endpoints return the underlying DNS records and their current verification state:
+
+- [`GET /v1/newsletters/{id}/sending-domain`](/api-newsletters-sending-domain) — the records for your custom sending domain, along with any warnings and detected DNS provider.
+- [`GET /v1/newsletters/{id}/hosting-domain`](/api-newsletters-hosting-domain) — the records for your custom hosting (archive) domain.
+
+The [newsletter object](/api-newsletters-retrieve) also now includes two read-only summary fields:
+
+- [`sending_domain_status`](/api-newsletters-sending-domain-status)
+- [`hosting_domain_status`](/api-newsletters-hosting-domain-status)
+
+Each is an at-a-glance verification status (for example `none`, `invalid`, or `valid`) so you can tell whether a newsletter's domains are configured correctly without fetching the full record set.
+
+These additions are read-only and don't change the behavior of any existing endpoints.
+
+## Example
+
+Retrieve a newsletter's sending domain records and verification state:
+
+{% generatedMultilanguageSnippets method="GET" endpoint="/newsletters/{id}/sending-domain" /%}
+
+The summary status is also available inline on the newsletter object:
+
+{% generatedMultilanguageSnippets method="GET" endpoint="/newsletters/{id}" /%}

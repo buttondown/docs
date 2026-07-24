@@ -23240,14 +23240,14 @@
         "type": "object"
       },
       "HostingDomainStatus": {
+        "description": "The DNS verification status of a newsletter's custom hosting domain.",
         "enum": [
           "none",
           "invalid",
           "valid"
         ],
         "title": "HostingDomainStatus",
-        "type": "string",
-        "description": "An enumeration."
+        "type": "string"
       },
       "Newsletter": {
         "description": "You will likely not need to interact with your newsletter settings\nprogrammatically, but if you do, this is the endpoint for you. You can\ncreate, update, and list newsletters via the API; this is ideal for\nintegrating with Buttondown as a headless email or newsletter provider\n(e.g. for a SaaS product.)",
@@ -23740,6 +23740,7 @@
         "type": "object"
       },
       "SendingDomainStatus": {
+        "description": "The DNS verification status of a newsletter's custom sending domain.",
         "enum": [
           "none",
           "invalid",
@@ -23749,8 +23750,7 @@
           "valid"
         ],
         "title": "SendingDomainStatus",
-        "type": "string",
-        "description": "An enumeration."
+        "type": "string"
       },
       "SocialAccountSchema": {
         "additionalProperties": false,
