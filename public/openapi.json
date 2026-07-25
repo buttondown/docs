@@ -20657,7 +20657,7 @@
             "title": "Subscriber Import Id"
           },
           "tags": {
-            "description": "A list of [tag](https://docs.buttondown.com/api-tags-introduction) names applied to the subscriber. Tags that don't already exist will be created.",
+            "description": "A list of [tag](https://docs.buttondown.com/api-tags-introduction) names applied to the subscriber. Tags that don't already exist will be created, which requires a plan that includes tags (Basic or higher).",
             "items": {
               "type": "string"
             },
@@ -26070,7 +26070,7 @@
           },
           "tags": {
             "default": [],
-            "description": "A list of [tag](https://docs.buttondown.com/api-tags-introduction) names applied to the subscriber. Tags that don't already exist will be created.",
+            "description": "A list of [tag](https://docs.buttondown.com/api-tags-introduction) names applied to the subscriber. Tags that don't already exist will be created, which requires a plan that includes tags (Basic or higher).",
             "items": {
               "type": "string"
             },
@@ -26306,7 +26306,7 @@
                 "type": "null"
               }
             ],
-            "description": "A list of [tag](https://docs.buttondown.com/api-tags-introduction) names applied to the subscriber. Tags that don't already exist will be created.",
+            "description": "A list of [tag](https://docs.buttondown.com/api-tags-introduction) names applied to the subscriber. Tags that don't already exist will be created, which requires a plan that includes tags (Basic or higher).",
             "title": "Tags"
           },
           "referrer_url": {
