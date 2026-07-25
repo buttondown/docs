@@ -2000,14 +2000,19 @@
       "name": "French",
       "variant": "info"
     },
-    "ja-JP": {
-      "description": "Japanese (Japan).",
-      "name": "Japanese",
-      "variant": "info"
-    },
     "de": {
       "description": "German.",
       "name": "German",
+      "variant": "info"
+    },
+    "it": {
+      "description": "Italian.",
+      "name": "Italian",
+      "variant": "info"
+    },
+    "ja-JP": {
+      "description": "Japanese (Japan).",
+      "name": "Japanese",
       "variant": "info"
     },
     "ne": {
