@@ -541,18 +541,13 @@
       "variant": "error"
     },
     "email_not_confirmed": {
-      "description": "The newsletter has not yet confirmed its email address. Drafts cannot be created until the confirmation link in the welcome email is clicked.",
+      "description": "The newsletter owner must confirm their email address before creating emails via the API.",
       "name": "Email not confirmed",
       "variant": "error"
     },
     "email_invalid": {
       "description": "The email is invalid.",
       "name": "Invalid email",
-      "variant": "error"
-    },
-    "email_not_confirmed": {
-      "description": "The newsletter owner must confirm their email address before creating emails via the API.",
-      "name": "Email not confirmed",
       "variant": "error"
     },
     "pay_per_email_billing_locked": {
