@@ -3,3 +3,5 @@ title: Filters
 navigationTitle: Introduction
 schema: FilterGroup
 ---
+
+When filtering by tags, use the tag's ID—not its name—as the filter value. Both UUIDs and TypeIDs are accepted. Use `contains` to include subscribers with the tag and `not_contains` to exclude them. You can retrieve tag IDs from [`GET /v1/tags`](/api-tags-list).
