@@ -23711,7 +23711,7 @@
           },
           "tint_color": {
             "default": "#0069FF",
-            "description": "The accent color for your newsletter, used in emails and on your archive page. Must be a valid hex color code.",
+            "description": "The accent color for your newsletter's emails, applied to links and buttons. Your archive's accent color is set separately, by its theme. Must be a valid hex color code.",
             "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
             "title": "Tint Color",
             "type": "string"
@@ -24189,7 +24189,7 @@
           },
           "tint_color": {
             "default": "#0069FF",
-            "description": "The accent color for your newsletter, used in emails and on your archive page. Must be a valid hex color code.",
+            "description": "The accent color for your newsletter's emails, applied to links and buttons. Your archive's accent color is set separately, by its theme. Must be a valid hex color code.",
             "example": "#0069FF",
             "maxLength": 7,
             "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
@@ -24933,7 +24933,7 @@
                 "type": "null"
               }
             ],
-            "description": "The accent color for your newsletter, used in emails and on your archive page. Must be a valid hex color code.",
+            "description": "The accent color for your newsletter's emails, applied to links and buttons. Your archive's accent color is set separately, by its theme. Must be a valid hex color code.",
             "example": "#0069FF",
             "title": "Tint Color"
           },
