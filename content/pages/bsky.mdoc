@@ -68,3 +68,35 @@ The simplest and most common use case is to create an automation that posts your
 1. Click **Save changes**. 
 
 To enable the new automation, either click **Unpause** in the automation panel, or click to enable the automation's toggle in the [**Automations**](https://buttondown.com/automations) page.
+
+## Enhanced link cards
+
+By default, a Buttondown archive link posted to Bluesky shows up as a plain link card. Buttondown can upgrade these to **enhanced link cards** — a richer format that shows your publication's name, avatar, and a themed cover.
+
+These cards are powered by [standard.site](https://standard.site), a community-built way of describing publications on Bluesky. Once you turn them on, they apply both to links Buttondown posts automatically and to archive links you (or your readers) paste in by hand.
+
+### Requirements
+
+- Your Bluesky account is [connected to Buttondown](#setting-up-your-bluesky-integration).
+- Your newsletter's [archive](/email-archives) is public. An email only gets an enhanced card while it's publicly archived.
+
+### Turning on enhanced link cards
+
+1. Navigate to **Settings** → [Integrations](https://buttondown.com/settings/integrations) and open the **Bluesky** integration.
+1. Under **Enhanced link cards**, click **Create publication**.
+
+Buttondown then adds a small entry to your Bluesky account describing your publication, plus one for each publicly-archived email. From then on, new posts and freshly-shared links show up as enhanced cards.
+
+{% noticeInfo text="Bluesky locks in a card's appearance at the moment it's posted, so enhanced cards only apply to *future* posts and shares — links you've already posted keep the card they had." /%}
+
+### Keeping it in sync
+
+If your newsletter's name, description, or icon changes, the Bluesky integration flags that your details have drifted since the last sync. Click **Sync now** to update your publication record. Already-posted cards don't change — this only affects future posts and shares.
+
+If your archive's web address changes — for example, when you add and verify a custom domain — Buttondown re-syncs automatically once the new domain is verified, so future cards keep working.
+
+### Disconnecting
+
+Click **Disconnect** under **Enhanced link cards** to stop managing your standard.site publication. Buttondown leaves the records already in your Bluesky account in place, so cards you've already posted keep working; it simply stops creating and updating them.
+
+{% noticeWarn text="Enhanced link cards are published to your own Bluesky account and are publicly visible. Each record carries only enough to identify an article and link back to it — its title and a short description, never the body of your email." /%}
