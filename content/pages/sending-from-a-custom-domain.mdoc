@@ -106,6 +106,25 @@ Our "managed" setup does require setting `NS` records. If your domain host does 
 
 You're welcome to do so! Just add your sending domain in Settings and, when presented with the list of DNS records to add, switch to the "manual" version of the records.
 
+## Custom tracking domains
+
+If you send from a custom domain, you can route click and open tracking through
+a subdomain of your sending domain instead of Buttondown's shared tracking
+domains. For example, if you send from `news.example.com`, your tracking links
+can use `track.news.example.com`. This keeps the links branded with your domain
+and isolates your domain's reputation from other senders.
+
+For a [managed sending domain](#managed-sending-domain-setup), Buttondown
+configures the tracking domain automatically. For a manually configured sending
+domain, turn on **Click tracking** under
+[Settings → Sending domain → Add-ons](https://buttondown.com/settings/domains/sending),
+then add the `CNAME` record shown there. Buttondown uses the custom tracking
+domain once the record is verified and its HTTPS certificate is ready.
+
+If the custom tracking domain is not ready or temporarily unavailable, new
+emails use one of Buttondown's shared tracking domains so their tracked links
+continue to work.
+
 ## Reply tracking and your sending domain
 
 Your sending domain setup determines how [replies](/replies) behave:
