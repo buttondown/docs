@@ -2,5 +2,5 @@
 #MISE description="Build docs for production"
 #MISE sources=["docs/**/*.{ts,tsx,mdoc,css}"]
 #MISE outputs={auto=true}
-MISE_EXPERIMENTAL=true mise run //docs:lint
+mise run //docs:lint
 bun run build

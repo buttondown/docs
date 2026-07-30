@@ -7,8 +7,8 @@
 To run Docs for the first time you'll:
 
 1. Clone the `monorepo` and navigate to `docs` (or, if you don't have access, clone the `docs` repo)
-2. Use `MISE_EXPERIMENTAL=true mise run //docs:install` to install all packages and dependencies (or, if you're using the standalone `docs` repo, run `bun install`)
-3. Run `MISE_EXPERIMENTAL=true mise run //docs:dev` (or, if you're trying to build the docs statically for production, run `MISE_EXPERIMENTAL=true mise run //docs:build`)
+2. Use `mise run //docs:install` to install all packages and dependencies (or, if you're using the standalone `docs` repo, run `bun install`)
+3. Run `mise run //docs:dev` (or, if you're trying to build the docs statically for production, run `mise run //docs:build`)
 
 Now you're ready to work! You can now run `bun dev` in your command line.
 
@@ -27,7 +27,7 @@ You can check your Bun version by running `bun -v` in your command line.
 > Docs uses Bun for package management and running the dev server.
 
 **Clear the server cache**
-Run `MISE_EXPERIMENTAL=true mise run //docs:clear-cache` to reset Next.js
+Run `mise run //docs:clear-cache` to reset Next.js.
 
 ## Content
 
@@ -111,7 +111,7 @@ For example:
 After you add a new page, you'll need to update the search index for tests to pass. This has been added to the build command:
 
 ```
-MISE_EXPERIMENTAL=true mise run //docs:build
+mise run //docs:build
 ```
 
 ## Known issues/weirdness
