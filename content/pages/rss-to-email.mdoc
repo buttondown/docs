@@ -82,7 +82,7 @@ and how it extracts them, in order:
 4. `publish_date`: Buttondown looks for the `published` field in the RSS item. If it's not found, it looks for the `updated` field.
 5. `description`: Buttondown looks for the `subtitle` field in the RSS item. If it's not found, it looks for the `summary` field.
 6. `guid`: Buttondown looks for the `guid` field (or, in Atom feeds, the `id` field).
-7. `enclosure`: Buttondown looks for an `<enclosure>` element (often used for a post's featured image). If there isn't one, it falls back to the [MediaRSS](https://www.rssboard.org/media-rss) namespace: a `<media:content>` flagged as an image, then a `<media:thumbnail>`, then any other `<media:content>`. This is available in your template as `{{ item.enclosure }}`.
+7. `enclosure`: Buttondown looks for an image `<enclosure>` element (often used for a post's featured image). Because this renders as an image in your email, non-image enclosures—such as the audio file on a podcast episode—are skipped. If there isn't an image enclosure, Buttondown falls back to the [MediaRSS](https://www.rssboard.org/media-rss) namespace: a `<media:content>` flagged as an image, then a `<media:thumbnail>`, then any other `<media:content>`. This means an item can carry an audio enclosure and still surface its featured image. This is available in your template as `{{ item.enclosure }}`.
 
 ### How Buttondown decides whether an item is new
 
