@@ -9,6 +9,9 @@ const EXTERNAL_DOMAIN =
 
 const DEFAULT_HEIGHT = 300;
 
+// Accounts for the body tag's default margins inside the iframe.
+const GUTTER = 20;
+
 const iframeVariants = cva("relative", {
   variants: {
     variant: {
@@ -27,13 +30,14 @@ const iframeVariants = cva("relative", {
 });
 
 const containerVariants = cva(
-  "rounded-t-lg m-0 border border-gray-300 h-full flex flex-col border-b-0 dark:border-white/10",
+  "rounded-t-lg m-0 border border-gray-300 h-full flex flex-col",
   {
     variants: {
       variant: {
-        page: "rounded-b-none shadow-no-bottom-md",
-        email: "rounded-b-none bg-white dark:bg-zinc-700",
-        subscriber: "rounded-b-none shadow-no-bottom-md",
+        page: "rounded-b-none border-b-0 shadow-no-bottom-md dark:border-white/10",
+        email: "rounded-b-lg overflow-hidden bg-white",
+        subscriber:
+          "rounded-b-none border-b-0 shadow-no-bottom-md dark:border-white/10",
       },
     },
     defaultVariants: {
@@ -81,7 +85,7 @@ const BrowserBar = ({ path }: { path: string }) => {
 
 const GmailBar = () => {
   return (
-    <div className="w-full flex flex-wrap gap-0.5 justify-between items-center flex-none pointer-events-none user-select-none px-4 border-b border-gray-300 dark:border-white/10 dark:bg-zinc-800 rounded-t-lg">
+    <div className="w-full flex flex-wrap gap-0.5 justify-between items-center flex-none pointer-events-none user-select-none px-4 border-b border-gray-300 bg-gray-100 rounded-t-lg">
       <div className="flex flex-wrap gap-0.5 justify-start items-center">
         <svg
           width="80px"
@@ -187,6 +191,19 @@ export default function Iframe({
               src={mungedSrc}
               inert
               loading="lazy"
+              onLoad={(event) => {
+                if (variant !== "email") {
+                  return;
+                }
+                // Email stories are same-origin static files, so we can size
+                // the iframe to fit their content instead of clipping it.
+                const iframe = event.currentTarget;
+                const contentHeight =
+                  iframe.contentWindow?.document.body?.scrollHeight;
+                if (contentHeight) {
+                  iframe.style.height = `${contentHeight + GUTTER}px`;
+                }
+              }}
               className="aspect-video w-full rounded-b-none transition-all duration-300"
               style={{ height: `${height ?? DEFAULT_HEIGHT}px` }}
             />
