@@ -288,6 +288,25 @@ Free/premium blocks are a way to display content to your subscribers based on th
 
 ---
 
+### Filtered blocks
+
+Filtered blocks let you show a section of content to only one type of audience. Whereas a wall affects the visibilty of all content following it, a filtered block only affects what's inside of it.
+There are four variants:
+
+- **Email only**: visible in emails (hidden from the [web archive](/email-archives))
+- **Web only:** visible on the web archive
+- **Subscribers only:** visible to subscribers of your newsletter (free, paid, or gifted) across both email and web
+- **Paid only:** visible to [premium subscribers](/api-subscribers-type#premium)
+
+To add a filtered block, type `/` on a new line and enter a variant (for example `/email`), or click to add it directly from the menu that pops up.
+{% playgroundEmbed
+  title="Filtered blocks"
+  height="400px"
+  initialContent="This is visible to everyone.\n\n<buttondown-filtered-block data-variant=\"email\"><p>Only readers of the email see this.</p></buttondown-filtered-block>\n\n<buttondown-filtered-block data-variant=\"web\"><p>Only visitors to the web archive see this.</p></buttondown-filtered-block>\n\nBack to content everyone sees."
+/%}
+
+---
+
 ### Internal linking
 
 Search and link to another email by typing two opening square brackets ("[["), this will open up a list of your emails.
