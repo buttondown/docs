@@ -25025,6 +25025,12 @@
             ],
             "description": "A first-party Buttondown setup guide for this provider, when one exists.",
             "title": "Buttondown Guide Url"
+          },
+          "supports_nameserver_delegation": {
+            "default": true,
+            "description": "Whether the provider lets customers delegate a child zone with NS records.",
+            "title": "Supports Nameserver Delegation",
+            "type": "boolean"
           }
         },
         "required": [
