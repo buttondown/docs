@@ -6,6 +6,7 @@ description: >-
   subscriber, which you can use to personalize your emails or segment
   your audience.
 relatedPages:
+  - automation-actions
   - portal
   - tags
 ---
@@ -94,6 +95,25 @@ But wait! What if you don’t have first names for every subscriber? Then it’s
 height="600px"
 title="Fallback for missing metadata"
 editorMode="plaintext" /%}
+
+## Clearing metadata after a send
+
+Some metadata is only meant to be used once — say, a `next_email_customization` field holding a personal note you want to include in your next email, but not any email after that. You can have Buttondown clear fields like this automatically using an [automation](/automations-introduction):
+
+{% automation
+   name="Self-clearing metadata field"
+   description="Clear one-off personalization fields after each email is delivered"
+   trigger="When Buttondown successfully delivers an email to a subscriber"
+   url="https://buttondown.com/automations/new?trigger=subscriber.delivered&name=Self-clearing+metadata+field"
+   actions="[{\"delay\": \"immediately\", \"action\": \"Remove metadata\"}]" /%}
+
+**Setup:**
+
+1. [Create a new automation](https://buttondown.com/automations/new?trigger=subscriber.delivered) with the trigger set to "When Buttondown successfully delivers an email to a subscriber."
+2. Add the ["Remove metadata"](/automation-actions) action and list the metadata keys you'd like to clear (such as `next_email_customization`).
+3. Enable the automation.
+
+Now, every time an email is delivered to a subscriber, the fields you listed are cleared from that subscriber — so a value set before a send is used exactly once and never leaks into the next email.
 
 ## Renaming metadata keys
 
