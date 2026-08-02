@@ -17,6 +17,6 @@ schema: CadenceMetadata
 
 - **`time`** — an hour of the day in 24-hour format as a string, from `"0"` through `"23"` (e.g. `"9"`, `"09"`, or `"18"`). Times with minutes are not accepted (`"10"`, not `"10:00"`).
 - **`weekday`** — one of `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
-- **`monthday`** — a weekday name (interpreted as the first such day of the month), `firstday`, or `lastday`.
+- **`monthday`** — a numeric day of the month as a string, from `"1"` through `"31"` (clamped to the last day for shorter months, so `"31"` fires on February 28th); a weekday name (interpreted as the first such day of the month); `firstday`; or `lastday`.
 
 Requests with values outside these ranges are rejected with a `422` validation error. Missing required fields for the selected cadence return a `400` with `code: "cadence_metadata_invalid"`.
