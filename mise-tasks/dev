@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 #MISE description="Start development server"
-bun dev
+set -euo pipefail
+
+exec bunx next dev --port "${PORT:-3013}"
