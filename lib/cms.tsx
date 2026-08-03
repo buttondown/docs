@@ -1,8 +1,19 @@
-import Markdoc, { type Config, type RenderableTreeNode, Tag } from "@markdoc/markdoc";
+import Markdoc, {
+  type Config,
+  type RenderableTreeNode,
+  Tag,
+} from "@markdoc/markdoc";
+import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import fs from "fs";
+import { marked } from "marked";
 import path from "path";
 import React from "react";
 import yaml from "yaml";
+import {
+  FileBasedCodeSnippets,
+  GeneratedCodeSnippets,
+} from "@/app/[slug]/CodeSnippets";
 import PRICES from "@/autogen/prices-v2.json";
 import Code from "@/components/code";
 import type { ResponseBlock } from "@/components/code/lib";
@@ -15,13 +26,6 @@ import IframeComponent from "@/components/iframe";
 import ImageWithLightbox from "@/components/image-with-lightbox";
 import LiveCodeBlock from "@/components/live-code-block";
 import PlaygroundEmbed from "@/components/playground-embed";
-import type { VariantProps } from "class-variance-authority";
-import { cva } from "class-variance-authority";
-import { marked } from "marked";
-import {
-  FileBasedCodeSnippets,
-  GeneratedCodeSnippets,
-} from "@/app/[slug]/CodeSnippets";
 
 function filterNullish<T>(arr: (T | null | undefined)[]): T[] {
   return arr.filter((x): x is T => x != null);
@@ -133,7 +137,9 @@ function extractTextFromRenderable(node: RenderableTreeNode): string {
 // blocks), which would otherwise produce duplicate DOM ids and break the minimap,
 // in-page anchor jumps, and React keys. Walk the transformed tree and append numeric
 // suffixes to repeated slugs (`before`, `before-2`, ...).
-function assignHeadingIds(tree: RenderableTreeNode | RenderableTreeNode[]): void {
+function assignHeadingIds(
+  tree: RenderableTreeNode | RenderableTreeNode[],
+): void {
   const counts = new Map<string, number>();
 
   const walk = (node: RenderableTreeNode | RenderableTreeNode[]): void => {
@@ -422,10 +428,7 @@ const components: Record<string, React.ComponentType<any>> = {
       steps = [{ action: props.action }];
     }
     const Connector = () => (
-      <div
-        aria-hidden
-        className="w-px h-4 bg-gray-300 mx-auto"
-      />
+      <div aria-hidden className="w-px h-4 bg-gray-300 mx-auto" />
     );
     return (
       <a href={props.url} className="text-inherit no-underline after:hidden!">
@@ -544,9 +547,7 @@ const components: Record<string, React.ComponentType<any>> = {
     const raw = fs.readFileSync(file, "utf-8");
     // Drop the source file's own "# … Changelog" title (the page supplies its
     // own heading) and demote the date headings so they nest under it.
-    const body = raw
-      .replace(/^#\s+.*\n+/, "")
-      .replace(/^## /gm, "### ");
+    const body = raw.replace(/^#\s+.*\n+/, "").replace(/^## /gm, "### ");
     return (
       <div
         // biome-ignore lint/security/noDangerouslySetInnerHtml: Markdown from a checked-in source file

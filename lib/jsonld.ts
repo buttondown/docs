@@ -7,7 +7,10 @@ type Navigation = Record<
 
 const ORIGIN = "https://docs.buttondown.com";
 
-export const generateBreadcrumbJSONLD = (page: Page, navigation: Navigation) => {
+export const generateBreadcrumbJSONLD = (
+  page: Page,
+  navigation: Navigation,
+) => {
   const section = Object.values(navigation)
     .flat()
     .find((s) => s.items.some((i) => i.value === page.slug));
@@ -15,7 +18,9 @@ export const generateBreadcrumbJSONLD = (page: Page, navigation: Navigation) => 
     (i) => i.discriminant === "page",
   )?.value;
 
-  const crumbs: { name: string; url: string }[] = [{ name: "Docs", url: ORIGIN }];
+  const crumbs: { name: string; url: string }[] = [
+    { name: "Docs", url: ORIGIN },
+  ];
   if (section && sectionFirstPage && sectionFirstPage !== page.slug) {
     crumbs.push({ name: section.name, url: `${ORIGIN}/${sectionFirstPage}` });
   }

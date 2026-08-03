@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@plugin '@tailwindcss/typography';
+@plugin "@tailwindcss/typography";
 
 @theme {
   --font-sans:
@@ -295,13 +295,21 @@ td > code:only-child {
 
 /* Search dialog animations */
 @keyframes overlay-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes overlay-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes dropdown-in {

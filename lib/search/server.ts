@@ -109,13 +109,12 @@ const buildReferences = (
     // Add references from the OpenAPI spec: find schemas whose properties
     // reference this page's title.
     for (const [schemaName, schema] of Object.entries(schemas)) {
-      const props = (schema as { properties?: Record<string, { $ref?: string }> })
-        .properties;
+      const props = (
+        schema as { properties?: Record<string, { $ref?: string }> }
+      ).properties;
       if (!props) continue;
       if (
-        Object.values(props).some((prop) =>
-          (prop.$ref ?? "").includes(title),
-        )
+        Object.values(props).some((prop) => (prop.$ref ?? "").includes(title))
       ) {
         const refSlug = enumToSlug.get(schemaName);
         if (refSlug) refs.add(refSlug);
@@ -143,8 +142,7 @@ export const buildContentArray = (): ContentArray => {
   const pagesDir = resolvePath("content/pages");
   const files = readdirSync(pagesDir).filter((file) => file.endsWith(".mdoc"));
   const navigation = readNavigation();
-  const { apiSlugs, generalSlugs, slugToSection } =
-    buildSlugsSets(navigation);
+  const { apiSlugs, generalSlugs, slugToSection } = buildSlugsSets(navigation);
 
   // Pre-read all files for cross-referencing.
   const slugToContent = new Map<string, string>();
@@ -177,7 +175,7 @@ export const buildContentArray = (): ContentArray => {
     const enumValue = data.enum as string | undefined;
     const section = enumValue
       ? "Reference"
-      : slugToSection.get(slug) ?? "guides";
+      : (slugToSection.get(slug) ?? "guides");
 
     let body = removeMarkdown(content);
     if (data.faqItems) {

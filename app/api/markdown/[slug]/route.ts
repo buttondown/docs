@@ -1,6 +1,6 @@
 import fs from "fs";
-import path from "path";
 import { NextResponse } from "next/server";
+import path from "path";
 
 // Path resolution: Vercel may use .next as cwd; monorepo may use repo root
 function resolvePagesDir() {

@@ -15,11 +15,7 @@ export function middleware(request: NextRequest) {
       const slug = slugMatch[1];
 
       // Exclude known non-doc routes
-      const excludedPaths = [
-        "favicon.ico",
-        "robots.txt",
-        "sitemap.xml",
-      ];
+      const excludedPaths = ["favicon.ico", "robots.txt", "sitemap.xml"];
       if (!excludedPaths.includes(slug)) {
         // Rewrite to the markdown API route
         const url = request.nextUrl.clone();
@@ -35,7 +31,5 @@ export function middleware(request: NextRequest) {
 export const config = {
   // Only run middleware on paths that could be doc pages
   // Exclude static files, api routes, and other known paths
-  matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|api/|rss/).*)",
-  ],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|api/|rss/).*)"],
 };

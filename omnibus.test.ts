@@ -4,13 +4,12 @@
 import { expect, test } from "bun:test";
 import dotenv from "dotenv";
 import fs from "fs";
-
+import matter from "gray-matter";
 import {
   type OpenAPIProperty,
   urlForSchema,
 } from "./components/ObjectDescription";
 import NAVIGATION from "./content/navigation.json";
-import matter from "gray-matter";
 import OpenAPIEnums from "./lib/openapi/enums.json";
 import OpenAPI from "./public/openapi.json";
 import REDIRECTS from "./redirects.mjs";
@@ -147,9 +146,7 @@ const extractLocalMarkdownImageLinks = (content: string): string[] => {
     .map((match) => match[1].trim().split(/\s+"/)[0])
     .filter((url) => {
       return (
-        url.startsWith("/") &&
-        !url.startsWith("//") &&
-        !url.startsWith("/http")
+        url.startsWith("/") && !url.startsWith("//") && !url.startsWith("/http")
       );
     })
     .map((url) => url.replace(/[?#].*$/, ""));
@@ -184,7 +181,6 @@ const FILENAME_TO_APPLICATION_LINKS = Object.entries(
   {} as { [filename: string]: string[] },
 );
 
-
 Object.entries(FILENAME_TO_APPLICATION_LINKS).forEach(([filename, routes]) => {
   if (routes.length === 0) {
     return;
@@ -192,15 +188,20 @@ Object.entries(FILENAME_TO_APPLICATION_LINKS).forEach(([filename, routes]) => {
 
   test(filename + " only has valid application routes", () => {
     routes.forEach((route) => {
-      const stripped = route.replace("https://buttondown.com/", "").split("?")[0];
+      const stripped = route
+        .replace("https://buttondown.com/", "")
+        .split("?")[0];
       expect(VALID_APPLICATION_ROUTES).toContain(stripped);
     });
   });
 });
 
 const extractDemoIframePaths = (content: string): string[] => {
-  return [...content.matchAll(/{% iframe src="https:\/\/demo\.buttondown\.com\/([^"?]*)/g)]
-    .map((m) => m[1].replace(/\/$/, ""));
+  return [
+    ...content.matchAll(
+      /{% iframe src="https:\/\/demo\.buttondown\.com\/([^"?]*)/g,
+    ),
+  ].map((m) => m[1].replace(/\/$/, ""));
 };
 
 const routeToRegex = (route: string): RegExp => {
@@ -319,7 +320,8 @@ function getHeadingsFromMdoc(content: string): Array<{
   lineNumber: number;
 }> {
   const lines = content.split("\n");
-  const headings: Array<{ level: number; text: string; lineNumber: number }> = [];
+  const headings: Array<{ level: number; text: string; lineNumber: number }> =
+    [];
   let inCodeFence = false;
 
   for (let index = 0; index < lines.length; index++) {
@@ -769,14 +771,7 @@ Object.values(NAVIGATION).forEach((section) => {
   });
 });
 
-const IMAGE_SUFFIXES = [
-  ".png",
-  ".jpg",
-  ".jpeg",
-  ".gif",
-  ".svg",
-  ".webp",
-];
+const IMAGE_SUFFIXES = [".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"];
 const IMAGE_DIRECTORY = "public/images";
 
 const ALL_IMAGES = fs

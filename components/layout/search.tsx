@@ -166,7 +166,12 @@ export default function Search({
 
   const searchPanel = (
     <>
-      <div className={clsx("sticky top-0 space-x-1 bg-white px-4 py-3 flex items-center", query.trim() && "border-b border-gray-200")}>
+      <div
+        className={clsx(
+          "sticky top-0 space-x-1 bg-white px-4 py-3 flex items-center",
+          query.trim() && "border-b border-gray-200",
+        )}
+      >
         <SearchIcon />
         <input
           ref={searchInputRef}
@@ -264,10 +269,10 @@ export default function Search({
                   : 0,
               }}
             >
-              <Dialog.Title asChild><span className="sr-only">Search</span></Dialog.Title>
-              <div className="max-h-[50vh] overflow-y-auto">
-                {searchPanel}
-              </div>
+              <Dialog.Title asChild>
+                <span className="sr-only">Search</span>
+              </Dialog.Title>
+              <div className="max-h-[50vh] overflow-y-auto">{searchPanel}</div>
             </Dialog.Content>
           </Dialog.Portal>
         </div>
@@ -287,7 +292,9 @@ export default function Search({
             ref={panelRef}
             className="max-w-xl w-full rounded-md border bg-white h-96 overflow-scroll data-[state=open]:animate-modal-in data-[state=closed]:animate-modal-out"
           >
-            <Dialog.Title asChild><span className="sr-only">Search</span></Dialog.Title>
+            <Dialog.Title asChild>
+              <span className="sr-only">Search</span>
+            </Dialog.Title>
             {searchPanel}
           </Dialog.Content>
         </Dialog.Overlay>
@@ -377,5 +384,3 @@ function CategoryButton({
     </button>
   );
 }
-
-

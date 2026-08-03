@@ -4,15 +4,15 @@ import {
   PlayCircleIcon,
 } from "@heroicons/react/24/outline";
 import HeadingsMinimap from "@/components/headings-minimap";
-import { buildContentArray } from "@/lib/search/server";
 import cms from "@/lib/cms";
+import { buildContentArray } from "@/lib/search/server";
 import { clsx } from "@/lib/utils";
 import AccountButtons from "./account-buttons";
 import {
   assembleNavData,
   getFirstPageSlug,
-  type NavigationFile,
   type NavData,
+  type NavigationFile,
 } from "./lib";
 import MobileNav from "./mobile-nav";
 import { ShimmerLink } from "./ShimmerLink";

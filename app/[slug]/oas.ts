@@ -407,9 +407,12 @@ fetch(url.toString(), options)
       ? "?" +
         Object.entries(query || {})
           .flatMap(([k, v]) =>
-            [v].flat().map(
-              (value) => `${encodeURIComponent(k)}=${encodeURIComponent(value)}`,
-            ),
+            [v]
+              .flat()
+              .map(
+                (value) =>
+                  `${encodeURIComponent(k)}=${encodeURIComponent(value)}`,
+              ),
           )
           .join("&")
       : "";

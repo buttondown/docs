@@ -1,6 +1,5 @@
 import { marked } from "marked";
 import Code from "../components/code";
-import { buildContentArray } from "../lib/search/server";
 import type OpenAPIEnums from "../lib/openapi/enums.json";
 import OpenAPIFixtures from "../lib/openapi/fixtures.json";
 import type {
@@ -10,6 +9,7 @@ import type {
   RequestBody,
   Route,
 } from "../lib/openapi/types";
+import { buildContentArray } from "../lib/search/server";
 import OpenAPI from "../public/openapi.json";
 import Parameter, { type TypeProp } from "./Parameter";
 
@@ -372,21 +372,18 @@ const parametersForRef = (
               ? {
                   type: "ref",
                   url:
-                    urlForSchema(
-                      qualifiedParameter.anyOf[0].$ref as string,
-                    )?.slug || "",
+                    urlForSchema(qualifiedParameter.anyOf[0].$ref as string)
+                      ?.slug || "",
                   name:
-                    urlForSchema(
-                      qualifiedParameter.anyOf[0].$ref as string,
-                    )?.schema || "",
+                    urlForSchema(qualifiedParameter.anyOf[0].$ref as string)
+                      ?.schema || "",
                 }
               : "anyOf" in qualifiedParameter
                 ? {
                     type: "string",
                     value:
                       (qualifiedParameter.anyOf.find(
-                        (item: Record<string, unknown>) =>
-                          item.type !== "null",
+                        (item: Record<string, unknown>) => item.type !== "null",
                       )?.type as string) || "string",
                   }
                 : {

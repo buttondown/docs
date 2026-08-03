@@ -161,7 +161,8 @@ const REDIRECTS = [
   },
   {
     source: "/can-i-exclude-an-email-from-archive",
-    destination: "/email-archives#archived-visibility-setting-on-individual-emails",
+    destination:
+      "/email-archives#archived-visibility-setting-on-individual-emails",
     permanent: true,
   },
   {
