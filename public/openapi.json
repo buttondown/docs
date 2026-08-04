@@ -19102,7 +19102,7 @@
             "description": "The name of the automation.",
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[ -~]*[A-Za-z0-9][ -~]*$",
+            "pattern": "^[^\\x00-\\x1f\\x7f-\\x9f]*[^\\W_][^\\x00-\\x1f\\x7f-\\x9f]*$",
             "title": "Name",
             "type": "string"
           },
@@ -19242,7 +19242,7 @@
               {
                 "maxLength": 100,
                 "minLength": 1,
-                "pattern": "^[ -~]*[A-Za-z0-9][ -~]*$",
+                "pattern": "^[^\\x00-\\x1f\\x7f-\\x9f]*[^\\W_][^\\x00-\\x1f\\x7f-\\x9f]*$",
                 "type": "string"
               },
               {
@@ -26844,7 +26844,7 @@
           "question": {
             "description": "The survey question shown to subscribers.",
             "maxLength": 500,
-            "pattern": "^[ -~]*[A-Za-z0-9][ -~]*$",
+            "pattern": "^[^\\x00-\\x1f\\x7f-\\x9f]*[^\\W_][^\\x00-\\x1f\\x7f-\\x9f]*$",
             "title": "Question",
             "type": "string",
             "example": "What's your favorite color?"
@@ -26853,7 +26853,7 @@
             "description": "The list of pre-defined answer choices. Order is preserved unless `randomize_answers` is true.",
             "items": {
               "maxLength": 500,
-              "pattern": "^[ -~]*[A-Za-z0-9][ -~]*$",
+              "pattern": "^[^\\x00-\\x1f\\x7f-\\x9f]*[^\\W_][^\\x00-\\x1f\\x7f-\\x9f]*$",
               "type": "string"
             },
             "minItems": 2,
@@ -26974,7 +26974,7 @@
               {
                 "items": {
                   "maxLength": 500,
-                  "pattern": "^[ -~]*[A-Za-z0-9][ -~]*$",
+                  "pattern": "^[^\\x00-\\x1f\\x7f-\\x9f]*[^\\W_][^\\x00-\\x1f\\x7f-\\x9f]*$",
                   "type": "string"
                 },
                 "minItems": 2,
@@ -27178,7 +27178,7 @@
             "description": "The name of the tag.",
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[ -~]*[A-Za-z0-9][ -~]*$",
+            "pattern": "^[^\\x00-\\x1f\\x7f-\\x9f]*[^\\W_][^\\x00-\\x1f\\x7f-\\x9f]*$",
             "title": "Name",
             "type": "string",
             "example": "VIP"
@@ -27240,7 +27240,7 @@
               {
                 "maxLength": 100,
                 "minLength": 1,
-                "pattern": "^[ -~]*[A-Za-z0-9][ -~]*$",
+                "pattern": "^[^\\x00-\\x1f\\x7f-\\x9f]*[^\\W_][^\\x00-\\x1f\\x7f-\\x9f]*$",
                 "type": "string"
               },
               {
