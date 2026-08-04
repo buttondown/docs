@@ -186,7 +186,19 @@ export default function Iframe({
           {variant !== "email" && <BrowserBar path={src} />}
           {variant === "email" && <GmailBar />}
 
-          <div role="presentation" aria-label={description}>
+          <div role="presentation" aria-label={description} className="relative">
+            {/* A lazy iframe is transparent until its document paints, so this
+                skeleton shows through as the loading state — no JS needed. */}
+            <div
+              aria-hidden
+              className="absolute inset-0 flex animate-pulse flex-col gap-3 p-6"
+            >
+              <div className="h-4 w-1/3 rounded bg-gray-200 dark:bg-zinc-700" />
+              <div className="h-3 w-full rounded bg-gray-200 dark:bg-zinc-700" />
+              <div className="h-3 w-5/6 rounded bg-gray-200 dark:bg-zinc-700" />
+              <div className="h-3 w-2/3 rounded bg-gray-200 dark:bg-zinc-700" />
+              <div className="mt-3 h-24 w-full rounded-lg bg-gray-200 dark:bg-zinc-700" />
+            </div>
             <iframe
               src={mungedSrc}
               inert
@@ -204,7 +216,7 @@ export default function Iframe({
                   iframe.style.height = `${contentHeight + GUTTER}px`;
                 }
               }}
-              className="aspect-video w-full rounded-b-none transition-all duration-300"
+              className="relative aspect-video w-full rounded-b-none transition-all duration-300"
               style={{ height: `${height ?? DEFAULT_HEIGHT}px` }}
             />
           </div>

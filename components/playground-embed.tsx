@@ -129,6 +129,7 @@ export default function PlaygroundEmbed({
           )}
           <iframe
             ref={iframeRef}
+            loading="lazy"
             src={`${playgroundUrl}?hide_chrome=1&show_preview=${
               editorMode === "plaintext" ? "true" : "false"
             }&c=${compressed}&editor_mode=${editorMode}`}
