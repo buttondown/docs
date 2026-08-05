@@ -20238,6 +20238,7 @@
           "email_address_capital_letters",
           "email_address_cleantalk_score",
           "email_address_contains_prohibited_string",
+          "email_address_domain_burst",
           "email_address_esp_suppression",
           "email_address_extant_subscriber_count",
           "email_address_gmail_word_numbers",
