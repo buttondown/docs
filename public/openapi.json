@@ -19855,8 +19855,9 @@
         "type": "object"
       },
       "ArchivalMode": {
-        "description": "Governs who can view this email in the archive.",
+        "description": "Governs who can view this email in the archive.\n\n`ARCHIVE_ONLY` is the odd one out: the email is publicly archived but\nis not email content at all (e.g. an imported blog post), so it is\nexcluded from email-rendering contexts like \"recent issues\" widgets.",
         "enum": [
+          "archive_only",
           "disabled",
           "enabled",
           "enabled_for_paid_subscribers",
@@ -20040,7 +20041,7 @@
             ],
             "default": "public",
             "deprecated": true,
-            "description": "The type of email. Defaults to `PUBLIC`."
+            "description": "The type of email. Defaults to `PUBLIC`. Deprecated: this is a legacy single-axis view derived from `archival_mode` (archive visibility) and `filters` (audience); prefer setting those directly. Because it is derived, it does not always round-trip: writing it alongside an explicit `archival_mode` that disagrees will report the value implied by the two underlying fields, and writing a value that already matches the derived one is a no-op."
           },
           "featured": {
             "description": "Designated whether or not this email should be highlighted within the archives.",
@@ -21149,7 +21150,7 @@
             ],
             "default": "public",
             "deprecated": true,
-            "description": "The type of email. Defaults to `PUBLIC`."
+            "description": "The type of email. Defaults to `PUBLIC`. Deprecated: this is a legacy single-axis view derived from `archival_mode` (archive visibility) and `filters` (audience); prefer setting those directly. Because it is derived, it does not always round-trip: writing it alongside an explicit `archival_mode` that disagrees will report the value implied by the two underlying fields, and writing a value that already matches the derived one is a no-op."
           },
           "status": {
             "allOf": [
@@ -21398,7 +21399,7 @@
               }
             ],
             "deprecated": true,
-            "description": "The type of email. Defaults to `PUBLIC`."
+            "description": "The type of email. Defaults to `PUBLIC`. Deprecated: this is a legacy single-axis view derived from `archival_mode` (archive visibility) and `filters` (audience); prefer setting those directly. Because it is derived, it does not always round-trip: writing it alongside an explicit `archival_mode` that disagrees will report the value implied by the two underlying fields, and writing a value that already matches the derived one is a no-op."
           },
           "status": {
             "anyOf": [
@@ -27733,7 +27734,7 @@
         "type": "string"
       },
       "EmailType": {
-        "description": "Represents the audience of an email, and to whom it is visible both in the initial\nemail and in online archives.",
+        "description": "The legacy single-axis representation of an email's audience and\narchive visibility. No longer stored: `filters` owns the audience\naxis and `archival_mode` owns the archive axis, and the deprecated\nAPI field is derived from those (see `email_type` below).",
         "enum": [
           "public",
           "private",

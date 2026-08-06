@@ -1,5 +1,10 @@
 {
   "ArchivalMode": {
+    "archive_only": {
+      "description": "This email is visible in the archive to everyone, but is not email content (e.g. an imported blog post) and is never sent or shown in email-rendering contexts.",
+      "name": "Archive only",
+      "variant": "info"
+    },
     "disabled": {
       "description": "This email is not visible in the archive.",
       "name": "Disabled",
