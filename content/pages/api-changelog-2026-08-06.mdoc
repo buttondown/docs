@@ -1,0 +1,12 @@
+---
+title: "2026-08-06"
+navigationTitle: "2026-08-06"
+---
+
+## Clearer collision behavior when recreating subscribers
+
+[`POST /v1/subscribers`](/api-subscribers-create) with `X-Buttondown-Collision-Behavior: overwrite` no longer returns a `201` while leaving an [`unsubscribed`](/api-subscribers-type#unsubscribed) subscriber unchanged. Overwrite cannot change terminal types (`unsubscribed`, `blocked`, `complained`, `undeliverable`) and returns `400` with `subscriber_suppressed` instead.
+
+To resubscribe, use `X-Buttondown-Collision-Behavior: add` (which still flips unsubscribed → [`regular`](/api-subscribers-type#regular)) or `PATCH` with `{"type": "regular"}`.
+
+See [Creating a subscriber](/api-subscribers-create#handling-collisions-and-updates) for the full `add` vs `overwrite` distinction.
