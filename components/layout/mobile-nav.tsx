@@ -4,7 +4,6 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Tabs from "@radix-ui/react-tabs";
 import { useEffect, useState } from "react";
-import type { ContentArray } from "@/lib/search/server";
 import { clsx } from "@/lib/utils";
 import type { NavData } from "./lib";
 import Sidebar from "./Sidebar";
@@ -13,12 +12,10 @@ import Search from "./search";
 export default function MobileNav({
   slug,
   nav,
-  contentArray,
   activeGroup,
 }: {
   slug: string;
   nav: NavData;
-  contentArray: ContentArray;
   activeGroup: string | null;
 }) {
   const [open, setOpen] = useState(false);
@@ -50,11 +47,7 @@ export default function MobileNav({
         </a>
 
         <div className="flex-1 flex items-center justify-end">
-          <Search
-            contentArray={contentArray}
-            defaultCategory="general"
-            enableKeyboardShortcut={false}
-          />
+          <Search defaultCategory="general" enableKeyboardShortcut={false} />
         </div>
       </header>
 

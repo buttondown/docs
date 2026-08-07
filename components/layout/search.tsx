@@ -7,7 +7,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { buildSearchIndex } from "@/lib/search/client";
-import { ContentArray } from "@/lib/search/server";
+import type { ContentArray } from "@/lib/search/server";
 import { clsx } from "@/lib/utils";
 
 const SearchIcon = () => (
@@ -31,12 +31,10 @@ const highlighter = new Highlight({
 });
 
 export default function Search({
-  contentArray,
   defaultCategory = "general",
   enableKeyboardShortcut = true,
   variant = "modal",
 }: {
-  contentArray: ContentArray;
   defaultCategory?: "general" | "api";
   enableKeyboardShortcut?: boolean;
   variant?: "inline" | "modal";
@@ -48,7 +46,26 @@ export default function Search({
   const [selectionSource, setSelectionSource] = useState<"keyboard" | "mouse">(
     "keyboard",
   );
-  const index = useMemo(() => buildSearchIndex(contentArray), [contentArray]);
+  // The corpus is fetched on first open rather than passed as a prop:
+  // serializing it from Layout put ~700 KB of flight data into every page.
+  const [contentArray, setContentArray] = useState<ContentArray | null>(null);
+  useEffect(() => {
+    if (!open || contentArray) return;
+    let cancelled = false;
+    fetch("/search-index.json")
+      .then((response) => response.json())
+      .then((data: ContentArray) => {
+        if (!cancelled) setContentArray(data);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [open, contentArray]);
+  const index = useMemo(
+    () => (contentArray ? buildSearchIndex(contentArray) : null),
+    [contentArray],
+  );
   const searchInputRef = useRef<HTMLInputElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);

@@ -5,7 +5,6 @@ import {
 } from "@heroicons/react/24/outline";
 import HeadingsMinimap from "@/components/headings-minimap";
 import cms from "@/lib/cms";
-import { buildContentArray } from "@/lib/search/server";
 import { clsx } from "@/lib/utils";
 import AccountButtons from "./account-buttons";
 import {
@@ -61,8 +60,6 @@ export default async function Layout({
     }
   }
 
-  const contentArray = buildContentArray();
-
   const guidesHref = `/${getFirstPageSlug(nav, "guides")}`;
   const referenceHref = `/${getFirstPageSlug(nav, "reference")}`;
   const apiHref = `/${getFirstPageSlug(nav, "api")}`;
@@ -104,11 +101,7 @@ export default async function Layout({
             <div className="flex-1" />
 
             <div className="flex items-center gap-x-3">
-              <Search
-                contentArray={contentArray}
-                defaultCategory="general"
-                variant="inline"
-              />
+              <Search defaultCategory="general" variant="inline" />
               <AccountButtons />
             </div>
           </nav>
@@ -116,12 +109,7 @@ export default async function Layout({
       </div>
 
       {/* Mobile nav header */}
-      <MobileNav
-        slug={slug}
-        nav={nav}
-        contentArray={contentArray}
-        activeGroup={currentNavigationGroup}
-      />
+      <MobileNav slug={slug} nav={nav} activeGroup={currentNavigationGroup} />
 
       <div className="lg:grid lg:grid-cols-[320px_1fr] pt-12">
         {/* Desktop nav header */}
