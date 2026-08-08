@@ -10607,7 +10607,7 @@
               "description": "Filter notes by the UUID or TypeID of the object they are attached to.",
               "title": "Model Id",
               "maxLength": 50,
-              "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:bsky_ss_doc|bsky_ss_pub|permission|unsub_req|auth_tok|rec_code|webauthn|api_req|aut_att|ext_evt|str_cus|str_sub|sub_imp|sub_tag|adslot|em_dom|em_evt|em_imp|le_evt|str_pd|adsku|socmn|webmn|book|bulk|cnvs|form|hook|inbx|news|note|resp|rssi|snip|snpr|acc|att|aut|com|emr|exp|img|inv|mes|rss|smp|srv|sub|dr|em)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
+              "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:bsky_ss_doc|bsky_ss_pub|permission|unsub_req|auth_tok|rec_code|webauthn|api_req|aut_att|ext_evt|str_cus|str_sub|sub_imp|sub_tag|adslot|em_dom|em_imp|le_evt|str_pd|adsku|socmn|webmn|book|bulk|cnvs|form|hook|inbx|news|note|resp|rssi|snip|snpr|acc|att|aut|com|emr|exp|img|inv|mes|rss|smp|srv|sub|dr|em)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
               "type": "string"
             },
             "required": false,
@@ -25279,7 +25279,7 @@
             "description": "The UUID or TypeID of the object this note is attached to.",
             "example": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
             "maxLength": 50,
-            "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:bsky_ss_doc|bsky_ss_pub|permission|unsub_req|auth_tok|rec_code|webauthn|api_req|aut_att|ext_evt|str_cus|str_sub|sub_imp|sub_tag|adslot|em_dom|em_evt|em_imp|le_evt|str_pd|adsku|socmn|webmn|book|bulk|cnvs|form|hook|inbx|news|note|resp|rssi|snip|snpr|acc|att|aut|com|emr|exp|img|inv|mes|rss|smp|srv|sub|dr|em)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
+            "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:bsky_ss_doc|bsky_ss_pub|permission|unsub_req|auth_tok|rec_code|webauthn|api_req|aut_att|ext_evt|str_cus|str_sub|sub_imp|sub_tag|adslot|em_dom|em_imp|le_evt|str_pd|adsku|socmn|webmn|book|bulk|cnvs|form|hook|inbx|news|note|resp|rssi|snip|snpr|acc|att|aut|com|emr|exp|img|inv|mes|rss|smp|srv|sub|dr|em)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
             "title": "Model Id",
             "type": "string"
           },
@@ -25366,7 +25366,7 @@
             "description": "The UUID or TypeID of the object this note is attached to.",
             "example": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
             "maxLength": 50,
-            "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:bsky_ss_doc|bsky_ss_pub|permission|unsub_req|auth_tok|rec_code|webauthn|api_req|aut_att|ext_evt|str_cus|str_sub|sub_imp|sub_tag|adslot|em_dom|em_evt|em_imp|le_evt|str_pd|adsku|socmn|webmn|book|bulk|cnvs|form|hook|inbx|news|note|resp|rssi|snip|snpr|acc|att|aut|com|emr|exp|img|inv|mes|rss|smp|srv|sub|dr|em)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
+            "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:bsky_ss_doc|bsky_ss_pub|permission|unsub_req|auth_tok|rec_code|webauthn|api_req|aut_att|ext_evt|str_cus|str_sub|sub_imp|sub_tag|adslot|em_dom|em_imp|le_evt|str_pd|adsku|socmn|webmn|book|bulk|cnvs|form|hook|inbx|news|note|resp|rssi|snip|snpr|acc|att|aut|com|emr|exp|img|inv|mes|rss|smp|srv|sub|dr|em)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
             "title": "Model Id",
             "type": "string"
           },
@@ -27801,7 +27801,7 @@
         "description": "An enumeration."
       },
       "ExternalEventType": {
-        "description": "Various types of events that are recorded by Buttondown, both in terms of exogenous systems\nlike Stripe and Memberful, and endogenous ones like email opens and clicks. (In general, if anything\nimportant ever happens that could be relevant to your newsletter, we have an event type for it!)\n\nThese event types power lots of things within Buttondown. They're used to trigger automations, webhooks,\nand analytics.\n\n(Note that Buttondown also has a different thing we call \"events\"; those are `EmailEvents` and are used\nfor tracking aggregate details about an email. Alas, we shouldn't have used the term \"event\" for two different\nthings, but it's too late to go back now!)\n\nIn general, our event namespacing tries to hew to the following pattern:\n\n`<source>.<object>.<action>`\n\nWhen wondering which object we are referring to, default to the _more granular_ object.\n\nFor instance, an email being sent to a subscriber is `subscriber.delivered`, not `email.sent`.",
+        "description": "Various types of events that are recorded by Buttondown, both in terms of exogenous systems\nlike Stripe and Memberful, and endogenous ones like email opens and clicks. (In general, if anything\nimportant ever happens that could be relevant to your newsletter, we have an event type for it!)\n\nThese event types power lots of things within Buttondown. They're used to trigger automations, webhooks,\nand analytics.\n\n(Note that the `/v1/events` API speaks an older, shorter vocabulary for subscriber engagement \u2014\n`clicked` rather than `subscriber.clicked` \u2014 a relic of a previous events system. Each of those\nnames maps onto one of the `subscriber.*` types below.)\n\nIn general, our event namespacing tries to hew to the following pattern:\n\n`<source>.<object>.<action>`\n\nWhen wondering which object we are referring to, default to the _more granular_ object.\n\nFor instance, an email being sent to a subscriber is `subscriber.delivered`, not `email.sent`.",
         "enum": [
           "advertising_slot.inquiry",
           "advertising_slot.purchased",
