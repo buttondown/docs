@@ -1596,6 +1596,39 @@
       ]
     },
     {
+      "name": "Segments",
+      "items": [
+        {
+          "discriminant": "page",
+          "value": "api-segments-introduction"
+        },
+        {
+          "discriminant": "divider",
+          "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-segments-list"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-segments-create"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-segments-retrieve"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-segments-update"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-segments-delete"
+        }
+      ]
+    },
+    {
       "name": "Snippets",
       "items": [
         {

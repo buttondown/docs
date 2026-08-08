@@ -10607,7 +10607,7 @@
               "description": "Filter notes by the UUID or TypeID of the object they are attached to.",
               "title": "Model Id",
               "maxLength": 50,
-              "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:bsky_ss_doc|bsky_ss_pub|permission|unsub_req|auth_tok|rec_code|webauthn|api_req|aut_att|ext_evt|str_cus|str_sub|sub_imp|sub_tag|adslot|em_dom|em_imp|le_evt|str_pd|adsku|socmn|webmn|book|bulk|cnvs|form|hook|inbx|news|note|resp|rssi|snip|snpr|acc|att|aut|com|emr|exp|img|inv|mes|rss|smp|srv|sub|dr|em)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
+              "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:bsky_ss_doc|bsky_ss_pub|permission|unsub_req|auth_tok|rec_code|webauthn|api_req|aut_att|ext_evt|segment|str_cus|str_sub|sub_imp|sub_tag|adslot|em_dom|em_imp|le_evt|str_pd|adsku|socmn|webmn|book|bulk|cnvs|form|hook|inbx|news|note|resp|rssi|snip|snpr|acc|att|aut|com|emr|exp|img|inv|mes|rss|smp|srv|sub|dr|em)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
               "type": "string"
             },
             "required": false,
@@ -11342,6 +11342,605 @@
           "public"
         ],
         "security": []
+      }
+    },
+    "/segments": {
+      "post": {
+        "operationId": "create_segment",
+        "summary": "Create Segment",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Segment"
+                }
+              }
+            },
+            "links": {
+              "retrieve_segment": {
+                "operationId": "retrieve_segment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "update_segment": {
+                "operationId": "update_segment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_segment": {
+                "operationId": "delete_segment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage_SegmentErrorCode_"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorMessage"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before retrying.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Requests permitted per minute.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Requests remaining in the current window.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Unix timestamp at which the window resets.",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Create a new segment",
+        "tags": [
+          "Segments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SegmentInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "list_segments",
+        "summary": "List Segments",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "description": "The page number of the paginated response.",
+            "schema": {
+              "type": "integer",
+              "title": "Page",
+              "description": "The page number of the paginated response.",
+              "default": 1,
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SegmentPage"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorMessage"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before retrying.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Requests permitted per minute.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Requests remaining in the current window.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Unix timestamp at which the window resets.",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "List all segments",
+        "tags": [
+          "Segments"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/segments/{id}": {
+      "get": {
+        "operationId": "retrieve_segment",
+        "summary": "Retrieve Segment",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Segment"
+                }
+              }
+            },
+            "links": {
+              "update_segment": {
+                "operationId": "update_segment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_segment": {
+                "operationId": "delete_segment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before retrying.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Requests permitted per minute.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Requests remaining in the current window.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Unix timestamp at which the window resets.",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve a specific segment by its ID",
+        "tags": [
+          "Segments"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "update_segment",
+        "summary": "Update Segment",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Segment"
+                }
+              }
+            },
+            "links": {
+              "retrieve_segment": {
+                "operationId": "retrieve_segment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              },
+              "delete_segment": {
+                "operationId": "delete_segment",
+                "parameters": {
+                  "path.id": "$response.body#/id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage_SegmentErrorCode_"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorMessage"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before retrying.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Requests permitted per minute.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Requests remaining in the current window.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Unix timestamp at which the window resets.",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Update a segment's properties",
+        "tags": [
+          "Segments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SegmentUpdateInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "delete_segment",
+        "summary": "Delete Segment",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "title": "Id",
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before retrying.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Requests permitted per minute.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Requests remaining in the current window.",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Unix timestamp at which the window resets.",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                }
+              }
+            }
+          }
+        },
+        "description": "Delete a segment",
+        "tags": [
+          "Segments"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
       }
     },
     "/snippets": {
@@ -25279,7 +25878,7 @@
             "description": "The UUID or TypeID of the object this note is attached to.",
             "example": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
             "maxLength": 50,
-            "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:bsky_ss_doc|bsky_ss_pub|permission|unsub_req|auth_tok|rec_code|webauthn|api_req|aut_att|ext_evt|str_cus|str_sub|sub_imp|sub_tag|adslot|em_dom|em_imp|le_evt|str_pd|adsku|socmn|webmn|book|bulk|cnvs|form|hook|inbx|news|note|resp|rssi|snip|snpr|acc|att|aut|com|emr|exp|img|inv|mes|rss|smp|srv|sub|dr|em)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
+            "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:bsky_ss_doc|bsky_ss_pub|permission|unsub_req|auth_tok|rec_code|webauthn|api_req|aut_att|ext_evt|segment|str_cus|str_sub|sub_imp|sub_tag|adslot|em_dom|em_imp|le_evt|str_pd|adsku|socmn|webmn|book|bulk|cnvs|form|hook|inbx|news|note|resp|rssi|snip|snpr|acc|att|aut|com|emr|exp|img|inv|mes|rss|smp|srv|sub|dr|em)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
             "title": "Model Id",
             "type": "string"
           },
@@ -25366,7 +25965,7 @@
             "description": "The UUID or TypeID of the object this note is attached to.",
             "example": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
             "maxLength": 50,
-            "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:bsky_ss_doc|bsky_ss_pub|permission|unsub_req|auth_tok|rec_code|webauthn|api_req|aut_att|ext_evt|str_cus|str_sub|sub_imp|sub_tag|adslot|em_dom|em_imp|le_evt|str_pd|adsku|socmn|webmn|book|bulk|cnvs|form|hook|inbx|news|note|resp|rssi|snip|snpr|acc|att|aut|com|emr|exp|img|inv|mes|rss|smp|srv|sub|dr|em)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
+            "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:bsky_ss_doc|bsky_ss_pub|permission|unsub_req|auth_tok|rec_code|webauthn|api_req|aut_att|ext_evt|segment|str_cus|str_sub|sub_imp|sub_tag|adslot|em_dom|em_imp|le_evt|str_pd|adsku|socmn|webmn|book|bulk|cnvs|form|hook|inbx|news|note|resp|rssi|snip|snpr|acc|att|aut|com|emr|exp|img|inv|mes|rss|smp|srv|sub|dr|em)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
             "title": "Model Id",
             "type": "string"
           },
@@ -25852,6 +26451,162 @@
           "absolute_url"
         ],
         "title": "PublicEmail",
+        "type": "object"
+      },
+      "Segment": {
+        "description": "A saved, reusable audience \u2014 a named set of subscriber filters that can\nbe applied as the audience of an email.",
+        "properties": {
+          "id": {
+            "description": "A unique TypeID associated with the object.",
+            "title": "Id",
+            "type": "string"
+          },
+          "creation_date": {
+            "description": "The date and time at which the object was first created.",
+            "format": "date-time",
+            "title": "Creation Date",
+            "type": "string"
+          },
+          "name": {
+            "description": "A human-readable name for the segment.",
+            "title": "Name",
+            "type": "string"
+          },
+          "description": {
+            "description": "An optional free-form description of the segment, shown alongside its name when picking an email's audience.",
+            "title": "Description",
+            "type": "string"
+          },
+          "filters": {
+            "$ref": "#/components/schemas/EmailFilterGroup",
+            "description": "The tag- and metadata-based filter rules defining which subscribers belong to this segment."
+          }
+        },
+        "required": [
+          "id",
+          "creation_date",
+          "name",
+          "description",
+          "filters"
+        ],
+        "title": "Segment",
+        "type": "object"
+      },
+      "ErrorMessage_SegmentErrorCode_": {
+        "properties": {
+          "code": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SegmentErrorCode"
+              }
+            ],
+            "description": "The error code."
+          },
+          "detail": {
+            "description": "A human-readable description of the error.",
+            "title": "Detail",
+            "type": "string"
+          },
+          "metadata": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "default": {},
+            "description": "Additional context about the error. When present, a `documentation_url` key links to docs explaining how to resolve it.",
+            "title": "Metadata",
+            "type": "object"
+          }
+        },
+        "required": [
+          "detail"
+        ],
+        "title": "ErrorMessage[SegmentErrorCode]",
+        "type": "object"
+      },
+      "SegmentErrorCode": {
+        "description": "Error codes returned when creating or updating a segment fails.",
+        "enum": [
+          "name_already_exists"
+        ],
+        "title": "SegmentErrorCode",
+        "type": "string"
+      },
+      "SegmentInput": {
+        "additionalProperties": false,
+        "description": "Input schema for creating a new segment.",
+        "properties": {
+          "name": {
+            "description": "A human-readable name for the segment.",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string",
+            "example": "Executives"
+          },
+          "description": {
+            "default": "",
+            "description": "An optional free-form description of the segment, shown alongside its name when picking an email's audience.",
+            "title": "Description",
+            "type": "string",
+            "example": "Leadership at customer accounts"
+          },
+          "filters": {
+            "$ref": "#/components/schemas/EmailFilterGroup",
+            "description": "The tag- and metadata-based filter rules defining which subscribers belong to this segment."
+          }
+        },
+        "required": [
+          "name",
+          "filters"
+        ],
+        "title": "SegmentInput",
+        "type": "object"
+      },
+      "SegmentUpdateInput": {
+        "additionalProperties": false,
+        "description": "Input schema for updating an existing segment. All fields are optional.",
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A human-readable name for the segment.",
+            "title": "Name",
+            "example": "Executives"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "An optional free-form description of the segment, shown alongside its name when picking an email's audience.",
+            "title": "Description",
+            "example": "Leadership at customer accounts"
+          },
+          "filters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EmailFilterGroup"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The tag- and metadata-based filter rules defining which subscribers belong to this segment."
+          }
+        },
+        "title": "SegmentUpdateInput",
         "type": "object"
       },
       "Snippet": {
@@ -29084,6 +29839,53 @@
           "count"
         ],
         "title": "Page[PublicEmail]",
+        "type": "object"
+      },
+      "SegmentPage": {
+        "properties": {
+          "results": {
+            "description": "The list of results for this page.",
+            "items": {
+              "$ref": "#/components/schemas/Segment"
+            },
+            "title": "Results",
+            "type": "array"
+          },
+          "next": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The URL to the next page of results, if any.",
+            "title": "Next"
+          },
+          "previous": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The URL to the previous page of results, if any.",
+            "title": "Previous"
+          },
+          "count": {
+            "description": "The total number of results across all pages.",
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ],
+        "title": "Page[Segment]",
         "type": "object"
       },
       "SnippetPage": {

@@ -1953,5 +1953,27 @@
         "is_checking": false
       }
     }
+  ],
+  "Segment": [
+    {
+      "description": "Segment",
+      "object": {
+        "id": "segment_2a7wp1t3fw896bp4mrhc535z5k",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "name": "Executives",
+        "description": "Leadership at customer accounts",
+        "filters": {
+          "filters": [
+            {
+              "field": "subscriber.metadata.role",
+              "operator": "equals",
+              "value": "executive"
+            }
+          ],
+          "groups": [],
+          "predicate": "and"
+        }
+      }
+    }
   ]
 }

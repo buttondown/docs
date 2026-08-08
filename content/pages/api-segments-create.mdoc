@@ -1,0 +1,7 @@
+---
+title: Creating a segment
+endpoint: /segments
+method: post
+---
+
+Segment names are unique within a newsletter: creating a segment whose `name` already exists returns a `400` with a `name_already_exists` code, and the existing segment's id in the response `metadata`.
