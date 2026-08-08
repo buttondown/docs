@@ -20852,6 +20852,7 @@
           "email_address_null_characters",
           "email_address_peaceful_domain",
           "email_address_plus_single_number",
+          "email_address_plus_variant_accounts",
           "email_address_previous_evaluation",
           "email_address_prohibited_via_domain",
           "email_address_regex",
@@ -20875,12 +20876,14 @@
           "newsletter_status",
           "project_honeypot",
           "referrer_url_prohibited",
+          "registration_without_prior_page_visit",
           "subscriber_import_provenance",
           "subscriber_import_source",
           "text_contains_malicious_url",
           "text_contains_prohibited_string",
           "turnstile_response_token_is_valid",
-          "user_agent_known"
+          "user_agent_known",
+          "username_shannon_entropy"
         ],
         "title": "FirewallReasonCode",
         "type": "string",
