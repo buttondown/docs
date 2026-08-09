@@ -58,10 +58,12 @@ flowchart-elk
 
 The firewall is conceptually simple: whenever we receive an incoming request across a common vector (such as an embedded subscription form, a POST to `/v1/subscribers`, or a comment on a newsletter), we check the reputation of the IP address and email address of the incoming request as well as some additional metadata. We tally up the various facets and arrive at a `risk_score`. If the `risk_score` is below a threshold, we let the subscriber through. If it's above the threshold, we block the subscriber.
 
-As a newsletter owner, you are given two knobs to tune the firewall and how it interacts with your newsletter:
+As a newsletter owner, you tune the firewall from your newsletter's [firewall settings](https://buttondown.com/settings/firewall):
 
-- _The threshold_: This is the point at which we block a subscriber. 
-- _By default_, we do not surface blocked subscribers to your newsletter. If you prefer, you can opt to surface them in the subscriber dashboard with a special type of "Blocked". 
+- **Firewall**: turns the firewall on or off.
+- **Filtering**: sets how strict the firewall is. **Default** blocks the clearest threats; **Aggressive** applies stricter checks and is more likely to block borderline subscribers.
+- **Handling blocked subscribers**: chooses what happens to a subscriber the firewall blocks. **Reject** (the default) turns them away outright; **Accept and mark as blocked** keeps them on your list with a special type of "Blocked", so you can review them and decide whether to unblock them.
+- **IP address filtering**: additionally blocks subscribers whose IP addresses we suspect are malicious.
 
 
 ## Risk scores
@@ -75,14 +77,14 @@ Buttondown's firewall ultimately buckets the spectrum of all risk scores into fo
 | 0.5 — 1          | Risky      | Some suspicious signals detected; may be a bot or spam.                |
 | ≥ 1              | Very&nbsp;risky | Strong indicators of spam or malicious activity.                       |
 
-Setting a firewall mode of "aggressive" will proactively block _risky_ and _very risky_ subscribers; a firewall mode of "enabled" only blocks _very risky_ subscribers.
+Setting your filtering level to **Aggressive** will proactively block _risky_ and _very risky_ subscribers; the **Default** level only blocks _very risky_ subscribers.
 
 ## Attack mode
 
 If Buttondown detects that your newsletter has accumulated an unusually high proportion of unactivated subscribers — a pattern that often indicates a bot or spam attack on your subscription form — we'll automatically turn on **attack mode** on your behalf. Specifically, we'll:
 
-- Set your firewall's auditing mode to **aggressive**, so incoming subscribers are more strictly scrutinized.
-- Enable **IP address auditing**, which checks the reputation of each subscriber's IP address before letting them through.
+- Set your firewall's filtering level to **Aggressive**, so incoming subscribers are more strictly scrutinized.
+- Enable **IP address filtering**, which checks the reputation of each subscriber's IP address before letting them through.
 
 You'll get an email whenever this happens. If you'd prefer that Buttondown didn't take these actions automatically, you can disable attack mode from your newsletter's firewall settings.
 

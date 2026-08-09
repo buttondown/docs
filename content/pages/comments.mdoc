@@ -59,6 +59,18 @@ On an email that is set to "Enabled for paid subscribers", a free subscriber see
 
 To stop a single person from commenting, open that subscriber in [your subscriber list](https://buttondown.com/subscribers) and turn on the **Commenting disabled** toggle. This applies to all of your emails, whatever their commenting mode is.
 
+## Comment moderation
+
+Every comment has a [status](/api-comments-status): **active**, **pending**, or **spammy**. Only active comments are visible on your archive; a reader still sees their own pending comment while it awaits confirmation.
+
+Statuses are assigned automatically:
+
+- A comment from a confirmed subscriber becomes **active** right away.
+- A comment from a subscriber who hasn't confirmed their subscription yet stays **pending**. It becomes active when they confirm.
+- A comment is marked **spammy** if the commenter is blocked by the [firewall](/firewall), if the text contains a prohibited phrase or a malicious link, or if our spam classifier flags it. Pending comments also flip to spammy if the subscriber becomes undeliverable.
+
+You can moderate by hand from the [Comments page](https://buttondown.com/comments): filter by status, then use **Mark as active** or **Mark as spammy** on one or more comments — handy for rescuing a false positive or hiding something the automatic checks missed.
+
 ## FAQs
 
 {% faq /%}

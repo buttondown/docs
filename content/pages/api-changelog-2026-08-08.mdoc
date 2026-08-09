@@ -1,0 +1,18 @@
+---
+title: "2026-08-08"
+navigationTitle: "2026-08-08"
+---
+
+## Segments
+
+We've added [segments](/api-segments-introduction) to the API: saved, reusable audiences — a named set of tag and metadata filters that you can apply as the audience of an email instead of rebuilding the same rules every send.
+
+Five new endpoints:
+
+- [`GET /v1/segments`](/api-segments-list)
+- [`POST /v1/segments`](/api-segments-create)
+- [`GET /v1/segments/{id}`](/api-segments-retrieve)
+- [`PATCH /v1/segments/{id}`](/api-segments-update)
+- [`DELETE /v1/segments/{id}`](/api-segments-delete)
+
+Note that an email's audience is a _snapshot_: applying a segment copies its filters onto the email, so editing or deleting a segment never changes emails you've already sent or scheduled. Emails continue to accept [filters](/api-emails-filters) directly; segments are purely additive, and no existing endpoints change behavior.

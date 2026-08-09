@@ -110,6 +110,6 @@ We rate limit this endpoint to protect against abuse and unintentional usage; th
 
 ## Tagging a new subscriber
 
-You can simultaneously create a new subscriber [and add a tag or tags to them](/api-tags-introduction) by supplying the `tags` field in the request body. If you supply a tag that does not already exist, Buttondown will create and persist the tag for you.
+You can simultaneously create a new subscriber [and add a tag or tags to them](/api-tags-introduction) by supplying the `tags` field in the request body. If you supply a tag that does not already exist, Buttondown will create and persist the tag for you — as long as your plan includes tags (Basic or higher). On plans without tags, supplying a not-yet-existing tag returns a `403` with the error code `feature_disabled`; referencing existing tags works on any plan.
 
 ---

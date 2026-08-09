@@ -2,14 +2,35 @@
 title: WordPress
 
 description:  >-
-  Using custom HTML blocks you can easily add your Buttondown subscriber form to your WordPress site.
+  Use the official Buttondown plugin (or a custom HTML block) to add your subscribe form to your WordPress site.
 ---
 
-## Overview 
+## Overview
 
-You can use WordPress's [Custom HTML blocks](https://wordpress.com/support/wordpress-editor/blocks/custom-html-block/) feature to add a subscription form to your WordPress site. 
+There are two ways to add a Buttondown subscribe form to your WordPress site:
 
-## Create a new Custom HTML block
+1. **The official Buttondown plugin** (recommended) — a block and a shortcode that render the form for you, so there's no HTML to copy, paste, or accidentally break.
+2. **A Custom HTML block** — paste the form markup yourself.
+
+## Using the official plugin
+
+Install the [Buttondown plugin](https://wordpress.org/plugins/buttondown/) from the WordPress plugin directory (in your WordPress admin, go to **Plugins → Add New** and search for "Buttondown").
+
+The plugin gives you:
+
+- **A block.** Add the **Buttondown Subscribe Form** block and enter your Buttondown username. You can edit the field label and the button label directly in the editor canvas, and style the form with the standard color, typography, spacing, and border tools — it inherits your theme's design.
+- **A shortcode.** Use `[buttondown username="hello"]` anywhere shortcodes work. Optional attributes: `label` and `button`.
+- **Block patterns.** The pattern library includes a newsletter signup section and a compact footer signup band.
+
+You can also save a site-wide default username (under **Settings**), so every new form points at your newsletter with no per-block configuration.
+
+Your username is the last part of your Buttondown URL: for `buttondown.com/hello`, the username is `hello`.
+
+Submissions happen inline, with a confirmation message in place; browsers without JavaScript fall back to Buttondown's hosted subscribe flow. Subscribers follow your newsletter's opt-in configuration, so double opt-in works as expected. The plugin stores no subscriber data — submissions go directly from the visitor's browser to Buttondown.
+
+## Using a Custom HTML block
+
+If you'd rather not install a plugin, you can use WordPress's [Custom HTML blocks](https://wordpress.com/support/wordpress-editor/blocks/custom-html-block/) feature instead.
 
 First, create a new Custom HTML block. To learn more, read [WordPress's documentation](https://wordpress.com/support/wordpress-editor/blocks/custom-html-block/).
 
@@ -43,3 +64,5 @@ In the Custom HTML block, paste in the following code:
 ```
 
 That's it! The new Custom HTML block will display a subscription form for your Buttondown newsletter.
+
+{% noticeWarn text="If you edit the pasted markup, take care to keep the `name=\"email\"` attribute intact — if it changes, submissions will silently stop reaching Buttondown. (This is the failure mode the official plugin exists to prevent.)" /%}

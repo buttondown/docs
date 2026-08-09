@@ -3,6 +3,12 @@ title: "2026-07-24"
 navigationTitle: "2026-07-24"
 ---
 
+## Tag creation now requires the tags feature
+
+Creating tags implicitly through the subscriber endpoints — supplying a not-yet-existing tag in the `tags` field of [`POST /v1/subscribers`](/api-subscribers-create) or `PATCH /v1/subscribers/{id}` — now requires a plan that includes tags (Basic or higher). On plans without tags, these requests return `403` with the error code `feature_disabled`; previously, the tag was silently created. Referencing tags that already exist is unaffected. This matches the behavior of the dedicated [`POST /v1/tags`](/api-tags-create) endpoint, which was already gated the same way.
+
+## Custom domain verification on the API
+
 We've exposed a newsletter's custom domain verification on the public API, so you can check DNS setup programmatically instead of only in the web app.
 
 Two new read-only endpoints return the underlying DNS records and their current verification state:

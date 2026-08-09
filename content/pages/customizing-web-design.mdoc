@@ -205,16 +205,27 @@ There are two families of buttons, and it's a common mistake to target the wrong
 | `comment-input__actions`   | Action buttons container           |
 | `comment-input__back-link` | Back link from comment detail page |
 
-#### Payment form classes
+#### Checkout classes
 
-| Class                            | Description                      |
-| -------------------------------- | -------------------------------- |
-| `archive__payment-form`          | Payment form container           |
-| `archive__email-input-container` | Container for email input fields |
-| `archive__email-label`           | Label for email input            |
-| `archive__email-input`           | Email input field                |
-| `archive__gift-toggle`           | Gift subscription toggle         |
-| `archive__gift-checkbox`         | Gift subscription checkbox       |
+The embedded checkout on your subscribe page uses `checkout__*` classes:
+
+| Class                        | Description                            |
+| ---------------------------- | -------------------------------------- |
+| `checkout__error`            | Error message                          |
+| `checkout__field`            | Individual form field container        |
+| `checkout__gift-fields`      | Gift recipient and message fields      |
+| `checkout__gift-toggle`      | "This is a gift" checkbox              |
+| `checkout__input`            | Text input field                       |
+| `checkout__label`            | Field label                            |
+| `checkout__panel`            | Checkout panel container               |
+| `checkout__plan`             | Individual plan card                   |
+| `checkout__plan--selected`   | Currently selected plan card           |
+| `checkout__plans`            | Plan picker container                  |
+| `checkout__submit`           | Subscribe/submit button                |
+| `checkout__success`          | Post-payment success state             |
+| `checkout__summary`          | Order summary on the payment step      |
+
+The portal's update-payment-method form still uses the older `archive__payment-form`, `archive__email-*`, and `archive__gift-*` classes.
 
 #### Modal classes
 

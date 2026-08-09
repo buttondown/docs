@@ -85,6 +85,19 @@ You can also switch between Markdown and [Fancy Mode](/fancy-mode) without losin
 
 (Note that as of now, LaTeX is only renderable as a "block", and not inline with text.)
 
+### Mermaid diagrams
+
+You can embed [Mermaid](https://mermaid.js.org/) diagrams — flowcharts, sequence diagrams, pie charts, and so on — by using a fenced code block with the `mermaid` language:
+
+````markdown
+```mermaid
+flowchart LR
+    draft[Draft] --> review[Review] --> send[Send]
+```
+````
+
+In the email, the diagram is rendered as a high-resolution image; on your [web archive](/email-archives), it's rendered in the browser as a crisp vector graphic. Both use a neutral theme that matches Buttondown's email styling, and you can override any of it with your own [`%%{init}%%` directive](https://mermaid.js.org/config/directives.html) at the top of the diagram.
+
 ## Converting content to Markdown
 
 If you have existing content in other formats like HTML, Word documents, or Google Docs, you can convert it to Markdown before pasting it into Buttondown. Here are some tools that can help:
