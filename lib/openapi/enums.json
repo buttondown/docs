@@ -1019,6 +1019,10 @@
       "description": "Whenever an email has been deleted.",
       "name": "email.deleted"
     },
+    "email.send.started": {
+      "description": "Whenever an email starts sending. This fires as soon as the send is underway, before any recipient has been delivered to — useful for cross-posting, which otherwise waits for the whole send to finish.",
+      "name": "email.send.started"
+    },
     "email.sent": {
       "description": "Whenever an email has finished its delivery. Note that event happens immediately after all emails have been sent, but some email events may not have finished processing.",
       "name": "email.sent"

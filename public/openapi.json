@@ -28574,6 +28574,7 @@
           "bigcommerce.order.updated",
           "email.created",
           "email.deleted",
+          "email.send.started",
           "email.sent",
           "email.status.changed",
           "email.updated",

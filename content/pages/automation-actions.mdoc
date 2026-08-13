@@ -15,7 +15,7 @@ Actions are the steps your automation performs when it fires. Each action has it
 - **Send a notification** --- Send a notification email to a specific recipient (like yourself).
 - **Send a confirmation reminder** --- Resend a subscription confirmation email to subscribers who haven't confirmed yet.
 - **Forward the reply** --- Forward a subscriber's reply to a specific email address. Only available with the "When a subscriber replies" trigger.
-- **Update email visibility** --- Change the archive visibility of the email that triggered the automation (e.g. flip a public email to subscribers-only or paid-subscribers-only). Only available with the "When an email is sent" trigger.
+- **Update email visibility** --- Change the archive visibility of the email that triggered the automation (e.g. flip a public email to subscribers-only or paid-subscribers-only). Only available with the email send triggers.
 
 ### Tags and metadata
 
@@ -40,9 +40,9 @@ Actions are the steps your automation performs when it fires. Each action has it
 - **Unsubscribe from Shopify** --- Remove the subscriber from your Shopify store. Requires Shopify integration.
 - **Export your subscribers** --- Create an export of your subscriber or email data.
 
-### Social media (email.sent trigger only)
+### Social media (email send triggers only)
 
-These actions are available when the trigger is "When an email is sent" and let you cross-post to social platforms:
+These actions are available when the trigger is "When an email starts sending" or "When an email finishes sending", and let you cross-post to social platforms:
 
 - **Create an Arena post** --- Requires a connected Arena account.
 - **Create a Bluesky post** --- Requires Bluesky credentials in your newsletter settings.
@@ -57,7 +57,7 @@ Some actions require an integration to be connected before they can be used. If 
 
 ## Trigger compatibility
 
-Not all actions are available with every trigger. For example, social media posting actions only appear when the trigger is "When an email is sent," and "Forward the reply" only appears when the trigger is "When a subscriber replies." The action picker automatically shows only the actions compatible with your chosen trigger.
+Not all actions are available with every trigger. For example, social media posting actions only appear when the trigger is "When an email starts sending" or "When an email finishes sending," and "Forward the reply" only appears when the trigger is "When a subscriber replies." The action picker automatically shows only the actions compatible with your chosen trigger.
 
 ## Per-action timing
 

@@ -42,16 +42,16 @@ To share your newsletters to Are.na, you can create an automation that posts you
 {% automation
    name="Automatically post to Are.na"
    description="This automation will automatically post new emails onto Are.na"
-   trigger="When an email is sent"
-   url="https://buttondown.com/automations/new?trigger=email.sent&action=create_arena_post&name=Automatically+post+to+arena"
+   trigger="When an email starts sending"
+   url="https://buttondown.com/automations/new?trigger=email.send.started&action=create_arena_post&name=Automatically+post+to+arena"
    action="Post on Are.na" /%}
 
 The simplest and most common use case is to create an automation that posts your newsletters to an Are.na channel whenever you send them. Here's how:
 
 1. Navigate to the [**Automations**](https://buttondown.com/automations) page and click **New**. The "New automation" panel opens.
 1. (Optional) Give your automation a human-readable "Name."
-1. Set the **Trigger** to [when an email is sent](/event-types#email.sent).
-1. Set the **Action** to [Create an Are.na post](/automation-actions#social-media-emailsent-trigger-only).
+1. Set the **Trigger** to [when an email starts sending](/event-types#email.send.started).
+1. Set the **Action** to [Create an Are.na post](/automation-actions#social-media-email-send-triggers-only).
 1. Enter your Are.na channel slug in the "Channel slug" field.
 1. (Optional) Customize the message content. If you leave this blank, Buttondown will use the email content and URL.
 1. Click **Save changes**.

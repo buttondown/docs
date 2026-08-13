@@ -22,7 +22,7 @@ You can see that each of these triggers is a different _event type_. There are m
 
 Certain triggers restrict which actions are available. For example:
 
-- **When an email is sent** --- Unlocks social media cross-posting actions (Bluesky, LinkedIn, Mastodon, Tumblr, Twitter, Arena) but doesn't include subscriber-level actions like tagging.
+- **When an email starts sending** and **When an email finishes sending** --- Both unlock social media cross-posting actions (Bluesky, LinkedIn, Mastodon, Tumblr, Twitter, Arena) but neither includes subscriber-level actions like tagging. Prefer "starts sending" for cross-posting; see [cross-posting](/crossposting) for the difference.
 - **When a subscriber replies** --- Adds the "Forward the reply" action alongside the standard actions.
 - **Calendar triggers** (new day/week/month/year) --- Limited to notifications and exports, since there's no specific subscriber involved.
 - **Stripe/Memberful/Patreon triggers** --- Offer a focused set of actions relevant to payment events (like creating subscribers or updating email addresses).

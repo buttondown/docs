@@ -11,7 +11,16 @@ You can use Buttondown's [automations](/automations-introduction) to automatical
 
 ## Setting up a cross-posting automation
 
-[Create a cross-posting automation](https://buttondown.com/automations/new?trigger=email.sent&name=Cross-post+to+social) to get started --- this will set the trigger and name for you. Click **Save changes** to create the automation, then open its settings page to add actions.
+[Create a cross-posting automation](https://buttondown.com/automations/new?trigger=email.send.started&name=Cross-post+to+social) to get started --- this will set the trigger and name for you. Click **Save changes** to create the automation, then open its settings page to add actions.
+
+### Choosing when to cross-post
+
+Two triggers can drive a cross-post, and the difference matters for large newsletters:
+
+- **When an email starts sending** --- fires the moment the send begins. Your post goes up right away, no matter how long delivery takes. This is the default for the link above, and what most people want.
+- **When an email finishes sending** --- waits until the last recipient has been delivered to. On a large list that can be several minutes, and the post won't go up before then.
+
+A post that has already gone up can't be taken back automatically, so if you pause or cancel a send after it starts, remove the social post yourself.
 
 ### Adding social media actions
 
@@ -38,7 +47,7 @@ If you leave the message field blank, Buttondown will use a sensible default bas
 
 ### Timing
 
-You can set each action to post **immediately** when the email is sent, or add a delay. For example, you might post to Twitter right away but delay the LinkedIn post by an hour.
+You can set each action to post **immediately** when the trigger fires, or add a delay. For example, you might post to Twitter right away but delay the LinkedIn post by an hour. Delays are measured from the trigger, so the same delay lands earlier under "starts sending" than under "finishes sending".
 
 Click **Save changes** when you're done.
 

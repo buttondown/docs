@@ -35,16 +35,16 @@ To share your newsletters to LinkedIn, you can create an automation that posts y
 {% automation
    name="Automatically post to LinkedIn"
    description="This automation will automatically post new emails onto LinkedIn"
-   trigger="When an email is sent"
-   url="https://buttondown.com/automations/new?trigger=email.sent&action=create_linkedin_post&name=Automatically+post+to+linkedin"
+   trigger="When an email starts sending"
+   url="https://buttondown.com/automations/new?trigger=email.send.started&action=create_linkedin_post&name=Automatically+post+to+linkedin"
    action="Post on LinkedIn" /%}
 
 The simplest and most common use case is to create an automation that posts your newsletters to LinkedIn whenever you send them. Here's how:
 
 1. Navigate to the [**Automations**](https://buttondown.com/automations) page and click **New**. The "New automation" panel opens.
 1. (Optional) Give your automation a human-readable "Name."
-1. Set the **Trigger** to  [when an email is sent](/event-types#email.sent).
-1. Set the **Action** to [Create a LinkedIn post](/automation-actions#social-media-emailsent-trigger-only).
+1. Set the **Trigger** to [when an email starts sending](/event-types#email.send.started).
+1. Set the **Action** to [Create a LinkedIn post](/automation-actions#social-media-email-send-triggers-only).
 1. (Optional) Configure any other fields to customize the automation. If you leave these fields blank, the automation will post to your LinkedIn account as soon as you send a new newsletter email.
 1. Click **Save changes**.
 
