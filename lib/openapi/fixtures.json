@@ -1455,7 +1455,8 @@
             "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
             "name": "Welcome email",
             "status": "processed",
-            "automation": "13121cd6-0dfc-424c-bb12-988b0a32fcb3"
+            "automation": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+            "error": null
           }
         ],
         "subscriber": null,
