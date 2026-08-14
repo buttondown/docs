@@ -1,0 +1,45 @@
+---
+title: Canary links
+description: Why Buttondown embeds an invisible canary link in emails, and why it stays even when tracking is off.
+faqItems: >
+  [
+    {
+      "question": "Can subscribers see or click the canary link?",
+      "answer": "No. It's an invisible, zero-width character at the end of the email. Real readers never notice it; only automated systems that crawl every URL in a message tend to hit it."
+    },
+    {
+      "question": "Does a canary hit show up in my analytics?",
+      "answer": "No. We never count a canary hit as an open, a click, or any other engagement metric. Its only job is to mark *other* automated activity from the same scanner as untrustworthy."
+    },
+    {
+      "question": "If I turn tracking back on, do I need to do anything?",
+      "answer": "No. Canary links are already in your emails. When click tracking is enabled, they quietly help filter bot clicks out of your numbers."
+    }
+  ]
+---
+
+If you inspect the HTML of a Buttondown email, you may notice a tiny, invisible link near the end — something like `/api/emails/canary/...`. That's a **canary link**. It is not [click tracking](/click-tracking) or [open tracking](/open-tracking), and it is not used to measure subscriber engagement.
+
+## Why they exist
+
+Many email providers and security tools automatically fetch every link in a message to scan for malware. That behavior is good for safety, but it causes real problems if we treat those fetches like human actions:
+
+- Fake "clicks" that inflate analytics
+- Accidental unsubscribes when a scanner hits a one-click unsubscribe URL
+- Bot signups that get auto-confirmed when a scanner hits the confirmation link
+
+The canary is a trap door only those scanners tend to walk through. When it trips, Buttondown knows the same machine's other recent link hits are automated and should be ignored — not counted as engagement, and not allowed to confirm a subscription or unsubscribe someone.
+
+## Why they stay when tracking is off
+
+[Click and open tracking](https://buttondown.com/settings/tracking) are opt-in and only affect analytics. Canary links protect **side effects** that still exist when tracking is disabled: subscription confirmation, unsubscribe, and survey responses.
+
+Turning tracking off means we stop rewriting your links and stop injecting a tracking pixel. However, mail scanners will still prefetch URLs, so the canary stays.
+
+## This is not subscriber tracking
+
+A canary hit is never attributed as "this person opened/clicked your email." Humans don't interact with the link. We use the signal only to discard or block *bot* activity. No engagement score, open rate, or click rate is derived from canary visits.
+
+## Frequently asked questions
+
+{% faq /%}

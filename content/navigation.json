@@ -298,6 +298,10 @@
         },
         {
           "discriminant": "page",
+          "value": "canary-links"
+        },
+        {
+          "discriminant": "page",
           "value": "complaint-rate"
         },
         {
