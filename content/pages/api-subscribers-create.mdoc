@@ -55,7 +55,7 @@ The right way to model both of these scenarios would be to [update](/api-subscri
 
 However, updating a subscriber is not necessarily feasible for all integrations. If you're looking for behavior more akin to an upsert, you can provide a `X-Buttondown-Collision-Behavior` header of `overwrite` or `add`:
 
-- **`add`** merges the new data into the existing subscriber (for example, unioning tags). If the existing subscriber is [`unsubscribed`](/api-subscribers-type#unsubscribed), `add` also resubscribes them as [`regular`](/api-subscribers-type#regular).
+- **`add`** merges the new data into the existing subscriber (for example, combining tags). If the existing subscriber is [`unsubscribed`](/api-subscribers-type#unsubscribed), omitting `type` resubscribes them as [`regular`](/api-subscribers-type#regular), preserving the existing default behavior. Passing `"type": "unactivated"` instead leaves them pending confirmation and sends a new confirmation email.
 - **`overwrite`** replaces the existing subscriber's data with the new payload. It **cannot** change sticky/terminal types ([`unsubscribed`](/api-subscribers-type#unsubscribed), `blocked`, `complained`, `undeliverable`) — those requests return a `400` with `subscriber_suppressed` instead of a silent success. Use `add` or a PATCH to resubscribe.
 
 ```shell
@@ -65,6 +65,13 @@ curl -X POST https://api.buttondown.com/v1/subscribers \
   -H "Authorization: Token $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"email_address": "john@example.com", "tags": ["tag-1", "tag-2"]}'
+
+# Require confirmation when resubscribing an unsubscribed address:
+curl -X POST https://api.buttondown.com/v1/subscribers \
+  -H "X-Buttondown-Collision-Behavior: add" \
+  -H "Authorization: Token $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"email_address": "john@example.com", "type": "unactivated"}'
 
 # Upsert fields on a non-terminal subscriber:
 curl -X POST https://api.buttondown.com/v1/subscribers \

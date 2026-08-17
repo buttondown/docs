@@ -706,6 +706,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-changelog-2026-08-14"
+        },
+        {
+          "discriminant": "page",
           "value": "api-changelog-2026-08-08"
         },
         {

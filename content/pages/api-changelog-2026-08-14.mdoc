@@ -1,0 +1,10 @@
+---
+title: "2026-08-14"
+navigationTitle: "2026-08-14"
+---
+
+## Allowing setting type: unactivated when using collision-behavior: add on unsubscribed subscriber.
+
+[`POST /v1/subscribers`](/api-subscribers-create) with `X-Buttondown-Collision-Behavior: add` will now respect passing `type: unactivated` and will send a confirmation email instead of going directly to `type: regular` when passing an unsubscribed email address.
+
+See [Creating a subscriber](/api-subscribers-create#handling-collisions-and-updates) for the full `add` vs `overwrite` distinction.
