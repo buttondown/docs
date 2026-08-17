@@ -60,6 +60,8 @@ Below is an example of a basic form that uses this endpoint:
 {% liveCodeBlock
    filename="public/code/building-your-subscriber-base/1.html" /%}
 
+The `embed-subscribe` endpoint must be the `action` of a standard HTML `<form>`. Do not send requests to it with JavaScript's `fetch` API: subscribers sometimes need to follow Buttondown's response to complete CAPTCHA verification or correct a validation error. If you want an embed that handles these flows without navigating away from your page, use the iframe or [web component](https://buttondown.com/settings/embedding) instead.
+
 ## Embedding an iFrame
 
 If you want a seamless, pre-styled way to include a subscription option on your site, the iFrame may be the tool for you. Here's an example:
