@@ -146,6 +146,10 @@
         },
         {
           "discriminant": "page",
+          "value": "forms"
+        },
+        {
+          "discriminant": "page",
           "value": "snippets"
         },
         {
