@@ -3,9 +3,9 @@ title: "2026-06-23"
 navigationTitle: "2026-06-23"
 ---
 
-We've moved the [events API](/api-emails-events) onto Buttondown's unified event store — the same source of truth that powers [webhooks](/events-and-webhooks-introduction) and our other event sources. An event you read from `GET /v1/events` is now the *same* record you can cross-reference everywhere else events appear, instead of a parallel copy maintained in a separate, older store that we're retiring.
+We've moved the [events API](/api-events-list) onto Buttondown's unified event store — the same source of truth that powers [webhooks](/events-and-webhooks-introduction) and our other event sources. An event you read from `GET /v1/events` is now the *same* record you can cross-reference everywhere else events appear, instead of a parallel copy maintained in a separate, older store that we're retiring.
 
-This is a **backwards-incompatible** change to [`GET /v1/events`](/api-emails-events) and [`GET /v1/events/{id}`](/api-events-retrieve), and we've deliberately chosen not to preserve the old behavior: keeping a second event store alive purely for compatibility would defeat the point of having a single source of truth. It does **not** introduce a new API version.
+This is a **backwards-incompatible** change to [`GET /v1/events`](/api-events-list) and [`GET /v1/events/{id}`](/api-events-retrieve), and we've deliberately chosen not to preserve the old behavior: keeping a second event store alive purely for compatibility would defeat the point of having a single source of truth. It does **not** introduce a new API version.
 
 - **Event IDs now use the `ext_evt_` prefix** (previously `em_evt_`). IDs returned before this date are no longer retrievable via [`GET /v1/events/{id}`](/api-events-retrieve) — refetch from the list endpoint to obtain current IDs. If you deduplicate events by ID, expect to see each event once more around the cutover.
 

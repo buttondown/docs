@@ -1290,10 +1290,6 @@
         },
         {
           "discriminant": "page",
-          "value": "api-emails-events"
-        },
-        {
-          "discriminant": "page",
           "value": "api-emails-history-list"
         },
         {
@@ -1308,6 +1304,10 @@
         {
           "discriminant": "divider",
           "value": "Routes"
+        },
+        {
+          "discriminant": "page",
+          "value": "api-events-list"
         },
         {
           "discriminant": "page",

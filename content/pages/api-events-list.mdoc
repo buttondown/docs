@@ -1,0 +1,10 @@
+---
+title: Listing events
+navigationTitle: Listing events
+endpoint: /events
+method: get
+---
+
+The `/events` endpoint is the programmatic equivalent of the analytics you see in the Buttondown dashboard: every delivery, open, click, unsubscribe, and other interaction is returned as an individual event. Filter by `email_id`, `subscriber_id`, `automation_id`, or `event_type` to pull exactly the slice you need, and `expand` the `subscriber` field to hydrate each event with subscriber details.
+
+For a guided walkthrough of pulling analytics this way, see [Retrieving analytics data](/retrieving-analytics-data).

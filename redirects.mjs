@@ -5,6 +5,11 @@ const REDIRECTS = [
     permanent: false,
   },
   {
+    source: "/api-emails-events",
+    destination: "/api-events-list",
+    permanent: true,
+  },
+  {
     source: "/introduction",
     destination: "/welcome-to-buttondown",
     permanent: true,
