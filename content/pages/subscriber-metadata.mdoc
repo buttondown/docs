@@ -41,6 +41,8 @@ Metadata can be nested — you can store objects and arrays within your metadata
 }
 ```
 
+If you use a [multi-select subscribe form input](/building-your-subscriber-base#adding-metadata-to-your-subscribers), Buttondown stores the subscriber's selections the same way — as an array of option IDs under that field's metadata key. In emails, exports, and the dashboard, those values appear comma-separated or as an editable list.
+
 Note that while you can store metadata keys with hyphens (such as `first-name`), it is difficult to access that metadata
 when writing an email: `{{ subscriber.metadata.first-name }}` is a syntax error due to the templating language used by Buttondown. As a result, I recommend using underscores instead (such as `first_name`).
 

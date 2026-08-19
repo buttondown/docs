@@ -85,6 +85,15 @@ If you want to collect more information, though, you can add *custom subscribe f
 1. A **label**, which is the text that will be displayed to the user.
 1. Whether or not the metadata is **required**. If the metadata is required, then the input is required to be filled out by the subscriber.
 
+Each input also has a **type**. In your [subscribing settings](https://buttondown.com/settings/subscribing), you can choose from four types:
+
+- **Text** — a freeform text field
+- **Select** — a dropdown where subscribers pick one option
+- **Multi-select** — several choices subscribers can toggle on or off (for example, "What topics interest you?")
+- **Checkbox** — a single yes/no toggle
+
+Multi-select answers are stored in the subscriber's [metadata](/subscriber-metadata) as an array of option IDs — not as [tags](/tags). These fields appear on your hosted subscribe page, iframe and web component embeds, and the [Portal](/portal). If the field is required, subscribers must pick at least one option.
+
 **Using HTML**
 
 Here's an example that uses HTML:
@@ -106,6 +115,8 @@ Set inputs with the `name` of `metadata__<key>`, as you can see in the code samp
 ```
 
 These inputs can be freeform text, like above, or `hidden` inputs if you want to invisibly augment your subscription forms with metadata. For example, you can imagine setting metadata for everyone who accesses your newsletter from a particular tag or webpage.
+
+Multi-select fields configured in the dashboard render as a group of checkboxes sharing the same `metadata__<key>` name. The [HTML embed snippet](https://buttondown.com/settings/embedding) on your embedding settings page generates this markup for you — submit each selected option as a separate checkbox value.
 
 Another example is below:
 

@@ -54,7 +54,7 @@ For simple cases, all you'll need to do is make sure to check the "Automatically
 Some caveats:
 
 - It is not currently possible to only allow _some_ subscribe form inputs to be changed by subscribers. If you enable Portal, all fields will be editable.
-- The only inputs you can vend to your subscribers are "free text", "select", and "checkbox".
+- The only inputs you can vend to your subscribers are "free text", "select", "multi-select", and "checkbox".
 
 ### How checkboxes work
 
@@ -64,3 +64,7 @@ Checkbox type form inputs create a metadata field that holds two potential strin
 |--------------------------------------------------------------------------|----------------------|
 | Subscriber checks a box in the Portal or initial subscription | `True` (capitalized) |
 | Subscriber unchecks a box in the Portal                    | `False` (capitalized)|
+
+### How multi-select fields work
+
+Multi-select type form inputs store answers as an array of option IDs in metadata — for example, `["coaching", "workshops"]`. In [email templates](/templating), Buttondown renders these as a comma-separated list (e.g. `coaching, workshops`). In the dashboard, you can edit the values as a list on a subscriber's Notes page.
