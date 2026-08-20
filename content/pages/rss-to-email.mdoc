@@ -27,6 +27,10 @@ faqItems: >
     {
       "question": "Why is an item in my feed labeled as \"skipped\" in Buttondown?",
       "answer": "Items in an RSS feed may get skipped for a few different reasons: an error with the template that may cause a blank email, the feed being inactive when the item was published, or if it's an old item on a newly connected feed."
+    },
+    {
+      "question": "Why would a template that renders both `description` and `content` not print my post twice?",
+      "answer": "Many feeds don't distinguish between a post's summary and its full text: they publish a single field (a `description` with no `content:encoded`, say), in which case an item's `description` and `content` both carry the full post. To keep templates that render both fields from printing the post twice, Buttondown drops the `description` whenever its text is identical to the `content`'s and your template also renders the `content`—so you'll only ever see a description alongside the content when your feed publishes a genuinely distinct summary."
     }
   ]
 ---
