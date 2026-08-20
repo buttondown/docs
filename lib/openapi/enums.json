@@ -1621,7 +1621,7 @@
       "variant": "success"
     },
     "removed": {
-      "description": "Subscribers who have been explicitly removed by the newsletter (notably, this does not mean unsubscribers: use /v1/unsubscribers for that!)",
+      "description": "Subscribers that you have banned from your newsletter. This is not the same as unsubscribed: those subscribers removed themselves.",
       "name": "Removed",
       "variant": "error"
     },
