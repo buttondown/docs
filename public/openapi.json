@@ -7751,6 +7751,7 @@
                       "css": "",
                       "success_body": "",
                       "surveys": [],
+                      "tags": [],
                       "admin": false,
                       "status": "active",
                       "subscriber_count": 0,
@@ -8000,6 +8001,7 @@
                           "css": "",
                           "success_body": "",
                           "surveys": [],
+                          "tags": [],
                           "admin": false,
                           "status": "active",
                           "subscriber_count": 0,
@@ -8122,6 +8124,7 @@
                       "css": "",
                       "success_body": "",
                       "surveys": [],
+                      "tags": [],
                       "admin": false,
                       "status": "active",
                       "subscriber_count": 0,
@@ -23280,6 +23283,14 @@
             "title": "Surveys",
             "type": "array"
           },
+          "tags": {
+            "description": "IDs of tags applied to subscribers who sign up through this form.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Tags",
+            "type": "array"
+          },
           "admin": {
             "description": "If true, the form acts as an admin-only signup form \u2014 it skips confirmation and can accept additional subscriber fields.",
             "title": "Admin",
@@ -23314,6 +23325,7 @@
           "css",
           "success_body",
           "surveys",
+          "tags",
           "admin",
           "status",
           "subscriber_count",
@@ -23326,7 +23338,8 @@
       "CreateFormErrorCode": {
         "description": "Represents the type of error that occurred when creating a form.\n\nHuman-readable error messages are provided in the `detail` field of the response;\nthese values are meant to be parseable by code or client logic.",
         "enum": [
-          "slug_already_exists"
+          "slug_already_exists",
+          "tag_not_found"
         ],
         "title": "CreateFormErrorCode",
         "type": "string"
@@ -23405,6 +23418,15 @@
               "type": "string"
             },
             "title": "Surveys",
+            "type": "array",
+            "example": []
+          },
+          "tags": {
+            "description": "IDs of tags applied to subscribers who sign up through this form.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Tags",
             "type": "array",
             "example": []
           },
@@ -23511,6 +23533,21 @@
             ],
             "description": "IDs of surveys to attach to this form. Responses are associated with the submitting subscriber.",
             "title": "Surveys"
+          },
+          "tags": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "IDs of tags applied to subscribers who sign up through this form.",
+            "title": "Tags"
           },
           "admin": {
             "anyOf": [
