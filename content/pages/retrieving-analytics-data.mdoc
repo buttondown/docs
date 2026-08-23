@@ -117,4 +117,34 @@ A successful (200) request will would return an array of all subscribers to whom
 ```
 
 
+## Aggregate event counts
+
+Sometimes you don't need the individual events at all — you just want the total for each event type, the same numbers the [analytics response](#retrieving-email-analytics) gives you. Every `/events` response includes a `count` field with the total number of events matching your filters, so you can read that field directly instead of [paginating](/api-pagination) through the full list.
+
+For example, to fetch the total number of `clicked` events for an email, request a single event and read `count`:
+
+{% generatedMultilanguageSnippets
+   method="GET"
+   endpoint="/events"
+   query="{\"email_id\": \"EMAIL_ID\", \"event_type\": \"clicked\"}" %}
+```http {% highlight="5" %}
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "count": 25,
+  "next": null,
+  "previous": null,
+  "results": [
+    ...
+  ]
+}
+```
+{% /generatedMultilanguageSnippets %}
+
+To build a full picture of an email's performance, loop over the [event types](#email-event-types) you care about and read `count` for each:
+
+{% generatedMultilanguageSnippets file="lib/snippets/aggregate-event-counts.json" /%}
+
+
 {% supportSnippet /%}
