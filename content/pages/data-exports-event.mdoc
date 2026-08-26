@@ -4,6 +4,7 @@ navigationTitle: Events
 relatedPages:
 - events-and-webhooks-introduction
 - data-exports-email
+- retrieving-analytics-data
 description:  >-
   Buttondown allows you to easily export all your event data as a csv file.
 ---
@@ -26,6 +27,11 @@ When your export’s completed, a .csv file will automatically download.
 
 {% noticeInfo text="If the process is taking longer than expected, we'll send you an email with the export attached." /%}
 
+## How to export the analytics for a single email
+
+If you only want the aggregate analytics for one email, open that email’s analytics page and click the export icon in the “Analytics” section header. Buttondown will immediately download a CSV that summarizes that email’s totals—recipients, deliveries, opens, clicks, unsubscriptions, and so on—one metric per row.
+
+This is the same data the [analytics API](/retrieving-analytics-data) serves, so if you'd rather pull it programmatically, you can!
 
 ## What's included in the export
 
@@ -36,9 +42,7 @@ Here is a complete list of all the data fields included:
 | Key | Sample Value |
 |-----|---------------|
 | id | 007b00gg-7c27-2bg7-853a-4f3fr3e09c7e	|
-| token | 5f5f52e698c319a82fa7c88e69177662 |
-| email_id | d05ad028-e1f9-43fb-9g24-6349o99726h8 |
 | subscriber__email | liz.lemon@tgs-nbc.com  |
-| event_type | opened |
-| timestamp | 2024-03-13 00:16:58+00:00	 |
+| event_type | subscriber.opened |
+| creation_date | 2024-03-13 00:16:58+00:00	 |
 | metadata | {'country': '', 'client_os': 'Windows', 'client_name': 'Gmail', 'client_type': 'Desktop'} |
