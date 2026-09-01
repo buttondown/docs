@@ -176,6 +176,18 @@ We published the following essays this week:
 
 Each item exposes `title`, `description`, `content`, `url`, `publish_date`, `author`, and `enclosure` (the featured image, when your feed provides one via an `<enclosure>` or a MediaRSS `<media:content>`/`<media:thumbnail>` element).
 
+### Sending an excerpt
+
+If you want readers to finish the article on your website, use Django's `truncatewords_html` filter to include an excerpt followed by a link to the full article:
+
+```jinja {% process=false %}
+{{ item.content|truncatewords_html:100 }}
+
+<p><a href="{{ item.url }}">Read more →</a></p>
+```
+
+`truncatewords_html` limits the excerpt to the specified number of words while keeping the article's HTML tags balanced. If your feed already provides a short summary in its description, you can use `{{ item.description }}` instead.
+
 Or if you chose a cadence of "every time" for your RSS feed, you'd just send information on the latest item:
 
 
