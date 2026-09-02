@@ -14,7 +14,7 @@ import {
   FileBasedCodeSnippets,
   GeneratedCodeSnippets,
 } from "@/app/[slug]/CodeSnippets";
-import PRICES from "@/autogen/prices-v2.json";
+import REGISTRY from "@/autogen/prices.json";
 import Code from "@/components/code";
 import type { ResponseBlock } from "@/components/code/lib";
 import FAQ, { type FAQItem } from "@/components/faq";
@@ -26,6 +26,8 @@ import IframeComponent from "@/components/iframe";
 import ImageWithLightbox from "@/components/image-with-lightbox";
 import LiveCodeBlock from "@/components/live-code-block";
 import PlaygroundEmbed from "@/components/playground-embed";
+
+const PRICES = REGISTRY.filter((p) => p.pricing_model === "flat");
 
 function filterNullish<T>(arr: (T | null | undefined)[]): T[] {
   return arr.filter((x): x is T => x != null);
