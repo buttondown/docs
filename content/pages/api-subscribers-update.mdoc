@@ -7,3 +7,10 @@ method: patch
 You'll notice that the endpoint is `/subscribers/{id_or_email}`, not `{id}`. This is because you can retrieve a subscriber by either their ID or their email address, so you don't have to store or remember the ID if you don't want to.
 
 If you update a subscriber's type from `premium` to `unsubscribed`, it will also cancel their backing Stripe subscription.
+
+## Resubscribing an unsubscribed subscriber
+
+- `{"type": "regular"}` reactivates them immediately, with no confirmation email.
+- `{"type": "unactivated"}` moves them back to pending and sends a new confirmation email, so they only receive emails again once they've confirmed. This is only available for `unsubscribed` subscribers.
+
+Note that `{"type": "unsubscribed"}` only applies to subscribers who are actively subscribed. Someone who is still `unactivated`, or already in a terminal state like `undeliverable`, can't be unsubscribed; [delete](/api-subscribers-delete) them instead. These requests return a `400` with the code `subscriber_type_invalid`.
