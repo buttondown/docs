@@ -946,7 +946,7 @@
         "creation_date": "2019-08-24T14:15:22Z",
         "completion_date": "2019-08-24T14:17:22Z",
         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "status": "completed",
+        "status": "processed",
         "type": "delete_subscribers",
         "metadata": {
           "ids": [
@@ -961,7 +961,7 @@
         "creation_date": "2019-08-24T14:15:22Z",
         "completion_date": "2019-08-24T14:17:22Z",
         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "status": "completed",
+        "status": "processed",
         "type": "apply_tags",
         "metadata": {
           "tag": "4931-4f5c-9b5b-2c9f6c9f6c9f",
@@ -978,7 +978,7 @@
         "creation_date": "2019-08-24T14:15:22Z",
         "completion_date": "2019-08-24T14:17:22Z",
         "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
-        "status": "completed",
+        "status": "processed",
         "type": "rename_metadata",
         "metadata": {
           "rename_mapping": {
@@ -1273,100 +1273,6 @@
       }
     }
   ],
-  "SubscriberImport": [
-    {
-      "description": "Basic subscriber import",
-      "object": {
-        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
-        "creation_date": "2020-09-29T00:00:00+00:00",
-        "source": "substack",
-        "status": "succeeded",
-        "label": "Import subscribers",
-        "metadata": {
-          "email_column": 0,
-          "metadata_columns": {}
-        },
-        "results": {
-          "new_subscribers": 100,
-          "updated_subscribers": null,
-          "updated_subscriber_emails": [],
-          "existing_subscribers": 20,
-          "reason_to_bad_subscribers": {
-            "That email address is invalid.": [
-              "email@examplecom"
-            ],
-            "No MX record found for domain": [
-              "email@example.biz",
-              "helen@example.biz"
-            ]
-          },
-          "new_tags": 2
-        },
-        "parsed_text": [
-          [
-            "email",
-            "name",
-            "tags",
-            "notes",
-            "metadata"
-          ],
-          [
-            "email@example.com",
-            "John Doe",
-            "foo",
-            "notes",
-            "metadata"
-          ]
-        ]
-      }
-    },
-    {
-      "description": "Standard subscriber import",
-      "object": {
-        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
-        "creation_date": "2020-09-29T00:00:00+00:00",
-        "source": "standard",
-        "status": "succeeded",
-        "label": "Import subscribers",
-        "metadata": {
-          "email_column": 0,
-          "metadata_columns": {
-            "first_name": 1
-          }
-        },
-        "results": {
-          "new_subscribers": 100,
-          "updated_subscribers": null,
-          "updated_subscriber_emails": [],
-          "existing_subscribers": 20,
-          "reason_to_bad_subscribers": {
-            "That email address is invalid.": [
-              "email@examplecom"
-            ],
-            "No MX record found for domain": [
-              "email@example.biz",
-              "helen@example.biz"
-            ]
-          },
-          "new_tags": 2
-        },
-        "parsed_text": [
-          [
-            "email",
-            "first_name"
-          ],
-          [
-            "email@example.com",
-            "John"
-          ],
-          [
-            "email2@example.com",
-            "Jane"
-          ]
-        ]
-      }
-    }
-  ],
   "APIRequest": [
     {
       "description": "Basic API request",
@@ -1600,6 +1506,7 @@
       "description": "Newsletter owner",
       "object": {
         "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-01T00:00:00+00:00",
         "email_address": "owner@buttondown.email",
         "permissions": {
           "subscriber": "write",
@@ -1618,6 +1525,7 @@
       "description": "Pending user invitation",
       "object": {
         "id": "23121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-27T09:00:00+00:00",
         "email_address": "editor@buttondown.email",
         "permissions": {
           "subscriber": "read",
@@ -1636,6 +1544,7 @@
       "description": "Accepted user with limited permissions",
       "object": {
         "id": "33121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-15T00:00:00+00:00",
         "email_address": "analyst@buttondown.email",
         "permissions": {
           "subscriber": "read",
@@ -1654,6 +1563,7 @@
       "description": "Declined user invitation",
       "object": {
         "id": "43121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-20T00:00:00+00:00",
         "email_address": "declined@buttondown.email",
         "permissions": {
           "subscriber": "none",
@@ -1974,6 +1884,100 @@
           "groups": [],
           "predicate": "and"
         }
+      }
+    }
+  ],
+  "SubscriberImportText": [
+    {
+      "description": "Basic subscriber import",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "source": "substack",
+        "status": "succeeded",
+        "label": "Import subscribers",
+        "metadata": {
+          "email_column": 0,
+          "metadata_columns": {}
+        },
+        "results": {
+          "new_subscribers": 100,
+          "updated_subscribers": null,
+          "updated_subscriber_emails": [],
+          "existing_subscribers": 20,
+          "reason_to_bad_subscribers": {
+            "That email address is invalid.": [
+              "email@examplecom"
+            ],
+            "No MX record found for domain": [
+              "email@example.biz",
+              "helen@example.biz"
+            ]
+          },
+          "new_tags": 2
+        },
+        "parsed_text": [
+          [
+            "email",
+            "name",
+            "tags",
+            "notes",
+            "metadata"
+          ],
+          [
+            "email@example.com",
+            "John Doe",
+            "foo",
+            "notes",
+            "metadata"
+          ]
+        ]
+      }
+    },
+    {
+      "description": "Standard subscriber import",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "source": "standard",
+        "status": "succeeded",
+        "label": "Import subscribers",
+        "metadata": {
+          "email_column": 0,
+          "metadata_columns": {
+            "first_name": 1
+          }
+        },
+        "results": {
+          "new_subscribers": 100,
+          "updated_subscribers": null,
+          "updated_subscriber_emails": [],
+          "existing_subscribers": 20,
+          "reason_to_bad_subscribers": {
+            "That email address is invalid.": [
+              "email@examplecom"
+            ],
+            "No MX record found for domain": [
+              "email@example.biz",
+              "helen@example.biz"
+            ]
+          },
+          "new_tags": 2
+        },
+        "parsed_text": [
+          [
+            "email",
+            "first_name"
+          ],
+          [
+            "email@example.com",
+            "John"
+          ],
+          [
+            "email2@example.com",
+            "Jane"
+          ]
+        ]
       }
     }
   ]
