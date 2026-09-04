@@ -1980,5 +1980,47 @@
         ]
       }
     }
+  ],
+  "Form": [
+    {
+      "description": "Contact form",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "creation_date": "2020-09-29T00:00:00+00:00",
+        "title": "Contact Form",
+        "slug": "contact",
+        "body": "<p>Get in touch with us!</p>",
+        "css": "",
+        "success_body": "Thank you for your submission!",
+        "surveys": [],
+        "tags": [],
+        "admin": false,
+        "status": "active",
+        "subscriber_count": 12,
+        "confirmed_subscriber_count": 9,
+        "page_view_count": 48
+      }
+    },
+    {
+      "description": "Feedback form",
+      "object": {
+        "id": "13121cd6-0dfc-424c-bb12-988b0a32fc9e",
+        "creation_date": "2020-01-29T00:00:00+00:00",
+        "title": "Feedback Form",
+        "slug": "feedback",
+        "body": "<p>We'd love to hear your thoughts.</p>",
+        "css": "",
+        "success_body": "Thanks for your feedback!",
+        "surveys": [
+          "13121cd6-0dfc-424c-bb12-988b0a32fcb3"
+        ],
+        "tags": [],
+        "admin": false,
+        "status": "active",
+        "subscriber_count": 3,
+        "confirmed_subscriber_count": 3,
+        "page_view_count": 12
+      }
+    }
   ]
 }

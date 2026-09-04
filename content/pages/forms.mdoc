@@ -35,6 +35,10 @@ Pick a **theme** from the gallery to style your form, or write your own custom C
 
 The reason to give a campaign its own form is that everyone who subscribes through it can be [tagged](/tags) automatically. Combined with [automations](/automations-introduction), that lets you greet form subscribers with their own welcome sequence, or reach back out to exactly that group later.
 
+Tags are set on the form itself, in the **Content** section of the form editor, below the surveys picker. Choose one or more of your existing tags from the "Add" picker (or type a new name to create one), then save. Every subscriber who signs up through the form gets those tags; you don't need to change the form's URL or embed code.
+
+You can also append `?tag=` to a form's URL, using the tag's name, to add further tags to anyone who subscribes through that link — for example, `/forms/book-launch?tag=early-access&tag=hardcover`. URL tags are added on top of the form's own tags, and require the visitor's browser to run JavaScript. To set tags over the [API](/api-introduction) instead, pass their IDs in the form's `tags` field.
+
 ## Measuring a form
 
 Each form tracks its own subscriber count and conversion rate, so you can see how a specific page is performing on its own rather than lumped in with your main subscribe page.
