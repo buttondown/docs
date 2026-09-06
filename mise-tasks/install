@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #MISE description="Install dependencies"
-#MISE sources=["docs/package.json"]
+#MISE sources=["package.json", "bun.lock"]
 bun install

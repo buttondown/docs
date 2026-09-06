@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Lint docs files"
-#MISE sources=["docs/**/*.{ts,tsx,mdoc}"]
+#MISE sources=["**/*.{ts,tsx,mdoc}", "!node_modules/**", "!.next/**"]
 bun knip
 bun check-for-typos --no-progress
 bun lint
