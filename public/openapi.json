@@ -24055,17 +24055,6 @@
             "title": "Custom Expired Trial Notification Subject",
             "type": "string"
           },
-          "custom_expired_trial_notification_template": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/NewsletterEmailTemplate"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "The email template to use for expired trial notification emails. If not set, uses the newsletter's default template."
-          },
           "custom_gift_subscription_email_body": {
             "default": "",
             "description": "Custom body content for the email sent when someone receives a gift subscription. Supports template tags.",
@@ -24204,15 +24193,6 @@
             "description": "The custom domain from which your newsletter emails are sent (e.g., 'mail.example.com'). See [sending domains](https://docs.buttondown.com/sending-from-a-custom-domain) for setup instructions.",
             "title": "Email Domain",
             "type": "string"
-          },
-          "email_theme_configuration": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "default": {},
-            "description": "A dictionary of CSS token overrides for the email theme.",
-            "title": "Email Theme Configuration",
-            "type": "object"
           },
           "enabled_features": {
             "default": [],
@@ -24677,18 +24657,6 @@
             "title": "Email Domain",
             "type": "string"
           },
-          "email_theme_configuration": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "default": {},
-            "description": "A dictionary of CSS token overrides for the email theme.",
-            "example": {
-              "primary-color": "#0069FF"
-            },
-            "title": "Email Theme Configuration",
-            "type": "object"
-          },
           "enabled_features": {
             "default": [],
             "description": "A list of features enabled for your newsletter. Common values include 'archives', 'portal', 'surveys', 'comments', 'paid_subscriptions', 'automations', 'webhooks', 'tracking', and 'referrals'.",
@@ -25057,18 +25025,6 @@
             "description": "Custom subject line for the email sent when a subscriber's free trial expires. Supports template tags.",
             "title": "Custom Expired Trial Notification Subject"
           },
-          "custom_expired_trial_notification_template": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/NewsletterEmailTemplate"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "The email template to use for expired trial notification emails. If not set, uses the newsletter's default template.",
-            "example": "modern"
-          },
           "custom_gift_subscription_email_body": {
             "anyOf": [
               {
@@ -25316,24 +25272,6 @@
             "description": "The custom domain from which your newsletter emails are sent (e.g., 'mail.example.com'). See [sending domains](https://docs.buttondown.com/sending-from-a-custom-domain) for setup instructions.",
             "example": "mail.sheinhardt.com",
             "title": "Email Domain"
-          },
-          "email_theme_configuration": {
-            "anyOf": [
-              {
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "A dictionary of CSS token overrides for the email theme.",
-            "example": {
-              "primary-color": "#0069FF"
-            },
-            "title": "Email Theme Configuration"
           },
           "enabled_features": {
             "anyOf": [
