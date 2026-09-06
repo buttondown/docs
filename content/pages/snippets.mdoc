@@ -61,6 +61,10 @@ Our filled in weekly sign off Snippet with the corresponding "identifier" we wou
 
 Snippets can include other snippets, which is useful for building modular content blocks. For example, you might have a "full footer" snippet that includes both your sign-off snippet and your social links snippet.
 
+## Markdown and template logic in snippets
+
+A snippet is rendered the same way an email body is, in whichever editing mode you wrote it. A Markdown-mode snippet renders its Markdown wherever it's inserted, including inside a Fancy-mode email. [Template tags](/templating) such as `{% if medium == 'email' %}…{% endif %}` also work inside snippets in every mode; in the Fancy editor, put each tag on its own line.
+
 ## Missing snippets
 
 If you reference a snippet that doesn't exist:
