@@ -1891,10 +1891,11 @@
     {
       "description": "Basic subscriber import",
       "object": {
-        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "sub_imp_0k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
-        "source": "substack",
+        "type": "subscriber_import",
         "status": "succeeded",
+        "source": "substack",
         "label": "Import subscribers",
         "metadata": {
           "email_column": 0,
@@ -1903,7 +1904,6 @@
         "results": {
           "new_subscribers": 100,
           "updated_subscribers": null,
-          "updated_subscriber_emails": [],
           "existing_subscribers": 20,
           "reason_to_bad_subscribers": {
             "That email address is invalid.": [
@@ -1914,7 +1914,8 @@
               "helen@example.biz"
             ]
           },
-          "new_tags": 2
+          "new_tags": 2,
+          "updated_subscriber_emails": []
         },
         "parsed_text": [
           [
@@ -1937,10 +1938,11 @@
     {
       "description": "Standard subscriber import",
       "object": {
-        "id": "13121cd6-0dfc-424c-bb12-988b0a32fcb3",
+        "id": "sub_imp_0k28edc3fw896bp4mrhc535z5k",
         "creation_date": "2020-09-29T00:00:00+00:00",
-        "source": "standard",
+        "type": "subscriber_import",
         "status": "succeeded",
+        "source": "standard",
         "label": "Import subscribers",
         "metadata": {
           "email_column": 0,
@@ -1951,7 +1953,6 @@
         "results": {
           "new_subscribers": 100,
           "updated_subscribers": null,
-          "updated_subscriber_emails": [],
           "existing_subscribers": 20,
           "reason_to_bad_subscribers": {
             "That email address is invalid.": [
@@ -1962,7 +1963,8 @@
               "helen@example.biz"
             ]
           },
-          "new_tags": 2
+          "new_tags": 2,
+          "updated_subscriber_emails": []
         },
         "parsed_text": [
           [
