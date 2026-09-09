@@ -190,6 +190,153 @@
       "variant": "success"
     }
   },
+  "AutomationAttemptError": {
+    "EMAIL_ALREADY_SENT": {
+      "description": "The subscriber had already been sent this email, so the automation left them alone.",
+      "name": "Already received this email",
+      "variant": "info"
+    },
+    "EMAIL_DOES_NOT_EXIST": {
+      "description": "The email this automation was set to send no longer exists.",
+      "name": "Email not found",
+      "variant": "error"
+    },
+    "EMAIL_EMPTY": {
+      "description": "The email this automation was set to send has no content.",
+      "name": "Email is empty",
+      "variant": "error"
+    },
+    "EMAIL_INVALID_STATUS": {
+      "description": "The email this automation was set to send is in a state that cannot be sent.",
+      "name": "Email can't be sent",
+      "variant": "error"
+    },
+    "ID_DOES_NOT_EXIST": {
+      "description": "One of the tags this automation was set to apply no longer exists.",
+      "name": "Tag not found",
+      "variant": "error"
+    },
+    "INVALID_SUBSCRIBER": {
+      "description": "The subscriber was not eligible to receive the email — they had unsubscribed, bounced, or never confirmed — so the automation left them alone. Recorded only by automation runs from before June 2024.",
+      "name": "Subscriber not eligible",
+      "variant": "info"
+    },
+    "NEWSLETTER_DISABLED": {
+      "description": "The newsletter was disabled, so no email could be sent.",
+      "name": "Newsletter disabled",
+      "variant": "error"
+    },
+    "SUBSCRIBER_INVALID": {
+      "description": "The subscriber was not eligible to receive the email — they had unsubscribed, bounced, or never confirmed — so the automation left them alone.",
+      "name": "Subscriber not eligible",
+      "variant": "info"
+    },
+    "TAG_ALREADY_EXISTS": {
+      "description": "The subscriber already had one of the tags this automation applies.",
+      "name": "Tag already applied",
+      "variant": "error"
+    },
+    "action_malformed": {
+      "description": "The automation's action could not be carried out. For a POST-request action this usually means the request itself failed.",
+      "name": "Action failed",
+      "variant": "error"
+    },
+    "action_malformed__missing_recipient": {
+      "description": "The automation is set to send an email but has no recipient configured.",
+      "name": "No recipient configured",
+      "variant": "error"
+    },
+    "action_malformed__missing_tag_ids": {
+      "description": "The automation is set to change tags but has no tags configured.",
+      "name": "No tags configured",
+      "variant": "error"
+    },
+    "action_malformed__missing_url": {
+      "description": "The automation is set to send a POST request but has no URL configured.",
+      "name": "No URL configured",
+      "variant": "error"
+    },
+    "action_malformed__unsupported_action_type": {
+      "description": "The automation's action is not one that its trigger can perform.",
+      "name": "Unsupported action",
+      "variant": "error"
+    },
+    "arena.misconfigured": {
+      "description": "The automation posts to Are.na, but this newsletter has no Are.na credentials configured.",
+      "name": "Are.na not connected",
+      "variant": "error"
+    },
+    "bluesky.misconfigured": {
+      "description": "The automation posts to Bluesky, but this newsletter has no Bluesky credentials configured.",
+      "name": "Bluesky not connected",
+      "variant": "error"
+    },
+    "event_malformed": {
+      "description": "The event that triggered this automation is missing the data its action needs.",
+      "name": "Event malformed",
+      "variant": "error"
+    },
+    "mastodon.misconfigured": {
+      "description": "The automation posts to Mastodon, but this newsletter has no Mastodon credentials configured.",
+      "name": "Mastodon not connected",
+      "variant": "error"
+    },
+    "misconfigured__discord": {
+      "description": "The automation posts to Discord, but this newsletter has no Discord credentials configured.",
+      "name": "Discord not connected",
+      "variant": "error"
+    },
+    "misconfigured__github": {
+      "description": "The automation acts on GitHub, but this newsletter has no GitHub credentials configured.",
+      "name": "GitHub not connected",
+      "variant": "error"
+    },
+    "misconfigured__linkedin": {
+      "description": "The automation posts to LinkedIn, but this newsletter has no LinkedIn credentials configured.",
+      "name": "LinkedIn not connected",
+      "variant": "error"
+    },
+    "misconfigured__shopify": {
+      "description": "The automation acts on Shopify, but this newsletter has no Shopify credentials configured.",
+      "name": "Shopify not connected",
+      "variant": "error"
+    },
+    "not_found": {
+      "description": "Shopify had no customer matching this subscriber's email address.",
+      "name": "Shopify customer not found",
+      "variant": "error"
+    },
+    "rate_limit": {
+      "description": "Shopify rate-limited the request.",
+      "name": "Shopify rate limit",
+      "variant": "error"
+    },
+    "stripe_subscription_does_not_exist": {
+      "description": "The Stripe subscription this event referenced no longer exists.",
+      "name": "Stripe subscription not found",
+      "variant": "error"
+    },
+    "tumblr.misconfigured": {
+      "description": "The automation posts to Tumblr, but this newsletter has no Tumblr credentials configured.",
+      "name": "Tumblr not connected",
+      "variant": "error"
+    },
+    "twitter.misconfigured": {
+      "description": "The automation posts to Twitter, but this newsletter has no Twitter credentials configured.",
+      "name": "Twitter not connected",
+      "variant": "error"
+    },
+    "unauthorized": {
+      "description": "Shopify rejected this newsletter's API credentials.",
+      "name": "Shopify rejected the credentials",
+      "variant": "error"
+    },
+    "unexpected_error": {
+      "description": "Something went wrong that Buttondown did not anticipate. The failure is logged for us to look into.",
+      "name": "Unexpected error",
+      "variant": "error"
+    }
+  },
   "AutomationStatus": {
     "active": {
       "description": "Active.",

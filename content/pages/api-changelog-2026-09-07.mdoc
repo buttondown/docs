@@ -1,0 +1,10 @@
+---
+title: "2026-09-07"
+navigationTitle: "2026-09-07"
+---
+
+## Automation attempts now tell you why they were skipped or failed
+
+[`GET /v1/subscribers/{id_or_email}/automations`](/api-subscribers-automations) now returns a read-only `error` code on each attempt. See [automation attempt errors](/api-automation-attempt-error) for the possible values.
+
+The field is `null` when the attempt succeeded, hasn't run yet, or was [skipped manually](/api-subscribers-automations-update).

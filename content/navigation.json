@@ -710,6 +710,10 @@
         },
         {
           "discriminant": "page",
+          "value": "api-changelog-2026-09-07"
+        },
+        {
+          "discriminant": "page",
           "value": "api-changelog-2026-08-14"
         },
         {
@@ -1064,6 +1068,10 @@
     {
       "name": "Automations",
       "items": [
+        {
+          "discriminant": "page",
+          "value": "api-automation-attempt-error"
+        },
         {
           "discriminant": "page",
           "value": "api-automation-introduction"

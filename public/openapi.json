@@ -27135,6 +27135,42 @@
         "title": "SubscriberUpdateInput",
         "type": "object"
       },
+      "AutomationAttemptError": {
+        "description": "Error codes for skipped or failed automation attempts.",
+        "enum": [
+          "action_malformed",
+          "action_malformed__missing_recipient",
+          "action_malformed__missing_tag_ids",
+          "action_malformed__missing_url",
+          "action_malformed__unsupported_action_type",
+          "EMAIL_ALREADY_SENT",
+          "EMAIL_DOES_NOT_EXIST",
+          "EMAIL_EMPTY",
+          "EMAIL_INVALID_STATUS",
+          "event_malformed",
+          "ID_DOES_NOT_EXIST",
+          "INVALID_SUBSCRIBER",
+          "arena.misconfigured",
+          "bluesky.misconfigured",
+          "misconfigured__discord",
+          "misconfigured__github",
+          "misconfigured__linkedin",
+          "mastodon.misconfigured",
+          "misconfigured__shopify",
+          "tumblr.misconfigured",
+          "twitter.misconfigured",
+          "NEWSLETTER_DISABLED",
+          "not_found",
+          "rate_limit",
+          "unauthorized",
+          "stripe_subscription_does_not_exist",
+          "SUBSCRIBER_INVALID",
+          "TAG_ALREADY_EXISTS",
+          "unexpected_error"
+        ],
+        "title": "AutomationAttemptError",
+        "type": "string"
+      },
       "AutomationForSubscriber": {
         "properties": {
           "id": {
@@ -27170,6 +27206,17 @@
             },
             "title": "Actions",
             "type": "array"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AutomationAttemptError"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Code for why the attempt was skipped or failed; null when it succeeded, hasn't run yet, or was skipped by hand."
           }
         },
         "required": [
