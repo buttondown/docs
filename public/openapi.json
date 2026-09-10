@@ -19747,7 +19747,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionInput"
             },
-            "maxItems": 25,
+            "maxItems": 100,
             "title": "Actions",
             "type": "array"
           },
@@ -19923,7 +19923,7 @@
                 "items": {
                   "$ref": "#/components/schemas/ActionInput"
                 },
-                "maxItems": 25,
+                "maxItems": 100,
                 "type": "array"
               },
               {
