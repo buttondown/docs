@@ -23292,12 +23292,15 @@
             "type": "array"
           },
           "tags": {
-            "description": "IDs of tags applied to subscribers who sign up through this form.",
+            "description": "UUIDs or TypeIDs of tags applied to subscribers who sign up through this form.",
             "items": {
               "type": "string"
             },
             "title": "Tags",
-            "type": "array"
+            "type": "array",
+            "example": [
+              "sub_tag_0k28edc3fw896bp4mrhc535z5k"
+            ]
           },
           "admin": {
             "description": "If true, the form acts as an admin-only signup form \u2014 it skips confirmation and can accept additional subscriber fields.",
@@ -23427,16 +23430,20 @@
             },
             "title": "Surveys",
             "type": "array",
-            "example": []
+            "example": [
+              "srv_01h8abcdefghjkmnpqrstvwxyz"
+            ]
           },
           "tags": {
-            "description": "IDs of tags applied to subscribers who sign up through this form.",
+            "description": "UUIDs or TypeIDs of tags applied to subscribers who sign up through this form.",
             "items": {
               "type": "string"
             },
             "title": "Tags",
             "type": "array",
-            "example": []
+            "example": [
+              "sub_tag_0k28edc3fw896bp4mrhc535z5k"
+            ]
           },
           "admin": {
             "default": false,
@@ -23540,7 +23547,10 @@
               }
             ],
             "description": "IDs of surveys to attach to this form. Responses are associated with the submitting subscriber.",
-            "title": "Surveys"
+            "title": "Surveys",
+            "example": [
+              "srv_01h8abcdefghjkmnpqrstvwxyz"
+            ]
           },
           "tags": {
             "anyOf": [
@@ -23554,8 +23564,11 @@
                 "type": "null"
               }
             ],
-            "description": "IDs of tags applied to subscribers who sign up through this form.",
-            "title": "Tags"
+            "description": "UUIDs or TypeIDs of tags applied to subscribers who sign up through this form.",
+            "title": "Tags",
+            "example": [
+              "sub_tag_0k28edc3fw896bp4mrhc535z5k"
+            ]
           },
           "admin": {
             "anyOf": [
