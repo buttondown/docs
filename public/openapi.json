@@ -3624,56 +3624,47 @@
         "parameters": [
           {
             "in": "query",
+            "name": "date__end",
+            "schema": {
+              "description": "If provided, only return comments created on or before the given date.",
+              "title": "Date  End",
+              "format": "date",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return comments created on or before the given date."
+          },
+          {
+            "in": "query",
+            "name": "date__start",
+            "schema": {
+              "description": "If provided, only return comments created on or after the given date.",
+              "title": "Date  Start",
+              "format": "date",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return comments created on or after the given date."
+          },
+          {
+            "in": "query",
             "name": "email_id",
             "schema": {
-              "description": "If provided, only return comments for the given [email](https://docs.buttondown.com/api-emails-introduction).",
+              "description": "If provided, only return comments for the given [email(s)](https://docs.buttondown.com/api-emails-introduction).",
               "example": [
                 "em_01h8xg4j3k2m1n0p9q8r7s6t5v"
               ],
               "title": "Email Id",
-              "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:em)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
-              "type": "string"
+              "items": {
+                "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:em)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
+                "type": "string"
+              },
+              "type": "array"
             },
             "required": false,
-            "description": "If provided, only return comments for the given [email](https://docs.buttondown.com/api-emails-introduction).",
+            "description": "If provided, only return comments for the given [email(s)](https://docs.buttondown.com/api-emails-introduction).",
             "example": [
               "em_01h8xg4j3k2m1n0p9q8r7s6t5v"
-            ]
-          },
-          {
-            "in": "query",
-            "name": "subscriber_id",
-            "schema": {
-              "description": "If provided, only return comments for the given [subscriber](https://docs.buttondown.com/api-subscribers-introduction).",
-              "example": [
-                "sub_01h8xg4j3k2m1n0p9q8r7s6t5v"
-              ],
-              "title": "Subscriber Id",
-              "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:sub)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
-              "type": "string"
-            },
-            "required": false,
-            "description": "If provided, only return comments for the given [subscriber](https://docs.buttondown.com/api-subscribers-introduction).",
-            "example": [
-              "sub_01h8xg4j3k2m1n0p9q8r7s6t5v"
-            ]
-          },
-          {
-            "in": "query",
-            "name": "parent_id",
-            "schema": {
-              "description": "If provided, only return comments that are replies to the given parent comment.",
-              "example": [
-                "com_01h8xg4j3k2m1n0p9q8r7s6t5v"
-              ],
-              "title": "Parent Id",
-              "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:com)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
-              "type": "string"
-            },
-            "required": false,
-            "description": "If provided, only return comments that are replies to the given parent comment.",
-            "example": [
-              "com_01h8xg4j3k2m1n0p9q8r7s6t5v"
             ]
           },
           {
@@ -3722,13 +3713,62 @@
           },
           {
             "in": "query",
-            "name": "status",
+            "name": "parent_id",
             "schema": {
-              "description": "If provided, only return comments with the given status. Only the newsletter owner can filter by status; subscribers always see active comments.",
-              "$ref": "#/components/schemas/CommentStatus"
+              "description": "If provided, only return comments that are replies to the given parent comment.",
+              "example": [
+                "com_01h8xg4j3k2m1n0p9q8r7s6t5v"
+              ],
+              "title": "Parent Id",
+              "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:com)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
+              "type": "string"
             },
             "required": false,
-            "description": "If provided, only return comments with the given status. Only the newsletter owner can filter by status; subscribers always see active comments."
+            "description": "If provided, only return comments that are replies to the given parent comment.",
+            "example": [
+              "com_01h8xg4j3k2m1n0p9q8r7s6t5v"
+            ]
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "default": [
+                "active"
+              ],
+              "description": "If provided, only return comments with the given status(es); otherwise only active comments are returned. Only the newsletter owner can filter by status; subscribers always see active comments.",
+              "example": [
+                "active"
+              ],
+              "items": {
+                "$ref": "#/components/schemas/CommentStatus"
+              },
+              "title": "Status",
+              "type": "array"
+            },
+            "required": false,
+            "description": "If provided, only return comments with the given status(es); otherwise only active comments are returned. Only the newsletter owner can filter by status; subscribers always see active comments.",
+            "example": [
+              "active"
+            ]
+          },
+          {
+            "in": "query",
+            "name": "subscriber_id",
+            "schema": {
+              "description": "If provided, only return comments for the given [subscriber](https://docs.buttondown.com/api-subscribers-introduction).",
+              "example": [
+                "sub_01h8xg4j3k2m1n0p9q8r7s6t5v"
+              ],
+              "title": "Subscriber Id",
+              "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:sub)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return comments for the given [subscriber](https://docs.buttondown.com/api-subscribers-introduction).",
+            "example": [
+              "sub_01h8xg4j3k2m1n0p9q8r7s6t5v"
+            ]
           },
           {
             "in": "query",
