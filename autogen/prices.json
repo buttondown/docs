@@ -257,7 +257,7 @@
     "url": "",
     "price": 0,
     "metered": true,
-    "metered_price_per_thousand": 9,
+    "metered_price_per_thousand": 10,
     "is_off_sticker": false,
     "features": [
       "analytics",
@@ -298,7 +298,7 @@
     "url": "",
     "price": 0,
     "metered": true,
-    "metered_price_per_thousand": 14,
+    "metered_price_per_thousand": 15,
     "is_off_sticker": false,
     "features": [
       "analytics",
