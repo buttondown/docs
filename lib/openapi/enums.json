@@ -1090,6 +1090,11 @@
       "name": "In progress",
       "variant": "info"
     },
+    "no_op": {
+      "description": "The import was accepted but intentionally not processed.",
+      "name": "No op",
+      "variant": "info"
+    },
     "not_started": {
       "description": "The import has been created but processing has not yet begun.",
       "name": "Not started",

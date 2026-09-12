@@ -23802,6 +23802,7 @@
         "enum": [
           "failed",
           "in_progress",
+          "no_op",
           "not_started",
           "succeeded",
           "validating"
@@ -27667,7 +27668,6 @@
               "pattern": "^[^\\x00-\\x1f\\x7f-\\x9f]*[^\\W_][^\\x00-\\x1f\\x7f-\\x9f]*$",
               "type": "string"
             },
-            "minItems": 2,
             "title": "Answers",
             "type": "array",
             "example": [
