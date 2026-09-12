@@ -17,6 +17,7 @@ import {
 import REGISTRY from "@/autogen/prices.json";
 import Code from "@/components/code";
 import type { ResponseBlock } from "@/components/code/lib";
+import EnumValues from "@/components/EnumValues";
 import FAQ, { type FAQItem } from "@/components/faq";
 import {
   BUTTONDOWN_CLI_STRUCTURE,
@@ -222,6 +223,13 @@ const tags: Config["tags"] = {
     render: "SupportSnippet",
     selfClosing: true,
   },
+  enum: {
+    render: "Enum",
+    selfClosing: true,
+    attributes: {
+      name: { type: String, required: true },
+    },
+  },
   faq: {
     render: "Faq",
     selfClosing: true,
@@ -409,6 +417,7 @@ const components: Record<string, React.ComponentType<any>> = {
       </p>
     </div>
   ),
+  Enum: (props: { name: string }) => <EnumValues name={props.name} />,
   Faq: () => null, // Overridden in get() with faqItems
   Automation: (props: {
     url: string;
@@ -599,7 +608,6 @@ export type Page = {
   description?: string;
   content: React.ReactNode;
   schema?: string;
-  enum?: string;
   endpoint?: string;
   method?: string;
   date?: string;

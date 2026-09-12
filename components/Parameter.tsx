@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import EnumValues from "./EnumValues";
 
 export type TypeProp =
   | {
@@ -24,89 +25,81 @@ type Props = {
   type: TypeProp;
   example?: string | string[] | object;
   values?: string[];
+  enumName?: string;
 };
 
-const Caption = (props: { children: React.ReactNode }) => {
-  return (
-    <div className="text-xs text-gray-500 uppercase font-medium mt-4">
-      {props.children}
-    </div>
-  );
+const Label = (props: { children: React.ReactNode }) => {
+  return <div className="text-sm text-gray-500 mt-4">{props.children}</div>;
 };
 
 const Parameter = (props: Props) => {
   return (
-    <div key={props.name} className="mb-12">
-      <h4 className="my-1" id={props.id || props.name}>
+    <div
+      key={props.name}
+      className="not-prose border-t border-gray-200 pt-6 mb-10"
+    >
+      <h4
+        id={props.id || props.name}
+        className="font-mono text-base text-gray-900 scroll-mt-24"
+      >
         {props.name}
+        <span className="ml-3 text-sm text-gray-500">
+          {props.type.type === "string" && props.type.value}
+          {props.type.type !== "string" && (
+            <a href={props.type.url} className="text-buttondown underline">
+              {props.type.name}
+              {props.type.type === "ref[]" && "[]"}
+            </a>
+          )}
+          {props.enumName && (
+            <>
+              {" · "}
+              <span className="bg-amber-100 text-amber-900 px-1 rounded-sm">
+                enum
+              </span>
+            </>
+          )}
+          {props.required && (
+            <>
+              {" · "}
+              <span className="text-gray-700">required</span>
+            </>
+          )}
+        </span>
       </h4>
 
-      <Caption>Type</Caption>
-      {props.type.type === "string" && (
+      {props.description && (
         <div
-          className={`font-mono text-sm p-1 inline-block px-3${
-            props.required ? " bg-gray-700 text-white" : " bg-gray-200"
-          }`}
-        >
-          {props.type.value}
-          {props.required ? " · required" : ""}
-        </div>
-      )}
-      {props.type.type === "ref" && (
-        <div className="font-mono text-sm p-1 inline-block px-3 bg-blue-500">
-          <a href={props.type.url} className="text-white">
-            {props.type.name}
-          </a>
-        </div>
-      )}
-      {props.type.type === "ref[]" && (
-        <div className="font-mono text-sm p-1 inline-block px-3 bg-blue-500">
-          <a href={props.type.url} className="text-white">
-            {props.type.name}[]
-            {props.required ? " · required" : ""}
-          </a>
-        </div>
+          className="mt-1 text-gray-600 leading-snug [&_p]:my-0 [&_a]:underline [&_code]:font-mono [&_code]:text-sm"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: trust me bro
+          dangerouslySetInnerHTML={{ __html: marked(props.description) }}
+        />
       )}
 
-      <div className="mb-4 leading-snug">
-        {props.description && (
-          <>
-            <Caption>Description</Caption>
-            <div
-              className="-mt-4"
-              dangerouslySetInnerHTML={{ __html: marked(props.description) }}
-            />
-          </>
-        )}
-      </div>
+      {props.example && (
+        <>
+          <Label>example</Label>
+          <code className="font-mono text-sm text-gray-700">
+            {typeof props.example !== "string"
+              ? JSON.stringify(props.example, null, 2)
+              : `"${props.example}"`}
+          </code>
+        </>
+      )}
 
-      <div className="mb-4 leading-snug">
-        {props.example && (
-          <>
-            <Caption>Example</Caption>
-            <code className="before:content-[''] after:content-['']">
-              {typeof props.example !== "string"
-                ? JSON.stringify(props.example, null, 2)
-                : `"${props.example}"`}
-            </code>
-          </>
-        )}
-      </div>
+      {props.enumName && <EnumValues name={props.enumName} />}
 
-      {props.values && props.values.length > 0 && (
-        <div className="mb-4 leading-snug not-prose">
-          <Caption>Values</Caption>
-          <ul className="mt-4 grid grid-cols-2 gap-2">
+      {!props.enumName && props.values && props.values.length > 0 && (
+        <>
+          <Label>values</Label>
+          <ul className="mt-1 grid grid-cols-2 gap-1">
             {props.values.map((value) => (
-              <li
-                key={value}
-                className="font-mono text-xs p-2 inline-block px-3 whitespace-nowrap border border-gray-200 rounded-md"
-              >
+              <li key={value} className="font-mono text-sm text-gray-700">
                 {value}
               </li>
             ))}
           </ul>
-        </div>
+        </>
       )}
     </div>
   );

@@ -9,7 +9,7 @@ method: post
 
 ## Double opt-in
 
-By default, newly created subscribers are subject to [double opt-in](/double-opt-in) — they will receive an email asking them to confirm their subscription, and have a state of [`unactivated`](/api-subscribers-type#unactivated) until they do so.
+By default, newly created subscribers are subject to [double opt-in](/double-opt-in) — they will receive an email asking them to confirm their subscription, and have a state of [`unactivated`](/api-subscribers-introduction#SubscriberType-unactivated) until they do so.
 
 You can't disable this behavior globally, but you *can* disable it on a per-subscriber basis by providing a `type` of `regular` in the request body.
 
@@ -55,8 +55,8 @@ The right way to model both of these scenarios would be to [update](/api-subscri
 
 However, updating a subscriber is not necessarily feasible for all integrations. If you're looking for behavior more akin to an upsert, you can provide a `X-Buttondown-Collision-Behavior` header of `overwrite` or `add`:
 
-- **`add`** merges the new data into the existing subscriber (for example, combining tags). If the existing subscriber is [`unsubscribed`](/api-subscribers-type#unsubscribed), omitting `type` resubscribes them as [`regular`](/api-subscribers-type#regular), preserving the existing default behavior. Passing `"type": "unactivated"` instead leaves them pending confirmation and sends a new confirmation email.
-- **`overwrite`** replaces the existing subscriber's data with the new payload. It **cannot** change sticky/terminal types ([`unsubscribed`](/api-subscribers-type#unsubscribed), `blocked`, `complained`, `undeliverable`) — those requests return a `400` with `subscriber_suppressed` instead of a silent success. Use `add` or a PATCH to resubscribe.
+- **`add`** merges the new data into the existing subscriber (for example, combining tags). If the existing subscriber is [`unsubscribed`](/api-subscribers-introduction#SubscriberType-unsubscribed), omitting `type` resubscribes them as [`regular`](/api-subscribers-introduction#SubscriberType-regular), preserving the existing default behavior. Passing `"type": "unactivated"` instead leaves them pending confirmation and sends a new confirmation email.
+- **`overwrite`** replaces the existing subscriber's data with the new payload. It **cannot** change sticky/terminal types ([`unsubscribed`](/api-subscribers-introduction#SubscriberType-unsubscribed), `blocked`, `complained`, `undeliverable`) — those requests return a `400` with `subscriber_suppressed` instead of a silent success. Use `add` or a PATCH to resubscribe.
 
 ```shell
 # Resubscribe an unsubscribed address (and/or merge tags):

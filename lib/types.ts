@@ -7,7 +7,6 @@ export type Page = {
   description?: string;
   content: React.ReactNode;
   schema?: string;
-  enum?: string;
   endpoint?: string;
   method?: string;
   date?: string;

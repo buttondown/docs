@@ -1,4 +1,3 @@
-import { marked } from "marked";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Code from "@/components/code";
@@ -14,16 +13,12 @@ import Parameter from "@/components/Parameter";
 import cms from "@/lib/cms";
 import { DESCRIPTION, TITLE } from "@/lib/constants";
 import { generateBreadcrumbJSONLD, generateJSONLDMetadata } from "@/lib/jsonld";
-import {
-  default as ErrorCodeEnums,
-  default as OpenAPIEnums,
-} from "@/lib/openapi/enums.json";
+import ErrorCodeEnums from "@/lib/openapi/enums.json";
 import type {
   Method,
   Object as OpenAPIObject,
   Operation,
 } from "@/lib/openapi/types";
-import { buildContentArray } from "@/lib/search/server";
 import OpenAPI from "@/public/openapi.json";
 import { CodeSnippets } from "./CodeSnippets";
 import { generateSnippets, plainOas } from "./oas";
@@ -382,6 +377,7 @@ export default async function DocsPage(props: Props) {
                   <Parameter
                     key={row.parameter.parameter}
                     type={row.parameter.type}
+                    enumName={row.parameter.enumName}
                     name={row.parameter.parameter}
                     description={row.parameter.description}
                     required={row.parameter.optional === false}
@@ -411,6 +407,7 @@ export default async function DocsPage(props: Props) {
                   <Parameter
                     key={row.parameter.parameter}
                     type={row.parameter.type}
+                    enumName={row.parameter.enumName}
                     name={row.parameter.parameter}
                     description={row.parameter.description}
                     required={row.parameter.optional === false}
@@ -474,69 +471,6 @@ export default async function DocsPage(props: Props) {
           }
           return null;
         })()}
-      </Layout>
-    );
-  }
-
-  if (page.enum) {
-    const pageEnum = page.enum as keyof typeof OpenAPIEnums;
-
-    const contentArray = buildContentArray();
-    const metadata = contentArray.find((s) => s.slug === slug);
-    const hasReferences =
-      metadata?.references && metadata?.references.length > 0;
-
-    const enumDescriptions = OpenAPIEnums[pageEnum];
-
-    if (enumDescriptions === undefined) {
-      throw new Error(
-        `No enum descriptions found for ${page.enum}. Did you forget to:\n1. Add them to \`shared/enums.json\`?\n2. Run \`mise //app:generate-files\`?`,
-      );
-    }
-
-    return (
-      <Layout slug={slug} title={page.title}>
-        <Document
-          page={{
-            ...page,
-            slug,
-          }}
-        />
-        <div
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: It's fine
-          dangerouslySetInnerHTML={{
-            __html: marked(OpenAPI.components.schemas[pageEnum].description),
-          }}
-          className="-my-2"
-        />
-        <hr />
-        {Object.entries(OpenAPIEnums[pageEnum]).map(([name, spec]) => (
-          <Parameter
-            id={name}
-            key={name}
-            name={spec.name}
-            type={{ value: name, type: "string" }}
-            description={spec.description}
-          />
-        ))}
-        <hr />
-        {hasReferences && (
-          <>
-            <h3>Referenced by</h3>
-            {metadata?.references.map((reference) => {
-              const refPage = contentArray.find((s) => s.slug === reference);
-              return (
-                <Link
-                  key={reference}
-                  href={refPage?.slug || ""}
-                  className="block"
-                >
-                  {refPage?.title}
-                </Link>
-              );
-            })}
-          </>
-        )}
       </Layout>
     );
   }

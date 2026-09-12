@@ -987,15 +987,7 @@
         },
         {
           "discriminant": "page",
-          "value": "api-invitation-status"
-        },
-        {
-          "discriminant": "page",
           "value": "api-permissions"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-permissions-access-level"
         },
         {
           "discriminant": "page",
@@ -1070,15 +1062,7 @@
       "items": [
         {
           "discriminant": "page",
-          "value": "api-automation-attempt-error"
-        },
-        {
-          "discriminant": "page",
           "value": "api-automation-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-automation-status"
         },
         {
           "discriminant": "page",
@@ -1130,14 +1114,6 @@
           "value": "api-bulk-actions-introduction"
         },
         {
-          "discriminant": "page",
-          "value": "api-bulk-action-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-bulk-action-type"
-        },
-        {
           "discriminant": "divider",
           "value": "Routes"
         },
@@ -1157,10 +1133,6 @@
         {
           "discriminant": "page",
           "value": "api-comments-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-comments-status"
         },
         {
           "discriminant": "divider",
@@ -1214,35 +1186,7 @@
         },
         {
           "discriminant": "page",
-          "value": "api-emails-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-source"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-type"
-        },
-        {
-          "discriminant": "page",
           "value": "api-emails-analytic"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-template"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-archival-mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-commenting-mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-suppression-reason"
         },
         {
           "discriminant": "divider",
@@ -1255,10 +1199,6 @@
         {
           "discriminant": "page",
           "value": "api-emails-filter"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-emails-operator"
         },
         {
           "discriminant": "divider",
@@ -1331,18 +1271,6 @@
           "value": "api-exports-introduction"
         },
         {
-          "discriminant": "page",
-          "value": "api-exports-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-exports-collections"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-exports-format"
-        },
-        {
           "discriminant": "divider",
           "value": "Routes"
         },
@@ -1397,18 +1325,6 @@
           "value": "api-imports-introduction"
         },
         {
-          "discriminant": "page",
-          "value": "api-imports-type"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-imports-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-imports-source"
-        },
-        {
           "discriminant": "divider",
           "value": "Routes"
         },
@@ -1440,30 +1356,6 @@
         {
           "discriminant": "page",
           "value": "api-newsletters-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-announcement-bar-visibility"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-archive-theme"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-auditing-mode"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-hosting-domain-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-locale"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-newsletters-sending-domain-status"
         },
         {
           "discriminant": "divider",
@@ -1567,23 +1459,7 @@
         },
         {
           "discriminant": "page",
-          "value": "api-external-feed-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-cadence"
-        },
-        {
-          "discriminant": "page",
           "value": "api-external-feed-cadence-metadata"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-behavior"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-external-feed-item-status"
         },
         {
           "discriminant": "divider",
@@ -1660,10 +1536,6 @@
           "value": "api-snippets-introduction"
         },
         {
-          "discriminant": "page",
-          "value": "api-snippets-mode"
-        },
-        {
           "discriminant": "divider",
           "value": "Routes"
         },
@@ -1699,10 +1571,6 @@
         {
           "discriminant": "page",
           "value": "api-advertising-slots-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-advertising-slots-status"
         },
         {
           "discriminant": "divider",
@@ -1744,18 +1612,6 @@
         {
           "discriminant": "page",
           "value": "api-subscribers-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-type"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-source"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-subscribers-undeliverability-reason"
         },
         {
           "discriminant": "divider",
@@ -1821,18 +1677,6 @@
         {
           "discriminant": "page",
           "value": "api-surveys-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-status"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-cadence"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-surveys-input-type"
         },
         {
           "discriminant": "page",
@@ -1923,14 +1767,6 @@
         {
           "discriminant": "page",
           "value": "events-and-webhooks-introduction"
-        },
-        {
-          "discriminant": "page",
-          "value": "event-types"
-        },
-        {
-          "discriminant": "page",
-          "value": "api-webhook-status"
         },
         {
           "discriminant": "divider",

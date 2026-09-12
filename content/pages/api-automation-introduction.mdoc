@@ -2,3 +2,11 @@
 title: Introduction
 schema: Automation
 ---
+
+## Attempt errors
+
+The attempt's `error` field contains one of these codes when it is skipped or fails. It is `null` if the attempt succeeded, hasn't run yet, or was skipped manually.
+
+Codes are case-sensitive; match the exact string.
+
+{% enum name="AutomationAttemptError" /%}

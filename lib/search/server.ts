@@ -12,7 +12,6 @@ export type ContentItem = {
   description: string | null;
   schema: string | null;
   section: string;
-  references: string[];
 };
 
 export type ContentArray = ContentItem[];
@@ -84,57 +83,6 @@ const buildSlugsSets = (
   return { apiSlugs, generalSlugs, slugToSection };
 };
 
-const buildReferences = (
-  slugToContent: Map<string, string>,
-  slugToEnum: Map<string, string>,
-): Map<string, string[]> => {
-  const openapiPath = resolvePath("public/openapi.json");
-  const openapi = JSON.parse(readFileSync(openapiPath, "utf-8"));
-  const schemas = openapi.components?.schemas ?? {};
-
-  const references = new Map<string, string[]>();
-  const allSlugs = [...slugToContent.keys()];
-
-  // Invert the enum map: enum name -> slug
-  const enumToSlug = new Map<string, string>();
-  for (const [slug, enumName] of slugToEnum) {
-    enumToSlug.set(enumName, slug);
-  }
-
-  for (const slug of allSlugs) {
-    const refs = new Set<string>();
-    const frontmatter = matter(slugToContent.get(slug)!).data;
-    const title = frontmatter.title as string;
-
-    // Add references from the OpenAPI spec: find schemas whose properties
-    // reference this page's title.
-    for (const [schemaName, schema] of Object.entries(schemas)) {
-      const props = (
-        schema as { properties?: Record<string, { $ref?: string }> }
-      ).properties;
-      if (!props) continue;
-      if (
-        Object.values(props).some((prop) => (prop.$ref ?? "").includes(title))
-      ) {
-        const refSlug = enumToSlug.get(schemaName);
-        if (refSlug) refs.add(refSlug);
-      }
-    }
-
-    // Add references from other pages that link to this slug.
-    for (const otherSlug of allSlugs) {
-      if (otherSlug === slug) continue;
-      if (slugToContent.get(otherSlug)!.includes(`/${slug}`)) {
-        refs.add(otherSlug);
-      }
-    }
-
-    references.set(slug, [...refs].sort());
-  }
-
-  return references;
-};
-
 let cachedContentArray: ContentArray | null = null;
 
 export const buildContentArray = (): ContentArray => {
@@ -144,25 +92,11 @@ export const buildContentArray = (): ContentArray => {
   const navigation = readNavigation();
   const { apiSlugs, generalSlugs, slugToSection } = buildSlugsSets(navigation);
 
-  // Pre-read all files for cross-referencing.
-  const slugToContent = new Map<string, string>();
-  const slugToEnum = new Map<string, string>();
-  for (const file of files) {
-    const slug = file.replace(/\.mdoc$/, "");
-    const fileContent = readFileSync(join(pagesDir, file), "utf-8");
-    slugToContent.set(slug, fileContent);
-    const { data } = matter(fileContent);
-    if (data.enum) {
-      slugToEnum.set(slug, data.enum as string);
-    }
-  }
-
-  const references = buildReferences(slugToContent, slugToEnum);
-
   const index = files.map((file) => {
     const slug = file.replace(/\.mdoc$/, "");
-    const fileContent = slugToContent.get(slug)!;
-    const { data, content } = matter(fileContent);
+    const { data, content } = matter(
+      readFileSync(join(pagesDir, file), "utf-8"),
+    );
 
     const categories: ("general" | "api")[] = [];
     if (generalSlugs.has(slug)) {
@@ -172,10 +106,7 @@ export const buildContentArray = (): ContentArray => {
       categories.push("api");
     }
 
-    const enumValue = data.enum as string | undefined;
-    const section = enumValue
-      ? "Reference"
-      : (slugToSection.get(slug) ?? "guides");
+    const section = slugToSection.get(slug) ?? "guides";
 
     let body = removeMarkdown(content);
     if (data.faqItems) {
@@ -192,9 +123,8 @@ export const buildContentArray = (): ContentArray => {
       slug,
       categories,
       description: (data.description as string) ?? null,
-      schema: (data.schema as string) ?? enumValue ?? null,
+      schema: (data.schema as string) ?? null,
       section,
-      references: references.get(slug) ?? [],
     };
   });
 

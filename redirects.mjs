@@ -1,5 +1,210 @@
 const REDIRECTS = [
   {
+    source: "/api-advertising-slots-status",
+    destination: "/api-advertising-slots-introduction#slot-status",
+    permanent: true,
+  },
+  {
+    source: "/api-automation-attempt-error",
+    destination: "/api-automation-introduction#attempt-errors",
+    permanent: true,
+  },
+  {
+    source: "/api-automation-status",
+    destination: "/api-automation-introduction#status",
+    permanent: true,
+  },
+  {
+    source: "/api-bulk-action-status",
+    destination: "/api-bulk-actions-introduction#status",
+    permanent: true,
+  },
+  {
+    source: "/api-bulk-action-type",
+    destination: "/api-bulk-actions-introduction#type",
+    permanent: true,
+  },
+  {
+    source: "/api-comments-status",
+    destination: "/api-comments-introduction#status",
+    permanent: true,
+  },
+  {
+    source: "/api-emails-archival-mode",
+    destination: "/api-emails-introduction#archival_mode",
+    permanent: true,
+  },
+  {
+    source: "/api-emails-commenting-mode",
+    destination: "/api-emails-introduction#commenting_mode",
+    permanent: true,
+  },
+  {
+    source: "/api-emails-operator",
+    destination: "/api-emails-filter#operator",
+    permanent: true,
+  },
+  {
+    source: "/api-emails-source",
+    destination: "/api-emails-introduction#source",
+    permanent: true,
+  },
+  {
+    source: "/api-emails-status",
+    destination: "/api-emails-introduction#status",
+    permanent: true,
+  },
+  {
+    source: "/api-emails-suppression-reason",
+    destination: "/api-emails-introduction#suppression_reason",
+    permanent: true,
+  },
+  {
+    source: "/api-emails-template",
+    destination: "/api-emails-introduction#template",
+    permanent: true,
+  },
+  {
+    source: "/api-emails-type",
+    destination: "/api-emails-introduction#email_type",
+    permanent: true,
+  },
+  {
+    source: "/api-exports-collections",
+    destination: "/api-exports-introduction#collections",
+    permanent: true,
+  },
+  {
+    source: "/api-exports-format",
+    destination: "/api-exports-introduction#format",
+    permanent: true,
+  },
+  {
+    source: "/api-exports-status",
+    destination: "/api-exports-introduction#status",
+    permanent: true,
+  },
+  {
+    source: "/api-external-feed-behavior",
+    destination: "/api-external-feed-introduction#behavior",
+    permanent: true,
+  },
+  {
+    source: "/api-external-feed-cadence",
+    destination: "/api-external-feed-introduction#cadence",
+    permanent: true,
+  },
+  {
+    source: "/api-external-feed-item-status",
+    destination: "/api-external-feed-introduction#item-statuses",
+    permanent: true,
+  },
+  {
+    source: "/api-external-feed-status",
+    destination: "/api-external-feed-introduction#status",
+    permanent: true,
+  },
+  {
+    source: "/api-imports-source",
+    destination: "/api-imports-introduction#source",
+    permanent: true,
+  },
+  {
+    source: "/api-imports-status",
+    destination: "/api-imports-introduction#status",
+    permanent: true,
+  },
+  {
+    source: "/api-imports-type",
+    destination: "/api-imports-introduction#type",
+    permanent: true,
+  },
+  {
+    source: "/api-invitation-status",
+    destination: "/api-user-introduction#status",
+    permanent: true,
+  },
+  {
+    source: "/api-newsletters-announcement-bar-visibility",
+    destination: "/api-newsletters-introduction#announcement_bar_visibility",
+    permanent: true,
+  },
+  {
+    source: "/api-newsletters-archive-theme",
+    destination: "/api-newsletters-introduction#archive_theme",
+    permanent: true,
+  },
+  {
+    source: "/api-newsletters-auditing-mode",
+    destination: "/api-newsletters-introduction#auditing_mode",
+    permanent: true,
+  },
+  {
+    source: "/api-newsletters-hosting-domain-status",
+    destination: "/api-newsletters-introduction#hosting_domain_status",
+    permanent: true,
+  },
+  {
+    source: "/api-newsletters-locale",
+    destination: "/api-newsletters-introduction#locale",
+    permanent: true,
+  },
+  {
+    source: "/api-newsletters-sending-domain-status",
+    destination: "/api-newsletters-introduction#sending_domain_status",
+    permanent: true,
+  },
+  {
+    source: "/api-permissions-access-level",
+    destination: "/api-permissions",
+    permanent: true,
+  },
+  {
+    source: "/api-snippets-mode",
+    destination: "/api-snippets-introduction#modes",
+    permanent: true,
+  },
+  {
+    source: "/api-subscribers-source",
+    destination: "/api-subscribers-introduction#source",
+    permanent: true,
+  },
+  {
+    source: "/api-subscribers-type",
+    destination: "/api-subscribers-introduction#type",
+    permanent: true,
+  },
+  {
+    source: "/api-subscribers-undeliverability-reason",
+    destination: "/api-subscribers-introduction#undeliverability_reason",
+    permanent: true,
+  },
+  {
+    source: "/api-surveys-cadence",
+    destination: "/api-surveys-introduction#response_cadence",
+    permanent: true,
+  },
+  {
+    source: "/api-surveys-input-type",
+    destination: "/api-surveys-introduction#input_type",
+    permanent: true,
+  },
+  {
+    source: "/api-surveys-status",
+    destination: "/api-surveys-introduction#status",
+    permanent: true,
+  },
+  {
+    source: "/api-webhook-status",
+    destination: "/api-webhooks-introduction#status",
+    permanent: true,
+  },
+  {
+    source: "/event-types",
+    destination: "/api-webhooks-introduction#event_types",
+    permanent: true,
+  },
+  {
     source: "/",
     destination: "/welcome-to-buttondown",
     permanent: false,
@@ -399,7 +604,7 @@ const REDIRECTS = [
   {
     source: "/api-webhooks-event-types",
     permanent: true,
-    destination: "/event-types",
+    destination: "/api-webhooks-introduction",
   },
   {
     source: "/behind-the-scenes/affiliate-program",

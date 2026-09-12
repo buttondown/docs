@@ -52,8 +52,8 @@ flowchart-elk
     newsletter_history --> score[Reputation]
   end
 
-  click subscriber_blocked href "event-types#firewall.blocked"
-  click subscriber_created href "event-types#subscriber.created"
+  click subscriber_blocked href "api-webhooks-introduction#ExternalEventType-firewall.blocked"
+  click subscriber_created href "api-webhooks-introduction#ExternalEventType-subscriber.created"
 ```
 
 The firewall is conceptually simple: whenever we receive an incoming request across a common vector (such as an embedded subscription form, a POST to `/v1/subscribers`, or a comment on a newsletter), we check the reputation of the IP address and email address of the incoming request as well as some additional metadata. We tally up the various facets and arrive at a `risk_score`. If the `risk_score` is below a threshold, we let the subscriber through. If it's above the threshold, we block the subscriber.

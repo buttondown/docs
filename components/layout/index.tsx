@@ -4,6 +4,7 @@ import {
   PlayCircleIcon,
 } from "@heroicons/react/24/outline";
 import HeadingsMinimap from "@/components/headings-minimap";
+import RevealHashTarget from "@/components/reveal-hash-target";
 import cms from "@/lib/cms";
 import { clsx } from "@/lib/utils";
 import AccountButtons from "./account-buttons";
@@ -127,6 +128,7 @@ export default async function Layout({
           </h1>
           <div className="flex min-w-0">
             <div className="min-w-0">
+              <RevealHashTarget />
               <Prose>{children}</Prose>
               <footer className="flex bg-white z-50">
                 <div className="text-gray-400 text-sm">

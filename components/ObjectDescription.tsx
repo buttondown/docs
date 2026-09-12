@@ -11,6 +11,7 @@ import type {
 } from "../lib/openapi/types";
 import { buildContentArray } from "../lib/search/server";
 import OpenAPI from "../public/openapi.json";
+import { enumNameForRef, underlyingTypeForEnum } from "./EnumValues";
 import Parameter, { type TypeProp } from "./Parameter";
 
 function Markdown({ children }: { children: string }) {
@@ -34,6 +35,30 @@ export const urlForSchema = (fullyQualifiedSchema: string) => {
   const schema = fullyQualifiedSchema.split("/").pop();
   const contentArray = buildContentArray();
   return contentArray.find((s) => s.title === schema || s.schema === schema);
+};
+
+export const typeForRef = (
+  ref: string,
+  isArray = false,
+): { type: TypeProp; enumName?: string } => {
+  const enumName = enumNameForRef(ref);
+  if (enumName) {
+    const underlying = underlyingTypeForEnum(enumName);
+    return {
+      type: {
+        type: "string",
+        value: isArray ? `${underlying}[]` : underlying,
+      },
+      enumName,
+    };
+  }
+  return {
+    type: {
+      type: isArray ? "ref[]" : "ref",
+      url: urlForSchema(ref)?.slug || "",
+      name: urlForSchema(ref)?.schema || "",
+    },
+  };
 };
 
 export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
@@ -80,6 +105,11 @@ export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
           }
         }
 
+        const arrayItemRef =
+          !$ref && "items" in info && info.items && "$ref" in info.items
+            ? (info.items as unknown as { $ref: string }).$ref
+            : null;
+
         const anyOfType =
           "anyOf" in info && !$ref
             ? (
@@ -89,23 +119,24 @@ export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
               )?.type
             : undefined;
 
-        const type: TypeProp = $ref
-          ? {
-              type: "ref",
-              url: urlForSchema($ref)?.slug || "",
-              name: urlForSchema($ref)?.schema || "",
-            }
-          : {
-              type: "string",
-              value: (anyOfType as string) || info.type,
-            };
+        const resolved: { type: TypeProp; enumName?: string } = $ref
+          ? typeForRef($ref)
+          : arrayItemRef && enumNameForRef(arrayItemRef)
+            ? typeForRef(arrayItemRef, true)
+            : {
+                type: {
+                  type: "string",
+                  value: (anyOfType as string) || info.type,
+                },
+              };
 
         return (
           <Parameter
             key={name}
             name={name}
             description={description}
-            type={type}
+            type={resolved.type}
+            enumName={resolved.enumName}
           />
         );
       })}
@@ -227,6 +258,7 @@ export const fixtureForRef = (ref: string) => {
 export type ParameterType = {
   parameter: string;
   type: TypeProp;
+  enumName?: string;
   description: string;
   optional: boolean;
   values?: string[];
@@ -264,19 +296,19 @@ export const extractParameters = <R extends Route>(
             ? extractRefFromType(parameter.schema.$ref)
             : null;
 
-      const typeProp: TypeProp =
+      const resolved: { type: TypeProp; enumName?: string } =
         "type" in parameter.schema &&
         "items" in parameter.schema &&
         parameter.schema.items?.$ref
-          ? {
-              type: "ref[]",
-              url: urlForSchema(parameter.schema.items.$ref)?.slug || "",
-              name: urlForSchema(parameter.schema.items.$ref)?.schema || "",
-            }
-          : {
-              type: "string",
-              value: type || "string",
-            };
+          ? typeForRef(parameter.schema.items.$ref, true)
+          : "$ref" in parameter.schema
+            ? typeForRef(parameter.schema.$ref)
+            : {
+                type: {
+                  type: "string",
+                  value: type || "string",
+                },
+              };
 
       const schemaWithExtras = parameter.schema as {
         format?: string;
@@ -287,7 +319,8 @@ export const extractParameters = <R extends Route>(
       };
       return {
         parameter: parameter.name,
-        type: typeProp,
+        type: resolved.type,
+        enumName: resolved.enumName,
         description: parameter.description || "",
         values: schemaWithExtras.allOf?.[0]?.enum || [],
         optional: !parameter.required,
@@ -348,57 +381,39 @@ const parametersForRef = (
               $ref: undefined;
             };
 
-        const type: TypeProp = qualifiedParameter.type
-          ? qualifiedParameter.type === "array" &&
-            "$ref" in qualifiedParameter.items
-            ? {
-                type: "ref[]",
-                url: urlForSchema(qualifiedParameter.items.$ref)?.slug || "",
-                name: urlForSchema(qualifiedParameter.items.$ref)?.schema || "",
-              }
-            : {
-                type: "string",
-                value: qualifiedParameter.type,
-              }
-          : "allOf" in qualifiedParameter
-            ? {
-                type: "ref",
-                url: urlForSchema(qualifiedParameter.allOf[0].$ref)?.slug || "",
-                name:
-                  urlForSchema(qualifiedParameter.allOf[0].$ref)?.schema || "",
-              }
-            : "anyOf" in qualifiedParameter &&
-                "$ref" in qualifiedParameter.anyOf[0]
-              ? {
-                  type: "ref",
-                  url:
-                    urlForSchema(qualifiedParameter.anyOf[0].$ref as string)
-                      ?.slug || "",
-                  name:
-                    urlForSchema(qualifiedParameter.anyOf[0].$ref as string)
-                      ?.schema || "",
-                }
-              : "anyOf" in qualifiedParameter
-                ? {
+        const resolved: { type: TypeProp; enumName?: string } =
+          qualifiedParameter.type
+            ? qualifiedParameter.type === "array" &&
+              "$ref" in qualifiedParameter.items
+              ? typeForRef(qualifiedParameter.items.$ref, true)
+              : {
+                  type: {
                     type: "string",
-                    value:
-                      (qualifiedParameter.anyOf.find(
-                        (item: Record<string, unknown>) => item.type !== "null",
-                      )?.type as string) || "string",
-                  }
-                : {
-                    type: "ref",
-                    url:
-                      urlForSchema(qualifiedParameter.$ref as string)?.slug ||
-                      "",
-                    name:
-                      urlForSchema(qualifiedParameter.$ref as string)?.schema ||
-                      "",
-                  };
+                    value: qualifiedParameter.type,
+                  },
+                }
+            : "allOf" in qualifiedParameter
+              ? typeForRef(qualifiedParameter.allOf[0].$ref)
+              : "anyOf" in qualifiedParameter &&
+                  "$ref" in qualifiedParameter.anyOf[0]
+                ? typeForRef(qualifiedParameter.anyOf[0].$ref as string)
+                : "anyOf" in qualifiedParameter
+                  ? {
+                      type: {
+                        type: "string",
+                        value:
+                          (qualifiedParameter.anyOf.find(
+                            (item: Record<string, unknown>) =>
+                              item.type !== "null",
+                          )?.type as string) || "string",
+                      },
+                    }
+                  : typeForRef(qualifiedParameter.$ref as string);
 
         return {
           parameter,
-          type,
+          type: resolved.type,
+          enumName: resolved.enumName,
           description: qualifiedParameter.description || "",
           optional:
             "required" in schema

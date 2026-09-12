@@ -4,3 +4,16 @@ schema: User
 ---
 
 Users represent the team members on a Buttondown account, along with their permission levels. Use the `/users` endpoints to list, retrieve, create, update, and delete teammates.
+
+## Invitation statuses
+
+```mermaid
+flowchart
+  pending e1@--> accepted
+  pending e2@--> declined
+  pending e3@--> revoked
+  owner
+  e1@{ animate: true }
+  e2@{ animate: true }
+  e3@{ animate: true }
+```

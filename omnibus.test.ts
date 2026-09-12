@@ -260,6 +260,34 @@ const VALID_INTERNAL_LINKS_THAT_ARE_NOT_BACKED_BY_MDOC = [
   "url",
 ];
 
+const ENUM_SCHEMA_NAMES = new Set(
+  Object.entries(OpenAPI.components.schemas)
+    .filter(([, schema]) => "enum" in schema)
+    .map(([name]) => name),
+);
+
+const refForProperty = (info: OpenAPIProperty): string | null => {
+  if ("$ref" in info) return info.$ref as string;
+  if ("allOf" in info)
+    return (info.allOf as { $ref: string }[])[0]?.$ref ?? null;
+  if ("anyOf" in info) {
+    const first = (info.anyOf as { $ref?: string }[])[0];
+    if (first && "$ref" in first) return first.$ref ?? null;
+  }
+  if (info.items && "$ref" in info.items)
+    return (info.items as unknown as { $ref: string }).$ref;
+  return null;
+};
+
+// EnumValues anchors each value by enum name, since one page can render several
+// enums that share a value (e.g. `disabled`).
+const enumValueAnchors = (name: string): string[] => {
+  const schema =
+    OpenAPI.components.schemas[name as keyof typeof OpenAPI.components.schemas];
+  if (!schema || !("enum" in schema)) return [];
+  return (schema.enum as string[]).map((value) => `${name}-${value}`);
+};
+
 function slugify(text: string): string {
   return (text || "")
     .toString()
@@ -286,16 +314,13 @@ function getAnchorsFromMdoc(filePath: string): string[] {
     slugs.push(slugify(match[1]));
   }
 
-  // Enum values (e.g. SubscriberType, AutomationActionType).
-  if (frontmatter.enum) {
-    const enumData =
-      OpenAPIEnums[frontmatter.enum as keyof typeof OpenAPIEnums];
-    if (enumData) {
-      slugs.push(...Object.keys(enumData));
-    }
+  // Enums embedded with {% enum name="..." /%}.
+  for (const match of content.matchAll(/{% enum name="([^"]+)" \/%}/g)) {
+    slugs.push(...enumValueAnchors(match[1]));
   }
 
-  // Schema property names (e.g. Email schema has "slug", "subject", etc.).
+  // Schema property names (e.g. Email schema has "slug", "subject", etc.), plus
+  // the values of every enum those properties render inline.
   if (frontmatter.schema) {
     const schema =
       OpenAPI.components.schemas[
@@ -303,6 +328,10 @@ function getAnchorsFromMdoc(filePath: string): string[] {
       ];
     if (schema && "properties" in schema) {
       slugs.push(...Object.keys(schema.properties));
+      for (const info of Object.values(schema.properties)) {
+        const ref = refForProperty(info as OpenAPIProperty);
+        if (ref) slugs.push(...enumValueAnchors(ref.split("/").pop() ?? ""));
+      }
     }
   }
 
@@ -440,33 +469,15 @@ Object.entries(FILENAME_TO_RAW_CONTENT)
     });
   });
 
-// Object pages (frontmatter `schema:`) render each property's type as a pill.
-// For enum-typed properties, ObjectDescription resolves the `$ref` to its enum
-// reference page via `urlForSchema`; if no page matches, the pill renders blank
-// (empty name and URL) with no error — the failure mode that shipped in #10515,
-// where `hosting_domain_status`/`sending_domain_status` had no enum page.
+// Object pages (frontmatter `schema:`) render each enum-typed property's values
+// inline through EnumValues, which reads them from the spec. If the spec carries
+// no members the disclosure renders empty with no error — the failure mode that
+// shipped in #10515, where `hosting_domain_status`/`sending_domain_status` had
+// nothing to render.
 //
-// This asserts every enum referenced by a documented object resolves to a page.
-// The ref-extraction mirrors ObjectDescription.tsx exactly (direct `$ref`,
-// `allOf[0]`, or `anyOf[0]`) — arrays aren't dereferenced, so their `items.$ref`
-// renders as the literal `array` type, not a pill, and is intentionally skipped.
-const ENUM_SCHEMA_NAMES = new Set(
-  Object.entries(OpenAPI.components.schemas)
-    .filter(([, schema]) => "enum" in schema)
-    .map(([name]) => name),
-);
-
-const refForProperty = (info: OpenAPIProperty): string | null => {
-  if ("$ref" in info) return info.$ref as string;
-  if ("allOf" in info)
-    return (info.allOf as { $ref: string }[])[0]?.$ref ?? null;
-  if ("anyOf" in info) {
-    const first = (info.anyOf as { $ref?: string }[])[0];
-    if (first && "$ref" in first) return first.$ref ?? null;
-  }
-  return null;
-};
-
+// The ref-extraction mirrors ObjectDescription.tsx exactly: a direct `$ref`,
+// `allOf[0]`, `anyOf[0]`, or — for a list-valued property like a webhook's
+// `event_types` — `items.$ref`.
 Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
   const schemaName = matter(content).data.schema as
     | keyof typeof OpenAPI.components.schemas
@@ -481,11 +492,11 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
     const refName = ref.split("/").pop();
     if (!refName || !ENUM_SCHEMA_NAMES.has(refName)) return;
 
-    test(`${schemaName}.${property} enum type resolves to a documented page`, () => {
+    test(`${schemaName}.${property} enum type has documented values`, () => {
       expect(
-        urlForSchema(ref)?.slug,
-        `${schemaName}.${property} references enum "${refName}", but no docs page documents it, so its type renders as a blank pill. Add an enum page for "${refName}" (frontmatter \`enum: ${refName}\`), register it in navigation.json, and document its values in shared/enums.json.`,
-      ).toBeTruthy();
+        enumValueAnchors(refName).length,
+        `${schemaName}.${property} references enum "${refName}", but the spec lists no values for it, so ${filename} renders an empty disclosure. Regenerate the spec with \`mise run //app:generate-files\`.`,
+      ).toBeGreaterThan(0);
     });
   });
 });
@@ -689,7 +700,8 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
   });
 });
 
-// Make sure all schemas with $ref in properties have URLs.
+// Make sure all schemas with $ref in properties have URLs. Enums are exempt:
+// they render their values inline rather than linking out to a page.
 Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
   // Check for the `schema` key in front matter.
   const schemaNameLine = content.match(/schema: (.*)/);
@@ -702,9 +714,14 @@ Object.entries(FILENAME_TO_RAW_CONTENT).forEach(([filename, content]) => {
       schemaName as keyof typeof OpenAPI.components.schemas
     ];
   // @ts-ignore
-  const refs = Object.values(schema.properties).filter(
-    (property) => "$ref" in (property as OpenAPIProperty),
-  );
+  const refs = Object.values(schema.properties)
+    .filter((property) => "$ref" in (property as OpenAPIProperty))
+    .filter((property) => {
+      const name = refForProperty(property as OpenAPIProperty)
+        ?.split("/")
+        .pop();
+      return !name || !ENUM_SCHEMA_NAMES.has(name);
+    });
   refs.forEach((ref) => {
     // @ts-ignore
     test(`${ref.$ref} (referenced by ${filename}) has a URL in the schema`, () => {
