@@ -14,6 +14,7 @@ import {
   FileBasedCodeSnippets,
   GeneratedCodeSnippets,
 } from "@/app/[slug]/CodeSnippets";
+import EXTERNAL_SCRIPTS from "@/autogen/external-scripts.json";
 import REGISTRY from "@/autogen/prices.json";
 import Code from "@/components/code";
 import type { ResponseBlock } from "@/components/code/lib";
@@ -329,6 +330,10 @@ const tags: Config["tags"] = {
       theme: { type: String, required: true },
     },
   },
+  externalScripts: {
+    render: "ExternalScripts",
+    selfClosing: true,
+  },
 };
 
 // CodeBlock component for syntax highlighting. `highlight` is a comma-separated
@@ -597,6 +602,31 @@ const components: Record<string, React.ComponentType<any>> = {
       </div>
     );
   },
+  ExternalScripts: () => (
+    <div className="overflow-x-auto">
+      <table className="min-w-full">
+        <thead>
+          <tr>
+            <th className="text-left">Script</th>
+            <th className="text-left">URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          {[...EXTERNAL_SCRIPTS]
+            .sort(
+              (a, b) =>
+                a.name.localeCompare(b.name) || a.url.localeCompare(b.url),
+            )
+            .map((script) => (
+              <tr key={script.url}>
+                <td>{script.name}</td>
+                <td>{script.url}</td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    </div>
+  ),
   ImageWithLightbox,
   Heading,
 };

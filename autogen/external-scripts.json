@@ -1,0 +1,94 @@
+[
+  {
+    "name": "AddToAny",
+    "url": "https://static.addtoany.com/menu/page.js"
+  },
+  {
+    "name": "Bluesky embed",
+    "url": "https://embed.bsky.app/static/embed.js"
+  },
+  {
+    "name": "Bookshop embed",
+    "url": "https://bookshop.org/widgets.js"
+  },
+  {
+    "name": "Cloudflare Turnstile",
+    "url": "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback"
+  },
+  {
+    "name": "Cloudflare Insights",
+    "url": "https://static.cloudflareinsights.com/beacon.min.js"
+  },
+  {
+    "name": "Facebook",
+    "url": "https://connect.facebook.net/en_US/sdk.js"
+  },
+  {
+    "name": "Fathom",
+    "url": "https://cdn.usefathom.com/script.js"
+  },
+  {
+    "name": "Flickr embed",
+    "url": "https://embedr.flickr.com/assets/client-code.js"
+  },
+  {
+    "name": "Google Tag Manager",
+    "url": "https://www.googletagmanager.com"
+  },
+  {
+    "name": "Instagram",
+    "url": "https://www.instagram.com/embed.js"
+  },
+  {
+    "name": "Plausible",
+    "url": "https://plausible.io/js/script.js"
+  },
+  {
+    "name": "Seline",
+    "url": "https://cdn.seline.com/seline.js"
+  },
+  {
+    "name": "Simple Analytics",
+    "url": "https://scripts.simpleanalyticscdn.com/latest.js"
+  },
+  {
+    "name": "Sniperlink",
+    "url": "https://sniperl.ink/v1/sniper-link.js"
+  },
+  {
+    "name": "Stripe",
+    "url": "https://js.stripe.com/clover/"
+  },
+  {
+    "name": "Stripe Buy Button",
+    "url": "https://js.stripe.com/v3/buy-button.js"
+  },
+  {
+    "name": "Tailwind",
+    "url": "https://cdn.tailwindcss.com"
+  },
+  {
+    "name": "TikTok embed",
+    "url": "https://www.tiktok.com/embed.js"
+  },
+  {
+    "name": "Tinylytics",
+    "url": "https://tinylytics.app/embed"
+  },
+  {
+    "name": "TikTok embed",
+    "url": "https://sf16-website-login.neutral.ttwstatic.com"
+  },
+  {
+    "name": "Twitter embed",
+    "url": "https://platform.twitter.com/widgets.js"
+  },
+  {
+    "name": "Umami",
+    "url": "https://cloud.umami.is/script.js"
+  },
+  {
+    "name": "Google Pay Payment Method Manifest",
+    "url": "https://pay.google.com/gp/p/payment_method_manifest.json"
+  }
+]

@@ -763,6 +763,30 @@ test("API reference resource sections are alphabetized", () => {
   expect(resourceNames).toEqual(sorted);
 });
 
+test("the localization FAQ lists every NewsletterLocale", () => {
+  const faqItems: { question: string; answer: string }[] = JSON.parse(
+    matter(
+      fs.readFileSync(
+        `${MARKDOC_DIRECTORY}/designing-your-email.mdoc`,
+        "utf-8",
+      ),
+    ).data.faqItems,
+  );
+  const answer =
+    faqItems.find((item) => item.question === "What about localization?")
+      ?.answer ?? "";
+  const listedLanguages =
+    answer
+      .match(/supports localization for ([^.]+)\./)?.[1]
+      .split(/, (?:and )?/) ?? [];
+
+  expect(listedLanguages).toEqual(
+    Object.values(OpenAPIEnums.NewsletterLocale)
+      .map((locale) => locale.name)
+      .sort(),
+  );
+});
+
 // Make sure that the navigation doesn't reference any pages that don't exist.
 Object.values(NAVIGATION).forEach((section) => {
   section.forEach((subsection) => {
