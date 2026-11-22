@@ -1,14 +1,13 @@
 "use client";
 
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
-import { Highlight } from "@orama/highlight";
-import { search } from "@orama/orama";
 import * as Dialog from "@radix-ui/react-dialog";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { buildSearchIndex } from "@/lib/search/client";
 import type { ContentArray } from "@/lib/search/server";
 import { clsx } from "@/lib/utils";
+
+type SearchEngine = typeof import("@/lib/search/client");
 
 const SearchIcon = () => (
   <svg
@@ -25,10 +24,6 @@ const SearchIcon = () => (
     />
   </svg>
 );
-
-const highlighter = new Highlight({
-  CSSClass: "bg-amber-100",
-});
 
 export default function Search({
   defaultCategory = "general",
@@ -49,13 +44,18 @@ export default function Search({
   // The corpus is fetched on first open rather than passed as a prop:
   // serializing it from Layout put ~700 KB of flight data into every page.
   const [contentArray, setContentArray] = useState<ContentArray | null>(null);
+  const [engine, setEngine] = useState<SearchEngine | null>(null);
   useEffect(() => {
     if (!open || contentArray) return;
     let cancelled = false;
-    fetch("/search-index.json")
-      .then((response) => response.json())
-      .then((data: ContentArray) => {
-        if (!cancelled) setContentArray(data);
+    Promise.all([
+      fetch("/search-index.json").then((response) => response.json()),
+      import("@/lib/search/client"),
+    ])
+      .then(([data, loadedEngine]: [ContentArray, SearchEngine]) => {
+        if (cancelled) return;
+        setEngine(loadedEngine);
+        setContentArray(data);
       })
       .catch(() => {});
     return () => {
@@ -63,8 +63,9 @@ export default function Search({
     };
   }, [open, contentArray]);
   const index = useMemo(
-    () => (contentArray ? buildSearchIndex(contentArray) : null),
-    [contentArray],
+    () =>
+      engine && contentArray ? engine.buildSearchIndex(contentArray) : null,
+    [engine, contentArray],
   );
   const searchInputRef = useRef<HTMLInputElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -104,15 +105,15 @@ export default function Search({
   }, [open, variant]);
 
   const results = useMemo(() => {
-    if (!index) return [];
+    if (!engine || !index) return [];
     if (!query) return [];
 
-    return search(index, {
+    return engine.search(index, {
       term: query,
       limit: 15,
       where: { categories: category },
     });
-  }, [query, index, category]);
+  }, [query, engine, index, category]);
 
   const hitsCount = "hits" in results ? results.hits.length : 0;
   const noResults = hitsCount === 0 && query.trim().length > 0;
@@ -228,6 +229,7 @@ export default function Search({
                 isSelected={hitIndex === selectedIndex}
                 resultIndex={hitIndex}
                 selectionSource={selectionSource}
+                highlighter={engine?.highlighter}
                 onClick={() => setOpen(false)}
               />
             );
@@ -245,6 +247,7 @@ export default function Search({
               isSelected={selectedIndex === 0}
               resultIndex={0}
               selectionSource={selectionSource}
+              highlighter={engine?.highlighter}
               onClick={() => setOpen(false)}
             />
           </>
@@ -328,6 +331,7 @@ function SearchResultRow({
   isSelected = false,
   resultIndex,
   selectionSource,
+  highlighter,
   onClick,
 }: {
   title: string;
@@ -337,6 +341,7 @@ function SearchResultRow({
   isSelected?: boolean;
   resultIndex?: number;
   selectionSource?: "keyboard" | "mouse";
+  highlighter?: SearchEngine["highlighter"];
   onClick?: () => void;
 }) {
   const LinkComponent = href.startsWith("/") ? Link : "a";
@@ -359,13 +364,17 @@ function SearchResultRow({
       className={clsx("block py-2.5 px-4", isSelected && "bg-gray-200")}
       onClick={onClick}
     >
-      <p
-        dangerouslySetInnerHTML={{
-          __html: highlighter.highlight(title, query).HTML,
-        }}
-        className="font-medium"
-      />
-      {body && (
+      {highlighter ? (
+        <p
+          dangerouslySetInnerHTML={{
+            __html: highlighter.highlight(title, query).HTML,
+          }}
+          className="font-medium"
+        />
+      ) : (
+        <p className="font-medium">{title}</p>
+      )}
+      {body && highlighter && (
         <p
           dangerouslySetInnerHTML={{
             __html: highlighter.highlight(body, query).trim(100),

@@ -6,7 +6,7 @@ faqItems: >
   [
     {
       "question": "What if sending my email doesn't work?",
-      "answer": "First, verify that the email address you're sending from is the same as the one you've set as your newsletter email address in the [General settings](https://buttondown.com/settings/general) page. If you're still having trouble, please [contact us](https://buttondown.com/support) and we'll help you out."
+      "answer": "If your email was saved as a draft, see [Automatic sending](#automatic-sending). Otherwise, check that your From address matches your [account address](https://buttondown.com/settings/security) or [newsletter sender address](https://buttondown.com/settings/domains/sending). Still having trouble? [Contact us](https://buttondown.com/support)."
     }
   ]
 ---
@@ -22,11 +22,33 @@ Write a newsletter email and email it to one of the email addresses we provide. 
 | newsletters@mg.buttondown.email | Send an email to this address to send the email content directly to your subscribers as a newsletter email. |
 | drafts@mg.buttondown.email      | Send an email to this address to save a draft.      |
 
+## Automatic sending
+
+Buttondown sends emails addressed to newsletters@mg.buttondown.email when all these checks pass:
+
+- The email has a valid [DKIM](/glossary-email-infrastructure#dkim) signature for the exact domain in your From address.
+- The From address matches your Buttondown account address or your newsletter's sender address on a verified [sending domain](https://buttondown.com/settings/domains/sending).
+- newsletters@mg.buttondown.email is the only To recipient. You can CC yourself.
+- The email arrives within an hour of being sent.
+- The email isn't a reply or an automated message, such as an out-of-office reply.
+
+If a check fails, Buttondown saves a draft and emails you a link to review and send it. Forwarding can invalidate the DKIM signature.
+
+Outlook.com and Microsoft 365 don't sign the To field, so emails from them always fail the DKIM check and arrive as drafts. Send from a different provider, or use the link in our email to send the draft.
+
+Google Workspace signs with a default key for a Google domain until you set up DKIM for your own domain. Until then, emails from Workspace also arrive as drafts. To fix this, [set up DKIM](https://support.google.com/a/answer/174124) in the Google Admin console.
+
+DKIM verifies the domain, not the individual mailbox. Services authorized to sign mail for your domain can send as your address. To review each send first, use drafts@mg.buttondown.email and send from the Dashboard.
+
 ## I've got multiple newsletters. How do I choose which one to send to?
 
-Buttondown decides which newsletter to send to based on the email address associated with your _newsletter_ (in the [General settings](https://buttondown.com/settings/general) page), not your Buttondown account's email address (which is the one in your [Security settings](https://buttondown.com/settings/security)).
+Buttondown first looks for newsletters owned by the account with your [From address](https://buttondown.com/settings/security). If no account matches, it looks for a newsletter with a matching [sender address](https://buttondown.com/settings/domains/sending).
 
-Send an email from the email address associated with your newsletter to make sure it's saved in the correct drafts or sent to the right subscribers.
+If your account owns multiple newsletters, send from the newsletter's sender address. To choose a default when sending from your account address, set that newsletter's sender address to your account address.
+
+## What if I can't send from my newsletter's sender address?
+
+Buttondown doesn't provide an inbox for [managed sending domains](/sending-from-a-custom-domain#managed-sending-domain-setup). If your account owns _only one_ newsletter, send from your Buttondown account's email address instead. You can find it in [Security settings](https://buttondown.com/settings/security). (Note: this will not work if there are multiple newsletter on the account.)
 
 ## What about attachments?
 

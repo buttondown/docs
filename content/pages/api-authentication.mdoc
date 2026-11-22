@@ -26,6 +26,14 @@ Each key can have its own label (like "Zapier - new subscribers" or "Internal da
 
 One key is special: your account's **primary** API key. It always has full access — you can't change its permissions — and it can't be deleted. If a primary key leaks, regenerate it to invalidate the current value.
 
+To invite teammates, change their permissions, or remove them from your newsletter, use your primary API key. You'll also need write access to that newsletter's settings.
+
+Other API keys can't make these changes, even with write access to newsletter settings. If you use any API key other than your primary API key, you'll receive a `403` with the code `permission_denied`.
+
+You can still use other API keys with read access to newsletter settings to view your team.
+
+You can only give teammates permissions you have yourself. See [Creating a user](/api-users-create) and [Updating a user](/api-users-update) for examples.
+
 ## API key permissions
 
 Each API key can be configured with independent permissions for different parts of the API:

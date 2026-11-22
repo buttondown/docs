@@ -617,6 +617,7 @@ export type Page = {
 
 export type RawPage = Omit<Page, "content"> & {
   bodyText: string;
+  summary: string;
 };
 
 // Path resolution: Vercel may use .next as cwd; monorepo may use repo root
@@ -696,7 +697,10 @@ function extractTextFromAst(node: ReturnType<typeof Markdoc.parse>): string {
       attributes?: { content?: string };
       children?: unknown[];
     };
-    if (node?.type === "text" && node?.attributes?.content) {
+    if (
+      (node?.type === "text" || node?.type === "code") &&
+      node?.attributes?.content
+    ) {
       texts.push(node.attributes.content);
     }
     if (node?.children) {
@@ -721,11 +725,17 @@ function getRaw(slug: string): RawPage | null {
   const parsed = Markdoc.parse(fileContent);
   const frontmatter = yaml.parse(parsed.attributes?.frontmatter || "{}");
   const bodyText = extractTextFromAst(parsed);
+  const summary =
+    parsed.children
+      .filter((child) => child.type === "paragraph")
+      .map((child) => extractTextFromAst(child))
+      .find((text) => text.length >= 50) ?? "";
 
   return {
     slug,
     ...frontmatter,
     bodyText,
+    summary,
   };
 }
 
@@ -808,5 +818,3 @@ export default {
   list,
   readNavigation,
 };
-
-export { get, getMany, getRaw, getManyRaw, list, readNavigation };

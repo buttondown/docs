@@ -4,3 +4,14 @@ endpoint: /users/{id}
 method: patch
 ---
 
+Use this endpoint to change a teammate's permissions.
+
+You'll need your [primary API key](/api-authentication) and write access to newsletter settings. Other API keys can't change teammates' permissions, even if they have write access to newsletter settings.
+
+You can only give a teammate permissions you have yourself. This also applies when you change your own permissions.
+
+For example, if you only have read access to subscribers, you can't send `subscriber: write`, even if your teammate already has write access. Someone with write access will need to make that change.
+
+Include every permission you want your teammate to keep in the `permissions` object. Any permissions you leave out are set to `none`.
+
+If you use any API key other than your primary API key or include permissions above your own, you'll receive a `403` with the code `permission_denied`. Your teammate's permissions won't change.

@@ -24,11 +24,11 @@ Each survey has room for one question and one question only. If you want to ask 
 
 {% iframe src="https://demo.buttondown.com/surveys/new?newsletter=basic-newsletter&emphasis=code" height=500 /%}
 
-Then, enter an identifier for your survey in the "Code" field using letters (A–Z) and numbers (0–9). Your subscribers won't see this code, but we recommend making it identifiable so you can retrieve and render your survey more easily.
+Then, enter an identifier for your survey in the "Code" field using letters (A–Z), numbers (0–9), and underscores. The code must start with a letter or number. Your subscribers won't see this code, but we recommend making it identifiable so you can retrieve and render your survey more easily.
 
 ### Provide your survey's responses
 
-The "Answers" field is where your survey responses should go. List out each of your responses (e.g. "R2-D2," "C-3PO," and "BB-8") on separate lines without any punctuation. Buttondown will take care of the formatting for you!
+The "Answers" field is where your survey responses should go. Type each possible answer in its own field. For example, if you ask "How often do you want to hear from us?", your answers could be "Weekly", "Monthly", and "Only when there's big news". When you fill in the last field, Buttondown adds a new empty field for the next answer.
 
 ### Preview your survey
 
@@ -54,13 +54,17 @@ In this case, `code` refers to the text you used to populate your survey's "Code
 
 Once you’ve copied your code, click “create” and your survey will be ready to share with your subscribers.
 
+### Creating surveys in the editor
+
+Buttondown also provides a way to quickly create surveys without leaving the email editor. Simply type "/new survey" on a blank line to access the `New survey` tool. Clicking or pressing Enter will create a new survey block where you can set your question and possible answers. You can access additional settings for this survey on the dedicated Survey page.
+
 ## Sending your survey
 
 Now, we’ll embed your survey in an email.
 
 Here’s where that code you copied from the "Usage" section will come in handy. Simply paste the code where you’d like your survey to appear:
 
-If you’re writing in [fancy mode](/fancy-mode), you don’t need to copy the code at all — type `/` where you’d like the survey to go and search for it by its code or question, and Buttondown will drop the tag in for you.
+If you’re writing in [fancy mode](/fancy-mode), you don’t need to copy the code at all — type `/` where you’d like the survey to go and search for it by its code or question, and Buttondown will add it to your email.
 
 ### Preview your survey
 

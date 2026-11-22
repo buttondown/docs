@@ -26,6 +26,33 @@
       "variant": "info"
     }
   },
+  "ArchiveImportStatus": {
+    "failed": {
+      "description": "The import stopped with an error; `error_message` says why.",
+      "name": "Failed",
+      "variant": "error"
+    },
+    "in_progress": {
+      "description": "The import is bringing in emails.",
+      "name": "In progress",
+      "variant": "info"
+    },
+    "not_started": {
+      "description": "The import has been created but has not started yet.",
+      "name": "Not started",
+      "variant": "info"
+    },
+    "succeeded": {
+      "description": "Every email was imported.",
+      "name": "Succeeded",
+      "variant": "success"
+    },
+    "succeeded_with_errors": {
+      "description": "The import finished, but some emails couldn't be imported; `error_message` lists them.",
+      "name": "Succeeded with errors",
+      "variant": "warning"
+    }
+  },
   "AutomationActionType": {
     "add_metadata": {
       "description": "Add metadata to a subscriber.",
@@ -43,12 +70,12 @@
       "variant": "info"
     },
     "create_arena_post": {
-      "description": "Posts a block to a specific Arena channel. See our [Are.na integration docs](https://docs.buttondown.com/arena) for more details.",
+      "description": "Posts a block to a specific Arena channel. See our [Are.na integration docs](https://buttondown.com/features/integrations/arena) for more details.",
       "name": "Create Arena post",
       "variant": "info"
     },
     "create_bluesky_post": {
-      "description": "Create a Bluesky post. See our [Bluesky integration docs](https://docs.buttondown.com/bsky) for more details.",
+      "description": "Create a Bluesky post. See our [Bluesky integration docs](https://buttondown.com/features/integrations/bluesky) for more details.",
       "name": "Create Bluesky post",
       "variant": "info"
     },
@@ -63,7 +90,7 @@
       "variant": "info"
     },
     "create_linkedin_post": {
-      "description": "Create a LinkedIn post. See our [LinkedIn integration docs](https://docs.buttondown.com/linkedin) for more details.",
+      "description": "Create a LinkedIn post. See our [LinkedIn integration docs](https://buttondown.com/features/integrations/linkedin) for more details.",
       "name": "Create LinkedIn post",
       "variant": "info"
     },
@@ -77,13 +104,8 @@
       "name": "Create subscriber",
       "variant": "info"
     },
-    "create_tumblr_post": {
-      "description": "Create a Tumblr post. See our [Tumblr integration docs](https://docs.buttondown.com/tumblr) for more details.",
-      "name": "Create Tumblr post",
-      "variant": "info"
-    },
     "create_twitter_post": {
-      "description": "Create a Twitter post. See our [Twitter integration docs](https://docs.buttondown.com/twitter) for more details.",
+      "description": "Create a Twitter post. See our [Twitter integration docs](https://buttondown.com/features/integrations/twitter) for more details.",
       "name": "Create Twitter post",
       "variant": "info"
     },
@@ -314,11 +336,6 @@
     "stripe_subscription_does_not_exist": {
       "description": "The Stripe subscription this event referenced no longer exists.",
       "name": "Stripe subscription not found",
-      "variant": "error"
-    },
-    "tumblr.misconfigured": {
-      "description": "The automation posts to Tumblr, but this newsletter has no Tumblr credentials configured.",
-      "name": "Tumblr not connected",
       "variant": "error"
     },
     "twitter.misconfigured": {
@@ -565,6 +582,53 @@
       "variant": "error"
     }
   },
+  "CreateImportErrorCode": {
+    "import_failure": {
+      "description": "Buttondown couldn't read the CSV, or `metadata` isn't a valid JSON object of column mappings.",
+      "name": "Import failure",
+      "variant": "error"
+    },
+    "invalid_archive": {
+      "description": "The uploaded file isn't a valid export for the source you picked.",
+      "name": "Invalid archive",
+      "variant": "error"
+    },
+    "invalid_file_type": {
+      "description": "The file isn't a CSV, and Buttondown doesn't recognize it as an export from another platform. Set `source` if it is one.",
+      "name": "Invalid file type",
+      "variant": "error"
+    },
+    "invalid_identifier": {
+      "description": "The source can't be read through an API key, URL, or username, or `metadata.identifier` isn't valid for it (for example, a Mailchimp API key without its data center suffix).",
+      "name": "Invalid identifier",
+      "variant": "error"
+    },
+    "invalid_zip": {
+      "description": "The source expects a ZIP file, and the uploaded file isn't one.",
+      "name": "Invalid ZIP file",
+      "variant": "error"
+    },
+    "malformed_csv": {
+      "description": "The CSV couldn't be parsed.",
+      "name": "Malformed CSV",
+      "variant": "error"
+    },
+    "missing_file": {
+      "description": "The request has neither a file nor a `source` to import from.",
+      "name": "Missing file",
+      "variant": "error"
+    },
+    "unsupported_pages": {
+      "description": "Apple Pages files can't be imported; upload your email archive instead.",
+      "name": "Unsupported Pages file",
+      "variant": "error"
+    },
+    "unsupported_pdf": {
+      "description": "PDF files can't be imported; upload your email archive instead.",
+      "name": "Unsupported PDF file",
+      "variant": "error"
+    }
+  },
   "CreateNewsletterErrorCode": {
     "domain_incorrect": {
       "description": "The domain is incorrect.",
@@ -614,6 +678,21 @@
     "invalid_metadata": {
       "description": "The metadata contains invalid values.",
       "name": "Invalid metadata",
+      "variant": "error"
+    },
+    "rate_limited": {
+      "description": "Too many unclaimed newsletters were created from this IP address in the last hour.",
+      "name": "Rate limited",
+      "variant": "error"
+    },
+    "unclaimed_field_not_allowed": {
+      "description": "An unclaimed newsletter only takes a username, name and description. Set everything else with its API key after it is created.",
+      "name": "Field not allowed for unclaimed newsletters",
+      "variant": "error"
+    },
+    "unclaimed_unavailable": {
+      "description": "Creating unclaimed newsletters is temporarily disabled.",
+      "name": "Unclaimed newsletters unavailable",
       "variant": "error"
     },
     "username_already_exists": {
@@ -818,8 +897,13 @@
       "name": "Managed by RSS",
       "variant": "info"
     },
+    "partially_sent": {
+      "description": "This email was paused while sending and was not resumed within seven days, so only some subscribers received it. It is not visible in your web archives.",
+      "name": "Partially sent",
+      "variant": "warning"
+    },
     "paused": {
-      "description": "This email has been paused, and is not visible in your web archives.",
+      "description": "This email has been paused, and is not visible in your web archives. If it is not resumed within seven days, it becomes a draft, sent, or partially sent email.",
       "name": "Paused",
       "variant": "warning"
     },
@@ -837,11 +921,6 @@
       "description": "This email has been sent out to subscribers, and is visible in your web archives if enabled.",
       "name": "Sent",
       "variant": "success"
-    },
-    "suppressed": {
-      "description": "This email has been suppressed and is not visible to subscribers.",
-      "name": "Suppressed",
-      "variant": "warning"
     },
     "throttled": {
       "description": "This email is in the process of being sent out, but is being intentionally sent slowly to ensure deliverability.",
@@ -1112,6 +1191,11 @@
     }
   },
   "ImportType": {
+    "archive_import": {
+      "description": "An import of emails from another platform, from an export file or that platform's API. It can start subscriber imports of its own.",
+      "name": "Archive import",
+      "variant": "info"
+    },
     "subscriber_import": {
       "description": "An import of subscribers from a CSV file.",
       "name": "Subscriber import",
@@ -1255,6 +1339,10 @@
       "description": "Whenever your newsletter is mentioned on another website such as Reddit, Twitter, Bluesky, etc.",
       "name": "social_mention.created"
     },
+    "stripe.charge.succeeded": {
+      "description": "Whenever a payment in Stripe succeeds, whether or not it went through Stripe Checkout.",
+      "name": "stripe.charge.succeeded"
+    },
     "stripe.checkout.session.completed": {
       "description": "Whenever a Stripe checkout session is completed successfully.",
       "name": "stripe.checkout.session.completed"
@@ -1350,6 +1438,14 @@
     "subscriber.delivered": {
       "description": "Whenever a subscriber's email is successfully delivered.",
       "name": "subscriber.delivered"
+    },
+    "subscriber.dropped_from_import": {
+      "description": "When a subscriber was in the previous import from a source, but is not in the latest import from that source.",
+      "name": "subscriber.dropped_from_import"
+    },
+    "subscriber.imported": {
+      "description": "Whenever a subscriber is in an import, whether the import created them or they already existed.",
+      "name": "subscriber.imported"
     },
     "subscriber.opened": {
       "description": "When a subscriber has opened one of your emails.",
@@ -2027,18 +2123,6 @@
       "variant": "success"
     }
   },
-  "EmailSuppressionReason": {
-    "law_enforcement": {
-      "description": "Used for communications with law enforcement agencies regarding legal inquiries or data requests.",
-      "name": "Law Enforcement",
-      "variant": "info"
-    },
-    "internal_auditing": {
-      "description": "Used for internal auditing and compliance-related communications.",
-      "name": "Internal Auditing",
-      "variant": "info"
-    }
-  },
   "NewsletterAnnouncementBarVisibility": {
     "disabled": {
       "description": "The announcement bar is hidden for all visitors.",
@@ -2246,7 +2330,7 @@
       "variant": "error"
     },
     "awaiting_ssl": {
-      "description": "The DNS records are correct and a TLS certificate is still being issued for the tracking host. This is transient and usually resolves within a few minutes.",
+      "description": "The DNS records are correct and a TLS certificate is still being issued for the tracking host. Until it is issued, emails use Buttondown's shared tracking domains. This can take up to about two hours; checking the records again can make it faster.",
       "name": "Awaiting SSL",
       "variant": "warning"
     },

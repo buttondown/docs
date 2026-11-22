@@ -6,6 +6,7 @@ relatedPages:
 description:  >-
   Triggers are the events that cause a Buttondown Automation to fire.
 ---
+{% paidFeature feature="automations" /%}
 
 Triggers are what kick off automations. They're the inciting event that causes an automation to run.
 
@@ -22,7 +23,7 @@ You can see that each of these triggers is a different _event type_. There are m
 
 Certain triggers restrict which actions are available. For example:
 
-- **When an email starts sending** and **When an email finishes sending** --- Both unlock social media cross-posting actions (Bluesky, LinkedIn, Mastodon, Tumblr, Twitter, Arena) but neither includes subscriber-level actions like tagging. Prefer "starts sending" for cross-posting; see [cross-posting](/crossposting) for the difference.
+- **When an email starts sending** and **When an email finishes sending** --- Both unlock social media cross-posting actions (Bluesky, LinkedIn, Mastodon, Twitter, Arena) but neither includes subscriber-level actions like tagging. Prefer "starts sending" for cross-posting; see [cross-posting](/crossposting) for the difference.
 - **When a subscriber replies** --- Adds the "Forward the reply" action alongside the standard actions.
 - **Calendar triggers** (new day/week/month/year) --- Limited to notifications and exports, since there's no specific subscriber involved.
 - **Stripe/Memberful/Patreon triggers** --- Offer a focused set of actions relevant to payment events (like creating subscribers or updating email addresses).

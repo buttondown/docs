@@ -1,14 +1,5 @@
 export const NAVIGATION_GROUPS = ["guides", "reference", "api"] as const;
 
-export const NAVIGATION_GROUP_LABELS: Record<
-  (typeof NAVIGATION_GROUPS)[number],
-  string
-> = {
-  guides: "Guides",
-  reference: "Reference",
-  api: "API",
-} as const;
-
 type NavigationGroup = (typeof NAVIGATION_GROUPS)[number];
 
 type NavItem =

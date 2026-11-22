@@ -17,6 +17,16 @@ Buttondown automatically indexes the following content of yours in Bing and Goog
 
 Buttondown respects **canonical URLs**; if your emails are being created through an [RSS feed](/glossary-managing-your-list#rss), for instance, we'll point Google (or whoever) to the original URL of your content to make sure the SEO gods are checking in the right place.
 
+## Crawling
+
+Visibility controls who can load your archive; crawling controls which crawlers may index the pages they can load. All three toggles live in the **Crawling** add-on in [Settings → Archives](https://buttondown.com/settings/archives), and all three are on by default.
+
+- **Search engines** — When off, every subscribe and archive page carries a `noindex` robots meta tag and an `X-Robots-Tag: noindex` response header, and your sitemap returns a 404. Social-share previews keep working.
+- **AI crawlers** — When off, known AI training and assistant crawlers (GPTBot, ClaudeBot, CCBot, Google-Extended, PerplexityBot, and others) get a `Disallow: /` rule in your custom domain's `robots.txt`, a per-crawler `noindex, nofollow` meta tag on every page, an `X-Robots-Tag: noai, noimageai` response header, and any subscription attempt from one of them is blocked.
+- **Everything else** — This covers every crawler in neither list: scrapers, SEO tools, archivers, and anything that does not identify itself. When off, your custom domain's `robots.txt` disallows all of them with `User-agent: *` / `Disallow: /` (search engines and AI crawlers you have left on keep an explicit `Allow: /`), and every page they request carries an `X-Robots-Tag: noindex, nofollow` response header.
+
+{% noticeInfo text="robots.txt, meta tags, and response headers are advisory — well-behaved crawlers respect them, but they cannot stop a determined bot from reading a public page." /%}
+
 ## Default archive visibility setting
 
 Depending on who you want to share the web version of your emails after sending them, you can choose 4 different default options in your [Archive settings](https://buttondown.com/settings/archives):

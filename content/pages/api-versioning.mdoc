@@ -17,6 +17,23 @@ For example, to pin a single request to a specific version:
    endpoint="/subscribers"
    headers="{\"X-API-Version\": \"2026-04-01\"}" /%}
 
+## Available versions
+
+`X-API-Version` accepts any of the versions below; anything else is rejected with a `422` and an `invalid_api_version` code. Each row describes what changed *in* that version, so pinning to the version above a row opts out of it.
+
+| Version | What changed |
+|---------|--------------|
+| `2024-07-01` | The oldest version Buttondown still accepts. |
+| `2024-08-01` | On [subscribers](/api-subscribers-introduction), `subscriber_type` became `type` and `email` became `email_address`. |
+| `2024-08-15` | On [emails](/api-emails-introduction), `included_tags` and `excluded_tags` were replaced by the more expressive [`filters`](/api-emails-filters) field. |
+| `2024-09-30` | [`DELETE /v1/subscribers/{id_or_email}`](/api-subscribers-delete) deletes the subscriber outright instead of unsubscribing them. |
+| `2024-12-30` | Nothing on the wire: the last version before `commenting_mode`, kept so clients could pin to it. |
+| `2025-01-02` | On [emails](/api-emails-introduction), `is_comments_disabled` was replaced by [`commenting_mode`](/api-emails-introduction#commenting_mode). |
+| `2025-05-19` | On [bulk actions](/api-bulk-actions-introduction), `metadata.tag` became `metadata.tag_id`. |
+| `2025-06-01` | The `date`, `last_open_date` and `last_click_date` filters on [subscribers](/api-subscribers-list) split into `__start`/`__end` pairs, and [`GET /v1/emails`](/api-emails-list) stopped defaulting to sent and in-flight emails. |
+| `2026-01-01` | Responses return [TypeIDs](/api-introduction) (`sub_...`) rather than bare UUIDs. |
+| `2026-04-01` | An [automation](/api-automation-introduction)'s top-level `timing` moved inside each action. The current version. |
+
 ## What constitutes a backwards-incompatible change?
 
 We consider a backwards-incompatible change to be any change that could potentially break existing code that uses the API. This includes (but is not limited to):

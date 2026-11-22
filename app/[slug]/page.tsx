@@ -13,7 +13,6 @@ import Parameter from "@/components/Parameter";
 import cms from "@/lib/cms";
 import { DESCRIPTION, TITLE } from "@/lib/constants";
 import { generateBreadcrumbJSONLD, generateJSONLDMetadata } from "@/lib/jsonld";
-import ErrorCodeEnums from "@/lib/openapi/enums.json";
 import type {
   Method,
   Object as OpenAPIObject,
@@ -21,6 +20,7 @@ import type {
 } from "@/lib/openapi/types";
 import OpenAPI from "@/public/openapi.json";
 import { CodeSnippets } from "./CodeSnippets";
+import { extractErrorCodes } from "./error-codes";
 import { generateSnippets, plainOas } from "./oas";
 
 type Props = {
@@ -144,16 +144,6 @@ async function pageFromSlug(slug: string) {
   };
 }
 
-type ErrorResponse = {
-  status: string;
-  description: string;
-  errorCodes?: Array<{
-    code: string;
-    name: string;
-    description: string;
-  }>;
-};
-
 const extractResponses = <Endpoint extends "/comments", Method extends "get">(
   endpoint: Endpoint,
   method: Method,
@@ -169,91 +159,41 @@ const extractResponses = <Endpoint extends "/comments", Method extends "get">(
   }));
 };
 
-const extractErrorCodes = <Endpoint extends "/comments", Method extends "get">(
-  endpoint: Endpoint,
-  method: Method,
-) => {
-  const endpointData = OpenAPI.paths[endpoint];
-  const operation = endpointData[method];
-  const errorResponses: Array<ErrorResponse> = [];
-
-  Object.entries(operation.responses)
-    .filter(([status]) => {
-      return parseInt(status) >= 400;
-    })
-    .forEach(([status, response]) => {
-      // biome-ignore lint/suspicious/noExplicitAny: OpenAPI response type
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const responseAny = response as any;
-      const errorResponse: ErrorResponse = {
-        status,
-        description: responseAny.description,
-      };
-
-      // Check if this response has error codes
-      if (responseAny.content?.["application/json"]?.schema?.$ref) {
-        const ref = responseAny.content["application/json"].schema.$ref;
-        // Extract the schema name from the ref
-        const schemaName = ref.split("/").pop();
-
-        // Check if this is an error message with error codes
-        if (
-          schemaName &&
-          schemaName.includes("ErrorMessage_") &&
-          schemaName.includes("ErrorCode")
-        ) {
-          // Get the error code enum name from the schema
-          // biome-ignore lint/suspicious/noExplicitAny: OpenAPI schema type
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const errorMessageSchema = (OpenAPI.components.schemas as any)[
-            schemaName
-          ];
-          if (errorMessageSchema?.properties?.code?.$ref) {
-            const errorCodeEnumRef = errorMessageSchema.properties.code.$ref;
-            const errorCodeEnumName = errorCodeEnumRef.split("/").pop();
-
-            // Get the actual error codes from the enum
-            // biome-ignore lint/suspicious/noExplicitAny: OpenAPI schema type
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const errorCodeEnum = (OpenAPI.components.schemas as any)[
-              errorCodeEnumName
-            ];
-            if (errorCodeEnum?.enum) {
-              errorResponse.errorCodes = errorCodeEnum.enum.map(
-                (code: string) => {
-                  // Get description from the enums.json file
-                  // biome-ignore lint/suspicious/noExplicitAny: Enum data type
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  const enumData = (ErrorCodeEnums as any)[errorCodeEnumName];
-                  const codeData = enumData?.[code];
-                  return {
-                    code,
-                    name:
-                      codeData?.name ||
-                      code
-                        .replace(/_/g, " ")
-                        .replace(/\b\w/g, (l) => l.toUpperCase()),
-                    description: codeData?.description || "",
-                  };
-                },
-              );
-            }
-          }
-        }
-      }
-
-      errorResponses.push(errorResponse);
-    });
-
-  return errorResponses;
-};
-
 export async function generateMetadata(props: Props) {
   const { slug } = await props.params;
 
   const page = await pageFromSlug(slug);
 
-  const pageDescription = page.description || DESCRIPTION;
+  const operation = page.endpoint
+    ? (
+        OpenAPI.paths as unknown as Record<
+          string,
+          Record<string, { description?: string }>
+        >
+      )[page.endpoint]?.[page.method ?? ""]
+    : undefined;
+  const schema = page.schema
+    ? (
+        OpenAPI.components.schemas as unknown as Record<
+          string,
+          { description?: string }
+        >
+      )[page.schema]
+    : undefined;
+  const summary = (
+    schema?.description ||
+    cms.getRaw(slug)?.summary ||
+    operation?.description ||
+    ""
+  )
+    .replace(/\s+/g, " ")
+    .trim();
+  const pageDescription =
+    page.description ||
+    (summary.length > 160
+      ? `${summary.slice(0, summary.lastIndexOf(" ", 157))}…`
+      : summary) ||
+    DESCRIPTION;
 
   return {
     title: `${page.title} | ${TITLE}`,
@@ -305,6 +245,27 @@ export default async function DocsPage(props: Props) {
       Method<typeof endpoint>
     >;
     const responses = extractResponses(endpoint, method);
+    const parameterRows = (withExamples: boolean) =>
+      groupDateRangeParameters(extractParameters(operation)).map((row) =>
+        row.kind === "date-range" ? (
+          <DateRangeParameter
+            key={`date-range-${row.baseName}`}
+            baseName={row.baseName}
+            parameters={row.parameters}
+          />
+        ) : (
+          <Parameter
+            key={row.parameter.parameter}
+            type={row.parameter.type}
+            enumName={row.parameter.enumName}
+            name={row.parameter.parameter}
+            description={row.parameter.description}
+            required={row.parameter.optional === false}
+            example={withExamples ? row.parameter.example : undefined}
+            values={row.parameter.values}
+          />
+        ),
+      );
 
     const hasPathParams =
       plainOp.getParameters().filter((p) => p.in === "path").length > 0;
@@ -365,26 +326,7 @@ export default async function DocsPage(props: Props) {
               <Link href="/api-filtering">Filtering documentation</Link> for
               more information on how to filter and sort your requests.
             </p>
-            {groupDateRangeParameters(extractParameters(operation)).map(
-              (row) =>
-                row.kind === "date-range" ? (
-                  <DateRangeParameter
-                    key={`date-range-${row.baseName}`}
-                    baseName={row.baseName}
-                    parameters={row.parameters}
-                  />
-                ) : (
-                  <Parameter
-                    key={row.parameter.parameter}
-                    type={row.parameter.type}
-                    enumName={row.parameter.enumName}
-                    name={row.parameter.parameter}
-                    description={row.parameter.description}
-                    required={row.parameter.optional === false}
-                    values={row.parameter.values}
-                  />
-                ),
-            )}
+            {parameterRows(false)}
           </>
         )}
 
@@ -395,27 +337,7 @@ export default async function DocsPage(props: Props) {
               Body parameters
             </h2>
             <p>All parameters are optional unless explicitly specified.</p>
-            {groupDateRangeParameters(extractParameters(operation)).map(
-              (row) =>
-                row.kind === "date-range" ? (
-                  <DateRangeParameter
-                    key={`date-range-${row.baseName}`}
-                    baseName={row.baseName}
-                    parameters={row.parameters}
-                  />
-                ) : (
-                  <Parameter
-                    key={row.parameter.parameter}
-                    type={row.parameter.type}
-                    enumName={row.parameter.enumName}
-                    name={row.parameter.parameter}
-                    description={row.parameter.description}
-                    required={row.parameter.optional === false}
-                    example={row.parameter.example}
-                    values={row.parameter.values}
-                  />
-                ),
-            )}
+            {parameterRows(true)}
           </>
         )}
 
@@ -506,23 +428,6 @@ export default async function DocsPage(props: Props) {
               );
             })}
           </ul>
-        </div>
-      )}
-      {slug.includes("api-changelog-") && (
-        <div>
-          <hr />
-          <h3>Stay informed</h3>
-          <p>
-            You can subscribe to this changelog via{" "}
-            <a href={`/rss/api-changelog`} target="_blank" rel="noopener">
-              RSS
-            </a>
-            ,{" "}
-            <Link href="/api-changelog">
-              browse the full list of API changes
-            </Link>
-            , or <Link href="/api-introduction">read the API reference</Link>.
-          </p>
         </div>
       )}
       <script

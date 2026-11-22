@@ -43,7 +43,9 @@ Most common Markdown formatting converts to Fancy mode without issue:
 
 ### What doesn't convert cleanly
 
-Custom HTML is not supported when converting from Markdown to Fancy mode. While some HTML elements might convert (like using an `<img>` tag instead of Markdown image syntax), the conversion won't be 1:1 — any attributes that Fancy mode doesn't support will be lost. Elements that aren't standard Markdown formatting (like `<center>`, custom `<div>` tags, or other HTML) will usually cause an error when switching to Fancy mode. If you rely on custom HTML, stay in Markdown mode after adding it.
+Fancy mode supports some HTML, such as `<img>` tags, but drops unsupported attributes. It preserves `<div>` wrappers with a `class` and their attributes, so your [custom CSS](/designing-your-email) can still target them.
+
+Other HTML, such as `<center>` or a `<div>` without a class, can cause an error when switching to Fancy mode. If you use unsupported HTML, stay in Markdown mode.
 
 ## The Markdown paste dialog
 
@@ -109,6 +111,11 @@ The table below lists supported keyboard shortcuts across Buttondown. Empty cell
 - Undo
 - Undo
 - Undo
+---
+- Option + Shift + ↑ / ↓
+- Move the current block up or down
+-
+-
 ---
 - Option + Tab
 -

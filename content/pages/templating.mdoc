@@ -1,13 +1,14 @@
 ---
 title: Templating
 relatedPages:
-- rss-to-email
 - subscriber-metadata
+- rss-to-email
+- transactional-emails
 ---
 
 Buttondown uses a templating language (Django's, technically) to mix programming code into plain old HTML. By adding logic and variables to your email you can customize your content per-subscriber, or to repeat structures in your email without having to hand code them multiple times.
 
-## Variables
+## What are variables?
 Variables allow you to programmatically add text to your email. You may have previously worked with variables in the form of "mail merges".
 
 Variables are wrapped in double curly braces. Here's how this looks:
@@ -31,6 +32,17 @@ For example, if you wanted to make sure your email subject line was always capit
 ```
 
 As Buttondown's templating language is built on Django you can use any of their [available filters](https://docs.djangoproject.com/en/stable/ref/templates/builtins/#ref-templates-builtins-filters).
+
+### Fallback values
+
+Use the `default` filter to show fallback text when a variable is missing or blank:
+
+{% playgroundEmbed
+   title="Fallback values"
+   initialContent="Hey there, {{ subscriber.metadata.first_name|default:\"friend\" }}!"
+   editorMode="plaintext" /%}
+
+This works anywhere variables do, including subject lines.
 
 ## Tags
 Tags are bits of code that are added to your HTML content that can do all sorts of things, including logic!
@@ -103,11 +115,12 @@ Have a situation that needs something more than a `for` or `if else` loop? Fear 
 
 {% playgroundEmbed
    title="email.is_premium"
-   initialContent="{% if email.is_premium %}Thank you for being a premium subscriber!{% else %}Consider upgrading to premium!{% endif %}"
+   initialContent="{% if email.is_premium %}This issue went only to paid subscribers.{% else %}This issue went to everyone.{% endif %}"
    editorMode="plaintext"
    /%}
 
-- A boolean indicating whether the email is being sent to a premium subscriber.
+- A boolean indicating whether the email is sent only to paid subscribers.
+- It doesn't depend on who can read the email in your archive. To check that, use `email.archival_mode == 'enabled_for_paid_subscribers'`. To check whether the reader is a paid subscriber, use `subscriber.can_view_premium_content`.
 
 ### email.publish_date
 
@@ -289,3 +302,6 @@ Have a situation that needs something more than a `for` or `if else` loop? Fear 
    /%}
 
 - A link to prompt existing free subscribers to upgrade. (Only relevant for paid newsletters.)
+
+## Using variables in other email types
+This list above is everything that's available in a standard email newsletter. However, other email types like [transactional emails](/transactional-emails#template-variables) and [RSS-to-email templates](/rss-to-email) have their own sets of available variables.

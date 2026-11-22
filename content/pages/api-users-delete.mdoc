@@ -4,3 +4,8 @@ endpoint: /users/{id}
 method: delete
 ---
 
+Use this endpoint to remove a teammate from your newsletter or cancel a pending invitation.
+
+You'll need your [primary API key](/api-authentication) and write access to newsletter settings. Other API keys can't remove teammates, even if they have write access to newsletter settings.
+
+If you use any API key other than your primary API key, you'll receive a `403` with the code `permission_denied`. Your teammate will keep their access, and pending invitations won't change.

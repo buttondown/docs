@@ -1,0 +1,27 @@
+---
+title: Deleting and recovering data
+description:  What happens when you delete the data, and what to do if you need to recover it.
+---
+## Deleting subscribers
+
+By default, deleting a subscriber (manually from the dashboard, or via automatic cleanup) removes them from your list, but we keep a hidden record of them. That record is what stops an unsubscribed or complained address from being quietly re-added by a CSV import or a spam signup. This behavior protects both the subscriber and your sender reputation.
+
+You can still permanently delete the subscriber:
+
+Via the API: DELETE `/v1/subscribers/{id_or_email}`, using API version 2024-09-30 or later. If the person has a paid subscription, cancel it first since the delete request won't do it.
+
+## Newsletter
+
+When you delete a newsletter it is first scheduled for deletion and has a 3-day grace period during which you can cancel the deletion. After that period expires, newsletter is permanently deleted.
+
+## Account
+
+Unlike newsletter deletion, deleting an account is immediate. It will delete all account data, related newsletters and their data, all subscriber data (but will not cancel their Stripe subscriptions), and it will cancel your Buttondown Stripe subscription (if you are on a paid plan).  
+
+## Backups
+
+Permanently deleted data remains in our database backups for up to 2 days before those expire. In cases of accidental deletion, we are happy to attempt restorations of individual data, as well as accounts and newsletters, but cannot always guarantee we will be able to do it successfully. To request a recovery, please [contact our support team](https://buttondown.com/support). We'll need to know the following:
+
+1. The date and time of the deletion
+2. The email address of the account that deleted the data
+3. The specific data you'd like to recover (for example, "I accidentally deleted the newsletter I sent on 2026-10-10")

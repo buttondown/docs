@@ -58,15 +58,7 @@ You can set a canonical URL in a number of ways:
 
 ## Blocking bots and crawlers
 
-If you're using a custom hosting domain, you can block specific bots and crawlers from accessing your archives and subscribing to your newsletter. Go to [Settings → Domains → Hosting](https://buttondown.com/settings/domains/hosting) and add user agent strings to the "Blocked user agents" field, one per line. Partial matches are supported — for example, adding `GPTBot` will match any user agent string containing "GPTBot".
-
-Blocked user agents are enforced in three ways:
-
-1. **robots.txt** — Your custom domain's `robots.txt` will include `Disallow: /` rules for each blocked user agent, instructing compliant crawlers not to access your archives.
-2. **Meta tags** — Each page on your custom domain will include `<meta name="{agent}" content="noindex, nofollow" />` tags for each blocked user agent, instructing crawlers that do visit the page not to index it or follow its links.
-3. **Subscription blocking** — Any subscription attempt with a matching user agent will be automatically blocked.
-
-{% noticeInfo text="The robots.txt standard and meta tags are advisory — well-behaved crawlers will respect them, but they cannot prevent a determined bot from accessing your content." /%}
+Whether search engines, AI crawlers, and everything else may index your archive is controlled by the Crawling add-on in [Settings → Archives](https://buttondown.com/settings/archives), not by your hosting domain. See [Crawling](/email-archives#crawling) for what each toggle does. On a custom hosting domain, the AI crawlers and everything else toggles additionally write `Disallow: /` rules into your domain's `robots.txt`.
 
 ## Moving away from Buttondown
 

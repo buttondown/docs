@@ -39,11 +39,11 @@ faqItems: >
 
 If you're a blogger, podcaster, or other content creator, you probably already know that [RSS](/glossary-managing-your-list#rss) is a great way to distribute your content. But did you know that RSS can also be a great way to automate your newsletter?
 
-With Buttondown's RSS automation, you can automatically send your subscribers a new email every time you publish a new blog post, podcast episode, or other piece of content. You can even schedule your emails to go out weekly or monthly, if you prefer.
+With Buttondown's RSS automation, you can automatically send your subscribers a new email every time you publish a new blog post, podcast episode, or other piece of content. You can even schedule your emails to go out weekly or monthly, if you prefer. For an overview, see [Buttondown's RSS-to-email feature](https://buttondown.com/features/rss).
 
 This is a great solution for creators who already have their content published on the web (either through a CMS like Wordpress, a static site generator such as Jekyll or Gatsby, or a [JAMStack site](/glossary-developers#jamstack)), but don't want to spend time manually creating and sending a newsletter every time they publish something new.
 
-You can create an RSS automation in [Settings > Basic > RSS-to-email](https://buttondown.com/feeds).
+You can create an RSS automation in [Settings > General > RSS-to-email](https://buttondown.com/feeds).
 
 ## Choosing a schedule
 
@@ -55,7 +55,11 @@ At the moment, you can choose from three different 'cadences' for your RSS autom
 
 For monthly sends, pick a specific calendar day (1st through 31st) or the first weekday of the month (e.g. the first Wednesday). If you choose a day that a given month doesn't have, Buttondown falls back to that month's last day — so the 31st fires on February 28th (or the 29th in a leap year).
 
-(Note that for the weekly and monthly cadences, Buttondown's automation will only trigger if there's a new item in your RSS feed.)
+
+
+{% noticeInfo
+   text="Note that for the weekly and monthly cadences, Buttondown's automation will only trigger if there's a new item in your RSS feed." /%}
+
 
 ## Choosing a behavior
 
@@ -76,6 +80,76 @@ for a few weeks while you're tweaking the feed. Buttondown supports several ways
 3. You can enable the _skip old items_ setting, which will automatically skip any items with a publish date older than one day from when they're discovered. This is particularly useful when first setting up an RSS feed that already has existing content—it ensures you only send truly new posts going forward, without accidentally sending outdated content to your subscribers.
 
 (Of course, you can always just delete the automation and create a new one!)
+
+
+## Building your template
+
+To populate your email with content you'll need to build a template that works with your RSS feed. _Most_ RSS feeds will provide the following fields for each item:
+
+| Field | What content it contains |
+| --- | --- |
+| `item.title` | The post title |
+| `item.content` | The full content of the post  |
+| `item.url` | The link to the post on your blog/website |
+| `item.description` | A brief summary of the post|
+| `item.enclosure` | Media associated with the post (the featured image, when your feed provides one via an `<enclosure>` or a MediaRSS `<media:content>`/`<media:thumbnail>` element) |
+| `item.publish_date` | The date that the item was published |
+
+{% noticeWarn text="Every RSS feed is different, so not all of these fields may be present in your particular feed." /%}
+
+
+
+You can also use our standard email [variables](/templating), as well as [Django's template tags and filters](https://docs.djangoproject.com/en/6.1/ref/templates/builtins/#ref-templates-builtins-filters/) to build your template.
+
+### Creating a digest email
+If you want to send a digest of multiple blog posts, you'd start by iterating over the list of items in the feed. Here's how this would look:
+
+```jinja {% process=false %}
+We published the following essays this week:
+
+{% for item in items %}
+    <h2>{{ item.title }}</h2>
+    {% if item.enclosure %}
+      <img src="{{ item.enclosure }}" />
+    {% endif %}
+    <p>{{ item.description }}</p>
+    <p><a href="{{ item.url }}">Read more</a></p>
+{% endfor %}
+```
+
+{% noticeWarn text="You cannot create a digest email when the schedule is set to \"every time a new item appears\". This would result in the email not being sent." /%}
+
+
+### Creating a single-item email
+If you wanted to send a single-item email every time a new item is published, you would a similar template with a subtle difference: there's no loop. Here's how this would look:
+
+```jinja {% process=false %}
+We just published a new essay:
+
+<h2>{{ item.title }}</h2>
+{% if item.enclosure %}<img src="{{ item.enclosure }}" />{% endif %}
+<p>{{ item.description }}</p>
+<p><a href="{{ item.url }}">Read more</a></p>
+```
+
+
+{% playgroundEmbed initialContent="I just published the following essay (read it online [here]({{ item.url }})):{{ item.content }}" /%}
+
+### Sending an excerpt
+
+If you want readers to finish the article on your website, use Django's `truncatewords_html` filter to include an excerpt followed by a link to the full article:
+
+```jinja {% process=false %}
+{{ item.content|truncatewords_html:100 }}
+
+<p><a href="{{ item.url }}">Read more →</a></p>
+```
+
+`truncatewords_html` limits the excerpt to the specified number of words while keeping the article's HTML tags balanced. 
+
+This is a good workaround if your feed doesn't provide an `item.description` field, but you'd like to share a brief summary with your readers.
+
+
 
 ## How Buttondown parses RSS feeds
 
@@ -156,43 +230,6 @@ Here's a similar example, except in Atom 1.0:
     </content>
 </entry>
 ```
-
-## Building a template
-
-To populate your email with content relevant to the item in your RSS feed, you'll need to build a template. Buttondown uses [Django's template language](/templating) to render your email. This means that you can use all of the standard Django template tags and filters.
-
-For instance, if you want to send a weekly digest of blog posts, you'd start by iterating over the list of items:
-
-```jinja {% process=false %}
-We published the following essays this week:
-
-{% for item in items %}
-    <h2>{{ item.title }}</h2>
-    {% if item.enclosure %}<img src="{{ item.enclosure }}" />{% endif %}
-    <p>{{ item.description }}</p>
-    <p><a href="{{ item.url }}">Read more</a></p>
-{% endfor %}
-```
-
-Each item exposes `title`, `description`, `content`, `url`, `publish_date`, `author`, and `enclosure` (the featured image, when your feed provides one via an `<enclosure>` or a MediaRSS `<media:content>`/`<media:thumbnail>` element).
-
-### Sending an excerpt
-
-If you want readers to finish the article on your website, use Django's `truncatewords_html` filter to include an excerpt followed by a link to the full article:
-
-```jinja {% process=false %}
-{{ item.content|truncatewords_html:100 }}
-
-<p><a href="{{ item.url }}">Read more →</a></p>
-```
-
-`truncatewords_html` limits the excerpt to the specified number of words while keeping the article's HTML tags balanced. If your feed already provides a short summary in its description, you can use `{{ item.description }}` instead.
-
-Or if you chose a cadence of "every time" for your RSS feed, you'd just send information on the latest item:
-
-
-{% playgroundEmbed initialContent="I just published the following essay (read it online [here]({{ item.url }})):{{ item.content }}" /%}
-
 
 ## Edge cases and esoterica
 

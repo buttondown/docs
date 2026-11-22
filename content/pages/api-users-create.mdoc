@@ -4,3 +4,10 @@ endpoint: /users
 method: post
 ---
 
+Use this endpoint to invite a teammate to your newsletter.
+
+You'll need your [primary API key](/api-authentication) and write access to newsletter settings. Other API keys can't invite teammates, even if they have write access to newsletter settings.
+
+You can only give a teammate permissions you have yourself. For example, if you can read subscribers but can't edit them, you can give your teammate `subscriber: read`, but not `subscriber: write`.
+
+If you use any API key other than your primary API key or try to give someone more access than you have, you'll receive a `403` with the code `permission_denied`. Buttondown won't send an invitation or give them access.

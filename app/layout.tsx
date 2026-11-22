@@ -38,9 +38,8 @@ export default function RootLayout({
       <body>
         {children}
         <Script
-          src="https://cdn.seline.com/seline.js"
-          data-token="fa13d3d8a7aeb56"
-          data-cookie="true"
+          src="https://buttondown.com/cortado.js"
+          data-site="docs"
           strategy="afterInteractive"
         />
         <Script id="mermaid-fix" strategy="beforeInteractive">

@@ -56,7 +56,7 @@ const REDIRECTS = [
   },
   {
     source: "/api-emails-suppression-reason",
-    destination: "/api-emails-introduction#suppression_reason",
+    destination: "/api-emails-introduction",
     permanent: true,
   },
   {
@@ -532,11 +532,6 @@ const REDIRECTS = [
     destination: "/api-authentication",
   },
   {
-    source: "/api-reference/changelog",
-    permanent: true,
-    destination: "/api-changelog",
-  },
-  {
     source: "/api-reference/events-and-webhooks",
     permanent: true,
     destination: "/events-and-webhooks-introduction",
@@ -694,42 +689,42 @@ const REDIRECTS = [
   {
     source: "/integrations/blogger",
     permanent: true,
-    destination: "/blogger",
+    destination: "https://buttondown.com/features/integrations/blogger",
   },
   {
     source: "/integrations/carrd",
     permanent: true,
-    destination: "/carrd",
+    destination: "https://buttondown.com/features/integrations/carrd",
   },
   {
     source: "/integrations/discord",
     permanent: true,
-    destination: "/discord",
+    destination: "https://buttondown.com/features/integrations/discord",
   },
   {
     source: "/integrations/fathom",
     permanent: true,
-    destination: "/fathom",
+    destination: "https://buttondown.com/features/integrations/fathom",
   },
   {
     source: "/integrations/framer",
     permanent: true,
-    destination: "/framer",
+    destination: "https://buttondown.com/features/integrations/framer",
   },
   {
     source: "/integrations/plausible",
     permanent: true,
-    destination: "/plausible",
+    destination: "https://buttondown.com/features/integrations/plausible",
   },
   {
     source: "/integrations/stripe",
     permanent: true,
-    destination: "/stripe",
+    destination: "https://buttondown.com/features/integrations/stripe",
   },
   {
     source: "/integrations/wordpress",
     permanent: true,
-    destination: "/wordpress",
+    destination: "https://buttondown.com/features/integrations/wordpress",
   },
   {
     source: "/migration-guides/aweber",
@@ -900,11 +895,6 @@ const REDIRECTS = [
     source: "/tutorials/welcome-sequence",
     permanent: true,
     destination: "/welcome-sequence",
-  },
-  {
-    source: "/rss/api-changelog.xml",
-    destination: "/rss/api-changelog",
-    permanent: true,
   },
   {
     source: "/tinyletter",
@@ -1641,6 +1631,466 @@ const REDIRECTS = [
   {
     source: "/customizing-request-list-view",
     destination: "/api-introduction",
+    permanent: true,
+  },
+  {
+    source: "/api-reference/changelog",
+    destination: "https://buttondown.com/changelog?feature=api",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog",
+    destination: "https://buttondown.com/changelog?feature=api",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-09-11",
+    destination: "https://buttondown.com/changelog#2026-09-14",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-09-07",
+    destination: "https://buttondown.com/changelog#2026-09-07",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-08-14",
+    destination: "https://buttondown.com/blog/api-unactivated-on-collision-add",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-08-08",
+    destination: "https://buttondown.com/blog/api-segments",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-08-06",
+    destination: "https://buttondown.com/blog/api-overwrite-and-suppressed-subscribers",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-07-24",
+    destination: "https://buttondown.com/blog/api-tag-gating-and-domain-verification",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-06-30",
+    destination: "https://buttondown.com/changelog#2026-06-30",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-06-23",
+    destination: "https://buttondown.com/blog/api-events-unified-store",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-06-05",
+    destination: "https://buttondown.com/blog/api-actionable-errors",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-05-04",
+    destination: "https://buttondown.com/blog/api-survey-response-filters",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-04-22",
+    destination: "https://buttondown.com/blog/api-response-data-retention",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-02-26",
+    destination: "https://buttondown.com/blog/api-automation-steps",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-02-16",
+    destination: "https://buttondown.com/changelog#2026-02-16",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-02-09",
+    destination: "https://buttondown.com/changelog#2026-02-09",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-02-07",
+    destination: "https://buttondown.com/changelog#2026-02-07",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-02-06",
+    destination: "https://buttondown.com/changelog#2026-02-06",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-01-24",
+    destination: "https://buttondown.com/blog/api-keys",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-01-22",
+    destination: "https://buttondown.com/changelog#2026-01-22",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-01-12",
+    destination: "https://buttondown.com/changelog#2026-01-12",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2026-01-01",
+    destination: "https://buttondown.com/blog/api-typeids",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-11-15",
+    destination: "https://buttondown.com/changelog#2025-11-15",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-09-23",
+    destination: "https://buttondown.com/changelog#2025-09-23",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-09-18",
+    destination: "https://buttondown.com/changelog#2025-09-18",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-07-28",
+    destination: "https://buttondown.com/blog/api-subscriber-types-consolidated",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-07-13",
+    destination: "https://buttondown.com/blog/2025-07-13",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-06-26",
+    destination: "https://buttondown.com/changelog#2025-06-26",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-06-01",
+    destination: "https://buttondown.com/blog/api-emails-status-default",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-05-30",
+    destination: "https://buttondown.com/blog/api-attachments",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-05-19",
+    destination: "https://buttondown.com/blog/api-date-filter-ranges",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-05-17",
+    destination: "https://buttondown.com/changelog#2025-05-17",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-05-14",
+    destination: "https://buttondown.com/changelog#2025-05-14",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-04-17",
+    destination: "https://buttondown.com/changelog#2025-04-17",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-04-14",
+    destination: "https://buttondown.com/blog/2025-04-14",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-03-31",
+    destination: "https://buttondown.com/changelog#2025-03-31",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-03-25",
+    destination: "https://buttondown.com/blog/2025-03-25",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-03-01",
+    destination: "https://buttondown.com/blog/2025-03-01",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-02-26",
+    destination: "https://buttondown.com/changelog#2025-02-26",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-02-12",
+    destination: "https://buttondown.com/changelog#2025-02-12",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-02-06",
+    destination: "https://buttondown.com/blog/api-teaser-fields-removed",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2025-01-02",
+    destination: "https://buttondown.com/blog/api-bulk-action-tag-id",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-12-31",
+    destination: "https://buttondown.com/changelog#2024-12-31",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-12-30",
+    destination: "https://buttondown.com/blog/api-commenting-mode",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-12-14",
+    destination: "https://buttondown.com/changelog#2024-12-14",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-12-11",
+    destination: "https://buttondown.com/changelog#2024-12-11",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-12-10",
+    destination: "https://buttondown.com/changelog#2024-12-10",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-12-09",
+    destination: "https://buttondown.com/changelog#2024-12-09",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-12-05",
+    destination: "https://buttondown.com/changelog#2024-12-05",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-09-30",
+    destination: "https://buttondown.com/blog/api-delete-subscriber",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-08-15",
+    destination: "https://buttondown.com/blog/api-email-filters",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-08-01",
+    destination: "https://buttondown.com/blog/api-subscriber-field-renames",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-07-13",
+    destination: "https://buttondown.com/blog/api-external-url-removed",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-06-27",
+    destination: "https://buttondown.com/blog/api-send-draft-status",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-06-21",
+    destination: "https://buttondown.com/changelog#2024-06-21",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-05-22",
+    destination: "https://buttondown.com/changelog#2024-05-22",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2024-04-03",
+    destination: "https://buttondown.com/changelog#2024-04-03",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2023-08-23",
+    destination: "https://buttondown.com/changelog#2023-08-23",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2023-08-21",
+    destination: "https://buttondown.com/blog/2023-08-21",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2023-07-23",
+    destination: "https://buttondown.com/changelog#2023-07-23",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2022-11-24",
+    destination: "https://buttondown.com/changelog#2022-11-24",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2022-11-19",
+    destination: "https://buttondown.com/blog/api-endpoints-consolidated",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2022-03-08",
+    destination: "https://buttondown.com/changelog#2022-03-08",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2021-11-26",
+    destination: "https://buttondown.com/changelog#2021-11-26",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2021-08-27",
+    destination: "https://buttondown.com/changelog#2021-08-27",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2021-01-02",
+    destination: "https://buttondown.com/changelog#2021-01-02",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2020-12-23",
+    destination: "https://buttondown.com/changelog#2020-12-23",
+    permanent: true,
+  },
+  {
+    source: "/api-changelog-2020-12-09",
+    destination: "https://buttondown.com/changelog#2020-12-09",
+    permanent: true,
+  },
+  {
+    source: "/rss/api-changelog",
+    destination: "https://buttondown.com/rss/changelog.xml",
+    permanent: true,
+  },
+  {
+    source: "/rss/api-changelog.xml",
+    destination: "https://buttondown.com/rss/changelog.xml",
+    permanent: true,
+  },
+  {
+    source: "/alpinejs",
+    destination: "https://buttondown.com/features/integrations/alpinejs",
+    permanent: true,
+  },
+  {
+    source: "/arena",
+    destination: "https://buttondown.com/features/integrations/arena",
+    permanent: true,
+  },
+  {
+    source: "/blogger",
+    destination: "https://buttondown.com/features/integrations/blogger",
+    permanent: true,
+  },
+  {
+    source: "/bsky",
+    destination: "https://buttondown.com/features/integrations/bluesky",
+    permanent: true,
+  },
+  {
+    source: "/carrd",
+    destination: "https://buttondown.com/features/integrations/carrd",
+    permanent: true,
+  },
+  {
+    source: "/daisyui",
+    destination: "https://buttondown.com/features/integrations/daisyui",
+    permanent: true,
+  },
+  {
+    source: "/discord",
+    destination: "https://buttondown.com/features/integrations/discord",
+    permanent: true,
+  },
+  {
+    source: "/duda",
+    destination: "https://buttondown.com/features/integrations/duda",
+    permanent: true,
+  },
+  {
+    source: "/fathom",
+    destination: "https://buttondown.com/features/integrations/fathom",
+    permanent: true,
+  },
+  {
+    source: "/framer",
+    destination: "https://buttondown.com/features/integrations/framer",
+    permanent: true,
+  },
+  {
+    source: "/linkedin",
+    destination: "https://buttondown.com/features/integrations/linkedin",
+    permanent: true,
+  },
+  {
+    source: "/linktree",
+    destination: "https://buttondown.com/features/integrations/linktree",
+    permanent: true,
+  },
+  {
+    source: "/plausible",
+    destination: "https://buttondown.com/features/integrations/plausible",
+    permanent: true,
+  },
+  {
+    source: "/shadcn-ui",
+    destination: "https://buttondown.com/features/integrations/shadcn-ui",
+    permanent: true,
+  },
+  {
+    source: "/shopify",
+    destination: "https://buttondown.com/features/integrations/shopify",
+    permanent: true,
+  },
+  {
+    source: "/simple-analytics",
+    destination: "https://buttondown.com/features/integrations/simple-analytics",
+    permanent: true,
+  },
+  {
+    source: "/stripe",
+    destination: "https://buttondown.com/features/integrations/stripe",
+    permanent: true,
+  },
+  {
+    source: "/twitter",
+    destination: "https://buttondown.com/features/integrations/twitter",
+    permanent: true,
+  },
+  {
+    source: "/tumblr",
+    destination: "/crossposting",
+    permanent: true,
+  },
+  {
+    source: "/umami",
+    destination: "https://buttondown.com/features/integrations/umami",
+    permanent: true,
+  },
+  {
+    source: "/webflow",
+    destination: "https://buttondown.com/features/integrations/webflow",
+    permanent: true,
+  },
+  {
+    source: "/wordpress",
+    destination: "https://buttondown.com/features/integrations/wordpress",
     permanent: true,
   },
 ];

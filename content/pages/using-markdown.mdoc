@@ -69,19 +69,25 @@ If you'd like to turn the image into a link you can with Markdown! To do this, y
 
 ### LaTeX block
 
-Markdown also supports [LaTeX](/glossary-writing-emails#latex) blocks. To add a LaTeX block in the editor, wrap your LaTeX expression inside a `<div>` tag with the class `buttondown-block-math`. For example, `[ a^2 + b^2 = c^2 ]` would be written as:
+Markdown also supports [LaTeX](/glossary-writing-emails#latex) blocks. To add a LaTeX block in the editor, wrap your LaTeX expression inside a `<div>` tag with the class `buttondown-block-math`. For example, `a^2 + b^2 = c^2` would be written as:
 
 ```markdown
-<div class='buttondown-block-math'>[ a^2 + b^2 = c^2 ]</div>
+<div class='buttondown-block-math'>a^2 + b^2 = c^2</div>
 ```
 
 {% playgroundEmbed
   title="LaTeX block"
   height="400px"
-  initialContent="<div class='buttondown-block-math'>[ a^2 + b^2 = c^2 ]</div>"
+  initialContent="<div class='buttondown-block-math'>a^2 + b^2 = c^2</div>"
 /%}
 
-You can also switch between Markdown and [Fancy Mode](/fancy-mode) without losing your LaTeX block. 
+Because the expression sits inside HTML, write `\lt` and `\gt` instead of `<` and `>`: a bare `<` is read as the start of a tag and cuts the expression short. For example, `0 < x < 1` would be written as:
+
+```markdown
+<div class='buttondown-block-math'>0 \lt x \lt 1</div>
+```
+
+You can also switch between Markdown and [Fancy Mode](/fancy-mode) without losing your LaTeX block.
 
 (Note that as of now, LaTeX is only renderable as a "block", and not inline with text.)
 
@@ -96,7 +102,11 @@ flowchart LR
 ```
 ````
 
-In the email, the diagram is rendered as a high-resolution image; on your [web archive](/email-archives), it's rendered in the browser as a crisp vector graphic. Both use a neutral theme that matches Buttondown's email styling, and you can override any of it with your own [`%%{init}%%` directive](https://mermaid.js.org/config/directives.html) at the top of the diagram.
+Buttondown draws diagrams with [Pele](https://pele.run), which reads Mermaid syntax. Its [compatibility notes](https://pele.run/compatibility) cover what's supported and how it differs from Mermaid.
+
+- In emails, the diagram is a high-resolution image. Its `accTitle`, if you set one, becomes the image's description for screen readers.
+- On your [web archive](/email-archives), the diagram is a vector graphic built into the page, so it shows without JavaScript.
+- Both use a neutral theme that matches Buttondown's email styling.
 
 ## Converting content to Markdown
 
@@ -154,6 +164,7 @@ Embeds can be invoked by putting the URL of the resource (Tweet, post, image, et
 Embeds support URLs from the following sources:
 
 - [Bandcamp](https://bandcamp.com)
+- [Bluesky](https://bsky.app)
 - [Gist](https://gist.github.com)
 - [Giphy](https://giphy.com/)
 - [Instagram](https://www.instagram.com)

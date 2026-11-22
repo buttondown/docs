@@ -30,6 +30,8 @@ const VALID_APPLICATION_ROUTES = [
   // Marketing stuff.
   "pricing",
   "support",
+  "alternatives/substack",
+  "features/rss",
   "features/smtp-endpoint",
   "features/analytics",
   "features/teams",
@@ -39,6 +41,7 @@ const VALID_APPLICATION_ROUTES = [
   "features/integrations/memberful",
   "features/integrations/transistor",
   "features/integrations/spotify",
+  "features/integrations/stripe",
   "features/integrations/vimeo",
   "features/concierge-migration",
   "comparison-guides/esps",
@@ -53,6 +56,7 @@ const VALID_APPLICATION_ROUTES = [
   "legal/privacy",
   "legal/support-policy",
   "legal/terms",
+  "changelog",
   "changelog/2025-02-06",
   "register",
   "login",
@@ -66,8 +70,6 @@ const VALID_APPLICATION_ROUTES = [
   // Weird edge cases.
   "features/markdown",
 ];
-
-const CHANGELOG_FILE = `api-changelog.mdoc`;
 
 const extractInternalLinks = (content: string): string[] => {
   // We look for links in two places:
@@ -252,7 +254,6 @@ Object.entries(FILENAME_TO_DEMO_IFRAME_PATHS).forEach(([filename, paths]) => {
 });
 
 const VALID_INTERNAL_LINKS_THAT_ARE_NOT_BACKED_BY_MDOC = [
-  "/rss/api-changelog",
   "$THREAD_1_LINK",
   "$THREAD_2_LINK",
   "$THREAD_3_LINK",
@@ -534,17 +535,6 @@ Object.entries(FILENAME_TO_INTERNAL_LINKS).forEach(
         expect(content.trim().length).toBeGreaterThan(0);
       });
     });
-    // Make sure that all changelog posts (which begin with `/api-changelog-`) are linked in the main changelog file
-    const isChangelogPage = filename.startsWith("api-changelog-");
-    if (isChangelogPage) {
-      test("Changelog contains link to " + filename, () => {
-        const changelogLinks = FILENAME_TO_INTERNAL_LINKS[CHANGELOG_FILE];
-        const references = Object.entries(changelogLinks).filter(([_, links]) =>
-          links.includes("/" + filename.replace(".mdoc", "")),
-        );
-        expect(references.length).toBeGreaterThanOrEqual(1);
-      });
-    }
   },
 );
 

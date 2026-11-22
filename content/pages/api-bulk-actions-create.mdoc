@@ -79,7 +79,7 @@ Changes the display color of tags. The `metadata` field takes:
 
 ## `modify_stripe_subscriptions`
 
-Moves paid subscribers onto a different [Stripe](/stripe) price. The `metadata` field takes:
+Moves paid subscribers onto a different [Stripe](https://buttondown.com/features/integrations/stripe) price. The `metadata` field takes:
 
 - `price_id` — the target Stripe price. It must exist on your connected Stripe account and reference a _recurring_ price; a missing, unrecognized, or one-time price returns a `400` with the code `bulk_action_invalid_price`.
 - `ids` — the subscribers to act on.

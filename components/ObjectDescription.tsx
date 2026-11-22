@@ -199,13 +199,17 @@ const extractBackingFixtureFromRef = (ref: string): BackingFixture => {
     };
   }
 
-  // Error messages are wrapped like so: "ErrorMessage_FOO_".
-  // We want to extract 'FOO'.
-  if (ref.startsWith("ErrorMessage_")) {
-    const errorMessageName = ref.split("_")[1];
+  // Error messages have no fixtures of their own; their `code` points at an
+  // error code enum. We want to extract that enum's name.
+  // biome-ignore lint/suspicious/noExplicitAny: OpenAPI schema type
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const codeSchema = (OpenAPI.components.schemas as any)[ref]?.properties?.code;
+  const codeRef: string | undefined =
+    codeSchema?.$ref ?? codeSchema?.allOf?.[0]?.$ref;
+  if (!(ref in OpenAPIFixtures) && codeRef) {
     return {
       type: "ErrorMessage",
-      value: errorMessageName as keyof typeof OpenAPIEnums,
+      value: codeRef.split("/").pop() as keyof typeof OpenAPIEnums,
     };
   }
 

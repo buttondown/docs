@@ -136,7 +136,7 @@ Adding a footnote will add 2 things in the editor:
 
 A [LaTeX](/glossary-writing-emails#latex) block allows you to write & render LaTeX content inside the editor. (LaTeX is only renderable as a "block", and not inline with text.)
 
-**Shortcut**: add a LaTeX block by typing your expression inside two dollar signs ($$) and pressing space/enter.
+**Shortcut**: type your expression between two pairs of dollar signs (`$$x^2$$`); the block appears as soon as you type the closing `$$`. Write `\$` for a literal dollar sign inside the expression.
 
 {% playgroundEmbed
   title="LaTeX block"
@@ -291,14 +291,15 @@ Free/premium blocks are a way to display content to your subscribers based on th
 ### Filtered blocks
 
 Filtered blocks let you show a section of content to only one type of audience. Whereas a wall affects the visibility of all content following it, a filtered block only affects what's inside of it.
-There are four variants:
+There are five variants:
 
 - **Email only**: visible in emails (hidden from the [web archive](/email-archives))
 - **Web only:** visible on the web archive
 - **Subscribers only:** visible to subscribers of your newsletter (free, paid, or gifted) across both email and web
 - **Paid only:** visible to [premium subscribers](/api-subscribers-introduction#SubscriberType-premium)
+- **Free only:** visible to everyone who isn't a premium subscriber
 
-To add a filtered block, type `/` on a new line and enter a variant (for example `/email`), or click to add it directly from the menu that pops up.
+To add a filtered block, type `/` on a new line and enter a variant (for example `/email`), or click to add it directly from the menu that pops up. Filtered blocks also work inside list items and quotes, and survive switching to Markdown mode and back.
 {% playgroundEmbed
   title="Filtered blocks"
   height="400px"
@@ -309,7 +310,13 @@ To add a filtered block, type `/` on a new line and enter a variant (for example
 
 ### Internal linking
 
-Search and link to another email by typing two opening square brackets ("[["), this will open up a list of your emails.
+You can link to another one of your emails via the normal link interface.
+
+Either select some text and click the link button in the toolbar (or press ⌘K / Ctrl+K), or type `/link` on a new line (or press ⌘K / Ctrl+K with nothing selected).
+
+From there, you can search your emails by typing in the link bar or select an email from the list below.
+
+You can also search and link to another email by typing two opening square brackets ("[[").
 
 ![Email autocompletion list in fancy mode](/images/internal-link-autocomplete.png)
 

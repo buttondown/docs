@@ -171,7 +171,7 @@ export default function HeadingsMinimap() {
 
   return (
     <nav
-      className="sticky pl-4 top-16 w-[180px] max-h-[calc(100vh-150px)] overflow-y-auto no-scrollbar"
+      className="sticky pl-4 top-16 w-max min-w-[180px] max-w-[300px] max-h-[calc(100vh-150px)] overflow-y-auto no-scrollbar"
       aria-label="Table of contents"
     >
       <div className="relative">
@@ -202,8 +202,9 @@ export default function HeadingsMinimap() {
               >
                 <a
                   href={`#${id}`}
+                  title={text}
                   className={cn(
-                    "block py-1.5 pl-4 text-[13px] leading-snug transition-colors duration-150",
+                    "block truncate py-1.5 pl-4 text-[13px] leading-snug transition-colors duration-150",
                     level === 3 && "pl-6",
                     level === 4 && "pl-8",
                     isHighlighted

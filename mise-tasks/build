@@ -2,5 +2,6 @@
 #MISE description="Build docs for production"
 #MISE sources=["**/*.{ts,tsx,mdoc,css}", "!node_modules/**", "!.next/**"]
 #MISE outputs={auto=true}
+set -euo pipefail
 mise run //docs:lint
 bun run build

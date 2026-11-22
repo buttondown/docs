@@ -11,6 +11,8 @@ description: >-
   Use two automations to "wait then check" — send reminders or follow-ups based on whether a condition is met after a delay.
 ---
 
+{% paidFeature feature="automations" /%}
+
 A common pattern is "wait some amount of time, then check a condition before sending." For example, if you run an NBC Page program application funnel, you might want to send a 24-hour reminder only to applicants who haven't yet finished their orientation paperwork.
 
 Buttondown's automation filters are evaluated once, at the time the trigger fires — they don't re-evaluate mid-sequence. This means a single automation can't do "wait 24 hours, then check metadata." But you can achieve the same result with two automations working in parallel.

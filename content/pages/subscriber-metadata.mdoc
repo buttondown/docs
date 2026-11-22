@@ -90,13 +90,21 @@ Instead of addressing emails one at a time, you can address them automatically u
    title="Using metadata in your email"
    editorMode="plaintext" /%}
 
-But wait! What if you don’t have first names for every subscriber? Then it’s time to break out our “If / Else” template. This lets Buttondown choose between using a first name, if one is available, and a placeholder name if not. Check out the example below.
+Missing some first names? Add the `default` filter to set a placeholder:
 
 {% playgroundEmbed
-   initialContent="Hello {% if subscriber.metadata.name %}{{subscriber.metadata.name}}{% else %}Pikachu{% endif %}!"
-height="600px"
-title="Fallback for missing metadata"
-editorMode="plaintext" /%}
+   initialContent="Hello {{ subscriber.metadata.first_name|default:\"Pikachu\" }}!"
+   height="600px"
+   title="Fallback for missing metadata"
+   editorMode="plaintext" /%}
+
+For a different greeting entirely, use an `if` / `else` block:
+
+{% playgroundEmbed
+   initialContent="{% if subscriber.metadata.first_name %}Hello {{ subscriber.metadata.first_name }}!{% else %}Hello, and welcome!{% endif %}"
+   height="600px"
+   title="Different greeting for missing metadata"
+   editorMode="plaintext" /%}
 
 ## Clearing metadata after a send
 

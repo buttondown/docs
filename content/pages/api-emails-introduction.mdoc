@@ -1,5 +1,6 @@
 ---
-title: Introduction
+title: Emails API
+navigationTitle: Introduction
 schema: Email
 ---
 
@@ -53,6 +54,9 @@ flowchart
   in_flight e6@--> sent[Sent]
   sent e10@--> resending[Resending]
   resending e11@--> sent
+  paused e12@--> draft
+  paused e13@--> sent
+  paused e14@--> partially_sent[Partially sent]
   sent e7@--> email_sent>email.sent]
   e1@{ animate: true }
   e2@{ animate: true }
@@ -65,6 +69,9 @@ flowchart
   e9@{ animate: true }
   e10@{ animate: true }
   e11@{ animate: true }
+  e12@{ animate: true }
+  e13@{ animate: true }
+  e14@{ animate: true }
   click email_sent href "api-webhooks-introduction#ExternalEventType-email.sent"
 ```
 

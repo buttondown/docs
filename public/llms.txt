@@ -37,11 +37,11 @@ Buttondown is designed for simplicity and power. It supports Markdown and rich t
 
 ## Integrations
 
-- [Discord](https://docs.buttondown.com/discord): Post to Discord when emails are sent
-- [Stripe](https://docs.buttondown.com/stripe): Accept payments for paid subscriptions
-- [WordPress](https://docs.buttondown.com/wordpress): Embed subscription forms in WordPress
-- [Webflow](https://docs.buttondown.com/webflow): Add forms to Webflow sites
-- [Framer](https://docs.buttondown.com/framer): Integrate with Framer sites
+- [Discord](https://buttondown.com/features/integrations/discord): Post to Discord when emails are sent
+- [Stripe](https://buttondown.com/features/integrations/stripe): Accept payments for paid subscriptions
+- [WordPress](https://buttondown.com/features/integrations/wordpress): Embed subscription forms in WordPress
+- [Webflow](https://buttondown.com/features/integrations/webflow): Add forms to Webflow sites
+- [Framer](https://buttondown.com/features/integrations/framer): Integrate with Framer sites
 
 ## Optional
 
