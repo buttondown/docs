@@ -61,26 +61,26 @@ You can request more information about each email event by making a request like
 
 ### Email event types
 
-_Note: The name in the Analytics response differs from the Event Type name._
+_Note: The name in the Analytics response differs from the Event Type name. On API version `2026-04-01` and earlier, event types drop the `subscriber.` prefix (`delivered` rather than `subscriber.delivered`)._
 
 | Analytics response  | Event Type | Description |
 | -------- | ------- | ------- |
-| recipients |  sent | The email was sent by Buttondown. |
-| deliveries |  delivered | The email was accepted by the recipient's email server. |
-| opens |  opened | The recipient opened the email. |
-| clicks |  clicked | The recipient clicked a link in the email. |
-| temporary_failures |  bounced | The recipient's address is invalid, or misconfigured. |
-| permanent_failures |  rejected | The email could not be delivered. |
-| unsubscriptions | unsubscribed  | The recipient has unsubscribed from the email. |
-| complaints |  complained | The recipient [marked the email as spam](/glossary-email-regulations#cfbl). |
-| replies | replied | The recipient replied to your email. |
+| recipients |  subscriber.sent | The email was sent by Buttondown. |
+| deliveries |  subscriber.delivered | The email was accepted by the recipient's email server. |
+| opens |  subscriber.opened | The recipient opened the email. |
+| clicks |  subscriber.clicked | The recipient clicked a link in the email. |
+| temporary_failures |  subscriber.bounced | The recipient's address is invalid, or misconfigured. |
+| permanent_failures |  subscriber.rejected | The email could not be delivered. |
+| unsubscriptions | subscriber.unsubscribed  | The recipient has unsubscribed from the email. |
+| complaints |  subscriber.complained | The recipient [marked the email as spam](/glossary-email-regulations#cfbl). |
+| replies | subscriber.replied | The recipient replied to your email. |
 
 For example, if you wanted to learn more about your subscribers who received your newsletter, you could make the following request:
 
 {% generatedMultilanguageSnippets
    method="GET"
    endpoint="/events"
-   query="{\"email_id\": \"EMAIL_ID\", \"event_type\": \"delivered\"}" /%}
+   query="{\"email_id\": \"EMAIL_ID\", \"event_type\": \"subscriber.delivered\"}" /%}
 
 
 A successful (200) request will would return an array of all subscribers to whom your email was delivered:
@@ -121,12 +121,12 @@ A successful (200) request will would return an array of all subscribers to whom
 
 Sometimes you don't need the individual events at all — you just want the total for each event type, the same numbers the [analytics response](#retrieving-email-analytics) gives you. Every `/events` response includes a `count` field with the total number of events matching your filters, so you can read that field directly instead of [paginating](/api-pagination) through the full list.
 
-For example, to fetch the total number of `clicked` events for an email, request a single event and read `count`:
+For example, to fetch the total number of `subscriber.clicked` events for an email, request a single event and read `count`:
 
 {% generatedMultilanguageSnippets
    method="GET"
    endpoint="/events"
-   query="{\"email_id\": \"EMAIL_ID\", \"event_type\": \"clicked\"}" %}
+   query="{\"email_id\": \"EMAIL_ID\", \"event_type\": \"subscriber.clicked\"}" %}
 ```http {% highlight="5" %}
 HTTP/1.1 200 OK
 Content-Type: application/json

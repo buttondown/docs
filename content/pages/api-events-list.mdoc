@@ -5,8 +5,10 @@ endpoint: /events
 method: get
 ---
 
-The `/events` endpoint is the programmatic equivalent of the analytics you see in the Buttondown dashboard: every delivery, open, click, unsubscribe, and other interaction is returned as an individual event. Filter by `email_id`, `subscriber_id`, `automation_id`, or `event_type` to pull exactly the slice you need, and `expand` the `subscriber` field to hydrate each event with subscriber details.
+The `/events` endpoint is the programmatic equivalent of the analytics you see in the Buttondown dashboard: every delivery, open, click, unsubscribe, and other interaction is returned as an individual event. Filter by `email_id`, `subscriber_id`, `automation_id`, or one or more `event_type` values (such as `subscriber.opened` or `email.sent`) to pull exactly the slice you need, and `expand` the `subscriber` field to hydrate each event with subscriber details.
 
 For a guided walkthrough of pulling analytics this way, see [Retrieving analytics data](/retrieving-analytics-data).
 
-To list or retrieve events, your API key needs `read` access to either the `subscriber` or the `email` [permission](/api-permissions). A key without `email` access also needs `read` access to the permission behind each `expand` field: `subscriber` for `subscriber`, `email` for `email`, and `automations` for `automation`.
+To list or retrieve events, your API key needs `read` access to either the `subscriber` or the `email` [permission](/api-permissions), and it can then read every event type. A key without `email` access also needs `read` access to the permission behind each `expand` field: `subscriber` for `subscriber`, `email` for `email`, and `automations` for `automation`.
+
+On API version `2026-04-01` and earlier, `event_type` uses the older names (`clicked` rather than `subscriber.clicked`) and only those eight subscriber event types are available. See [versioning](/api-versioning).

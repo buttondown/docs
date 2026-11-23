@@ -2,7 +2,7 @@
 title: Versioning
 ---
 
-Whenever we make a backwards-incompatible change to the API, we release a new version of the API. (The current version is `2026-04-01`.)
+Whenever we make a backwards-incompatible change to the API, we release a new version of the API. (The current version is `2026-11-10`.)
 
 Buttondown determines the API version associated with a request in two ways:
 
@@ -15,7 +15,7 @@ For example, to pin a single request to a specific version:
 {% generatedMultilanguageSnippets
    method="GET"
    endpoint="/subscribers"
-   headers="{\"X-API-Version\": \"2026-04-01\"}" /%}
+   headers="{\"X-API-Version\": \"2026-11-10\"}" /%}
 
 ## Available versions
 
@@ -32,7 +32,8 @@ For example, to pin a single request to a specific version:
 | `2025-05-19` | On [bulk actions](/api-bulk-actions-introduction), `metadata.tag` became `metadata.tag_id`. |
 | `2025-06-01` | The `date`, `last_open_date` and `last_click_date` filters on [subscribers](/api-subscribers-list) split into `__start`/`__end` pairs, and [`GET /v1/emails`](/api-emails-list) stopped defaulting to sent and in-flight emails. |
 | `2026-01-01` | Responses return [TypeIDs](/api-introduction) (`sub_...`) rather than bare UUIDs. |
-| `2026-04-01` | An [automation](/api-automation-introduction)'s top-level `timing` moved inside each action. The current version. |
+| `2026-04-01` | An [automation](/api-automation-introduction)'s top-level `timing` moved inside each action. |
+| `2026-11-10` | [Events](/api-events-list) use real event types (`subscriber.clicked` rather than `clicked`), `event_type` accepts several values, and every event type is listed. The current version. |
 
 ## What constitutes a backwards-incompatible change?
 

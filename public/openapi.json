@@ -1104,7 +1104,8 @@
                   "2025-05-19",
                   "2025-06-01",
                   "2026-01-01",
-                  "2026-04-01"
+                  "2026-04-01",
+                  "2026-11-10"
                 ],
                 "type": "string"
               },
@@ -6679,11 +6680,15 @@
             "in": "query",
             "name": "event_type",
             "schema": {
-              "description": "If provided, only return events of the given type (e.g. `delivered`, `opened`, `clicked`).",
-              "$ref": "#/components/schemas/EmailEventType"
+              "description": "If provided, only return events of the given types (e.g. `subscriber.delivered`, `subscriber.opened`, `email.sent`). Defaults to every type.",
+              "items": {
+                "$ref": "#/components/schemas/ExternalEventType"
+              },
+              "title": "Event Type",
+              "type": "array"
             },
             "required": false,
-            "description": "If provided, only return events of the given type (e.g. `delivered`, `opened`, `clicked`)."
+            "description": "If provided, only return events of the given types (e.g. `subscriber.delivered`, `subscriber.opened`, `email.sent`). Defaults to every type."
           },
           {
             "in": "query",
@@ -20850,7 +20855,8 @@
               "2025-05-19",
               "2025-06-01",
               "2026-01-01",
-              "2026-04-01"
+              "2026-04-01",
+              "2026-11-10"
             ],
             "title": "Version",
             "type": "string"
@@ -20970,7 +20976,8 @@
               "2025-05-19",
               "2025-06-01",
               "2026-01-01",
-              "2026-04-01"
+              "2026-04-01",
+              "2026-11-10"
             ],
             "title": "Version",
             "type": "string"
@@ -24091,21 +24098,6 @@
         "type": "object",
         "description": "The request body for `POST /emails/{id}/send-draft`."
       },
-      "EmailEventType": {
-        "description": "The type of a subscriber event, such as a delivery, open, click, or reply.",
-        "enum": [
-          "bounced",
-          "clicked",
-          "complained",
-          "delivered",
-          "opened",
-          "rejected",
-          "replied",
-          "unsubscribed"
-        ],
-        "title": "EmailEventType",
-        "type": "string"
-      },
       "EmailEvent": {
         "description": "Something that happened to an email for one subscriber, such as a delivery, open or click.",
         "properties": {
@@ -24165,8 +24157,8 @@
             "type": "object"
           },
           "event_type": {
-            "$ref": "#/components/schemas/EmailEventType",
-            "description": "The type of event (e.g. `delivered`, `opened`, `clicked`, `unsubscribed`)."
+            "$ref": "#/components/schemas/ExternalEventType",
+            "description": "The type of event (e.g. `subscriber.delivered`, `subscriber.opened`, `email.sent`)."
           },
           "subscriber": {
             "anyOf": [
@@ -30024,7 +30016,7 @@
         "description": "An enumeration."
       },
       "ExternalEventType": {
-        "description": "Various types of events that are recorded by Buttondown, both in terms of exogenous systems\nlike Stripe and Memberful, and endogenous ones like email opens and clicks. (In general, if anything\nimportant ever happens that could be relevant to your newsletter, we have an event type for it!)\n\nThese event types power lots of things within Buttondown. They're used to trigger automations, webhooks,\nand analytics.\n\n(Note that the `/v1/events` API speaks an older, shorter vocabulary for subscriber engagement \u2014\n`clicked` rather than `subscriber.clicked` \u2014 a relic of a previous events system. Each of those\nnames maps onto one of the `subscriber.*` types below.)\n\nIn general, our event namespacing tries to hew to the following pattern:\n\n`<source>.<object>.<action>`\n\nWhen wondering which object we are referring to, default to the _more granular_ object.\n\nFor instance, an email being sent to a subscriber is `subscriber.delivered`, not `email.sent`.",
+        "description": "Various types of events that are recorded by Buttondown, both in terms of exogenous systems\nlike Stripe and Memberful, and endogenous ones like email opens and clicks. (In general, if anything\nimportant ever happens that could be relevant to your newsletter, we have an event type for it!)\n\nThese event types power lots of things within Buttondown. They're used to trigger automations, webhooks,\nand analytics.\n\n(Note that on API version 2026-04-01 and earlier, the `/v1/events` API speaks an older, shorter\nvocabulary for subscriber engagement \u2014 `clicked` rather than `subscriber.clicked` \u2014 a relic of a\nprevious events system. Each of those names maps onto one of the `subscriber.*` types below.)\n\nIn general, our event namespacing tries to hew to the following pattern:\n\n`<source>.<object>.<action>`\n\nWhen wondering which object we are referring to, default to the _more granular_ object.\n\nFor instance, an email being sent to a subscriber is `subscriber.delivered`, not `email.sent`.",
         "enum": [
           "advertising_slot.inquiry",
           "advertising_slot.purchased",

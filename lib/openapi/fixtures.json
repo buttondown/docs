@@ -931,7 +931,7 @@
         "automation_id": null,
         "creation_date": "2020-09-29T00:00:00+00:00",
         "metadata": {},
-        "event_type": "opened",
+        "event_type": "subscriber.opened",
         "subscriber": null,
         "email": null,
         "automation": null
