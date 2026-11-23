@@ -199,10 +199,6 @@
         },
         {
           "discriminant": "page",
-          "value": "theme-arbus"
-        },
-        {
-          "discriminant": "page",
           "value": "theme-classic"
         },
         {

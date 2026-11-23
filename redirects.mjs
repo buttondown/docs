@@ -862,6 +862,11 @@ const REDIRECTS = [
     destination: "/templating",
   },
   {
+    source: "/theme-arbus",
+    destination: "/theme-modern",
+    permanent: true,
+  },
+  {
     source: "/sending-domains/sending-from-dreamhost",
     permanent: true,
     destination: "/hosting-domain",

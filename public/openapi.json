@@ -25713,7 +25713,6 @@
             "enum": [
               "classic",
               "modern",
-              "arbus",
               "lovelace",
               "myrna"
             ]
@@ -30189,7 +30188,6 @@
         "enum": [
           "classic",
           "modern",
-          "arbus",
           "lovelace",
           "myrna"
         ],

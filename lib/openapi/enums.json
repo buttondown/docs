@@ -2161,11 +2161,6 @@
       "name": "Modern",
       "variant": "info"
     },
-    "arbus": {
-      "description": "An Instagram-inspired grid theme with a three-column layout, ideal for image-heavy newsletters.",
-      "name": "Arbus",
-      "variant": "info"
-    },
     "lovelace": {
       "description": "A minimal, brutalist theme with monospace typography and browser-default styling.",
       "name": "Lovelace",
