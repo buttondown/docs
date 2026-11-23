@@ -25636,6 +25636,17 @@
         "type": "object",
         "description": "The request body for `PATCH /imports/{id}`."
       },
+      "ArchiveVisibility": {
+        "enum": [
+          "disabled",
+          "enabled",
+          "enabled_for_paid_subscribers",
+          "enabled_for_subscribers"
+        ],
+        "title": "ArchiveVisibility",
+        "type": "string",
+        "description": "An enumeration."
+      },
       "HostingDomainStatus": {
         "description": "The DNS verification status of a newsletter's custom hosting domain.",
         "enum": [
@@ -25707,6 +25718,21 @@
               "modern",
               "lovelace",
               "myrna"
+            ]
+          },
+          "archive_visibility": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ArchiveVisibility"
+              }
+            ],
+            "default": "enabled",
+            "description": "Controls who can see your newsletter's archive on the web. `disabled` turns the archive off, `enabled` makes it public, `enabled_for_subscribers` limits it to confirmed subscribers, and `enabled_for_paid_subscribers` limits it to paid subscribers. This is the default for new emails; an individual email can override it.",
+            "enum": [
+              "disabled",
+              "enabled",
+              "enabled_for_paid_subscribers",
+              "enabled_for_subscribers"
             ]
           },
           "auditing_mode": {
@@ -26284,6 +26310,18 @@
             "description": "The visual theme for your newsletter's archive page. See [archive themes](https://docs.buttondown.com/customizing-web-design) for previews.",
             "example": "modern"
           },
+          "archive_visibility": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ArchiveVisibility"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Controls who can see your newsletter's archive on the web. `disabled` turns the archive off, `enabled` makes it public, `enabled_for_subscribers` limits it to confirmed subscribers, and `enabled_for_paid_subscribers` limits it to paid subscribers. This is the default for new emails; an individual email can override it.",
+            "example": "enabled_for_subscribers"
+          },
           "auditing_mode": {
             "anyOf": [
               {
@@ -26621,6 +26659,18 @@
             ],
             "description": "The visual theme for your newsletter's archive page. See [archive themes](https://docs.buttondown.com/customizing-web-design) for previews.",
             "example": "modern"
+          },
+          "archive_visibility": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ArchiveVisibility"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Controls who can see your newsletter's archive on the web. `disabled` turns the archive off, `enabled` makes it public, `enabled_for_subscribers` limits it to confirmed subscribers, and `enabled_for_paid_subscribers` limits it to paid subscribers. This is the default for new emails; an individual email can override it.",
+            "example": "enabled_for_subscribers"
           },
           "auditing_mode": {
             "anyOf": [
