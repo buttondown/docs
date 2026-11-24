@@ -13582,6 +13582,7 @@
                       "ip_address": "127.0.0.1",
                       "last_click_date": null,
                       "last_open_date": null,
+                      "last_reply_date": null,
                       "delivered_count": null,
                       "open_count": null,
                       "clicked_count": null,
@@ -14071,6 +14072,34 @@
           },
           {
             "in": "query",
+            "name": "last_reply_date__end",
+            "schema": {
+              "description": "If provided, only return subscribers whose last reply was on or before the given date.",
+              "example": "2024-12-31",
+              "title": "Last Reply Date  End",
+              "format": "date",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers whose last reply was on or before the given date.",
+            "example": "2024-12-31"
+          },
+          {
+            "in": "query",
+            "name": "last_reply_date__start",
+            "schema": {
+              "description": "If provided, only return subscribers whose last reply was on or after the given date.",
+              "example": "2024-01-01",
+              "title": "Last Reply Date  Start",
+              "format": "date",
+              "type": "string"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers whose last reply was on or after the given date.",
+            "example": "2024-01-01"
+          },
+          {
+            "in": "query",
             "name": "-domain",
             "schema": {
               "description": "If provided, only return subscribers whose email domain does not match the given domain(s).",
@@ -14157,6 +14186,8 @@
                     "-last_open_date",
                     "last_click_date",
                     "-last_click_date",
+                    "last_reply_date",
+                    "-last_reply_date",
                     "upgrade_date",
                     "-upgrade_date",
                     "undeliverability_reason",
@@ -14615,6 +14646,7 @@
                           "ip_address": "127.0.0.1",
                           "last_click_date": null,
                           "last_open_date": null,
+                          "last_reply_date": null,
                           "delivered_count": null,
                           "open_count": null,
                           "clicked_count": null,
@@ -14826,6 +14858,7 @@
                       "ip_address": "127.0.0.1",
                       "last_click_date": null,
                       "last_open_date": null,
+                      "last_reply_date": null,
                       "delivered_count": null,
                       "open_count": null,
                       "clicked_count": null,
@@ -15093,6 +15126,7 @@
                       "ip_address": "127.0.0.1",
                       "last_click_date": null,
                       "last_open_date": null,
+                      "last_reply_date": null,
                       "delivered_count": null,
                       "open_count": null,
                       "clicked_count": null,
@@ -22846,6 +22880,19 @@
             "description": "When the subscriber most recently opened an email.",
             "title": "Last Open Date"
           },
+          "last_reply_date": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When the subscriber most recently replied to an email, excluding autoresponders, bounces, and unsubscription requests.",
+            "title": "Last Reply Date"
+          },
           "delivered_count": {
             "anyOf": [
               {
@@ -23315,6 +23362,7 @@
                   "subscriber.click_rate",
                   "subscriber.last_click_date",
                   "subscriber.last_open_date",
+                  "subscriber.last_reply_date",
                   "subscriber.open_rate",
                   "subscriber.price",
                   "subscriber.source",
