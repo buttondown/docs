@@ -156,7 +156,7 @@ That's it! After a moment or two, your archives should appear in the “Emails�
 
 If we don't have a first-class importer for your previous platform, you can still bring your archive over by packaging it as a ZIP of Markdown files with frontmatter — the same format used by Jekyll, Hugo, and most static site generators. If you already publish as a static blog, your existing posts directory will usually work as-is.
 
-Each post is a single file with the extension `.md`, `.markdown`, or `.txt`. The frontmatter is delimited by `---` lines and uses a simple `key: value` format:
+Each post is a single file with the extension `.md`, `.markdown`, `.mdx`, or `.txt`. The frontmatter is delimited by `---` lines and uses a simple `key: value` format:
 
 ```
 ---
@@ -174,7 +174,8 @@ Buttondown reads the following frontmatter fields:
 | `title`        | Yes      | The email's subject line. Falls back to `subject` if `title` isn't present. Posts with no title are skipped.        |
 | `subject`      | No       | Alias for `title`.                                                                                                  |
 | `date`         | No       | The publish date. Parsed permissively — `2024-01-15`, `January 15, 2024`, and ISO-8601 timestamps all work. Defaults to the time of import. |
-| `publish_date` | No       | Alias for `date`.                                                                                                   |
+| `publish_date` | No       | Alias for `date`. So are `pubDate`, `published`, and `planted`.                                                     |
+| `slug`         | No       | The email's URL slug. Defaults to a slug made from the title.                                                       |
 
 Filenames, directory structure inside the ZIP, and unrecognized frontmatter keys (e.g. Jekyll's `layout`, `tags`, `categories`) are all ignored — leave them in place. Anything after the closing `---` is treated as the Markdown body. Jekyll-specific block-level and inline attribute syntax (`{: ...}`) is stripped during import, so you don't have to clean those out manually.
 
