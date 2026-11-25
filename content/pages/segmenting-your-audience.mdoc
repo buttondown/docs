@@ -48,6 +48,8 @@ If you find yourself rebuilding the same tag or metadata filters every time you 
 
 To create one, build a Custom audience while composing an email — pick your tags or metadata as above — and click "Save as segment", giving it a name and (optionally) a description that appears under the name in the picker. From then on, that segment appears as its own option in the audience picker, so you don't have to reconstruct the filters. Rename or delete a segment right from the audience picker, via the menu next to its name.
 
+To see who is in a segment, open **Subscribers**, click **Filter**, and pick it under **Segments**. You can narrow it with other filters too: pick **Status → Removed** to see the removed subscribers in that segment. A **Status** filter replaces any status rules saved in the segment itself.
+
 An email's audience is a *snapshot*: applying a segment copies its filters onto the email at that moment, so editing or deleting a segment later never changes emails you've already sent or scheduled.
 
 You can also manage segments programmatically — see the [segments API](/api-segments-introduction).

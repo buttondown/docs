@@ -14348,6 +14348,27 @@
           },
           {
             "in": "query",
+            "name": "segment",
+            "schema": {
+              "description": "If provided, only return subscribers in any of the given [segment(s)](https://docs.buttondown.com/api-segments-introduction). A `type` filter replaces the segment's own status rules.",
+              "example": [
+                "segment_01h8xg4j3k2m1n0p9q8r7s6t5v"
+              ],
+              "title": "Segment",
+              "items": {
+                "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|(?:segment)_(?:[0-7][0-9abcdefghjkmnpqrstvwxyz]{25}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "required": false,
+            "description": "If provided, only return subscribers in any of the given [segment(s)](https://docs.buttondown.com/api-segments-introduction). A `type` filter replaces the segment's own status rules.",
+            "example": [
+              "segment_01h8xg4j3k2m1n0p9q8r7s6t5v"
+            ]
+          },
+          {
+            "in": "query",
             "name": "source",
             "schema": {
               "description": "If provided, only return subscribers with the given source(s).",
