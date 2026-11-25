@@ -25790,10 +25790,17 @@
             ]
           },
           "api_key": {
-            "description": "The API key for this newsletter, used for authenticating API requests.",
-            "format": "uuid",
-            "title": "Api Key",
-            "type": "string"
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Your primary API key for this newsletter, used for authenticating API requests. Null when the request uses an OAuth token or a secondary API key.",
+            "title": "Api Key"
           },
           "archive_theme": {
             "allOf": [
