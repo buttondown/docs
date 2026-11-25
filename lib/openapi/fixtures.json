@@ -1638,6 +1638,7 @@
         "description": "This is an example blog post description.",
         "content": "<p>This is the full content of the blog post.</p>",
         "author": "John Doe",
+        "enclosure": null,
         "email_id": "em_0k28edc3fw896bp4mrhc535z5k",
         "email": null
       }

@@ -24940,6 +24940,18 @@
             "title": "Author",
             "type": "string"
           },
+          "enclosure": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The featured image or media URL parsed from the feed item, if any.",
+            "title": "Enclosure"
+          },
           "email_id": {
             "anyOf": [
               {
