@@ -6764,6 +6764,17 @@
           },
           {
             "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "Pass an empty `cursor` to page by cursor, then follow each page's `next` URL. Don't construct cursors by hand.",
+              "title": "Cursor",
+              "type": "string"
+            },
+            "required": false,
+            "description": "Pass an empty `cursor` to page by cursor, then follow each page's `next` URL. Don't construct cursors by hand."
+          },
+          {
+            "in": "query",
             "name": "page_size",
             "schema": {
               "default": 500,
@@ -6797,6 +6808,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EmailEventPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
                 }
               }
             }
