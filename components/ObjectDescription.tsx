@@ -52,11 +52,15 @@ export const typeForRef = (
       enumName,
     };
   }
+  const content = urlForSchema(ref);
+  if (!content) {
+    return { type: { type: "string", value: isArray ? "object[]" : "object" } };
+  }
   return {
     type: {
       type: isArray ? "ref[]" : "ref",
-      url: urlForSchema(ref)?.slug || "",
-      name: urlForSchema(ref)?.schema || "",
+      url: content.slug,
+      name: content.schema || "",
     },
   };
 };
@@ -110,6 +114,9 @@ export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
             ? (info.items as unknown as { $ref: string }).$ref
             : null;
 
+        const arrayItemIsUnion =
+          !$ref && "items" in info && info.items && "oneOf" in info.items;
+
         const anyOfType =
           "anyOf" in info && !$ref
             ? (
@@ -126,7 +133,9 @@ export default function ObjectDescription({ name }: { name: OpenAPIObject }) {
             : {
                 type: {
                   type: "string",
-                  value: (anyOfType as string) || info.type,
+                  value: arrayItemIsUnion
+                    ? "object[]"
+                    : (anyOfType as string) || info.type,
                 },
               };
 

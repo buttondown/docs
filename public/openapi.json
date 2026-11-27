@@ -21237,18 +21237,17 @@
         "title": "ValidationErrorMessage",
         "type": "object"
       },
-      "Action": {
-        "description": "An action to perform when the automation's trigger fires.",
+      "AddMetadataAction": {
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/AutomationActionType",
-            "description": "The type of action to perform."
+            "const": "add_metadata",
+            "description": "The type of action to perform.",
+            "title": "Type",
+            "type": "string"
           },
           "metadata": {
-            "additionalProperties": true,
-            "description": "Configuration specific to the action type.",
-            "title": "Metadata",
-            "type": "object"
+            "$ref": "#/components/schemas/AddMetadataActionMetadata",
+            "description": "Configuration specific to the action type."
           },
           "timing": {
             "anyOf": [
@@ -21266,7 +21265,150 @@
           "type",
           "metadata"
         ],
-        "title": "Action",
+        "title": "AddMetadataAction",
+        "type": "object"
+      },
+      "AddMetadataActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "metadata": {
+            "additionalProperties": true,
+            "default": {},
+            "description": "The metadata keys and values to set on the subscriber.",
+            "title": "Metadata",
+            "type": "object"
+          }
+        },
+        "title": "AddMetadataActionMetadata",
+        "type": "object"
+      },
+      "ArchivalMode": {
+        "description": "Governs who can view this email in the archive.\n\n`ARCHIVE_ONLY` is the odd one out: the email is publicly archived but\nis not email content at all (e.g. an imported blog post), so it is\nexcluded from email-rendering contexts like \"recent issues\" widgets.",
+        "enum": [
+          "archive_only",
+          "disabled",
+          "enabled",
+          "enabled_for_paid_subscribers",
+          "enabled_for_subscribers"
+        ],
+        "title": "ArchivalMode",
+        "type": "string"
+      },
+      "ArchivalModeAction": {
+        "properties": {
+          "type": {
+            "const": "update_email_type",
+            "description": "The type of action to perform.",
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/ArchivalModeActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "ArchivalModeAction",
+        "type": "object"
+      },
+      "ArchivalModeActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "archival_mode": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ArchivalMode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The archival mode to set on the email."
+          },
+          "email_type": {
+            "default": "",
+            "description": "The legacy email type to set on the email. Ignored when `archival_mode` is set.",
+            "title": "Email Type",
+            "type": "string"
+          }
+        },
+        "title": "ArchivalModeActionMetadata",
+        "type": "object"
+      },
+      "ArenaPostAction": {
+        "properties": {
+          "type": {
+            "const": "create_arena_post",
+            "description": "The type of action to perform.",
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/ArenaPostActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "ArenaPostAction",
+        "type": "object"
+      },
+      "ArenaPostActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "channel_slug": {
+            "default": "",
+            "description": "The slug of the Are.na channel to post to.",
+            "title": "Channel Slug",
+            "type": "string"
+          },
+          "message": {
+            "default": "",
+            "description": "The text of the post.",
+            "title": "Message",
+            "type": "string"
+          },
+          "social_account_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The ID of the connected social account to post from.",
+            "title": "Social Account Id"
+          }
+        },
+        "title": "ArenaPostActionMetadata",
         "type": "object"
       },
       "Automation": {
@@ -21299,7 +21441,89 @@
           "actions": {
             "description": "The actions to perform when the trigger fires.",
             "items": {
-              "$ref": "#/components/schemas/Action"
+              "discriminator": {
+                "mapping": {
+                  "add_metadata": "#/components/schemas/AddMetadataAction",
+                  "add_tags": "#/components/schemas/TagsAction",
+                  "change_email_address": "#/components/schemas/EmptyAction",
+                  "create_arena_post": "#/components/schemas/ArenaPostAction",
+                  "create_bluesky_post": "#/components/schemas/PostAction",
+                  "create_export": "#/components/schemas/CreateExportAction",
+                  "create_gift_subscriber": "#/components/schemas/CreateGiftSubscriberAction",
+                  "create_linkedin_post": "#/components/schemas/PostAction",
+                  "create_mastodon_post": "#/components/schemas/PostAction",
+                  "create_subscriber": "#/components/schemas/CreateSubscriberAction",
+                  "create_twitter_post": "#/components/schemas/PostAction",
+                  "forward_reply": "#/components/schemas/ForwardReplyAction",
+                  "gift_premium_subscription": "#/components/schemas/EmptyAction",
+                  "remove_metadata": "#/components/schemas/RemoveMetadataAction",
+                  "remove_tags": "#/components/schemas/TagsAction",
+                  "send_confirmation_reminder": "#/components/schemas/EmptyAction",
+                  "send_discord_invitation": "#/components/schemas/EmptyAction",
+                  "send_email": "#/components/schemas/SendEmailAction",
+                  "send_github_invitation": "#/components/schemas/EmptyAction",
+                  "send_notification": "#/components/schemas/SendNotificationAction",
+                  "send_post_request": "#/components/schemas/SendPostRequestAction",
+                  "shopify_create_customer": "#/components/schemas/ShopifyCustomerAction",
+                  "shopify_resubscribe": "#/components/schemas/EmptyAction",
+                  "shopify_set_tags": "#/components/schemas/ShopifySetTagsAction",
+                  "shopify_unsubscribe": "#/components/schemas/EmptyAction",
+                  "ungift_premium_subscription": "#/components/schemas/EmptyAction",
+                  "unsubscribe_subscriber": "#/components/schemas/EmptyAction",
+                  "update_email_type": "#/components/schemas/ArchivalModeAction"
+                },
+                "propertyName": "type"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/AddMetadataAction"
+                },
+                {
+                  "$ref": "#/components/schemas/ArchivalModeAction"
+                },
+                {
+                  "$ref": "#/components/schemas/ArenaPostAction"
+                },
+                {
+                  "$ref": "#/components/schemas/CreateExportAction"
+                },
+                {
+                  "$ref": "#/components/schemas/CreateGiftSubscriberAction"
+                },
+                {
+                  "$ref": "#/components/schemas/CreateSubscriberAction"
+                },
+                {
+                  "$ref": "#/components/schemas/EmptyAction"
+                },
+                {
+                  "$ref": "#/components/schemas/ForwardReplyAction"
+                },
+                {
+                  "$ref": "#/components/schemas/PostAction"
+                },
+                {
+                  "$ref": "#/components/schemas/RemoveMetadataAction"
+                },
+                {
+                  "$ref": "#/components/schemas/SendEmailAction"
+                },
+                {
+                  "$ref": "#/components/schemas/SendNotificationAction"
+                },
+                {
+                  "$ref": "#/components/schemas/SendPostRequestAction"
+                },
+                {
+                  "$ref": "#/components/schemas/ShopifyCustomerAction"
+                },
+                {
+                  "$ref": "#/components/schemas/ShopifySetTagsAction"
+                },
+                {
+                  "$ref": "#/components/schemas/TagsAction"
+                }
+              ]
             },
             "title": "Actions",
             "type": "array"
@@ -21332,6 +21556,183 @@
           "should_evaluate_filter_after_delay"
         ],
         "title": "Automation",
+        "type": "object"
+      },
+      "CreateExportAction": {
+        "properties": {
+          "type": {
+            "const": "create_export",
+            "description": "The type of action to perform.",
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/CreateExportActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "CreateExportAction",
+        "type": "object"
+      },
+      "CreateExportActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "collections": {
+            "default": [],
+            "description": "The collections to include in the export.",
+            "items": {
+              "$ref": "#/components/schemas/ExportCollection"
+            },
+            "title": "Collections",
+            "type": "array"
+          }
+        },
+        "title": "CreateExportActionMetadata",
+        "type": "object"
+      },
+      "CreateGiftSubscriberAction": {
+        "properties": {
+          "type": {
+            "const": "create_gift_subscriber",
+            "description": "The type of action to perform.",
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/CreateGiftSubscriberActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "CreateGiftSubscriberAction",
+        "type": "object"
+      },
+      "CreateGiftSubscriberActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "email_address_metadata_key": {
+            "default": "",
+            "description": "The event metadata key that holds the recipient's email address.",
+            "title": "Email Address Metadata Key",
+            "type": "string"
+          },
+          "gift_duration_months": {
+            "default": 12,
+            "description": "The number of months of the gifted premium subscription.",
+            "title": "Gift Duration Months",
+            "type": "integer"
+          },
+          "message_metadata_key": {
+            "default": "",
+            "description": "The event metadata key that holds the gift message.",
+            "title": "Message Metadata Key",
+            "type": "string"
+          },
+          "newsletter_id": {
+            "default": "",
+            "description": "The ID of the newsletter to create the subscriber in. Defaults to the automation's newsletter.",
+            "title": "Newsletter Id",
+            "type": "string"
+          },
+          "tag_ids": {
+            "default": [],
+            "description": "The IDs of the tags to add to the new subscriber.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Tag Ids",
+            "type": "array"
+          }
+        },
+        "title": "CreateGiftSubscriberActionMetadata",
+        "type": "object"
+      },
+      "CreateSubscriberAction": {
+        "properties": {
+          "type": {
+            "const": "create_subscriber",
+            "description": "The type of action to perform.",
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/CreateSubscriberActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "CreateSubscriberAction",
+        "type": "object"
+      },
+      "CreateSubscriberActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "newsletter_id": {
+            "default": "",
+            "description": "The ID of the newsletter to create the subscriber in. Defaults to the automation's newsletter.",
+            "title": "Newsletter Id",
+            "type": "string"
+          },
+          "skip_double_optin": {
+            "default": false,
+            "description": "Whether to create the subscriber as confirmed, without a confirmation email.",
+            "title": "Skip Double Optin",
+            "type": "boolean"
+          },
+          "tag_ids": {
+            "default": [],
+            "description": "The IDs of the tags to add to the new subscriber.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Tag Ids",
+            "type": "array"
+          }
+        },
+        "title": "CreateSubscriberActionMetadata",
         "type": "object"
       },
       "Delay": {
@@ -21376,6 +21777,53 @@
           "unit"
         ],
         "title": "Delay",
+        "type": "object"
+      },
+      "EmptyAction": {
+        "properties": {
+          "type": {
+            "description": "The type of action to perform.",
+            "enum": [
+              "change_email_address",
+              "gift_premium_subscription",
+              "send_confirmation_reminder",
+              "send_discord_invitation",
+              "send_github_invitation",
+              "shopify_resubscribe",
+              "shopify_unsubscribe",
+              "ungift_premium_subscription",
+              "unsubscribe_subscriber"
+            ],
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/EmptyActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "EmptyAction",
+        "type": "object"
+      },
+      "EmptyActionMetadata": {
+        "additionalProperties": true,
+        "properties": {},
+        "title": "EmptyActionMetadata",
         "type": "object"
       },
       "Filter": {
@@ -21440,6 +21888,50 @@
         "title": "FilterGroup",
         "type": "object"
       },
+      "ForwardReplyAction": {
+        "properties": {
+          "type": {
+            "const": "forward_reply",
+            "description": "The type of action to perform.",
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/ForwardReplyActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "ForwardReplyAction",
+        "type": "object"
+      },
+      "ForwardReplyActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "recipient": {
+            "default": "",
+            "description": "The email address to forward the reply to.",
+            "title": "Recipient",
+            "type": "string"
+          }
+        },
+        "title": "ForwardReplyActionMetadata",
+        "type": "object"
+      },
       "Operator": {
         "enum": [
           "equals",
@@ -21454,6 +21946,447 @@
         "title": "Operator",
         "type": "string",
         "description": "An enumeration."
+      },
+      "PostAction": {
+        "properties": {
+          "type": {
+            "description": "The type of action to perform.",
+            "enum": [
+              "create_bluesky_post",
+              "create_linkedin_post",
+              "create_mastodon_post",
+              "create_twitter_post"
+            ],
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/PostActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "PostAction",
+        "type": "object"
+      },
+      "PostActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "message": {
+            "default": "",
+            "description": "The text of the post.",
+            "title": "Message",
+            "type": "string"
+          },
+          "social_account_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The ID of the connected social account to post from.",
+            "title": "Social Account Id"
+          }
+        },
+        "title": "PostActionMetadata",
+        "type": "object"
+      },
+      "RemoveMetadataAction": {
+        "properties": {
+          "type": {
+            "const": "remove_metadata",
+            "description": "The type of action to perform.",
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/RemoveMetadataActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "RemoveMetadataAction",
+        "type": "object"
+      },
+      "RemoveMetadataActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "keys": {
+            "default": [],
+            "description": "The metadata keys to remove from the subscriber.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Keys",
+            "type": "array"
+          }
+        },
+        "title": "RemoveMetadataActionMetadata",
+        "type": "object"
+      },
+      "SendEmailAction": {
+        "properties": {
+          "type": {
+            "const": "send_email",
+            "description": "The type of action to perform.",
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SendEmailActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "SendEmailAction",
+        "type": "object"
+      },
+      "SendEmailActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "attachment_ids": {
+            "default": [],
+            "description": "The IDs of the attachments to send with a custom email.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Attachment Ids",
+            "type": "array"
+          },
+          "body": {
+            "default": "",
+            "description": "The body of a custom email. Used when `email_id` is empty.",
+            "title": "Body",
+            "type": "string"
+          },
+          "email_id": {
+            "default": "",
+            "description": "The ID of the email to send, `latest`, or `latest-premium`. Empty for a custom email.",
+            "title": "Email Id",
+            "type": "string"
+          },
+          "subject": {
+            "default": "",
+            "description": "The subject of a custom email. Used when `email_id` is empty.",
+            "title": "Subject",
+            "type": "string"
+          },
+          "template": {
+            "default": "",
+            "description": "The template of a custom email.",
+            "title": "Template",
+            "type": "string"
+          }
+        },
+        "title": "SendEmailActionMetadata",
+        "type": "object"
+      },
+      "SendNotificationAction": {
+        "properties": {
+          "type": {
+            "const": "send_notification",
+            "description": "The type of action to perform.",
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SendNotificationActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "SendNotificationAction",
+        "type": "object"
+      },
+      "SendNotificationActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "body": {
+            "default": "",
+            "description": "The body of the notification.",
+            "title": "Body",
+            "type": "string"
+          },
+          "recipient": {
+            "default": "",
+            "description": "The email address to send the notification to.",
+            "title": "Recipient",
+            "type": "string"
+          }
+        },
+        "title": "SendNotificationActionMetadata",
+        "type": "object"
+      },
+      "SendPostRequestAction": {
+        "properties": {
+          "type": {
+            "const": "send_post_request",
+            "description": "The type of action to perform.",
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SendPostRequestActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "SendPostRequestAction",
+        "type": "object"
+      },
+      "SendPostRequestActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "body": {
+            "default": "",
+            "description": "The body of the POST request.",
+            "title": "Body",
+            "type": "string"
+          },
+          "url": {
+            "default": "",
+            "description": "The URL to send the POST request to.",
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "title": "SendPostRequestActionMetadata",
+        "type": "object"
+      },
+      "ShopifyCustomerAction": {
+        "properties": {
+          "type": {
+            "const": "shopify_create_customer",
+            "description": "The type of action to perform.",
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/ShopifyCustomerActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "ShopifyCustomerAction",
+        "type": "object"
+      },
+      "ShopifyCustomerActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "first_name": {
+            "default": "",
+            "description": "The first name of the Shopify customer. Defaults to the subscriber's `first_name` metadata.",
+            "title": "First Name",
+            "type": "string"
+          },
+          "last_name": {
+            "default": "",
+            "description": "The last name of the Shopify customer. Defaults to the subscriber's `last_name` metadata.",
+            "title": "Last Name",
+            "type": "string"
+          },
+          "tags": {
+            "default": [],
+            "description": "The tags to set on the Shopify customer.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Tags",
+            "type": "array"
+          }
+        },
+        "title": "ShopifyCustomerActionMetadata",
+        "type": "object"
+      },
+      "ShopifySetTagsAction": {
+        "properties": {
+          "type": {
+            "const": "shopify_set_tags",
+            "description": "The type of action to perform.",
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/ShopifySetTagsActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "ShopifySetTagsAction",
+        "type": "object"
+      },
+      "ShopifySetTagsActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "tags": {
+            "default": [],
+            "description": "The tags to set on the Shopify customer.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Tags",
+            "type": "array"
+          }
+        },
+        "title": "ShopifySetTagsActionMetadata",
+        "type": "object"
+      },
+      "TagsAction": {
+        "properties": {
+          "type": {
+            "description": "The type of action to perform.",
+            "enum": [
+              "add_tags",
+              "remove_tags"
+            ],
+            "title": "Type",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/TagsActionMetadata",
+            "description": "Configuration specific to the action type."
+          },
+          "timing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timing"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When to execute this action. Defaults to immediate if not specified."
+          }
+        },
+        "required": [
+          "type",
+          "metadata"
+        ],
+        "title": "TagsAction",
+        "type": "object"
+      },
+      "TagsActionMetadata": {
+        "additionalProperties": true,
+        "properties": {
+          "newsletter_id": {
+            "default": "",
+            "description": "The ID of the newsletter that owns the tags. Defaults to the automation's newsletter.",
+            "title": "Newsletter Id",
+            "type": "string"
+          },
+          "tag_ids": {
+            "default": [],
+            "description": "The IDs of the tags.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Tag Ids",
+            "type": "array"
+          }
+        },
+        "title": "TagsActionMetadata",
+        "type": "object"
       },
       "Timing": {
         "description": "Controls when an automation's action executes after the trigger fires.",
@@ -22304,18 +23237,6 @@
         "title": "BulkActionInput",
         "type": "object",
         "description": "The request body for `POST /bulk_actions`."
-      },
-      "ArchivalMode": {
-        "description": "Governs who can view this email in the archive.\n\n`ARCHIVE_ONLY` is the odd one out: the email is publicly archived but\nis not email content at all (e.g. an imported blog post), so it is\nexcluded from email-rendering contexts like \"recent issues\" widgets.",
-        "enum": [
-          "archive_only",
-          "disabled",
-          "enabled",
-          "enabled_for_paid_subscribers",
-          "enabled_for_subscribers"
-        ],
-        "title": "ArchivalMode",
-        "type": "string"
       },
       "Callout": {
         "description": "Surfacing-time flags about an email that the UI uses to render contextual\ncallouts (e.g. in the analytics panel). Computed on read; not persisted.",
