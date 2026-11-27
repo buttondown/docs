@@ -1094,7 +1094,7 @@
     },
     "google": {
       "description": "A CSV exported from Google.",
-      "name": "Google",
+      "name": "Google Contacts",
       "variant": "info"
     },
     "mailchimp": {
@@ -1144,7 +1144,7 @@
     },
     "standard": {
       "description": "A CSV with standard column names that was auto-mapped.",
-      "name": "Standard",
+      "name": "Standard CSV",
       "variant": "info"
     },
     "substack": {
