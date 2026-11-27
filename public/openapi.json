@@ -13569,12 +13569,12 @@
             "name": "X-Buttondown-Bypass-Firewall",
             "schema": {
               "default": false,
-              "description": "Bypass the firewall for this subscriber creation. Subject to aggressive rate limiting (5 per hour per newsletter).",
+              "description": "Bypass the firewall for this subscriber creation. Subject to aggressive rate limiting (5 per hour per newsletter), and refused for an address the firewall blocked in the last hour.",
               "title": "X-Buttondown-Bypass-Firewall",
               "type": "boolean"
             },
             "required": false,
-            "description": "Bypass the firewall for this subscriber creation. Subject to aggressive rate limiting (5 per hour per newsletter)."
+            "description": "Bypass the firewall for this subscriber creation. Subject to aggressive rate limiting (5 per hour per newsletter), and refused for an address the firewall blocked in the last hour."
           }
         ],
         "responses": {
